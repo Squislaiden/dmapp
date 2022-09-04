@@ -16,7 +16,15 @@ var GlobalCreature
 function RandomNum() {
 	let rngMin = Number(document.getElementById("rngMin").value)
 	let rngMax = Number(document.getElementById("rngMax").value)
-	document.getElementById("rngResult").innerHTML = Math.floor(Math.random() * (rngMax - rngMin) + rngMin);;
+	document.getElementById("rngResult").innerHTML = Math.floor(Math.random() * (rngMax - rngMin) + rngMin);
+}
+
+function DistanceCalc() {
+	let sideA = Number(document.getElementById("sideA").value) ** 2;
+	let sideB = Number(document.getElementById("sideB").value) ** 2;
+	let sideC = sideA + sideB;
+	let sideFinal = Math.floor(Math.sqrt(sideC));
+	document.getElementById("distanceResult").innerHTML = sideFinal;
 }
 
 function rollDice() {
@@ -41,6 +49,7 @@ function rollDice() {
 	let d20Result = "d20("
 	let diceTotal = 0
 	let diceMod = Number(document.getElementById("diceMod").value);
+	let diceNeg = "+"
 	
 	document.getElementById("genBox").innerHTML = "";	
 	if (d4Qty > 0) {
@@ -103,9 +112,12 @@ function rollDice() {
 		}
 		document.getElementById("genBox").innerHTML += `${d20Result} = ${d20Total}\n`;
 	} else {}
-	
+		if (diceMod < 0) {
+			diceNeg = ""
+		}
+		else {}
 	diceTotal = d4Total + d6Total + d8Total + d10Total + d12Total + d20Total + diceMod
-	document.getElementById("genBox").innerHTML += `With Modifier: ${diceMod}\nTotal: ${diceTotal}`;
+	document.getElementById("genBox").innerHTML += `Modifier: ${diceNeg}${diceMod}\nTotal: ${diceTotal}`;
 }
 
 function CreatureTypeGen() {

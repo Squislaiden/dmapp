@@ -200,17 +200,23 @@ input[type='number']{
   	<div class="grid">
 		<div class="grid-item grid-item-double">
 			<label for="randomNum" style="font-size: 18px">Random Number:</label><button class="button-71" onclick="RandomNum();">Generate</button>
-			<div style="float: right"><label for="randomNum" style="font-size: 18px; margin-left: 3.5em">Find Distance:</label><button class="button-71" onclick="DistanceCalc();">Calculate</button></div>
+			<div style="float: right"><label for="distanceCalc" style="font-size: 18px; margin-left: 3.5em">Find Distance:</label><button class="button-71" onclick="DistanceCalc();">Calculate</button></div>
 			<br>
 			<label style="font-size: 14px">Min:</label><input type="number" id="rngMin" name="rngMin" min="1" value="1"><label style="font-size: 14px"> Max:</label><input type="number" id="rngMax" name="rngMax" min="1" value="100">
-			<label style="font-size: 14px"> = </label><output id="rngResult" style="font-size: 16px"></output>
+			<label style="font-size: 14px"> = </label><output id="rngResult" style="font-size: 16px">0</output>
 			<div style="float: right">
 			<div class="tooltip">ⓘ<span class="tooltiptext">Use this to find the distance between two creatures that are: at different heights or at a diagonal to each other.</span></div>
-				<label style="font-size: 14px">Distance A </label><input type="number" id="sideA" name="sideA" min="1" value="1"><label style="font-size: 14px"> ft.</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label style="font-size: 14px">Distance A </label><input type="number" id="sideA" name="sideA" min="1" value="30"><label style="font-size: 14px"> ft.</label>&nbsp;&nbsp;&nbsp;&nbsp;
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;
-				<label style="font-size: 14px">Distance B </label><input type="number" id="sideB" name="sideB" min="1" value="1"><label style="font-size: 14px"> ft.</label>
+				<label style="font-size: 14px">Distance B </label><input type="number" id="sideB" name="sideB" min="1" value="30"><label style="font-size: 14px"> ft.</label>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label style="font-size: 14px">Result: </label><output id="distanceResult" style="font-size: 16px">0</output><label style="font-size: 14px"> ft.</label>
+			</div><br><br>
+			
+			<div style="float: right">
+				
 			</div>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br>
 			<button class="button-71" onclick="rollDice();">Roll Dice</button>
 			<label for="d4Num" style="font-size: 14px">d4:</label><input type="number" id="d4Num" name="d4Num" min="0" max="20" value="0">
 			<label for="d6Num" style="font-size: 14px">d6:</label><input type="number" id="d6Num" name="d6Num" min="0" max="20" value="0">

@@ -356,7 +356,7 @@ async function CreatureInfo() {
 	let myText = await myObject.text();
 	const myArray = text.split("\n");
 	let basin = myArray[3];
-	console.log(myTest);
+	console.log(basin);
 	console.log(myArray);
 document.getElementById("infoBox").innerHTML = `${basin} ${myText}`;
 }

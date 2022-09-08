@@ -354,9 +354,9 @@ function MadnessInfo() {
 function CreatureInfo() {
 	const logFileText = async file => {
     const response = await fetch(file)
-    let textX = await response.text()
-    console.log(textX)}
+    const text = await response.text()
+    console.log(text)}
 logFileText('./lists/creature.txt')
 
-document.getElementById("infoBox").innerHTML = textX
+document.getElementById("infoBox").innerHTML = text
 }

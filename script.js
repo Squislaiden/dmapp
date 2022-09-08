@@ -355,8 +355,8 @@ function CreatureInfo() {
 	const logFileText = async file => {
     const response = await fetch(file)
     const text = await response.text()
-    console.log(text)
-}
+    console.log(text)}
+listX = logFileText('./lists/creature.txt')
 
-logFileText('./lists/creature.txt')
+document.getElementById("infoBox").innerHTML = listX
 }

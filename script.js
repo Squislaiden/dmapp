@@ -358,5 +358,5 @@ function CreatureInfo() {
     console.log(text)}
 logFileText('./lists/creature.txt')
 
-document.getElementById("infoBox").innerHTML = text
+document.getElementById("infoBox").innerHTML = String(text)
 }

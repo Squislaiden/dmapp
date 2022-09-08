@@ -194,35 +194,74 @@ input[type='number']{
   <button class="tablinks" onclick="openCity(event, 'itemtab')">Items and Loot</button>
   <button class="tablinks" onclick="openCity(event, 'chartab')">Character Tools</button><br>
   <button class="tablinks" onclick="openCity(event, 'gemtab')">Jewelry Calculator</button>
+  <button class="tablinks" onclick="openCity(event, 'glyphtab')">Glyphs</button>
   <div style="float: right"><button class="tablinks" onclick="openCity(event, 'infotab')">Notes</button></div>
 </div>
 <br><br><br><br><br><br><br><br>
 <div id="standardtab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<label for="randomNum" style="font-size: 18px">Random Number:</label><button class="button-71" onclick="RandomNum();">Generate</button>
-			<div style="float: right"><label for="distanceCalc" style="font-size: 18px; margin-left: 3.5em">Find Distance:</label><button class="button-71" onclick="DistanceCalc();">Calculate</button></div>
+			<label for="randomNum" style="font-size: 18px">Random Number: </label><button class="button-71" onclick="RandomNum();">Generate</button>
+			<div style="float: right"><label for="distanceCalc" style="font-size: 18px; margin-left: 3.5em">Find Distance: </label><button class="button-71" onclick="DistanceCalc();">Calculate</button></div>
 			<br>
 			<label style="font-size: 14px">Min:</label><input type="number" id="rngMin" name="rngMin" min="1" value="1"><label style="font-size: 14px"> Max:</label><input type="number" id="rngMax" name="rngMax" min="1" value="100">
 			<label style="font-size: 14px"> = </label><output id="rngResult" style="font-size: 16px">0</output>
 			<div style="float: right">
-			<div class="tooltip">ⓘ<span class="tooltiptext">Use this to find the distance between two creatures that are: at different heights or at a diagonal to each other.</span></div>
+			<div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">Use this to find the distance between two creatures that are: at different heights or at a diagonal to each other.</span></div>
 				<label style="font-size: 14px">Distance A </label><input type="number" id="sideA" name="sideA" min="1" value="30"><label style="font-size: 14px"> ft.</label>&nbsp;&nbsp;&nbsp;&nbsp;
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;
 				<label style="font-size: 14px">Distance B </label><input type="number" id="sideB" name="sideB" min="1" value="30"><label style="font-size: 14px"> ft.</label>
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label style="font-size: 14px">Result: </label><output id="distanceResult" style="font-size: 16px">0</output><label style="font-size: 14px"> ft.</label>
-			</div><br><br>
+			</div>
+			<br><br>
+			
+			<div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">Randomly generate weather. If a result with multiple options shows up, the one that matches the locale the best should be selected.</span></div>
+			<label for="rngWeather" style="font-size: 18px">Random Weather:</label><br>
+			<button class="button-71" onclick="WeatherGen();">Generate</button> = <output id="weatherResult" style="font-size: 12px">?</output>
+			<br>
+			
+			<div style="float: right">
+			<label for="jumpCalc" style="font-size: 18px">Jump Calculator:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+			<label for="jumpStr" style="font-size: 14px">Strength:</label><input type="number" id="jumpStr" name="jumpStr" min="1" max="30" value="10">&nbsp;&nbsp;<button class="button-71" onclick="JumpCalc();">Jump!</button>&nbsp;&nbsp;<br>
+			<label for="jumpStand" style="font-size: 14px">Standing?</label><input type="checkbox" id="jumpStand" name="jumpStand"><br>
+			</div>
+			
+			<br>
+			<label for="rngParts" style="font-size: 18px">Random Body Part:</label><br>
+			<button class="button-71" onclick="ExternalPart();">External Part</button> <button class="button-71" onclick="InternalPart();">Organ</button><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<output id="partResult" style="font-size: 14px">?</output>
+			<br>
+			
+			<div style="float: right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">For use when a spell or effect specifies 'CR or lower' and it is the DM's choice. It does not generate a creature, just what CR and the quality.</span></div>
+			<label for="rngCR" style="font-size: 18px">Conjure CR:</label>
+			<button class="button-71" onclick="ConjureCR();">Conjure</button><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<output id="conjureResult" style="font-size: 12px">?</output>
+			
+			<br><br>
+			<label for="madnessRNG" style="font-size: 18px">Random Madness:</label> <button class="button-71" onclick="MadnessGen();">Go Mad!</button><br>
+			<select name="madness" id="madType">
+				<option value="Short">Short Term (1d10 Minutes)</option>
+				<option value="Long">Long Term (1d10 x 10 Hours)</option>
+				<option value="Indefinite">Indefinite</option>
+			</select>
+			</div>
+						
+			<br>
+			<label for="critFail" style="font-size: 18px">Critical Fail: </label><button class="button-71" onclick="CriticalFail();">Failure!</button><br>
+			&nbsp;<output id="failResult" style="font-size: 14px">?</output>
+			<br><br>
 			
 			<div style="float: right">
 				
 			</div>
-			<br><br><br><br><br><br><br><br><br><br><br>
+			<br><br>
 			<button class="button-71" onclick="rollDice();">Roll Dice</button>
 			<label for="d4Num" style="font-size: 14px">d4:</label><input type="number" id="d4Num" name="d4Num" min="0" max="20" value="0">
 			<label for="d6Num" style="font-size: 14px">d6:</label><input type="number" id="d6Num" name="d6Num" min="0" max="20" value="0">
 			<label for="d8Num" style="font-size: 14px">d8:</label><input type="number" id="d8Num" name="d8Num" min="0" max="20" value="0">
-			<br>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="d10Num" style="font-size: 14px">d10:</label><input type="number" id="d10Num" name="d10Num" min="0" max="20" value="0">
 			<label for="d12Num" style="font-size: 14px">d12:</label><input type="number" id="d12Num" name="d12Num" min="0" max="20" value="0">
 			<label for="d20Num" style="font-size: 14px">d20:</label><input type="number" id="d20Num" name="d20Num" min="0" max="20" value="0">
@@ -277,7 +316,16 @@ input[type='number']{
 <div id="gemtab" class="tabcontent">
   	<div class="grid">
 	<div class="grid-item grid-item-double">
-		<button class="button-70" onclick="???();">Gem Value Tab</button><br>
+		<button class="button-71" onclick="???();">Gem Value Tab</button><br>
+		</div>
+	</div>
+	
+</div>
+
+<div id="glyphtab" class="tabcontent">
+  	<div class="grid">
+	<div class="grid-item grid-item-double">
+		<button class="button-71" onclick="???();">Homebrew Glyph Tab</button><br>
 		</div>
 	</div>
 	
@@ -289,8 +337,12 @@ input[type='number']{
 		List General Information here.
 		</div>
 		<div class="grid-item grid-item-double">
-		Buttons for lists here.<br>
-		<button class="button-70" onclick="???();">Creatures</button><br>
+		<font size="4">Select a button to see the list of possible results.</font><br>
+		<button class="button-70" onclick="WeatherInfo();">Weather List</button> <button class="button-70" onclick="PartInfo();">Parts List</button> <button class="button-70" onclick="OrganInfo();">Organs List</button>
+		 <button class="button-70" onclick="FailInfo();">Critical Fail List</button> <button class="button-70" onclick="ConjureInfo();">Conjure CR List</button> <button class="button-70" onclick="MadnessInfo();">Madness List</button>
+		
+		<br>
+		<button class="button-70" onclick="???();">X</button>
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><textarea rows="70" cols="60" name="infoBox" spellcheck="false" id="infoBox" readonly="textareaEdit">

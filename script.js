@@ -27,6 +27,190 @@ function DistanceCalc() {
 	document.getElementById("distanceResult").innerHTML = sideFinal;
 }
 
+function WeatherGen() {
+	let weatherA = Math.floor(Math.random() * 36) + 1;
+	let weatherB = Math.floor(Math.random() * 3) + 1;
+	let weatherC;
+	if (weatherB == 2) {weatherC = "Partially Cloudy";}
+	else {
+		if (weatherA >= 1 && weatherA <= 3) {weatherC = "Thunderstorm";}
+		else if (weatherA >= 4 && weatherA <= 5) {weatherC = "Hailstorm or Wildfire";}
+		else if (weatherA >= 6 && weatherA <= 8) {weatherC = "Snow or Heavy Downpour";}
+		else if (weatherA >= 9 && weatherA <= 13) {weatherC = "Rain";}
+		else if (weatherA >= 14 && weatherA <= 18) {weatherC = "Overcast";}
+		else if (weatherA >= 19 && weatherA <= 23) {weatherC = "Sunny";}
+		else if (weatherA >= 24 && weatherA <= 27) {weatherC = "Light Drizzle";}
+		else if (weatherA >= 28 && weatherA <= 30) {weatherC = "Very Windy";}
+		else if (weatherA >= 31 && weatherA <= 33) {weatherC = "Heavy Fog";}
+		else if (weatherA >= 34 && weatherA <= 35) {weatherC = "Acid Rain";}
+		else if (weatherA == 36) {weatherC = "Heatwave, Duststorm, Blizzard, or Flood";}
+	}
+	document.getElementById("weatherResult").innerHTML = weatherC;
+}
+
+function ExternalPart() {
+	let partRNG = Math.floor(Math.random() * 19) + 1;
+	let partX;
+	if (partRNG == 1) {partX = "Head";}
+	else if (partRNG == 2 || partRNG == 3) {partX = "Upper Left Arm";}
+	else if (partRNG == 4 || partRNG == 5) {partX = "Upper Right Arm";}
+	else if (partRNG == 6 || partRNG == 7) {partX = "Left Forearm";}
+	else if (partRNG == 8 || partRNG == 9) {partX = "Right Forearm";}
+	else if (partRNG == 10 || partRNG == 11) {partX = "Torso";}
+	else if (partRNG == 12 || partRNG == 13) {partX = "Left Thigh";}
+	else if (partRNG == 14 || partRNG == 15) {partX = "Right Thigh";}
+	else if (partRNG == 16 || partRNG == 17) {partX = "Left Calf";}
+	else if (partRNG == 18 || partRNG == 19) {partX = "Right Calf";}
+	document.getElementById("partResult").innerHTML = partX;
+}
+
+function InternalPart() {
+	let partRNG = Math.floor(Math.random() * 27) + 1;
+	let organRNG = Math.floor(Math.random() * 60) + 1;
+	let partX;
+	if (organRNG == 1) {partX = "Brain";}
+	else if (organRNG == 2) {partX = "Heart";}
+	else if (organRNG >= 3 && organRNG <= 4) {partX = "Skin";}
+	else if (organRNG >= 5 && organRNG <= 7) {partX = "Lung";}
+	else if (organRNG >= 8 && organRNG <= 10) {partX = "Kidney";}
+	else if (organRNG >= 11 && organRNG <= 12) {partX = "Stomach";}
+	else if (organRNG >= 13 && organRNG <= 15) {partX = "Liver";}
+	else if (organRNG >= 16 && organRNG <= 24) {partX = "Eye";}
+	else if (organRNG >= 25 && organRNG <= 33) {partX = "Eardrum";}
+	else if (organRNG >= 34 && organRNG <= 39) {partX = "Genitals";}
+	else if (organRNG >= 40 && organRNG <= 46) {partX = "Teeth";}
+	else if (organRNG >= 47 && organRNG <= 53) {partX = "Hair";}
+	else if (organRNG >= 54 && organRNG <= 57) {
+		if (partRNG == 1) {partX = "Back Muscle";}
+		else if (partRNG == 2 || partRNG == 3) {partX = "Upper Left Arm Muscle";}
+		else if (partRNG == 4 || partRNG == 5) {partX = "Upper Right Arm Muscle";}
+		else if (partRNG == 6 || partRNG == 7) {partX = "Left Forearm Muscle";}
+		else if (partRNG == 8 || partRNG == 9) {partX = "Right Forearm Muscle";}
+		else if (partRNG == 10 || partRNG == 11) {partX = "Chest Muscle";}
+		else if (partRNG == 12 || partRNG == 13) {partX = "Left Thigh Muscle";}
+		else if (partRNG == 14 || partRNG == 15) {partX = "Right Thigh Muscle";}
+		else if (partRNG == 16 || partRNG == 17) {partX = "Left Calf Muscle";}
+		else if (partRNG == 18 || partRNG == 19) {partX = "Right Calf Muscle";}
+		else if (partRNG == 20 || partRNG == 21) {partX = "Right Hand Muscle";}
+		else if (partRNG == 22 || partRNG == 23) {partX = "Left Hand Muscle";}
+		else if (partRNG == 24 || partRNG == 25) {partX = "Right Foot Muscle";}
+		else if (partRNG == 26 || partRNG == 27) {partX = "Left Foot Muscle";}
+	}
+	else if (organRNG >= 58 && organRNG <= 60) {
+		if (partRNG == 1) {partX = "Spine";}
+		if (partRNG == 2 || partRNG == 3) {partX = "Upper Left Arm Bone";}
+		else if (partRNG == 4 || partRNG == 5) {partX = "Upper Right Arm Bone";}
+		else if (partRNG == 6 || partRNG == 7) {partX = "Left Forearm Bone";}
+		else if (partRNG == 8 || partRNG == 9) {partX = "Right Forearm Bone";}
+		else if (partRNG == 10 || partRNG == 11) {partX = "Rib Bone";}
+		else if (partRNG == 12 || partRNG == 13) {partX = "Left Thigh Bone";}
+		else if (partRNG == 14 || partRNG == 15) {partX = "Right Thigh Bone";}
+		else if (partRNG == 16 || partRNG == 17) {partX = "Left Calf Bone";}
+		else if (partRNG == 18 || partRNG == 19) {partX = "Right Calf Bone";}
+		else if (partRNG == 20 || partRNG == 21) {partX = "Right Hand Bone";}
+		else if (partRNG == 22 || partRNG == 23) {partX = "Left Hand Bone";}
+		else if (partRNG == 24 || partRNG == 25) {partX = "Right Foot Bone";}
+		else if (partRNG == 26 || partRNG == 27) {partX = "Left Foot Bone";}
+	}
+	document.getElementById("partResult").innerHTML = partX;
+}
+
+function CriticalFail() {
+	let critFail = Math.floor(Math.random() * 15) + 1;
+	let critFailX;
+	if (critFail == 1 || critFail == 2) {critFailX = "Nothing Happens";}
+	else if (critFail == 3 || critFail == 4) {critFailX = "Drop Weapon";}
+	else if (critFail == 5 || critFail == 6) {critFailX = "Hit Adjacent Creature";}
+	else if (critFail == 7 || critFail == 8) {critFailX = "Target gets an Opporunity Attack";}
+	else if (critFail == 9 || critFail == 10) {critFailX = "Target has Advantage on Next Attack";}
+	else if (critFail == 11 || critFail == 12) {critFailX = "Fall Prone";}
+	else if (critFail == 13 || critFail == 14) {critFailX = "You have Disadvantage on Next Attack";}
+	else if (critFail == 15) {critFailX = "Self Injury (Weapon Dice Only)";}
+	document.getElementById("failResult").innerHTML = critFailX;
+}
+
+function JumpCalc() {
+	let jumpStr = Number(document.getElementById("jumpStr").value);
+	let jumpStand = document.getElementById("jumpStand").checked;
+	let jumpMod = (jumpStr - 10) / 2;
+	let jumpLong;
+	let jumpHigh;
+	if (jumpStand == false) {jumpLong = jumpStr; jumpHigh = (jumpMod + 3);}
+	else {jumpLong = (jumpStr / 2); jumpMod = (jumpMod + 3); jumpHigh = (jumpMod / 2);}
+	if (jumpHigh < 1) {jumpHigh = "½";}
+	else {}
+	document.getElementById("genBox").innerHTML = `${jumpLong} foot Long Jump \n${jumpHigh} foot High Jump \n(plus 1½ your height for vertical arm's reach)`;
+}
+
+function MadnessGen(){
+	let madType = document.getElementById("madType").value;
+	let madTime;
+	let madDays;
+	let madRNG;
+	let madnessX;
+	if (madType == "Short") {
+		madTime = (Math.floor(Math.random() * 10) + 1);
+		madTime = `${madTime} minute(s)`;
+		madRNG = Math.floor(Math.random() * 11) + 1;
+		if (madRNG == 1) {madnessX = "(Short) The character becomes Incapacitated and spends the Duration screaming, laughing, or weeping.";}
+		else if (madRNG == 2) {madnessX = "(Short) The character becomes Frightened and must use his or her action and Movement each round to flee from the source of the fear.";}
+		else if (madRNG == 3) {madnessX = "(Short) The character begins babbling and is incapable of normal Speech or Spellcasting.";}
+		else if (madRNG == 4) {madnessX = "(Short) The character must use his or her action each round to Attack the nearest creature.";}
+		else if (madRNG == 5) {madnessX = "(Short) The character experiences vivid hallucinations and has disadvantage on Ability Checks.";}
+		else if (madRNG == 6) {madnessX = "(Short) The character does whatever anyone tells him or her to do that isn’t obviously self-­ destructive.";}
+		else if (madRNG == 7) {madnessX = "(Short) The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal.";}
+		else if (madRNG == 8) {madnessX = "(Short) The character is Stunned.";}
+		else if (madRNG == 9) {madnessX = "(Short) The character falls Unconscious.";}
+		else if (madRNG == 10 || madRNG == 11) {madnessX = "(Short) The character retreats into his or her mind and becomes Paralyzed. The Effect ends if the character takes any damage.";}
+	}
+	else if (madType == "Long") {
+		madTime = (Math.floor(Math.random() * 10) + 1) * 10;
+		madDays = madTime / 24;
+		madDays = madDays.toFixed(2);
+		madTime = `${madTime} hours (${madDays} days)`;
+		madRNG = Math.floor(Math.random() * 16) + 1;
+		if (madRNG >= 1 && madRNG <= 2) {madnessX = "(Long) The character feels compelled to repeat a specific activity over and over, such as washing hands, touching things, praying, or counting coins.";}
+		else if (madRNG >= 3 && madRNG <= 4) {madnessX = "(Long) The character experiences vivid hallucinations and has disadvantage on Ability Checks.";}
+		else if (madRNG >= 5 && madRNG <= 6) {madnessX = "(Long) The character suffers extreme paranoia. The character has disadvantage on Wisdom and Charisma checks.";}
+		else if (madRNG >= 7 && madRNG <= 8) {madnessX = "(Long) The character regards something (usually the source of madness) with intense revulsion, as if affected by the antipathy Effect of the Antipathy/Sympathy spell.";}
+		else if (madRNG == 9) {madnessX = "(Long) The character experiences a powerful delusion. Choose a potion. The character imagines that he or she is under its Effects.";}
+		else if (madRNG == 10) {madnessX = "(Long) The character becomes attached to a 'lucky charm,' such as a person or an object, and has disadvantage on Attack rolls, Ability Checks, and Saving Throws while more than 30 feet from it.";}
+		else if (madRNG == 11) {madnessX = "(Long) The character is Blinded (25%) or Deafened (75%).";}
+		else if (madRNG == 12) {madnessX = "(Long) The character experiences uncontrollable tremors or tics, which impose disadvantage on Attack rolls, Ability Checks, and Saving Throws that involve Strength or Dexterity.";}
+		else if (madRNG == 13) {madnessX = "(Long) The character suffers from partial amnesia. The character knows who he or she is and retains racial Traits and Class Features, but doesn’t recognize other people or remember anything that happened before the madness took Effect.";}
+		else if (madRNG == 14) {madnessX = "(Long) Whenever the character takes damage, he or she must succeed on a DC 15 Wisdom saving throw or be affected as though he or she failed a saving throw against the Confusion spell. The Confusion Effect lasts for 1 minute.";}
+		else if (madRNG == 15) {madnessX = "(Long) The character loses the ability to speak.";}
+		else if (madRNG == 16) {madnessX = "(Long) The character falls Unconscious. No amount of jostling or damage can wake the character.";}
+	}
+	else if (madType == "Indefinite") {
+		madTime = "Indefinite";
+		madRNG = Math.floor(Math.random() * 16) + 1;
+		if (madRNG >= 1 && madRNG <= 3) {madnessX = "(Indefinite) Being drunk keeps me sane.";}
+		else if (madRNG >= 4 && madRNG <= 6) {madnessX = "(Indefinite) I keep whatever I find.";}
+		else if (madRNG == 7) {madnessX = "(Indefinite) I try to become more like someone else I know—adopting his or her style of dress, mannerisms, and name.";}
+		else if (madRNG == 8) {madnessX = "(Indefinite) I must bend the truth, exaggerate, or outright lie to be interesting to other people.";}
+		else if (madRNG == 9) {madnessX = "(Indefinite) Achieving my goal is the only thing of interest to me, and I’ll ignore everything else to pursue it.";}
+		else if (madRNG == 10) {madnessX = "(Indefinite) I find it hard to care about anything that goes on around me.";}
+		else if (madRNG == 11) {madnessX = "(Indefinite) I don’t like the way people judge me all the time.";}
+		else if (madRNG == 12) {madnessX = "(Indefinite) I am the smartest, wisest, strongest, fastest, and most beautiful person I know.";}
+		else if (madRNG == 13) {madnessX = "(Indefinite) I am convinced that powerful enemies are hunting me, and their agents are everywhere I go. I am sure they’re watching me all the time.";}
+		else if (madRNG == 14) {madnessX = "(Indefinite) There’s only one person I can trust. And only I can see this Special friend.";}
+		else if (madRNG == 15) {madnessX = "(Indefinite) I can’t take anything seriously. The more serious the situation, the funnier I find it.";}
+		else if (madRNG == 16) {madnessX = "(Indefinite) I’ve discovered that I really like killing people.";}
+	}
+	document.getElementById("genBox").innerHTML = `[${madTime}]\n${madnessX}`;
+}
+
+function ConjureCR(){
+	let conjureRNG = Math.floor(Math.random() * 4) + 1;
+	let conjureX;
+	if (conjureRNG == 1) {conjureX = "Half the Max CR";}
+	else if (conjureRNG == 2) {conjureX = "1 CR Under Max";}
+	else if (conjureRNG == 3) {conjureX = "Max CR; Poor Pick";}
+	else if (conjureRNG == 4) {conjureX = "Max CR; Good Pick";}
+	document.getElementById("conjureResult").innerHTML = conjureX;
+}
+
 function rollDice() {
 	let d4Qty = Number(document.getElementById("d4Num").value);
 	let d6Qty = Number(document.getElementById("d6Num").value);
@@ -141,4 +325,28 @@ function CreatureTypeGen() {
 	else {}
 	GlobalCreature = creatureResult
 	document.getElementById("charBox").innerHTML = creatureResult;
+}
+
+function WeatherInfo() {
+	document.getElementById("infoBox").innerHTML = "Partially Cloudy \nThunderstorm \nHailstorm/Wildfire \nSnow/Heavy Downpour \nRain \nOvercast \nSunny \nLight Drizzle \nVery Windy \nHeavy Fog \nAcid Rain \nHeatwave/Duststorm/Blizzard/Flood";
+}
+
+function PartInfo() {
+	document.getElementById("infoBox").innerHTML = "Head \nUpper Arm \nForearm \nTorso \nThigh \nCalf";
+}
+
+function OrganInfo() {
+	document.getElementById("infoBox").innerHTML = "Brain \nHeart \nSkin \nLung \nKidney \nStomach \nLiver \nEye \nEardrum \nGenitals \nTeeth \nHair \nMuscle(many options) \nBone(many options)";
+}
+
+function FailInfo() {
+	document.getElementById("infoBox").innerHTML = "Nothing Happens \nDrop Weapon \nHit Adjacent Creature \nTarget gets an Opportunity Attack \nTarget has Advantage on Next Attack \nFall Prone \nYou have Disadvantage on Next Attack \nSelf Injury (Weapon Dice Only)";
+}
+
+function ConjureInfo() {
+	document.getElementById("infoBox").innerHTML = "Half the Max CR \n1 CR under Max \nMax CR; Poor Pick \nMax CR; Good Pick";
+}
+
+function MadnessInfo() {
+	document.getElementById("infoBox").innerHTML = "(Short) The character becomes Incapacitated and spends the Duration screaming, laughing, or weeping. \n(Short) The character becomes Frightened and must use his or her action and Movement each round to flee from the source of the fear. \n(Short) The character begins babbling and is incapable of normal Speech or Spellcasting. \n(Short) The character must use his or her action each round to Attack the nearest creature. \n(Short) The character experiences vivid hallucinations and has disadvantage on Ability Checks. \n(Short) The character does whatever anyone tells him or her to do that isn’t obviously self-­ destructive. \n(Short) The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal. \n(Short) The character is Stunned. \n(Short) The character falls Unconscious. \n(Short) The character retreats into his or her mind and becomes Paralyzed. The Effect ends if the character takes any damage. \n \n(Long) The character feels compelled to repeat a specific activity over and over, such as washing hands, touching things, praying, or counting coins. \n(Long) The character experiences vivid hallucinations and has disadvantage on Ability Checks. \n(Long) The character suffers extreme paranoia. The character has disadvantage on Wisdom and Charisma checks. \n(Long) The character regards something (usually the source of madness) with intense revulsion, as if affected by the antipathy Effect of the Antipathy/Sympathy spell. \n(Long) The character experiences a powerful delusion. Choose a potion. The character imagines that he or she is under its Effects. \n(Long) The character becomes attached to a 'lucky charm,' such as a person or an object, and has disadvantage on Attack rolls, Ability Checks, and Saving Throws while more than 30 feet from it. \n(Long) The character is Blinded (25%) or Deafened (75%). \n(Long) The character experiences uncontrollable tremors or tics, which impose disadvantage on Attack rolls, Ability Checks, and Saving Throws that involve Strength or Dexterity. \n(Long) The character suffers from partial amnesia. The character knows who he or she is and retains racial Traits and Class Features, but doesn’t recognize other people or remember anything that happened before the madness took Effect. \n(Long) Whenever the character takes damage, he or she must succeed on a DC 15 Wisdom saving throw or be affected as though he or she failed a saving throw against the Confusion spell. The Confusion Effect lasts for 1 minute. \n(Long) The character loses the ability to speak. \n(Long) The character falls Unconscious. No amount of jostling or damage can wake the character. \n \n(Indefinite) Being drunk keeps me sane. \n(Indefinite) I keep whatever I find. \n(Indefinite) I try to become more like someone else I know—adopting his or her style of dress, mannerisms, and name. \n(Indefinite) I must bend the truth, exaggerate, or outright lie to be interesting to other people. \n(Indefinite) Achieving my goal is the only thing of interest to me, and I’ll ignore everything else to pursue it. \n(Indefinite) I find it hard to care about anything that goes on around me. \n(Indefinite) I don’t like the way people judge me all the time. \n(Indefinite) I am the smartest, wisest, strongest, fastest, and most beautiful person I know. \n(Indefinite) I am convinced that powerful enemies are hunting me, and their agents are everywhere I go. I am sure they’re watching me all the time. \n(Indefinite) There’s only one person I can trust. And only I can see this Special friend. \n(Indefinite) I can’t take anything seriously. The more serious the situation, the funnier I find it. \n(Indefinite) I’ve discovered that I really like killing people. \n";
 }

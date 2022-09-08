@@ -354,7 +354,7 @@ function MadnessInfo() {
 async function CreatureInfo() {
 	let myObject = await fetch('/dmapp/lists/creature.txt');
 	let myText = await myObject.text();
-	const myArray = text.split("\n");
+	const myArray = myText.split("\n");
 	let basin = myArray[3];
 	console.log(basin);
 	console.log(myArray);

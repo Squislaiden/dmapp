@@ -356,7 +356,8 @@ function CreatureInfo() {
     const response = await fetch(file)
     const text = await response.text()
     console.log(text)}
+	toString(text)
 logFileText('./lists/creature.txt')
 
-document.getElementById("infoBox").innerHTML = String(text)
+document.getElementById("infoBox").innerHTML = text
 }

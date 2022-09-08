@@ -352,7 +352,7 @@ function MadnessInfo() {
 }
 
 async function CreatureInfo() {
-	let myObject = await fetch('/lists/creature.txt');
+	let myObject = await fetch('/dmapp/lists/creature.txt');
 	let myText = await myObject.text();
 	console.log(myText);
 document.getElementById("infoBox").innerHTML = myText

@@ -357,5 +357,4 @@ async function CreatureInfo() {
 	myDisplay(myText);
 	console.log(myText);
 
-document.getElementById("infoBox").innerHTML = myText
 }

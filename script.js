@@ -1006,9 +1006,9 @@ function EnemyMod() {
             }
         else if (modRoll == 109) {
             if (modElite == 10) {
-                GMod = "[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
+                GMod = "[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
             else {
-                GMod = "[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
+                GMod = "[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
             }
         else if (modRoll == 110) {
             if (modElite == 10) {

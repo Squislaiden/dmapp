@@ -322,9 +322,9 @@
 --[Copycat] (Elite) Twice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.
 --[Copycat] Once a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.
  
---[Plunderer] (Elite) At the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.
+--[Plunderer] (Elite) At the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.
  
---[Plunderer] At the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.
+--[Plunderer] At the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.
  
 --[Archmage] (Elite) (Spellcaster Only) All spells are upcast two levels.
 --[Archmage] (Spellcaster Only) All spells are upcast one level.
@@ -384,5 +384,15 @@
 --[Nightmare] (Elite) At the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.
 --[Nightmare] At the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.
  
---[Gourmet] (Elite) As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. (Other materials are up to the DM.) --[Wood] Gain 4 AC. --[Stone] Physical Resistance --[Basic Metals] +4 Damage. --[Cloth] Incoming Attacks have Disadv. --[Precious Metals] Advantage on Attacks.
---[Gourmet] As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. (Other materials are up to the DM.) --[Wood] Gain 2 AC. --[Stone] Physical Resist, -5 Speed. --[Basic Metals] +2 Damage. --[Cloth] Incoming Attacks have Disadv. --[Precious Metals] -2 AC and Advantage on Attacks.
+--[Gourmet] (Elite) As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. (Other materials are up to the DM.)
+[Wood] Gain 4 AC.
+[Stone] Physical Resistance
+[Basic Metals] +4 Damage.
+[Cloth] Incoming Attacks have Disadv.
+[Precious Metals] Advantage on Attacks.
+--[Gourmet] As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. (Other materials are up to the DM.)
+[Wood] Gain 2 AC.
+[Stone] Physical Resist, -5 Speed.
+[Basic Metals] +2 Damage.
+[Cloth] Incoming Attacks have Disadv.
+[Precious Metals] -2 AC and Advantage on Attacks.

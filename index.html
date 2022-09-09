@@ -298,17 +298,32 @@ input[type='number']{
 <div id="chartab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<button class="button-71" onclick="CreatureTypeGen();">Creature Type</button>
+			<button class="button-71" onclick="CreatureBtn();">Creature Type</button>
+			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<div style="float: right"><button class="button-71" onclick="EnemyModBtn();">Random Enemy Modifier</button> <div class="tooltip"><font color=green> ⓘ</font><span class="tooltiptext">These modifiers are to spice up a regular stat block.\nDCs, damage, and any numbers are given a suggested value, but may be modified to suit the challenge level.\n---Modifiers have a 10% chance to be [Elite]---</span></div><br>
+			<label for="jumpStand" style="font-size: 14px">Force Elite Generation</label><input type="checkbox" id="modEliteCheck" name="modEliteCheck"></div>
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><form>
-			<font size=4>Results:</font>
-			<textarea rows="45" cols="60" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit">
-			</textarea>
-			</form></center>
+				<font size=4>Results:</font>
+				<textarea rows="45" cols="60" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit">
+				</textarea>
+				</form></center>
 		</div>
 		<div class="grid-item grid-item-double">
-		
+			<center><form>
+				<font size=4>Naturalcrit Homebrewery V3 Stat Block:</font> <div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted directly into a Homebrewery V3 document to create a Stat Block.</span></div> <a href="https://homebrewery.naturalcrit.com/" target="_blank"><font size="6" color="red">→</font></a>
+				<textarea rows="45" cols="60" name="homebrewBox" spellcheck="false" id="homebrewBox" readonly="textareaEdit">
+				</textarea>
+				</form></center>
+		</div>
+		<div class="grid-item grid-item-double">
+			<center><form>
+				<font size=4>Improved-Initiative JSON Text:</font> <div class='tooltip'><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted as JSON into a new creature in Improved-Initiative to create a Stat Block.</span></div> <a href="https://www.improved-initiative.com/" target="_blank"><font size="6" color="red">→</font></a>
+				<textarea rows="45" cols="60" name="improvedBox" spellcheck="false" id="improvedBox" readonly="textareaEdit">
+				</textarea>
+				</form></center>
 		</div>
 	</div>
 </div>
@@ -333,9 +348,6 @@ input[type='number']{
 
 <div id="infotab" class="tabcontent">
   	<div class="grid">
-	<div class="grid-item grid-item-double">
-		List General Information here.
-		</div>
 		<div class="grid-item grid-item-double">
 		<font size="4">Select a button to see the list of possible results.</font><br>
 		<button class="button-70" onclick="WeatherInfo();">Weather List</button> <button class="button-70" onclick="PartInfo();">Parts List</button> <button class="button-70" onclick="OrganInfo();">Organs List</button>

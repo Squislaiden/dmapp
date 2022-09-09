@@ -1,0 +1,388 @@
+--[Grappler] (Elite) The creatures grows a tentacle somewhere on its body. ---Bonus Action--- DC 16 Grapple. Restrained. On following turns, can crush, throw, or slam to deal 4d6 + Str bludgeoning damage.
+--[Grappler] The creatures grows a tentacle somewhere on its body. ---Bonus Action--- DC 14 Grapple. Restrained. On following turns, can crush, throw, or slam to deal 2d6 + Str bludgeoning damage.
+ 
+--[Armed] (Elite) The creature grows two extra limbs. The creature can attack 2 extra times each turn.
+--[Armed] The creature grows an extra limb. The creature can attack 1 extra time each turn.
+ 
+--[Muscular] (Elite) The creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice and gains +6 damage.
+--[Muscular] The creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice.
+ 
+--[Split] (Elite) The creature is weaker and smaller, but has two identical clones of itself.
+--[Split] The creature is weaker and smaller, but has an identical clone of itself.
+ 
+--[Shadow Form] (Elite) The creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows up to 60 feet away. Twice per turn, it can half the damage of one attack.
+--[Shadow Form] The creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows. Once per turn, it can half the damage of one attack.
+ 
+--[Blazing] (Elite) The creature has a 30 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 fire damage. It can cast Burning Hands and Scorching Ray at will, is Immune to Fire, and is Vulnerable to Cold.
+--[Blazing] The creature has a 15 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 fire damage. It can cast Burning Hands at will, has Resistance to Fire, and is Vulnerable to Cold.
+ 
+--[Drenched] (Elite) The creature is lightly obscured in mist It can cast Wall of Water and Watery Sphere at will, has 40 ft. of swim speed, is Immune to Fire and Cold, and is Vulnerable to Lightning.
+--[Drenched] The creature is lightly obscured in mist. It can cast Wall of Water at will, is Resistant to Fire and Cold, and is Vulnerable to Lightning.
+ 
+--[Glacial] (Elite) The creature has a 30 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 cold damage. It can cast Ice Knife and Rimes Binding Ice at will, is Immune to Cold, and is Vulnerable to Fire.
+--[Glacial] The creature has a 15 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 cold damage. It can cast Ice Knife at will, is Resistant to Cold, and is Vulnerable to Fire.
+ 
+--[Storming] (Elite) The creature has a 30 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 lightning damage and make a DC 11 Con Save or be paralyzed until their next turn. It can cast Lightning Arrow at will, is Resistant to Lightning, and is Vulnerable to Psychic.
+--[Storming] The creature has a 15 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 lightning damage and make a DC 14 Con Save or be paralyzed until their next turn. It can cast Lightning Arrow and Lightning Bolt at will, is Immune to Lightning, and is Vulnerable to Psychic.
+ 
+--[Grounded] (Elite) The creature has a 40 ft. radius aura of rumbling ground that is difficult terrain. It can cast Maximillians Earthen Grasp and Erupting Earth at will, is Immune to Lightning, is Resistant to Physical, and is Vulnerable to Thunder.
+--[Grounded] The creature has a 20 ft. radius aura of rumbling ground that is difficult terrain. It can cast Maximillians Earthen Grasp at will, is Immune to Lightning, and is Vulnerable to Thunder.
+ 
+--[Wispy] (Elite) All projeciles fired at the creature are made with disadvantage and the creature can hover. It can cast Wind Wall and Pulse Wave at will, is Immune to Thunder, and is Vulnerable to Fire.
+--[Wispy] All projeciles fired at the creature are made with disadvantage. It can cast Wind Wall at will, is Resistant to Thunder, and is Vulnerable to Fire.
+ 
+--[Venomous] (Elite) On Non-Spell attacks, the target makes a DC 15 Con Save. On a fail, they take 4d6 poison damage and are Poisoned. Half damage on a save. It can cast Acid Stream and Stinking Cloud at will, is Immune to Poison and Disease, and is Vulnerable to Radiant.
+--[Venomous] On Non-Spell attacks, the target makes a DC 13 Con Save. On a fail, they take 2d6 poison damage and are Poisoned. Half damage on a save. It can cast Acid Stream at will, is Immune to Disease, is Resistant to Poison, and is Vulnerable to Radiant.
+ 
+--[Decaying] (Elite) The creature has a 60 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 25. It can cast Wither and Bloom and Blight at will, is Immune to Necrotic, and is Vulnerable to Radiant.
+--[Decaying] The creature has a 30 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 15. It can cast Wither and Bloom at will, is Resistant to Necrotic, and is Vulnerable to Radiant.
+ 
+--[Radiant] (Elite) The creature has a 20 ft. aura of bright light. Creatures within the aura are considered Blinded. It can cast Branding Smite and Dawn at will, is Immune to Radiant, and is Resistant to Necrotic.
+--[Radiant] The creature has a 10 ft. aura of bright light. Creatures within the aura are considered Blinded. It can cast Branding Smite at will, is Resistant to Radiant, and is Vulnerable to Necrotic.
+ 
+--[Psionic] (Elite) The creature has advantage on Attacks made on creatures within 60 ft. and advantage on Saving Throws against effect originating from within 60 ft. The creature can cast Mind Thrust and Psychic Lance at will, is Immune to Psychic, and is Vulnerable to Thunder.
+--[Psionic] The creature has advantage on Attacks made on creatures within 30 ft. and advantage on Saving Throws against effect originating from within 30 ft. The creature can cast Mind Thrust at will, is Resistant to Psychic, and is Vulnerable to Thunder.
+ 
+--[Ocular] (Elite) The creature has grown two random Beholder eye stalks. The effects and damage are at 66% normal effectiveness. The Save DC is 16. (For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)
+--[Ocular] The creature has grown a random Beholder eye stalk. The effects and damage are at 33% normal effectiveness. The Save DC is 14. (For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)
+ 
+--[Winged] (Elite) The creature gains a pair of wings and 60 ft. of fly speed and can cast Gust of Wind as a Bonus Action.
+--[Winged] The creature gains a pair of wings and 40 ft. of fly speed.
+ 
+--[Reckless] (Elite) All attacks made by the creature are made at advantage.
+--[Reckless] All attacks made by and against the creature are made at advantage.
+ 
+--[Stalker] (Elite) The creature has +5 to stealth rolls and can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for 6d6 damage.
+--[Stalker] The creature can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for 3d6 damage.
+ 
+--[Hypnotist] (Elite) The creature can cast Dominate Monster four time and can have a maximum of 2 creatures dominated at a time. The Save DC is 17.
+--[Hypnotist] The creature can cast Dominate Monster twice and can have a maximum of 1 creature dominated at a time. The Save DC is 15.
+ 
+--[Observant] (Elite) The creatures grows many extra eyes on its body. It gains +10 and advantage to Perception rolls and canno tbe surprised.
+--[Observant] The creatures grows many extra eyes on its body. It gains +5 to Perception rolls and canno tbe surprised.
+ 
+--[Sticky] (Elite) Creatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of 18.
+--[Sticky] Creatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of 15.
+ 
+--[Repulsor] (Elite) At the start of the creatures turn, all creatures within 40 ft. make a DC 17 Strength Save or are pushed back 15 ft.
+--[Repulsor] At the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pushed back 10 ft.
+ 
+--[Attractor] (Elite) At the start of the creatures turn, all creatures within 40 ft. make a DC 17 Strength Save or are pulled 15 ft. closer.
+--[Attractor] At the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pulled 10 ft. closer.
+ 
+--[Spell Eater] (Elite) Damage dealt by Spells or effects that consume a Spell Slot has a 50% chance to heal the creature instead.
+--[Spell Eater] Damage dealt by Spells or effects that consume a Spell Slot has a 25% chance to heal the creature instead.
+ 
+--[Spell Breaker] (Elite) The creature has a 30 ft. radius aura of Anti-Magic all around it.
+--[Spell Breaker] The creature has a 60 ft. cone of Anti-Magic in front of it.
+ 
+--[Single-Minded] (Elite) At the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.
+--[Single-Minded] At the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. The creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.
+ 
+--[Hunter] (Elite) The creatures gains 20 ft. of all speeds and two extra Reactions every turn.
+--[Hunter] The creatures gains 10 ft. of all speeds and an extra Reaction every turn.
+ 
+--[Exoskeleton] (Elite) The creatures skin grows thicker, granting it +4 to AC and Saving Throws.
+--[Exoskeleton] The creatures skin grows thicker, granting it +2 to AC and Saving Throws.
+ 
+--[Regenerator] (Elite) The creature heals for 20 Hit Pionts at the start of its turn. if (the creature has taken fire damage since its last turn, it does not heal.
+--[Regenerator] The creature heals for 10 Hit Pionts at the start of its turn. if (the creature has taken fire damage or a critical hit since its last turn, it does not heal.
+ 
+--[Steel Skin] (Elite) The creatures skin grows remarkably dense, granting them Immunity to Bludgeoning, Slashing, and Piercing damage.
+--[Steel Skin] The creatures skin grows denser, granting them Resistance to Bludgeoning, Slashing, and Piercing damage.
+ 
+--[Reflection] (Elite) The first time the creature takes damage in a round, it absorbs some of it and adds 4d6 of that type on its next attack.
+--[Reflection] The first time the creature takes Non-Physical damage in a round, it absorbs some of it and adds 2d6 of that type on its next attack.
+ 
+--[Symbiosis] (Elite) At the start of combat, the creature selects up to three allies. All damage and healing taken by either is split between both of them.
+--[Symbiosis] At the start of combat, the creature selects one ally. All damage and healing taken by either is split between both of them.
+ 
+--[Host] (Elite) When the creature dies, it splits into 5 much weaker and smaller versions.
+--[Host] When the creature dies, it splits into 3 much weaker and smaller versions.
+ 
+--[Undying] (Elite) if (damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC  equal to the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.
+--[Undying] if (damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.
+ 
+--[Mother] (Elite) The creature grows four beholder-like stalks that each have a separate Random Modifier.
+--[Mother] The creature grows two beholder-like stalks that each have a separate Random Modifier.
+ 
+--[Genius] (Elite) The creatures Intelligence becomes 22 (or +5 if it is 22 or higher), gains Intelligence Saving Throw proficiency, and can speak telepathically up to 120 ft.
+--[Genius] The creatures Intelligence becomes 18 (or +3 if it is 18 or higher), gains Intelligence Saving Throw proficiency, and can speak telepathically up to 60 ft.
+ 
+--[Necromancer] (Elite) The creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 50% maximum Hit Points.
+--[Necromancer] The creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 25% maximum Hit Points.
+ 
+--[Tunneler] (Elite) The creature gains 20 ft. of burrow speed and leave tunnels. The burrow speed increases by 10 ft. for each size category above medium.
+--[Tunneler] The creature gains 10 ft. of burrow speed and leave tunnels. The burrow speed increases by 5 ft. for each size category above medium.
+ 
+--[Mage] (Elite) The creature gains one 3rd and one 5th level spell to use at will.
+--[Mage] The creature gains one 2nd and one 4th level spell to use at will.
+ 
+--[Modular] (Elite) The creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate. Each clone has a separate randomly rolled Modifier.
+--[Modular] The creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate.
+ 
+--[Wrong] (Elite) The creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature. It gains one trait or attack from the creature it appears as.
+--[Wrong] The creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature.
+ 
+--[Phantom] (Elite) The creature can phase through creatures, objects, and walls. Creatures it passes through take 2d6 psychic damage.
+--[Phantom] The creature can phase through creatures, objects, and walls.
+ 
+--[Hearty] (Elite) The creature has an additional 66% Hit Points.
+--[Hearty] The creature has an additional 33% Hit Points.
+ 
+--[Webbing] (Elite) As a Bonus Action, the creature can spray webbing at three targets. It has a range of 60/120 ft. with an escape DC of 17, AC of 15, and 30 Hit Points.
+--[Webbing] As a Bonus Action, the creature can spray webbing at one target. It has a range of 30/60 ft. with an escape DC of 15, AC of 10, and 20 Hit Points.
+ 
+--[Lingering] (Elite) Non-Spell attacks leave a 15x15 feet puddle of 4d6 acid (or applicable type) for 6 rounds.
+--[Lingering] Non-Spell attacks leave a 10x10 feet puddle of 2d6 acid (or applicable type) for 3 rounds.
+ 
+--[Berzerker] (Elite) Every successful attack during a combat adds +3 damage to all following attacks.
+--[Berzerker] Every successful attack during a combat adds +2 damage to all following attacks.
+ 
+--[Triggered] (Elite) The creature takes a second turn on a different initative, gains +6 on initiative rolls, and gains an additional Reaction every round (3 total counting both turns).
+--[Triggered] The creature takes a second turn on a different initative.
+ 
+--[Mirrored] (Elite) While in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3. When the creature hits 0 Images, it instantly gains 3 Images.
+--[Mirrored] While in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3.
+ 
+--[Mistling] (Elite) The creature gains a 40 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take 4d6 damage.
+--[Mistling] The creature gains a 20 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take 2d6 damage.
+ 
+--[Lightweight] (Elite) The creature has triple jump distance and height, and has 20 ft. increased speed.
+--[Lightweight] The creature has double jump distance and height, and has 10 ft. increased speed.
+ 
+--[Hidden Organs] (Elite) The creature cannot be critically hit and is immune to conditions.
+--[Hidden Organs] The creature cannot be critically hit.
+ 
+--[Iron Jaw] (Elite) The creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is tripled and has the vorpal effect on bitten limbs.
+--[Iron Jaw] The creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is doubled.
+ 
+--[Breath] (Elite) The creature gains a random DC 18 Young Dragon Breath Attack.
+--[Breath] The creature gains a random DC 15 Wyrmling Dragon Breath Attack.
+ 
+--[Opposable] (Elite) (Only applicable to creatures that cannot wield weapons). The creature has and is able to wield two-handed weapons. The weapon damage is double of the base damage. It can wield two two-handed weapons if it is Large or larger.
+--[Opposable] (Only applicable to creatures that cannot wield weapons). The creature has and is able to wield one-handed weapons. The weapon damage is double of the base damage.
+ 
+--[Hidden Form] (Elite) The creature can undetectably disguise themself as an object, like a mimic. The size limit is 2 stages larger and smaller then normal.
+--[Hidden Form] The creature can undetectably disguise themself as an object, like a mimic.
+ 
+--[Disease-Ridden] (Elite) Non-Spell attacks invoke a DC 16 Con Save. On a fail, the target contracts a disease and is Poisoned.
+--[Disease-Ridden] Non-Spell attacks invoke a DC 14 Con Save. On a fail, the target contracts a disease.
+ 
+--[Subsumer] (Elite) The creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 30 Hit Points and gains two traits from the creature or +5 damage for the duration of the fight.
+--[Subsumer] The creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 15 Hit Points and gains one trait from the creature or +3 damage for the duration of the fight.
+ 
+--[Vampiric] (Elite) Natural/Unarmed weapons attacks deal an extra 4d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.
+--[Vampiric] Natural/Unarmed weapons attacks deal an extra 2d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.
+ 
+--[Leader] (Elite) The creature has 5 minion-type creatures with it and gains the Leadership trait.
+--[Leader] The creature has 3 minion-type creatures with it and gains the Leadership trait.
+ 
+--[Terrifying] (Elite) Gains a DC 18 dragons Frighteneing Presence.
+--[Terrifying] Gains a DC 15 dragons Frighteneing Presence.
+ 
+--[Vines] (Elite) Ground within 30 ft. of the creature requires three feet to move one foot.
+--[Vines] Ground within 30 ft. of the creature is difficult terrain.
+ 
+--[Duplicant] (Elite) Damage the creature deals is also dealt to a creature within 5 ft. of the target.
+--[Duplicant] Half of the damage the creature deals is also dealt to a creature within 5 ft. of the target.
+ 
+--[Oozing] (Elite) When hit by a weapon attack, slime fires off at two creature within 60 ft. with a +9 to hit. if (it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.
+--[Oozing] When hit by a weapon attack, a piece of slime fires off at a creature within 30 ft. with a +7 to hit. if (it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.
+ 
+--[Enraged] (Elite) Every 20% of health lost grants the creature 2d6 more damage.
+--[Enraged] Every 25% of health lost grants the creature 1d6 more damage.
+ 
+--[Gravity Well] (Elite) Within 120 feet, moving towards the creature requires only one-third of the the normal speed. Moving away requires triple the normal speed.
+--[Gravity Well] Within 60 feet, moving towards the creature requires only half of the the normal speed. Moving away requires double the normal speed.
+ 
+--[Telekinetic] (Elite) Every turn, all enemies within 80 feet make a DC 17 Intelligence (Athletics) roll or be move 15 ft. in a direction.
+--[Telekinetic] Every turn, two enemies within 40 feet make a DC 14 Intelligence (Athletics) roll or be move 10 ft. in a direction.
+ 
+--[Swapper] (Elite) As a Bonus Action, the creature swaps the locations of two creatures within 60 ft. of it.
+--[Swapper] As a Bonus Action, the creature swaps the locations of two creatures within 30 ft. of it.
+ 
+--[Rigged] (Elite) On death, the creature explodes for 9d8 within 40 ft.
+--[Rigged] On death, the creature explodes for 6d8 within 20 ft.
+ 
+--[Sweeping] (Elite) All Non-Spell attacks also hit all creatures within 5 ft. of the target.
+--[Sweeping] All Non-Spell attacks also hit 5 ft. to the left and right of the target.
+ 
+--[Gravity Flip] (Elite) As an Action, the creature picks a spot within 100 ft. and creates a 30 ft. square of reversed gravity 100 ft. tall. It lasts 6 rounds and recharges on a 4-6.
+--[Gravity Flip] As an Action, the creature picks a spot within 50 ft. and creates a 15 ft. square of reversed gravity 50 ft. tall. It lasts 3 rounds and recharges on a 5-6.
+ 
+--[Anti-Grav] (Elite) As a Bonus Action, a targeted creature makes a DC 17 Charisma Save. On a fail, gravity is negated for them for 6 rounds.
+--[Anti-Grav] As a Bonus Action, a targeted creature makes a DC 14 Charisma Save. On a fail, gravity is negated for them for 3 rounds.
+ 
+--[Sapper] (Elite) Attack impose a DC 15 Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack and an extra attack.
+--[Sapper] Attack impose a DC 13 Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack.
+ 
+--[Spider Climb] (Elite) The creature gains 60 ft. of climbing speed, 90 ft. of tremorsense. Surprised creatures have disadvantage on attacks on their next turn.
+--[Spider Climb] The creature gains 30 ft. of climbing speed, 45 ft. of tremorsense. Surprised creatures have disadvantage on attack on their next turn.
+ 
+--[Charging] (Elite) Attacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and triple damage.
+--[Charging] Attacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and double damage.
+ 
+--[Time Watcher] (Elite) Every turn, one target makes a DC 16 Charisma Save or they cannot use Bonus Actions or Reactions on their next turn. They also have half movement speed until then.
+--[Time Watcher] Every turn, one target makes a DC 13 Charisma Save or they cannot use Bonus Actions on their next turn.
+ 
+--[Blinking] (Elite) As a Reaction, the creature can cast Misty Step up to 60 ft. The creature has an additional Reaction eveyr turn.
+--[Blinking] As a Reaction, the creature can cast Misty Step.
+ 
+--[Consumer] (Elite) All consumable items used within 90 ft. instead benefit the creature.
+--[Consumer] All consumable items used within 45 ft. instead benefit the creature.
+ 
+--[Mouth of Holding] (Elite) The creatures mouth functions as a Large Bag of Holding. Creatures inside are incapacitated.
+--[Mouth of Holding] The creatures mouth functions as a Large Bag of Holding.
+ 
+--[Redirector] (Elite) As a Reaction, reduce a projectles damage (even spells) by 3d6 + Dex + CR. Even if not reduced to 0, throw the projectile back with +10 attack; reroll the damage.
+--[Redirector] As a Reaction, reduce a projectles damage (even spells) by 2d6 + Dex + CR. if (redcued to 0, throw the projectile back with +8 attack; reroll the damage.
+ 
+--[Mutant] (Elite) The creature is completely merged with two others. It gains the traits and attacks of all three and the highest of each Stat and HP.
+--[Mutant] The creature is completely merged with another. It gains the traits and attacks of both and the highest of each Stat and HP.
+ 
+--[Plant Growth] (Elite) The creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will. The creature can also use Misty Step to travel through plants up to 60 feet.
+--[Plant Growth] The creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will.
+ 
+--[Trapper] (Elite) The creatures has a large variety of traps and tricks set up within its territory. DCs are 15-17 and damage is 4d6-6d6.
+--[Trapper] The creatures has a large variety of traps and tricks set up within its territory. DCs are 13-15 and damage is 2d6-3d6.
+ 
+--[Blood Bags] (Elite) The creature will fake its death to get an advantage. Sneak attacks from feign death deal 4d6 extra damage and crit on 18-20.
+--[Blood Bags] The creature will fake its death to get an advantage. Sneak attacks from feign death deal 2d6 extra damage.
+ 
+--[Waller] (Elite) Creates walls of stone (or applicable material) to limit movement. Can create two walls per turn, up to 30 ft. tall and long with 120 Hit Points.
+--[Waller] Creates walls of stone (or applicable material) to limit movement. Can create one wall per turn, up to 20 ft. tall and long with 60 Hit Points.
+ 
+--[Riddler] (Elite) As a Bonus Action, the creature asks two targets that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.
+--[Riddler] As a Bonus Action, the creature asks one target that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.
+ 
+--[Gangly] (Elite) The creature has 20 foot longer reach with melee attacks and triple range with ranged attacks.
+--[Gangly] The creature has 10 foot longer reach with melee attacks and double range with ranged attacks.
+ 
+--[Pinpoint] (Elite) All hits are Critical Hits, but the creature has -3 to hit.
+--[Pinpoint] All hits are Critical Hits, but the creature has -5 to hit.
+ 
+--[Consistent] (Elite) The creatures attack always hit and enemies have -4 to Saving Throws, but it cannot land critical hits.
+--[Consistent] The creatures attack always hit and enemies have -2 to Saving Throws, but it cannot land critical hits.
+ 
+--[Resistant] (Elite) The creature has 4 random resistances and 1 random immunity.
+--[Resistant] The creature has 3 random resistances.
+ 
+--[Weakness] (Elite) The creature is Immune to damage of all types except for 2, which it is Vulnerable to.
+--[Weakness] The creature has Resistance to all except for one type, which it is Vulnerable to.
+ 
+--[Gibbering] (Elite) Each creature that starts its turn within 40 feet of the creature and can hear the gibbering must succeed on a DC 16 Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.
+--[Gibbering] Each creature that starts its turn within 20 feet of the creature and can hear the gibbering must succeed on a DC 13 Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.
+ 
+--[Fortified] (Elite) Instances of damage 16 or less deal no damage to the creature.
+--[Fortified] Instances of damage 12 or less deal no damage to the creature.
+ 
+--[Hivemind] (Elite) (Spellcasters Only) The creature can concentrate on 3 spells at once and has advantage and +2 on Saving Throws to maintain Concentration.
+--[Hivemind] (Spellcasters Only) The creature can concentrate on 2 spells at once and has advantage on Saving Throws to maintain Concentration.
+ 
+--[Tactician] (Elite) As a Bonus Action, command two allies to use their Reaction to make an attack. As a Reaction, add 2d6 to the Hit or Save roll of an ally.
+--[Tactician] As a Bonus Action, command an ally to use their Reaction to make an attack. As a Reaction, add 1d6 to the Hit or Save roll of an ally.
+ 
+--[Tiring] (Elite) Every turn, a random creature within 1200 ft. makes a DC 16 Con Save or they gain a level of Exhaustion.
+--[Tiring] Every turn, a random creature within 60 ft. makes a DC 13 Con Save or they gain a level of Exhaustion.
+ 
+--[Tough] (Elite) The creature gains 60 Maximum Hit Points and has Resistance to the two most recent damage types taken.
+--[Tough] The creature gains 25 Maximum Hit Points and has Resistance to the most recent damage type taken.
+ 
+--[Epic] (Elite) Gains 4 uses of Legendary Resistance.
+--[Epic] Gains 2 uses of Legendary Resistance.
+ 
+--[Legendary] (Elite) Gain 2 Legendary Action per round. It can be used to make a single attack, move up to full speed, or casting a known cantrip.
+--[Legendary] Gain 1 Legendary Action per round. It can be used to make a single attack, move up to full speed, or casting a known cantrip.
+ 
+--[Titan] (Elite) The creatures grows two size categories larger, gains 10 feet of melee reach, and adds +13 to Non-Spell damage.
+--[Titan] The creatures grows one size category larger, gains 5 feet of melee reach, and adds +7 to Non-Spell damage.
+ 
+--[Time Flux] (Elite) The creature gains an extra turn. Recharges on 4-6.
+--[Time Flux] The creature gains an extra Action. Recharges on 5-6.
+ 
+--[Glass Cannon] (Elite) The creature deals 50% more damage and takes 25% more damage.
+--[Glass Cannon] The creature deals 25% more damage and takes 25% more damage.
+ 
+--[Weakener] (Elite) At the end of the creatures turn, it chooses up to 2 creatures. Their Resistance is reduced for the rest of combat to a damage type that the creature can deal. (Immunity > Resistance > Normal > +50% Damage > Vulnerable)
+--[Weakener] Damage dealt by this creature reduces the Resistance of the target to that element for the rest of combat. (Immunity > Resistance > Normal > +50% Damage > Vulnerable)
+ 
+--[Pustules] (Elite) Each separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +10 to hit up to 60 ft. They take 2d6 acid damage and gain a stack of nitro. Nitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.
+--[Pustules] Each separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +8 to hit up to 30 ft. They take 1d6 acid damage and gain a stack of nitro. Nitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.
+ 
+--[Gunsmith] (Elite) As a Bonus Action, the creature morphs a limb into a firearm or a siege weapon. These weapons do not need ammo and gain two additional damage die.
+--[Gunsmith] As a Bonus Action, the creature morphs a limb into a firearm. These firearms do not need ammo and gain one additional damage die.
+ 
+--[Magnetic] (Elite) Metal weapons and ammunition have -8 to hit against the creature. As a Bonus Action, the creature can pull three metal item (that can be magnetically affected) with 120 ft. towards it (DC 17 Strength Save).
+--[Magnetic] Metal weapons and ammunition have -4 to hit against the creature. As a Bonus Action, the creature can pull a metal item (that can be magnetically affected) with 60 ft. towards it (DC 15 Strength Save).
+ 
+--[Magnifier] (Elite) Every die rolled by enemies is one tier lower and every die rolled by the creature is one tier higher. (2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)
+--[Magnifier] Every die rolled by enemies is one tier lower. (2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)
+ 
+--[Copycat] (Elite) Twice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.
+--[Copycat] Once a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.
+ 
+--[Plunderer] (Elite) At the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.
+ 
+--[Plunderer] At the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. if (the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.
+ 
+--[Archmage] (Elite) (Spellcaster Only) All spells are upcast two levels.
+--[Archmage] (Spellcaster Only) All spells are upcast one level.
+ 
+--[Double Trouble] (Elite) Geneate a new modifier three times and the creatures gains all three.
+--[Double Trouble] Generate a new modifier twice and the creature gains both.
+ 
+--[Feylost] (Elite) This creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.
+--[Feylost] This creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.
+ 
+--[Fiendish] (Elite) This creature is considered as Fiend. The creature has Immunity to Fire and Resistance to Nonmagical Physical damage. Spells of 2nd Level or lower cannot affect the creature unless it wills them to.
+--[Fiendish] This creature is considered as Fiend. The creature has Resistance to Fire and Nonmagical Physical damage. Spells of 1st Level or lower cannot affect the creature unless it wills them to.
+ 
+--[Slimeling] (Elite) This creature is considered as Ooze. The creature is Immune to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes 6d6 acid damage at the start of their turn (escape DC 16).
+--[Slimeling] This creature is considered as Ooze. The creature has Resistance to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes 3d6 acid damage at the start of their turn (escape DC 14).
+ 
+--[Dragonkin] (Elite) This creature is considered as Dragon. It gains +5 Strength and 60ft. of Blindsight. The creature gains 5 uses of a Dragonborn Breath weapon of DC 17 for 3d10 damage and Resistance to the matching element.
+--[Dragonkin] This creature is considered as Dragon. It gains +3 Strength and 30ft. of Blindsight. The creature gains 3 uses of a Dragonborn Breath weapon of DC 15 for 2d10 damage and Resistance to the matching element.
+ 
+--[Construct] (Elite) This creature is considered as Construct. It gains +5 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and non-adamantite Physical damage. On death, the creatures core overloads and it explodes for 4d8 fire within 30 ft.
+--[Construct] This creature is considered as Construct. It gains +3 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and Resists non-adamantite Physical damage.
+ 
+--[Angelborn] (Elite) This creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by 2d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.
+--[Angelborn] This creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.
+ 
+--[Determinist] (Elite) The creatures gains +8 Strength and Intelligence.
+--[Determinist] The creatures gains +5 Strength and Intelligence.
+ 
+--[Veteran] (Elite) The creatures gains +8 Strength and Wisdom.
+--[Veteran] The creatures gains +5 Strength and Wisdom.
+ 
+--[Gladiator] (Elite) The creatures gains +8 Strength and Charisma.
+--[Gladiator] The creatures gains +5 Strength and Charisma.
+ 
+--[Opportunist] (Elite) The creatures gains +5 Dexterity and Intelligence.
+--[Opportunist] The creatures gains +5 Dexterity and Intelligence.
+ 
+--[Pursuer] (Elite) The creatures gains +8 Dexterity and Wisdom.
+--[Pursuer] The creatures gains +5 Dexterity and Wisdom.
+ 
+--[Robin Hood] (Elite) The creatures gains +8 Dexterity and Charisma.
+--[Robin Hood] The creatures gains +5 Dexterity and Charisma.
+ 
+--[Royalty] (Elite) The creatures gains +8 Constitution and Charisma.
+--[Royalty] The creatures gains +5 Contsitution and Charisma.
+ 
+--[Queenly] (Elite) The creatures gains +8 Constitution and Intelligence.
+--[Queenly] The creatures gains +5 Constitution and Intelligence.
+ 
+--[Kingly] (Elite) The creatures gains +8 Constitution and Wisdom.
+--[Kingly] The creatures gains +5 Constitution and Wisdom.
+
+--[Gambler] (Elite) When rolling Initiative, the creature draws two random Deck of Many Things cards. (Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) (Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)
+ 
+--[Gambler] When rolling Initiative, the creature draws a random Deck of Many Things card. (Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) (Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)
+ 
+--[Nightmare] (Elite) At the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.
+--[Nightmare] At the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.
+ 
+--[Gourmet] (Elite) As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. (Other materials are up to the DM.) --[Wood] Gain 4 AC. --[Stone] Physical Resistance --[Basic Metals] +4 Damage. --[Cloth] Incoming Attacks have Disadv. --[Precious Metals] Advantage on Attacks.
+--[Gourmet] As a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. (Other materials are up to the DM.) --[Wood] Gain 2 AC. --[Stone] Physical Resist, -5 Speed. --[Basic Metals] +2 Damage. --[Cloth] Incoming Attacks have Disadv. --[Precious Metals] -2 AC and Advantage on Attacks.

@@ -1142,6 +1142,20 @@ function EnemyModBtn() {
 	document.getElementById("charBox").innerHTML = GMod;
 }
 
+
+
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+
+function GlyphHelp() {
+	document.getElementById("glyphBox").innerHTML = "";
+}
+
+
+
 // INFO BUTTONS //
 // INFO BUTTONS //
 // INFO BUTTONS //

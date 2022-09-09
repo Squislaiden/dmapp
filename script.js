@@ -1175,8 +1175,15 @@ function MadnessInfo() {
 async function CreatureInfo() {
 	let grabFile = await fetch('/dmapp/lists/creature.txt');
 	let txtConvert = await grabFile.text();
-	const makeArray = txtConvert.split("\r?\n");
-	let basin = makeArray[3];
-	console.log(makeArray);
-document.getElementById("infoBox").innerHTML = `${basin} ${txtConvert}`;
+
+document.getElementById("infoBox").innerHTML = txtConvert;
 }
+
+async function EnemyModInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemymodifier.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+

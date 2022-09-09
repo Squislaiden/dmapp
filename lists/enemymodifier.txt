@@ -350,32 +350,32 @@
 --[Angelborn] (Elite) This creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by 2d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.
 --[Angelborn] This creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.
  
---[Determinist] (Elite) The creatures gains +8 Strength and Intelligence.
---[Determinist] The creatures gains +5 Strength and Intelligence.
+--[Determinist] (Elite) The creature gains +8 Strength and Intelligence.
+--[Determinist] The creature gains +5 Strength and Intelligence.
  
---[Veteran] (Elite) The creatures gains +8 Strength and Wisdom.
---[Veteran] The creatures gains +5 Strength and Wisdom.
+--[Veteran] (Elite) The creature gains +8 Strength and Wisdom.
+--[Veteran] The creature gains +5 Strength and Wisdom.
  
---[Gladiator] (Elite) The creatures gains +8 Strength and Charisma.
---[Gladiator] The creatures gains +5 Strength and Charisma.
+--[Gladiator] (Elite) The creature gains +8 Strength and Charisma.
+--[Gladiator] The creature gains +5 Strength and Charisma.
  
---[Opportunist] (Elite) The creatures gains +5 Dexterity and Intelligence.
---[Opportunist] The creatures gains +5 Dexterity and Intelligence.
+--[Opportunist] (Elite) The creature gains +5 Dexterity and Intelligence.
+--[Opportunist] The creatures gain +5 Dexterity and Intelligence.
  
---[Pursuer] (Elite) The creatures gains +8 Dexterity and Wisdom.
---[Pursuer] The creatures gains +5 Dexterity and Wisdom.
+--[Pursuer] (Elite) The creatures gain +8 Dexterity and Wisdom.
+--[Pursuer] The creatures gain +5 Dexterity and Wisdom.
  
---[Robin Hood] (Elite) The creatures gains +8 Dexterity and Charisma.
---[Robin Hood] The creatures gains +5 Dexterity and Charisma.
+--[Robin Hood] (Elite) The creature gains +8 Dexterity and Charisma.
+--[Robin Hood] The creatures gain +5 Dexterity and Charisma.
  
---[Royalty] (Elite) The creatures gains +8 Constitution and Charisma.
---[Royalty] The creatures gains +5 Contsitution and Charisma.
+--[Royalty] (Elite) The creature gains +8 Constitution and Charisma.
+--[Royalty] The creatures gain +5 Contsitution and Charisma.
  
---[Queenly] (Elite) The creatures gains +8 Constitution and Intelligence.
---[Queenly] The creatures gains +5 Constitution and Intelligence.
+--[Queenly] (Elite) The creature gains +8 Constitution and Intelligence.
+--[Queenly] The creature gains +5 Constitution and Intelligence.
  
---[Kingly] (Elite) The creatures gains +8 Constitution and Wisdom.
---[Kingly] The creatures gains +5 Constitution and Wisdom.
+--[Kingly] (Elite) The creature gains +8 Constitution and Wisdom.
+--[Kingly] The creature gains +5 Constitution and Wisdom.
 
 --[Gambler] (Elite) When rolling Initiative, the creature draws two random Deck of Many Things cards. (Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) (Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)
  

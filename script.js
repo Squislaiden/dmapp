@@ -1060,57 +1060,57 @@ function EnemyMod() {
             }
         else if (modRoll == 118) {
             if (modElite == 10) {
-                GMod = "[Determinist] (Elite) \nThe creatures gains +8 Strength and Intelligence.";}
+                GMod = "[Determinist] (Elite) \nThe creature gains +8 Strength and Intelligence.";}
             else {
-                GMod = "[Determinist] \nThe creatures gains +5 Strength and Intelligence.";}
+                GMod = "[Determinist] \nThe creature gains +5 Strength and Intelligence.";}
             }
         else if (modRoll == 119) {
             if (modElite == 10) {
-                GMod = "[Veteran] (Elite) \nThe creatures gains +8 Strength and Wisdom.";}
+                GMod = "[Veteran] (Elite) \nThe creature gains +8 Strength and Wisdom.";}
             else {
-                GMod = "[Veteran] \nThe creatures gains +5 Strength and Wisdom.";}
+                GMod = "[Veteran] \nThe creature gains +5 Strength and Wisdom.";}
             }
         else if (modRoll == 120) {
             if (modElite == 10) {
-                GMod = "[Gladiator] (Elite) \nThe creatures gains +8 Strength and Charisma.";}
+                GMod = "[Gladiator] (Elite) \nThe creature gains +8 Strength and Charisma.";}
             else {
-                GMod = "[Gladiator] \nThe creatures gains +5 Strength and Charisma.";}
+                GMod = "[Gladiator] \nThe creature gains +5 Strength and Charisma.";}
             }
         else if (modRoll == 121) {
             if (modElite == 10) {
-                GMod = "[Opportunist] (Elite) \nThe creatures gains +5 Dexterity and Intelligence.";}
+                GMod = "[Opportunist] (Elite) \nThe creature gains +5 Dexterity and Intelligence.";}
             else {
-                GMod = "[Opportunist] \nThe creatures gains +5 Dexterity and Intelligence.";}
+                GMod = "[Opportunist] \nThe creature gains +5 Dexterity and Intelligence.";}
             }
         else if (modRoll == 122) {
             if (modElite == 10) {
-                GMod = "[Pursuer] (Elite) \nThe creatures gains +8 Dexterity and Wisdom.";}
+                GMod = "[Pursuer] (Elite) \nThe creature gains +8 Dexterity and Wisdom.";}
             else {
-                GMod = "[Pursuer] \nThe creatures gains +5 Dexterity and Wisdom.";}
+                GMod = "[Pursuer] \nThe creature gains +5 Dexterity and Wisdom.";}
             }
         else if (modRoll == 123) {
             if (modElite == 10) {
-                GMod = "[Robin Hood] (Elite) \nThe creatures gains +8 Dexterity and Charisma.";}
+                GMod = "[Robin Hood] (Elite) \nThe creature gains +8 Dexterity and Charisma.";}
             else {
-                GMod = "[Robin Hood] \nThe creatures gains +5 Dexterity and Charisma.";}
+                GMod = "[Robin Hood] \nThe creature gains +5 Dexterity and Charisma.";}
             }
         else if (modRoll == 124) {
             if (modElite == 10) {
-                GMod = "[Royalty] (Elite) \nThe creatures gains +8 Constitution and Charisma.";}
+                GMod = "[Royalty] (Elite) \nThe creature gains +8 Constitution and Charisma.";}
             else {
-                GMod = "[Royalty] \nThe creatures gains +5 Contsitution and Charisma.";}
+                GMod = "[Royalty] \nThe creature gains +5 Contsitution and Charisma.";}
             }
         else if (modRoll == 125) {
             if (modElite == 10) {
-                GMod = "[Queenly] (Elite) \nThe creatures gains +8 Constitution and Intelligence.";}
+                GMod = "[Queenly] (Elite) \nThe creature gains +8 Constitution and Intelligence.";}
             else {
-                GMod = "[Queenly] \nThe creatures gains +5 Constitution and Intelligence.";}
+                GMod = "[Queenly] \nThe creature gains +5 Constitution and Intelligence.";}
             }
         else if (modRoll == 126) {
             if (modElite == 10) {
-                GMod = "[Kingly] (Elite) \nThe creatures gains +8 Constitution and Wisdom.";}
+                GMod = "[Kingly] (Elite) \nThe creature gains +8 Constitution and Wisdom.";}
             else {
-                GMod = "[Kingly] \nThe creatures gains +5 Constitution and Wisdom.";}
+                GMod = "[Kingly] \nThe creature gains +5 Constitution and Wisdom.";}
             }
         else if (modRoll == 127) {
             if (modElite == 10) {

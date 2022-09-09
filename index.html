@@ -15,135 +15,7 @@
 body {font-family: Arial;}
 p {font-size: 14px;}
 
-/* Style the tab */
-.tab {
-  white-space: nowrap;
-  border: 1px solid #ccc;
-  background-color: #454545;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 7px 8px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  -webkit-animation: fadeEffect 1s;
-  animation: fadeEffect 1s;
-}
-
-/* Fade in tabs */
-@-webkit-keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.button-71 {
-  background-color: #191970;
-  border: 0;
-  border-radius: 56px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  outline: 0;
-  padding: 16px 21px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-71:before {
-  background-color: initial;
-  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-  border-radius: 50px;
-  content: "";
-  height: 50%;
-  left: 4%;
-  opacity: .5;
-  position: absolute;
-  top: 0;
-  transition: all .3s;
-  width: 92%;
-}
-
-.button-71:hover {
-  box-shadow: rgba(255, 255, 255, .4) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-  transform: scale(1.05);
-}
-
-.button-71:active {
-  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-  transform: scale(.98);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0 0);
-}
-
-@media (min-width: 212px) {
-  .button-71 {
-    padding: 6px 12px;
-  }
-}
-
-.button-70 {
-  background-image: linear-gradient(#0dccea, #191970);
-  border: 0;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: Montserrat,sans-serif;
-  font-size: .6em;
-  margin: 5px;
-  padding: 6px 12px;
-  text-align: center;
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-70:hover {
-  box-shadow: rgba(255, 255, 255, .4) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-  transform: scale(1.04);
-}
   
 .button-70:active {
   box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
@@ -340,10 +212,59 @@ input[type='number']{
 <div id="glyphtab" class="tabcontent">
   	<div class="grid">
 	<div class="grid-item grid-item-double">
-		<button class="button-71" onclick="???();">Homebrew Glyph Tab</button><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="button-glyph" style="height: 50px; width: 75px" onclick="???();">Weapon</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button class="button-70" style="font-size: 12px; height: 35px; padding: 4px" onclick="???();">Generate<br>Glyphs</button>
+		<div style="float: right"><button class="button-taint" style="height: 50px; width: 75px;" onclick="???();">Tainted<br>Weapon</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br> 
+		
+		<button class="button-glyph" style="height: 50px; width: 75px" onclick="???();">Armor</button>&nbsp;<input type="number" id="affixNum" name="affixNum" min="1" value="3">
+		<button class="button-glyph" style="height: 50px; width: 75px" onclick="???();">Accessory</button>&nbsp;&nbsp;&nbsp; <input type="number" id="glyphNum" name="glyphNum" min="1" value="20">
+		
+		<div style="float: right">
+		<button class="button-taint" style="height: 50px; width: 75px" onclick="???();">Tainted<br>Armor</button>&nbsp;&nbsp;&nbsp;
+		<button class="button-taint" style="height: 50px; width: 75px" onclick="???();">Tainted<br>Accessory</button>
+		</div><br>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="button-purp" style="height: 50px;" onclick="???();">Exertise Glyph<br>(Class Affix)</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="button-71" style="" onclick="???();">HELP</button>
+
+		<div style="float: right">
+		<button class="button-purp" style="height: 50px; width: 75px" onclick="???();">Chaotic<br>Armor</button>&nbsp;&nbsp;&nbsp;
+		<button class="button-purp" style="height: 50px; width: 75px" onclick="???();">Chaotic<br>Accessory</button>
+		</div><br>
+		
+		<div style="float: left"><br>
+		<button class="button-subtype" onclick="???();">Attribute</button><button class="button-subtype" onclick="???();">Skill</button><button class="button-subtype" onclick="???();">Physical Type</button><button class="button-subtype" onclick="???();">Element Type</button><br>
+		<button class="button-subtype" onclick="???();">Condition</button><button class="button-subtype" onclick="???();">Action</button><button class="button-subtype" onclick="???();">Terrain</button><button class="button-subtype" onclick="???();">Creature Type</button><br>
+		<button class="button-subtype" onclick="???();">Fighting Style</button><button class="button-subtype" onclick="???();">Infusion</button><button class="button-subtype" onclick="???();">Maneuver</button><button class="button-subtype" onclick="???();">Wizard Subclass</button><br>
+		<button class="button-subtype" onclick="???();">Invocation</button><button class="button-subtype" onclick="???();">Meta-Magic</button><button class="button-subtype" onclick="???();">Warlock Subclass</button><button class="button-subtype" onclick="???();">Weather</button><br>
 		</div>
+		
+		
+		<div style="float: right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-purp" style="height: 50px; width: 75px" onclick="???();">Chaotic<br>Weapon</button><br>
+			<input type="checkbox" id="Artificer"><font size="2">Artificer</font>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Paladin"><font size="2">Paladin</font><br>
+			<input type="checkbox" id="Barbarian"><font size="2">Barbarian</font>&nbsp;&nbsp;<input type="checkbox" id="Ranger"><font size="2">Ranger</font><br>
+			<input type="checkbox" id="Bard"><font size="2">Bard</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="Rogue"><font size="2">Rogue</font><br>
+			<input type="checkbox" id="Cleric"><font size="2">Cleric</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
+			<input type="checkbox" id="Druid"><font size="2">Druid</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Warlock"><font size="2">Warlock</font><br>
+			<input type="checkbox" id="Fighter"><font size="2">Fighter</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Wizard"><font size="2">Wizard</font><br>
+			<input type="checkbox" id="Monk"><font size="2">Monk</font><br>
+		</div>
+		
+		<br><br><br><br><br>
+		<div style="float: left">
+		<font size="3">Lists of Affixes</font><br>
+		<button class="button-70" style="padding: 6px" onclick="???();">Weapon</button>&nbsp;&nbsp;<button class="button-70" style="padding: 6px" onclick="???();">Tainted Weapon</button><br>
+		<button class="button-70" style="padding: 6px" onclick="???();">Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button style="padding: 6px" class="button-70" onclick="???();">Tainted Armor</button>&nbsp;&nbsp;
+		<button class="button-70" style="padding: 6px" onclick="???();">Subtypes</button><br>
+		<button class="button-70" style="padding: 6px" onclick="???();">Accessory</button><button style="padding: 6px" class="button-70" onclick="???();">Tainted Accessory</button>
+		</div></div>
+	<div class="grid-item grid-item-double">
+		<center><form>
+		<font size=4>Results:</font>
+		<textarea rows="44" cols="60" name="glyphBox" spellcheck="false" id="glyphBox" readonly="textareaEdit"></textarea>
+		</form></center>
 	</div>
-	
+	</div>
 </div>
 
 <div id="infotab" class="tabcontent">

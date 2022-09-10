@@ -1,0 +1,9 @@
+Arctic
+Coast
+Desert
+Forest
+Grassland
+Mountain
+Swamp
+Underdark
+Urban

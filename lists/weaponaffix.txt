@@ -1,0 +1,87 @@
+NOTE: T3 Affixes CANNOT be obtained through any button in this webpage. They are here for reference only, the only way to attain them is to use an Ascension Glyph on an item with a T2 version.
+--------------------
+(T1 Weapon) +1 to Weapon Hit
+(T2 Weapon) +2 to Weapon Hit
+(T3 Weapon) +3 to Weapon Hit
+--------------------
+(T1 Weapon) +1 to Weapon Damage
+(T2 Weapon) +2 to Weapon Damage
+(T3 Weapon) +3 to Weapon Damage
+--------------------
+(T2 Weapon) +1 to Weapon Hit and Damage
+(T3 Weapon) +2 to Weapon Hit and Damage
+--------------------
+(T2 Weapon) +1 to Weapon Critical Hit Range
+(T3 Weapon) +2 to Weapon Critical Hit Range
+--------------------
+(T2 Weapon) +5 ft. to Weapon Range (and) Double Range if Thrown or Ranged
+(T3 Weapon) +10 ft. to Weapon Range (and) Triple Range if Thrown or Ranged
+--------------------
+(T1 Weapon) Gain Advantage on attacks with the weapon
+(T2 Weapon) Gain +2 and Advantage on attacks with the weapon
+(T3 Weapon) Gain +4 and Advantage on attacks with the weapon
+--------------------
+(T1 Weapon) Once, recharging on a Long Rest, on a miss, reroll the hit and if it hits, it deals half damage and cannot be a critical
+(T2 Weapon) Twice, recharging on a Long Rest, on a miss, reroll the hit and if it hits, it deals half damage and cannot be a critical
+(T3 Weapon) Once per turn, on a miss, reroll the hit and if it hits, it deals half damage and cannot be a critical
+--------------------
+(T1 Weapon) The weapon is considered Silvered for overcoming Supernatural Resistance
+(T2 Weapon) The weapon is considered Silvered for overcoming Supernatural Resistance and deals an extra 1d4 to those creatures
+(T3 Weapon) The weapon is considered Silvered for overcoming Supernatural Resistance and deals an extra 2d4 to those creatures
+--------------------
+(T2 Weapon) The weapon can be used as a Spellcasting Focus
+(T3 Weapon) The weapon can be used as a Spellcasting Focus and gains +1 to Spell Attack
+--------------------
+(T1 Weapon) Deal an extra +3 damage to (CREATURE)
+(T2 Weapon) Deal an extra +6 damage to (CREATURE)
+(T3 Weapon) Deal 50% more damage to (CREATURE)
+--------------------
+(T1 Weapon) Increase the weapon Damage Dice by 1 Tier
+(T2 Weapon) Increase the weapon Damage Dice by 2 Tiers
+(T3 Weapon) Increase the weapon Damage Dice by 3 Tiers
+--------------------
+(T1 Weapon) The weapons deals an extra +1d4 (PHYSICAL)
+(T2 Weapon) The weapons deals an extra +1d6 (PHYSICAL)
+(T3 Weapon) The weapons deals an extra +1d8 (PHYSICAL)
+--------------------
+(T2 Weapon) The weapon bypasses Resistances
+(T3 Weapon) The weapon bypasses Immunity
+--------------------
+(T1 Weapon) Once, recharging on a Short Rest, when you hit a creature, roll your unmodified (before affixes) weapon damage dice and heal for that
+(T2 Weapon) Any time you hit a creature, roll your unmodified (before affixes) weapon damage dice and heal for half of that
+(T3 Weapon) Any time you hit a creature, roll your unmodified (before affixes) weapon damage dice and heal for that
+--------------------
+(T1 Weapon) Damage Rolls on this weapon can add your Strength, Dexterity, or Consitution modifier
+(T2 Weapon) Hit Rolls on this weapon can add your Strength, Dexterity, or Consitution modifier
+(T3 Weapon) Hit and Damage Rolls on this weapon can add your Strength, Dexterity, or Consitution modifier
+--------------------
+(T2 Weapon) Creatures hit by this weapon cannot regain Hit Points until the start of your next turn
+(T3 Weapon) Creatures hit by this weapon cannot regain Hit Points until the start of your next turn and have their Recharge abilities have 1 less range on their roll to recharge
+--------------------
+(T2 Weapon) Creatures hit by this weapon are impaired to (ELEMENT) until the start of your next turn
+(T3 Weapon) Creatures hit by this weapon are impaired to (ELEMENT) for two turns
+--------------------
+(T1 Weapon) Creature hit by this weapon have -5 ft. to movement speeds until the start of your next turn
+(T2 Weapon) Creature hit by this weapon have -10 ft. to movement speeds until the start of your next turn
+(T3 Weapon) Creature hit by this weapon have -15 ft. to movement speeds until the start of your next turn
+--------------------
+(T1 Weapon) Creatures hit by this weapon are wounded; until the start of your next turn, every time they take damage matching the weapon's type, they take an extra 1d6
+(T2 Weapon) Creatures hit by this weapon are wounded; until the start of your next turn, every time they take damage matching the weapon's type, they take an extra 1d8
+(T3 Weapon) Creatures hit by this weapon are woundedfor the next two turns, every time they take damage matching the weapon's type, they take an extra 1d10
+--------------------
+(T2 Weapon) As a Bonus Action, the weapon can be stored or retrieved from a pocket dimension
+(T3 Weapon) As a Reaction, the weapon can be stored or retrieved from a pocket dimension
+--------------------
+(T1 Weapon) As a Bonus Action, the weapon can change into a weapon of the opposite range (melee/ranged). The weapon is randomly selected or determined by the DM and can be changed with a Tailoring Glyph.
+(T2 Weapon) As a Bonus Action, the weapon can change into one of two weapons. One of them is the same type and the other is of the opposite range (melee/ranged). The weapons are randomly selected or determined by the DM and can be changed with a Tailoring Glyph.
+(T3 Weapon) As a Reaction, the weapon can change into one of two weapons. One of them is the same type and the other is of the opposite range (melee/ranged). The weapons are randomly selected or determined by the DM and can be changed with a Tailoring Glyph.
+--------------------
+(T1 Weapon) Weapon Damage rolls on this weapon can use Intelligence, Wisdom, or Charisma.
+(T2 Weapon) Weapon Hit rolls on this weapon can use Intelligence, Wisdom, or Charisma.
+(T3 Weapon) Weapon Hit and Damage rolls on this weapon can use Intelligence, Wisdom, or Charisma.
+--------------------
+(T2 Weapon) Gain advantage if an ally is within 5 ft. of the target.
+(T3 Weapon) Gain advantage if an ally is within 5 ft. of the target. Flanked enemies have Disadvantage on their attacks.
+--------------------
+(T2 Weapon) As a Bonus Action, you can attack with the weapon, but it deals half damage.
+(T3 Weapon) As a Bonus Action, you can attack with the weapon, but it deals half damage. Alternatively, if a Bonus Action is not used on a turn, gain +1 AC unti the start of your next turn.

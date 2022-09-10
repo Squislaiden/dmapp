@@ -12,9 +12,30 @@
 // Global Variables //
 // Global Variables //
 var GCreature
+var GAttribute
+var GSkill
+var GTerrain
+var GWeather
+var GCondition
+var GPhysical
+var GElement
+var GAction
+var GFightingStyle
+var GInfusion
+var GInvocation
+var GMetaMagic
+var GManeuver
+var GWizard
+var GWarlock
 
 	// Glyphs //
-
+var GWeaponAffix
+var GArmorAffix
+var GAccessoryAffix
+var GTaintedWeapon
+var GTaintedArmor
+var GTaintedAccessory
+var GClassAffix
 	// Glyphs //
 	// Character Gen //
 
@@ -315,6 +336,12 @@ function rollDice() {
 	document.getElementById("genBox").innerHTML += `Modifier: ${diceNeg}${diceMod}\nTotal: ${diceTotal}`;
 }
 
+// SUBTYPES //
+// SUBTYPES //
+// SUBTYPES //
+// SUBTYPES //
+// SUBTYPES //
+
 function CreatureTypeGen() {
 	let creatureResult
 	let RNG = Math.floor(Math.random() * 14) + 1;
@@ -336,18 +363,394 @@ function CreatureTypeGen() {
 	else {}
 	GCreature = creatureResult
 }
-function CreatureBtn() {
-	CreatureTypeGen()
-	document.getElementById("charBox").innerHTML = GCreature;
+	function CreatureBtn() {
+		CreatureTypeGen()
+		document.getElementById("glyphBox").innerHTML = GCreature;
+	}
+
+function AttributeTypeGen() {
+	let attributeResult
+	let RNG = Math.floor(Math.random() * 6) + 1;
+	
+	if (RNG == 1) {attributeResult = "Strength";}
+	else if (RNG == 2) {attributeResult = "Dexterity";}
+	else if (RNG == 3) {attributeResult = "Constitution";}
+	else if (RNG == 4) {attributeResult = "Intelligence";}
+	else if (RNG == 5) {attributeResult = "Wisdom";}
+	else if (RNG == 6) {attributeResult = "Charisma";}
+	else {}
+	GAttribute = attributeResult
 }
+	function AttributeBtn() {
+		AttributeTypeGen()
+		document.getElementById("glyphBox").innerHTML = GAttribute;
+	}
+
+function PhysicalTypeGen() {
+	let physicalResult
+	let RNG = Math.floor(Math.random() * 4) + 1;
+	
+	if (RNG == 1) {physicalResult = "Bludgeoning";}
+	else if (RNG == 2) {physicalResult = "Slashing";}
+	else if (RNG == 3) {physicalResult = "Piercing";}
+	else if (RNG == 4) {physicalResult = "Native Weapon Type";}
+	else {}
+	GPhysical = physicalResult
+}
+	function PhysicalBtn() {
+		PhysicalTypeGen()
+		document.getElementById("glyphBox").innerHTML = GPhysical;
+	}
+
+function ElementTypeGen() {
+	let elementResult
+	let RNG = Math.floor(Math.random() * 10) + 1;
+	
+	if (RNG == 1) {elementResult = "Acid";}
+	else if (RNG == 2) {elementResult = "Cold";}
+	else if (RNG == 3) {elementResult = "Fire";}
+	else if (RNG == 4) {elementResult = "Thunder";}
+	else if (RNG == 5) {elementResult = "Lightning";}
+	else if (RNG == 6) {elementResult = "Force";}
+	else if (RNG == 7) {elementResult = "Necrotic";}
+	else if (RNG == 8) {elementResult = "Radiant";}
+	else if (RNG == 9) {elementResult = "Poison";}
+	else if (RNG == 10) {elementResult = "Psychic";}
+	else {}
+	GElement = elementResult
+}
+	function ElementBtn() {
+		ElementTypeGen()
+		document.getElementById("glyphBox").innerHTML = GElement;
+	}
+
+function SkillTypeGen() {
+	let skillResult
+	let RNG = Math.floor(Math.random() * 19) + 1;
+	
+	if (RNG == 1) {skillResult = "Acrobatics";}
+	else if (RNG == 2) {skillResult = "Animal Handling";}
+	else if (RNG == 3) {skillResult = "Arcana";}
+	else if (RNG == 4) {skillResult = "Athletics";}
+	else if (RNG == 5) {skillResult = "Deception";}
+	else if (RNG == 6) {skillResult = "History";}
+	else if (RNG == 7) {skillResult = "Initiative";}
+	else if (RNG == 8) {skillResult = "Insight";}
+	else if (RNG == 9) {skillResult = "Intimidation";}
+	else if (RNG == 10) {skillResult = "Investigation";}
+	else if (RNG == 11) {skillResult = "Medicine";}
+	else if (RNG == 12) {skillResult = "Nature";}
+	else if (RNG == 13) {skillResult = "Perception";}
+	else if (RNG == 14) {skillResult = "Performance";}
+	else if (RNG == 15) {skillResult = "Persuasion";}
+	else if (RNG == 16) {skillResult = "Religion";}
+	else if (RNG == 17) {skillResult = "Sleight of Hand";}
+	else if (RNG == 18) {skillResult = "Stealth";}
+	else if (RNG == 19) {skillResult = "Survival";}
+	else {}
+	GSkill = skillResult
+}
+	function SkillBtn() {
+		SkillTypeGen()
+		document.getElementById("glyphBox").innerHTML = GSkill;
+	}
+
+function ConditionTypeGen() {
+	let conditionResult
+	let RNG = Math.floor(Math.random() * 10) + 1;
+	
+	if (RNG == 1) {conditionResult = "Blindness & Deafness";}
+	else if (RNG == 2) {conditionResult = "Charm";}
+	else if (RNG == 3) {conditionResult = "Frightened";}
+	else if (RNG == 4) {conditionResult = "Paralyzed";}
+	else if (RNG == 5) {conditionResult = "Petrified";}
+	else if (RNG == 6) {conditionResult = "Poisoned";}
+	else if (RNG == 7) {conditionResult = "Disease";}
+	else if (RNG == 8) {conditionResult = "Curse";}
+	else if (RNG == 9) {conditionResult = "Stunned";}
+	else if (RNG == 10) {conditionResult = "Grappled (unless it also Restrains)";}
+	else {}
+	GCondition = conditionResult
+}
+	function ConditionBtn() {
+		ConditionTypeGen()
+		document.getElementById("glyphBox").innerHTML = GCondition;
+	}
+
+function ActionTypeGen() {
+	let actionResult
+	let RNG = Math.floor(Math.random() * 5) + 1;
+	
+	if (RNG == 1) {actionResult = "Disengage";}
+	else if (RNG == 2) {actionResult = "Hide";}
+	else if (RNG == 3) {actionResult = "Dash";}
+	else if (RNG == 4) {actionResult = "Dodge";}
+	else if (RNG == 5) {actionResult = "Help";}
+	else {}
+	GAction = actionResult
+}
+	function ActionBtn() {
+		ActionTypeGen()
+		document.getElementById("glyphBox").innerHTML = GAction;
+	}
+
+function WeatherTypeGen() {
+	let weatherResult
+	let RNG = Math.floor(Math.random() * 2) + 1;
+	
+	if (RNG == 1) {weatherResult = "Extreme Heat";}
+	else if (RNG == 2) {weatherResult = "Extreme Cold";}
+	else {}
+	GWeather = weatherResult
+}
+	function WeatherBtn() {
+		WeatherTypeGen()
+		document.getElementById("glyphBox").innerHTML = GWeather;
+	}
+
+function WizardTypeGen() {
+	let wizardResult
+	let RNG = Math.floor(Math.random() * 8) + 1;
+	
+	if (RNG == 1) {wizardResult = "Abjuration";}
+	else if (RNG == 2) {wizardResult = "Conjuration";}
+	else if (RNG == 3) {wizardResult = "Divination";}
+	else if (RNG == 4) {wizardResult = "Enchantment";}
+	else if (RNG == 5) {wizardResult = "Evocation";}
+	else if (RNG == 6) {wizardResult = "Illusion";}
+	else if (RNG == 7) {wizardResult = "Necromancy";}
+	else if (RNG == 8) {wizardResult = "Transmutation";}
+	else {}
+	GWizard = wizardResult
+}
+	function WizardBtn() {
+		WizardTypeGen()
+		document.getElementById("glyphBox").innerHTML = GWizard;
+	}
+
+function WarlockTypeGen() {
+	let warlockResult
+	let RNG = Math.floor(Math.random() * 7) + 1;
+	
+	if (RNG == 1) {warlockResult = "Archfey";}
+	else if (RNG == 2) {warlockResult = "Celestial";}
+	else if (RNG == 3) {warlockResult = "Fathomless";}
+	else if (RNG == 4) {warlockResult = "Fiend";}
+	else if (RNG == 5) {warlockResult = "Genie";}
+	else if (RNG == 6) {warlockResult = "Great Old One";}
+	else if (RNG == 7) {warlockResult = "Hexblade";}
+	else {}
+	GWarlock = warlockResult
+}
+	function WarlockBtn() {
+		WarlockTypeGen()
+		document.getElementById("glyphBox").innerHTML = GWarlock;
+	}
+
+function FightingStyleTypeGen() {
+	let fightingStyleResult
+	let RNG = Math.floor(Math.random() * 14) + 1;
+	
+	if (RNG == 1) {fightingStyleResult = "Archery";}
+	else if (RNG == 2) {fightingStyleResult = "Blind Fighting";}
+	else if (RNG == 3) {fightingStyleResult = "Defense";}
+	else if (RNG == 4) {fightingStyleResult = "Dueling";}
+	else if (RNG == 5) {fightingStyleResult = "Great Weapon Fighting";}
+	else if (RNG == 6) {fightingStyleResult = "Interception";}
+	else if (RNG == 7) {fightingStyleResult = "Protection";}
+	else if (RNG == 8) {fightingStyleResult = "Superior Technique";}
+	else if (RNG == 9) {fightingStyleResult = "Thrown Weapon Fighting";}
+	else if (RNG == 10) {fightingStyleResult = "Two-Weapon Fighting";}
+	else if (RNG == 11) {fightingStyleResult = "Unarmed Fighting";}
+	else if (RNG == 12) {fightingStyleResult = "Close Quarters Shooter";}
+	else if (RNG == 13) {fightingStyleResult = "Mariner";}
+	else if (RNG == 14) {fightingStyleResult = "Tunnel Fighter";}
+
+	else {}
+	GFightingStyle = fightingStyleResult
+}
+	function FightingStyleBtn() {
+		FightingStyleTypeGen()
+		document.getElementById("glyphBox").innerHTML = GFightingStyle;
+	}
+
+function TerrainTypeGen() {
+	let terrainResult
+	let RNG = Math.floor(Math.random() * 9) + 1;
+	
+	if (RNG == 1) {terrainResult = "Arctic";}
+	else if (RNG == 2) {terrainResult = "Coast";}
+	else if (RNG == 3) {terrainResult = "Desert";}
+	else if (RNG == 4) {terrainResult = "Forest";}
+	else if (RNG == 5) {terrainResult = "Grassland";}
+	else if (RNG == 6) {terrainResult = "Mountain";}
+	else if (RNG == 7) {terrainResult = "Swamp";}
+	else if (RNG == 8) {terrainResult = "Underdark";}
+	else if (RNG == 9) {terrainResult = "Urban";}
+	else {}
+	GTerrain = terrainResult
+}
+	function TerrainBtn() {
+		TerrainTypeGen()
+		document.getElementById("glyphBox").innerHTML = GTerrain;
+	}
+
+function MetaMagicTypeGen() {
+	let metaMagicResult
+	let RNG = Math.floor(Math.random() * 10) + 1;
+	
+	if (RNG == 1) {metaMagicResult = "Careful Spell";}
+	else if (RNG == 2) {metaMagicResult = "Distant Spell";}
+	else if (RNG == 3) {metaMagicResult = "Empowered Spell";}
+	else if (RNG == 4) {metaMagicResult = "Extended Spell";}
+	else if (RNG == 5) {metaMagicResult = "Heightened Spell";}
+	else if (RNG == 6) {metaMagicResult = "Quickened Spell";}
+	else if (RNG == 7) {metaMagicResult = "Seeking Spell";}
+	else if (RNG == 8) {metaMagicResult = "Subtle Spell";}
+	else if (RNG == 9) {metaMagicResult = "Trasmuted Spell";}
+	else if (RNG == 10) {metaMagicResult = "Twinned Spell";}
+	else {}
+	GMetaMagic = metaMagicResult
+}
+	function MetaMagicBtn() {
+		MetaMagicTypeGen()
+		document.getElementById("glyphBox").innerHTML = GMetaMagic;
+	}
+
+function ManeuverTypeGen() {
+	let maneuverResult
+	let RNG = Math.floor(Math.random() * 23) + 1;
+	
+	if (RNG == 1) {maneuverResult = "Ambush";}
+	else if (RNG == 2) {maneuverResult = "Bait and Switch";}
+	else if (RNG == 3) {maneuverResult = "Brace";}
+	else if (RNG == 4) {maneuverResult = "Commander's Strike";}
+	else if (RNG == 5) {maneuverResult = "Commanding Presence";}
+	else if (RNG == 6) {maneuverResult = "Disarming Attack";}
+	else if (RNG == 7) {maneuverResult = "Distracting Strike";}
+	else if (RNG == 8) {maneuverResult = "Evasive Footwork";}
+	else if (RNG == 9) {maneuverResult = "Feinting Attack";}
+	else if (RNG == 10) {maneuverResult = "Goading Attack";}
+	else if (RNG == 11) {maneuverResult = "Grappling Strike";}
+	else if (RNG == 12) {maneuverResult = "Lunging Attack";}
+	else if (RNG == 13) {maneuverResult = "Maneuvering Attack";}
+	else if (RNG == 14) {maneuverResult = "Menacing Attack";}
+	else if (RNG == 15) {maneuverResult = "Parry";}
+	else if (RNG == 16) {maneuverResult = "Precision Attack";}
+	else if (RNG == 17) {maneuverResult = "Pushing Attack";}
+	else if (RNG == 18) {maneuverResult = "Quick Toss";}
+	else if (RNG == 19) {maneuverResult = "Rally";}
+	else if (RNG == 20) {maneuverResult = "Riposte";}
+	else if (RNG == 21) {maneuverResult = "Sweeping Attack";}
+	else if (RNG == 22) {maneuverResult = "Tactical Assessment";}
+	else if (RNG == 23) {maneuverResult = "Trip Attack";}
+	else {}
+	GManeuver = maneuverResult
+}
+	function ManeuverBtn() {
+		ManeuverTypeGen()
+		document.getElementById("glyphBox").innerHTML = GManeuver;
+	}
+
+function InfusionTypeGen() {
+	let infusionResult
+	let RNG = Math.floor(Math.random() * 16) + 1;
+	
+	if (RNG == 1) {infusionResult = "Arcane Propulsion Armor";}
+	else if (RNG == 2) {infusionResult = "Armor of Magical Strength";}
+	else if (RNG == 3) {infusionResult = "Boots of the Winding Path";}
+	else if (RNG == 4) {infusionResult = "Enhanced Arcane Focus";}
+	else if (RNG == 5) {infusionResult = "Enhanced Defense";}
+	else if (RNG == 6) {infusionResult = "Enhanced Weapon";}
+	else if (RNG == 7) {infusionResult = "Helm of Awareness";}
+	else if (RNG == 8) {infusionResult = "Homunculus Servant";}
+	else if (RNG == 9) {infusionResult = "Mind Sharpener";}
+	else if (RNG == 10) {infusionResult = "Radiant Weapon";}
+	else if (RNG == 11) {infusionResult = "Repeating Shot";}
+	else if (RNG == 12) {infusionResult = "Replicate Magic Item";}
+	else if (RNG == 13) {infusionResult = "Repulsion Shield";}
+	else if (RNG == 14) {infusionResult = "Resistant Armor";}
+	else if (RNG == 15) {infusionResult = "Returning Weapon";}
+	else if (RNG == 16) {infusionResult = "Spell-Refueling Ring";}
+	else {}
+	GInfusion = infusionResult
+}
+	function InfusionBtn() {
+		InfusionTypeGen()
+		document.getElementById("glyphBox").innerHTML = GInfusion;
+	}
+
+function InvocationTypeGen() {
+	let invocationResult
+	let RNG = Math.floor(Math.random() * 54) + 1;
+	
+	if (RNG == 1) {invocationResult = "Agonizing Blast";}
+	else if (RNG == 2) {invocationResult = "Armor of Shadows";}
+	else if (RNG == 3) {invocationResult = "Ascendant Step";}
+	else if (RNG == 4) {invocationResult = "Aspect of the Moon (Pact of the Tome)";}
+	else if (RNG == 5) {invocationResult = "Beast Speech";}
+	else if (RNG == 6) {invocationResult = "Beguiling Influence";}
+	else if (RNG == 7) {invocationResult = "Bewitching Whispers";}
+	else if (RNG == 8) {invocationResult = "Bond of the Talisman (Pact of the Talisman)";}
+	else if (RNG == 9) {invocationResult = "Book of Ancient Secrets (Pact of the Tome)";}
+	else if (RNG == 10) {invocationResult = "Chains of Carceri (Pact of the Chain)";}
+	else if (RNG == 11) {invocationResult = "Cloak of Flies";}
+	else if (RNG == 12) {invocationResult = "Devil's Sight";}
+	else if (RNG == 13) {invocationResult = "Dreadful Word";}
+	else if (RNG == 14) {invocationResult = "Eldritch Mind";}
+	else if (RNG == 15) {invocationResult = "Eldritch Sight";}
+	else if (RNG == 16) {invocationResult = "Eldritch Smite (Pact of the Blade)";}
+	else if (RNG == 17) {invocationResult = "Eldritch Spear";}
+	else if (RNG == 18) {invocationResult = "Eyes of the Rune Keeper";}
+	else if (RNG == 19) {invocationResult = "Far Scribe (Pact of the Tome)";}
+	else if (RNG == 20) {invocationResult = "Fiendish Vigor";}
+	else if (RNG == 21) {invocationResult = "Gaze of Two Minds";}
+	else if (RNG == 22) {invocationResult = "Ghostly Gaze";}
+	else if (RNG == 23) {invocationResult = "Gift of the Depths";}
+	else if (RNG == 24) {invocationResult = "Gift of the Ever-Living Ones (Pact of the Chain)";}
+	else if (RNG == 25) {invocationResult = "Gift of the Protectors (Pact of the Tome)";}
+	else if (RNG == 26) {invocationResult = "Grasp of Hadar";}
+	else if (RNG == 27) {invocationResult = "Improved Pact Weapon (Pact of the Blade)";}
+	else if (RNG == 28) {invocationResult = "Investment of the Chain Master (Pact of the Chain)";}
+	else if (RNG == 29) {invocationResult = "Lance of Lethargy";}
+	else if (RNG == 30) {invocationResult = "Lifedrinker (Pact of the Blade)";}
+	else if (RNG == 31) {invocationResult = "Maddening Hex";}
+	else if (RNG == 32) {invocationResult = "Mask of Many Faces";}
+	else if (RNG == 33) {invocationResult = "Master of Myriad Forms";}
+	else if (RNG == 34) {invocationResult = "Minions of Chaos";}
+	else if (RNG == 35) {invocationResult = "Mire the Mind";}
+	else if (RNG == 36) {invocationResult = "Misty Visions";}
+	else if (RNG == 37) {invocationResult = "One with Shadows";}
+	else if (RNG == 38) {invocationResult = "Otherworldly Leap";}
+	else if (RNG == 39) {invocationResult = "Protection of the Talisman (Pact of the Talisman)";}
+	else if (RNG == 40) {invocationResult = "Rebuke of the Talisman (Pact of the Talisman)";}
+	else if (RNG == 41) {invocationResult = "Relentless Hex";}
+	else if (RNG == 42) {invocationResult = "Repelling Blast";}
+	else if (RNG == 43) {invocationResult = "Sculptor of Flesh";}
+	else if (RNG == 44) {invocationResult = "Shroud of Shadow";}
+	else if (RNG == 45) {invocationResult = "Sign of Ill Omen";}
+	else if (RNG == 46) {invocationResult = "Thief of Five Fates";}
+	else if (RNG == 47) {invocationResult = "Thirsting Blade (Pact of the Blade)";}
+	else if (RNG == 48) {invocationResult = "Tomb of Levistus";}
+	else if (RNG == 49) {invocationResult = "Trickster's Escape";}
+	else if (RNG == 50) {invocationResult = "Undying Servitude";}
+	else if (RNG == 51) {invocationResult = "Visions of Distant Realms";}
+	else if (RNG == 52) {invocationResult = "Voice of the Chain Master (Pact of the Chain)";}
+	else if (RNG == 53) {invocationResult = "Whispers of the Grave";}
+	else if (RNG == 54) {invocationResult = "Witch Sight";}
+	else {}
+	GInvocation = invocationResult
+}
+	function InvocationBtn() {
+		InvocationTypeGen()
+		document.getElementById("glyphBox").innerHTML = GInvocation;
+	}
 
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
-
-
 
 function EnemyMod() {
 	let modRoll = Math.floor(Math.random() * 129) + 1;
@@ -1154,7 +1557,229 @@ function GlyphHelp() {
 	document.getElementById("glyphBox").innerHTML = "";
 }
 
+function WeaponAffix() {
+	let wpnRNG = Math.floor(Math.random() * 32) + 1;
+	let wpnTier = Math.floor(Math.random() * 3) + 1;
+	if (wpnRNG >= 1 && wpnRNG <= 2) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) +2 to Weapon Hit";}
+		else {GWeaponAffix = "• (T1 Weapon) +1 to Weapon Hit";}
+	}
+	else if (wpnRNG >= 3 && wpnRNG <= 4) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) +2 to Weapon Damage";}
+		else {GWeaponAffix = "• (T1 Weapon) +1 to Weapon Damage";}
+	}
+	else if (wpnRNG == 5 ) {GWeaponAffix = "• (T2 Weapon) +1 to Weapon Hit and Damage";}
+	else if (wpnRNG == 6 ) {GWeaponAffix = "• (T2 Weapon) +1 to Weapon Critical Hit Range";}
+	else if (wpnRNG == 7 ) {GWeaponAffix = "• (T2 Weapon) +5 ft. to Weapon Range (and) Double Range if Thrown or Ranged";}
+	else if (wpnRNG >= 8 && wpnRNG <= 9) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Gain +2 and Advantage on attacks with the weapon";}
+		else {GWeaponAffix = "• (T1 Weapon) Gain Advantage on attacks with the weapon";}
+	}
+	else if (wpnRNG == 10 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Twice, recharging on a Long Rest, on a miss, reroll the hit and if it hits, it deals half damage and cannot be a critical";}
+		else {GWeaponAffix = "• (T1 Weapon) Once, recharging on a Long Rest, on a miss, reroll the hit and if it hits, it deals half damage and cannot be a critical";}
+		}
+	else if (wpnRNG >= 11 && wpnRNG <= 12) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) The weapon is considered Silvered for overcoming Supernatural Resistance and deals an extra 1d4 to those creatures";}
+		else {GWeaponAffix = "• (T1 Weapon) The weapon is considered Silvered for overcoming Supernatural Resistance";}
+		}
+	else if (wpnRNG == 13 ) {GWeaponAffix = "• (T2 Weapon) The weapon can be used as a Spellcasting Focus";}
+	else if (wpnRNG >= 14 && wpnRNG <= 15) {
+		CreatureTypeGen()
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) Deal an extra +6 damage to ${GCreature}`;}
+		else {GWeaponAffix = `• (T1 Weapon) Deal an extra +3 damage to ${GCreature}`;}
+		}
+	else if (wpnRNG == 16 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Increase the weapon Damage Dice by 2 Tiers";}
+		else {GWeaponAffix = "• (T1 Weapon) Increase the weapon Damage Dice by 1 Tier";}
+		}
+	else if (wpnRNG == 17 ) {
+		PhysicalTypeGen()
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) The weapons deals an extra +1d6 ${GPhysical}`;}
+		else {GWeaponAffix = `• (T1 Weapon) The weapons deals an extra +1d4 ${GPhysical}`;}
+		}
+	else if (wpnRNG == 18 ) {GWeaponAffix = "• (T2 Weapon) The weapon bypasses Resistances";}
+	else if (wpnRNG == 19 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Any time you hit a creature, roll your unmodified (before affixes) weapon damage dice and heal for half of that";}
+		else {GWeaponAffix = "• (T1 Weapon) Once, recharging on a Short Rest, when you hit a creature, roll your unmodified (before affixes) weapon damage dice and heal for that";}
+		}
+	else if (wpnRNG >= 20 && wpnRNG <= 21) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Hit Rolls on this weapon can add your Strength, Dexterity, or Consitution modifier";}
+		else {GWeaponAffix = "• (T1 Weapon) Damage Rolls on this weapon can add your Strength, Dexterity, or Consitution modifier";}
+		}
+	else if (wpnRNG == 22 ) {GWeaponAffix = "• (T2 Weapon) Creatures hit by this weapon cannot regain Hit Points until the start of your next turn";}
+	else if (wpnRNG == 23 ) {
+		ElementTypeGen()
+		GWeaponAffix = `• (T2 Weapon) Creatures hit by this weapon are impaired to ${GElement} until the start of your next turn`;}
+	else if (wpnRNG == 24 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Creature hit by this weapon have -10 ft. to movement speeds until the start of your next turn";}
+		else {GWeaponAffix = "• (T1 Weapon) Creature hit by this weapon have -5 ft. to movement speeds until the start of your next turn";}
+		}
+	else if (wpnRNG == 25 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Creatures hit by this weapon are wounded; until the start of your next turn, every time they take damage matching the weapon's type, they take an extra 1d8";}
+		else {GWeaponAffix = "• (T1 Weapon) Creatures hit by this weapon are wounded; until the start of your next turn, every time they take damage matching the weapon's type, they take an extra 1d6";}
+		}
+	else if (wpnRNG >= 26 && wpnRNG <= 27) {GWeaponAffix = "• (T2 Weapon) As a Bonus Action, the weapon can be stored or retrieved from a pocket dimension";}
+	else if (wpnRNG == 28 ) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) As a Bonus Action, the weapon can change into one of two weapons. One of them is the same type and the other is of the opposite range (melee/ranged). The weapons are randomly selected or determined by the DM and can be changed with a Tailoring Glyph.";}
+		else {GWeaponAffix = "• (T1 Weapon) As a Bonus Action, the weapon can change into a weapon of the opposite range (melee/ranged). The weapon is randomly selected or determined by the DM and can be changed with a Tailoring Glyph.";}
+		}
+	else if (wpnRNG >= 29 && wpnRNG <= 30) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Weapon Hit rolls on this weapon can use Intelligence, Wisdom, or Charisma.";}
+		else {GWeaponAffix = "• (T1 Weapon) Weapon Damage rolls on this weapon can use Intelligence, Wisdom, or Charisma.";}
+		}
+	else if (wpnRNG == 31 ) {GWeaponAffix = "• (T2 Weapon) Gain advantage if an ally is within 5 ft. of the target.";}
+	else if (wpnRNG == 32 ) {GWeaponAffix = "• (T2 Weapon) As a Bonus Action, you can attack with the weapon, but it deals half damage.";}
+}
+	function WeaponAffixBtn() {
+		WeaponAffix();
+		document.getElementById("glyphBox").innerHTML = GWeaponAffix;
+	}
 
+function ArmorAffix() {
+	let armRNG = Math.floor(Math.random() * 39) + 1;
+	let armTier = Math.floor(Math.random() * 3) + 1;
+	if (armRNG >= 1 && armRNG <= 2) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 3 && armRNG <= 4) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 5) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 6 && armRNG <= 7) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 8 && armRNG <= 9) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG == 10) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 11 && armRNG <= 12) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 13 && armRNG <= 14) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 15 && armRNG <= 16) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 17 && armRNG <= 18) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 19 && armRNG <= 20) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 21 && armRNG <= 22) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 23 && armRNG <= 24) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 25) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 26) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 27) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 28) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 29 && armRNG <= 30) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 31 && armRNG <= 32) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 33) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 34) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 35 && armRNG <= 36) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG == 37) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+	else if (armRNG >= 38 && armRNG <= 39) {
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
+		else {GArmorAffix = "• (T1 Armor) ";}
+	}
+}
+	function ArmorAffixBtn() {
+		ArmorAffix();
+		document.getElementById("glyphBox").innerHTML = GArmorAffix;
+	}
+
+function AccessoryAffix() {
+	let accRNG = Math.floor(Math.random() * 33) + 1;
+	let accTier = Math.floor(Math.random() * 3) + 1;
+	if (accRNG >= 1 && wpnRNG <= 2) {}
+}
+	function AccessoryAffixBtn() {
+		AccessoryAffix();
+		document.getElementById("glyphBox").innerHTML = GAccessoryAffix;
+	}
+
+function TaintedWeaponAffix() {
+	
+}
+	function TaintedWeaponAffixBtn() {
+		TaintedWeaponAffix();
+		document.getElementById("glyphBox").innerHTML = GTaintedWeapon;
+	}
+
+function TaintedArmorAffix() {
+	
+}
+	function TaintedArmorAffixBtn() {
+		TaintedArmorAffix();
+		document.getElementById("glyphBox").innerHTML = GTaintedArmor;
+	}
+
+function TaintedAccessoryAffix() {
+	
+}
+	function TaintedAccessoryAffixBtn() {
+		TaintedAccessoryAffix();
+		document.getElementById("glyphBox").innerHTML = GTaintedAccessory;
+	}
+
+function ClassAffix() {
+	
+}
+	function ClassAffixBtn() {
+		ClassAffix();
+		document.getElementById("glyphBox").innerHTML = GClassAffix;
+	}
+
+function ChaoticWeaponBtn() {
+	
+	let ChaosWeaponResult
+	
+	document.getElementById("glyphBox").innerHTML = ChaosWeaponResult
+}
+
+function ChaoticArmorBtn() {
+	
+	let ChaosArmorResult
+	
+	document.getElementById("glyphBox").innerHTML = ChaosArmorResult
+}
+
+function ChaoticAccessoryBtn() {
+	
+	let ChaosAccessoryResult
+	
+	document.getElementById("glyphBox").innerHTML = ChaosAccessoryResult
+}
+
+function GlyphHelp() {
+	document.getElementById("glyphBox").innerHTML = "Glyphs are items that can be used to Add or Modify Affixes on nonmagical items. For a full rundown, click the link below the Help button.\n\nThe regular (aqua) buttons will generate a number of affixes of that type.\n\nThe Tainted (red) buttons will roll for a Tainted outcome and output the result, potentially adding powerful Tainted Affixes to an item, but also corrupting it permanently.\n\nThe Chaotic (right side purple) buttons pick a random upgrade of the item, potentially changing item type or turning it into a ceonventional magic item.\n\nThe Expertise (purple) button will generate a Class Affix, which are tailored to the class and can be quite powerful. It will randomly select one class from the selected checkboxes to generate an affix for.\n\nThe 16 Green buttons are used to regenerate a Subtype, mainly for Tailoring Glyph usage, which can change Subtypes without changing the overall affix.\n\nLast, but not least, the Generate glyphs button will randomly generate that many Glyphs, for DMs placing loot."
+}
 
 // INFO BUTTONS //
 // INFO BUTTONS //

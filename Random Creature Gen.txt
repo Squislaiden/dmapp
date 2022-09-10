@@ -1,0 +1,170 @@
+TO DO IMMEDIATELY
+- Random item with random affixes
+  - Update Sheet, include Tier slot
+  - Armor, Weapon, Acc rolls, for Chance/Vaal
+
+ORDER OF OPERATIONS (Note: Variable for qty of each type)
+- Grab CR, Boss Toggle, Lair Toggle
+- Pick Tier
+  - Set PB (Tier +1)
+- Get Creature Type
+  - Pick Size
+  - Pick Martial(45%)/Half(30%)/Caster(15%)
+    - Pick Hit Dice Size
+  - Pick Main Stats, Roll Stats
+    - Boss gives +1-3 all, +RndUp(PB/4) to all
+    - Pick Saves, Skills (weighted to Main Stats)
+  - Pick Speeds
+  - Get Resistances
+  - Get Base AC (Armor and/or Dex/Creature Type)
+  - Get HP (CR # Hit Dice + Base)
+    - Base from CR, with 30% variation
+    - Bosses get 50-100% more
+- Pick # of Traits
+  - Spellcasting Calculate
+  - Pick Spells
+    - Number and Levels based on CR
+- Pick # of Actions
+  - Determine Multiattacks
+  - Save and Roll
+- Pick # of Bonus Actions
+- Pick # of Recharges
+- Pick # of Reactions
+- Pick # of Legendary Action/Resistance Uses
+  - Pick # of Legendary Actions
+  - Pick # of Lair Actions, Passives
+- Get Recharges (add +1 to Action Qty)
+- Creature Type Specifics
+- Enemy Modifier Chance
+
+TO DO
+- Look into Tables and Lists
+- Artisan Tools
+- More Decks
+
+CONVERSION TO HTML NOTES
+- Jewelry Calculator - Size Choice per Gem
+
+Recharge Generator
+- Tier Dropdown, 1-4
+  - DC, Damage, Targets, etc adjusted by Tier
+
+RNG NPC NOTES
+- Caster/Martial specific traits, check rolled type and reroll mismatch
+
+
+Random Enemy Generators
+- Real RNG - Random from All Improved-Initiative NPCs
+- Full Random
+  - PB: CR 1-4(+2),    5-8(+3),    9-12(+4),   13-16(+5), 17-20(+6),
+           21-24(+7),  25-28(+8),  29-32(+9),  33-36(+10),
+           37-40(+11), 41-44(+12), 45-48(+13), 49-50(+14)
+      - Tier is used for most things. CR determines HP.
+  - Stats: Random, 7 Minimum, 20 Maximum - BOSS: +1 all, +3 Specific
+    - PB-1 to all
+  - Size: Fixed for most, others random, weighted towards large
+    - Dragon(by CR), Giant(Huge, 5% Large/Garg), Humanoid(1% Large)
+  - Speed: 30-40 ft.
+    - Fly: Dragon(100%),  Beast(25%), Celestial(50%)
+           Construct(5%), Fey(50%),   Monster(25%)
+    - Swim: All(15%), Beast/Monster(25%), Undead/Plant/Construct(5%)
+    - Burrow: Monster(15%), Beast(20%), Aberration(10%), Dragon(25%)
+      - Based on Size: S(10), M(10-15), L(15-25), H(20-30), G(25-40)
+    - Plant: 5-20 ft.
+  - Weapons/Attacks: Random Melee and Ranged, or Natural Weapons
+  - Skill Proficiency: T1(0-2), T2(1-3), T3(2-4), T4(3-5)
+    - Weighted towards primary stats
+  - Saving Throws: T1(0-1), T2(1-2), T3(2-3), T4(2-3) - BOSS: +1-2
+  - AC/Armor: Natural Armor, Random Armor based on Class Type
+    - Armor Wearers: Humanoid, Fey(50%), Giant(25%), Undead(25%), Fiend(15%)
+    - Rough Average: T1(14), T2(16), T3(18), T4(20)
+  - HP: CR#Hit Dice + Base HP - BOSS: +50%-100% Dice and Base
+  - Multiattack: T1(1-2), T2(2-3), T3(2-4), T4(3-4) - BOSS: +1
+  - Bonus Actions: 0-1, very rarely 2 - BOSS: Higher chances
+  - Traits: T1(1), T2(1-2), T3(2-3), T4(3-4) - BOSS: +1-2
+- Bosses: +Stats, Random Modifier, 1-2 Recharge Abilities
+  - Legendary Actions - 3(CR 1-23), 4(CR 24-39), 5(CR 40+)
+- Creature Type: Can grant Vuln/Resist, Senses, Languages, Traits
+  - Humanoid Race as well
+  - Elemental Speed: Air(Fly), Water(Swim), Earth(Burrow)
+  - Dragon/Elemental: Random "Color/Element"
+  - 5% chance for Resist to be Immunity
+- Spells: 3 Mental Stats * 9 Levels, 27 Pools of Spells
+  - Spell DC(8+PB+Stat(Max 28)) and Spell Attack(PB+Stat)
+- Dropdown Boxes
+  - CR: up to 50 for Shits n Giggles?
+  - Creature Type: Choose a specific Type, or Random
+  - Boss Checkbox: Whether its a standard mob or a boss-type
+  - Lair Checkbox
+  - Second Export Box: JSON script for Improved-Initiative
+
+	NOTES
+Generate if Martial, Half-Cast, or Spellcaster.
+  - Martial/Half ONLY: Beast, Monstrosity, Plant
+  - Martial ONLY: Ooze
+- Martial - HD(d10-d12), Str/Dex, Con, Full Base HP
+- Half-Caster - HD(d8-d10), Str/Dex, Con, 1 Random Mental, 75% Base HP
+- Spellcaster - HD(d6-d8), Con, 2 Random Mental, Half Base HP
+  - Casters: Random Mental Stat determines Spell Pool
+  - Spells: Half(PB), Full(PB x 2)
+  - Spell Levels: Based on CR
+
+	HOMEBREWERY MARKDOWN EXPORT
+{{monster,frame,wide
+## NAME
+*SIZE, CREATURE TYPE*
+___
+**Armor Class** :: AC (AC TYPE)
+**Hit Points**  :: AVG-HP(0d0 + 0)
+**Speed**       :: SPEED ft.
+___
+|  STR  |  DEX  |  CON  |  INT  |  WIS  |  CHA  |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|1 (-4)|8 (-1)|9 (+0)|1 (-4)|11 (+1)|8 (-1)|
+___
+**Proficiency Bonus**    :: +PB
+**Saving Throws**        :: SAVES
+**Skills**               :: SKILLS
+**Resistances**          :: RESISTS
+**Immunities**             :: IMMUNITIES
+**Condition Immunities** :: COND-IMMUNE
+**Senses**               :: SENSES, passive Perception ??
+**Languages**            :: LANGUAGES
+**Challenge**            :: CR (XP)
+___
+***TRAIT.*** TRAIT DESCRIPTION.
+:
+### Actions
+***ACTION.*** *Melee Weapon Attack:* +4 to hit, reach 5ft., one target. *Hit* 5 (1d6 + 2) 
+:
+### Bonus Actions
+***BONUS ACTION.*** Bonus Action Description.
+:
+### Reactions
+***REACTION.*** Reaction Description.
+:
+### Legendary Actions
+HOW MANY ACTION USES
+:
+***LEGENDARY ACTION*** LEG DESCRIPTION
+:
+}}
+
+	IMPROVED-INITIATIVE JSON EXPORT
+{ "Source": "Squislaiden's DM Assistant", "Type": "CREATURE-TYPE", "HP": { "Value": 1234, "Notes": "(?d?? + ???)" }, "AC": { "Value": 420, "Notes": "(ARMOR-TYPE)" }, "InitiativeModifier": 0, "InitiativeAdvantage": false, "Speed": [ "walk 30 ft.", "OTHER-SPEED"], "Abilities": { "Str": 10, "Dex": 10, "Con": 10, "Int": 10, "Wis": 10, "Cha": 10 }, "DamageVulnerabilities": [], "DamageResistances": [], "DamageImmunities": [], "ConditionImmunities": [], "Saves": [], "Skills": [], "Senses": [ "SENSE 30 ft.", "passive Perception 10" ], "Languages": [ "Common", "LANGUAGE" ], "Challenge": "CR-NUM", "Traits": [ { "Name": "TRAIT-NAME", "Content": "TRAIT-DESC"} ], "Actions": [ { "Name": "Multiattack", "Content": "The creature makes two attacks." }, { "Name": "ACTION-NAME", "Content": "ACTION-DESC."} ], "BonusActions": [], "Reactions": [], "LegendaryActions": [], "MythicActions": [], "Description": "", "Player": "", "Version": "3.3.0", "ImageURL": ""}
+
+--Attack Description--
+Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d1 +1) TYPE damage
+
+	CONVERSION VB TO JS
+VAR = CInt(Math.Floor((5 - 1 + 1) * Rnd())) + 1
+If AffAction = 1 Then
+  GlobalVariables.AffixActionResult = "Disengage"
+ElseIf AffAction = 2 Then
+  GlobalVariables.AffixActionResult = "Hide"
+End If
+
+let RNGVAR = Math.floor(Math.random() * 4) + 1;
+if (RNGVAR = 1) {GLOBAL.VAR = "X"};
+else if (RNGVAR = 2) {GLOBAL.VAR = "Y"};
+else {}

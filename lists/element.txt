@@ -1,0 +1,10 @@
+Acid
+Cold
+Fire
+Thunder
+Lightning
+Force
+Necrotic
+Radiant
+Poison
+Psychic

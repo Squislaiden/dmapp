@@ -1,0 +1,10 @@
+BLindness & Deafness
+Charm
+Frightened
+Paralyzed
+Petrified
+Poisoned
+Disease
+Curse
+Stunned
+Grappled (unless it also Restrains)

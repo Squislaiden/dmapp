@@ -897,8 +897,8 @@ function EnemyMod() {
             else {
                 GMod = "[Repulsor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pushed back 10 ft.";}
             }
-        else if (modElite == 24) {
-            if (modRoll == 10) {
+        else if (modRoll == 24) {
+            if (modElite == 10) {
                 GMod = "[Attractor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC 17 Strength Save or are pulled 15 ft. closer.";}
             else {
                 GMod = "[Attractor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pulled 10 ft. closer.";}
@@ -915,8 +915,8 @@ function EnemyMod() {
             else {
                 GMod = "[Spell Breaker] \nThe creature has a 60 ft. cone of Anti-Magic in front of it.";}
             }
-        else if (modElite == 27) {
-            if (modRoll == 10) {
+        else if (modRoll == 27) {
+            if (modElite == 10) {
                 GMod = "[Single-Minded] (Elite) \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.";}
             else {
                 GMod = "[Single-Minded] \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. \n\nThe creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.";}
@@ -1558,7 +1558,7 @@ function GlyphHelp() {
 }
 
 function WeaponAffix() {
-	let wpnRNG = Math.floor(Math.random() * 32) + 1;
+	let wpnRNG = Math.floor(Math.random() * 35) + 1;
 	let wpnTier = Math.floor(Math.random() * 3) + 1;
 	if (wpnRNG >= 1 && wpnRNG <= 2) {
 		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) +2 to Weapon Hit";}
@@ -1630,99 +1630,256 @@ function WeaponAffix() {
 		}
 	else if (wpnRNG == 31 ) {GWeaponAffix = "• (T2 Weapon) Gain advantage if an ally is within 5 ft. of the target.";}
 	else if (wpnRNG == 32 ) {GWeaponAffix = "• (T2 Weapon) As a Bonus Action, you can attack with the weapon, but it deals half damage.";}
+	else if (wpnRNG == 33) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) When you hit a targe twith the weapon, all other enemies within 5 ft. of it must make a DC 13 Dexterity saving throw. On a fail, they take half the damage dealt to the inital target, and half of that on a save. You can do this once, recharging on a Long Rest.";}
+		else {GWeaponAffix = "• (T1 Weapon) When you hit a targe twith the weapon, all other enemies within 5 ft. of it must make a DC 13 Dexterity saving throw. On a fail, they take half the damage dealt to the inital target, and half of that on a save. You can do this once, recharging on a Long Rest."}
+	}
+	else if (wpnRNG >= 34 && wpnRNG <= 35) {
+		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Add weapon dice one more time and +3 to Critical Hits";}
+		else {GWeaponAffix = "• (T1 Weapon) Add weapon dice one more time to Critical Hits";}
+	}
 }
 	function WeaponAffixBtn() {
-		WeaponAffix();
-		document.getElementById("glyphBox").innerHTML = GWeaponAffix;
+		let affNum = Number(document.getElementById("affixNum").value)
+		let affWeapon = ""
+		while (affNum > 0) {
+			affNum -= 1
+			WeaponAffix();
+			affWeapon += `${GWeaponAffix} \n`
+		}
+			document.getElementById("glyphBox").innerHTML = affWeapon;
 	}
 
 function ArmorAffix() {
 	let armRNG = Math.floor(Math.random() * 39) + 1;
 	let armTier = Math.floor(Math.random() * 3) + 1;
-	if (armRNG >= 1 && armRNG <= 2) {GArmorAffix = "• (T2 Armor) ";}
+	if (armRNG >= 1 && armRNG <= 2) {GArmorAffix = "• (T2 Armor) +1 AC";}
 	else if (armRNG >= 3 && armRNG <= 4) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) 50% reduced Fall Damage";}
+		else {GArmorAffix = "• (T1 Armor) 25% Reduced Fall Damage";}
 	}
-	else if (armRNG == 5) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG == 5) {GArmorAffix = "• (T2 Armor) Reduce Falling and Force Damage by half of your level";}
 	else if (armRNG >= 6 && armRNG <= 7) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Incoming melee and ranged weapon attacks from Supernatural enemies have Disadvantage";}
+		else {GArmorAffix = "• (T1 Armor) Incoming melee weapon attacks from Supernatural enemies have Disadvantage";}
 	}
-	else if (armRNG >= 8 && armRNG <= 9) {GArmorAffix = "• (T2 Armor) ";}
-	else if (armRNG == 10) {GArmorAffix = "• (T2 Armor) ";}
-	else if (armRNG >= 11 && armRNG <= 12) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 8 && armRNG <= 9) {
+		ElementTypeGen()
+		GArmorAffix = `• (T2 Armor) Gain ${GElement} Resistance`;}
+	else if (armRNG == 10) {GArmorAffix = "• (T2 Armor) Incoming Spell Attacks have Disadvantage";}
+	else if (armRNG >= 11 && armRNG <= 12) {
+		PhysicalTypeGen()
+		while (GPhysical == "Native Weapon Type") {
+			PhysicalTypeGen();
+		}
+		GArmorAffix = `• (T2 Armor) Gain nonmagical ${GPhysical} Resistance`;}
 	else if (armRNG >= 13 && armRNG <= 14) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		ElementTypeGen()
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Reduce all ${GElement} damage by 7`;}
+		else {GArmorAffix = `• (T1 Armor) Reduce all ${GElement} damage by 4`;}
 	}
-	else if (armRNG >= 15 && armRNG <= 16) {GArmorAffix = "• (T2 Armor) ";}
-	else if (armRNG >= 17 && armRNG <= 18) {GArmorAffix = "• (T2 Armor) ";}
-	else if (armRNG >= 19 && armRNG <= 20) {GArmorAffix = "• (T2 Armor) ";}
-	else if (armRNG >= 21 && armRNG <= 22) {GArmorAffix = "• (T2 Armor) ";}
+	else if (armRNG >= 15 && armRNG <= 16) {GArmorAffix = "• (T2 Armor) Negative Armor Properties do not apply";}
+	else if (armRNG >= 17 && armRNG <= 18) {GArmorAffix = "• (T2 Armor) Unless you will it, other creatures see normal clothing instead of your armor, unless they are immune to illusions";}
+	else if (armRNG >= 19 && armRNG <= 20) {
+		WeatherTypeGen()
+		GArmorAffix = `• (T2 Armor) Advantage on ${GWeather} saving throws`;}
+	else if (armRNG >= 21 && armRNG <= 22) {GArmorAffix = "• (T2 Armor) As an Action, Armor can be stored or retrieved from a pocket dimension";}
 	else if (armRNG >= 23 && armRNG <= 24) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Weapon damage you take is reduced by 5";}
+		else {GArmorAffix = "• (T1 Armor) Weapon damage you take is reduced by 3";}
 	}
 	else if (armRNG == 25) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Critical Damage you tkae is reduced by 7";}
+		else {GArmorAffix = "• (T1 Armor) Critical Damage you tkae is reduced by 4";}
 	}
 	else if (armRNG == 26) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) While not Incapacitated, Stunned, or Paralyzed, gain 7 Temporary Hit Points at the start of your turn";}
+		else {GArmorAffix = "• (T1 Armor) While not Incapacitated, Stunned, or Paralyzed, gain 4 Temporary Hit Points at the start of your turn";}
 	}
 	else if (armRNG == 27) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) When you reach 3 failed Death saving throws, the armor shatters and you regain 12 Hit Points";}
+		else {GArmorAffix = "• (T1 Armor) When you reach 3 failed Death saving throws, the armor shatters and you regain 6 Hit Points";}
 	}
 	else if (armRNG == 28) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Melee attackers take 5 Piercing Damage when they hit you";}
+		else {GArmorAffix = "• (T1 Armor) Melee attackers take 3 Piercing Damage when they hit you";}
 	}
 	else if (armRNG >= 29 && armRNG <= 30) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		CreatureTypeGen()
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Take 8 less damage from ${GCreature}s`;}
+		else {GArmorAffix = `• (T1 Armor) Take 4 less damage from ${GCreature}s`;}
 	}
 	else if (armRNG >= 31 && armRNG <= 32) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		AttributeTypeGen()
+		while (GAttribute == "Dexterity") {
+			AttributeTypeGen()
+		}
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Instead of Dexterity, you can add ${GAttribute} to your AC`;}
+		else {GArmorAffix = `• (T1 Armor) Instead of Dexterity, you can add half of ${GAttribute} to your AC`;}
 	}
 	else if (armRNG == 33) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) At the start of your turn, regain 5 Hit Points (taking Fire or Critical damage negates this for one turn)";}
+		else {GArmorAffix = "• (T1 Armor) At the start of your turn, regain 3 Hit Points (taking Fire or Critical damage negates this for one turn)";}
 	}
 	else if (armRNG == 34) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Take 50% less damage from Ranged Weapon Attacks";}
+		else {GArmorAffix = "• (T1 Armor) Take 25% less damage from Ranged Weapon Attacks";}
 	}
 	else if (armRNG >= 35 && armRNG <= 36) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Increase Maximum Hit Points by 12";}
+		else {GArmorAffix = "• (T1 Armor) Increase Maximum Hit Points by 6";}
 	}
 	else if (armRNG == 37) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) You cannot gain more than 3 levels of Exhaustion";}
+		else {GArmorAffix = "• (T1 Armor) You cannot gain more than 4 levels of Exhaustion";}
 	}
 	else if (armRNG >= 38 && armRNG <= 39) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) ";}
-		else {GArmorAffix = "• (T1 Armor) ";}
+		ConditionTypeGen()
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Gain Advantage on saving throws against ${GCondition} and it has 50% reduced duration (minimum 6 seconds)`;}
+		else {GArmorAffix = `• (T1 Armor) Gain Advantage on saving throws against ${GCondition}`;}
 	}
 }
 	function ArmorAffixBtn() {
-		ArmorAffix();
-		document.getElementById("glyphBox").innerHTML = GArmorAffix;
+		let affNum = Number(document.getElementById("affixNum").value)
+		let affArmor = ""
+		while (affNum > 0) {
+			affNum -= 1
+			ArmorAffix();
+			affArmor += `${GArmorAffix} \n`
+		}
+			document.getElementById("glyphBox").innerHTML = affArmor;
 	}
 
 function AccessoryAffix() {
-	let accRNG = Math.floor(Math.random() * 33) + 1;
+	let accRNG = Math.floor(Math.random() * 47) + 1;
 	let accTier = Math.floor(Math.random() * 3) + 1;
-	if (accRNG >= 1 && wpnRNG <= 2) {}
+	if (accRNG >= 1 && accRNG <= 2) {
+		let statOne
+		AttributeTypeGen()
+		statOne = GAttribute
+		AttributeTypeGen()
+		while (GAttribute == statOne) {
+			AttributeTypeGen()
+		}
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) +1 to ${GAttribute} and ${statOne}`}
+		else {GAccessoryAffix = `• (T1 Accessory) +1 to ${GAttribute}`}
+	}
+	else if (accRNG == 3) {GAccessoryAffic = "• (T2 Accessory) +1 to Spell DC"}
+	else if (accRNG >= 4 && accRNG <= 5) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) +2 to Spell Attack"}
+		else {GAccessoryAffix = "• (T1 Accessory) +1 to Spell Attack"}
+	}
+	else if (accRNG >= 6 && accRNG <= 7) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) +2 Hit Dice (does not affect Maxmimum Hit Points)"}
+		else {GAccessoryAffix = "• (T1 Accessory) +1 Hit Dice (does not affect Maxmimum Hit Points)"}
+	}
+	else if (accRNG >= 8 && accRNG <= 9) {GAccessoryAffic = "• (T2 Accessory) Hit Dice are 1 Tier higher (does not affect Maxmimum Hit Points)"}
+	else if (accRNG >= 10 && accRNG <= 11) {GAccessoryAffic = "• (T2 Accessory) Gain Medium Armor Proficiency"}
+	else if (accRNG >= 12 && accRNG <= 13) {GAccessoryAffic = "• (T2 Accessory) Gain Simple Weapon Proficiency"}
+	else if (accRNG == 14) {
+		AttributeTypeGen()
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and saving throw proficiency with ${GAttribute}`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain ${GAttribute} saving throw proficiency`}
+	}
+	else if (accRNG >= 15 && accRNG <= 16) {
+		SkillTypeGen()
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain proficiency and expertise with ${GSkill}`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain proficiency with ${GSkill}`}
+	}
+	else if (accRNG >= 17 && accRNG <= 18) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a random Cantrip, you have +8 to Spell Attack and a DC of 16 for this spell"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain a random Cantrip, you have +6 to Spell Attack and a DC of 14 for this spell"}
+	}
+	else if (accRNG == 19) {GAccessoryAffic = "• (T2 Accessory) Gain Advantage on saving throws against magic that you can see"}
+	else if (accRNG >= 20 && accRNG <= 21) {
+		SkillTypeGen()
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and Advantage on ${GSkill} ability checks`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain +2 on ${GSkill} ability checks`}
+	}
+	else if (accRNG == 22) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) You may roll all weapon damage dice a second time and use the higher roll. You can do this three time, recharging on a Short Rest"}
+		else {GAccessoryAffix = "• (T1 Accessory) You may roll all weapon damage dice a second time and use the higher roll. You can do this twice, recharging on a Short Rest"}
+	}
+	else if (accRNG == 23) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) You can reroll all 1s and 2s on an attack or damage roll. You can do this twice, recharging on a Short Rest"}
+		else {GAccessoryAffix = "• (T1 Accessory) You can reroll all 1s on an attack or damage roll. You can do this twice, recharging on a Short Rest"}
+	}
+	else if (accRNG == 24) {GAccessoryAffic = "• (T2 Accessory) +1 Attunement Slot"}
+	else if (accRNG == 25) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain one 4th level Spell Slot (reroll if the character is fully Martial)"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain one 3rd level Spell Slot (reroll if the character is fully Martial)"}
+	}
+	else if (accRNG == 26) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Ranged Weapons, Cantrips, and 1st Level Spells can be used when you use an Opportunity Attack"}
+		else {GAccessoryAffix = "• (T1 Accessory) Ranged Weapons and Cantrips can be used when you use an Opportunity Attack"}
+	}
+	else if (accRNG == 27) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a random 1st and 2nd Level Spell with one use, recharging on a Long Rest (+8 Spell Attack and DC 16 for Martial Characters)"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain a random 1st Level Spell with one use, recharging on a Long Rest (+6 Spell Attack and DC 14 for Martial Characters)"}
+	}
+	else if (accRNG == 28) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Spells can be cast without Somatic (Gesture) or Verbal components"}
+		else {GAccessoryAffix = "• (T1 Accessory) Spells can be cast without Somatic (Gesture) components"}
+	}
+	else if (accRNG >= 29 && accRNG <= 30) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Material costs for spells are reduced by 50%"}
+		else {GAccessoryAffix = "• (T1 Accessory) Material costs for spells are reduced by 25%"}
+	}
+	else if (accRNG == 31) {GAccessoryAffic = "• (T2 Accessory) Gain 5 ft. of all applicable speeds"}
+	else if (accRNG >= 32 && accRNG <= 33) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a 30 ft. Swim Speed"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain a 20 ft. Swim Speed"}
+	}
+	else if (accRNG >= 34 && accRNG <= 35) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a 30 ft. Climb Speed"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain a 20 ft. Climb Speed"}
+	}
+	else if (accRNG >= 36 && accRNG <= 37) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a 30 ft. Hover Speed"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain a 20 ft. Hover Speed"}
+	}
+	else if (accRNG == 38) {
+		ActionTypeGen()
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Twice per combat you may use ${GAction} as a Bonus Action`}
+		else {GAccessoryAffix = `• (T1 Accessory) Once per combat you may use ${GAction} as a Bonus Action`}
+	}
+	else if (accRNG == 39) {
+		ElementTypeGen()
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +6 to all instances of ${GElement} damage`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain +3 to all instances of ${GElement} damage`}
+	}
+	else if (accRNG == 40) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain Advantage on Opportunity Attacks and an additional Reaction per turn"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain Advantage on Opportunity Attacks"}
+	}
+	else if (accRNG >= 41 && accRNG <= 42) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain 60 ft. of Darkvision"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain 30 ft. of Darkvision"}
+	}
+	else if (accRNG >= 43 && accRNG <= 44) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain 30 ft. of Blindsight"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain 15 ft. of Blindsight"}
+	}
+	else if (accRNG >= 45 && accRNG <= 46) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain 30 ft. of Tremorsense"}
+		else {GAccessoryAffix = "• (T1 Accessory) Gain 15 ft. of Tremorsense"}
+	}
+	else if (accRNG == 47) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Once a day, gain 10 ft. of Truesight for 15 minutes"}
+		else {GAccessoryAffix = "• (T1 Accessory) Once a day, gain 5 ft. of Truesight for 10 minutes"}
+	}
 }
 	function AccessoryAffixBtn() {
-		AccessoryAffix();
-		document.getElementById("glyphBox").innerHTML = GAccessoryAffix;
+		let affNum = Number(document.getElementById("affixNum").value)
+		let affAccessory = ""
+		while (affNum > 0) {
+			affNum -= 1
+			AccessoryAffix();
+			affAccessory += `${GAccessoryAffix} \n`
+		}
+			document.getElementById("glyphBox").innerHTML = affAccessory;
 	}
+
 
 function TaintedWeaponAffix() {
 	

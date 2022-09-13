@@ -1,0 +1,71 @@
++1 to All Attributes
+
++4 to (Attribute)
+
++1 to Proficiency Bonus
+
++3 Attunement Slots
+
+Gain a Class Affix with double effectiveness
+
+The item cannot be picked up by someone you do not trust implicitly
+
+You cannot be moved against your will and have +5 on escape Grapple checks
+
+You no longer need to eat, breath, drink, or sleep
+
+Gain an extra Bonus Action each turn
+
+Gain 15 ft. of all applicable Speeds
+
+Gain an additional Reaction each turn
+
+Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.
+
+Gain a Class Affix that does not count towards your limit of 2
+
+Gain three Class Affixes (this can be the only source of Class Affixes while equipped)
+
+The item is invisible to others outside of combat and unidentifiable in combat
+
+All damage dealt by the Weapon is converted to (Element)
+
+The damage die of the weapon is 4 tiers higher than its Base
+
++3 to Hit Chance and Weapon Damage
+
+Critical Hits roll an extra set of dice
+
+The size of the item is doubled in all dimensions, the weight does not change
+
+The weapon critical hits on a 16-20
+
+Increase all non-physical damage dealt by the weapon by 8
+
+(Melee) The weapon can be thrown up to 20 ft. and returns as a Bonus Action; (Ranged) Quadruple Maximum Range and no Disadvantage on Long Range attacks
+
+Each of the weapon’s damage dice cannot deal less than half (a d6 of 1 or 2 deals 3 instead)
+
+The weapon deals an extra 2d6
+
+Gain Advantage on weapon attacks while at or below half health (This stacks with any other source of Advantage)
+
++5 to Hit
+
++5 to Damage
+
+Hit and Damage rolls on the weapon can use any Attribute and gain +2
+
+Hit enemies have -20 ft. speed
+
+Hit enemies take an additional 2d6 of the weapon’s base damage type when hit by that type of damage for three turns
+
+The weapon adds both (Attribute) and (Attribute) to all Hit and Damage rolls
+
+Hit enemies gain one less Legendary Action (a creature cannot lose more than one per turn this way)
+
+As a Reaction or Bonus Action, the weapon can be changed into any other weapon
+
+This weapon always has with Advantage
+
+Gain 1 Extra Attack with this weapon

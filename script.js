@@ -1689,8 +1689,8 @@ function ArmorAffix() {
 		else {GArmorAffix = "• (T1 Armor) Weapon damage you take is reduced by 3";}
 	}
 	else if (armRNG == 25) {
-		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Critical Damage you tkae is reduced by 7";}
-		else {GArmorAffix = "• (T1 Armor) Critical Damage you tkae is reduced by 4";}
+		if (armTier == 3) {GArmorAffix = "• (T2 Armor) Critical Damage you take is reduced by 7";}
+		else {GArmorAffix = "• (T1 Armor) Critical Damage you take is reduced by 4";}
 	}
 	else if (armRNG == 26) {
 		if (armTier == 3) {GArmorAffix = "• (T2 Armor) While not Incapacitated, Stunned, or Paralyzed, gain 7 Temporary Hit Points at the start of your turn";}
@@ -1764,7 +1764,7 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) +1 to ${GAttribute} and ${statOne}`}
 		else {GAccessoryAffix = `• (T1 Accessory) +1 to ${GAttribute}`}
 	}
-	else if (accRNG == 3) {GAccessoryAffic = "• (T2 Accessory) +1 to Spell DC"}
+	else if (accRNG == 3) {GAccessoryAffix = "• (T2 Accessory) +1 to Spell DC"}
 	else if (accRNG >= 4 && accRNG <= 5) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) +2 to Spell Attack"}
 		else {GAccessoryAffix = "• (T1 Accessory) +1 to Spell Attack"}
@@ -1773,9 +1773,9 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) +2 Hit Dice (does not affect Maxmimum Hit Points)"}
 		else {GAccessoryAffix = "• (T1 Accessory) +1 Hit Dice (does not affect Maxmimum Hit Points)"}
 	}
-	else if (accRNG >= 8 && accRNG <= 9) {GAccessoryAffic = "• (T2 Accessory) Hit Dice are 1 Tier higher (does not affect Maxmimum Hit Points)"}
-	else if (accRNG >= 10 && accRNG <= 11) {GAccessoryAffic = "• (T2 Accessory) Gain Medium Armor Proficiency"}
-	else if (accRNG >= 12 && accRNG <= 13) {GAccessoryAffic = "• (T2 Accessory) Gain Simple Weapon Proficiency"}
+	else if (accRNG >= 8 && accRNG <= 9) {GAccessoryAffix = "• (T2 Accessory) Hit Dice are 1 Tier higher (does not affect Maxmimum Hit Points)"}
+	else if (accRNG >= 10 && accRNG <= 11) {GAccessoryAffix = "• (T2 Accessory) Gain Medium Armor Proficiency"}
+	else if (accRNG >= 12 && accRNG <= 13) {GAccessoryAffix = "• (T2 Accessory) Gain Simple Weapon Proficiency"}
 	else if (accRNG == 14) {
 		AttributeTypeGen()
 		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and saving throw proficiency with ${GAttribute}`}
@@ -1790,7 +1790,7 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a random Cantrip, you have +8 to Spell Attack and a DC of 16 for this spell"}
 		else {GAccessoryAffix = "• (T1 Accessory) Gain a random Cantrip, you have +6 to Spell Attack and a DC of 14 for this spell"}
 	}
-	else if (accRNG == 19) {GAccessoryAffic = "• (T2 Accessory) Gain Advantage on saving throws against magic that you can see"}
+	else if (accRNG == 19) {GAccessoryAffix = "• (T2 Accessory) Gain Advantage on saving throws against magic that you can see"}
 	else if (accRNG >= 20 && accRNG <= 21) {
 		SkillTypeGen()
 		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and Advantage on ${GSkill} ability checks`}
@@ -1804,7 +1804,7 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) You can reroll all 1s and 2s on an attack or damage roll. You can do this twice, recharging on a Short Rest"}
 		else {GAccessoryAffix = "• (T1 Accessory) You can reroll all 1s on an attack or damage roll. You can do this twice, recharging on a Short Rest"}
 	}
-	else if (accRNG == 24) {GAccessoryAffic = "• (T2 Accessory) +1 Attunement Slot"}
+	else if (accRNG == 24) {GAccessoryAffix = "• (T2 Accessory) +1 Attunement Slot"}
 	else if (accRNG == 25) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain one 4th level Spell Slot (reroll if the character is fully Martial)"}
 		else {GAccessoryAffix = "• (T1 Accessory) Gain one 3rd level Spell Slot (reroll if the character is fully Martial)"}
@@ -1825,7 +1825,7 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Material costs for spells are reduced by 50%"}
 		else {GAccessoryAffix = "• (T1 Accessory) Material costs for spells are reduced by 25%"}
 	}
-	else if (accRNG == 31) {GAccessoryAffic = "• (T2 Accessory) Gain 5 ft. of all applicable speeds"}
+	else if (accRNG == 31) {GAccessoryAffix = "• (T2 Accessory) Gain 5 ft. of all applicable speeds"}
 	else if (accRNG >= 32 && accRNG <= 33) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a 30 ft. Swim Speed"}
 		else {GAccessoryAffix = "• (T1 Accessory) Gain a 20 ft. Swim Speed"}
@@ -1882,15 +1882,137 @@ function AccessoryAffix() {
 
 
 function TaintedWeaponAffix() {
-	
+	let RNG = Math.floor(Math.random() * 36) + 1;
+	if (RNG == 1) {GTaintedWeapon = "• (Tainted Weapon) +1 to all Attributes";}
+	else if (RNG == 2) {
+		AttributeTypeGen();
+		GTaintedWeapon = `• (Tainted Weapon) Gain +4 ${GAttribute}`;}
+	else if (RNG == 3) {GTaintedWeapon = "• (Tainted Weapon) +1 to Proficiency Bonus";}
+	else if (RNG == 4) {GTaintedWeapon = "• (Tainted Weapon) +3 Attunement Slots";}
+	else if (RNG == 5) {GTaintedWeapon = "• (Tainted Weapon) Gain a Class Affix with double effectiveness";}
+	else if (RNG == 6) {GTaintedWeapon = "• (Tainted Weapon) The item cannot be picked up by someone you do not trust implicitly";}
+	else if (RNG == 7) {GTaintedWeapon = "• (Tainted Weapon) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 8) {GTaintedWeapon = "• (Tainted Weapon) You no longer need to eat, drink, breath, or sleep";}
+	else if (RNG == 9) {GTaintedWeapon = "• (Tainted Weapon) Gain an extra Bonus Action each turn";}
+	else if (RNG == 10) {GTaintedWeapon = "• (Tainted Weapon) Gain 15 ft. of all applicable speed";}
+	else if (RNG == 11) {GTaintedWeapon = "• (Tainted Weapon) Gain an additional Reaction each turn";}
+	else if (RNG == 12) {GTaintedWeapon = "• (Tainted Weapon) Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.";}
+	else if (RNG == 13) {GTaintedWeapon = "• (Tainted Weapon) Gain a Class Affix that does not count towards the limit of 2";}
+	else if (RNG == 14) {GTaintedWeapon = "• (Tainted Weapon) Gain three Class Affixes (you cannot benefit from any other source of Class Affix while this item is equipped)";}
+	else if (RNG == 15) {GTaintedWeapon = "• (Tainted Weapon) The item is invisible to other outside of combat and unidentifiable in combat";}
+	else if (RNG == 16) {
+		ElementTypeGen();
+		GTaintedWeapon = `• (Tainted Weapon) All damage dealt by the weapon is converted to ${GElement}`;}
+	else if (RNG == 17) {GTaintedWeapon = "• (Tainted Weapon) The damage die of the weapon is 4 tiers higher than the base";}
+	else if (RNG == 18) {GTaintedWeapon = "• (Tainted Weapon) +3 to Hit and Damage";}
+	else if (RNG == 19) {GTaintedWeapon = "• (Tainted Weapon) Critical Hits roll an extra set of dice";}
+	else if (RNG == 20) {GTaintedWeapon = "• (Tainted Weapon) The size of the weapon is doubled in all dimensions; the size does not change";}
+	else if (RNG == 21) {GTaintedWeapon = "• (Tainted Weapon) The weapon's Critical Range is increased by 4";}
+	else if (RNG == 22) {GTaintedWeapon = "• (Tainted Weapon) Increase all non-physical damage dealt by the weapon by 8";}
+	else if (RNG == 23) {GTaintedWeapon = "• (Tainted Weapon) (Melee) The weapon can be thrown up to 20 ft. and returns as a Bonus Action. (Ranged/Thrown) Quadruple Maximum Range and no Disadvantage on Long Range attacks";}
+	else if (RNG == 24) {GTaintedWeapon = "• (Tainted Weapon) Each of the weapon's damage dice cannot deal less than half damage (ie. a 1 or 2 on a d6 counts as a 3";}
+	else if (RNG == 25) {GTaintedWeapon = "• (Tainted Weapon) The weapon deals an extra 2d6 damage";}
+	else if (RNG == 26) {GTaintedWeapon = "• (Tainted Weapon) Gain Advantage on weapon attacks while at or belo whalf health (this stacks with other sources of Advantage)";}
+	else if (RNG == 27) {GTaintedWeapon = "• (Tainted Weapon) +5 to Hit";}
+	else if (RNG == 28) {GTaintedWeapon = "• (Tainted Weapon) +5 to Damage";}
+	else if (RNG == 29) {GTaintedWeapon = "• (Tainted Weapon) Hit and Damage rolls on this weapon can use any Attribute and gain +2";}
+	else if (RNG == 30) {GTaintedWeapon = "• (Tainted Weapon) Hit enemies have -20 ft. movement speed until the start of your next turn";}
+	else if (RNG == 31) {GTaintedWeapon = "• (Tainted Weapon) Hit enemies take an additional 2d6 of the weapon’s base damage type when hit by that type of damage for three turns";}
+	else if (RNG == 32) {
+		let statOne;
+		AttributeTypeGen();
+		statOne = GAttribute;
+		AttributeTypeGen();
+		while (GAttribute == statOne) {
+			AttributeTypeGen();
+		}
+		GTaintedWeapon = `• (Tainted Weapon) The weapon adds both ${GAttribute} and ${statOne} to Hit and Damage rolls`;}
+	else if (RNG == 33) {GTaintedWeapon = "• (Tainted Weapon) Hit enemies gain one less Legendary Action (a creature cannot lose more than one per turn this way)";}
+	else if (RNG == 34) {GTaintedWeapon = "• (Tainted Weapon) As a Reaction or Bonus Action, this weapon can be changed into any other weapon type";}
+	else if (RNG == 35) {GTaintedWeapon = "• (Tainted Weapon) This weapon always has Advantage on Attacks (this can't be cancelled out with Disadvantage)";}
+	else if (RNG == 36) {GTaintedWeapon = "• (Tainted Weapon) Gain +1 Extra Attack with this weapon";}
 }
 	function TaintedWeaponAffixBtn() {
+		
+		
+		
+		
+		
 		TaintedWeaponAffix();
 		document.getElementById("glyphBox").innerHTML = GTaintedWeapon;
 	}
 
 function TaintedArmorAffix() {
-	
+	let RNG = Math.floor(Math.random() * 34) + 1;
+	if (RNG == 1) {GTaintedArmor = "• (Tainted Armor) +1 to all Attributes";}
+	else if (RNG == 2) {
+		AttributeTypeGen();
+		GTaintedArmor = `• (Tainted Armor) Gain +4 ${GAttribute}`;}
+	else if (RNG == 3) {GTaintedArmor = "• (Tainted Armor) +1 to Proficiency Bonus";}
+	else if (RNG == 4) {GTaintedArmor = "• (Tainted Armor) +3 Attunement Slots";}
+	else if (RNG == 5) {GTaintedArmor = "• (Tainted Armor) Gain a Class Affix with double effectiveness";}
+	else if (RNG == 6) {GTaintedArmor = "• (Tainted Armor) The item cannot be picked up by someone you do not trust implicitly";}
+	else if (RNG == 7) {GTaintedArmor = "• (Tainted Armor) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 8) {GTaintedArmor = "• (Tainted Armor) You no longer need to eat, drink, breath, or sleep";}
+	else if (RNG == 9) {GTaintedArmor = "• (Tainted Armor) Gain an extra Bonus Action each turn";}
+	else if (RNG == 10) {GTaintedArmor = "• (Tainted Armor) Gain 15 ft. of all applicable speed";}
+	else if (RNG == 11) {GTaintedArmor = "• (Tainted Armor) Gain an additional Reaction each turn";}
+	else if (RNG == 12) {GTaintedArmor = "• (Tainted Armor) Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.";}
+	else if (RNG == 13) {GTaintedArmor = "• (Tainted Armor) Gain a Class Affix that does not count towards the limit of 2";}
+	else if (RNG == 14) {GTaintedArmor = "• (Tainted Armor) Gain three Class Affixes (you cannot benefit from any other source of Class Affix while this item is equipped)";}
+	else if (RNG == 15) {GTaintedArmor = "• (Tainted Armor) The item is invisible to other outside of combat and unidentifiable in combat";}
+	else if (RNG == 16) {GTaintedArmor = "• (Tainted Armor) +3 AC";}
+	else if (RNG == 17) {GTaintedArmor = "• (Tainted Armor) Gain Immunity to Fall Damage";}
+	else if (RNG == 18) {GTaintedArmor = "• (Tainted Armor) Increase Maximum Hit Points by 25";}
+	else if (RNG == 19) {GTaintedArmor = "• (Tainted Armor) You cannot gain levels of Exhaustion";}
+	else if (RNG == 20) {GTaintedArmor = "• (Tainted Armor) Melee Weapon attacks against you have Disadvantage (this can't be cancelled out with Advantage)";}
+	else if (RNG == 21) {GTaintedArmor = "• (Tainted Armor) Ranged Weapon attacks against you have Disadvantage (this can't be cancelled out with Advantage)";}
+	else if (RNG == 22) {
+		let condOne;
+		let condTwo;
+		ConditionTypeGen();
+		condOne = GCondition;
+		ConditionTypeGen();
+		while (GCondition == condOne) {
+			ConditionTypeGen();}
+		condTwo = GCondition;
+		ConditionTypeGen();
+		while (GCondition == condOne || GCondition == condTwo) {
+			ConditionTypeGen();}
+		GTaintedArmor = `• (Tainted Armor) Gain Immunity to ${GCondition}, ${condOne}, and ${condTwo}`;}
+	else if (RNG == 23) {GTaintedArmor = "• (Tainted Armor) Take 75% less damage from Ranged Attacks";}
+	else if (RNG == 24) {GTaintedArmor = "• (Tainted Armor) Gain Resistance to Bludgeoning, Slashing, and Piercing";}
+	else if (RNG == 25) {
+		let eleOne;
+		let eleTwo;
+		ElementTypeGen();
+		eleOne = GElement;
+		ElementTypeGen();
+		while (GElement == eleOne) {
+			ElementTypeGen();}
+		eleTwo = GElement;
+		ElementTypeGen();
+		while (GElement == eleOne || GCondition == eleTwo) {
+			ElementTypeGen();}
+		GTaintedArmor = `• (Tainted Armor) Gain Resistance to ${GElement}, ${eleOne}, and ${eleTwo}`;}
+	else if (RNG == 26) {
+		AttributeTypeGen();
+		while (GAttribute == "Consitution") {AttributeTypeGen();}
+		GTaintedArmor = `• (Tainted Armor) Gain Proficiency with all ${GAttribute} Skills`;}
+	else if (RNG == 27) {GTaintedArmor = "• (Tainted Armor) While not Incapacitated, gain 14 Temporary Hit Points at the start of your turn";}
+	else if (RNG == 28) {GTaintedArmor = "• (Tainted Armor) At the start of your turn, regain 10 Hit Points";}
+	else if (RNG == 29) {
+		let eleX;
+		ElementTypeGen();
+		eleX = GElement;
+		ElementTypeGen();
+		while (GElement == eleX) {ElementTypeGen();}
+		GTaintedArmor = `• (Tainted Armor) Reduce all ${GElement} and ${eleX} damage taken by 14`;}
+	else if (RNG == 30) {GTaintedArmor = "• (Tainted Armor) Your appearance is completely indiscernable unless you will it otherwise";}
+	else if (RNG == 31) {GTaintedArmor = "• (Tainted Armor) Weapon Damage you take is reduced by 12";}
+	else if (RNG == 32) {GTaintedArmor = "• (Tainted Armor) Critical Damage you take is reduced by 16";}
+	else if (RNG == 33) {GTaintedArmor = "• (Tainted Armor) Once a day, when you reach 3 failed Death Saves, regain 10 Hit Points and the armor loses 1 AC, it shatters after 4 activations";}
+	else if (RNG == 34) {GTaintedArmor = "• (Tainted Armor) Melee attackers take 12 Piercing Damage when they hit you";}
 }
 	function TaintedArmorAffixBtn() {
 		TaintedArmorAffix();
@@ -1898,7 +2020,103 @@ function TaintedArmorAffix() {
 	}
 
 function TaintedAccessoryAffix() {
-	
+	let RNG = Math.floor(Math.random() * 45) + 1;
+	if (RNG == 1) {GTaintedAccessory = "• (Tainted Accessory) +1 to all Attributes";}
+	else if (RNG == 2) {
+		AttributeTypeGen()
+		GTaintedAccessory = `• (Tainted Accessory) Gain +4 ${GAttribute}`;}
+	else if (RNG == 3) {GTaintedAccessory = "• (Tainted Accessory) +1 to Proficiency Bonus";}
+	else if (RNG == 4) {GTaintedAccessory = "• (Tainted Accessory) +3 Attunement Slots";}
+	else if (RNG == 5) {GTaintedAccessory = "• (Tainted Accessory) Gain a Class Affix with double effectiveness";}
+	else if (RNG == 6) {GTaintedAccessory = "• (Tainted Accessory) The item cannot be picked up by someone you do not trust implicitly";}
+	else if (RNG == 7) {GTaintedAccessory = "• (Tainted Accessory) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 8) {GTaintedAccessory = "• (Tainted Accessory) You no longer need to eat, drink, breath, or sleep";}
+	else if (RNG == 9) {GTaintedAccessory = "• (Tainted Accessory) Gain an extra Bonus Action each turn";}
+	else if (RNG == 10) {GTaintedAccessory = "• (Tainted Accessory) Gain 15 ft. of all applicable speed";}
+	else if (RNG == 11) {GTaintedAccessory = "• (Tainted Accessory) Gain an additional Reaction each turn";}
+	else if (RNG == 12) {GTaintedAccessory = "• (Tainted Accessory) Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.";}
+	else if (RNG == 13) {GTaintedAccessory = "• (Tainted Accessory) Gain a Class Affix that does not count towards the limit of 2";}
+	else if (RNG == 14) {GTaintedAccessory = "• (Tainted Accessory) Gain three Class Affixes (you cannot benefit from any other source of Class Affix while this item is equipped)";}
+	else if (RNG == 15) {GTaintedAccessory = "• (Tainted Accessory) The item is invisible to other outside of combat and unidentifiable in combat";}
+	else if (RNG == 16) {GTaintedAccessory = "• (Tainted Accessory) +3 to Spell DC (Reroll for Full Martials)";}
+	else if (RNG == 17) {GTaintedAccessory = "• (Tainted Accessory) +2 to Death Saving Throws";}
+	else if (RNG == 18) {GTaintedAccessory = "• (Tainted Accessory) +2 to all non-Death Saving Throws";}
+	else if (RNG == 19) {
+		let statOne;
+		AttributeTypeGen();
+		statOne = GAttribute;
+		AttributeTypeGen();
+		while (GAttribute == statOne) {
+			AttributeTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) +4 to ${GAttribute} and ${statOne} Saving Throws`;}
+	else if (RNG == 20) {
+		let skillOne;
+		SkillTypeGen();
+		skillOne = GSkill;
+		SkillTypeGen();
+		while (GSkill == skillOne) {
+			SkillTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) Gain Double Advantage on ${GSkill} and ${skillOne}`;}
+	else if (RNG == 21) {
+		let statOne;
+		AttributeTypeGen();
+		statOne = GAttribute;
+		AttributeTypeGen();
+		while (GAttribute == statOne) {
+			AttributeTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) Gain Double Advantage on ${GAttribute} and ${statOne} Saving Throws`;}
+	else if (RNG == 22) {GTaintedAccessory = "• (Tainted Accessory) Spells do not have Material Costs (Reroll for Full Martials)";}
+	else if (RNG == 23) {GTaintedAccessory = "• (Tainted Accessory) Gain a 7th Level Spell Slot (Reroll for Full Martials)";}
+	else if (RNG == 24) {GTaintedAccessory = "• (Tainted Accessory) Gain an 8th Level Spell Slot (Reroll for Full Martials)";}
+	else if (RNG == 25) {GTaintedAccessory = "• (Tainted Accessory) Gain Proficiency with all Armor and Weapons";}
+	else if (RNG == 26) {GTaintedAccessory = "• (Tainted Accessory) +2 to All Attributes";}
+	else if (RNG == 27) {
+		let statOne;
+		AttributeTypeGen();
+		statOne = GAttribute;
+		AttributeTypeGen();
+		while (GAttribute == statOne) {
+			AttributeTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) +4 to ${GAttribute} and ${statOne}`;}
+	else if (RNG == 28) {GTaintedAccessory = "• (Tainted Accessory) +5 to Spell Attack (Reroll for Full Martials)";}
+	else if (RNG == 29) {GTaintedAccessory = "• (Tainted Accessory) +5 Hit Dice (does not affect Maximum Hit Points)";}
+	else if (RNG == 30) {GTaintedAccessory = "• (Tainted Accessory) Hit Dice are 3 Tiers higher (does not affect Maximum Hit Points)";}
+	else if (RNG == 31) {GTaintedAccessory = "• (Tainted Accessory) Gain Proficiency in Death Saving Throws";}
+	else if (RNG == 32) {
+		let skillOne;
+		SkillTypeGen();
+		skillOne = GSkill;
+		SkillTypeGen();
+		while (GSkill == skillOne) {
+			SkillTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) Gain Proficiency and Expertise in ${GSkill} and ${skillOne}`;}
+	else if (RNG == 33) {GTaintedAccessory = "• (Tainted Accessory) Gain access to 3 random Cantrips (+12 to Spell Attack and DC20)";}
+	else if (RNG == 34) {GTaintedAccessory = "• (Tainted Accessory) Gain Resistance to Magic Damage";}
+	else if (RNG == 35) {GTaintedAccessory = "• (Tainted Accessory) Gain Advantage on all non-Death Saving Throws";}
+	else if (RNG == 36) {GTaintedAccessory = "• (Tainted Accessory) When a Damage or Healing dice rolls a 1, it is instead considered as if it had rolled the maximum";}
+	else if (RNG == 37) {GTaintedAccessory = "• (Tainted Accessory) Reroll all 1s and 2s on Damage or Healing dice";}
+	else if (RNG == 38) {GTaintedAccessory = "• (Tainted Accessory) Gain a 1st, 2nd, 3rd, and 4th Level Spell with one use per Long Rest each";}
+	else if (RNG == 39) {
+		let actOne;
+		ActionTypeGen();
+		actOne = GAction;
+		ActionTypeGen();
+		while (GAction == actOne) {
+			ActionTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) You may ${GAction} or ${actOne} as a Bonus Action`;}
+	else if (RNG == 40) {
+		let eleOne;
+		ElementTypeGen();
+		eleOne = GElement;
+		ElementTypeGen();
+		while (GElement == eleOne) {
+			ElementTypeGen();}
+		GTaintedAccessory = `• (Tainted Accessory) Gain +10 to all instances of ${GElement} and ${eleOne}`;}
+	else if (RNG == 41) {GTaintedAccessory = "• (Tainted Accessory) Gain 120 ft. of Darkvision";}
+	else if (RNG == 42) {GTaintedAccessory = "• (Tainted Accessory) Gain 90 ft. of Blindsight";}
+	else if (RNG == 43) {GTaintedAccessory = "• (Tainted Accessory) Gain 90 ft. of Tremorsense";}
+	else if (RNG == 44) {GTaintedAccessory = "• (Tainted Accessory) Up to Proficiency Bonus times a day, gain 30 ft. of Truesight for 30 minutes";}
+	else if (RNG == 45) {GTaintedAccessory = "• (Tainted Accessory) One per Long Rest, gain an Extra Action on a turn";}
 }
 	function TaintedAccessoryAffixBtn() {
 		TaintedAccessoryAffix();
@@ -1936,6 +2154,54 @@ function ChaoticAccessoryBtn() {
 
 function GlyphHelp() {
 	document.getElementById("glyphBox").innerHTML = "Glyphs are items that can be used to Add or Modify Affixes on nonmagical items. For a full rundown, click the link below the Help button.\n\nThe regular (aqua) buttons will generate a number of affixes of that type.\n\nThe Tainted (red) buttons will roll for a Tainted outcome and output the result, potentially adding powerful Tainted Affixes to an item, but also corrupting it permanently.\n\nThe Chaotic (right side purple) buttons pick a random upgrade of the item, potentially changing item type or turning it into a ceonventional magic item.\n\nThe Expertise (purple) button will generate a Class Affix, which are tailored to the class and can be quite powerful. It will randomly select one class from the selected checkboxes to generate an affix for.\n\nThe 16 Green buttons are used to regenerate a Subtype, mainly for Tailoring Glyph usage, which can change Subtypes without changing the overall affix.\n\nLast, but not least, the Generate glyphs button will randomly generate that many Glyphs, for DMs placing loot."
+}
+
+async function WeaponAffixList() {
+	let grabFile = await fetch('/dmapp/lists/weaponaffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function ArmorAffixList() {
+	let grabFile = await fetch('/dmapp/lists/armoraffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function AccessoryAffixList() {
+	let grabFile = await fetch('/dmapp/lists/accessoryaffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function TaintedWeaponList() {
+	let grabFile = await fetch('/dmapp/lists/taintedweaponaffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function TaintedWeaponList() {
+	let grabFile = await fetch('/dmapp/lists/taintedarmoraffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function TaintedWeaponList() {
+	let grabFile = await fetch('/dmapp/lists/taintedaccessoryaffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 // INFO BUTTONS //

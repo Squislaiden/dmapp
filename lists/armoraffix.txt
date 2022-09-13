@@ -52,9 +52,9 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) Weapon damage you take is reduced by 5
 (Tier 3) Weapon damage you take is reduced by 7
 --------------------
-(Tier 1) Critical Damage you tkae is reduced by 4
-(Tier 2) Critical Damage you tkae is reduced by 7
-(Tier 3) Critical Damage you tkae is reduced by 10
+(Tier 1) Critical Damage you take is reduced by 4
+(Tier 2) Critical Damage you take is reduced by 7
+(Tier 3) Critical Damage you take is reduced by 10
 --------------------
 (Tier 1) While not Incapacitated, Stunned, or Paralyzed, gain 4 Temporary Hit Points at the start of your turn
 (Tier 2) While not Incapacitated, Stunned, or Paralyzed, gain 7 Temporary Hit Points at the start of your turn

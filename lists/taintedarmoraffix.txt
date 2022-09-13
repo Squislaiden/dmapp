@@ -1,0 +1,67 @@
++1 to All Attributes
+
++4 to (Attribute)
+
++1 to Proficiency Bonus
+
++3 Attunement Slots
+
+Gain a Class Affix with double effectiveness
+
+The item cannot be picked up by someone you do not trust implicitly
+
+You cannot be moved against your will and have +5 on escape Grapple checks
+
+You no longer need to eat, breath, drink, or sleep
+
+Gain an extra Bonus Action each turn
+
+Gain 15 ft. of all applicable Speeds
+
+Gain an additional Reaction each turn
+
+Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. (If the creature already has Unarmed Attack Dice, they deal 1d8 extra.
+
+Gain a Class Affix that does not count towards your limit of 2
+
+Gain three Class Affixes (this can be the only source of Class Affixes while equipped)
+
+The item is invisible to others outside of combat and unidentifiable in combat
+
++3 AC
+
+Gain Immunity to Fall Damage
+
+Increase Maximum Hit Points by 25
+
+You cannot gain levels of Exhaustion
+
+Melee Weapon attacks against you always have Disadvantage
+
+Ranged Weapon attacks against you always have Disadvantage
+
+Gain Immunity to three (Conditions), reroll duplicates
+
+Take 75% less damage from ranged attacks
+
+Gain Resistance to Slashing, Bludgeoning, and Piercing damage
+
+Gain Resistance to three (Elements), reroll duplicates
+
+Gain Proficiency with all (Attribute) Skills, reroll Consitution
+
+While not Incapacitated, gain 14 Temporary Hit Points at the start of your turn
+
+At the start of your turn, regain 10 Hit Points
+
+Reduce all (Element) and (Element) damage taken by 14
+
+Your appearance is completely indiscernable unless you will it
+
+Weapon damage you take is reduced by 12
+
+Critical Damage you take is reduced by 16
+
+Once a day, when you reach 3 failed Death Saves, regain 10 Hit Points and the armor loses 1 AC, it shatters after 4 Activations
+
+Melee attackers take 12 Piercing damage when they hit you

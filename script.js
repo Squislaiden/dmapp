@@ -28,6 +28,17 @@ var GManeuver
 var GWizard
 var GWarlock
 
+var GArmor
+var GArmorLight
+var GArmorMedium
+var GArmorHeavy
+var GWeapon
+var GWeaponSimple
+var GWeaponMartial
+var GWeaponRanged
+var GAccessory
+var GArtisanTool
+
 	// Glyphs //
 var GWeaponAffix
 var GArmorAffix
@@ -745,6 +756,168 @@ function InvocationTypeGen() {
 		InvocationTypeGen()
 		document.getElementById("glyphBox").innerHTML = GInvocation;
 	}
+
+function ArmorAll() {
+	let RNG = Math.floor(Math.random() * 13) + 1;
+	if (RNG == 1) {GArmor = "Shield";}
+	else if (RNG == 2) {GArmor = "Leather";}
+	else if (RNG == 3) {GArmor = "Studded Leather";}
+	else if (RNG == 4) {GArmor = "Padded";}
+	else if (RNG == 5) {GArmor = "Hide";}
+	else if (RNG == 6) {GArmor = "Breastplate";}
+	else if (RNG == 7) {GArmor = "Chain Shirt";}
+	else if (RNG == 8) {GArmor = "Half Plate";}
+	else if (RNG == 9) {GArmor = "Scale Mail";}
+	else if (RNG == 10) {GArmor = "Ring Mail";}
+	else if (RNG == 11) {GArmor = "Chain Mail";}
+	else if (RNG == 12) {GArmor = "Splint";}
+	else if (RNG == 13) {GArmor = "Plate";}
+}
+
+function ArmorLight() {
+	let RNG = Math.floor(Math.random() * 3) + 1;
+	if (RNG == 1) {GArmorLight = "Leather";}
+	else if (RNG == 2) {GArmorLight = "Studded Leather";}
+	else if (RNG == 3) {GArmorLight = "Padded";}
+}
+
+function ArmorMedium() {
+	let RNG = Math.floor(Math.random() * 5) + 1;
+	if (RNG == 1) {GArmorMedium = "Hide";}
+	else if (RNG == 2) {GArmorMedium = "Breastplate";}
+	else if (RNG == 3) {GArmorMedium = "Chain Shirt";}
+	else if (RNG == 4) {GArmorMedium = "Half Plate";}
+	else if (RNG == 5) {GArmorMedium = "Scale Mail";}
+}
+
+function ArmorHeavy() {
+	let RNG = Math.floor(Math.random() * 4) + 1;
+	if (RNG == 1) {GArmorHeavy = "Ring Mail";}
+	else if (RNG == 2) {GArmorHeavy = "Chain Mail";}
+	else if (RNG == 3) {GArmorHeavy = "Splint";}
+	else if (RNG == 4) {GArmorHeavy = "Plate";}
+}
+
+function WeaponAll() {
+	let RNG = Math.floor(Math.random() * 67) + 1;
+	if (RNG >= 1 && RNG <= 2) {GWeapon = "Club";}
+	else if (RNG >= 3 && RNG <= 4) {GWeapon = "Dagger";}
+	else if (RNG >= 5 && RNG <= 6) {GWeapon = "Greatclub";}
+	else if (RNG >= 7 && RNG <= 8) {GWeapon = "Handaxe";}
+	else if (RNG >= 9 && RNG <= 10) {GWeapon = "Javelin";}
+	else if (RNG == 11) {GWeapon = "Lance";}
+	else if (RNG >= 12 && RNG <= 13) {GWeapon = "Mace";}
+	else if (RNG >= 14 && RNG <= 15) {GWeapon = "Quarterstaff";}
+	else if (RNG >= 16 && RNG <= 17) {GWeapon = "Sickle";}
+	else if (RNG >= 18 && RNG <= 19) {GWeapon = "Spear";}
+	else if (RNG >= 20 && RNG <= 21) {GWeapon = "Light Crossbow";}
+	else if (RNG >= 22 && RNG <= 23) {GWeapon = "Shortbow";}
+	else if (RNG >= 24 && RNG <= 25) {GWeapon = "Battleaxe";}
+	else if (RNG >= 26 && RNG <= 27) {GWeapon = "Flail";}
+	else if (RNG >= 28 && RNG <= 29) {GWeapon = "Glaive";}
+	else if (RNG >= 30 && RNG <= 31) {GWeapon = "Greataxe";}
+	else if (RNG >= 32 && RNG <= 33) {GWeapon = "Greatsword";}
+	else if (RNG >= 34 && RNG <= 35) {GWeapon = "Halberd";}
+	else if (RNG >= 36 && RNG <= 37) {GWeapon = "Longsword";}
+	else if (RNG >= 38 && RNG <= 39) {GWeapon = "Maul";}
+	else if (RNG >= 40 && RNG <= 41) {GWeapon = "Morningstar";}
+	else if (RNG >= 42 && RNG <= 43) {GWeapon = "Pike";}
+	else if (RNG >= 44 && RNG <= 45) {GWeapon = "Rapier";}
+	else if (RNG >= 46 && RNG <= 47) {GWeapon = "Scimitar";}
+	else if (RNG >= 48 && RNG <= 49) {GWeapon = "Shortsword";}
+	else if (RNG >= 50 && RNG <= 51) {GWeapon = "Trident";}
+	else if (RNG >= 52 && RNG <= 53) {GWeapon = "War Pick";}
+	else if (RNG >= 54 && RNG <= 55) {GWeapon = "War Hammer";}
+	else if (RNG >= 56 && RNG <= 57) {GWeapon = "Whip";}
+	else if (RNG >= 58 && RNG <= 59) {GWeapon = "Hand Crossbow";}
+	else if (RNG >= 60 && RNG <= 61) {GWeapon = "Heavy Crossbow";}
+	else if (RNG >= 62 && RNG <= 63) {GWeapon = "Longbow";}	
+	else if (RNG >= 64 && RNG <= 65) {GWeapon = "Light Hammer";}	
+	else if (RNG == 66) {GWeapon = "Sling";}
+	else if (RNG == 67) {GWeapon = "Blowgun";}
+}
+
+function WeaponSimple() {
+	let RNG = Math.floor(Math.random() * 25) + 1;
+	if (RNG >= 1 && RNG <= 2) {GWeaponSimple = "Club";}
+	else if (RNG >= 3 && RNG <= 4) {GWeaponSimple = "Dagger";}
+	else if (RNG >= 5 && RNG <= 6) {GWeaponSimple = "Greatclub";}
+	else if (RNG >= 7 && RNG <= 8) {GWeaponSimple = "Handaxe";}
+	else if (RNG >= 9 && RNG <= 10) {GWeaponSimple = "Javelin";}
+	else if (RNG >= 11 && RNG <= 12) {GWeaponSimple = "Light Hammer";}
+	else if (RNG >= 13 && RNG <= 14) {GWeaponSimple = "Mace";}
+	else if (RNG >= 15 && RNG <= 16) {GWeaponSimple = "Quarterstaff";}
+	else if (RNG >= 17 && RNG <= 18) {GWeaponSimple = "Sickle";}
+	else if (RNG >= 19 && RNG <= 20) {GWeaponSimple = "Spear";}
+	else if (RNG >= 21 && RNG <= 22) {GWeaponSimple = "Light Crossbow";}
+	else if (RNG >= 23 && RNG <= 24) {GWeaponSimple = "Shortbow";}
+	else if (RNG == 25) {GWeaponSimple = "Sling";}
+}
+
+function WeaponMartial() {
+	let RNG = Math.floor(Math.random() * 42) + 1;
+	if (RNG >= 1 && RNG <= 2) {GWeaponMartial = "Battleaxe";}
+	else if (RNG >= 3 && RNG <= 4) {GWeaponMartial = "Flail";}
+	else if (RNG >= 5 && RNG <= 6) {GWeaponMartial = "Glaive";}
+	else if (RNG >= 7 && RNG <= 8) {GWeaponMartial = "Greataxe";}
+	else if (RNG >= 9 && RNG <= 10) {GWeaponMartial = "Greatsword";}
+	else if (RNG >= 11 && RNG <= 12) {GWeaponMartial = "Halberd";}
+	else if (RNG >= 13 && RNG <= 14) {GWeaponMartial = "Longsword";}
+	else if (RNG >= 15 && RNG <= 16) {GWeaponMartial = "Maul";}
+	else if (RNG >= 17 && RNG <= 18) {GWeaponMartial = "Morningstar";}
+	else if (RNG >= 19 && RNG <= 20) {GWeaponMartial = "Pike";}
+	else if (RNG >= 21 && RNG <= 22) {GWeaponMartial = "Rapier";}
+	else if (RNG >= 23 && RNG <= 24) {GWeaponMartial = "Scimitar";}
+	else if (RNG >= 25 && RNG <= 26) {GWeaponMartial = "Shortsword";}
+	else if (RNG >= 27 && RNG <= 28) {GWeaponMartial = "Trident";}
+	else if (RNG >= 29 && RNG <= 30) {GWeaponMartial = "War Pick";}
+	else if (RNG >= 31 && RNG <= 32) {GWeaponMartial = "War Hammer";}
+	else if (RNG >= 33 && RNG <= 34) {GWeaponMartial = "Whip";}
+	else if (RNG >= 35 && RNG <= 36) {GWeaponMartial = "Hand Crossbow";}
+	else if (RNG >= 37 && RNG <= 38) {GWeaponMartial = "Heavy Crossbow";}
+	else if (RNG >= 39 && RNG <= 40) {GWeaponMartial = "Longbow";}
+	else if (RNG == 41) {GWeaponMartial = "Lance";}
+	else if (RNG == 42) {GWeaponMartial = "Blowgun";}
+}
+
+function WeaponRanged() {
+	let RNG = Math.floor(Math.random() * 17) + 1;
+	if (RNG >= 1 && RNG <= 3) {GWeaponRanged = "Light Crossbow";}
+	else if (RNG >= 4 && RNG <= 6) {GWeaponRanged = "Hand Crossbow";}
+	else if (RNG >= 7 && RNG <= 9) {GWeaponRanged = "Heavy Crossbow";}
+	else if (RNG >= 10 && RNG <= 12) {GWeaponRanged = "Shortbow";}
+	else if (RNG >= 13 && RNG <= 15) {GWeaponRanged = "Longbow";}
+	else if (RNG == 16) {GWeaponRanged = "Blowgun";}
+	else if (RNG == 17) {GWeaponRanged = "Sling";}
+}
+
+function AccessoryGen() {
+	let RNG = Math.floor(Math.random() * 2) + 1;
+	if (RNG == 1) {GAccessory = "";}
+	else if (RNG == 2) {GAccessory = "";}
+}
+
+function ArtisanTool() {
+	let RNG = Math.floor(Math.random() * 18) + 1;
+	if (RNG == 1) {GArtisanTool = "Alchemist's Supplies";}
+	else if (RNG == 2) {GArtisanTool = "Brewer's Supplies";}
+	else if (RNG == 3) {GArtisanTool = "Calligrapher's Supplies";}
+	else if (RNG == 4) {GArtisanTool = "Carpenter's Tools";}
+	else if (RNG == 5) {GArtisanTool = "Cartographer's Tools";}
+	else if (RNG == 6) {GArtisanTool = "Cobbler's Tools";}
+	else if (RNG == 7) {GArtisanTool = "Cook's Utensils";}
+	else if (RNG == 8) {GArtisanTool = "Glassblower's Tools";}
+	else if (RNG == 9) {GArtisanTool = "Jeweler's Tools";}
+	else if (RNG == 10) {GArtisanTool = "Leatherworker's Tools";}
+	else if (RNG == 11) {GArtisanTool = "Mason's Tools";}
+	else if (RNG == 12) {GArtisanTool = "Painter's Supplies";}
+	else if (RNG == 13) {GArtisanTool = "Potter's Tools";}
+	else if (RNG == 14) {GArtisanTool = "Smith's Tools";}
+	else if (RNG == 15) {GArtisanTool = "Tinker's Tools";}
+	else if (RNG == 16) {GArtisanTool = "Weaver's Tools";}
+	else if (RNG == 17) {GArtisanTool = "Woodcarver's Tools";}
+	else if (RNG == 18) {GArtisanTool = "Thieves' Tools";}
+}
 
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
@@ -1924,8 +2097,7 @@ function TaintedWeaponAffix() {
 		statOne = GAttribute;
 		AttributeTypeGen();
 		while (GAttribute == statOne) {
-			AttributeTypeGen();
-		}
+			AttributeTypeGen();}
 		GTaintedWeapon = `• (Tainted Weapon) The weapon adds both ${GAttribute} and ${statOne} to Hit and Damage rolls`;}
 	else if (RNG == 33) {GTaintedWeapon = "• (Tainted Weapon) Hit enemies gain one less Legendary Action (a creature cannot lose more than one per turn this way)";}
 	else if (RNG == 34) {GTaintedWeapon = "• (Tainted Weapon) As a Reaction or Bonus Action, this weapon can be changed into any other weapon type";}
@@ -1933,13 +2105,19 @@ function TaintedWeaponAffix() {
 	else if (RNG == 36) {GTaintedWeapon = "• (Tainted Weapon) Gain +1 Extra Attack with this weapon";}
 }
 	function TaintedWeaponAffixBtn() {
-		
-		
-		
-		
+		let RNG = Math.floor(Math.random() * 20) + 1;
+		let affX;
+		let taintResult;
+		if (RNG >= 1 && RNG <= 2) {;}
+		else if (RNG >= 3 && RNG <= 4) {;}
+		else if (RNG >= 5 && RNG <= 6) {;}
+		else if (RNG >= 7 && RNG <= 10) {;}
+		else if (RNG >= 11 && RNG <= 15) {;}
+		else if (RNG >= 16 && RNG <= 18) {;}
+		else if (RNG >= 19 && RNG <= 20) {;}	
 		
 		TaintedWeaponAffix();
-		document.getElementById("glyphBox").innerHTML = GTaintedWeapon;
+		document.getElementById("glyphBox").innerHTML = `${taintResult}\n\nCORRUPTED: Tainted items can NEVER be modified or changed again short of a Wish spell.\n(Topical effects like Oils and Spells still work)`;
 	}
 
 function TaintedArmorAffix() {
@@ -2161,7 +2339,7 @@ async function WeaponAffixList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function ArmorAffixList() {
@@ -2169,7 +2347,7 @@ async function ArmorAffixList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function AccessoryAffixList() {
@@ -2177,7 +2355,7 @@ async function AccessoryAffixList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function TaintedWeaponList() {
@@ -2185,23 +2363,23 @@ async function TaintedWeaponList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
-async function TaintedWeaponList() {
+async function TaintedArmorList() {
 	let grabFile = await fetch('/dmapp/lists/taintedarmoraffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
-async function TaintedWeaponList() {
+async function TaintedAccessoryList() {
 	let grabFile = await fetch('/dmapp/lists/taintedaccessoryaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 // INFO BUTTONS //

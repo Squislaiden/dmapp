@@ -1,0 +1,428 @@
+-----(Artificer)-----
+(Tier 1) Magical Tinkering can apply up to two effects to a single object
+(Tier 2) Gain an additional use of Magical Tinkering and it can apply up to two effects to a single object
+(Tier 3) Gain an additional use of Magical Tinkering and it can apply up to three effects to a single object
+
+(Tier 1) Tinkering effects can be applied on up to Small objects
+(Tier 2) Gain an additional use of Magical Tinkering and it can be applied on up to Small objects
+(Tier 3) Gain an additional use of Magical Tinkering and it can be applied on up to Medium objects
+
+(Tier 1) N/A
+(Tier 2) Learn an (INFUSION)
+(Tier 3) Learn two (INFUSION)
+
+(Tier 1) N/A
+(Tier 2) Gain a 3rd Level Spell Slot
+(Tier 3) Gain a 3rd and a 5th Level Spell Slot
+
+(Tier 1) Up to one level worth of spells can be cast each day without expending Spell Slots
+(Tier 2) Up to two levels worth of spells can be cast each day without expending Spell Slots
+(Tier 3) Up to three levels worth of spells can be cast each day without expending Spell Slots
+
+(Tier 1) N/A
+(Tier 2) +1 Infused Item Limit
+(Tier 3) +2 Infused Item Limit
+
+(Tier 1) N/A
+(Tier 2) Expend a Spell Slot to gain AC equal to half of the slot's level for 10 minutes (Subsequent uses override each other)
+(Tier 3) Expend a Spell Slot to gain AC equal to the slot's level for 10 minutes (Subsequent uses override each other)
+
+(Tier 1) N/A
+(Tier 2) A single object can contain up to 2 infusions
+(Tier 3) A single object can contain up to 3 infusions
+
+-----(Barbarian)-----
+(Tier 1) +1 Rage use
+(Tier 2) +2 Rage uses
+(Tier 3) +3 Rage uses
+
+(Tier 1) +2 to Grapple Checks
+(Tier 2) +4 to Grapple Checks
+(Tier 3) +4 to Grapple Checks and Grappled enemies are Restrained
+
+(Tier 1) Rage as a Reaction to Initiative
+(Tier 2) Rage as a Reaction to Initiative and gain +3 to Initiative if you do so
+(Tier 3) Rage as a Reaction to Initiative and gain +6 to Initiative if you do so
+
+(Tier 1) +1 Rage Damage
+(Tier 2) +2 Rage Damage
+(Tier 3) +3 Rage Damage
+
+(Tier 1) +1 AC while Raging
+(Tier 2) +2 AC while Raging
+(Tier 3) +3 AC while Raging
+
+(Tier 1) N/A
+(Tier 2) Enter Rage as a Reaction to damage being taken
+(Tier 3) Enter Rage as a Reaction to damage being taken and make an attack after damage is taken
+
+(Tier 1) Resist Fire Damage while Raging
+(Tier 2) Resist Fire and Cold Damage while Raging
+(Tier 3) Resist Fire, Cold, and Lightning Damage while Raging
+
+(Tier 1) N/A
+(Tier 2) Two-Handed weapons can be wielded in one hand with a shield in the other
+(Tier 3) You can dual-wield Two-Handed weapons
+
+-----(Bard)-----
+(Tier 1) +1 Bardic Inspiration use
+(Tier 2) +2 Bardic Inspirations uses
+(Tier 3) +3 Bardic Inspirations uses
+
+(Tier 1) N/A
+(Tier 2) +1 Bardic Dice Tier
+(Tier 3) +2 Bardic Dice Tier
+
+(Tier 1) +1 Song of Rest Dice Tier
+(Tier 2) +2 Song of Rest Dice Tier
+(Tier 3) +3 Song of Rest Dice Tier
+
+(Tier 1) N/A
+(Tier 2) Gain Expertise in (SKILL)
+(Tier 3) Gain Expertise in (SKILL) and (SKILL)
+
+(Tier 1) Gain [Quick Song of Rest] - Once per Long Rest, as an Action, allies within 10 ft. can spend Hit Dice and a Song of Rest dice to heal
+(Tier 2) Gain [Quick Song of Rest] - Twice per Long Rest, as an Action, allies within 20 ft. can spend Hit Dice and a Song of Rest dice to heal
+(Tier 3) Gain [Quick Song of Rest] - Twice per Short Rest, as an Action, allies within 30 ft. can spend Hit Dice and a Song of Rest dice to heal
+
+(Tier 1) N/A
+(Tier 2) Select one of your 1st Level spells, it can be cast without expending Spell Slots. The spell cannot be changed unless you use a Tailoring Glyph
+(Tier 3) Select two of your 1st Level spells, they can be cast without expending Spell Slots. The spells cannot be changed unless you use a Tailoring Glyph
+
+(Tier 1) Jack of All Trades now affects weapons that you are not proficient with
+(Tier 2) Jack of All Trades now affects weapons and non-Death saving throws that you are not proficient with
+(Tier 3) Jack of All Trades now affects weapons, saving throws, and Death saving throws that you are not proficient with. Gain proficiency on Initiative
+
+(Tier 1) N/A
+(Tier 2) Bardic Dice grants double the dice but they are two tiers lower (min 2d4)
+(Tier 3) Bardic Dice grants double the dice but they are one tier lower (min 2d4)
+
+-----(Cleric)-----
+(Tier 1) N/A
+(Tier 2) Gain an extra use of Channel Divinity
+(Tier 3) Gain two extra uses of Channel Divinity
+
+(Tier 1) As an Action, expend one or two Hit Dice to heal a creature within 10 ft.
+(Tier 2) As a Bonus Action, expend one or two Hit Dice to heal a creature within 15 ft.
+(Tier 3) As a Bonus Action, expend one or two Hit Dice and add your Spellcasting Modifier to heal a creature within 20 ft.
+
+(Tier 1) N/A
+(Tier 2) Increased Blessed or Divine Strike's damage dice by 1 tier
+(Tier 3) Increased Blessed or Divine Strike's damage dice by 2 tiers
+
+(Tier 1) When you expend a Spell Slot, heal for 4 Hit Points
+(Tier 2) When you expend a Spell Slot, heal for 8 Hit Points
+(Tier 3) When you expend a Spell Slot, heal for 12 Hit Points
+
+(Tier 1) As a Reaction, grant two creatures within 15 ft. Resistance to Magic for one attack. You can do this once, recharging on a Short Rest
+(Tier 2) As a Reaction, grant two creatures within 20 ft. Resistance to Magic for one attack. You can do this twice, recharging on a Short Rest
+(Tier 3) As a Reaction, grant three creatures within 25 ft. Resistance to Magic for one spell or attack. You can do this three times, recharging on a Short Rest
+
+(Tier 1) N/A
+(Tier 2) Gain an extra use of Harness Divine Power
+(Tier 3) Gain two extra uses of Harness Divine Power
+
+(Tier 1) N/A
+(Tier 2) When you would get an Opportunity Attack, you may instead cast any Cantrip. This does not have to be an attack or target the triggering creature
+(Tier 3) When you would get an Opportunity Attack, you may instead cast any Cantrip. This does not have to be an attack or target the triggering creature. Also, all Cantrips can be cast as a Bonus Action. You cannot cast the same spell as an Action and Bonus Action
+
+(Tier 1) Gain an extra 4th Level Spell Slot
+(Tier 2) Gain an extra 4th and 5th Level Spell Slots
+(Tier 3) Gain an extra 4th, 5th, and 6th Level Spell Slots
+
+-----(Druid)-----
+(Tier 1) N/A
+(Tier 2) Metal gear changes to wood while worn or wielded, they retain their stats
+(Tier 3) Metal gear changes to wood while worn or wielded, they retain their stats and gain +1 AC or Damage
+
+(Tier 1) Wild Shape lasts for 1 more hours and you can speak while transformed
+(Tier 2) Wild Shape lasts for 2 more hours, you can speak, and you can cast Cantrips while transformed
+(Tier 3) Wild Shape lasts for 3 more hours, you can speak, and you can cast Cantrips and 1st Level Spells while transformed
+
+(Tier 1) Your spells deal an extra 1d6 Poison Damage
+(Tier 2) Your spells deal an extra 1d8 Poison Damage
+(Tier 3) Your spells deal an extra 2d6 Poison Damage
+
+(Tier 1) You have Advantage on Checks related to Plants
+(Tier 2) You have Advantage on Checks and Attacks against Plants
+(Tier 3) You have Advantage on Checks and Attacks against Plants and can Wild Shape into Plants
+
+(Tier 1) N/A
+(Tier 2) You can Wild Shape as a Bonus Action (or as a Reaction if it was already a Bonus Action)
+(Tier 3) You can Wild Shape as a Reaction
+
+(Tier 1) N/A
+(Tier 2) Gain an extra Wild Shape use
+(Tier 3) Gain two extra Wild Shape uses
+
+(Tier 1) +1/2 CR to Wild Shape limit
+(Tier 2) +1 CR to Wild Shape limit
+(Tier 3) +2 CR to Wild Shape limit
+
+(Tier 1) N/A
+(Tier 2) You can Wild Shape into Fey
+(Tier 3) You can Wild Shape into Fey and Monstrosities
+
+-----(Fighter)-----
+(Tier 1) As a Reaction to taking damage or being grappled, you can attempt to Shove the triggering creature
+(Tier 2) As a Reaction to taking damage or being grappled, you can attempt to Shove or Grapple the triggering creature
+(Tier 3) As a Reaction to taking damage or being grappled, you can attempt to Shove, Grapple, or impose Disadvantage on the triggering creature
+
+(Tier 1) N/A
+(Tier 2) Gain a (FIGHTING STYLE)
+(Tier 3) Gain two (FIGHTING STYLE)
+
+(Tier 1) Second Wind heals an additional 1d6
+(Tier 2) Second Wind heals an additional 1d8 and you gain an extra use
+(Tier 3) Second Wind heals an additional 1d8 and you gain two extra uses
+
+(Tier 1) Gain a (MANEUVER) and one d8 Superiority Dice
+(Tier 2) Gain a (MANEUVER) and two d8 Superiority Dice
+(Tier 3) Gain two (MANEUVER) and three d8 Superiority Dice
+
+(Tier 1) Gain +5 ft. of movement speed when moving directly towards an enemy
+(Tier 2) Gain +10 ft. of movement speed when moving directly towards an enemy
+(Tier 3) Gain +15 ft. of movement speed when moving directly towards or away from an enemy
+
+(Tier 1) N/A
+(Tier 2) Gain an extra use of Indomitable
+(Tier 3) Gain two extra uses of Indomitable
+
+(Tier 1) N/A
+(Tier 2) Critical Hits deal an extra weapon damage dice
+(Tier 3) Critical Hits deal an extra weapon damage dice and your Critical Range is increased by 1
+
+(Tier 1) Action Surge grants an additional Reaction on that turn
+(Tier 2) Action Surge grants an additional Reaction and half of your movement on that turn
+(Tier 3) Action Surge grants an additional Reaction and half of your movement on that turn. Gain an extra Action Surge use
+
+-----(Monk)-----
+(Tier 1) +2 Ki Points
+(Tier 2) +4 Ki Points
+(Tier 3) +6 Ki Points
+
+(Tier 1) Roll a d20 for each spent Ki Point. On a 20, the point is not expdended
+(Tier 2) Roll a d20 for each spent Ki Point. On a 19-20, the point is not expdended
+(Tier 3) Roll a d20 for each spent Ki Point. On a 18-20, the point is not expdended
+
+(Tier 1) Unarmored Defense and Save DC can use Intelligence in place of Wisdom
+(Tier 2) Unarmored Defense and Save DC can use Intelligence or Charisma in place of Wisdom
+(Tier 3) Unarmored Defense and Save DC can use Intelligence, Charisma, or Strength  in place of Wisdom
+
+(Tier 1) N/A
+(Tier 2) Deflect Missiles no longer requires a Reaction, but you can only use it an amount of time equal to your Proficiency Bonus, recharging on a Long Rest. Throwing a missile back still uses your Reaction
+(Tier 3) Deflect Missiles no longer requires a Reaction, but you can only use it an amount of time equal to your Proficiency Bonus, recharging on a Long Rest. Throwing a missile back does not require a Reaction and the range is doubled
+
+(Tier 1) Heal 3 Hit Points when you spend Ki
+(Tier 2) Heal 5 Hit Points when you spend Ki
+(Tier 3) Heal 8 Hit Points when you spend Ki
+
+(Tier 1) N/A
+(Tier 2) Shields do not impede Unarmored Movement
+(Tier 3) Shields do not impede Unarmored Movement or Unarmored Attacks
+
+(Tier 1) N/A
+(Tier 2) Gain +5 ft. of Unarmored Movement
+(Tier 3) Gain +10 ft. of Unarmored Movement
+
+(Tier 1) N/A
+(Tier 2) Increase your Martial Arts Die by 1 tier
+(Tier 3) Increase your Martial Arts Die by 2 tiers
+
+-----(Paladin)-----
+(Tier 1) Divine Sense functions permanently up to 10 ft.
+(Tier 2) Divine Sense functions permanently up to 20 ft.
+(Tier 3) Divine Sense functions permanently up to 30 ft.
+
+(Tier 1) N/A
+(Tier 2) Gain a (FIGHTING STYLE)
+(Tier 3) Gain two (FIGHTING STYLE)
+
+(Tier 1) N/A
+(Tier 2) Gain an extra Channel Divinity use
+(Tier 3) Gain two extra Channel Divinity uses
+
+(Tier 1) After dealing Radiant Damage, heal 4 Hit Points
+(Tier 2) After dealing Radiant Damage, heal 8 Hit Points
+(Tier 3) After dealing Radiant Damage, heal 12 Hit Points
+
+(Tier 1) Gain +5 ft. to all Auras
+(Tier 2) Gain +10 ft. to all Auras
+(Tier 3) Gain +15 ft. to all Auras
+
+(Tier 1) N/A
+(Tier 2) +1d8 Divine Smite Damage
+(Tier 3) +1 Divine Smite Dice and Divine Smite's Dice are increase by 1 tier
+
+(Tier 1) Lay On Hands Hit Point Pool is your level x 6
+(Tier 2) Lay On Hands Hit Point Pool is your level x 7
+(Tier 3) Lay On Hands Hit Point Pool is your level x 8
+
+(Tier 1) N/A
+(Tier 2) Gain a 5th Level Spell Slot
+(Tier 3) Gain a 5th and 6th Spell Slot, the 6th Level Spell Slot can be used for Divine Smite
+
+-----(Ranger)-----
+(Tier 1) Primeval Awareness can detect Oozes, Constructs, and Plants
+(Tier 2) Primeval Awareness can detect Oozes, Constructs, and Plants. You can choose to reduce the range down to 500 ft. in 100 ft. increments
+(Tier 3) Primeval Awareness can detect Oozes, Constructs, and Plants. You can choose to reduce the range down to 200 ft. in 100 ft. increments
+
+(Tier 1) N/A
+(Tier 2) Favored Enemies or Foes have Disadvantage on non-grapple checks against you
+(Tier 3) Favored Enemies or Foes have Disadvantage on non-grapple checks against you and you have advantage on the opposing checks
+
+(Tier 1) N/A
+(Tier 2) Gain a Favored (TERRAIN)
+(Tier 3) Gain two Favored (TERRAIN)
+
+(Tier 1) N/A
+(Tier 2) Gain a Favored Enemy (CREATURE) and their language
+(Tier 3) Gain two Favored Enemies ( CREATURE) and their langauges
+
+(Tier 1) Gain an extra use of Favored Foe (even if you chose Favored Enemy)
+(Tier 2) Gain an extra use of Favored Foe (even if you chose Favored Enemy) and increase the Dice by 1 Tier
+(Tier 3) Gain two extra use of Favored Foe (even if you chose Favored Enemy) and increase the Dice by 2 Tiers
+
+(Tier 1) N/A
+(Tier 2) Ranged Attacks can benefit from Flanking
+(Tier 3) Ranged Attacks can benefit from and provide Flanking
+
+(Tier 1) N/A
+(Tier 2) Gain a (FIGHTING STYLE)
+(Tier 3) Gain two (FIGHTING STYLE)
+
+(Tier 1) Gain an additional 2nd Level Spell Slot
+(Tier 2) Gain an additional 2nd and 3rd Level Spell Slot
+(Tier 3) Gain an additional 2nd, 3rd and 4th Level Spell Slot
+
+-----(Rogue)-----
+(Tier 1) You can Use Object as a Bonus Action
+(Tier 2) You can Use Object and Help as a Bonus Action
+(Tier 3) You can Use Object, Help, and Dodge as a Bonus Action
+
+(Tier 1) Reduce your AC by 6 until your next turn to gain Advantage on all attacks
+(Tier 2) Reduce your AC by 4 until your next turn to gain Advantage on all attacks
+(Tier 3) Reduce your AC by 2 until your next turn to gain Advantage on all attacks
+
+(Tier 1) Uncanny Dodge no longer requires a Reaction but you can only use it twice, recharging on a Long Rest
+(Tier 2) Uncanny Dodge no longer requires a Reaction but you can only use it three times, recharging on a Long Rest
+(Tier 3) Uncanny Dodge no longer requires a Reaction but you can only use it a numbe rof times equal to your Proficiency Bonus, recharging on a Short Rest
+
+(Tier 1) Gain Expertise in (SKILL)
+(Tier 2) Gain Expertise in two (SKILL)
+(Tier 3) Gain Expertise in three (SKILL)
+
+(Tier 1) N/A
+(Tier 2) You can add half of your Charisma Modifier to Sleight of Hand and Stealth checks outside of combat
+(Tier 3) You can add your Charisma Modifier to Sleight of Hand and Stealth checks outside of combat
+
+(Tier 1) Gain +1d6 Sneak Attakc Damage
+(Tier 2) Gain +2d6 Sneak Attakc Damage
+(Tier 3) Gain +2d6 Sneak Attakc Damage and it no longer requires Finesse Weapons
+
+(Tier 1) Uncanny Dodge also affects an ally within 5 ft. of you
+(Tier 2) Uncanny Dodge also affects an ally within 10 ft. of you
+(Tier 3) Uncanny Dodge also affects two allies within 10 ft. of you
+
+(Tier 1) Evasion also affects an ally within 5 ft. of you
+(Tier 2) Evasion also affects an ally within 10 ft. of you
+(Tier 3) Evasion also affects two allies within 10 ft. of you
+
+-----(Sorcerer)-----
+(Tier 1) +2 Sorcery Points
+(Tier 2) +4 Sorcery Points
+(Tier 3) +6 Sorcery Points
+
+(Tier 1) N/A
+(Tier 2) Gain a (META-MAGIC)
+(Tier 3) Gain two (META-MAGIC)
+
+(Tier 1) You can cast all Sorcerer Cantrip
+(Tier 2) You can cast all Sorcerer and Bard Cantrip
+(Tier 3) You can cast all Cantrips
+
+(Tier 1) For Each Sorcery Point spent on your turn (max 2), gain 1 AC until the start of your next turn
+(Tier 2) For Each Sorcery Point spent on your turn (max 3), gain 1.5 (rounded down) AC until the start of your next turn
+(Tier 3) For Each Sorcery Point spent on your turn (max 3), gain 2 AC until the start of your next turn
+
+(Tier 1) N/A
+(Tier 2) You can cast Ritual Spells as rituals, increasing the cast time by 30 minutes
+(Tier 3) You can cast Ritual Spells as rituals
+
+(Tier 1) N/A
+(Tier 2) +1 to Intelligence, Wisdom, and Charisma Spell DCs
+(Tier 3) +2 to Intelligence, Wisdom, and Charisma Spell DCs
+
+(Tier 1) N/A
+(Tier 2) +1 to Strength, Dexterity, and Consitution Spell Save DCs
+(Tier 3) +2 to Strength, Dexterity, and Consitution Spell Save DCs
+
+(Tier 1) N/A
+(Tier 2) You can convert 9 Sorcery Points into a 6th Level Spell Slot
+(Tier 3) You can convert 9 Sorcery Points into a 6th Level Spell Slot and you gain +2 Sorcery Points
+
+-----(Warlock)-----
+(Tier 1) Gain Advantage on Charisma Checks against friendly creatures
+(Tier 2) Gain Advantage on Charisma Checks against friendly and neutral creatures
+(Tier 3) Gain Advantage on Charisma Checks against all creatures
+
+(Tier 1) N/A
+(Tier 2) Gain an Eldritch (INVOCATION) (ignoring requirements, except Pact type)
+(Tier 3) Gain two Eldritch (INVOCATION) (ignoring requirements, except Pact type)
+
+(Tier 1) The Dice Tier of Eldritch Blast in increased by 1
+(Tier 2) The Dice Tier of Eldritch Blast in increased by 2
+(Tier 3) The Dice Tier of Eldritch Blast in increased by 3
+
+(Tier 1) N/A
+(Tier 2) Gain the Level 1 Trait of the (WARLOCK) subclass (reroll if you already have it)
+(Tier 3) Gain the Level 1 and Level 6 Traits of the (WARLOCK) subclass (reroll if you already have it)
+
+(Tier 1) N/A
+(Tier 2) Increase your Spell Slot Level by 1
+(Tier 3) Gain an extra Spell Slot
+
+(Tier 1) N/A
+(Tier 2) Gain an extra Spell Slot
+(Tier 3) Gain two extra Spell Slots
+
+(Tier 1) N/A
+(Tier 2) When you would get an Opportunity Attack you may cast a Cantrip instead
+(Tier 3) When you would get an Opportunity Attack you may cast a Cantrip instead. All Cantrips can be cast as a Bonus Action. You cannot cast the same spell as an Action and Bonus Action
+
+(Tier 1) Eldritch blast bypasses Resistance
+(Tier 2) Eldritch blast bypasses Resistance and treats Immunity as Resistance
+(Tier 3) Eldritch blast bypasses Resistance, treats Immunity as Resistance, and gains an extra Beam
+
+-----(Wizard)-----
+(Tier 1) +1 to Spell Attack
+(Tier 2) +1 to Spell Attack and you don't need to hold your Spellbook to cast spells
+(Tier 3) +1 to Spell Attack and you don't need your Spellbook on you
+
+(Tier 1) Gold and Time required to copy a spell into your Spellbook is reduced by 25%
+(Tier 2) Gold and Time required to copy a spell into your Spellbook is reduced by 50%
+(Tier 3) Gold and Time required to copy a spell into your Spellbook is reduced by 75%
+
+(Tier 1) Once per turn, when you expend a Spell Slot, heal for the Spell Level x2
+(Tier 2) Once per turn, when you expend a Spell Slot, heal for the Spell Level x3
+(Tier 3) Once per turn, when you expend a Spell Slot, heal for the Spell Level x3 + your Intelligence Modifier
+
+(Tier 1) N/A
+(Tier 2) Spells can targets items held by creatures
+(Tier 3) Spells can targets items held or worn by creatures
+
+(Tier 1) N/A
+(Tier 2) Gain the Level 2 Traits of the (WIZARD) subclasses (reroll if you already have it)
+(Tier 3) Gain the Level 2 and 6 Traits of the (WIZARD) subclasses (reroll if you already have it)
+
+(Tier 1) N/A
+(Tier 2) Increase your Spell Save DC by 1 for (ATTRIBUTE) saves
+(Tier 3) Increase your Spell Save DC by 2 for (ATTRIBUTE) saves
+
+(Tier 1) N/A
+(Tier 2) Arcane Recovery is equal to half your level +1
+(Tier 3) Arcane Recovery is equal to half your level +2
+
+(Tier 1) All 3rd or lower spells can be ritual cast
+(Tier 2) All 4th or lower spells can be ritual cast
+(Tier 3) All 5th or lower spells can be ritual cast

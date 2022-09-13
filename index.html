@@ -154,7 +154,16 @@ input[type='number']{
 <div id="itemtab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<button class="button-71" onclick="???();">?</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Armor:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Weapons:</u></font><br>
+			&nbsp;&nbsp;<button class="button-71" onclick="ArmorAllBtn();">All Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
+			&nbsp;<button class="button-71" onclick="ArmorLightBtn();">Light Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
+			<button class="button-71" onclick="ArmorMediumBtn();">Medium Armor</button>&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
+			&nbsp;<button class="button-71" onclick="ArmorHeavyBtn();">Heavy Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GearList();">Gear List</button><br>
+			<br>
+			&nbsp;<font size=2><u>Other Gear:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=2><u>???:</u></font><br>
+			&nbsp;<button class="button-71" onclick="AccessoryBtn();">Accessory</button><br>
+			<button class="button-71" onclick="ArtisanToolBtn();">Artisan Tool</button><br>
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><form>
@@ -225,15 +234,15 @@ input[type='number']{
 		</div><br>
 		
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="tooltip"><font color=green size="4">ⓘ</font><span class="tooltiptext">Before generating a Class Affix via Expertise Glyph, make sure you select which classes the character is classed into.</span></div>
-		<button class="button-purp" style="height: 50px;" onclick="ClassAffixBtn();">Exertise Glyph<br>(Class Affix)</button>
-		&nbsp;&nbsp;&nbsp;
+		<button class="button-purp" style="height: 50px;" onclick="ClassAffixBtn();">Exertise Glyph<br>(Class Affix)</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="button-70" style="font-size: 14px; height: 56px; padding: 4px" onclick="GenAffixItem();">Generate<br>Random<br>Item</button>
 
 		<div style="float: right">
 		<button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticArmorBtn();">Chaotic<br>Armor</button>&nbsp;&nbsp;&nbsp;
 		<button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticAccessoryBtn();">Chaotic<br>Accessory</button>
 		</div><br>
 		
-		<div style="float: left"><br>
+		<div style="float: left">
 		<button class="button-subtype" onclick="AttributeBtn();">Attribute</button><button class="button-subtype" onclick="SkillBtn();">Skill</button><button class="button-subtype" onclick="PhysicalBtn();">Physical Type</button><button class="button-subtype" onclick="ElementBtn();">Element Type</button><br>
 		<button class="button-subtype" onclick="ConditionBtn();">Condition</button><button class="button-subtype" onclick="ActionBtn();">Action</button><button class="button-subtype" onclick="TerrainBtn();">Terrain</button><button class="button-subtype" onclick="CreatureBtn();">Creature Type</button><br>
 		<button class="button-subtype" onclick="FightingStyleBtn();">Fighting Style</button><button class="button-subtype" onclick="InfusionBtn();">Infusion</button><button class="button-subtype" onclick="ManeuverBtn();">Maneuver</button><button class="button-subtype" onclick="WizardBtn();">Wizard Subclass</button><br>
@@ -254,20 +263,19 @@ input[type='number']{
 		<br><br><br><br><br>
 		<div style="float: left">
 		<font size="3">Lists of Affixes</font><br>
-		<button class="button-70" style="padding: 6px" onclick="WeaponAffixList();">Weapon</button>&nbsp;&nbsp;<button class="button-70" style="padding: 6px" onclick="TaintedWeaponList();">Tainted Weapon</button><br>
-		<button class="button-70" style="padding: 6px" onclick="ArmorAffixList();">Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button style="padding: 6px" class="button-70" onclick="TaintedArmorList();">Tainted Armor</button>&nbsp;&nbsp;<br>
+		<button class="button-70" style="padding: 6px" onclick="WeaponAffixList();">Weapon</button>&nbsp;&nbsp;<button class="button-70" style="padding: 6px" onclick="TaintedWeaponList();">Tainted Weapon</button><button style="padding: 6px" class="button-70" onclick="ClassAffixList();">Class</button><br>
+		<button class="button-70" style="padding: 6px" onclick="ArmorAffixList();">Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button style="padding: 6px" class="button-70" onclick="TaintedArmorList();">Tainted Armor</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="GlyphHelp();"><font size="3">HELP</font></button><br>
 		<button class="button-70" style="padding: 6px" onclick="AccessoryAffixList();">Accessory</button><button style="padding: 6px" class="button-70" onclick="TaintedAccessoryList();">Tainted Accessory</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="tooltip"><font color=green size="5">ⓘ</font><span class="tooltiptext">For a full explanation of the Glyphs of Pandemonium and their usage, please visit the link to the Homebrewry page!</span></div> <a href="https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI" target="_blank"><font size="5" >🔗</font></a>
 		</div><br>
-		<div style="float: right"><br><button class="button-71" onclick="GlyphHelp();"><font size="4">HELP</font></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-		<div class="tooltip"><font color=green size="5">ⓘ</font><span class="tooltiptext">For a full explanation of the Glyphs of Pandemonium and their usage, please visit the link to the Homebrewry page!</span></div> <a href="https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI" target="_blank"><font size="5" >🔗</font></a>&nbsp;&nbsp;&nbsp;
-		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+		
 		</div>
 	<div class="grid-item grid-item-double">
 		<center><form>
 		<font size=4>Results:</font>
-		<textarea rows="44" cols="60" name="glyphBox" spellcheck="false" id="glyphBox" readonly="textareaEdit">CURRENTLY WORKING: Weapon, Armor, and Accessory Affixes
-
-NYI: Tainted Affixes, Chaotic Glyphs, and Expertise (Class) Affixes</textarea>
+		<textarea rows="44" cols="60" name="glyphBox" spellcheck="false" id="glyphBox" readonly="textareaEdit"></textarea>
 		</form></center>
 	</div>
 	</div>

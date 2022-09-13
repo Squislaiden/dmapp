@@ -773,6 +773,7 @@ function ArmorAll() {
 	else if (RNG == 12) {GArmor = "Splint";}
 	else if (RNG == 13) {GArmor = "Plate";}
 }
+	function ArmorAllBtn() {ArmorAll(); document.getElementById("itemBox").innerHTML = GArmor;}
 
 function ArmorLight() {
 	let RNG = Math.floor(Math.random() * 3) + 1;
@@ -780,6 +781,7 @@ function ArmorLight() {
 	else if (RNG == 2) {GArmorLight = "Studded Leather";}
 	else if (RNG == 3) {GArmorLight = "Padded";}
 }
+	function ArmorLightBtn() {ArmorLight(); document.getElementById("itemBox").innerHTML = GArmorLight;}
 
 function ArmorMedium() {
 	let RNG = Math.floor(Math.random() * 5) + 1;
@@ -789,6 +791,7 @@ function ArmorMedium() {
 	else if (RNG == 4) {GArmorMedium = "Half Plate";}
 	else if (RNG == 5) {GArmorMedium = "Scale Mail";}
 }
+	function ArmorMediumBtn() {ArmorMedium(); document.getElementById("itemBox").innerHTML = GArmorMedium;}
 
 function ArmorHeavy() {
 	let RNG = Math.floor(Math.random() * 4) + 1;
@@ -797,6 +800,7 @@ function ArmorHeavy() {
 	else if (RNG == 3) {GArmorHeavy = "Splint";}
 	else if (RNG == 4) {GArmorHeavy = "Plate";}
 }
+	function ArmorHeavyBtn() {ArmorHeavy(); document.getElementById("itemBox").innerHTML = GArmorHeavy;}
 
 function WeaponAll() {
 	let RNG = Math.floor(Math.random() * 67) + 1;
@@ -836,6 +840,7 @@ function WeaponAll() {
 	else if (RNG == 66) {GWeapon = "Sling";}
 	else if (RNG == 67) {GWeapon = "Blowgun";}
 }
+	function WeaponAllBtn() {WeaponAll(); document.getElementById("itemBox").innerHTML = GWeapon;}
 
 function WeaponSimple() {
 	let RNG = Math.floor(Math.random() * 25) + 1;
@@ -853,6 +858,7 @@ function WeaponSimple() {
 	else if (RNG >= 23 && RNG <= 24) {GWeaponSimple = "Shortbow";}
 	else if (RNG == 25) {GWeaponSimple = "Sling";}
 }
+	function WeaponSimpleBtn() {WeaponSimple(); document.getElementById("itemBox").innerHTML = GWeaponSimple;}
 
 function WeaponMartial() {
 	let RNG = Math.floor(Math.random() * 42) + 1;
@@ -879,6 +885,7 @@ function WeaponMartial() {
 	else if (RNG == 41) {GWeaponMartial = "Lance";}
 	else if (RNG == 42) {GWeaponMartial = "Blowgun";}
 }
+	function WeaponMartialBtn() {WeaponMartial(); document.getElementById("itemBox").innerHTML = GWeaponMartial;}
 
 function WeaponRanged() {
 	let RNG = Math.floor(Math.random() * 17) + 1;
@@ -890,12 +897,41 @@ function WeaponRanged() {
 	else if (RNG == 16) {GWeaponRanged = "Blowgun";}
 	else if (RNG == 17) {GWeaponRanged = "Sling";}
 }
+	function WeaponRangedBtn() {WeaponRanged(); document.getElementById("itemBox").innerHTML = GWeaponRanged;}
 
 function AccessoryGen() {
-	let RNG = Math.floor(Math.random() * 2) + 1;
-	if (RNG == 1) {GAccessory = "";}
-	else if (RNG == 2) {GAccessory = "";}
+	let RNG = Math.floor(Math.random() * 9) + 1;
+	let accGems
+	let accMat = Math.floor(Math.random() * 32) + 1;
+	let gemSize = Math.floor(Math.random() * 7) + 1;
+	if (accMat >= 1 && accMat <= 6) {accMat = "Iron";}
+	else if (accMat >= 7 && accMat <= 19) {accMat = "Silver";}
+	else if (accMat >= 20 && accMat <= 23) {accMat = "Electrum";}
+	else if (accMat >= 24 && accMat <= 28) {accMat = "Gold";}
+	else if (accMat >= 29 && accMat <= 31) {accMat = "Mithril";}
+	else if (accMat == 32) {accMat = "Adamantium";}
+	if (gemSize == 1) {gemSize = "Tiny";}
+	else if (gemSize >= 2 && gemSize <= 4) {gemSize = "Small";}
+	else if (gemSize == 5 || gemSize == 6) {gemSize = "Normal";}
+	else if (gemSize == 7) {gemSize = "Large";}
+	if (RNG == 1) {accGems = Math.floor(Math.random() * 9);
+	GAccessory = `${accMat} Crown with ${accGems} ${gemSize} Gem(s)`;}
+	else if (RNG == 2) {accGems = Math.floor(Math.random() * 3);
+	GAccessory = `${accMat} Amulet with ${accGems} ${gemSize} Gem(s)`;}
+	else if (RNG == 3) {accGems = Math.floor(Math.random() * 2);
+	GAccessory = `${accMat} Ring with ${accGems} ${gemSize} Gem(s)`;}
+	else if (RNG == 4) {accGems = Math.floor(Math.random() * 4);
+	GAccessory = `${accMat} Bracelet with ${accGems} ${gemSize} Gem(s)`;}
+	else if (RNG == 5) {accGems = Math.floor(Math.random() * 5);
+	GAccessory = `${accMat} Choker with ${accGems} ${gemSize} Gem(s)`;}
+	else if (RNG == 6) {accGems = Math.floor(Math.random() * 2);
+	GAccessory = `Pair of ${accMat} Earrings with ${accGems} Small Gem(s) each`;}
+	else if (RNG == 7) {GAccessory = "Quiver";}
+	else if (RNG == 8) {GAccessory = `${accMat} Timepiece (Watch, etc.)`;}
+	else if (RNG == 9) {GAccessory = "Belt";}
 }
+	function AccessoryBtn() {AccessoryGen(); document.getElementById("itemBox").innerHTML = GAccessory;}
+
 
 function ArtisanTool() {
 	let RNG = Math.floor(Math.random() * 18) + 1;
@@ -918,6 +954,7 @@ function ArtisanTool() {
 	else if (RNG == 17) {GArtisanTool = "Woodcarver's Tools";}
 	else if (RNG == 18) {GArtisanTool = "Thieves' Tools";}
 }
+	function ArtisanToolBtn() {ArtisanTool(); document.getElementById("itemBox").innerHTML = GArtisanTool;}
 
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
@@ -2064,7 +2101,7 @@ function TaintedWeaponAffix() {
 	else if (RNG == 4) {GTaintedWeapon = "• (Tainted Weapon) +3 Attunement Slots";}
 	else if (RNG == 5) {GTaintedWeapon = "• (Tainted Weapon) Gain a Class Affix with double effectiveness";}
 	else if (RNG == 6) {GTaintedWeapon = "• (Tainted Weapon) The item cannot be picked up by someone you do not trust implicitly";}
-	else if (RNG == 7) {GTaintedWeapon = "• (Tainted Weapon) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 7) {GTaintedWeapon = "• (Tainted Weapon) You cannot be moved against your will and have +5 to escaping Grapple Check";}
 	else if (RNG == 8) {GTaintedWeapon = "• (Tainted Weapon) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 9) {GTaintedWeapon = "• (Tainted Weapon) Gain an extra Bonus Action each turn";}
 	else if (RNG == 10) {GTaintedWeapon = "• (Tainted Weapon) Gain 15 ft. of all applicable speed";}
@@ -2106,18 +2143,71 @@ function TaintedWeaponAffix() {
 }
 	function TaintedWeaponAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
-		let affX;
+		let affixType;
 		let taintResult;
-		if (RNG >= 1 && RNG <= 2) {;}
-		else if (RNG >= 3 && RNG <= 4) {;}
-		else if (RNG >= 5 && RNG <= 6) {;}
-		else if (RNG >= 7 && RNG <= 10) {;}
-		else if (RNG >= 11 && RNG <= 15) {;}
-		else if (RNG >= 16 && RNG <= 18) {;}
-		else if (RNG >= 19 && RNG <= 20) {;}	
+		if (RNG >= 1 && RNG <= 2) {
+			WeaponAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Weapon changes into ${GWeapon} with one affix:\n${affixType}`;
+		}
+		else if (RNG >= 3 && RNG <= 4) {
+			WeaponAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Weapon changes into ${GWeapon} with two affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 5 && RNG <= 6) {
+			WeaponAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Weapon changes into ${GWeapon} with three affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 7 && RNG <= 10) {
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Weapon gains:\n${affixType}`;
+		}
+		else if (RNG >= 11 && RNG <= 15) {
+			WeaponAll();
+			TaintedWeaponAffix();
+			taintResult = `Weapon changes into ${GWeapon} and gains:\n${GTaintedWeapon}`;
+		}
+		else if (RNG >= 16 && RNG <= 18) {
+			TaintedWeaponAffix();
+			taintResult = `Weapon gains:\n${GTaintedWeapon}`;
+		}
+		else if (RNG >= 19 && RNG <= 20) {
+			TaintedWeaponAffix();
+			taintResult = `Weapon gains:\n${GTaintedWeapon}\n`;
+			TaintedWeaponAffix();
+			taintResult += `${GTaintedWeapon}`;
+		}	
 		
-		TaintedWeaponAffix();
-		document.getElementById("glyphBox").innerHTML = `${taintResult}\n\nCORRUPTED: Tainted items can NEVER be modified or changed again short of a Wish spell.\n(Topical effects like Oils and Spells still work)`;
+		document.getElementById("glyphBox").innerHTML = `${taintResult}\n\n\nTAINTED: Tainted items can NEVER be modified or changed again short of a Wish spell.\n(Topical effects like Oils and Spells still work)`;
 	}
 
 function TaintedArmorAffix() {
@@ -2130,7 +2220,7 @@ function TaintedArmorAffix() {
 	else if (RNG == 4) {GTaintedArmor = "• (Tainted Armor) +3 Attunement Slots";}
 	else if (RNG == 5) {GTaintedArmor = "• (Tainted Armor) Gain a Class Affix with double effectiveness";}
 	else if (RNG == 6) {GTaintedArmor = "• (Tainted Armor) The item cannot be picked up by someone you do not trust implicitly";}
-	else if (RNG == 7) {GTaintedArmor = "• (Tainted Armor) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 7) {GTaintedArmor = "• (Tainted Armor) You cannot be moved against your will and have +5 to escaping Grapple Check";}
 	else if (RNG == 8) {GTaintedArmor = "• (Tainted Armor) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 9) {GTaintedArmor = "• (Tainted Armor) Gain an extra Bonus Action each turn";}
 	else if (RNG == 10) {GTaintedArmor = "• (Tainted Armor) Gain 15 ft. of all applicable speed";}
@@ -2193,8 +2283,72 @@ function TaintedArmorAffix() {
 	else if (RNG == 34) {GTaintedArmor = "• (Tainted Armor) Melee attackers take 12 Piercing Damage when they hit you";}
 }
 	function TaintedArmorAffixBtn() {
-		TaintedArmorAffix();
-		document.getElementById("glyphBox").innerHTML = GTaintedArmor;
+		let RNG = Math.floor(Math.random() * 20) + 1;
+		let affixType;
+		let taintResult;
+		if (RNG >= 1 && RNG <= 2) {
+			ArmorAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Armor changes into ${GArmor} with one affix:\n${affixType}`;
+		}
+		else if (RNG >= 3 && RNG <= 4) {
+			ArmorAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Armor changes into ${GArmor} with two affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 5 && RNG <= 6) {
+			ArmorAll(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Armor changes into ${GArmor} with three affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 7 && RNG <= 10) {
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Armor gains:\n${affixType}`;
+		}
+		else if (RNG >= 11 && RNG <= 15) {
+			ArmorAll();
+			TaintedArmorAffix();
+			taintResult = `Armor changes into ${GArmor} and gains:\n${GTaintedArmor}`;
+		}
+		else if (RNG >= 16 && RNG <= 18) {
+			TaintedArmorAffix();
+			taintResult = `Armor gains:\n${GTaintedArmor}`;
+		}
+		else if (RNG >= 19 && RNG <= 20) {
+			TaintedArmorAffix();
+			taintResult = `Armor gains:\n${GTaintedArmor}\n`;
+			TaintedArmorAffix();
+			taintResult += `${GTaintedArmor}`;
+		}	
+		
+		document.getElementById("glyphBox").innerHTML = `${taintResult}\n\n\nTAINTED: Tainted items can NEVER be modified or changed again short of a Wish spell.\n(Topical effects like Oils and Spells still work)`;
 	}
 
 function TaintedAccessoryAffix() {
@@ -2207,7 +2361,7 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 4) {GTaintedAccessory = "• (Tainted Accessory) +3 Attunement Slots";}
 	else if (RNG == 5) {GTaintedAccessory = "• (Tainted Accessory) Gain a Class Affix with double effectiveness";}
 	else if (RNG == 6) {GTaintedAccessory = "• (Tainted Accessory) The item cannot be picked up by someone you do not trust implicitly";}
-	else if (RNG == 7) {GTaintedAccessory = "• (Tainted Accessory) You cannot be move against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 7) {GTaintedAccessory = "• (Tainted Accessory) You cannot be moved against your will and have +5 to escaping Grapple Check";}
 	else if (RNG == 8) {GTaintedAccessory = "• (Tainted Accessory) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 9) {GTaintedAccessory = "• (Tainted Accessory) Gain an extra Bonus Action each turn";}
 	else if (RNG == 10) {GTaintedAccessory = "• (Tainted Accessory) Gain 15 ft. of all applicable speed";}
@@ -2297,37 +2451,475 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 45) {GTaintedAccessory = "• (Tainted Accessory) One per Long Rest, gain an Extra Action on a turn";}
 }
 	function TaintedAccessoryAffixBtn() {
-		TaintedAccessoryAffix();
-		document.getElementById("glyphBox").innerHTML = GTaintedAccessory;
+		let RNG = Math.floor(Math.random() * 20) + 1;
+		let affixType;
+		let taintResult;
+		if (RNG >= 1 && RNG <= 2) {
+			AccessoryGen(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Accessory changes into ${GAccessory} with one affix:\n${affixType}`;
+		}
+		else if (RNG >= 3 && RNG <= 4) {
+			AccessoryGen(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Accessory changes into ${GAccessory} with two affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 5 && RNG <= 6) {
+			AccessoryGen(); 
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Accessory changes into ${GAccessory} with three affixes:\n${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}\n`;
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult += `${affixType}`;
+		}
+		else if (RNG >= 7 && RNG <= 10) {
+			affixType = Math.floor(Math.random() * 3) + 1;
+				if (affixType == 1) {WeaponAffix(); affixType = GWeaponAffix;}
+				else if (affixType == 2) {ArmorAffix(); affixType = GArmorAffix;}
+				else if (affixType == 3) {AccessoryAffix(); affixType = GAccessoryAffix;}			
+			taintResult = `Accessory gains:\n${affixType}`;
+		}
+		else if (RNG >= 11 && RNG <= 15) {
+			AccessoryGen();
+			TaintedAccessoryAffix();
+			taintResult = `Accessory changes into ${GAccessory} and gains:\n${GTaintedAccessory}`;
+		}
+		else if (RNG >= 16 && RNG <= 18) {
+			TaintedAccessoryAffix();
+			taintResult = `Accessory gains:\n${GTaintedAccessory}`;
+		}
+		else if (RNG >= 19 && RNG <= 20) {
+			TaintedAccessoryAffix();
+			taintResult = `Accessory gains:\n${GTaintedAccessory}\n`;
+			TaintedAccessoryAffix();
+			taintResult += `${GTaintedAccessory}`;
+		}	
+		
+		document.getElementById("glyphBox").innerHTML = `${taintResult}\n\n\nTAINTED: Tainted items can NEVER be modified or changed again short of a Wish spell.\n(Topical effects like Oils and Spells still work)`;
 	}
 
 function ClassAffix() {
-	
+	const arrX = [];
+	let arrLength;
+	let classX;
+	let RNG = Math.floor(Math.random() * 12) + 1;
+	let tierX = Math.floor(Math.random() * 3) + 1;
+	if (document.getElementById("Artificer").checked == true) {arrX.push("Artificer");} else {}
+	if (document.getElementById("Barbarian").checked == true) {arrX.push("Barbarian");} else {}
+	if (document.getElementById("Bard").checked == true) {arrX.push("Bard");} else {}
+	if (document.getElementById("Cleric").checked == true) {arrX.push("Cleric");} else {}
+	if (document.getElementById("Druid").checked == true) {arrX.push("Druid");} else {}
+	if (document.getElementById("Fighter").checked == true) {arrX.push("Fighter");} else {}
+	if (document.getElementById("Monk").checked == true) {arrX.push("Monk");} else {}
+	if (document.getElementById("Paladin").checked == true) {arrX.push("Paladin");} else {}
+	if (document.getElementById("Ranger").checked == true) {arrX.push("Ranger");} else {}
+	if (document.getElementById("Rogue").checked == true) {arrX.push("Rogue");} else {}
+	if (document.getElementById("Sorcerer").checked == true) {arrX.push("Sorcerer");} else {}
+	if (document.getElementById("Warlock").checked == true) {arrX.push("Warlock");} else {}
+	if (document.getElementById("Wizard").checked == true) {arrX.push("Wizard");} else {}
+	arrLength = arrX.length;
+	classX = Math.floor(Math.random() * arrLength) + 1;
+	classX = arrX[classX - 1];
+		if (classX == "Artificer") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Artificer) Gain an additional use of Magical Tinkering and it can apply up to two effects to a single object`;}
+				else {GClassAffix = `• (T1 Artificer) Magical Tinkering can apply up to two effects to a single object`;}}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Artificer) Gain an additional use of Magical Tinkering and it can be applied on up to Small objects`;}
+				else {GClassAffix = `• (T1 Artificer) Tinkering effects can be applied on up to Small objects`;}}
+			else if (RNG >= 5 && RNG <= 6) {InfusionTypeGen(); GClassAffix = `• (T2 Artificer) Learn the ${GInfusion} infusion`;}
+			else if (RNG >= 7 && RNG <= 8) {GClassAffix = `• (T2 Artificer) Gain a 3rd Level Spell Slot`;}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Artificer) Up to two levels worth of spells can be cast each day without expending Spell Slots`;}
+				else {GClassAffix = `• (T1 Artificer) Up to one level worth of spells can be cast each day without expending Spell Slots`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Artificer) +1 Infused Item Limit`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Artificer) Expend a Spell Slot to gain AC equal to half of the slot's level for 10 minutes (Subsequent uses override each other)`;}
+			else if (RNG == 12) {GClassAffix = `• (T2 Artificer) A single object can contain up to 2 infusions`;}
+		}
+		else if (classX == "Barbarian") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) +2 Rage uses`;}
+				else {GClassAffix = `• (T1 Barbarian) +1 Rage use`;}}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) +4 to Grapple Checks`;}
+				else {GClassAffix = `• (T1 Barbarian) +2 to Grapple Checks`;}}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) Rage as a Reaction to Initiative and +3 to Initiative if you do so`;}
+				else {GClassAffix = `• (T1 Barbarian) Rage as a Reaction to Initiative`;}}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) +2 Rage Damage`;}
+				else {GClassAffix = `• (T1 Barbarian) +1 Rage Damage`;}}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) +2 AC while Raging`;}
+				else {GClassAffix = `• (T1 Barbarian) +1 AC while Raging`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Barbarian) Enter Rage as a Reaction to damage being taken`;}
+			else if (RNG == 11) {
+				if (tierX == 3) {GClassAffix = `• (T2 Barbarian) Resists Fire and Cold Damage while Raging`;}
+				else {GClassAffix = `• (T1 Barbarian) Resist Fire Damage while Raging`;}}
+			else if (RNG == 12) {GClassAffix = `• (T2 Barbarian) Two-Handed weapons can be wielded in one hand with a shield in the other`;}
+		}
+		else if (classX == "Bard") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Bard) +2 Bardic Inspiration uses`;}
+				else {GClassAffix = `• (T1 Bard) +1 Bardic Inspiration use`;}}
+			else if (RNG >= 3 && RNG <= 4) {GClassAffix = `• (T2 Bard) +1 Bardic Dice Tier`;}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Bard) +2 Song of Rest Dice Tier`;}
+				else {GClassAffix = `• (T1 Bard) +1 Song of Rest Dice Tier`;}}
+			else if (RNG >= 7 && RNG <= 8) {SkillTypeGen(); GClassAffix = `• (T2 Bard) Gain Expertise in ${GSkill}`;}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Bard) Gain [Quick Song of Rest] - Twice per Long Rest, as an Action, allies within 20 ft. can spend Hit Dice and a Song of Rest dice to heal`;}
+				else {GClassAffix = `• (T1 Bard) Gain [Quick Song of Rest] - Once per Long Rest, as an Action, allies within 10 ft. can spend Hit Dice and a Song of Rest dice to heal`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Bard) Select one of your 1st Level spells, it can be cast without expending Spell Slots. The spell cannot be changed unless you use a Tailoring Glyph`;}
+			else if (RNG == 11) {
+				if (tierX == 3) {GClassAffix = `• (T2 Bard) Jack of All Trades now affects weapons and non-Death saving throws that you are not proficient with`;}
+				else {GClassAffix = `• (T1 Bard) Jack of All Trades now affects weapons that you are not proficient with`;}}
+			else if (RNG == 12) {GClassAffix = `• (T2 Bard) Bardic Dice grants double the dice but they are two tiers lower (min 2d4)`;}
+		}
+		else if (classX == "Cleric") {
+			if (RNG >= 1 && RNG <= 2) {GClassAffix = `• (T2 Cleric) Gain an extra use of Channel Divinity`;}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Cleric) As a Bonus Action, expend one or two Hit Dice to heal a creature within 15 ft.`;}
+				else {GClassAffix = `• (T1 Cleric) As an Action, expend one or two Hit Dice to heal a creature within 10 ft.`;}}
+			else if (RNG >= 5 && RNG <= 6) {GClassAffix = `• (T2 Cleric) Increased Blessed or Divine Strike's damage dice by 1 tier`;}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {GClassAffix = `• (T2 Cleric) When you expend a Spell Slot, heal for 8 Hit Points`;}
+				else {GClassAffix = `• (T1 Cleric) When you expend a Spell Slot, heal for 4 Hit Points`;}}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Cleric) As a Reaction, grant two creatures within 20 ft. Resistance to Magic for one attack. You can do this twice, recharging on a Short Rest`;}
+				else {GClassAffix = `• (T1 Cleric) As a Reaction, grant two creatures within 15 ft. Resistance to Magic for one attack. You can do this once, recharging on a Short Rest`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Cleric) Gain an extra use of Harness Divine Power`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Cleric) When you would get an Opportunity Attack, you may instead cast any Cantrip. This does not have to be an attack or target the triggering creature`;}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Cleric) Gain an extra 4th and 5th Level Spell Slots`;}
+				else {GClassAffix = `• (T1 Cleric) Gain an extra 4th Level Spell Slot`;}}
+		}
+		else if (classX == "Druid") {
+			if (RNG >= 1 && RNG <= 2) {GClassAffix = `• (T2 Druid) Metal gear changes to wood while worn or wielded, they retain their stats`;}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Druid) Wild Shape lasts for 2 more hours, you can speak, and you can cast Cantrips while transformed`;}
+				else {GClassAffix = `• (T1 Druid) Wild Shape lasts for 1 more hours and you can speak while transformed`;}}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Druid) Your spells deal an extra 1d8 Poison Damage`;}
+				else {GClassAffix = `• (T1 Druid) Your spells deal an extra 1d6 Poison Damage`;}}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {GClassAffix = `• (T2 Druid) You have Advantage on Checks and Attacks against Plants`;}
+				else {GClassAffix = `• (T1 Druid) You have Advantage on Checks related to Plants
+`;}}
+			else if (RNG == 9) {GClassAffix = `• (T2 Druid) You can Wild Shape as a Bonus Action (or as a Reaction if it was already a Bonus Action)`;}
+			else if (RNG == 10) {GClassAffix = `• (T2 Druid) Gain an extra Wild Shape use`;}
+			else if (RNG == 11) {
+				if (tierX == 3) {GClassAffix = `• (T2 Druid) +1 CR to Wild Shape limit`;}
+				else {GClassAffix = `• (T1 Druid) +1/2 CR to Wild Shape limit`;}}
+			else if (RNG == 12) {GClassAffix = `• (T2 Druid) You can Wild Shape into Fey`;}
+		}
+		else if (classX == "Fighter") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Fighter) As a Reaction to taking damage or being grappled, you can attempt to Shove or Grapple the triggering creature`;}
+				else {GClassAffix = `• (T1 Fighter) As a Reaction to taking damage or being grappled, you can attempt to Shove the triggering creature`;}}
+			else if (RNG >= 3 && RNG <= 4) {FightingStyleTypeGen(); GClassAffix = `• (T2 Fighter) Gain the ${GFightingStyle} fighting style`;}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Fighter) Second Wind heals an additional 1d688 and you gain an extra use`;}
+				else {GClassAffix = `• (T1 Fighter) Second Wind heals an additional 1d6`;}}
+			else if (RNG >= 7 && RNG <= 8) {ManeuverTypeGen();
+				if (tierX == 3) {GClassAffix = `• (T2 Fighter) Gain the ${GManeuver} and two d8 Superiority Dice`;}
+				else {GClassAffix = `• (T1 Fighter) Gain the ${GManeuver} and one d8 Superiority Dice`;}}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Fighter) Gain +10 ft. of movement speed when moving directly towards an enemy`;}
+				else {GClassAffix = `• (T1 Fighter) Gain +5 ft. of movement speed when moving directly towards an enemy`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Fighter) Gain an extra use of Indomitable`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Fighter) Critical Hits deal an extra weapon damage dice`;}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Fighter) Action Surge grants an additional Reaction and half of your movement on that turn`;}
+				else {GClassAffix = `• (T1 Fighter) Action Surge grants an additional Reaction on that turn`;}}
+		}
+		else if (classX == "Monk") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Monk) +4 Ki Points`;}
+				else {GClassAffix = `• (T1 Monk) +2 Ki Points`;}}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Monk) Roll a d20 for each spent Ki Point. On a 19-20, the point is not expdended`;}
+				else {GClassAffix = `• (T1 Monk) Roll a d20 for each spent Ki Point. On a 20, the point is not expdended`;}}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Monk) Unarmored Defense and Save DC can use Intelligence or Charisma in place of Wisdom`;}
+				else {GClassAffix = `• (T1 Monk) Unarmored Defense and Save DC can use Intelligence in place of Wisdom`;}}
+			else if (RNG >= 7 && RNG <= 8) {GClassAffix = `• (T2 Monk) Deflect Missiles no longer requires a Reaction, but you can only use it an amount of time equal to your Proficiency Bonus, recharging on a Long Rest. Throwing a missile back still uses your Reaction`;}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Monk) Heal 5 Hit Points when you spend Ki`;}
+				else {GClassAffix = `• (T1 Monk) Heal 3 Hit Points when you spend Ki`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Monk) Shields do not impede Unarmored Movement`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Monk) Gain +5 ft. of Unarmored Movement Speed`;}
+			else if (RNG == 12) {GClassAffix = `• (T2 Monk) Increase your Martial Arts die by one tier`;}
+		}
+		else if (classX == "Paladin") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Paladin) Divine Sense functions permanently up to 20 ft.`;}
+				else {GClassAffix = `• (T1 Paladin) Divine Sense functions permanently up to 10 ft.`;}}
+			else if (RNG >= 3 && RNG <= 4) {FightingStyleTypeGen(); GClassAffix = `• (T2 Paladin) Gain the ${GFightingStyle} fighting style`;}
+			else if (RNG >= 5 && RNG <= 6) {GClassAffix = `• (T2 Paladin) Gain an extra Channel Divinity use`;}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {GClassAffix = `• (T2 Paladin) After dealing Radiant Damage, heal 8 Hit Points`;}
+				else {GClassAffix = `• (T1 Paladin) After dealing Radiant Damage, heal 4 Hit Points`;}}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Paladin) Gain +10 ft. to all Auras`;}
+				else {GClassAffix = `• (T1 Paladin) Gain +5 ft. to all Auras`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Paladin) +1d8 Divine Smite Damage`;}
+			else if (RNG == 11) {
+				if (tierX == 3) {GClassAffix = `• (T2 Paladin) Lay On Hands Hit Point Pool is your level x 7`;}
+				else {GClassAffix = `• (T1 Paladin) Lay On Hands Hit Point Pool is your level x 6`;}}
+			else if (RNG == 12) {GClassAffix = `• (T2 Paladin) Gain a 5th Level Spell Slot`;}
+		}
+		else if (classX == "Ranger") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Ranger) Primeval Awareness can detect Oozes, Constructs, and Plants. You can choose to reduce to range of it down to 500 ft. in 100 ft. incremenets`;}
+				else {GClassAffix = `• (T1 Ranger) Primeval Awareness can detect Oozes, Constructs, and Plants`;}}
+			else if (RNG >= 3 && RNG <= 4) {GClassAffix = `• (T2 Ranger) Favored Enemies or Foes have Disadvantage on non-grapple checks against you`;}
+			else if (RNG >= 5 && RNG <= 6) {TerrainTypeGen(); GClassAffix = `• (T2 Ranger) Gain ${GTerrain} as a Favored Terrain`;}
+			else if (RNG >= 7 && RNG <= 8) {CreatureTypeGen(); GClassAffix = `• (T2 Ranger) Gain ${GCreature} as a Favored Enemy and learn their langauge`;}
+			else if (RNG == 9) {
+				if (tierX == 3) {GClassAffix = `• (T2 Ranger) Gain an extra use of Favored Foe (even if you chose Favored Enemy) and increase the Dice by 1 Tier`;}
+				else {GClassAffix = `• (T1 Ranger) Gain an extra use of Favored Foe (even if you chose Favored Enemy)`;}}
+			else if (RNG == 10) {GClassAffix = `• (T2 Ranger) Ranged Attacks can benefit from Flanking`;}
+			else if (RNG == 11) {FightingStyleTypeGen(); GClassAffix = `• (T2 Ranger) Gain the ${GFightingStyle} fighting style`;}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Ranger) Gain an additional 2nd and 3rd Level Spell Slot`;}
+				else {GClassAffix = `• (T1 Ranger) Gain an additional 2nd Level Spell Slot`;}}
+		}
+		else if (classX == "Rogue") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) You can Use Object and Help as a Bonus Action`;}
+				else {GClassAffix = `• (T1 Rogue) You can Use Object as a Bonus Action`;}}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Reduce your AC by 4 until your next turn to gain Advantage on all attacks`;}
+				else {GClassAffix = `• (T1 Rogue) Reduce your AC by 6 until your next turn to gain Advantage on all attacks`;}}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Uncanny Dodge no longer requires a Reaction but you can only use it three times, recharging on a Long Rest`;}
+				else {GClassAffix = `• (T1 Rogue) Uncanny Dodge no longer requires a Reaction but you can only use it twice, recharging on a Long Rest`;}}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {SkillTypeGen(); let skillX = GSkill; SkillTypeGen(); GClassAffix = `• (T2 Rogue) Gain Expertise in ${GSkill} and ${skillX}`;}
+				else {SkillTypeGen(); GClassAffix = `• (T1 Rogue) Gain Expertise in ${GSkill}`;}}
+			else if (RNG == 9) {GClassAffix = `• (T2 Rogue) You can add half of your Charisma Modifier to Sleight of Hand and Stealth checks outside of combat`;}
+			else if (RNG == 10) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Gain +2d6 Sneak Attakc Damage`;}
+				else {GClassAffix = `• (T1 Rogue) Gain +1d6 Sneak Attakc Damage`;}}
+			else if (RNG == 11) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Uncanny Dodge also affects an ally within 10 ft. of you`;}
+				else {GClassAffix = `• (T1 Rogue) Uncanny Dodge also affects an ally within 5 ft. of you`;}}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Evasion also affects an ally within 10 ft. of you`;}
+				else {GClassAffix = `• (T1 Rogue) Evasion also affects an ally within 5 ft. of you`;}}
+		}
+		else if (classX == "Sorcerer") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Sorcerer) +4 Sorcery Points`;}
+				else {GClassAffix = `• (T1 Sorcerer) +2 Sorcery Points`;}}
+			else if (RNG >= 3 && RNG <= 4) {MetaMagicTypeGen(); GClassAffix = `• (T2 Sorcerer) Gain the ${GMetaMagic} meta-magic`;}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Sorcerer) You can cast all Sorcerer and Bard Cantrip`;}
+				else {GClassAffix = `• (T1 Sorcerer) You can cast all Sorcerer Cantrip`;}}
+			else if (RNG >= 7 && RNG <= 8) {
+				if (tierX == 3) {GClassAffix = `• (T2 Sorcerer) For Each Sorcery Point spent on your turn (max 3), gain 1.5 AC (rounded down) until the start of your next turn`;}
+				else {GClassAffix = `• (T1 Sorcerer) For Each Sorcery Point spent on your turn (max 2), gain 1 AC until the start of your next turn`;}}
+			else if (RNG == 9) {GClassAffix = `• (T2 Sorcerer) You can cast Ritual Spells as rituals, increasing the cast time by 30 minutes`;}
+			else if (RNG == 10) {GClassAffix = `• (T2 Sorcerer) +1 to Intelligence, Wisdom, and Charisma Spell Save DCs`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Sorcerer) +1 to Strength, Dexterity, and Consitution Spell Save DCs`;}
+			else if (RNG == 12) {GClassAffix = `• (T2 Sorcerer) You can convert 9 Sorcery Points into a 6th Level Spell Slot`;}
+		}
+		else if (classX == "Warlock") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Warlock) Gain Advantage on Charisma Checks against friendly and neutral creatures`;}
+				else {GClassAffix = `• (T1 Warlock) Gain Advantage on Charisma Checks against friendly creatures`;}}
+			else if (RNG >= 3 && RNG <= 4) {InvocationTypeGen(); GClassAffix = `• (T2 Warlock) Gain an Eldritch ${GInvocation} (ignoring requirements, except Pact type)`;}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Warlock) The Dice Tier of Eldritch Blast in increased by 2`;}
+				else {GClassAffix = `• (T1 Warlock) The Dice Tier of Eldritch Blast in increased by 1`;}}
+			else if (RNG >= 7 && RNG <= 8) {WarlockTypeGen(); GClassAffix = `• (T2 Warlock) Gain the Level 1 Trait of the ${GWarlock} subclass (reroll if you already have it)`;}
+			else if (RNG == 9) {GClassAffix = `• (T2 Warlock) Increase your Spell Slot Level by 1`;}
+			else if (RNG == 10) {GClassAffix = `• (T2 Warlock) Gain an extra Spell Slot`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Warlock) When you would get an Opportunity Attack you may cast a Cantrip instead`;}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Warlock) Eldritch blast bypasses Resistance and treats Immunity as Resistance`;}
+				else {GClassAffix = `• (T1 Warlock) Eldritch blast bypasses Resistance`;}}
+		}
+		else if (classX == "Wizard") {
+			if (RNG >= 1 && RNG <= 2) {
+				if (tierX == 3) {GClassAffix = `• (T2 Wizard) +1 to Spell Attack and you don't need to hold your Spellbook to cast spells`;}
+				else {GClassAffix = `• (T1 Wizard) +1 to Spell Attack`;}}
+			else if (RNG >= 3 && RNG <= 4) {
+				if (tierX == 3) {GClassAffix = `• (T2 Wizard) Gold and Time required to copy a spell into your Spellbook is reduced by 50%`;}
+				else {GClassAffix = `• (T1 Wizard) Gold and Time required to copy a spell into your Spellbook is reduced by 25%`;}}
+			else if (RNG >= 5 && RNG <= 6) {
+				if (tierX == 3) {GClassAffix = `• (T2 Wizard) Once per turn, when you expend a Spell Slot, heal for the Spell Level x3`;}
+				else {GClassAffix = `• (T1 Wizard) Once per turn, when you expend a Spell Slot, heal for the Spell Level x2`;}}
+			else if (RNG >= 7 && RNG <= 8) {GClassAffix = `• (T2 Wizard) Spells can targets items held by creatures`;}
+			else if (RNG == 9) {WizardTypeGen(); GClassAffix = `• (T2 Wizard) Gain the Level 2 Traits of the ${GWizard} subclass (reroll if you already have it)`;}
+			else if (RNG == 10) {AttributeTypeGen(); GClassAffix = `• (T2 Wizard) Increase your Spell Save DC by 1 for ${GAttribute} Saves`;}
+			else if (RNG == 11) {GClassAffix = `• (T2 Wizard) Arcane Recovery is equal to half your level +1`;}
+			else if (RNG == 12) {
+				if (tierX == 3) {GClassAffix = `• (T2 Wizard) All 4th or lower spells can be ritual cast`;}
+				else {GClassAffix = `• (T1 Wizard) All 3rd or lower spells can be ritual cast`;}}
+		}
+
+	if (arrX.length == 0) {GClassAffix = "!!!-Please select applicable Classes First-!!!";} else {}
 }
 	function ClassAffixBtn() {
-		ClassAffix();
-		document.getElementById("glyphBox").innerHTML = GClassAffix;
+		let affNum = Number(document.getElementById("affixNum").value);
+		let affClass = "";
+		while (affNum > 0) {
+			affNum -= 1;
+			ClassAffix();
+			affClass += `${GClassAffix} \n`;}
+		document.getElementById("glyphBox").innerHTML = affClass;
 	}
 
 function ChaoticWeaponBtn() {
-	
-	let ChaosWeaponResult
-	
-	document.getElementById("glyphBox").innerHTML = ChaosWeaponResult
+	let RNG = Math.floor(Math.random() * 20) + 1;
+	let chaosResult;
+	if (RNG >= 1 && RNG <= 8) {WeaponAffix(); chaosResult = `The weapon gains:\n${GWeaponAffix}`;}
+	else if (RNG >= 9 && RNG <= 12){WeaponAffix(); chaosResult = `The weapon gains:\n${GWeaponAffix}\n`; WeaponAffix(); chaosResult += `${GWeaponAffix}`}
+	else if (RNG >= 13 && RNG <= 16){chaosResult = `The weapon gains:\n• (CLASS) Random Class-Appropriate Class Affix`;}
+	else if (RNG >= 17 && RNG <= 19){WeaponAffix(); chaosResult = `The weapon gains:\n${GWeaponAffix}\n• (CLASS) Random Class-Appropriate Class Affix`;}
+	else if (RNG == 20){let rarity = Math.floor(Math.random() * 20) + 1;
+		if (rarity >= 1 && rarity <= 10) {chaosResult = "It changes into a random Uncommon Weapon Magic Item";}
+		else if (rarity >= 11 && rarity <= 17) {chaosResult = "It changes into a random Rare Weapon Magic Item";}
+		else if (rarity >= 18 && rarity <= 20) {chaosResult = "It changes into a random Very Rare Weapon Magic Item";}
+		}
+	document.getElementById("glyphBox").innerHTML = chaosResult
 }
 
 function ChaoticArmorBtn() {
-	
-	let ChaosArmorResult
-	
-	document.getElementById("glyphBox").innerHTML = ChaosArmorResult
+	let RNG = Math.floor(Math.random() * 20) + 1;
+	let chaosResult;
+	if (RNG >= 1 && RNG <= 8) {ArmorAffix(); chaosResult = `The armor gains:\n${GArmorAffix}`;}
+	else if (RNG >= 9 && RNG <= 12){ArmorAffix(); chaosResult = `The armor gains:\n${GArmorAffix}\n`; ArmorAffix(); chaosResult += `${GArmorAffix}`}
+	else if (RNG >= 13 && RNG <= 16){chaosResult = `The armor gains:\n• (CLASS) Random Class-Appropriate Class Affix`;}
+	else if (RNG >= 17 && RNG <= 19){ArmorAffix(); chaosResult = `The armor gains:\n${GArmorAffix}\n• (CLASS) A Random Class-Appropriate Class Affix`;}
+	else if (RNG == 20){let rarity = Math.floor(Math.random() * 20) + 1;
+		if (rarity >= 1 && rarity <= 10) {chaosResult = "It changes into a random Uncommon Armor Magic Item";}
+		else if (rarity >= 11 && rarity <= 17) {chaosResult = "It changes into a random Rare Armor Magic Item";}
+		else if (rarity >= 18 && rarity <= 20) {chaosResult = "It changes into a random Very Rare Armor Magic Item";}
+		}
+	document.getElementById("glyphBox").innerHTML = chaosResult
 }
 
 function ChaoticAccessoryBtn() {
+	let RNG = Math.floor(Math.random() * 20) + 1;
+	let chaosResult;
+	if (RNG >= 1 && RNG <= 8) {AccessoryAffix(); chaosResult = `The accessory gains:\n${GAccessoryAffix}`;}
+	else if (RNG >= 9 && RNG <= 12){AccessoryAffix(); chaosResult = `The accessory gains:\n${GAccessoryAffix}\n`; AccessoryAffix(); chaosResult += `${GAccessoryAffix}`}
+	else if (RNG >= 13 && RNG <= 16){chaosResult = `The accessory gains:\n• (CLASS) Random Class-Appropriate Class Affix`;}
+	else if (RNG >= 17 && RNG <= 19){AccessoryAffix(); chaosResult = `The accessory gains:\n${GAccessoryAffix}\n• (CLASS) Random Class-Appropriate Class Affix`;}
+	else if (RNG == 20){let rarity = Math.floor(Math.random() * 20) + 1;
+		if (rarity >= 1 && rarity <= 10) {chaosResult = "It changes into a random Uncommon Accessory Magic Item";}
+		else if (rarity >= 11 && rarity <= 17) {chaosResult = "It changes into a random Rare Accessory Magic Item";}
+		else if (rarity >= 18 && rarity <= 20) {chaosResult = "It changes into a random Very Rare Accessory Magic Item";}
+		}
+	document.getElementById("glyphBox").innerHTML = chaosResult
+}
+
+function GenAffixItem() {
+	let typeX = Math.floor(Math.random() * 3) + 1;
+	let affixNum = Math.floor(Math.random() * 40) + 1;
+	let taintChance = Math.floor(Math.random() * 10) + 1;
+	let randomResult;
 	
-	let ChaosAccessoryResult
+	if (affixNum >= 1 && affixNum <= 25) {affixNum = 1;}
+	else if (affixNum >= 26 && affixNum <= 39) {affixNum = 2;}
+	else if (affixNum == 40) {affixNum = 3;}
 	
-	document.getElementById("glyphBox").innerHTML = ChaosAccessoryResult
+	if (typeX == 1) {WeaponAll(); randomResult = `A ${GWeapon} lies before you:\n`;
+		while (affixNum > 0) {affixNum -= 1; WeaponAffix(); randomResult += `${GWeaponAffix}\n`}}
+	else if (typeX == 2) {ArmorAll(); randomResult = `A ${GArmor} is revealed with:\n`;
+		while (affixNum > 0) {affixNum -= 1; ArmorAffix(); randomResult += `${GArmorAffix}\n`}}
+	else if (typeX == 3) {AccessoryGen(); randomResult = `The ${GAccessory} is ready with:\n`;
+		while (affixNum > 0) {affixNum -= 1; AccessoryAffix(); randomResult += `${GAccessoryAffix}\n`}}
+	
+	if (taintChance == 10 && typeX == 1) {TaintedWeaponAffix(); randomResult += `${GTaintedWeapon}\n`;
+		taintChance = Math.floor(Math.random() * 10) + 1;
+		if (taintChance == 10) {TaintedWeaponAffix(); randomResult += `${GTaintedWeapon}\n\n(The item is Tainted)`;}
+		else {`\n(The item is Tainted)`;}}
+	else {}
+	
+	if (taintChance == 10 && typeX == 2) {TaintedArmorAffix(); randomResult += `${GTaintedArmor}\n`;
+		taintChance = Math.floor(Math.random() * 10) + 1;
+		if (taintChance == 10) {TaintedArmorAffix(); randomResult += `${GTaintedArmor}\n\n(The item is Tainted)`;}
+		else {`\n(The item is Tainted)`;}}
+	else {}
+	
+	if (taintChance == 10 && typeX == 3) {TaintedAccessoryAffix(); randomResult += `${GTaintedAccessory}\n`;
+		taintChance = Math.floor(Math.random() * 10) + 1;
+		if (taintChance == 10) {TaintedAccessoryAffix(); randomResult += `${GTaintedAccessory}\n\n(The item is Tainted)`;}
+		else {`\n(The item is Tainted)`;}}
+	else {}
+	
+	document.getElementById("glyphBox").innerHTML = randomResult
+}
+
+function GenGlyphsBtn() {
+	let altX = 0;
+	let transX = 0;
+	let scourX = 0;
+	let augX = 0;
+	let tailorX = 0;
+	let chaoticX = 0;
+	let expertiseX = 0;
+	let magniX = 0;
+	let aberX = 0;
+	let ascendX = 0;
+	let taintX = 0;
+	let transferX = 0;
+	let qtyX = Number(document.getElementById("glyphNum").value);
+	let RNG;
+	let resultGlyph = "";
+	while (qtyX > 0) {qtyX -= 1;RNG = Math.floor(Math.random() * 100) + 1;
+		if (RNG >= 1 && RNG <= 21) {altX += 1;}
+		else if (RNG >= 22 && RNG <= 33) {transX += 1;}
+		else if (RNG >= 34 && RNG <= 43) {scourX += 1;}
+		else if (RNG >= 44 && RNG <= 51) {augX += 1;}
+		else if (RNG >= 53 && RNG <= 60) {tailorX += 1;}
+		else if (RNG >= 61 && RNG <= 68) {chaoticX += 1;}
+		else if (RNG >= 69 && RNG <= 76) {expertiseX += 1;}
+		else if (RNG >= 77 && RNG <= 83) {magniX += 1;}
+		else if (RNG >= 84 && RNG <= 87) {aberX += 1;}
+		else if (RNG >= 88 && RNG <= 93) {ascendX += 1;}
+		else if (RNG >= 94 && RNG <= 97) {taintX += 1;}
+		else if (RNG >= 98 && RNG <= 100) {transferX += 1;}
+	}
+	if (altX > 0) {resultGlyph += `${altX} Altertion Glyph(s)\n`;} else {}
+	if (transX > 0) {resultGlyph += `${transX} Transmutation Glyph(s)\n`;} else {}
+	if (scourX > 0) {resultGlyph += `${scourX} Scouring Glyph(s)\n`;} else {}
+	if (augX > 0) {resultGlyph += `${augX} Augmentation Glyph(s)\n`;} else {}
+	if (tailorX > 0) {resultGlyph += `${tailorX} Tailoring Glyph(s)\n`;} else {}
+	if (chaoticX > 0) {resultGlyph += `${chaoticX} Chaotic Glyph(s)\n`;} else {}
+	if (expertiseX > 0) {resultGlyph += `${expertiseX} Expertise Glyph(s)\n`;} else {}
+	if (magniX > 0) {resultGlyph += `${magniX} Magnificence Glyph(s)\n`;} else {}
+	if (aberX > 0) {resultGlyph += `${aberX} Aberration Glyph(s)\n`;} else {}
+	if (ascendX > 0) {resultGlyph += `${ascendX} Ascension Glyph(s)\n`;} else {}
+	if (taintX > 0) {resultGlyph += `${taintX} Tainted Glyph(s)\n`;} else {}
+	if (transferX > 0) {resultGlyph += `${transferX} Transferral Glyph(s)\n`;} else {}
+	
+	document.getElementById("glyphBox").innerHTML = resultGlyph;
 }
 
 function GlyphHelp() {
@@ -2382,6 +2974,14 @@ async function TaintedAccessoryList() {
 document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
+async function ClassAffixList() {
+	let grabFile = await fetch('/dmapp/lists/classaffix.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("glyphBox").innerHTML = txtConvert;
+}
+
 // INFO BUTTONS //
 // INFO BUTTONS //
 // INFO BUTTONS //
@@ -2425,5 +3025,13 @@ async function EnemyModInfo() {
 	const makeArray = txtConvert.split("\r?\n");
 
 document.getElementById("charBox").innerHTML = txtConvert;
+}
+
+async function GearList() {
+	let grabFile = await fetch('/dmapp/lists/gear.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
 }
 

@@ -153,14 +153,12 @@ input[type='number']{
 
 <div id="itemtab" class="tabcontent">
   	<div class="grid">
-		<div class="grid-item grid-item-double">
-			&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Armor:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Weapons:</u></font><br>
+		<div class="grid-item grid-item-double" style="line-height: 1.6">&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Armor:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Weapons:</u></font><br>
 			&nbsp;&nbsp;<button class="button-71" onclick="ArmorAllBtn();">All Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
 			&nbsp;<button class="button-71" onclick="ArmorLightBtn();">Light Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
 			<button class="button-71" onclick="ArmorMediumBtn();">Medium Armor</button>&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
 			&nbsp;<button class="button-71" onclick="ArmorHeavyBtn();">Heavy Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GearList();">Gear List</button><br>
-			<br>
 			&nbsp;<font size=2><u>Other Gear:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=2><u>???:</u></font><br>
 			&nbsp;<button class="button-71" onclick="AccessoryBtn();">Accessory</button><br>
 			<button class="button-71" onclick="ArtisanToolBtn();">Artisan Tool</button><br>
@@ -179,16 +177,76 @@ input[type='number']{
 <div id="chartab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<button class="button-71" onclick="CreatureBtn();">Creature Type</button>
+			<div style="float: left"><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
+			<br>
+			<label style="font-size: 14px">Creature Type:</label>
+			<select name="DropType" id="dropType">
+			<option value="Random">[Random Type]</option>
+			<option value="Aberration">Aberration</option>
+			<option value="Beast">Beast</option>
+			<option value="Celestial">Celestial</option>
+			<option value="Construct">Construct</option>
+			<option value="Dragon">Dragon</option>
+			<option value="Elemental">Elemental</option>
+			<option value="Fey">Fey</option>
+			<option value="Fiend">Fiend</option>
+			<option value="Giant">Giant</option>
+			<option value="Humandoid">Humanoid</option>
+			<option value="Monstrosity">Monstrosity</option>
+			<option value="Plant">Plant</option>
+			<option value="Ooze">Ooze</option>
+			<option value="Undead">Undead</option>		
+			</select><br>
+			&nbsp;&nbsp;<label style="font-size: 14px">CR (max 50):</label>
+			<input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
+			</select><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px">Boss? </label><input type="checkbox" id="bossCheck" name="bossCheck">&nbsp;&nbsp;<label style="font-size: 14px">Lair? </label><input type="checkbox" id="lairCheck" name="lairCheck"><br><br>
 			
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<div style="float: right"><button class="button-71" onclick="EnemyModBtn();">Random Enemy Modifier</button> <div class="tooltip" onclick="EnemyModInfo();"><font color=green> ⓘ</font><span class="tooltiptext">These modifiers are to spice up a regular stat block.\nDCs, damage, and any numbers are given a suggested value, but may be modified to suit the challenge level. Modifiers have a 10% chance to be [Elite]. (CLICK for List of possible Modifiers)</span></div><br>
-			<label for="jumpStand" style="font-size: 14px">Force Elite Generation</label><input type="checkbox" id="modEliteCheck" name="modEliteCheck"></div>
+			<textarea rows="16" cols="32" style="background-color: #383838; font-size: .5em; color: lightgray; resize: none" disabled>Generating a random enemy will randomly pick everything, except a name, and output in three formats in the outputs below: Text, Homebrewery Markup, and Improved-Initiative JSON.
+
+The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resistances, Traits, Actions, Bonus Actions, Reactions, Recharge Abilities, Legendary Actions, Lair Passives/Actives, and Traits specific to certian categories.
+			</textarea>
+			
+			</div>
+					
+			<div style="float: right">
+			&nbsp;<button class="button-71" onclick="RollStatsBtn();">Roll Attributes</button><br>
+			<button class="button-70" onclick="ReincarnateInfo();">Reincarnate List</button><br><br><br>
+			<button class="button-70" onclick="EnemyTraitInfo();">Trait List</button><br>
+			<button class="button-70" onclick="EnemyActionInfo();">Action List</button><br>
+			<button class="button-70" onclick="EnemyBonusInfo();">Bonus Action List</button><br>
+			<button class="button-70" onclick="EnemyReactionInfo();">Reaction List</button><br>
+			<button class="button-70" onclick="EnemyRechargeInfo();">Recharge List</button><br>
+			<button class="button-70" onclick="EnemyLegendaryInfo();">Legendary List</button><br>
+			<button class="button-70" onclick="EnemyLairInfo();">Lair Trait List</button><br>
+			<button class="button-70" onclick="EnemyModInfo();">Modifier List</button><br>
+			<button class="button-70" onclick="TypeSpecificInfo();">Type-Specific List</button><br>
+			</div>
+			<div style="float: right; text-align: right">
+			<button class="button-71" onclick="CharGenBtn();">Generate Character</button><div style="line-height: 1.6">
+			<div class="tooltip"><font color=green> ⓘ</font><span class="tooltiptext">[<u>Generate Character</u>] will create a random character: class, race, subclass, alignment, and background. [<u>Reincarnate</u>] will randomly select a race with no weight or bias. Check the Official Table checkbox to use the table found within the Player's Handbook.</span> </div>
+			<button class="button-71" onclick="ReincarnateBtn();">Reincarnate</button></div>
+			<label style="font-size: 12px">Use Official Table: </label><input type="checkbox" id="reincarnateCheck" name="reincarnateCheck">
+			<br><br>
+			<div style="line-height: 1.6">
+			<button class="button-71" onclick="EnemyTraitBtn();">Random Trait</button><br>
+			<button class="button-71" onclick="EnemyActionBtn();">Random Action</button><br>
+			<button class="button-71" onclick="EnemyBonusBtn();">Random Bonus Action</button><br>
+			<button class="button-71" onclick="EnemyReactionBtn();">Random Reaction</button><br>
+			<button class="button-71" onclick="EnemyRechargeBtn();">Random Recharge</button><br>
+			<button class="button-71" onclick="EnemyLegendaryBtn();">Random Legendary</button><br>
+			<button class="button-71" onclick="EnemyLairBtn();">Random Lair Trait</button><br>
+			<button class="button-71" onclick="EnemyModBtn();">Random Modifier</button><br>
+			<div class="tooltip"><font color=green> ⓘ</font><span class="tooltiptext">These modifiers are to spice up a regular stat block. DCs, damage, and any numbers are given a suggested value, but may be modified to suit the challenge level. Modifiers have a 10% chance to be [Elite].</span> <label style="font-size: 14px">Force Elite</label><input type="checkbox" id="modEliteCheck" name="modEliteCheck">&nbsp;&nbsp;</div>
+			</div>
+			</div>
+			
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><form>
 				<font size=4>Results:</font>
-				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>
+				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>Random Enemy Modifiers is the only thing working. Everything else is WIP!
 				</textarea>
 				</form></center>
 		</div>
@@ -237,7 +295,7 @@ input[type='number']{
 		<button class="button-purp" style="height: 50px;" onclick="ClassAffixBtn();">Exertise Glyph<br>(Class Affix)</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<button class="button-70" style="font-size: 14px; height: 56px; padding: 4px" onclick="GenAffixItem();">Generate<br>Random<br>Item</button>
 
-		<div style="float: right">
+		<div style="float: right"><br>
 		<button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticArmorBtn();">Chaotic<br>Armor</button>&nbsp;&nbsp;&nbsp;
 		<button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticAccessoryBtn();">Chaotic<br>Accessory</button>
 		</div><br>
@@ -248,19 +306,28 @@ input[type='number']{
 		<button class="button-subtype" onclick="FightingStyleBtn();">Fighting Style</button><button class="button-subtype" onclick="InfusionBtn();">Infusion</button><button class="button-subtype" onclick="ManeuverBtn();">Maneuver</button><button class="button-subtype" onclick="WizardBtn();">Wizard Subclass</button><br>
 		<button class="button-subtype" onclick="InvocationBtn();">Invocation</button><button class="button-subtype" onclick="MetaMagicBtn();">Meta-Magic</button><button class="button-subtype" onclick="WarlockBtn();">Warlock Subclass</button><button class="button-subtype" onclick="WeatherBtn();">Weather</button><br>
 		</div>
-		
-		
-		<div style="float: right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticWeaponBtn();">Chaotic<br>Weapon</button><br><br>
-			<input type="checkbox" id="Artificer"><font size="2">Artificer</font>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Paladin"><font size="2">Paladin</font><br>
-			<input type="checkbox" id="Barbarian"><font size="2">Barbarian</font>&nbsp;&nbsp;<input type="checkbox" id="Ranger"><font size="2">Ranger</font><br>
-			<input type="checkbox" id="Bard"><font size="2">Bard</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="Rogue"><font size="2">Rogue</font><br>
-			<input type="checkbox" id="Cleric"><font size="2">Cleric</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
-			<input type="checkbox" id="Druid"><font size="2">Druid</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Warlock"><font size="2">Warlock</font><br>
-			<input type="checkbox" id="Fighter"><font size="2">Fighter</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="Wizard"><font size="2">Wizard</font><br>
-			<input type="checkbox" id="Monk"><font size="2">Monk</font><br>
+		<div style="float: right"><button class="button-purp" style="height: 50px; width: 75px" onclick="ChaoticWeaponBtn();">Chaotic<br>Weapon</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 		</div>
-		
-		<br><br><br><br><br>
+		<br><br><br>
+		<div style="float: right">
+		<input type="checkbox" id="Paladin"><font size="2">Paladin</font><br>
+		<input type="checkbox" id="Ranger"><font size="2">Ranger</font><br>
+		<input type="checkbox" id="Rogue"><font size="2">Rogue</font><br>
+		<input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
+		<input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
+		<input type="checkbox" id="Warlock"><font size="2">Warlock</font><br>
+		<input type="checkbox" id="Wizard"><font size="2">Wizard</font><br>
+		</div>
+		<div style="float: right">
+		<input type="checkbox" id="Artificer"><font size="2">Artificer</font><br>
+		<input type="checkbox" id="Barbarian"><font size="2">Barbarian</font><br>
+		<input type="checkbox" id="Bard"><font size="2">Bard</font><br>
+		<input type="checkbox" id="Cleric"><font size="2">Cleric</font> <br>
+		<input type="checkbox" id="Druid"><font size="2">Druid</font><br>
+		<input type="checkbox" id="Fighter"><font size="2">Fighter</font><br>
+		<input type="checkbox" id="Monk"><font size="2">Monk</font><br>
+		</div>
+		<br><br>
 		<div style="float: left">
 		<font size="3">Lists of Affixes</font><br>
 		<button class="button-70" style="padding: 6px" onclick="WeaponAffixList();">Weapon</button>&nbsp;&nbsp;<button class="button-70" style="padding: 6px" onclick="TaintedWeaponList();">Tainted Weapon</button><button style="padding: 6px" class="button-70" onclick="ClassAffixList();">Class</button><br>

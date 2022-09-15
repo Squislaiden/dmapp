@@ -375,7 +375,7 @@ function CreatureTypeGen() {
 	GCreature = creatureResult
 }
 	function CreatureBtn() {
-		CreatureTypeGen()
+		CreatureTypeGen();
 		document.getElementById("glyphBox").innerHTML = GCreature;
 	}
 

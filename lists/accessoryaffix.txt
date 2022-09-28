@@ -124,3 +124,7 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) Once a day, gain 10 ft. of Truesight for 15 minutes
 (Tier 3) Twice a day, gain 15 ft. of Truesight for 15 minutes
 --------------------
+(Tier 1) N/A
+(Tier 2) Healing you take is split between you and all allies within 5 ft. of you
+(Tier 3) Healing you take is duplicated to two allies within 5 ft. of you
+--------------------

@@ -104,3 +104,31 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) Add weapon dice one more time and +3 to Critical Hits
 (Tier 3) Add weapon dice one more time and +6 to Critical Hits
 --------------------
+(Tier 1) N/A
+(Tier 2) Once per turn, as part of the Attack Action, you can teleport up to 5 ft. towards your target.
+(Tier 3) Once per turn, as part of the Attack Action, you can teleport up to 10 ft. towards your target.
+--------------------
+(Tier 1) N/A
+(Tier 2) Once per turn, your attacks also hit an enemy directly behind you
+(Tier 3) Twice per turn, your attacks also hit an enemy directly behind you and enemies cannot benefit from flanking on you
+--------------------
+(Tier 1) After you attack, as a Bonus Action, attempt to grapple the target
+(Tier 2) After you attack, as a Bonus Action, attempt to grapple the target and gain +2 on the check
+(Tier 3) After you attack, as a Bonus Action, attempt to grapple and restrain the target and gain +4 on the check
+--------------------
+(Tier 1) You can detect when (Creature) is within 10 ft. of you.
+(Tier 2) You can detect when (Creature) is within 20 ft. of you.
+(Tier 3) You can detect when (Creature) is within 30 ft. of you and you deal +3 damage to them.
+--------------------
+(Tier 1) N/A
+(Tier 2) The weapon can deal half damage to creatures on the Ethereal Plane
+(Tier 3) The weapon can deal damage to creatures on the Ethereal Plane
+--------------------
+(Tier 1) N/A
+(Tier 2) Once per turn, per creature, on a hit, move them 5 ft. in a direction.
+(Tier 3) Once per turn, per creature, on a hit, move them 10 ft. in a direction.
+--------------------
+(Tier 1) The weapon deals 50% additional damage to structures and objects
+(Tier 2) The weapon deals double damage to structures and objects
+(Tier 3) The weapon deals triple damage to structures and objects
+--------------------

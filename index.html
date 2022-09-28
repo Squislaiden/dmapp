@@ -153,15 +153,42 @@ input[type='number']{
 
 <div id="itemtab" class="tabcontent">
   	<div class="grid">
-		<div class="grid-item grid-item-double" style="line-height: 1.6">&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Armor:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3><u>Weapons:</u></font><br>
-			&nbsp;&nbsp;<button class="button-71" onclick="ArmorAllBtn();">All Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
-			&nbsp;<button class="button-71" onclick="ArmorLightBtn();">Light Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
-			<button class="button-71" onclick="ArmorMediumBtn();">Medium Armor</button>&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
-			&nbsp;<button class="button-71" onclick="ArmorHeavyBtn();">Heavy Armor</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GearList();">Gear List</button><br>
-			&nbsp;<font size=2><u>Other Gear:</u></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=2><u>???:</u></font><br>
-			&nbsp;<button class="button-71" onclick="AccessoryBtn();">Accessory</button><br>
-			<button class="button-71" onclick="ArtisanToolBtn();">Artisan Tool</button><br>
+		<div class="grid-item grid-item-double" style="line-height: 1.6">
+			<div style="float: left; text-align: center">
+			<font size=3><u>Armor:</u></font><br>
+			<button class="button-71" onclick="ArmorAllBtn();">All Armor</button><br>
+			<button class="button-71" onclick="ArmorLightBtn();">Light Armor</button><br>
+			<button class="button-71" onclick="ArmorMediumBtn();">Medium Armor</button><br>
+			<button class="button-71" onclick="ArmorHeavyBtn();">Heavy Armor</button><br>
+			</div>
+			<div style="float: left; text-align: center">
+			<font size=3><u>Weapons:</u></font><br>
+			<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
+			<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
+			<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
+			<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
+			</div>
+			<br><br><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button class="button-70" onclick="GearList();">Gear List</button><br>
+			<div style="float: left; text-align: center">
+			<font size=2><u>Other Gear:</u></font><font size=2><u>???:</u></font><br>
+			<button class="button-71" onclick="AccessoryBtn();">Accessory</button><br><button class="button-71" onclick="ArtisanToolBtn();">Artisan Tool</button><br>
+			<button class="button-71" onclick="SpellScrollBtn();">Spell Scroll</button><br>
+			<select name="spellLevel" id="spellLevel">
+			<option value="Spell0">Cantrip</option>
+			<option value="Spell1">1st Level</option>
+			<option value="Spell2">2nd Level</option>
+			<option value="Spell3">3rd Level</option>
+			<option value="Spell4">4th Level</option>
+			<option value="Spell5">5th Level</option>
+			<option value="Spell6">6th Level</option>
+			<option value="Spell7">7th Level</option>
+			<option value="Spell8">8th Level</option>
+			<option value="Spell9">9th Level</option>
+			</select><br>
+			</div>
+			
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><form>
@@ -181,7 +208,7 @@ input[type='number']{
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
 			<br>
 			<label style="font-size: 14px">Creature Type:</label>
-			<select name="DropType" id="dropType">
+			<select name="dropType" id="dropType">
 			<option value="Random">[Random Type]</option>
 			<option value="Aberration">Aberration</option>
 			<option value="Beast">Beast</option>
@@ -212,7 +239,7 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 					
 			<div style="float: right">
 			&nbsp;<button class="button-71" onclick="RollStatsBtn();">Roll Attributes</button><br>
-			<button class="button-70" onclick="ReincarnateInfo();">Reincarnate List</button><br><br><br>
+			<button class="button-70" onclick="CharacterInfo();">All Char Info</button><br><br><br>
 			<button class="button-70" onclick="EnemyTraitInfo();">Trait List</button><br>
 			<button class="button-70" onclick="EnemyActionInfo();">Action List</button><br>
 			<button class="button-70" onclick="EnemyBonusInfo();">Bonus Action List</button><br>
@@ -238,31 +265,26 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 			<button class="button-71" onclick="EnemyLegendaryBtn();">Random Legendary</button><br>
 			<button class="button-71" onclick="EnemyLairBtn();">Random Lair Trait</button><br>
 			<button class="button-71" onclick="EnemyModBtn();">Random Modifier</button><br>
-			<div class="tooltip"><font color=green> ⓘ</font><span class="tooltiptext">These modifiers are to spice up a regular stat block. DCs, damage, and any numbers are given a suggested value, but may be modified to suit the challenge level. Modifiers have a 10% chance to be [Elite].</span></div> <label style="font-size: 14px">Force Elite</label><input type="checkbox" id="modEliteCheck" name="modEliteCheck">&nbsp;&nbsp;
+			<div class="tooltip"><font color=green> ⓘ</font><span class="tooltiptext">These modifiers are to spice up a regular stat block. DCs, damage, and any numbers are given a suggested value, but may be modified to suit the challenge level. Modifiers have a 10% chance to be [Elite]. The following checkbox will change the Elite chance to 100%.</span></div> <label style="font-size: 14px">Force Elite</label><input type="checkbox" id="modEliteCheck" name="modEliteCheck">&nbsp;&nbsp;
 			</div>
 			</div>
 			
 		</div>
 		<div class="grid-item grid-item-double">
-			<center><form>
-				<font size=4>Results:</font>
-				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>Random Enemy Modifiers is the only thing working. Everything else is WIP!
-				</textarea>
-				</form></center>
+			<center><font size=4>Results:</font> <button class="button-70" onclick="copyOutput();">Copy</button>
+				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>WORKING: Random Modifier, Reincarnate, Character Generator, Attribute Roll.
+Everything else is WIP!
+				</textarea></center>
 		</div>
 		<div class="grid-item grid-item-double">
-			<center><form>
-				<font size=4>Naturalcrit Homebrewery V3 Stat Block:</font> <div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted directly into a Homebrewery V3 document to create a Stat Block.</span></div> <a href="https://naturalcrit.com/" target="_blank"><font size="5" >🔗</font></a>
-				<textarea rows="15" cols="82" name="homebrewBox" spellcheck="false" id="homebrewBox" readonly="textareaEdit" style="font-size: 10px">
-				</textarea>
-				</form></center>
+			<center><a href="https://www.naturalcrit.com/" target="_blank"><font size="5" >🔗</font></a> <div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted directly into a Homebrewery V3 document to create a Stat Block.</span></div> <font size=4>Naturalcrit Homebrewery V3 Markdown:</font> <button class="button-70" onclick="copyHomebrew();">Copy</button>
+				<textarea rows="14" cols="82" name="homebrewBox" spellcheck="false" id="homebrewBox" readonly="textareaEdit" style="font-size: 10px">
+				</textarea></center>
 		</div>
 		<div class="grid-item grid-item-double">
-			<center><form>
-				<font size=4>Improved-Initiative JSON Text:</font> <div class='tooltip'><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted as JSON into a new creature in Improved-Initiative to create a Stat Block.</span></div> <a href="https://www.improved-initiative.com/" target="_blank"><font size="5">🔗</font></a>
-				<textarea rows="15" cols="82" name="improvedBox" spellcheck="false" id="improvedBox" readonly="textareaEdit" style="font-size: 10px">
-				</textarea>
-				</form></center>
+			<center><a href="https://www.improved-initiative.com/" target="_blank"><font size="5">🔗</font></a> <div class='tooltip'><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted as JSON into a new creature in Improved-Initiative to create a Stat Block.</span></div> <font size=4>Improved-Initiative JSON Text:</font> <button class="button-70" onclick="copyImproved();">Copy</button>
+				<textarea rows="14" cols="82" name="improvedBox" spellcheck="false" id="improvedBox" readonly="textareaEdit" style="font-size: 10px">
+				</textarea></center>
 		</div>
 	</div>
 </div>

@@ -70,7 +70,7 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 --------------------
 (Tier 1) Take 4 less damage from (CREATURE)
 (Tier 2) Take 8 less damage from (CREATURE)
-(Tier 3) Take 50% less damage from (CREATURE)
+(Tier 3) Take 12 less damage from (CREATURE)
 --------------------
 (Tier 1) Instead of Dexterity, you can add half of (ATTRIBUTE) to your AC
 (Tier 2) Instead of Dexterity, you can add (ATTRIBUTE) to your AC
@@ -95,4 +95,28 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 1) Gain Advantage on saving throws against (CONDITION)
 (Tier 2) Gain Advantage on saving throws against (CONDITION) and it has 50% reduced duration (minimum 6 seconds)
 (Tier 3) Gain Immunity to (CONDITION)
+--------------------
+(Tier 1) Attune to the object and give it to another creature. You take half of the physical damage they would take while you are within 30 ft.
+(Tier 2) Attune to the object and give it to another creature. You take half of the physical damage they would take while you are within 60 ft.
+(Tier 3) Attune to the object and give it to another creature. You take all of the physical damage they would take while you are within 30 ft.
+--------------------
+(Tier 1) N/A
+(Tier 2) As a Reaction to taking damage, you may teleport up to 10 ft. to a location you can see.
+(Tier 3) As a Reaction to taking damage, you may teleport up to 20 ft. to a location you can see.
+--------------------
+(Tier 1) As a Reaction to being Hit, expend a number of charges and increase your AC by that for that attack, The item has 3 charges, regaining them at dawn.
+(Tier 2) As a Reaction to being Hit, expend a number of charges and increase your AC by that for that attack, The item has 5 charges, regaining them at dawn.
+(Tier 3) As a Reaction to being Hit, expend a number of charges and increase your AC by that for that attack, The item has 7 charges, regaining them at dawn.
+--------------------
+(Tier 1) As a Reaction, attempt to grapple the attacker. One use per Long Rest.
+(Tier 2) As a Reaction, attempt to grapple the attacker. Two uses per Long Rest.
+(Tier 3) As a Reaction, attempt to grapple the attacker. Three uses per Long Rest.
+--------------------
+(Tier 1) Gain half of your level to Hit Point Maximum
+(Tier 2) Gain your level x1 to Hit Point Maximum
+(Tier 3) Gain your level x2 to Hit Point Maximum
+--------------------
+(Tier 1) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +4 AC. You can leave the stance as an Action.
+(Tier 2) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.
+(Tier 3) As an Action, enter a Guard Stance. You have half movement speed and you cannot take Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.
 --------------------

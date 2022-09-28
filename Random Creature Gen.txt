@@ -1,7 +1,8 @@
-TO DO IMMEDIATELY
-- Random item with random affixes
-  - Update Sheet, include Tier slot
-  - Armor, Weapon, Acc rolls, for Chance/Vaal
+TO DO
+- Update Feruchemist Brew
+- More Decks
+- ENDGAME - Add all auto generation to Modifiers
+- FULL Recharge Function. Contains Recharge and Bonus Action recharges.
 
 ORDER OF OPERATIONS (Note: Variable for qty of each type)
 - Grab CR, Boss Toggle, Lair Toggle
@@ -9,38 +10,48 @@ ORDER OF OPERATIONS (Note: Variable for qty of each type)
   - Set PB (Tier +1)
 - Get Creature Type
   - Pick Size
-  - Pick Martial(45%)/Half(30%)/Caster(15%)
+  - Pick Martial(60%)/Half(25%)/Caster(15%)
     - Pick Hit Dice Size
   - Pick Main Stats, Roll Stats
-    - Boss gives +1-3 all, +RndUp(PB/4) to all
-    - Pick Saves, Skills (weighted to Main Stats)
-  - Pick Speeds
-  - Get Resistances
-  - Get Base AC (Armor and/or Dex/Creature Type)
+    - Boss gives +1-3 all, +RndDwn(PB/2) to all
   - Get HP (CR # Hit Dice + Base)
     - Base from CR, with 30% variation
     - Bosses get 50-100% more
 - Pick # of Traits
-  - Spellcasting Calculate
   - Pick Spells
-    - Number and Levels based on CR
+    - Number (Array for at will, 1/d, 3/d, 5/d)
+    - Levels based on Tier
 - Pick # of Actions
   - Determine Multiattacks
-  - Save and Roll
 - Pick # of Bonus Actions
-- Pick # of Recharges
 - Pick # of Reactions
+- Pick # of Recharges
 - Pick # of Legendary Action/Resistance Uses
-  - Pick # of Legendary Actions
+  - Pick # of Legendary Actions (Additional Actions)
+    - Weapon Attack is on all
   - Pick # of Lair Actions, Passives
-- Get Recharges (add +1 to Action Qty)
-- Creature Type Specifics
-- Enemy Modifier Chance
-
-TO DO
-- Look into Tables and Lists
-- Artisan Tools
-- More Decks
+    - Pick Lair Passive Range: 500 ft. - 10 miles
+- Speed
+- Random Enemy Modifier
+- Pick Traits
+- Creature Type Specifics (GElemental Type)
+  - Other Speeds
+- Get Final Stat Modifiers
+  - Con Mod adds to HP
+  - Get Base AC
+    - Martial: 10 + Primary Mod - 1 + Math.floor(GTier / 2)
+    - Half: 8 + Primary Mod - 1 + Math.floor(GTier / 2)
+    - Caster: 12 + Dex Mod
+  - Pick Saves
+  - Skills (weighted to Main Stats)
+  - Random Modifier as last trait
+  - Spellcasting Calculate
+  - Save Bonus, Skill Bonus
+- Get Final HP
+  - Math.floor(GHitDiceQty * (GHitDiceSize / 2 + 0.5) + GHP) * GHPMulti
+- Pick and roll for all Action Types (Recharge adds +1 ActionNum)
+  - Attack Reach: Huge adds 5 ft. to melee
+  - Get Resistances
 
 CONVERSION TO HTML NOTES
 - Jewelry Calculator - Size Choice per Gem
@@ -60,17 +71,19 @@ Random Enemy Generators
            21-24(+7),  25-28(+8),  29-32(+9),  33-36(+10),
            37-40(+11), 41-44(+12), 45-48(+13), 49-50(+14)
       - Tier is used for most things. CR determines HP.
-  - Stats: Random, 7 Minimum, 20 Maximum - BOSS: +1 all, +3 Specific
-    - PB-1 to all
+  - Stats: Random, 7 Minimum, 20 Maximum
+    - BOSS: +2 all, +5 Main, +3 Second, +2 Third, -7 Bad
+    - +PB/2(rndD) to all stats
   - Size: Fixed for most, others random, weighted towards large
-    - Dragon(by CR), Giant(Huge, 5% Large/Garg), Humanoid(1% Large)
+    - Dragon(by CR), Giant(Huge, 5% Large/Garg), Humanoid(5% Large)
   - Speed: 30-40 ft.
-    - Fly: Dragon(100%),  Beast(25%), Celestial(50%)
+    - Fly: Dragon(90%),  Beast(25%), Celestial(50%)
            Construct(5%), Fey(50%),   Monster(25%)
     - Swim: All(15%), Beast/Monster(25%), Undead/Plant/Construct(5%)
     - Burrow: Monster(15%), Beast(20%), Aberration(10%), Dragon(25%)
-      - Based on Size: S(10), M(10-15), L(15-25), H(20-30), G(25-40)
-    - Plant: 5-20 ft.
+      - Based on Size: S(10), M(10-15), L(15-25), H(20-30), G(30-40)
+    - Climb: Beast/Monster/Aberration(20%)
+    - Plant/Ooze: 5-20 ft.
   - Weapons/Attacks: Random Melee and Ranged, or Natural Weapons
   - Skill Proficiency: T1(0-2), T2(1-3), T3(2-4), T4(3-5)
     - Weighted towards primary stats
@@ -89,7 +102,7 @@ Random Enemy Generators
   - Elemental Speed: Air(Fly), Water(Swim), Earth(Burrow)
   - Dragon/Elemental: Random "Color/Element"
   - 5% chance for Resist to be Immunity
-- Spells: 3 Mental Stats * 9 Levels, 27 Pools of Spells
+- Spells: # Based on Tier
   - Spell DC(8+PB+Stat(Max 28)) and Spell Attack(PB+Stat)
 - Dropdown Boxes
   - CR: up to 50 for Shits n Giggles?
@@ -126,7 +139,7 @@ ___
 **Saving Throws**        :: SAVES
 **Skills**               :: SKILLS
 **Resistances**          :: RESISTS
-**Immunities**             :: IMMUNITIES
+**Immunities**           :: IMMUNITIES
 **Condition Immunities** :: COND-IMMUNE
 **Senses**               :: SENSES, passive Perception ??
 **Languages**            :: LANGUAGES
@@ -155,16 +168,3 @@ HOW MANY ACTION USES
 
 --Attack Description--
 Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d1 +1) TYPE damage
-
-	CONVERSION VB TO JS
-VAR = CInt(Math.Floor((5 - 1 + 1) * Rnd())) + 1
-If AffAction = 1 Then
-  GlobalVariables.AffixActionResult = "Disengage"
-ElseIf AffAction = 2 Then
-  GlobalVariables.AffixActionResult = "Hide"
-End If
-
-let RNGVAR = Math.floor(Math.random() * 4) + 1;
-if (RNGVAR = 1) {GLOBAL.VAR = "X"};
-else if (RNGVAR = 2) {GLOBAL.VAR = "Y"};
-else {}

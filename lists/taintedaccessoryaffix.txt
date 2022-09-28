@@ -1,4 +1,4 @@
-+1 to All Attributes
++2 to All Attributes
 
 +4 to (Attribute)
 
@@ -10,7 +10,7 @@ Gain a Class Affix with double effectiveness
 
 The item cannot be picked up by someone you do not trust implicitly
 
-You cannot be moved against your will and have +5 on escape Grapple checks
+You can detect (Creature) within 60 ft. and deal +6 damage to them
 
 You no longer need to eat, breath, drink, or sleep
 
@@ -87,3 +87,5 @@ Gain 90 ft. of Tremorsense
 Up to Proficiency Bonus times a day, gain 30 ft. of Truesight for 30 minutes
 
 Once per Long Rest, gain an Extra Action
+
+Healing you take is duplicated to three allies within 10 ft. of you

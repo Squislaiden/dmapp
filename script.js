@@ -11,9 +11,8 @@
 // Global Variables //
 // Global Variables //
 // Global Variables //
-var GCreature
 var GAttribute
-var GSkill
+var GSkillX
 var GTerrain
 var GWeather
 var GCondition
@@ -38,7 +37,17 @@ var GWeaponMartial
 var GWeaponRanged
 var GAccessory
 var GArtisanTool
-
+var GSpell
+var GSpellGen0
+var GSpellGen1
+var GSpellGen2
+var GSpellGen3
+var GSpellGen4
+var GSpellGen5
+var GSpellGen6
+var GSpellGen7
+var GSpellGen8
+var GSpellGen9
 	// Glyphs //
 var GWeaponAffix
 var GArmorAffix
@@ -48,9 +57,112 @@ var GTaintedArmor
 var GTaintedAccessory
 var GClassAffix
 	// Glyphs //
+var GRace
+var GClass
+var GBackground
+var GAlign
 	// Character Gen //
-
-var GMod
+var GStatRoll = 0
+var GCR = 0
+var GTier = 0
+var GPB = 0
+var GDarkvision = 0
+var GTremorsense = 0
+var GBlindsight = 0
+var GTruesight = 0
+const GLanguage = []
+var GTelepathyRange = 0
+var GCreature = ""
+var GHumanoid = ""
+var GElemental = ""
+var GSize = ""
+var GMagic = ""
+var GHP = 0
+var GHPTotal = 0
+var GHPMulti = 1
+var GHitDiceQty = 0
+var GHitDiceSize = 0
+var GFirstStat = ""
+var GSecondStat = ""
+var GThirdStat = ""
+var GBadStat = ""
+var GStr = 0
+var GStrMod = 0
+var GDex = 0
+var GDexMod = 0
+var GCon = 0
+var GConMod = 0
+var GInt = 0
+var GIntMod = 0
+var GWis = 0
+var GWisMod = 0
+var GCha = 0
+var GChaMod = 0
+var GWeaponMod = 0
+var GWeaponHit = 0
+var GSpellMod = 0
+var GSpellHit = 0
+var GSpellDC = 0
+const GSkill = []
+const GSave = []
+var GSaveBonus = 0
+var GSkillBonus = 0
+const GRes = []
+const GVuln = []
+const GCondImmune = []
+const GImmune = []
+var GAC = 0
+var GHitPoints = ""
+var GSpeedTotal = ""
+var GSpeed = 0
+var GSpeedFly = 0
+var GSpeedSwim = 0
+var GSpeedClimb = 0
+var GSpeedBurrow = 0
+var GTraitQty = 1
+const GSpellQty = []
+var GSpell0 = ""
+var GSpell1 = ""
+var GSpell3 = ""
+var GSpell5 = ""
+var GMultiattack = 0
+var GActionQty = 1
+var GBonusQty = 1
+var GRechargeQty = 1
+var GReactionQty = 1
+var GLegendaryQty = 1
+var GLegendaryUses = 1
+var GLegendaryResist = 1
+var GLairActiveQty = 1
+var GLairPassiveQty = 1
+var GLairPassiveRange = ""
+var GMod = ""
+var GSpellStat = ""
+const GTraitNames = []
+const GTraits = []
+const GActionNames = []
+const GActions = []
+const GBonusNames = []
+const GBonuses = []
+const GRechargeNames = []
+const GRecharges = []
+const GReactionNames = []
+const GReactions = []
+const GLegendaryNames = []
+const GLegendaries = []
+const GLairActiveNames = []
+const GLairActives = []
+const GLairPassiveNames = []
+const GLairPassives = []
+var GTempSave = ""
+var GSaveTotal = ""
+var GSkillTotal = ""
+var GSenseTotal = ""
+var GLanguageTotal = ""
+var GResTotal = ""
+var GImmuneTotal = ""
+var GCondImmuneTotal = ""
+var GVulnTotal = ""
 	// Character Gen //
 // Global Variables //
 // Global Variables //
@@ -459,11 +571,11 @@ function SkillTypeGen() {
 	else if (RNG == 18) {skillResult = "Stealth";}
 	else if (RNG == 19) {skillResult = "Survival";}
 	else {}
-	GSkill = skillResult
+	GSkillX = skillResult
 }
 	function SkillBtn() {
 		SkillTypeGen()
-		document.getElementById("glyphBox").innerHTML = GSkill;
+		document.getElementById("glyphBox").innerHTML = GSkillX;
 	}
 
 function ConditionTypeGen() {
@@ -962,801 +1074,2959 @@ function ArtisanTool() {
 // CHARACTER TOOLS //
 // CHARACTER TOOLS //
 
-function EnemyMod() {
+function RaceGen() {
+	let raceRNG
+	let raceSub
+	if (document.getElementById("reincarnateCheck").checked == true) {raceRNG = Math.floor(Math.random() * 100) + 1;
+		if (raceRNG >= 1 && raceRNG <= 4) {GRace = "Dragonborn";}
+		else if (raceRNG >= 5 && raceRNG <= 13) {GRace = "Hill Dwarf";}
+		else if (raceRNG >= 14 && raceRNG <= 21) {GRace = "Mountain Dwarf";}
+		else if (raceRNG >= 22 && raceRNG <= 25) {GRace = "Dark Elf";}
+		else if (raceRNG >= 26 && raceRNG <= 34) {GRace = "High Elf";}
+		else if (raceRNG >= 35 && raceRNG <= 42) {GRace = "Wood Elf";}
+		else if (raceRNG >= 43 && raceRNG <= 46) {GRace = "Forest Gnome";}
+		else if (raceRNG >= 47 && raceRNG <= 52) {GRace = "Rock Gnome";}
+		else if (raceRNG >= 53 && raceRNG <= 56) {GRace = "Half-Elf";}
+		else if (raceRNG >= 57 && raceRNG <= 60) {GRace = "Half-Orc";}
+		else if (raceRNG >= 61 && raceRNG <= 68) {GRace = "Lightfoot Halfling";}
+		else if (raceRNG >= 69 && raceRNG <= 76) {GRace = "Stout Halfling";}
+		else if (raceRNG >= 77 && raceRNG <= 96) {GRace = "Human";}
+		else if (raceRNG >= 97 && raceRNG <= 100) {GRace = "Tiefling";}
+	}
+	else if (document.getElementById("reincarnateCheck").checked == false) {raceRNG = Math.floor(Math.random() * 48) + 1;
+if (raceRNG == 1) {GRace = "Aarakocra";}
+else if (raceRNG == 2) {raceSub = Math.floor(Math.random() * 3) + 1;
+	if (raceSub == 1) {GRace = "Fallen";}
+	else if (raceSub == 2) {GRace = "Protector";}
+	else if (raceSub == 3) {GRace = "Scourge";}
+	GRace += " Aasimar";}
+else if (raceRNG == 3) {GRace = "Bugbear";}
+else if (raceRNG == 4) {GRace = "Centaur";}
+else if (raceRNG == 5) {GRace = "Changeling";}
+else if (raceRNG == 6) {GRace = "Dhampir";}
+else if (raceRNG == 7) {raceSub = Math.floor(Math.random() * 15) + 1;
+	if (raceSub == 1) {GRace = "Black (Acid) ";}
+	else if (raceSub == 2) {GRace = "Blue (Lightning) ";}
+	else if (raceSub == 3) {GRace = "Green (Poison)";}
+	else if (raceSub == 4) {GRace = "Red (Fire)";}
+	else if (raceSub == 5) {GRace = "White (Cold)";}
+	else if (raceSub == 6) {GRace = "Copper (Acid)";}
+	else if (raceSub == 7) {GRace = "Bronze/Mithril (Lightning)";}
+	else if (raceSub == 8) {GRace = "Brass/Tungsten (Poison)";}
+	else if (raceSub == 9) {GRace = "Gold (Fire)";}
+	else if (raceSub == 10) {GRace = "Silver (Cold)";}
+	else if (raceSub == 11) {GRace = "Amethyst (Force)";}
+	else if (raceSub == 12) {GRace = "Crystal (Radiant)";}
+	else if (raceSub == 13) {GRace = "Emerald (Psychic)";}
+	else if (raceSub == 14) {GRace = "Sapphire (Thunder)";}
+	else if (raceSub == 15) {GRace = "Topaz (Necrotic)";}GRace += " Dragonborn";}
+else if (raceRNG == 8) {raceSub = Math.floor(Math.random() * 3) + 1;
+	if (raceSub == 1) {GRace = "Duergar (Dark)";}
+	else if (raceSub == 2) {GRace = "Hill";}
+	else if (raceSub == 3) {GRace = "Mountain";}
+	GRace += " Dwarf";}
+else if (raceRNG == 9) {raceSub = Math.floor(Math.random() * 8) + 1;
+	if (raceSub == 1) {GRace = "Drow";}
+	else if (raceSub == 2) {GRace = "Eladrin";}
+	else if (raceSub == 3) {GRace = "High";}
+	else if (raceSub == 4) {GRace = "Sea";}
+	else if (raceSub == 5) {GRace = "Shadar-Kai";}
+	else if (raceSub == 6) {GRace = "Wood";}
+	else if (raceSub == 7) {GRace = "Pallid";}
+	else if (raceSub == 8) {GRace = "Astral";}
+	GRace += " Elf";}
+else if (raceRNG == 10) {GRace = "Firbolg";}
+else if (raceRNG == 11) {raceSub = Math.floor(Math.random() * 3) + 1;
+	if (raceSub == 1) {GRace = "Air";}
+	else if (raceSub == 2) {GRace = "Earth";}
+	else if (raceSub == 3) {GRace = "Water";}
+	else if (raceSub == 4) {GRace = "Fire";}
+	GRace += " Genasi";}
+else if (raceRNG == 12) {raceSub = Math.floor(Math.random() * 2) + 1;
+	if (raceSub == 1) {GRace = "Githyanki";}
+	else if (raceSub == 2) {GRace = "Githzerai";}}
+else if (raceRNG == 13) {raceSub = Math.floor(Math.random() * 3) + 1;
+	if (raceSub == 1) {GRace = "Deep";}
+	else if (raceSub == 2) {GRace = "Forest";}
+	else if (raceSub == 3) {GRace = "Rock";}
+	GRace += " Gnome";}
+else if (raceRNG == 14) {GRace = "Goblin";}
+else if (raceRNG == 15) {GRace = "Goliath";}
+else if (raceRNG == 16) {GRace = "Half-Orc";}
+else if (raceRNG == 17) {GRace = "Hobgoblin";}
+else if (raceRNG == 18) {raceSub = Math.floor(Math.random() * 5) + 1;
+	if (raceSub == 1) {GRace = "Aquatic";}
+	else if (raceSub == 2) {GRace = "Drow";}
+	else if (raceSub == 3) {GRace = "Wood";}
+	else if (raceSub == 4) {GRace = "Moon";}
+	else if (raceSub == 5) {GRace = "Sun";}
+	GRace += " Half-Elf";}
+else if (raceRNG == 19) {raceSub = Math.floor(Math.random() * 4) + 1;
+	if (raceSub == 1) {GRace = "Lightfoot";}
+	else if (raceSub == 2) {GRace = "Stous";}
+	else if (raceSub == 3) {GRace = "Ghostwise";}
+	else if (raceSub == 4) {GRace = "Lotusden";}
+	GRace += " Halfling";}
+else if (raceRNG == 20) {GRace = "Hexblood";}
+else if (raceRNG == 21) {GRace = "Human";}
+else if (raceRNG == 22) {GRace = "Kalashtar";}
+else if (raceRNG == 23) {GRace = "Kenku";}
+else if (raceRNG == 24) {GRace = "Kobold";}
+else if (raceRNG == 25) {GRace = "Leonin";}
+else if (raceRNG == 26) {GRace = "Lizardfolk";}
+else if (raceRNG == 27) {GRace = "Loxodon";}
+else if (raceRNG == 28) {GRace = "Minotaur";}
+else if (raceRNG == 29) {GRace = "Orc";}
+else if (raceRNG == 30) {GRace = "Reborn";}
+else if (raceRNG == 31) {GRace = "Satyr";}
+else if (raceRNG == 32) {raceSub = Math.floor(Math.random() * 4) + 1;
+	if (raceSub == 1) {GRace = "Beasthide";}
+	else if (raceSub == 2) {GRace = "Longtooth";}
+	else if (raceSub == 3) {GRace = "Swiftstride";}
+	else if (raceSub == 4) {GRace = "Wildhunt";}
+	GRace += " Shifter";}
+else if (raceRNG == 33) {GRace = "Simic Hybrid";}
+else if (raceRNG == 34) {GRace = "Tabaxi";}
+else if (raceRNG == 35) {GRace = "Tiefling "
+	raceSub = Math.floor(Math.random() * 9) + 1;
+	if (raceSub == 1) {GRace += "(Asmodeus)";}
+	else if (raceSub == 2) {GRace += "(Baalzebul)";}
+	else if (raceSub == 3) {GRace += "(Dispater)";}
+	else if (raceSub == 4) {GRace += "(Fierna)";}
+	else if (raceSub == 5) {GRace += "(Glasya)";}
+	else if (raceSub == 6) {GRace += "(Levistus)";}
+	else if (raceSub == 7) {GRace += "(Mammon)";}
+	else if (raceSub == 8) {GRace += "(Mephistopheles)";}
+	else if (raceSub == 9) {GRace += "(Zariel)";}}
+else if (raceRNG == 36) {GRace = "Triton";}
+else if (raceRNG == 37) {GRace = "Vedalken";}
+else if (raceRNG == 38) {GRace = "Verdan";}
+else if (raceRNG == 39) {GRace = "Warforged";}
+else if (raceRNG == 40) {GRace = "Yuan-Ti";}
+else if (raceRNG == 41) {GRace = "Owlin";}
+else if (raceRNG == 42) {GRace = "Haregon";}
+else if (raceRNG == 43) {GRace = "Autognome";}
+else if (raceRNG == 44) {GRace = "Giff";}
+else if (raceRNG == 45) {GRace = "Hadozee";}
+else if (raceRNG == 46) {GRace = "Plasmoid";}
+else if (raceRNG == 47) {GRace = "Thri-Kreen"}
+else if (raceRNG == 48) {GRace = "Fairy";}
+	}
+}
+	function ReincarnateBtn() {
+		RaceGen();
+		document.getElementById("charBox").innerHTML = GRace;
+	}
+
+function ClassGen() {
+	let classRNG = Math.floor(Math.random() * 13) + 1;
+	let classSub;
+			if (classRNG == 1) {classSub = Math.floor(Math.random() * 8) + 1;
+            if (classSub == 1) {GClass = "Ancestral Guardian Barbarian";}
+            else if (classSub == 2) {GClass = "Battlerager Barbarian";}
+            else if (classSub == 3) {GClass = "Beast Barbarian";}
+            else if (classSub == 4) {GClass = "Berserker Barbarian";}
+            else if (classSub == 5) {GClass = "Storm Herald Barbarian";}
+            else if (classSub == 6) {GClass = "Totem Warrior Barbarian";}
+            else if (classSub == 7) {GClass = "Wild Magic Barbarian";}
+            else if (classSub == 8) {GClass = "Zealot Barbarian";}}
+        else if (classRNG == 2) {classSub = Math.floor(Math.random() * 8) + 1;
+            if (classSub == 1) {GClass = "Creation Bard";}
+            else if (classSub == 2) {GClass = "Eloquence Bard";}
+            else if (classSub == 3) {GClass = "Glamour Bard";}
+            else if (classSub == 4) {GClass = "Lore Bard";}
+            else if (classSub == 5) {GClass = "Spirits Bard";}
+            else if (classSub == 6) {GClass = "Swords Bard";}
+            else if (classSub == 7) {GClass = "Valor Bard";}
+            else if (classSub == 8) {GClass = "Whispers Bard";}}
+        else if (classRNG == 3) {classSub = Math.floor(Math.random() * 14) + 1;
+            if (classSub == 1) {GClass = "Arcana Cleric";}
+            else if (classSub == 2) {GClass = "Death Cleric";}
+            else if (classSub == 3) {GClass = "Forge Cleric";}
+            else if (classSub == 4) {GClass = "Grave Cleric";}
+            else if (classSub == 5) {GClass = "Knowledge Cleric";}
+            else if (classSub == 6) {GClass = "Life Cleric";}
+            else if (classSub == 7) {GClass = "Light Cleric";}
+            else if (classSub == 8) {GClass = "Nature Cleric";}
+            else if (classSub == 9) {GClass = "Order Cleric";}
+            else if (classSub == 10) {GClass = "Peace Cleric";}
+            else if (classSub == 11) {GClass = "Tempest Cleric";}
+            else if (classSub == 12) {GClass = "Trickery Cleric";}
+            else if (classSub == 13) {GClass = "Twilight Cleric";}
+            else if (classSub == 14) {GClass = "War Cleric";}}
+        else if (classRNG == 4) {classSub = Math.floor(Math.random() * 7) + 1;
+            if (classSub == 1) {GClass = "Dreams Druid";}
+            else if (classSub == 2) {GClass = "Land Druid";}
+            else if (classSub == 3) {GClass = "Moon Druid";}
+            else if (classSub == 4) {GClass = "Shepherd Druid";}
+            else if (classSub == 5) {GClass = "Spores Druid";}
+            else if (classSub == 6) {GClass = "Stars Druid";}
+			else if (classSub == 7) {GClass = "Wildfire Druid";}}
+        else if (classRNG == 5) {classSub = Math.floor(Math.random() * 10) + 1;
+            if (classSub == 1) {GClass = "Arcane Archer Fighter";}
+            else if (classSub == 2) {GClass = "Banneret Fighter";}
+            else if (classSub == 3) {GClass = "Battle Master Fighter";}
+            else if (classSub == 4) {GClass = "Cavalier Fighter";}
+            else if (classSub == 5) {GClass = "Champion Fighter";}
+            else if (classSub == 6) {GClass = "Echo Knight Fighter";}
+            else if (classSub == 7) {GClass = "Eldritch Knight Fighter";}
+            else if (classSub == 8) {GClass = "Psi Warrior Fighter";}
+            else if (classSub == 9) {GClass = "Rune Knight Fighter";}
+            else if (classSub == 10) {GClass = "Samurai Fighter";}}
+        else if (classRNG == 6) {classSub = Math.floor(Math.random() * 10) + 1;
+            if (classSub == 1) {GClass = "Astral Self Monk";}
+            else if (classSub == 2) {GClass = "Drunken Master Monk";}
+            else if (classSub == 3) {GClass = "Four Elements Monk";}
+            else if (classSub == 4) {GClass = "Kensei Monk";}
+            else if (classSub == 5) {GClass = "Long Death Monk";}
+            else if (classSub == 6) {GClass = "Mercy Monk";}
+            else if (classSub == 7) {GClass = "Open Hand Monk";}
+            else if (classSub == 8) {GClass = "Shadow Monk";}
+            else if (classSub == 9) {GClass = "Sun Soul Monk";}
+            else if (classSub == 10) {GClass = "Ascendant Dragon Monk";}}
+        else if (classRNG == 7) {classSub = Math.floor(Math.random() * 9) + 1;
+            if (classSub == 1) {GClass = "Ancients Paladin";}
+            else if (classSub == 2) {GClass = "Conquest Paladin";}
+            else if (classSub == 3) {GClass = "Crown Paladin";}
+            else if (classSub == 4) {GClass = "Devotion Paladin";}
+            else if (classSub == 5) {GClass = "Glory Paladin";}
+            else if (classSub == 6) {GClass = "Redemption Paladin";}
+            else if (classSub == 7) {GClass = "Vengeance Paladin";}
+            else if (classSub == 8) {GClass = "Watchers Paladin";}
+            else if (classSub == 9) {GClass = "Oathbreaker Paladin";}}
+        else if (classRNG == 8) {classSub = Math.floor(Math.random() * 8) + 1;
+            if (classSub == 1) {GClass = "Beast Master Ranger";}
+            else if (classSub == 2) {GClass = "Fey Wanderer Ranger";}
+            else if (classSub == 3) {GClass = "Gloom Stalker Ranger";}
+            else if (classSub == 4) {GClass = "Horizon Walker Ranger";}
+            else if (classSub == 5) {GClass = "Hunter Ranger";}
+            else if (classSub == 6) {GClass = "Monster Slayer Ranger";}
+            else if (classSub == 7) {GClass = "Swarmkeeper Ranger";}
+			else if (classSub == 8) {GClass = "Drakewarden Ranger";}}
+        else if (classRNG == 9) {classSub = Math.floor(Math.random() * 9) + 1;
+            if (classSub == 1) {GClass = "Arcane Trickster Rogue";}
+            else if (classSub == 2) {GClass = "Assassin Rogue";}
+            else if (classSub == 3) {GClass = "Inquisitive Rogue";}
+            else if (classSub == 4) {GClass = "Mastermind Rogue";}
+            else if (classSub == 5) {GClass = "Phantom Rogue";}
+            else if (classSub == 6) {GClass = "Scout Rogue";}
+            else if (classSub == 7) {GClass = "Soulknife Rogue";}
+            else if (classSub == 8) {GClass = "Swashbuckler Rogue";}
+			else if (classSub == 9) {GClass = "Thief Rogue";}}
+        else if (classRNG == 10) {classSub = Math.floor(Math.random() * 7) + 1;
+            if (classSub == 1) {GClass = "Aberrant Mind Sorcerer";}
+            else if (classSub == 2) {GClass = "Clockwork Soul Sorcerer";}
+            else if (classSub == 3) {GClass = "Draconic Bloodline Sorcerer";}
+            else if (classSub == 4) {GClass = "Divine Soul Sorcerer";}
+            else if (classSub == 5) {GClass = "Shadow Magic Sorcerer";}
+            else if (classSub == 6) {GClass = "Storm Sorcery Sorcerer";}
+            else if (classSub == 7) {GClass = "Wild Magic Sorcerer";}}
+        else if (classRNG == 11) {classSub = Math.floor(Math.random() * 9) + 1;
+            if (classSub == 1) {GClass = "Archfey Warlock";}
+            else if (classSub == 2) {GClass = "Celestial Warlock";}
+            else if (classSub == 3) {GClass = "Fathomless Warlock";}
+            else if (classSub == 4) {GClass = "Fiend Warlock";}
+            else if (classSub == 5) {GClass = "Genie Warlock";}
+            else if (classSub == 6) {GClass = "Great Old One Warlock";}
+            else if (classSub == 7) {GClass = "Hexblade Warlock";}
+            else if (classSub == 8) {GClass = "Undead Warlock";}
+			else if (classSub == 9) {GClass = "Undying Warlock";}}
+        else if (classRNG == 12) {classSub = Math.floor(Math.random() * 13) + 1;
+            if (classSub == 1) {GClass = "Abjuration Wizard";}
+            else if (classSub == 2) {GClass = "Bladesinging Wizard";}
+            else if (classSub == 3) {GClass = "Chronurgy Wizard";}
+            else if (classSub == 4) {GClass = "Conjuration Wizard";}
+            else if (classSub == 5) {GClass = "Divination Wizard";}
+            else if (classSub == 6) {GClass = "Enchantment Wizard";}
+            else if (classSub == 7) {GClass = "Evocation Wizard";}
+            else if (classSub == 8) {GClass = "Graviturgy Wizard";}
+            else if (classSub == 9) {GClass = "Illusion Wizard";}
+            else if (classSub == 10) {GClass = "Necromancy Wizard";}
+            else if (classSub == 11) {GClass = "Order of Scribes Wizard";}
+            else if (classSub == 12) {GClass = "Transmutation Wizard";}
+			else if (classSub == 13) {GClass = "War Magic Wizard";}}
+        else if (classRNG == 13) {classSub = Math.floor(Math.random() * 4) + 1;
+            if (classSub == 1) {GClass = "Alchemist Artificer";}
+            else if (classSub == 2) {GClass = "Armorer Artificer";}
+            else if (classSub == 3) {GClass = "Artillerist Artificer";}
+            else if (classSub == 4) {GClass = "Battle Smith Artificer";}}
+}
+
+function BackgroundGen() {
+	charBackground = Math.floor(Math.random() * 44) + 1;
+		if (charBackground == 1) {GBackground = "Background: Acolyte";}
+        else if (charBackground == 1) {GBackground = "Background: Anthropologist";}
+        else if (charBackground == 2) {GBackground = "Background: Archaeologist";}
+        else if (charBackground == 3) {GBackground = "Background: Athlete";}
+        else if (charBackground == 4) {GBackground = "Background: Celebrity Scion";}
+        else if (charBackground == 5) {GBackground = "Background: Charlatan";}
+        else if (charBackground == 6) {GBackground = "Background: City Watch";}
+        else if (charBackground == 7) {GBackground = "Background: Clan Crafter";}
+        else if (charBackground == 8) {GBackground = "Background: Cloistered Scholar";}
+        else if (charBackground == 8) {GBackground = "Background: Courtier";}
+        else if (charBackground == 10) {GBackground = "Background: Criminal";}
+        else if (charBackground == 11) {GBackground = "Background: Entertainer";}
+        else if (charBackground == 12) {GBackground = "Background: Astral Drifter";}
+        else if (charBackground == 13) {GBackground = "Background: Faction Agent";}
+        else if (charBackground == 14) {GBackground = "Background: Failed Merchant";}
+        else if (charBackground == 15) {GBackground = "Background: Far Traveler";}
+        else if (charBackground == 16) {GBackground = "Background: Feylost";}
+        else if (charBackground == 17) {GBackground = "Background: Fisher";}
+        else if (charBackground == 18) {GBackground = "Background: Folk Hero";}
+        else if (charBackground == 19) {GBackground = "Background: Gambler";}
+        else if (charBackground == 20) {GBackground = "Background: Wildspacer";}
+        else if (charBackground == 21) {GBackground = "Background: Guild Artisan";}
+        else if (charBackground == 22) {GBackground = "Background: Haunted One";}
+        else if (charBackground == 23) {GBackground = "Background: Hermit";}
+        else if (charBackground == 24) {GBackground = "Background: House Agent";}
+        else if (charBackground == 25) {GBackground = "Background: Inheritor";}
+        else if (charBackground == 26) {GBackground = "Background: Investigator";}
+        else if (charBackground == 27) {GBackground = "Background: Knight of the Order";}
+        else if (charBackground == 28) {GBackground = "Background: Marine";}
+        else if (charBackground == 29) {GBackground = "Background: Mercenary Veteran";}
+        else if (charBackground == 30) {GBackground = "Background: Noble";}
+        else if (charBackground == 31) {GBackground = "Background: Outlander";}
+        else if (charBackground == 32) {GBackground = "Background: Sage";}
+        else if (charBackground == 33) {GBackground = "Background: Sailor";}
+        else if (charBackground == 34) {GBackground = "Background: Shipwright";}
+        else if (charBackground == 35) {GBackground = "Background: Smuggler";}
+        else if (charBackground == 36) {GBackground = "Background: Soldier";}
+        else if (charBackground == 37) {GBackground = "Background: Urban Bounty Hunter";}
+        else if (charBackground == 38) {GBackground = "Background: Urchin";}
+        else if (charBackground == 39) {GBackground = "Background: Tribe Member"}
+        else if (charBackground == 40) {GBackground = "Background: Witherbloom Student"}
+        else if (charBackground == 41) {GBackground = "Background: Silverquill Student"}
+        else if (charBackground == 42) {GBackground = "Background: Quandrix Student"}
+        else if (charBackground == 43) {GBackground = "Background: Prismari Student"}
+        else if (charBackground == 44) {GBackground = "Background: Lorehold Student"}
+}
+
+function AlignmentGen() {
+	alignRNG = Math.floor(Math.random() * 9) + 1;
+	if (alignRNG == 1) {GAlign = "Chaotic Good";}
+	else if (alignRNG == 2) {GAlign = "Chaotic Neutral";}
+	else if (alignRNG == 3) {GAlign = "Chaotic Evil";}
+	else if (alignRNG == 4) {GAlign = "Neutral Good";}
+	else if (alignRNG == 5) {GAlign = "True Neutral";}
+	else if (alignRNG == 6) {GAlign = "Neutral Evil";}
+	else if (alignRNG == 7) {GAlign = "Lawful Good";}
+	else if (alignRNG == 8) {GAlign = "Lawful Neutral";}
+	else if (alignRNG == 9) {GAlign = "Lawful Evil";}
+}
+
+function CharGenBtn() {
+	multiRNG = Math.floor(Math.random() * 4) + 1;
+	ClassGen();
+	RaceGen();
+	BackgroundGen();
+	AlignmentGen();
+	document.getElementById("charBox").innerHTML = `${GRace} \n${GClass}`;
+	document.getElementById("charBox").innerHTML += `\n${GAlign} \n${GBackground}`;
+	if (multiRNG == 4) {ClassGen(); document.getElementById("charBox").innerHTML += `\nMULTICLASS: ${GClass}`;} else {}
+	document.getElementById("charBox").innerHTML += `\n--Base Stat Rolls--`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `	${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `	${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `	${GStatRoll}`;
+	document.getElementById("charBox").innerHTML += `\n(Racial Bonuses not Added)`;
+}
+
+function RollStatsBtn() {
+	RollAttribute(); document.getElementById("charBox").innerHTML = `${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+	RollAttribute(); document.getElementById("charBox").innerHTML += `\n${GStatRoll}`;
+}
+
+function Spell0() {
+	RNG = Math.floor(Math.random() * 46) + 1;
+        if (RNG == 1) {GSpellGen0 = "Acid Splash";}
+        else if (RNG == 2) {GSpellGen0 = "Blade Ward";}
+        else if (RNG == 3) {GSpellGen0 = "Booming Blade";}
+        else if (RNG == 4) {GSpellGen0 = "Chill Touch";}
+        else if (RNG == 5) {GSpellGen0 = "Control Flames";}
+        else if (RNG == 6) {GSpellGen0 = "Create Bonfire";}
+        else if (RNG == 7) {GSpellGen0 = "Dancing Lights";}
+        else if (RNG == 8) {GSpellGen0 = "Druidcraft";}
+        else if (RNG == 9) {GSpellGen0 = "Eldritch Blast";}
+        else if (RNG == 10) {GSpellGen0 = "Encode Thoughts";}
+        else if (RNG == 11) {GSpellGen0 = "Fire Bolt";}
+        else if (RNG == 12) {GSpellGen0 = "Friends";}
+        else if (RNG == 13) {GSpellGen0 = "Frostbite";}
+        else if (RNG == 14) {GSpellGen0 = "Green-Flame Blade";}
+        else if (RNG == 15) {GSpellGen0 = "Guidance";}
+        else if (RNG == 16) {GSpellGen0 = "Gust";}
+        else if (RNG == 17) {GSpellGen0 = "Infestation";}
+        else if (RNG == 18) {GSpellGen0 = "Light";}
+        else if (RNG == 19) {GSpellGen0 = "Lightning Lure";}
+        else if (RNG == 20) {GSpellGen0 = "Mage Hand";}
+        else if (RNG == 21) {GSpellGen0 = "Magic Stone";}
+        else if (RNG == 22) {GSpellGen0 = "Mending";}
+        else if (RNG == 23) {GSpellGen0 = "Message";}
+        else if (RNG == 24) {GSpellGen0 = "Mind Sliver";}
+        else if (RNG == 25) {GSpellGen0 = "Minor Illusion";}
+        else if (RNG == 26) {GSpellGen0 = "Mold Earth";}
+        else if (RNG == 27) {GSpellGen0 = "Poison Spray";}
+        else if (RNG == 28) {GSpellGen0 = "Prestidigitation";}
+        else if (RNG == 29) {GSpellGen0 = "Primal Savagery";}
+        else if (RNG == 30) {GSpellGen0 = "Produce Flames";}
+        else if (RNG == 31) {GSpellGen0 = "Ray of Frost";}
+        else if (RNG == 32) {GSpellGen0 = "Resistance";}
+        else if (RNG == 33) {GSpellGen0 = "Sacred Flame";}
+        else if (RNG == 34) {GSpellGen0 = "Sapping Sting";}
+        else if (RNG == 35) {GSpellGen0 = "Shape Water";}
+        else if (RNG == 36) {GSpellGen0 = "Shillelagh";}
+        else if (RNG == 37) {GSpellGen0 = "Shocking Grasp";}
+        else if (RNG == 38) {GSpellGen0 = "Spare the Dying";}
+        else if (RNG == 39) {GSpellGen0 = "Sword Burst";}
+        else if (RNG == 40) {GSpellGen0 = "Thaumaturgy";}
+        else if (RNG == 41) {GSpellGen0 = "Thorn Whip";}
+        else if (RNG == 42) {GSpellGen0 = "Thunderclap";}
+        else if (RNG == 43) {GSpellGen0 = "Toll the Dead";}
+        else if (RNG == 44) {GSpellGen0 = "True Strike";}
+        else if (RNG == 45) {GSpellGen0 = "Vicious Mockery";}
+        else if (RNG == 46) {GSpellGen0 = "Word of Radiance";}
+}
+
+function Spell1() {
+	RNG = Math.floor(Math.random() * 79) + 1;
+        if (RNG == 1) {GSpellGen1 = "Absorb Elements";}
+        else if (RNG == 2) {GSpellGen1 = "Alarm";}
+        else if (RNG == 3) {GSpellGen1 = "Animal Friendship";}
+        else if (RNG == 4) {GSpellGen1 = "Armor of Agathys";}
+        else if (RNG == 5) {GSpellGen1 = "Arms of Hadar";}
+        else if (RNG == 6) {GSpellGen1 = "Bane";}
+        else if (RNG == 7) {GSpellGen1 = "Beast Bond";}
+        else if (RNG == 8) {GSpellGen1 = "Bless";}
+        else if (RNG == 9) {GSpellGen1 = "Burning Hands";}
+        else if (RNG == 10) {GSpellGen1 = "Catapult";}
+        else if (RNG == 11) {GSpellGen1 = "Cause Fear";}
+        else if (RNG == 12) {GSpellGen1 = "Ceremony";}
+        else if (RNG == 13) {GSpellGen1 = "Chaos Bolt";}
+        else if (RNG == 14) {GSpellGen1 = "Charm Person";}
+        else if (RNG == 15) {GSpellGen1 = "Chromatic Orb";}
+        else if (RNG == 16) {GSpellGen1 = "Color Spray";}
+        else if (RNG == 17) {GSpellGen1 = "Command";}
+        else if (RNG == 18) {GSpellGen1 = "Compelled Duel";}
+        else if (RNG == 19) {GSpellGen1 = "Comprehend Languages";}
+        else if (RNG == 20) {GSpellGen1 = "Create or Destroy Water";}
+        else if (RNG == 21) {GSpellGen1 = "Cure Wounds";}
+        else if (RNG == 22) {GSpellGen1 = "Detect Evil and Good";}
+        else if (RNG == 23) {GSpellGen1 = "Detect Magic";}
+        else if (RNG == 24) {GSpellGen1 = "Detect Poison and Disease";}
+        else if (RNG == 25) {GSpellGen1 = "Disguise Self";}
+        else if (RNG == 26) {GSpellGen1 = "Dissonant Whispers";}
+        else if (RNG == 27) {GSpellGen1 = "Distort Value";}
+        else if (RNG == 28) {GSpellGen1 = "Divine Favor";}
+        else if (RNG == 29) {GSpellGen1 = "Earth Tremor";}
+        else if (RNG == 30) {GSpellGen1 = "Ensnaring Strike";}
+        else if (RNG == 31) {GSpellGen1 = "Entangle";}
+        else if (RNG == 32) {GSpellGen1 = "Expeditious Retreat";}
+        else if (RNG == 33) {GSpellGen1 = "Faerie Fire";}
+        else if (RNG == 34) {GSpellGen1 = "False Life";}
+        else if (RNG == 35) {GSpellGen1 = "Feather Fall";}
+        else if (RNG == 36) {GSpellGen1 = "Find Familiar";}
+        else if (RNG == 37) {GSpellGen1 = "Fog Cloud";}
+        else if (RNG == 38) {GSpellGen1 = "Frost Fingers";}
+        else if (RNG == 39) {GSpellGen1 = "Gift of Alacrity";}
+        else if (RNG == 40) {GSpellGen1 = "Goodberry";}
+        else if (RNG == 41) {GSpellGen1 = "Grease";}
+        else if (RNG == 42) {GSpellGen1 = "Guiding Bolt";}
+        else if (RNG == 43) {GSpellGen1 = "Hail of Thorns";}
+        else if (RNG == 44) {GSpellGen1 = "Healing Word";}
+        else if (RNG == 45) {GSpellGen1 = "Hellish Rebuke";}
+        else if (RNG == 46) {GSpellGen1 = "Heroism";}
+        else if (RNG == 47) {GSpellGen1 = "Hex";}
+        else if (RNG == 48) {GSpellGen1 = "Hunter's Mark";}
+        else if (RNG == 49) {GSpellGen1 = "Ice Knife";}
+        else if (RNG == 50) {GSpellGen1 = "Identify";}
+        else if (RNG == 51) {GSpellGen1 = "Illusory Script";}
+        else if (RNG == 52) {GSpellGen1 = "Inflict Wounds";}
+        else if (RNG == 53) {GSpellGen1 = "Jim's Magic Missile";}
+        else if (RNG == 54) {GSpellGen1 = "Jump";}
+        else if (RNG == 55) {GSpellGen1 = "Longstrider";}
+        else if (RNG == 56) {GSpellGen1 = "Mage Armor";}
+        else if (RNG == 57) {GSpellGen1 = "Magic Missile";}
+        else if (RNG == 58) {GSpellGen1 = "Magnify Gravity";}
+        else if (RNG == 59) {GSpellGen1 = "Protection from Evil and Good";}
+        else if (RNG == 60) {GSpellGen1 = "Purify Food and Drink";}
+        else if (RNG == 61) {GSpellGen1 = "Ray of Sickness";}
+        else if (RNG == 62) {GSpellGen1 = "Sanctuary";}
+        else if (RNG == 63) {GSpellGen1 = "Searing Smite";}
+        else if (RNG == 64) {GSpellGen1 = "Shield";}
+        else if (RNG == 65) {GSpellGen1 = "Shield Of Faith";}
+        else if (RNG == 66) {GSpellGen1 = "Silent Image";}
+        else if (RNG == 67) {GSpellGen1 = "Sleep";}
+        else if (RNG == 68) {GSpellGen1 = "Snare";}
+        else if (RNG == 69) {GSpellGen1 = "Speak with Animals";}
+        else if (RNG == 70) {GSpellGen1 = "Tasha's Caustic Brew";}
+        else if (RNG == 71) {GSpellGen1 = "Tasha's Hideous Laughter";}
+        else if (RNG == 72) {GSpellGen1 = "Tenser's Floating Disk";}
+        else if (RNG == 73) {GSpellGen1 = "Thunderous Smite";}
+        else if (RNG == 74) {GSpellGen1 = "Unseen Servant";}
+        else if (RNG == 75) {GSpellGen1 = "Witch Bolt";}
+        else if (RNG == 76) {GSpellGen1 = "Wrathful Smite";}
+        else if (RNG == 77) {GSpellGen1 = "Zephyr Strike";}
+        else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
+        else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
+        else if (RNG == 79) {GSpellGen1 = "Silvery Barbs";}
+}
+
+function Spell2() {
+	RNG = Math.floor(Math.random() * 86) + 1;
+        if (RNG == 1) {GSpellGen2 = "Aganazzar's Scorcher";}
+        else if (RNG == 2) {GSpellGen2 = "Aid";}
+        else if (RNG == 3) {GSpellGen2 = "Alter Self";}
+        else if (RNG == 4) {GSpellGen2 = "Animal Messenger";}
+        else if (RNG == 5) {GSpellGen2 = "Arcane Lock";}
+        else if (RNG == 6) {GSpellGen2 = "Augury";}
+        else if (RNG == 7) {GSpellGen2 = "Barkskin";}
+        else if (RNG == 8) {GSpellGen2 = "Beast Sense";}
+        else if (RNG == 9) {GSpellGen2 = "Blindness/Deafness";}
+        else if (RNG == 10) {GSpellGen2 = "Blur";}
+        else if (RNG == 11) {GSpellGen2 = "Branding Smite";}
+        else if (RNG == 12) {GSpellGen2 = "Calm Emotions";}
+        else if (RNG == 13) {GSpellGen2 = "Cloud of Daggers";}
+        else if (RNG == 14) {GSpellGen2 = "Continual Flame";}
+        else if (RNG == 15) {GSpellGen2 = "Cordon of Arrows";}
+        else if (RNG == 16) {GSpellGen2 = "Crown of Madness";}
+        else if (RNG == 17) {GSpellGen2 = "Darkness";}
+        else if (RNG == 18) {GSpellGen2 = "Darkvision";}
+        else if (RNG == 19) {GSpellGen2 = "Detect Thoughts";}
+        else if (RNG == 20) {GSpellGen2 = "Dragon's Breath";}
+        else if (RNG == 21) {GSpellGen2 = "Dust Devil";}
+        else if (RNG == 22) {GSpellGen2 = "Earthbind";}
+        else if (RNG == 23) {GSpellGen2 = "Enhance Ability";}
+        else if (RNG == 24) {GSpellGen2 = "Enlarge/Reduce";}
+        else if (RNG == 25) {GSpellGen2 = "Enthrall";}
+        else if (RNG == 26) {GSpellGen2 = "Find Steed";}
+        else if (RNG == 27) {GSpellGen2 = "Find Traps";}
+        else if (RNG == 28) {GSpellGen2 = "Flame Blade";}
+        else if (RNG == 29) {GSpellGen2 = "Flaming Sphere";}
+        else if (RNG == 30) {GSpellGen2 = "Fortune's Favor";}
+        else if (RNG == 31) {GSpellGen2 = "Gentle Repose";}
+        else if (RNG == 32) {GSpellGen2 = "Gift of Gab";}
+        else if (RNG == 33) {GSpellGen2 = "Gust of Wind";}
+        else if (RNG == 34) {GSpellGen2 = "Healing Spirit";}
+        else if (RNG == 35) {GSpellGen2 = "Heat Metal";}
+        else if (RNG == 36) {GSpellGen2 = "Hold Person";}
+        else if (RNG == 37) {GSpellGen2 = "Immovable Object";}
+        else if (RNG == 38) {GSpellGen2 = "Invisibility";}
+        else if (RNG == 39) {GSpellGen2 = "Jim's Glowing Coin";}
+        else if (RNG == 40) {GSpellGen2 = "Knock";}
+        else if (RNG == 41) {GSpellGen2 = "Lesser Restoration";}
+        else if (RNG == 42) {GSpellGen2 = "Levitate";}
+        else if (RNG == 43) {GSpellGen2 = "Locate Animals or Plants";}
+        else if (RNG == 44) {GSpellGen2 = "Locate Object";}
+        else if (RNG == 45) {GSpellGen2 = "Magic Mouth";}
+        else if (RNG == 46) {GSpellGen2 = "Magic Weapon";}
+        else if (RNG == 47) {GSpellGen2 = "Maximilian's Earthen Grasp";}
+        else if (RNG == 48) {GSpellGen2 = "Melf's Acid Arrow";}
+        else if (RNG == 49) {GSpellGen2 = "Mind Spike";}
+        else if (RNG == 50) {GSpellGen2 = "Misty Step";}
+        else if (RNG == 51) {GSpellGen2 = "Moonbeam";}
+        else if (RNG == 52) {GSpellGen2 = "Nathair's Mischief";}
+        else if (RNG == 53) {GSpellGen2 = "Nystul's Magic Aura";}
+        else if (RNG == 54) {GSpellGen2 = "Pass without Trace";}
+        else if (RNG == 55) {GSpellGen2 = "Phantasmal Force";}
+        else if (RNG == 56) {GSpellGen2 = "Prayer of Healing";}
+        else if (RNG == 57) {GSpellGen2 = "Protection from Poison";}
+        else if (RNG == 58) {GSpellGen2 = "Pyrotechnics";}
+        else if (RNG == 59) {GSpellGen2 = "Ray of Enfeeblement";}
+        else if (RNG == 60) {GSpellGen2 = "Rime's Binding Ice";}
+        else if (RNG == 61) {GSpellGen2 = "Rope Trick";}
+        else if (RNG == 62) {GSpellGen2 = "Scorching Ray";}
+        else if (RNG == 63) {GSpellGen2 = "See Invisibility";}
+        else if (RNG == 64) {GSpellGen2 = "Shadow Blade";}
+        else if (RNG == 65) {GSpellGen2 = "Shatter";}
+        else if (RNG == 66) {GSpellGen2 = "Silence";}
+        else if (RNG == 67) {GSpellGen2 = "Skywrite";}
+        else if (RNG == 68) {GSpellGen2 = "Snilloc's Snowball Swarm";}
+        else if (RNG == 69) {GSpellGen2 = "Spider Climb";}
+        else if (RNG == 70) {GSpellGen2 = "Spike Growth";}
+        else if (RNG == 71) {GSpellGen2 = "Spiritual Weapon";}
+        else if (RNG == 72) {GSpellGen2 = "Suggestion";}
+        else if (RNG == 73) {GSpellGen2 = "Summon Beast";}
+        else if (RNG == 74) {GSpellGen2 = "Tasha's Mind Whip";}
+        else if (RNG == 75) {GSpellGen2 = "Warding Bond";}
+        else if (RNG == 76) {GSpellGen2 = "Warding Wind";}
+        else if (RNG == 77) {GSpellGen2 = "Web";}
+        else if (RNG == 78) {GSpellGen2 = "Wristpocket";}
+        else if (RNG == 79) {GSpellGen2 = "Zone of Truth";}
+        else if (RNG == 80) {GSpellGen2 = "Mirror Image";}
+        else if (RNG == 81) {GSpellGen2 = "Air Bubble";}
+        else if (RNG == 82) {GSpellGen2 = "Borrowed Knowledge";}
+        else if (RNG == 83) {GSpellGen2 = "Flock of Familiars";}
+        else if (RNG == 84) {GSpellGen2 = "Kinetic Jaunt";}
+        else if (RNG == 85) {GSpellGen2 = "Vortex Warp";}
+        else if (RNG == 86) {GSpellGen2 = "Wither and Bloom";}
+}
+
+function Spell3() {
+	RNG = Math.floor(Math.random() * 74) + 1;
+        if (RNG == 1) {GSpellGen3 = "Animate Dead";}
+        else if (RNG == 2) {GSpellGen3 = "Ashardalon's Stride";}
+        else if (RNG == 3) {GSpellGen3 = "Aura of Vitality";}
+        else if (RNG == 4) {GSpellGen3 = "Beacon of Hope";}
+        else if (RNG == 5) {GSpellGen3 = "Bestow Curse";}
+        else if (RNG == 6) {GSpellGen3 = "Blinding Smite";}
+        else if (RNG == 7) {GSpellGen3 = "Blink";}
+        else if (RNG == 8) {GSpellGen3 = "Call Lightning";}
+        else if (RNG == 9) {GSpellGen3 = "Catnap";}
+        else if (RNG == 10) {GSpellGen3 = "Clairvoyance";}
+        else if (RNG == 11) {GSpellGen3 = "Conjure Animals";}
+        else if (RNG == 12) {GSpellGen3 = "Conjure Barrage";}
+        else if (RNG == 13) {GSpellGen3 = "Counterspell";}
+        else if (RNG == 14) {GSpellGen3 = "Create Food and Water";}
+        else if (RNG == 15) {GSpellGen3 = "Crusader's Mantle";}
+        else if (RNG == 16) {GSpellGen3 = "Daylight";}
+        else if (RNG == 17) {GSpellGen3 = "Dispel Magic";}
+        else if (RNG == 18) {GSpellGen3 = "Elemental Weapon";}
+        else if (RNG == 19) {GSpellGen3 = "Enemies Abound";}
+        else if (RNG == 20) {GSpellGen3 = "Erupting Earth";}
+        else if (RNG == 21) {GSpellGen3 = "Fast Friends";}
+        else if (RNG == 22) {GSpellGen3 = "Fear";}
+        else if (RNG == 23) {GSpellGen3 = "Feign Death";}
+        else if (RNG == 24) {GSpellGen3 = "Fireball";}
+        else if (RNG == 25) {GSpellGen3 = "Flame Arrows";}
+        else if (RNG == 26) {GSpellGen3 = "Fly";}
+        else if (RNG == 27) {GSpellGen3 = "Gaseous Form";}
+        else if (RNG == 28) {GSpellGen3 = "Glyph of Warding";}
+        else if (RNG == 29) {GSpellGen3 = "Haste";}
+        else if (RNG == 30) {GSpellGen3 = "Hunger of Hadar";}
+        else if (RNG == 31) {GSpellGen3 = "Hypnotic Pattern";}
+        else if (RNG == 32) {GSpellGen3 = "Incite Greed";}
+        else if (RNG == 33) {GSpellGen3 = "Intellect Fortress";}
+        else if (RNG == 34) {GSpellGen3 = "Leomund's Tiny Hut";}
+        else if (RNG == 35) {GSpellGen3 = "Life Transference";}
+        else if (RNG == 36) {GSpellGen3 = "Lightning Arrow";}
+        else if (RNG == 37) {GSpellGen3 = "Lightning Bolt";}
+        else if (RNG == 38) {GSpellGen3 = "Magic Circle";}
+        else if (RNG == 39) {GSpellGen3 = "Major Image";}
+        else if (RNG == 40) {GSpellGen3 = "Mass Healing Word";}
+        else if (RNG == 41) {GSpellGen3 = "Meld into Stone";}
+        else if (RNG == 42) {GSpellGen3 = "Melf's Minute Meteors";}
+        else if (RNG == 43) {GSpellGen3 = "Motivational Speech";}
+        else if (RNG == 44) {GSpellGen3 = "Nondetection";}
+        else if (RNG == 45) {GSpellGen3 = "Phantom Steed";}
+        else if (RNG == 46) {GSpellGen3 = "Plant Growth";}
+        else if (RNG == 47) {GSpellGen3 = "Protection from Energy";}
+        else if (RNG == 48) {GSpellGen3 = "Pulse Wave";}
+        else if (RNG == 49) {GSpellGen3 = "Remove Curse";}
+        else if (RNG == 50) {GSpellGen3 = "Revivify";}
+        else if (RNG == 51) {GSpellGen3 = "Sending";}
+        else if (RNG == 52) {GSpellGen3 = "Sleet Storm";}
+        else if (RNG == 53) {GSpellGen3 = "Slow";}
+        else if (RNG == 54) {GSpellGen3 = "Speak with Dead";}
+        else if (RNG == 55) {GSpellGen3 = "Speak with Plants";}
+        else if (RNG == 56) {GSpellGen3 = "Spirit Guardians";}
+        else if (RNG == 57) {GSpellGen3 = "Spirit Shroud";}
+        else if (RNG == 58) {GSpellGen3 = "Stinking Cloud";}
+        else if (RNG == 59) {GSpellGen3 = "Summon Fey";}
+        else if (RNG == 60) {GSpellGen3 = "Summon Lesser Demons";}
+        else if (RNG == 61) {GSpellGen3 = "Summon Shadowspawn";}
+        else if (RNG == 62) {GSpellGen3 = "Summon Undead";}
+        else if (RNG == 63) {GSpellGen3 = "Thunder Step";}
+        else if (RNG == 64) {GSpellGen3 = "Tidal Wave";}
+        else if (RNG == 65) {GSpellGen3 = "Tiny Servant";}
+        else if (RNG == 66) {GSpellGen3 = "Tongues";}
+        else if (RNG == 67) {GSpellGen3 = "Vampiric Touch";}
+        else if (RNG == 68) {GSpellGen3 = "Wall of Sand";}
+        else if (RNG == 69) {GSpellGen3 = "Wall of Water";}
+        else if (RNG == 70) {GSpellGen3 = "Water Breathing";}
+        else if (RNG == 71) {GSpellGen3 = "Water Walk";}
+        else if (RNG == 72) {GSpellGen3 = "Wind Wall";}
+        else if (RNG == 73) {GSpellGen3 = "Galder's Tower";}
+        else if (RNG == 74) {GSpellGen3 = "Linked Glyphs";}
+}
+
+function Spell4() {
+	RNG = Math.floor(Math.random() * 51) + 1;
+        if (RNG == 1) {GSpellGen4 = "Arcane Eye";}
+        else if (RNG == 2) {GSpellGen4 = "Aura of Life";}
+        else if (RNG == 3) {GSpellGen4 = "Aura of Purity";}
+        else if (RNG == 4) {GSpellGen4 = "Banishment";}
+        else if (RNG == 5) {GSpellGen4 = "Blight";}
+        else if (RNG == 6) {GSpellGen4 = "Charm Monster";}
+        else if (RNG == 7) {GSpellGen4 = "Compulsion";}
+        else if (RNG == 8) {GSpellGen4 = "Confusion";}
+        else if (RNG == 9) {GSpellGen4 = "Conjure Minor Elementals";}
+        else if (RNG == 10) {GSpellGen4 = "Conjure Woodland Beings";}
+        else if (RNG == 11) {GSpellGen4 = "Control Water";}
+        else if (RNG == 12) {GSpellGen4 = "Death Ward";}
+        else if (RNG == 13) {GSpellGen4 = "Dimension Door";}
+        else if (RNG == 14) {GSpellGen4 = "Divination";}
+        else if (RNG == 15) {GSpellGen4 = "Dominate Beast";}
+        else if (RNG == 16) {GSpellGen4 = "Elemental Bane";}
+        else if (RNG == 17) {GSpellGen4 = "Evard's Black Tentacles";}
+        else if (RNG == 18) {GSpellGen4 = "Fabricate";}
+        else if (RNG == 19) {GSpellGen4 = "Find Greater Steed";}
+        else if (RNG == 20) {GSpellGen4 = "Fire Shield";}
+        else if (RNG == 21) {GSpellGen4 = "Freedom of Movement";}
+        else if (RNG == 22) {GSpellGen4 = "Giant Insect";}
+        else if (RNG == 23) {GSpellGen4 = "Grasping Vine";}
+        else if (RNG == 24) {GSpellGen4 = "Gravity Sinkhole";}
+        else if (RNG == 25) {GSpellGen4 = "Greater invisibility";}
+        else if (RNG == 26) {GSpellGen4 = "Guardian of Faith";}
+        else if (RNG == 27) {GSpellGen4 = "Guardian of Nature";}
+        else if (RNG == 28) {GSpellGen4 = "Hallucinatory Terrain";}
+        else if (RNG == 29) {GSpellGen4 = "Ice Storm";}
+        else if (RNG == 30) {GSpellGen4 = "Leomund's Secret Chest";}
+        else if (RNG == 31) {GSpellGen4 = "Locate Creature";}
+        else if (RNG == 32) {GSpellGen4 = "Mordenkainen's Fithful hound";}
+        else if (RNG == 33) {GSpellGen4 = "Mordenkainen's Private Sanctum";}
+        else if (RNG == 34) {GSpellGen4 = "Otiluke's Resilient Sphere";}
+        else if (RNG == 35) {GSpellGen4 = "Phantasmal Killer";}
+        else if (RNG == 36) {GSpellGen4 = "Polymorph";}
+        else if (RNG == 37) {GSpellGen4 = "Raulothim's Psychic Lance";}
+        else if (RNG == 38) {GSpellGen4 = "Shadow of Moil";}
+        else if (RNG == 39) {GSpellGen4 = "Sickening Radiance";}
+        else if (RNG == 40) {GSpellGen4 = "Staggering Smite";}
+        else if (RNG == 41) {GSpellGen4 = "Stone Shape";}
+        else if (RNG == 42) {GSpellGen4 = "Stoneskin";}
+        else if (RNG == 43) {GSpellGen4 = "Storm Sphere";}
+        else if (RNG == 44) {GSpellGen4 = "Summon Aberration";}
+        else if (RNG == 45) {GSpellGen4 = "Summon Construct";}
+        else if (RNG == 46) {GSpellGen4 = "Summon Elemental";}
+        else if (RNG == 47) {GSpellGen4 = "Summon Greater Demon";}
+        else if (RNG == 48) {GSpellGen4 = "Vitriolic Sphere";}
+        else if (RNG == 49) {GSpellGen4 = "Wall of Fire";}
+        else if (RNG == 50) {GSpellGen4 = "Watery Sphere";}
+        else if (RNG == 51) {GSpellGen4 = "Galder's Speedy Courier";}
+}
+
+function Spell5() {
+	RNG = Math.floor(Math.random() * 61) + 1;
+        if (RNG == 1) {GSpellGen5 = "Animate Objects";}
+        else if (RNG == 2) {GSpellGen5 = "Anitlife shell";}
+        else if (RNG == 3) {GSpellGen5 = "Awaken";}
+        else if (RNG == 4) {GSpellGen5 = "Banishing Smite";}
+        else if (RNG == 5) {GSpellGen5 = "Bigby's Hand";}
+        else if (RNG == 6) {GSpellGen5 = "Circle of Power";}
+        else if (RNG == 7) {GSpellGen5 = "Cloudkill";}
+        else if (RNG == 8) {GSpellGen5 = "Commune";}
+        else if (RNG == 9) {GSpellGen5 = "Commune with Nature";}
+        else if (RNG == 10) {GSpellGen5 = "Cone of Cold";}
+        else if (RNG == 11) {GSpellGen5 = "Conjure Elemental";}
+        else if (RNG == 12) {GSpellGen5 = "Conjure Volley";}
+        else if (RNG == 13) {GSpellGen5 = "Contact Other Plane";}
+        else if (RNG == 14) {GSpellGen5 = "Contagion";}
+        else if (RNG == 15) {GSpellGen5 = "Control Winds";}
+        else if (RNG == 16) {GSpellGen5 = "Creation";}
+        else if (RNG == 17) {GSpellGen5 = "Danse Macabre";}
+        else if (RNG == 18) {GSpellGen5 = "Dawn";}
+        else if (RNG == 19) {GSpellGen5 = "Destructive Wave";}
+        else if (RNG == 20) {GSpellGen5 = "Dispel Evil and Good";}
+        else if (RNG == 21) {GSpellGen5 = "Dominate Person";}
+        else if (RNG == 22) {GSpellGen5 = "Dream";}
+        else if (RNG == 23) {GSpellGen5 = "Enervation";}
+        else if (RNG == 24) {GSpellGen5 = "Far Step";}
+        else if (RNG == 25) {GSpellGen5 = "Flame Strike";}
+        else if (RNG == 26) {GSpellGen5 = "Geas";}
+        else if (RNG == 27) {GSpellGen5 = "Greater Restoration";}
+        else if (RNG == 28) {GSpellGen5 = "Hallow";}
+        else if (RNG == 29) {GSpellGen5 = "Hold Monster";}
+        else if (RNG == 30) {GSpellGen5 = "Holy Weapon";}
+        else if (RNG == 31) {GSpellGen5 = "Immolation";}
+        else if (RNG == 32) {GSpellGen5 = "Infernal Callling";}
+        else if (RNG == 33) {GSpellGen5 = "Insect Plague";}
+        else if (RNG == 34) {GSpellGen5 = "Legend Lore";}
+        else if (RNG == 35) {GSpellGen5 = "Maelstrom";}
+        else if (RNG == 36) {GSpellGen5 = "Mass Cure Wounds";}
+        else if (RNG == 37) {GSpellGen5 = "Mislead";}
+        else if (RNG == 38) {GSpellGen5 = "Modify Memory";}
+        else if (RNG == 39) {GSpellGen5 = "Negative Energy Flood";}
+        else if (RNG == 40) {GSpellGen5 = "Passwall";}
+        else if (RNG == 41) {GSpellGen5 = "Planar Binding";}
+        else if (RNG == 42) {GSpellGen5 = "Raise Dead";}
+        else if (RNG == 43) {GSpellGen5 = "Rary's Telepathic Bond";}
+        else if (RNG == 44) {GSpellGen5 = "Reincarnate";}
+        else if (RNG == 45) {GSpellGen5 = "Scrying";}
+        else if (RNG == 46) {GSpellGen5 = "Seeming";}
+        else if (RNG == 47) {GSpellGen5 = "Skill Empowerment";}
+        else if (RNG == 48) {GSpellGen5 = "Steel Wind Strike";}
+        else if (RNG == 49) {GSpellGen5 = "Summon Celestial";}
+        else if (RNG == 50) {GSpellGen5 = "Summon Draconic Spirit";}
+        else if (RNG == 51) {GSpellGen5 = "Swift Quiver";}
+        else if (RNG == 52) {GSpellGen5 = "Synaptic Static";}
+        else if (RNG == 53) {GSpellGen5 = "Telekinesis";}
+        else if (RNG == 54) {GSpellGen5 = "Teleportation Circle";}
+        else if (RNG == 55) {GSpellGen5 = "Temporal Shunt";}
+        else if (RNG == 56) {GSpellGen5 = "Transmute Rock";}
+        else if (RNG == 57) {GSpellGen5 = "Tree Stride";}
+        else if (RNG == 58) {GSpellGen5 = "Wall of Force";}
+        else if (RNG == 59) {GSpellGen5 = "Wall of Light";}
+        else if (RNG == 60) {GSpellGen5 = "Wall of Stone";}
+        else if (RNG == 61) {GSpellGen5 = "Wrath of Nature";}
+}
+
+function Spell6() {
+	RNG = Math.floor(Math.random() * 48) + 1;
+        if (RNG == 1) {GSpellGen6 = "Arcane Gate";}
+        else if (RNG == 2) {GSpellGen6 = "Blade Barrier";}
+        else if (RNG == 3) {GSpellGen6 = "Bones of the Earth";}
+        else if (RNG == 4) {GSpellGen6 = "Chain Lightning";}
+        else if (RNG == 5) {GSpellGen6 = "Circle of Death";}
+        else if (RNG == 6) {GSpellGen6 = "Conjure Fey";}
+        else if (RNG == 7) {GSpellGen6 = "Contingency";}
+        else if (RNG == 8) {GSpellGen6 = "Create Homunculus";}
+        else if (RNG == 9) {GSpellGen6 = "Create Undead";}
+        else if (RNG == 10) {GSpellGen6 = "Disentegrate";}
+        else if (RNG == 11) {GSpellGen6 = "Drawmij's Instant Summons";}
+        else if (RNG == 12) {GSpellGen6 = "Druid Grove";}
+        else if (RNG == 13) {GSpellGen6 = "Eyebite";}
+        else if (RNG == 14) {GSpellGen6 = "Find the Path";}
+        else if (RNG == 15) {GSpellGen6 = "Fizban's Platinum Shield";}
+        else if (RNG == 16) {GSpellGen6 = "Flesh to Stone";}
+        else if (RNG == 17) {GSpellGen6 = "Forbiddance";}
+        else if (RNG == 18) {GSpellGen6 = "Globe of Invulnerability";}
+        else if (RNG == 19) {GSpellGen6 = "Gravity Fissure";}
+        else if (RNG == 20) {GSpellGen6 = "Guards and Wards";}
+        else if (RNG == 21) {GSpellGen6 = "Harm";}
+        else if (RNG == 22) {GSpellGen6 = "Heal";}
+        else if (RNG == 23) {GSpellGen6 = "Heroes' Feast";}
+        else if (RNG == 24) {GSpellGen6 = "Investiture of Flame";}
+        else if (RNG == 25) {GSpellGen6 = "Investiture of Ice";}
+        else if (RNG == 26) {GSpellGen6 = "Investiture of Stone";}
+        else if (RNG == 27) {GSpellGen6 = "Investiture of Wind";}
+        else if (RNG == 28) {GSpellGen6 = "Magic Jar";}
+        else if (RNG == 29) {GSpellGen6 = "Mass Suggestion";}
+        else if (RNG == 30) {GSpellGen6 = "Mental Prison";}
+        else if (RNG == 31) {GSpellGen6 = "Move Earth";}
+        else if (RNG == 32) {GSpellGen6 = "Otiluke's Freezing Sphere";}
+        else if (RNG == 33) {GSpellGen6 = "Otto's Irresistible Dance";}
+        else if (RNG == 34) {GSpellGen6 = "Planar Ally";}
+        else if (RNG == 35) {GSpellGen6 = "Primordial Ward";}
+        else if (RNG == 36) {GSpellGen6 = "Programmed Illusion";}
+        else if (RNG == 37) {GSpellGen6 = "Scatter";}
+        else if (RNG == 38) {GSpellGen6 = "Soul Cage";}
+        else if (RNG == 39) {GSpellGen6 = "Summon Fiend";}
+        else if (RNG == 40) {GSpellGen6 = "Sunbeam";}
+        else if (RNG == 41) {GSpellGen6 = "Tasha's Otherworldly Guise";}
+        else if (RNG == 42) {GSpellGen6 = "Tenser's Transformation";}
+        else if (RNG == 43) {GSpellGen6 = "Transport via Plants";}
+        else if (RNG == 44) {GSpellGen6 = "True Seeing";}
+        else if (RNG == 45) {GSpellGen6 = "Wall of Ice";}
+        else if (RNG == 46) {GSpellGen6 = "Wall of Thorns";}
+        else if (RNG == 47) {GSpellGen6 = "Wind Walk";}
+        else if (RNG == 48) {GSpellGen6 = "Word of Recall";}
+}
+
+function Spell7() {
+	RNG = Math.floor(Math.random() * 28) + 1;
+        if (RNG == 1) {GSpellGen7 = "Conjure Celestial";}
+        else if (RNG == 2) {GSpellGen7 = "Create Magen";}
+        else if (RNG == 3) {GSpellGen7 = "Crown of Stars";}
+        else if (RNG == 4) {GSpellGen7 = "Delayed Blast Fireball";}
+        else if (RNG == 5) {GSpellGen7 = "Divine Word";}
+        else if (RNG == 6) {GSpellGen7 = "Draconic Transformation";}
+        else if (RNG == 7) {GSpellGen7 = "Dream of the Blue Veil";}
+        else if (RNG == 8) {GSpellGen7 = "Etherealness";}
+        else if (RNG == 9) {GSpellGen7 = "Finger of Death";}
+        else if (RNG == 10) {GSpellGen7 = "Fire Storm";}
+        else if (RNG == 11) {GSpellGen7 = "Forcecage";}
+        else if (RNG == 12) {GSpellGen7 = "Mirage Arcane";}
+        else if (RNG == 13) {GSpellGen7 = "Mordenkainen's Magnificent Mansion";}
+        else if (RNG == 14) {GSpellGen7 = "Mordenkainen's Sword";}
+        else if (RNG == 15) {GSpellGen7 = "Plane Shift";}
+        else if (RNG == 16) {GSpellGen7 = "Power Word Pain";}
+        else if (RNG == 17) {GSpellGen7 = "Prismatic Spray";}
+        else if (RNG == 18) {GSpellGen7 = "Project Image";}
+        else if (RNG == 19) {GSpellGen7 = "Regenerate";}
+        else if (RNG == 20) {GSpellGen7 = "Resurrection";}
+        else if (RNG == 21) {GSpellGen7 = "Reverse Gravity";}
+        else if (RNG == 22) {GSpellGen7 = "Sequester";}
+        else if (RNG == 23) {GSpellGen7 = "Simulacrum";}
+        else if (RNG == 24) {GSpellGen7 = "Symbol";}
+        else if (RNG == 25) {GSpellGen7 = "Teleport";}
+        else if (RNG == 26) {GSpellGen7 = "Temple of the Gods";}
+        else if (RNG == 27) {GSpellGen7 = "Tether Essence";}
+        else if (RNG == 28) {GSpellGen7 = "Whirlwind";}
+}
+
+function Spell8() {
+	RNG = Math.floor(Math.random() * 24) + 1;
+        if (RNG == 1) {GSpellGen8 = "Abi-Dalzim's Horrid Writing";}
+        else if (RNG == 2) {GSpellGen8 = "Animal Shapes";}
+        else if (RNG == 3) {GSpellGen8 = "Anitpathy/Sympathy";}
+        else if (RNG == 4) {GSpellGen8 = "Clone";}
+        else if (RNG == 5) {GSpellGen8 = "Control Weather";}
+        else if (RNG == 6) {GSpellGen8 = "Dark Star";}
+        else if (RNG == 7) {GSpellGen8 = "Demiplane";}
+        else if (RNG == 8) {GSpellGen8 = "Dominate Monster";}
+        else if (RNG == 9) {GSpellGen8 = "Earthquake";}
+        else if (RNG == 10) {GSpellGen8 = "Feeblemind";}
+        else if (RNG == 11) {GSpellGen8 = "Glibness";}
+        else if (RNG == 12) {GSpellGen8 = "Holy Aura";}
+        else if (RNG == 13) {GSpellGen8 = "Illusory Dragon";}
+        else if (RNG == 14) {GSpellGen8 = "Incendiary Cloud";}
+        else if (RNG == 15) {GSpellGen8 = "Maddening Darkness";}
+        else if (RNG == 16) {GSpellGen8 = "Maze";}
+        else if (RNG == 17) {GSpellGen8 = "Mighty Fortress";}
+        else if (RNG == 18) {GSpellGen8 = "Mind Blank";}
+        else if (RNG == 19) {GSpellGen8 = "Power Word Stun";}
+        else if (RNG == 20) {GSpellGen8 = "Reality Break";}
+        else if (RNG == 21) {GSpellGen8 = "Sunburst";}
+        else if (RNG == 22) {GSpellGen8 = "Telepathy";}
+        else if (RNG == 23) {GSpellGen8 = "Tsunami";}
+        else if (RNG == 24) {GSpellGen8 = "Antimagic Field";}
+}
+
+function Spell9() {
+	RNG = Math.floor(Math.random() * 22) + 1;
+        if (RNG == 1) {GSpellGen9 = "Astral Projection";}
+        else if (RNG == 2) {GSpellGen9 = "Blade of Disaster";}
+        else if (RNG == 3) {GSpellGen9 = "Foresight";}
+        else if (RNG == 4) {GSpellGen9 = "Gate";}
+        else if (RNG == 5) {GSpellGen9 = "Imprisonment";}
+        else if (RNG == 6) {GSpellGen9 = "Invulnerability";}
+        else if (RNG == 7) {GSpellGen9 = "Mass Heal";}
+        else if (RNG == 8) {GSpellGen9 = "Mass Polymorph";}
+        else if (RNG == 9) {GSpellGen9 = "Meteor Swarm";}
+        else if (RNG == 10) {GSpellGen9 = "Power Word Heal";}
+        else if (RNG == 11) {GSpellGen9 = "Power Word Kill";}
+        else if (RNG == 12) {GSpellGen9 = "Prismatic Wall";}
+        else if (RNG == 13) {GSpellGen9 = "Psychic Scream";}
+        else if (RNG == 14) {GSpellGen9 = "Ravenous Void";}
+        else if (RNG == 15) {GSpellGen9 = "Shapechange";}
+        else if (RNG == 16) {GSpellGen9 = "Storm of Vengeance";}
+        else if (RNG == 17) {GSpellGen9 = "Time Ravage";}
+        else if (RNG == 18) {GSpellGen9 = "Time Stop";}
+        else if (RNG == 19) {GSpellGen9 = "True Polymorph";}
+        else if (RNG == 20) {GSpellGen9 = "True Resurrection";}
+        else if (RNG == 21) {GSpellGen9 = "Weird";}
+        else if (RNG == 22) {GSpellGen9 = "Wish";}
+}
+
+function SpellScrollBtn() {
+	if (document.getElementById("spellLevel").value == "Spell0") {Spell0(); document.getElementById("itemBox").innerHTML = `${GSpellGen0}\n(DC 13 and +5 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell1") {Spell1(); document.getElementById("itemBox").innerHTML = `${GSpellGen1}\n(DC 13 and +5 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell2") {Spell2(); document.getElementById("itemBox").innerHTML = `${GSpellGen2}\n(DC 14 and +6 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell3") {Spell3(); document.getElementById("itemBox").innerHTML = `${GSpellGen3}\n(DC 15 and +7 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell4") {Spell4(); document.getElementById("itemBox").innerHTML = `${GSpellGen4}\n(DC 16 and +8 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell5") {Spell5(); document.getElementById("itemBox").innerHTML = `${GSpellGen5}\n(DC 17 and +9 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell6") {Spell6(); document.getElementById("itemBox").innerHTML = `${GSpellGen6}\n(DC 18 and +10 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell7") {Spell7(); document.getElementById("itemBox").innerHTML = `${GSpellGen7}\n(DC 18 and +10 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell8") {Spell8(); document.getElementById("itemBox").innerHTML = `${GSpellGen8}\n(DC 19 and +11 Attack Bonus)`}
+	if (document.getElementById("spellLevel").value == "Spell9") {Spell9(); document.getElementById("itemBox").innerHTML = `${GSpellGen9}\n(DC 19 and +11 Attack Bonus)`}
+}
+
+function EnemyGenMod() {
 	let modRoll = Math.floor(Math.random() * 129) + 1;
 	let modElite
-	let modEliteCheck = document.getElementById("modEliteCheck").checked;
-	if (modEliteCheck == true) {modElite =10;}
-	else if (modEliteCheck == false) {modElite = Math.floor(Math.random() * 10) + 1;}
-	
+	modElite = Math.floor(Math.random() * 10) + 1;
 	if (modRoll == 1) {
             if (modElite == 10) {
-                GMod = "[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC 16 Grapple. Restrained. On following turns, can crush, throw, or slam to deal 4d6 + Str bludgeoning damage.";}
+                GMod = `[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 14} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 2) + 2}d6 + ${GTier + 6} bludgeoning damage.`;}
             else {
-                GMod = "[Grappler] \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC 14 Grapple. Restrained. On following turns, can crush, throw, or slam to deal 2d6 + Str bludgeoning damage.";}
+                GMod = `[Grappler] \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 12} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 3) + 1}d6 + ${GTier + 4} bludgeoning damage.`;}
             }
         else if (modRoll == 2) {
-            if (modElite == 10) {
-                GMod = "[Armed] (Elite) \nThe creature grows two extra limbs. The creature can attack 2 extra times each turn.";}
-            else {
-                GMod = "[Armed] \nThe creature grows an extra limb. The creature can attack 1 extra time each turn.";}
+            if (modElite == 10) {GMultiattack += 2;
+                GMod = `[Armed] (Elite) \nThe creature grows two extra limbs. The creature can attack 2 extra times each turn.`;}
+            else {GMultiattack += 1;
+                GMod = `[Armed] \nThe creature grows an extra limb. The creature can attack 1 extra time each turn.`;}
             }
         else if (modRoll == 3) {
             if (modElite == 10) {
-                GMod = "[Muscular] (Elite) \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice and gains +6 damage.";}
+                GMod = `[Muscular] (Elite) \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice and gains +${GTier + 3} damage.`;}
             else {
-                GMod = "[Muscular] \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice.";}
+                GMod = `[Muscular] \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice.`;}
             }
         else if (modRoll == 4) {
             if (modElite == 10) {
-                GMod = "[Split] (Elite) \nThe creature is weaker and smaller, but has two identical clones of itself.";}
+                GMod = `[Split] (Elite) \nThe creature is weaker and smaller, but has two identical clones of itself.`;}
             else {
-                GMod = "[Split] \nThe creature is weaker and smaller, but has an identical clone of itself.";}
+                GMod = `[Split] \nThe creature is weaker and smaller, but has an identical clone of itself.`;}
             }
         else if (modRoll == 5) {
             if (modElite == 10) {
-                GMod = "[Shadow Form] (Elite) \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows up to 60 feet away. Twice per turn, it can half the damage of one attack.";}
+                GMod = `[Shadow Form] (Elite) \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows up to 60 feet away. Twice per turn, it can half the damage of one attack.`;}
             else {
-                GMod = "[Shadow Form] \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows. Once per turn, it can half the damage of one attack.";}
+                GMod = `[Shadow Form] \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows. Once per turn, it can half the damage of one attack.`;}
             }
         else if (modRoll == 6) {
-            if (modElite == 10) {
-                GMod = "[Blazing] (Elite) \nThe creature has a 30 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 fire damage. \n\nIt can cast Burning Hands and Scorching Ray at will, is Immune to Fire, and is Vulnerable to Cold.";}
-            else {
-                GMod = "[Blazing] \nThe creature has a 15 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 fire damage. \n\nIt can cast Burning Hands at will, has Resistance to Fire, and is Vulnerable to Cold.";}
+            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
+                GMod = `[Blazing] (Elite) \nThe creature has a 30 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 2}d6 fire damage. \n\nIt can cast Burning Hands and Scorching Ray at will, is Immune to Fire, and is Vulnerable to Cold.`;}
+            else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
+                GMod = `[Blazing] \nThe creature has a 15 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 fire damage. \n\nIt can cast Burning Hands at will, has Resistance to Fire, and is Vulnerable to Cold.`;}
             }
         else if (modRoll == 7) {
-            if (modElite == 10) {
-                GMod = "[Drenched] (Elite) \nThe creature is lightly obscured in mist \n\nIt can cast Wall of Water and Watery Sphere at will, has 40 ft. of swim speed, is Immune to Fire and Cold, and is Vulnerable to Lightning.";}
-            else {
-                GMod = "[Drenched] \nThe creature is lightly obscured in mist. \n\nIt can cast Wall of Water at will, is Resistant to Fire and Cold, and is Vulnerable to Lightning.";}
+            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}
+                GMod = `[Drenched] (Elite) \nThe creature is lightly obscured in mist \n\nIt can cast Wall of Water and Watery Sphere at will, has 40 ft. of swim speed, is Immune to Fire and Cold, and is Vulnerable to Lightning.`;}
+            else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {} if (GRes.includes("cold") == false) {GRes.push("cold")} else {}
+                GMod = `[Drenched] \nThe creature is lightly obscured in mist. \n\nIt can cast Wall of Water at will, is Resistant to Fire and Cold, and is Vulnerable to Lightning.`;}
             }
         else if (modRoll == 8) {
-            if (modElite == 10) {
-                GMod = "[Glacial] (Elite) \nThe creature has a 30 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 cold damage. \n\nIt can cast Ice Knife and Rimes Binding Ice at will, is Immune to Cold, and is Vulnerable to Fire.";}
-            else {
-                GMod = "[Glacial] \nThe creature has a 15 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 cold damage. \n\nIt can cast Ice Knife at will, is Resistant to Cold, and is Vulnerable to Fire.";}
+            if (modElite == 10) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+                GMod = `[Glacial] (Elite) \nThe creature has a 30 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 3}d6 cold damage. \n\nIt can cast Ice Knife and Rimes Binding Ice at will, is Immune to Cold, and is Vulnerable to Fire.`;}
+            else {if (GRes.includes("cold") == false) {GRes.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+                GMod = `[Glacial] \nThe creature has a 15 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 cold damage. \n\nIt can cast Ice Knife at will, is Resistant to Cold, and is Vulnerable to Fire.`;}
             }
         else if (modRoll == 9) {
-            if (modElite == 10) {
-                GMod = "[Storming] (Elite) \nThe creature has a 30 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 lightning damage and make a DC 11 Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow at will, is Resistant to Lightning, and is Vulnerable to Psychic.";}
-            else {
-                GMod = "[Storming] \nThe creature has a 15 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 lightning damage and make a DC 14 Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow and Lightning Bolt at will, is Immune to Lightning, and is Vulnerable to Psychic.";}
+            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
+                GMod = `[Storming] (Elite) \nThe creature has a 30 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 lightning damage and make a DC ${GTier + 12} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow and Lightning Bolt at will, is Immune to Lightning, and is Vulnerable to Psychic.`;}
+            else {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
+                GMod = `[Storming] \nThe creature has a 15 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 lightning damage and make a DC ${GTier + 10} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow at will, is Resistant to Lightning, and is Vulnerable to Psychic.`;}
             }
         else if (modRoll == 10) {
-            if (modElite == 10) {
-                GMod = "[Grounded] (Elite) \nThe creature has a 40 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp and Erupting Earth at will, is Immune to Lightning, is Resistant to Physical, and is Vulnerable to Thunder.";}
-            else {
-                GMod = "[Grounded] \nThe creature has a 20 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp at will, is Immune to Lightning, and is Vulnerable to Thunder.";}
+            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {} if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
+                GMod = `[Grounded] (Elite) \nThe creature has a 40 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp and Erupting Earth at will, is Immune to Lightning, is Resistant to Physical, and is Vulnerable to Thunder.`;}
+            else {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+                GMod = `[Grounded] \nThe creature has a 20 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp at will, is Immune to Lightning, and is Vulnerable to Thunder.`;}
             }
         else if (modRoll == 11) {
-            if (modElite == 10) {
-                GMod = "[Wispy] (Elite) \nAll projeciles fired at the creature are made with disadvantage and the creature can hover. \n\nIt can cast Wind Wall and Pulse Wave at will, is Immune to Thunder, and is Vulnerable to Fire.";}
-            else {
-                GMod = "[Wispy] \nAll projeciles fired at the creature are made with disadvantage. \n\nIt can cast Wind Wall at will, is Resistant to Thunder, and is Vulnerable to Fire.";}
+            if (modElite == 10) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+                GMod = `[Wispy] (Elite) \nAll projeciles fired at the creature are made with disadvantage and the creature can hover. \n\nIt can cast Wind Wall and Pulse Wave at will, is Immune to Thunder, and is Vulnerable to Fire.`;}
+            else {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+                GMod = `[Wispy] \nAll projeciles fired at the creature are made with disadvantage. \n\nIt can cast Wind Wall at will, is Resistant to Thunder, and is Vulnerable to Fire.`;}
             }
         else if (modRoll == 12) {
-            if (modElite == 10) {
-                GMod = "[Venomous] (Elite) \nOn Non-Spell attacks, the target makes a DC 15 Con Save. On a fail, they take 4d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream and Stinking Cloud at will, is Immune to Poison and Disease, and is Vulnerable to Radiant.";}
-            else {
-                GMod = "[Venomous] \nOn Non-Spell attacks, the target makes a DC 13 Con Save. On a fail, they take 2d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream at will, is Immune to Disease, is Resistant to Poison, and is Vulnerable to Radiant.";}
+            if (modElite == 10) {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+                GMod = `[Venomous] (Elite) \nOn Non-Spell attacks, the target makes a DC ${GTier + 14} Con Save. On a fail, they take ${Math.ceil(GPB / 2) + 3}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream and Stinking Cloud at will, is Immune to Poison and Disease, and is Vulnerable to Radiant.`;}
+            else {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GRes.includes("poison") == false) {GRes.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+                GMod = `[Venomous] \nOn Non-Spell attacks, the target makes a DC ${GTier + 12} Con Save. On a fail, they take ${Math.ceil(GPB / 3) + 1}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream at will, is Immune to Disease, is Resistant to Poison, and is Vulnerable to Radiant.`;}
             }
         else if (modRoll == 13) {
-            if (modElite == 10) {
-                GMod = "[Decaying] (Elite) \nThe creature has a 60 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 25. \n\nIt can cast Wither and Bloom and Blight at will, is Immune to Necrotic, and is Vulnerable to Radiant.";}
-            else {
-                GMod = "[Decaying] \nThe creature has a 30 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 15. \n\nIt can cast Wither and Bloom at will, is Resistant to Necrotic, and is Vulnerable to Radiant.";}
+            if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+                GMod = `[Decaying] (Elite) \nThe creature has a 60 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 25. \n\nIt can cast Wither and Bloom and Blight at will, is Immune to Necrotic, and is Vulnerable to Radiant.`;}
+            else {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+                GMod = `[Decaying] \nThe creature has a 30 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 15. \n\nIt can cast Wither and Bloom at will, is Resistant to Necrotic, and is Vulnerable to Radiant.`;}
             }
         else if (modRoll == 14) {
-            if (modElite == 10) {
-                GMod = "[Radiant] (Elite) \nThe creature has a 20 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite and Dawn at will, is Immune to Radiant, and is Resistant to Necrotic.";}
-            else {
-                GMod = "[Radiant] \nThe creature has a 10 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite at will, is Resistant to Radiant, and is Vulnerable to Necrotic.";}
+            if (modElite == 10) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
+                GMod = `[Radiant] (Elite) \nThe creature has a 20 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite and Dawn at will, is Immune to Radiant, and is Resistant to Necrotic.`;}
+            else {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
+                GMod = `[Radiant] \nThe creature has a 10 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite at will, is Resistant to Radiant, and is Vulnerable to Necrotic.`;}
             }
         else if (modRoll == 15) {
-            if (modElite == 10) {
-                GMod = "[Psionic] (Elite) \nThe creature has advantage on Attacks made on creatures within 60 ft. and advantage on Saving Throws against effect originating from within 60 ft. \n\nThe creature can cast Mind Thrust and Psychic Lance at will, is Immune to Psychic, and is Vulnerable to Thunder.";}
-            else {
-                GMod = "[Psionic] \nThe creature has advantage on Attacks made on creatures within 30 ft. and advantage on Saving Throws against effect originating from within 30 ft. \n\nThe creature can cast Mind Thrust at will, is Resistant to Psychic, and is Vulnerable to Thunder.";}
+            if (modElite == 10) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+                GMod = `[Psionic] (Elite) \nThe creature has advantage on Attacks made on creatures within 60 ft. and advantage on Saving Throws against effect originating from within 60 ft. \n\nThe creature can cast Mind Thrust and Psychic Lance at will, is Immune to Psychic, and is Vulnerable to Thunder.`;}
+            else {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+                GMod = `[Psionic] \nThe creature has advantage on Attacks made on creatures within 30 ft. and advantage on Saving Throws against effect originating from within 30 ft. \n\nThe creature can cast Mind Thrust at will, is Resistant to Psychic, and is Vulnerable to Thunder.`;}
             }
         else if (modRoll == 16) {
             if (modElite == 10) {
-                GMod = "[Ocular] (Elite) \nThe creature has grown two random Beholder eye stalks. The effects and damage are at 66% normal effectiveness. The Save DC is 16. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)";}
+                GMod = `[Ocular] (Elite) \nThe creature has grown two random Beholder eye stalks. The effects and damage are at 66% normal effectiveness. The Save DC is ${GTier + 14}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
             else {
-                GMod = "[Ocular] \nThe creature has grown a random Beholder eye stalk. The effects and damage are at 33% normal effectiveness. The Save DC is 14. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)";}
+                GMod = `[Ocular] \nThe creature has grown a random Beholder eye stalk. The effects and damage are at 33% normal effectiveness. The Save DC is ${GTier + 12}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
             }
         else if (modRoll == 17) {
-            if (modElite == 10) {
-                GMod = "[Winged] (Elite) \nThe creature gains a pair of wings and 60 ft. of fly speed and can cast Gust of Wind as a Bonus Action.";}
-            else {
-                GMod = "[Winged] \nThe creature gains a pair of wings and 40 ft. of fly speed.";}
+            if (modElite == 10) {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 20;}
+                GMod = `[Winged] (Elite) \nThe creature gains a pair of wings and 60 ft. of fly speed and can cast Gust of Wind as a Bonus Action.`;}
+            else {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 10;}
+                GMod = `[Winged] \nThe creature gains a pair of wings and 40 ft. of fly speed.`;}
             }
         else if (modRoll == 18) {
             if (modElite == 10) {
-                GMod = "[Reckless] (Elite) \nAll attacks made by the creature are made at advantage.";}
+                GMod = `[Reckless] (Elite) \nAll attacks made by the creature are made at advantage.`;}
             else {
-                GMod = "[Reckless] \nAll attacks made by and against the creature are made at advantage.";}
+                GMod = `[Reckless] \nAll attacks made by and against the creature are made at advantage.`;}
             }
         else if (modRoll == 19) {
             if (modElite == 10) {
-                GMod = "[Stalker] (Elite) \nThe creature has +5 to stealth rolls and can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for 6d6 damage.";}
+                GMod = `[Stalker] (Elite) \nThe creature has +5 to stealth rolls and can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 2) + 1}d6 damage.`;}
             else {
-                GMod = "[Stalker] \nThe creature can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for 3d6 damage.";}
+                GMod = `[Stalker] \nThe creature can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
             }
         else if (modRoll == 20) {
             if (modElite == 10) {
-                GMod = "[Hypnotist] (Elite) \nThe creature can cast Dominate Monster four time and can have a maximum of 2 creatures dominated at a time. The Save DC is 17.";}
+                GMod = `[Hypnotist] (Elite) \nThe creature can cast Dominate Monster four times and can have a maximum of 2 creatures dominated at a time. The Save DC is ${GTier + 14}.`;}
             else {
-                GMod = "[Hypnotist] \nThe creature can cast Dominate Monster twice and can have a maximum of 1 creature dominated at a time. The Save DC is 15.";}
+                GMod = `[Hypnotist] \nThe creature can cast Dominate Monster twice and can have a maximum of 1 creature dominated at a time. The Save DC is ${GTier + 12}.`;}
             }
         else if (modRoll == 21) {
             if (modElite == 10) {
-                GMod = "[Observant] (Elite) \nThe creatures grows many extra eyes on its body. It gains +10 and advantage to Perception rolls and canno tbe surprised.";}
+                GMod = `[Observant] (Elite) \nThe creatures grows many extra eyes on its body. It gains +10 and advantage to Perception rolls and cannot be surprised.`;}
             else {
-                GMod = "[Observant] \nThe creatures grows many extra eyes on its body. It gains +5 to Perception rolls and canno tbe surprised.";}
+                GMod = `[Observant] \nThe creatures grows many extra eyes on its body. It gains +5 to Perception rolls and cannot be surprised.`;}
             }
         else if (modRoll == 22) {
             if (modElite == 10) {
-                GMod = "[Sticky] (Elite) \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of 18.";}
+                GMod = `[Sticky] (Elite) \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 14}.`;}
             else {
-                GMod = "[Sticky] \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of 15.";}
+                GMod = `[Sticky] \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 12}.`;}
             }
         else if (modRoll == 23) {
             if (modElite == 10) {
-                GMod = "[Repulsor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC 17 Strength Save or are pushed back 15 ft.";}
+                GMod = `[Repulsor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pushed back 15 ft.`;}
             else {
-                GMod = "[Repulsor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pushed back 10 ft.";}
+                GMod = `[Repulsor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pushed back 10 ft.`;}
             }
         else if (modRoll == 24) {
             if (modElite == 10) {
-                GMod = "[Attractor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC 17 Strength Save or are pulled 15 ft. closer.";}
+                GMod = `[Attractor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pulled 15 ft. closer.`;}
             else {
-                GMod = "[Attractor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC 14 Strength Save or are pulled 10 ft. closer.";}
+                GMod = `[Attractor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pulled 10 ft. closer.`;}
             }
         else if (modRoll == 25) {
             if (modElite == 10) {
-                GMod = "[Spell Eater] (Elite) \nDamage dealt by Spells or effects that consume a Spell Slot has a 50% chance to heal the creature instead.";}
+                GMod = `[Spell Eater] (Elite) \nDamage dealt by Spells or effects that consume a Spell Slot has a 50% chance to heal the creature instead.`;}
             else {
-                GMod = "[Spell Eater] \nDamage dealt by Spells or effects that consume a Spell Slot has a 25% chance to heal the creature instead.";}
+                GMod = `[Spell Eater] \nDamage dealt by Spells or effects that consume a Spell Slot has a 25% chance to heal the creature instead.`;}
             }
         else if (modRoll == 26) {
-            if (modElite == 10) {
-                GMod = "[Spell Breaker] (Elite) \nThe creature has a 30 ft. radius aura of Anti-Magic all around it.";}
+            if (modElite == 10) {if (GMagic == "Caster"){EnemyGenMod();} else {
+				GMod = `[Spell Breaker] (Elite) \nThe creature has a 30 ft. radius aura of Anti-Magic all around it.`;}}
             else {
-                GMod = "[Spell Breaker] \nThe creature has a 60 ft. cone of Anti-Magic in front of it.";}
+				GMod = `[Spell Breaker] \nThe creature has a 60 ft. cone of Anti-Magic in front of it.`;}
             }
         else if (modRoll == 27) {
             if (modElite == 10) {
-                GMod = "[Single-Minded] (Elite) \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.";}
+                GMod = `[Single-Minded] (Elite) \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.`;}
             else {
-                GMod = "[Single-Minded] \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. \n\nThe creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.";}
+                GMod = `[Single-Minded] \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. \n\nThe creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.`;}
             }
         else if (modRoll == 28) {
-            if (modElite == 10) {
-                GMod = "[Hunter] (Elite) \nThe creatures gains 20 ft. of all speeds and two extra Reactions every turn.";}
-            else {
-                GMod = "[Hunter] \nThe creatures gains 10 ft. of all speeds and an extra Reaction every turn.";}
+            if (modElite == 10) {GSpeed =+ 20; GSpeedBurrow =+ 20; GSpeedFly =+ 20; GSpeedSwim =+ 20; 
+                GMod = `[Hunter] (Elite) \nThe creatures gains 20 ft. of all speeds and two extra Reactions every turn.`;}
+            else {GSpeed =+ 10; GSpeedBurrow =+ 10; GSpeedFly =+ 10; if (GSpeedSwim == 0) {GSpeedSwim += 20} else {GSpeedSpeed += 10}
+                GMod = `[Hunter] \nThe creatures gains 10 ft. of all speeds and an extra Reaction every turn.`;}
             }
         else if (modRoll == 29) {
-            if (modElite == 10) {
-                GMod = "[Exoskeleton] (Elite) \nThe creatures skin grows thicker, granting it +4 to AC and Saving Throws.";}
-            else {
-                GMod = "[Exoskeleton] \nThe creatures skin grows thicker, granting it +2 to AC and Saving Throws.";}
+            if (modElite == 10) {GAC = GAC += 4; GSaveBonus = GSaveBonus += 4;
+                GMod = `[Exoskeleton] (Elite) \nThe creatures skin grows thicker, granting it +4 to AC and Saving Throws.`;}
+            else {GAC = GAC += 2; GSaveBonus = GSaveBonus += 2;
+                GMod = `[Exoskeleton] \nThe creatures skin grows thicker, granting it +2 to AC and Saving Throws.`;}
             }
         else if (modRoll == 30) {
             if (modElite == 10) {
-                GMod = "[Regenerator] (Elite) \nThe creature heals for 20 Hit Pionts at the start of its turn. if (the creature has taken fire damage since its last turn, it does not heal.";}
+                GMod = `[Regenerator] (Elite) \nThe creature heals for 20 Hit Points at the start of its turn. If the creature has taken fire damage since its last turn, it does not heal.`;}
             else {
-                GMod = "[Regenerator] \nThe creature heals for 10 Hit Pionts at the start of its turn. if (the creature has taken fire damage or a critical hit since its last turn, it does not heal.";}
+                GMod = `[Regenerator] \nThe creature heals for 10 Hit Points at the start of its turn. If the creature has taken fire damage or a critical hit since its last turn, it does not heal.`;}
             }
         else if (modRoll == 31) {
-            if (modElite == 10) {
-                GMod = "[Steel Skin] (Elite) \nThe creatures skin grows remarkably dense, granting them Immunity to Bludgeoning, Slashing, and Piercing damage.";}
-            else {
-                GMod = "[Steel Skin] \nThe creatures skin grows denser, granting them Resistance to Bludgeoning, Slashing, and Piercing damage.";}
+            if (modElite == 10) {if (GImmune.includes("physical") == false) {GImmune.push("physical")} else {}
+                GMod = `[Steel Skin] (Elite) \nThe creature's skin grows remarkably dense, granting them Immunity to Bludgeoning, Slashing, and Piercing damage.`;}
+            else {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
+                GMod = `[Steel Skin] \nThe creature's skin grows denser, granting them Resistance to Bludgeoning, Slashing, and Piercing damage.`;}
             }
         else if (modRoll == 32) {
             if (modElite == 10) {
-                GMod = "[Reflection] (Elite) \nThe first time the creature takes damage in a round, it absorbs some of it and adds 4d6 of that type on its next attack.";}
+                GMod = `[Reflection] (Elite) \nThe first time the creature takes damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 3)}d6 of that type on its next attack.`;}
             else {
-                GMod = "[Reflection] \nThe first time the creature takes Non-Physical damage in a round, it absorbs some of it and adds 2d6 of that type on its next attack.";}
+                GMod = `[Reflection] \nThe first time the creature takes Non-Physical damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 4)}d6 of that type on its next attack.`;}
             }
         else if (modRoll == 33) {
             if (modElite == 10) {
-                GMod = "[Symbiosis] (Elite) \nAt the start of combat, the creature selects up to three allies. All damage and healing taken by either is split between both of them.";}
+                GMod = `[Symbiosis] (Elite) \nAt the start of combat, the creature selects up to three allies. All damage and healing taken by either is split between both of them.`;}
             else {
-                GMod = "[Symbiosis] \nAt the start of combat, the creature selects one ally. All damage and healing taken by either is split between both of them.";}
+                GMod = `[Symbiosis] \nAt the start of combat, the creature selects one ally. All damage and healing taken by either is split between both of them.`;}
             }
         else if (modRoll == 34) {
             if (modElite == 10) {
-                GMod = "[Host] (Elite) \nWhen the creature dies, it splits into 5 much weaker and smaller versions.";}
+                GMod = `[Host] (Elite) \nWhen the creature dies, it splits into 5 much weaker and smaller versions.`;}
             else {
-                GMod = "[Host] \nWhen the creature dies, it splits into 3 much weaker and smaller versions.";}
+                GMod = `[Host] \nWhen the creature dies, it splits into 3 much weaker and smaller versions.`;}
             }
         else if (modRoll == 35) {
             if (modElite == 10) {
-                GMod = "[Undying] (Elite) \nif (damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC  equal to the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.";}
+                GMod = `[Undying] (Elite) \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC equal to the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
             else {
-                GMod = "[Undying] \nif (damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.";}
+                GMod = `[Undying] \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
             }
         else if (modRoll == 36) {
-            if (modElite == 10) {
-                GMod = "[Mother] (Elite) \nThe creature grows four beholder-like stalks that each have a separate Random Modifier.";}
-            else {
-                GMod = "[Mother] \nThe creature grows two beholder-like stalks that each have a separate Random Modifier.";}
-            }
+            if (modElite == 10) {ModX = `[Mother] (Elite) \nThe creature grows four beholder-like stalks that each have a separate Random Modifier:`;
+			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
+            else {ModX = `[Mother] \nThe creature grows two beholder-like stalks that each have a separate Random Modifier:`;
+			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
+			}
         else if (modRoll == 37) {
-            if (modElite == 10) {
-                GMod = "[Genius] (Elite) \nThe creatures Intelligence becomes 22 (or +5 if it is 22 or higher), gains Intelligence Saving Throw proficiency, and can speak telepathically up to 120 ft.";}
-            else {
-                GMod = "[Genius] \nThe creatures Intelligence becomes 18 (or +3 if it is 18 or higher), gains Intelligence Saving Throw proficiency, and can speak telepathically up to 60 ft.";}
+            if (modElite == 10) {GInt = GInt += 6; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 120;
+                GMod = `[Genius] (Elite) \nThe creature gains +5 Intelligence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 120 ft.`;}
+            else {GInt = GInt += 3; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 60;
+                GMod = `[Genius] \nThe creature gains +3 Inteliigence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 60 ft.`;}
             }
         else if (modRoll == 38) {
             if (modElite == 10) {
-                GMod = "[Necromancer] (Elite) \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 50% maximum Hit Points.";}
+                GMod = `[Necromancer] (Elite) \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 50% maximum Hit Points.`;}
             else {
-                GMod = "[Necromancer] \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 25% maximum Hit Points.";}
+                GMod = `[Necromancer] \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 25% maximum Hit Points.`;}
             }
         else if (modRoll == 39) {
-            if (modElite == 10) {
-                GMod = "[Tunneler] (Elite) \nThe creature gains 20 ft. of burrow speed and leave tunnels. The burrow speed increases by 10 ft. for each size category above medium.";}
-            else {
-                GMod = "[Tunneler] \nThe creature gains 10 ft. of burrow speed and leave tunnels. The burrow speed increases by 5 ft. for each size category above medium.";}
+            if (modElite == 10) {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 15;} else if (GSize == "Large") {GSpeedBurrow += 20;} else if (GSize == "Huge") {GSpeedBurrow += 25;} else if (GSize == "Gargantuan") {GSpeedBurrow += 30;}
+                GMod = `[Tunneler] (Elite) \nThe creature gains 20 ft. of burrow speed and leave tunnels. The burrow speed increases by 10 ft. for each size category above medium.`;}
+            else {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 10;} else if (GSize == "Large") {GSpeedBurrow += 15;} else if (GSize == "Huge") {GSpeedBurrow += 20;} else if (GSize == "Gargantuan") {GSpeedBurrow += 25;}
+                GMod = `[Tunneler] \nThe creature gains 10 ft. of burrow speed and leave tunnels. The burrow speed increases by 5 ft. for each size category above medium.`;}
             }
         else if (modRoll == 40) {
-            if (modElite == 10) {
-                GMod = "[Mage] (Elite) \nThe creature gains one 3rd and one 5th level spell to use at will.";}
-            else {
-                GMod = "[Mage] \nThe creature gains one 2nd and one 4th level spell to use at will.";}
+            if (modElite == 10) {Spell3(); Spell5();
+                GMod = `[Mage] (Elite) \nThe creature can use ${GSpell3} and ${GSpell5} at will.`; GSpell3 = ""; GSpell5 = "";}
+            else {Spell2(); Spell4();
+                GMod = `[Mage] \nThe creature can use ${GSpell2} and ${GSpell4} at will.`; GSpell2 = ""; GSpell4 = "";}
             }
         else if (modRoll == 41) {
             if (modElite == 10) {
-                GMod = "[Modular] (Elite) \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate. Each clone has a separate randomly rolled Modifier.";}
+                GMod = `[Modular] (Elite) \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate. Each clone has a separate randomly rolled Modifier.`;}
             else {
-                GMod = "[Modular] \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate.";}
+                GMod = `[Modular] \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate.`;}
             }
         else if (modRoll == 42) {
             if (modElite == 10) {
-                GMod = "[Wrong] (Elite) \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature. It gains one trait or attack from the creature it appears as.";}
+                GMod = `[Wrong] (Elite) \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature. It gains one trait or attack from the creature it appears as.`;}
             else {
-                GMod = "[Wrong] \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature.";}
+                GMod = `[Wrong] \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature.`;}
             }
         else if (modRoll == 43) {
             if (modElite == 10) {
-                GMod = "[Phantom] (Elite) \nThe creature can phase through creatures, objects, and walls. Creatures it passes through take 2d6 psychic damage.";}
+                GMod = `[Phantom] (Elite) \nThe creature can phase through creatures, objects, and walls. Creatures it passes through take ${Math.ceil(GPB / 3) + 1}d6 psychic damage.`;}
             else {
-                GMod = "[Phantom] \nThe creature can phase through creatures, objects, and walls.";}
+                GMod = `[Phantom] \nThe creature can phase through creatures, objects, and walls.`;}
             }
         else if (modRoll == 44) {
-            if (modElite == 10) {
-                GMod = "[Hearty] (Elite) \nThe creature has an additional 66% Hit Points.";}
-            else {
-                GMod = "[Hearty] \nThe creature has an additional 33% Hit Points.";}
+            if (modElite == 10) {GHPMulti = 1.66;
+                GMod = `[Hearty] (Elite) \nThe creature has an additional 66% Hit Points.`;}
+            else {GHPMulti = 1.33;
+                GMod = `[Hearty] \nThe creature has an additional 33% Hit Points.`;}
             }
         else if (modRoll == 45) {
             if (modElite == 10) {
-                GMod = "[Webbing] (Elite) \nAs a Bonus Action, the creature can spray webbing at three targets. It has a range of 60/120 ft. with an escape DC of 17, AC of 15, and 30 Hit Points.";}
+                GMod = `[Webbing] (Elite) \nAs a Bonus Action, the creature can spray webbing at three targets. It has a range of 60/120 ft. with an escape DC of ${GTier + 14}, AC of 16, and ${Math.ceil(GPB / 2) * 22} Hit Points.`;}
             else {
-                GMod = "[Webbing] \nAs a Bonus Action, the creature can spray webbing at one target. It has a range of 30/60 ft. with an escape DC of 15, AC of 10, and 20 Hit Points.";}
+                GMod = `[Webbing] \nAs a Bonus Action, the creature can spray webbing at one target. It has a range of 30/60 ft. with an escape DC of ${GTier + 12}, AC of 12, and ${Math.ceil(GPB / 2) * 15} Hit Points.`;}
             }
         else if (modRoll == 46) {
             if (modElite == 10) {
-                GMod = "[Lingering] (Elite) \nNon-Spell attacks leave a 15x15 feet puddle of 4d6 acid (or applicable type) for 6 rounds.";}
+                GMod = `[Lingering] (Elite) \nNon-Spell attacks leave a 15x15 feet puddle of ${Math.ceil(GPB / 2) + 4}d6 acid (or applicable type) for 6 rounds.`;}
             else {
-                GMod = "[Lingering] \nNon-Spell attacks leave a 10x10 feet puddle of 2d6 acid (or applicable type) for 3 rounds.";}
+                GMod = `[Lingering] \nNon-Spell attacks leave a 10x10 feet puddle of ${Math.ceil(GPB / 3) + 1}d6 acid (or applicable type) for 3 rounds.`;}
             }
         else if (modRoll == 47) {
             if (modElite == 10) {
-                GMod = "[Berzerker] (Elite) \nEvery successful attack during a combat adds +3 damage to all following attacks.";}
+                GMod = `[Berzerker] (Elite) \nEvery successful attack during a combat adds +3 damage to all following attacks.`;}
             else {
-                GMod = "[Berzerker] \nEvery successful attack during a combat adds +2 damage to all following attacks.";}
+                GMod = `[Berzerker] \nEvery successful attack during a combat adds +2 damage to all following attacks.`;}
             }
         else if (modRoll == 48) {
             if (modElite == 10) {
-                GMod = "[Triggered] (Elite) \nThe creature takes a second turn on a different initative, gains +6 on initiative rolls, and gains an additional Reaction every round (3 total counting both turns).";}
+                GMod = `[Triggered] (Elite) \nThe creature takes a second turn on a different initative, gains +6 on initiative rolls, and gains an additional Reaction every round (3 total counting both turns).`;}
             else {
-                GMod = "[Triggered] \nThe creature takes a second turn on a different initative.";}
+                GMod = `[Triggered] \nThe creature takes a second turn on a different initative.`;}
             }
         else if (modRoll == 49) {
             if (modElite == 10) {
-                GMod = "[Mirrored] (Elite) \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3. When the creature hits 0 Images, it instantly gains 3 Images.";}
+                GMod = `[Mirrored] (Elite) \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3. When the creature hits 0 Images, it instantly gains 3 Images.`;}
             else {
-                GMod = "[Mirrored] \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3.";}
+                GMod = `[Mirrored] \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3.`;}
             }
         else if (modRoll == 50) {
             if (modElite == 10) {
-                GMod = "[Mistling] (Elite) \nThe creature gains a 40 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take 4d6 damage.";}
+                GMod = `[Mistling] (Elite) \nThe creature gains a 40 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 2) + 4}d6 damage.`;}
             else {
-                GMod = "[Mistling] \nThe creature gains a 20 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take 2d6 damage.";}
+                GMod = `[Mistling] \nThe creature gains a 20 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
             }
         else if (modRoll == 51) {
-            if (modElite == 10) {
-                GMod = "[Lightweight] (Elite) \nThe creature has triple jump distance and height, and has 20 ft. increased speed.";}
-            else {
-                GMod = "[Lightweight] \nThe creature has double jump distance and height, and has 10 ft. increased speed.";}
+            if (modElite == 10) {GSpeed += 20;
+                GMod = `[Lightweight] (Elite) \nThe creature has triple jump distance and height, and has 20 ft. increased speed.`;}
+            else {GSpeed += 10;
+                GMod = `[Lightweight] \nThe creature has double jump distance and height, and has 10 ft. increased speed.`;}
             }
         else if (modRoll == 52) {
-            if (modElite == 10) {
-                GMod = "[Hidden Organs] (Elite) \nThe creature cannot be critically hit and is immune to conditions.";}
+            if (modElite == 10) {GCondImmune.length = 0; GCondImmune.push("All Conditions");
+                GMod = `[Hidden Organs] (Elite) \nThe creature cannot be critically hit and is immune to conditions.`;}
             else {
-                GMod = "[Hidden Organs] \nThe creature cannot be critically hit.";}
+                GMod = `[Hidden Organs] \nThe creature cannot be critically hit.`;}
             }
         else if (modRoll == 53) {
             if (modElite == 10) {
-                GMod = "[Iron Jaw] (Elite) \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is tripled and has the vorpal effect on bitten limbs.";}
+                GMod = `[Iron Jaw] (Elite) \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is tripled and has the vorpal effect on bitten limbs. Default Bite damage is 1d8 + Str.`;}
             else {
-                GMod = "[Iron Jaw] \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is doubled.";}
+                GMod = `[Iron Jaw] \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is doubled. Default Bite damage is 1d6 + Str.`;}
             }
         else if (modRoll == 54) {
             if (modElite == 10) {
-                GMod = "[Breath] (Elite) \nThe creature gains a random DC 18 Young Dragon Breath Attack.";}
+                GMod = `[Breath] (Elite) \nThe creature gains a random DC 18 Young Dragon Breath Attack.`;}
             else {
-                GMod = "[Breath] \nThe creature gains a random DC 15 Wyrmling Dragon Breath Attack.";}
+                GMod = `[Breath] \nThe creature gains a random DC 15 Wyrmling Dragon Breath Attack.`;}
             }
         else if (modRoll == 55) {
-            if (modElite == 10) {
-                GMod = "[Opposable] (Elite) \n(Only applicable to creatures that cannot wield weapons). The creature has and is able to wield two-handed weapons. The weapon damage is double of the base damage. It can wield two two-handed weapons if it is Large or larger.";}
-            else {
-                GMod = "[Opposable] \n(Only applicable to creatures that cannot wield weapons). The creature has and is able to wield one-handed weapons. The weapon damage is double of the base damage.";}
-            }
+            if (modElite == 10) {EnemyGenMod();}
+			else {EnemyGenMod();}
+			}
         else if (modRoll == 56) {
             if (modElite == 10) {
-                GMod = "[Hidden Form] (Elite) \nThe creature can undetectably disguise themself as an object, like a mimic. The size limit is 2 stages larger and smaller then normal.";}
+                GMod = `[Hidden Form] (Elite) \nThe creature can undetectably disguise themself as an object, like a mimic. The size limit is 2 stages larger and smaller than ${GSize}.`;}
             else {
-                GMod = "[Hidden Form] \nThe creature can undetectably disguise themself as an object, like a mimic.";}
+                GMod = `[Hidden Form] \nThe creature can undetectably disguise themself as an object, like a mimic.`;}
             }
         else if (modRoll == 57) {
             if (modElite == 10) {
-                GMod = "[Disease-Ridden] (Elite) \nNon-Spell attacks invoke a DC 16 Con Save. On a fail, the target contracts a disease and is Poisoned.";}
+                GMod = `[Disease-Ridden] (Elite) \nNon-Spell attacks invoke a DC ${GTier + 14} Con Save. On a fail, the target contracts a disease and is Poisoned.`;}
             else {
-                GMod = "[Disease-Ridden] \nNon-Spell attacks invoke a DC 14 Con Save. On a fail, the target contracts a disease.";}
+                GMod = `[Disease-Ridden] \nNon-Spell attacks invoke a DC ${GTier + 12} Con Save. On a fail, the target contracts a disease.`;}
             }
         else if (modRoll == 58) {
             if (modElite == 10) {
-                GMod = "[Subsumer] (Elite) \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 30 Hit Points and gains two traits from the creature or +5 damage for the duration of the fight.";}
+                GMod = `[Subsumer] (Elite) \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 40 Hit Points and gains two traits from the creature or +6 damage for the duration of the fight.`;}
             else {
-                GMod = "[Subsumer] \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 15 Hit Points and gains one trait from the creature or +3 damage for the duration of the fight.";}
+                GMod = `[Subsumer] \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 20 Hit Points and gains one trait from the creature or +3 damage for the duration of the fight.`;}
             }
         else if (modRoll == 59) {
             if (modElite == 10) {
-                GMod = "[Vampiric] (Elite) \nNatural/Unarmed weapons attacks deal an extra 4d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.";}
+                GMod = `[Vampiric] (Elite) \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 3}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
             else {
-                GMod = "[Vampiric] \nNatural/Unarmed weapons attacks deal an extra 2d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.";}
+                GMod = `[Vampiric] \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 1}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
             }
         else if (modRoll == 60) {
             if (modElite == 10) {
-                GMod = "[Leader] (Elite) \nThe creature has 5 minion-type creatures with it and gains the Leadership trait.";}
+                GMod = `[Leader] (Elite) \nThe creature has 5 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
             else {
-                GMod = "[Leader] \nThe creature has 3 minion-type creatures with it and gains the Leadership trait.";}
+                GMod = `[Leader] \nThe creature has 3 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
             }
         else if (modRoll == 61) {
             if (modElite == 10) {
-                GMod = "[Terrifying] (Elite) \nGains a DC 18 dragons Frighteneing Presence.";}
+                GMod = `[Terrifying] (Elite) \nGains a DC ${GTier + 14} dragons Frighteneing Presence.`;}
             else {
-                GMod = "[Terrifying] \nGains a DC 15 dragons Frighteneing Presence.";}
+                GMod = `[Terrifying] \nGains a DC ${GTier + 12} dragons Frighteneing Presence.`;}
             }
         else if (modRoll == 62) {
             if (modElite == 10) {
-                GMod = "[Vines] (Elite) \nGround within 30 ft. of the creature requires three feet to move one foot.";}
+                GMod = `[Vines] (Elite) \nGround within 30 ft. of the creature requires three feet to move one foot.`;}
             else {
-                GMod = "[Vines] \nGround within 30 ft. of the creature is difficult terrain.";}
+                GMod = `[Vines] \nGround within 30 ft. of the creature is difficult terrain.`;}
             }
         else if (modRoll == 63) {
             if (modElite == 10) {
-                GMod = "[Duplicant] (Elite) \nDamage the creature deals is also dealt to a creature within 5 ft. of the target.";}
+                GMod = `[Duplicant] (Elite) \nDamage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
             else {
-                GMod = "[Duplicant] \nHalf of the damage the creature deals is also dealt to a creature within 5 ft. of the target.";}
+                GMod = `[Duplicant] \nHalf of the damage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
             }
         else if (modRoll == 64) {
             if (modElite == 10) {
-                GMod = "[Oozing] (Elite) \nWhen hit by a weapon attack, slime fires off at two creature within 60 ft. with a +9 to hit. if (it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.";}
+                GMod = `[Oozing] (Elite) \nWhen hit by a weapon attack, slime fires off at two creature within 60 ft. with a +${GPB + 7} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
             else {
-                GMod = "[Oozing] \nWhen hit by a weapon attack, a piece of slime fires off at a creature within 30 ft. with a +7 to hit. if (it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.";}
+                GMod = `[Oozing] \nWhen hit by a weapon attack, a piece of slime fires off at a creature within 30 ft. with a +${GPB + 4} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
             }
         else if (modRoll == 65) {
             if (modElite == 10) {
-                GMod = "[Enraged] (Elite) \nEvery 20% of health lost grants the creature 2d6 more damage.";}
+                GMod = `[Enraged] (Elite) \nEvery 20% of health lost grants the creature ${Math.ceil(GPB / 3) + 1}d6 more damage.`;}
             else {
-                GMod = "[Enraged] \nEvery 25% of health lost grants the creature 1d6 more damage.";}
+                GMod = `[Enraged] \nEvery 25% of health lost grants the creature ${Math.ceil(GPB / 4)}d6 more damage.`;}
             }
         else if (modRoll == 66) {
             if (modElite == 10) {
-                GMod = "[Gravity Well] (Elite) \nWithin 120 feet, moving towards the creature requires only one-third of the the normal speed. Moving away requires triple the normal speed.";}
+                GMod = `[Gravity Well] (Elite) \nWithin 120 feet, moving towards the creature requires only one-third of the the normal speed. Moving away requires triple the normal speed.`;}
             else {
-                GMod = "[Gravity Well] \nWithin 60 feet, moving towards the creature requires only half of the the normal speed. Moving away requires double the normal speed.";}
+                GMod = `[Gravity Well] \nWithin 60 feet, moving towards the creature requires only half of the the normal speed. Moving away requires double the normal speed.`;}
             }
         else if (modRoll == 67) {
             if (modElite == 10) {
-                GMod = "[Telekinetic] (Elite) \nEvery turn, all enemies within 80 feet make a DC 17 Intelligence (Athletics) roll or be move 15 ft. in a direction.";}
+                GMod = `[Telekinetic] (Elite) \nEvery turn, all enemies within 80 feet make a DC ${GTier + 14} Intelligence (Athletics) roll or be moved 15 ft. in a direction.`;}
             else {
-                GMod = "[Telekinetic] \nEvery turn, two enemies within 40 feet make a DC 14 Intelligence (Athletics) roll or be move 10 ft. in a direction.";}
+                GMod = `[Telekinetic] \nEvery turn, two enemies within 40 feet make a DC ${GTier + 12} Intelligence (Athletics) roll or be moved 10 ft. in a direction.`;}
             }
         else if (modRoll == 68) {
             if (modElite == 10) {
-                GMod = "[Swapper] (Elite) \nAs a Bonus Action, the creature swaps the locations of two creatures within 60 ft. of it.";}
+                GMod = `[Swapper] (Elite) \nAs a Bonus Action, the creature swaps the locations of two creatures within 60 ft. of it.`;}
             else {
-                GMod = "[Swapper] \nAs a Bonus Action, the creature swaps the locations of two creatures within 30 ft. of it.";}
+                GMod = `[Swapper] \nAs a Bonus Action, the creature swaps the locations of two creatures within 30 ft. of it.`;}
             }
         else if (modRoll == 69) {
             if (modElite == 10) {
-                GMod = "[Rigged] (Elite) \nOn death, the creature explodes for 9d8 within 40 ft.";}
+                GMod = `[Rigged] (Elite) \nOn death, the creature explodes for ${Math.floor(GPB * 1.5)}d8 within 40 ft.`;}
             else {
-                GMod = "[Rigged] \nOn death, the creature explodes for 6d8 within 20 ft.";}
+                GMod = `[Rigged] \nOn death, the creature explodes for ${GPB}d8 within 20 ft.`;}
             }
         else if (modRoll == 70) {
             if (modElite == 10) {
-                GMod = "[Sweeping] (Elite) \nAll Non-Spell attacks also hit all creatures within 5 ft. of the target.";}
+                GMod = `[Sweeping] (Elite) \nAll Non-Spell attacks also hit all creatures within 5 ft. of the target.`;}
             else {
-                GMod = "[Sweeping] \nAll Non-Spell attacks also hit 5 ft. to the left and right of the target.";}
+                GMod = `[Sweeping] \nAll Non-Spell attacks also hit 5 ft. to the left and right of the target.`;}
             }
         else if (modRoll == 71) {
             if (modElite == 10) {
-                GMod = "[Gravity Flip] (Elite) \nAs an Action, the creature picks a spot within 100 ft. and creates a 30 ft. square of reversed gravity 100 ft. tall. It lasts 6 rounds and recharges on a 4-6.";}
+                GMod = `[Gravity Flip] (Elite) \nAs an Action, the creature picks a spot within 100 ft. and creates a 30 ft. square of reversed gravity 100 ft. tall. It lasts 6 rounds and recharges on a 4-6.`;}
             else {
-                GMod = "[Gravity Flip] \nAs an Action, the creature picks a spot within 50 ft. and creates a 15 ft. square of reversed gravity 50 ft. tall. It lasts 3 rounds and recharges on a 5-6.";}
+                GMod = `[Gravity Flip] \nAs an Action, the creature picks a spot within 50 ft. and creates a 15 ft. square of reversed gravity 50 ft. tall. It lasts 3 rounds and recharges on a 5-6.`;}
             }
         else if (modRoll == 72) {
             if (modElite == 10) {
-                GMod = "[Anti-Grav] (Elite) \nAs a Bonus Action, a targeted creature makes a DC 17 Charisma Save. On a fail, gravity is negated for them for 6 rounds.";}
+                GMod = `[Anti-Grav] (Elite) \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 14} Charisma Save. On a fail, gravity is negated for them for 6 rounds.`;}
             else {
-                GMod = "[Anti-Grav] \nAs a Bonus Action, a targeted creature makes a DC 14 Charisma Save. On a fail, gravity is negated for them for 3 rounds.";}
+                GMod = `[Anti-Grav] \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 12} Charisma Save. On a fail, gravity is negated for them for 3 rounds.`;}
             }
         else if (modRoll == 73) {
             if (modElite == 10) {
-                GMod = "[Sapper] (Elite) \nAttack impose a DC 15 Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack and an extra attack.";}
+                GMod = `[Sapper] (Elite) \nAttack impose a DC ${GTier + 14} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack and an extra attack.`;}
             else {
-                GMod = "[Sapper] \nAttack impose a DC 13 Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack.";}
+                GMod = `[Sapper] \nAttack impose a DC ${GTier + 12} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack.`;}
             }
         else if (modRoll == 74) {
-            if (modElite == 10) {
-                GMod = "[Spider Climb] (Elite) \nThe creature gains 60 ft. of climbing speed, 90 ft. of tremorsense. Surprised creatures have disadvantage on attacks on their next turn.";}
-            else {
-                GMod = "[Spider Climb] \nThe creature gains 30 ft. of climbing speed, 45 ft. of tremorsense. Surprised creatures have disadvantage on attack on their next turn.";}
+            if (modElite == 10) {if (GSpeedClimb == 0) {GSpeedClimb += 60} else {GSpeedClimb += 20} if (GTremorsense == 0) {GTremorsense += 90} else {GTremorsense += 40}
+                GMod = `[Spider Climb] (Elite) \nThe creature gains 60 ft. of climbing speed, 90 ft. of tremorsense. Surprised creatures have disadvantage on attacks on their next turn.`;}
+            else {if (GSpeedClimb == 0) {GSpeedClimb += 30} else {GSpeedClimb += 10} if (GTremorsense == 0) {GTremorsense += 45} else {GTremorsense += 20}
+                GMod = `[Spider Climb] \nThe creature gains 30 ft. of climbing speed, 45 ft. of tremorsense. Surprised creatures have disadvantage on attack on their next turn.`;}
             }
         else if (modRoll == 75) {
             if (modElite == 10) {
-                GMod = "[Charging] (Elite) \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and triple damage.";}
+                GMod = `[Charging] (Elite) \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and triple damage.`;}
             else {
-                GMod = "[Charging] \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and double damage.";}
+                GMod = `[Charging] \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and double damage.`;}
             }
         else if (modRoll == 76) {
             if (modElite == 10) {
-                GMod = "[Time Watcher] (Elite) \nEvery turn, one target makes a DC 16 Charisma Save or they cannot use Bonus Actions or Reactions on their next turn. They also have half movement speed until then.";}
+                GMod = `[Time Watcher] (Elite) \nEvery turn, one target makes a DC ${GTier + 14} Charisma Save or they cannot use Bonus Actions or Reactions on their next turn. They also have half movement speed until then.`;}
             else {
-                GMod = "[Time Watcher] \nEvery turn, one target makes a DC 13 Charisma Save or they cannot use Bonus Actions on their next turn.";}
+                GMod = `[Time Watcher] \nEvery turn, one target makes a DC ${GTier + 12} Charisma Save or they cannot use Bonus Actions on their next turn.`;}
             }
         else if (modRoll == 77) {
             if (modElite == 10) {
-                GMod = "[Blinking] (Elite) \nAs a Reaction, the creature can cast Misty Step up to 60 ft. The creature has an additional Reaction eveyr turn.";}
+                GMod = `[Blinking] (Elite) \nAs a Reaction, the creature can cast Misty Step up to 60 ft. The creature has an additional Reaction every turn.`;}
             else {
-                GMod = "[Blinking] \nAs a Reaction, the creature can cast Misty Step.";}
+                GMod = `[Blinking] \nAs a Reaction, the creature can cast Misty Step.`;}
             }
         else if (modRoll == 78) {
             if (modElite == 10) {
-                GMod = "[Consumer] (Elite) \nAll consumable items used within 90 ft. instead benefit the creature.";}
+                GMod = `[Consumer] (Elite) \nAll consumable items used within 90 ft. instead benefit the creature.`;}
             else {
-                GMod = "[Consumer] \nAll consumable items used within 45 ft. instead benefit the creature.";}
+                GMod = `[Consumer] \nAll consumable items used within 45 ft. instead benefit the creature.`;}
             }
         else if (modRoll == 79) {
             if (modElite == 10) {
-                GMod = "[Mouth of Holding] (Elite) \nThe creatures mouth functions as a Large Bag of Holding. Creatures inside are incapacitated.";}
+                GMod = `[Mouth of Holding] (Elite) \nThe creature's mouth functions as a Large Bag of Holding. Creatures inside are incapacitated.`;}
             else {
-                GMod = "[Mouth of Holding] \nThe creatures mouth functions as a Large Bag of Holding.";}
+                GMod = `[Mouth of Holding] \nThe creature's mouth functions as a Large Bag of Holding.`;}
             }
         else if (modRoll == 80) {
             if (modElite == 10) {
-                GMod = "[Redirector] (Elite) \nAs a Reaction, reduce a projectles damage (even spells) by 3d6 + Dex + CR. Even if not reduced to 0, throw the projectile back with +10 attack; reroll the damage.";}
+                GMod = `[Redirector] (Elite) \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 2}d6 +${GPB + 4}. If reduced to 0, throw the projectile back with +${GPB + 6} attack.`;}
             else {
-                GMod = "[Redirector] \nAs a Reaction, reduce a projectles damage (even spells) by 2d6 + Dex + CR. if (redcued to 0, throw the projectile back with +8 attack; reroll the damage.";}
+                GMod = `[Redirector] \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 1}d6 +${GPB + 2}. If redcued to 0, throw the projectile back with +${GPB + 4} attack.`;}
             }
         else if (modRoll == 81) {
             if (modElite == 10) {
-                GMod = "[Mutant] (Elite) \nThe creature is completely merged with two others. It gains the traits and attacks of all three and the highest of each Stat and HP.";}
+                GMod = `[Mutant] (Elite) \nThe creature is completely merged with two others. It gains the traits and attacks of all three and the highest of each Stat and HP.`;}
             else {
-                GMod = "[Mutant] \nThe creature is completely merged with another. It gains the traits and attacks of both and the highest of each Stat and HP.";}
+                GMod = `[Mutant] \nThe creature is completely merged with another. It gains the traits and attacks of both and the highest of each Stat and HP.`;}
             }
         else if (modRoll == 82) {
             if (modElite == 10) {
-                GMod = "[Plant Growth] (Elite) \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will. The creature can also use Misty Step to travel through plants up to 60 feet.";}
+                GMod = `[Plant Growth] (Elite) \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will. The creature can also use Misty Step to travel through plants up to 60 feet.`;}
             else {
-                GMod = "[Plant Growth] \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will.";}
+                GMod = `[Plant Growth] \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will.`;}
             }
         else if (modRoll == 83) {
             if (modElite == 10) {
-                GMod = "[Trapper] (Elite) \nThe creatures has a large variety of traps and tricks set up within its territory. DCs are 15-17 and damage is 4d6-6d6.";}
+                GMod = `[Trapper] (Elite) \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 13}-${GTier + 15} and damage is ${Math.ceil(GPB / 2) + 4}d6.`;}
             else {
-                GMod = "[Trapper] \nThe creatures has a large variety of traps and tricks set up within its territory. DCs are 13-15 and damage is 2d6-3d6.";}
+                GMod = `[Trapper] \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 11}-${GTier + 13} and damage is ${Math.ceil(GPB / 3) + 1}d6.`;}
             }
         else if (modRoll == 84) {
             if (modElite == 10) {
-                GMod = "[Blood Bags] (Elite) \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal 4d6 extra damage and crit on 18-20.";}
+                GMod = `[Blood Bags] (Elite) \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 2) + 1}d6 extra damage and crit on 18-20.`;}
             else {
-                GMod = "[Blood Bags] \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal 2d6 extra damage.";}
+                GMod = `[Blood Bags] \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 3) + 1}d6 extra damage.`;}
             }
         else if (modRoll == 85) {
             if (modElite == 10) {
-                GMod = "[Waller] (Elite) \nCreates walls of stone (or applicable material) to limit movement. Can create two walls per turn, up to 30 ft. tall and long with 120 Hit Points.";}
+                GMod = `[Waller] (Elite) \nCreates walls of stone (or applicable material) to limit movement. Can create two walls per turn, up to 30 ft. tall and long with 120 Hit Points.`;}
             else {
-                GMod = "[Waller] \nCreates walls of stone (or applicable material) to limit movement. Can create one wall per turn, up to 20 ft. tall and long with 60 Hit Points.";}
+                GMod = `[Waller] \nCreates walls of stone (or applicable material) to limit movement. Can create one wall per turn, up to 20 ft. tall and long with 60 Hit Points.`;}
             }
         else if (modRoll == 86) {
             if (modElite == 10) {
-                GMod = "[Riddler] (Elite) \nAs a Bonus Action, the creature asks two targets that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.";}
+                GMod = `[Riddler] (Elite) \nAs a Bonus Action, the creature asks two targets that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
             else {
-                GMod = "[Riddler] \nAs a Bonus Action, the creature asks one target that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.";}
+                GMod = `[Riddler] \nAs a Bonus Action, the creature asks one target that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
             }
         else if (modRoll == 87) {
             if (modElite == 10) {
-                GMod = "[Gangly] (Elite) \nThe creature has 20 foot longer reach with melee attacks and triple range with ranged attacks.";}
+                GMod = `[Gangly] (Elite) \nThe creature has 20 foot longer reach with melee attacks and triple range with ranged attacks.`;}
             else {
-                GMod = "[Gangly] \nThe creature has 10 foot longer reach with melee attacks and double range with ranged attacks.";}
+                GMod = `[Gangly] \nThe creature has 10 foot longer reach with melee attacks and double range with ranged attacks.`;}
             }
         else if (modRoll == 88) {
             if (modElite == 10) {
-                GMod = "[Pinpoint] (Elite) \nAll hits are Critical Hits, but the creature has -3 to hit.";}
+                GMod = `[Pinpoint] (Elite) \nAll hits are Critical Hits, but the creature has -5 to hit.`;}
             else {
-                GMod = "[Pinpoint] \nAll hits are Critical Hits, but the creature has -5 to hit.";}
+                GMod = `[Pinpoint] \nAll hits are Critical Hits, but the creature has -7 to hit.`;}
             }
         else if (modRoll == 89) {
             if (modElite == 10) {
-                GMod = "[Consistent] (Elite) \nThe creatures attack always hit and enemies have -4 to Saving Throws, but it cannot land critical hits.";}
+                GMod = `[Consistent] (Elite) \nThe creature's attacks always hit and enemies have -4 to Saving Throws, but it cannot land critical hits.`;}
             else {
-                GMod = "[Consistent] \nThe creatures attack always hit and enemies have -2 to Saving Throws, but it cannot land critical hits.";}
+                GMod = `[Consistent] \nThe creature's attacks always hit and enemies have -2 to Saving Throws, but it cannot land critical hits.`;}
             }
         else if (modRoll == 90) {
-            if (modElite == 10) {
-                GMod = "[Resistant] (Elite) \nThe creature has 4 random resistances and 1 random immunity.";}
-            else {
-                GMod = "[Resistant] \nThe creature has 3 random resistances.";}
+            if (modElite == 10) {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GImmune.includes(GElement) == false) {} else {ElementTypeGen();} GImmune.push(GElement);
+                GMod = `[Resistant] (Elite) \nThe creature has 4 random resistances and 1 random immunity.`;}
+            else {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+                GMod = `[Resistant] \nThe creature has 3 random resistances.`;}
             }
         else if (modRoll == 91) {
-            if (modElite == 10) {
-                GMod = "[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.";}
-            else {
-                GMod = "[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.";}
+            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GELement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
+                GMod = `[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.`;}
+            else {ElementTypeGen(); GRes.length = 0; GRes.push(`All damage except ${GElement}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)}
+                GMod = `[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.`;}
             }
         else if (modRoll == 92) {
             if (modElite == 10) {
-                GMod = "[Gibbering] (Elite) \nEach creature that starts its turn within 40 feet of the creature and can hear the gibbering must succeed on a DC 16 Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.";}
+                GMod = `[Gibbering] (Elite) \nEach creature that starts its turn within 40 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 14} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
             else {
-                GMod = "[Gibbering] \nEach creature that starts its turn within 20 feet of the creature and can hear the gibbering must succeed on a DC 13 Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.";}
+                GMod = `[Gibbering] \nEach creature that starts its turn within 20 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 12} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
             }
         else if (modRoll == 93) {
             if (modElite == 10) {
-                GMod = "[Fortified] (Elite) \nInstances of damage 16 or less deal no damage to the creature.";}
+                GMod = `[Fortified] (Elite) \nInstances of damage ${Math.ceil(GPB / 2) + 12} or less deal no damage to the creature.`;}
             else {
-                GMod = "[Fortified] \nInstances of damage 12 or less deal no damage to the creature.";}
+                GMod = `[Fortified] \nInstances of damage ${Math.ceil(GPB / 2) + 8} or less deal no damage to the creature.`;}
             }
         else if (modRoll == 94) {
             if (modElite == 10) {
-                GMod = "[Hivemind] (Elite) \n(Spellcasters Only) The creature can concentrate on 3 spells at once and has advantage and +2 on Saving Throws to maintain Concentration.";}
+                GMod = `[Hivemind] (Elite) \n(Spellcasters Only) The creature can concentrate on 3 spells at once and has advantage and +2 on Saving Throws to maintain Concentration.`;}
             else {
-                GMod = "[Hivemind] \n(Spellcasters Only) The creature can concentrate on 2 spells at once and has advantage on Saving Throws to maintain Concentration.";}
+                GMod = `[Hivemind] \n(Spellcasters Only) The creature can concentrate on 2 spells at once and has advantage on Saving Throws to maintain Concentration.`;}
             }
         else if (modRoll == 95) {
             if (modElite == 10) {
-                GMod = "[Tactician] (Elite) \nAs a Bonus Action, command two allies to use their Reaction to make an attack. As a Reaction, add 2d6 to the Hit or Save roll of an ally.";}
+                GMod = `[Tactician] (Elite) \nAs a Bonus Action, command two allies to use their Reaction to make an attack. As a Reaction, add 2d6 to the Hit or Save roll of an ally.`;}
             else {
-                GMod = "[Tactician] \nAs a Bonus Action, command an ally to use their Reaction to make an attack. As a Reaction, add 1d6 to the Hit or Save roll of an ally.";}
+                GMod = `[Tactician] \nAs a Bonus Action, command an ally to use their Reaction to make an attack. As a Reaction, add 1d6 to the Hit or Save roll of an ally.`;}
             }
         else if (modRoll == 96) {
             if (modElite == 10) {
-                GMod = "[Tiring] (Elite) \nEvery turn, a random creature within 1200 ft. makes a DC 16 Con Save or they gain a level of Exhaustion.";}
+                GMod = `[Tiring] (Elite) \nEvery turn, a random creature within 1200 ft. makes a DC ${GTier + 12} Con Save or they gain a level of Exhaustion.`;}
             else {
-                GMod = "[Tiring] \nEvery turn, a random creature within 60 ft. makes a DC 13 Con Save or they gain a level of Exhaustion.";}
+                GMod = `[Tiring] \nEvery turn, a random creature within 60 ft. makes a DC ${GTier + 10} Con Save or they gain a level of Exhaustion.`;}
             }
         else if (modRoll == 97) {
-            if (modElite == 10) {
-                GMod = "[Tough] (Elite) \nThe creature gains 60 Maximum Hit Points and has Resistance to the two most recent damage types taken.";}
-            else {
-                GMod = "[Tough] \nThe creature gains 25 Maximum Hit Points and has Resistance to the most recent damage type taken.";}
+            if (modElite == 10) {GHP += GPB * 8;
+                GMod = `[Tough] (Elite) \nThe creature gains ${GPB * 8} Maximum Hit Points and has Resistance to the two most recent damage types taken.`;}
+            else {GHP += GPB * 4
+                GMod = `[Tough] \nThe creature gains ${GPB * 4} Maximum Hit Points and has Resistance to the most recent damage type taken.`;}
             }
         else if (modRoll == 98) {
-            if (modElite == 10) {
-                GMod = "[Epic] (Elite) \nGains 4 uses of Legendary Resistance.";}
-            else {
-                GMod = "[Epic] \nGains 2 uses of Legendary Resistance.";}
+            if (modElite == 10) {GLegendaryResist += 4;
+                GMod = `[Epic] (Elite) \nGains 4 uses of Legendary Resistance.`;}
+            else {GLegendaryResist += 2
+                GMod = `[Epic] \nGains 2 uses of Legendary Resistance.`;}
             }
         else if (modRoll == 99) {
-            if (modElite == 10) {
-                GMod = "[Legendary] (Elite) \nGain 2 Legendary Action per round. It can be used to make a single attack, move up to full speed, or casting a known cantrip.";}
-            else {
-                GMod = "[Legendary] \nGain 1 Legendary Action per round. It can be used to make a single attack, move up to full speed, or casting a known cantrip.";}
+            if (modElite == 10) {GLegendaryUses =+ 2;
+                GMod = `[Legendary] (Elite) \nGain 2 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
+            else {GLegendaryUses =+ 1;
+                GMod = `[Legendary] \nGain 1 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
             }
         else if (modRoll == 100) {
             if (modElite == 10) {
-                GMod = "[Titan] (Elite) \nThe creatures grows two size categories larger, gains 10 feet of melee reach, and adds +13 to Non-Spell damage.";}
+                GMod = `[Titan] (Elite) \nThe creatures grows two size categories larger, gains 10 feet of melee reach, and adds +13 to Non-Spell damage.`;}
             else {
-                GMod = "[Titan] \nThe creatures grows one size category larger, gains 5 feet of melee reach, and adds +7 to Non-Spell damage.";}
+                GMod = `[Titan] \nThe creatures grows one size category larger, gains 5 feet of melee reach, and adds +7 to Non-Spell damage.`;}
             }
         else if (modRoll == 101) {
             if (modElite == 10) {
-                GMod = "[Time Flux] (Elite) \nThe creature gains an extra turn. Recharges on 4-6.";}
+                GMod = `[Time Flux] (Elite) \nThe creature gains an extra turn. Recharges on 4-6.`;}
             else {
-                GMod = "[Time Flux] \nThe creature gains an extra Action. Recharges on 5-6.";}
+                GMod = `[Time Flux] \nThe creature gains an extra Action. Recharges on 5-6.`;}
             }
         else if (modRoll == 102) {
             if (modElite == 10) {
-                GMod = "[Glass Cannon] (Elite) \nThe creature deals 50% more damage and takes 25% more damage.";}
+                GMod = `[Glass Cannon] (Elite) \nThe creature deals 50% more damage and takes 25% more damage.`;}
             else {
-                GMod = "[Glass Cannon] \nThe creature deals 25% more damage and takes 25% more damage.";}
+                GMod = `[Glass Cannon] \nThe creature deals 25% more damage and takes 25% more damage.`;}
             }
         else if (modRoll == 103) {
             if (modElite == 10) {
-                GMod = "[Weakener] (Elite) \nAt the end of the creatures turn, it chooses up to 2 creatures. Their Resistance is reduced for the rest of combat to a damage type that the creature can deal. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)";}
+                GMod = `[Weakener] (Elite) \nAt the end of the creatures turn, it chooses up to 2 creatures. Their Resistance is reduced for the rest of combat to a damage type that the creature can deal. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
             else {
-                GMod = "[Weakener] \nDamage dealt by this creature reduces the Resistance of the target to that element for the rest of combat. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)";}
+                GMod = `[Weakener] \nDamage dealt by this creature reduces the Resistance of the target to that element for the rest of combat. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
             }
         else if (modRoll == 104) {
             if (modElite == 10) {
-                GMod = "[Pustules] (Elite) \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +10 to hit up to 60 ft. They take 2d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.";}
+                GMod = `[Pustules] (Elite) \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +10 to hit up to 60 ft. They take ${Math.ceil(GPB / 2)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
             else {
-                GMod = "[Pustules] \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +8 to hit up to 30 ft. They take 1d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.";}
+                GMod = `[Pustules] \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +8 to hit up to 30 ft. They take ${Math.ceil(GPB / 3)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
             }
         else if (modRoll == 105) {
             if (modElite == 10) {
-                GMod = "[Gunsmith] (Elite) \nAs a Bonus Action, the creature morphs a limb into a firearm or a siege weapon. These weapons do not need ammo and gain two additional damage die.";}
+                GMod = `[Gunsmith] (Elite) \nAs a Bonus Action, the creature morphs a limb into a firearm or a siege weapon. These weapons do not need ammo and gain two additional damage die.`;}
             else {
-                GMod = "[Gunsmith] \nAs a Bonus Action, the creature morphs a limb into a firearm. These firearms do not need ammo and gain one additional damage die.";}
+                GMod = `[Gunsmith] \nAs a Bonus Action, the creature morphs a limb into a firearm. These firearms do not need ammo and gain one additional damage die.`;}
             }
         else if (modRoll == 106) {
             if (modElite == 10) {
-                GMod = "[Magnetic] (Elite) \nMetal weapons and ammunition have -8 to hit against the creature. As a Bonus Action, the creature can pull three metal item (that can be magnetically affected) with 120 ft. towards it (DC 17 Strength Save).";}
+                GMod = `[Magnetic] (Elite) \nMetal weapons and ammunition have -8 to hit against the creature. As a Bonus Action, the creature can pull three metal item (that can be magnetically affected) with 120 ft. towards it (DC ${GTier + 14} Strength Save).`;}
             else {
-                GMod = "[Magnetic] \nMetal weapons and ammunition have -4 to hit against the creature. As a Bonus Action, the creature can pull a metal item (that can be magnetically affected) with 60 ft. towards it (DC 15 Strength Save).";}
+                GMod = `[Magnetic] \nMetal weapons and ammunition have -4 to hit against the creature. As a Bonus Action, the creature can pull a metal item (that can be magnetically affected) with 60 ft. towards it (DC ${GTier + 12} Strength Save).`;}
             }
         else if (modRoll == 107) {
             if (modElite == 10) {
-                GMod = "[Magnifier] (Elite) \nEvery die rolled by enemies is one tier lower and every die rolled by the creature is one tier higher. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)";}
+                GMod = `[Magnifier] (Elite) \nEvery die rolled by enemies is one tier lower and every die rolled by the creature is one tier higher. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
             else {
-                GMod = "[Magnifier] \nEvery die rolled by enemies is one tier lower. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)";}
+                GMod = `[Magnifier] \nEvery die rolled by enemies is one tier lower. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
             }
         else if (modRoll == 108) {
             if (modElite == 10) {
-                GMod = "[Copycat] (Elite) \nTwice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.";}
+                GMod = `[Copycat] (Elite) \nTwice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
             else {
-                GMod = "[Copycat] \nOnce a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.";}
+                GMod = `[Copycat] \nOnce a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
             }
         else if (modRoll == 109) {
             if (modElite == 10) {
-                GMod = "[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
+                GMod = `[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
             else {
-                GMod = "[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.";}
+                GMod = `[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
             }
-        else if (modRoll == 110) {
+        else if (modRoll == 110) {if (GMagic == "Martial") {EnemyGenMod();} else {
             if (modElite == 10) {
-                GMod = "[Archmage] (Elite) \n(Spellcaster Only) All spells are upcast two levels.";}
+                GMod = `[Archmage] (Elite) \All spells are upcast two levels.`;}
             else {
-                GMod = "[Archmage] \n(Spellcaster Only) All spells are upcast one level.";}
-            }
+                GMod = `[Archmage] \nAll spells are upcast one level.`;}
+		}}
         else if (modRoll == 111) {
-            if (modElite == 10) {
-                GMod = "[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.";}
-            else {
-                GMod = "[Double Trouble] \nGenerate a new modifier twice and the creature gains both.";}
+            if (modElite == 10) {GMod = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
+			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
+            else {GMod = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
+			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
             }
         else if (modRoll == 112) {
-            if (modElite == 10) {
-                GMod = "[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.";}
-            else {
-                GMod = "[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.";}
+            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSPeedFly += 20}
+                GMod = `[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
+            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSPeedFly += 10}
+                GMod = `[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
             }
         else if (modRoll == 113) {
-            if (modElite == 10) {
-                GMod = "[Fiendish] (Elite) \nThis creature is considered as Fiend. The creature has Immunity to Fire and Resistance to Nonmagical Physical damage. Spells of 2nd Level or lower cannot affect the creature unless it wills them to.";}
-            else {
-                GMod = "[Fiendish] \nThis creature is considered as Fiend. The creature has Resistance to Fire and Nonmagical Physical damage. Spells of 1st Level or lower cannot affect the creature unless it wills them to.";}
+            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+                GMod = `[Fiendish] (Elite) \nThis creature is considered as Fiend. The creature has Immunity to Fire and Resistance to Nonmagical Physical damage. Spells of 2nd Level or lower cannot affect the creature unless it wills them to.`;}
+            else {if (GRes.includes("fire") == false) {GRes.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+                GMod = `[Fiendish] \nThis creature is considered as Fiend. The creature has Resistance to Fire and Nonmagical Physical damage. Spells of 1st Level or lower cannot affect the creature unless it wills them to.`;}
             }
         else if (modRoll == 114) {
-            if (modElite == 10) {
-                GMod = "[Slimeling] (Elite) \nThis creature is considered as Ooze. The creature is Immune to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes 6d6 acid damage at the start of their turn (escape DC 16).";}
-            else {
-                GMod = "[Slimeling] \nThis creature is considered as Ooze. The creature has Resistance to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes 3d6 acid damage at the start of their turn (escape DC 14).";}
+            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning");} if (GImmune.includes("physical") == false) {GImmune.push("physical");} 
+                GMod = `[Slimeling] (Elite) \nThis creature is considered as Ooze. The creature is Immune to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 2) + 4}d6 acid damage at the start of their turn (escape DC ${GTier + 14}).`;}
+            else {if (GRes.includes("lightning") == false) {GRes.push("lightning");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+                GMod = `[Slimeling] \nThis creature is considered as Ooze. The creature has Resistance to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 3) + 2}d6 acid damage at the start of their turn (escape DC ${GTier + 12}).`;}
             }
         else if (modRoll == 115) {
-            if (modElite == 10) {
-                GMod = "[Dragonkin] (Elite) \nThis creature is considered as Dragon. It gains +5 Strength and 60ft. of Blindsight. The creature gains 5 uses of a Dragonborn Breath weapon of DC 17 for 3d10 damage and Resistance to the matching element.";}
-            else {
-                GMod = "[Dragonkin] \nThis creature is considered as Dragon. It gains +3 Strength and 30ft. of Blindsight. The creature gains 3 uses of a Dragonborn Breath weapon of DC 15 for 2d10 damage and Resistance to the matching element.";}
+            if (modElite == 10) {GStr += 5; if (GBlindsight == 0) {GBlindsight += 60} else {GBlindsight += 30}
+                GMod = `[Dragonkin] (Elite) \nThis creature is considered as Dragon. It gains +5 Strength and 60ft. of Blindsight. The creature gains 5 uses of a Dragonborn Breath weapon of DC ${GTier + 14} for ${Math.ceil(GPB / 3) + 2}d10 damage and Resistance to the matching element.`;}
+            else {GStr += 3; if (GBlindsight == 0) {GBlindsight += 30} else {GBlindsight += 10}
+                GMod = `[Dragonkin] \nThis creature is considered as Dragon. It gains +3 Strength and 30ft. of Blindsight. The creature gains 3 uses of a Dragonborn Breath weapon of DC ${GTier + 12} for ${Math.ceil(GPB / 4) + 1}d10 damage and Resistance to the matching element.`;}
             }
         else if (modRoll == 116) {
-            if (modElite == 10) {
-                GMod = "[Construct] (Elite) \nThis creature is considered as Construct. It gains +5 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and non-adamantite Physical damage. \nOn death, the creatures core overloads and it explodes for 4d8 fire within 30 ft.";}
-            else {
-                GMod = "[Construct] \nThis creature is considered as Construct. It gains +3 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and Resists non-adamantite Physical damage.";}
+            if (modElite == 10) {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
+			if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}
+			 if (GImmune.includes("physical") == false) {GImmune.push("physical")} else {}
+                GMod = `[Construct] (Elite) \nThis creature is considered as Construct. It gains +5 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and non-adamantite Physical damage. \nOn death, the creatures core overloads and it explodes for ${Math.ceil(GPB / 2) + 2}d8 fire within 30 ft.`;}
+            else {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
+			if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}
+			 if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
+                GMod = `[Construct] \nThis creature is considered as Construct. It gains +3 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and Resists non-adamantite Physical damage.`;}
             }
         else if (modRoll == 117) {
-            if (modElite == 10) {
-                GMod = "[Angelborn] (Elite) \nThis creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by 2d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.";}
-            else {
-                GMod = "[Angelborn] \nThis creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.";}
+            if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
+                GMod = `[Angelborn] (Elite) \nThis creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by ${Math.floor(GPB / 3)}d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.`;}
+            else {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
+                GMod = `[Angelborn] \nThis creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.`;}
             }
         else if (modRoll == 118) {
-            if (modElite == 10) {
-                GMod = "[Determinist] (Elite) \nThe creature gains +8 Strength and Intelligence.";}
-            else {
-                GMod = "[Determinist] \nThe creature gains +5 Strength and Intelligence.";}
+            if (modElite == 10) {GStr += 8; GInt += 8;
+                GMod = `[Determinist] (Elite) \nThe creature gains +8 Strength and Intelligence.`;}
+            else {GStr += 5; GInt += 5;
+                GMod = `[Determinist] \nThe creature gains +5 Strength and Intelligence.`;}
             }
         else if (modRoll == 119) {
-            if (modElite == 10) {
-                GMod = "[Veteran] (Elite) \nThe creature gains +8 Strength and Wisdom.";}
-            else {
-                GMod = "[Veteran] \nThe creature gains +5 Strength and Wisdom.";}
+            if (modElite == 10) {GStr += 8; GWis += 8;
+                GMod = `[Veteran] (Elite) \nThe creature gains +8 Strength and Wisdom.`;}
+            else {GStr += 5; GWis += 5;
+                GMod = `[Veteran] \nThe creature gains +5 Strength and Wisdom.`;}
             }
         else if (modRoll == 120) {
-            if (modElite == 10) {
-                GMod = "[Gladiator] (Elite) \nThe creature gains +8 Strength and Charisma.";}
-            else {
-                GMod = "[Gladiator] \nThe creature gains +5 Strength and Charisma.";}
+            if (modElite == 10) {GStr += 8; GCha += 8;
+                GMod = `[Gladiator] (Elite) \nThe creature gains +8 Strength and Charisma.`;}
+            else {GStr += 5; GCha += 5;
+                GMod = `[Gladiator] \nThe creature gains +5 Strength and Charisma.`;}
             }
         else if (modRoll == 121) {
-            if (modElite == 10) {
-                GMod = "[Opportunist] (Elite) \nThe creature gains +5 Dexterity and Intelligence.";}
-            else {
-                GMod = "[Opportunist] \nThe creature gains +5 Dexterity and Intelligence.";}
+            if (modElite == 10) {GDex += 8; GInt += 8;
+                GMod = `[Opportunist] (Elite) \nThe creature gains +5 Dexterity and Intelligence.`;}
+            else {GDex += 5; GInt += 5;
+                GMod = `[Opportunist] \nThe creature gains +5 Dexterity and Intelligence.`;}
             }
         else if (modRoll == 122) {
-            if (modElite == 10) {
-                GMod = "[Pursuer] (Elite) \nThe creature gains +8 Dexterity and Wisdom.";}
-            else {
-                GMod = "[Pursuer] \nThe creature gains +5 Dexterity and Wisdom.";}
+            if (modElite == 10) {GDex += 8; GWis += 8;
+                GMod = `[Pursuer] (Elite) \nThe creature gains +8 Dexterity and Wisdom.`;}
+            else {GDex += 5; GWis += 5;
+                GMod = `[Pursuer] \nThe creature gains +5 Dexterity and Wisdom.`;}
             }
         else if (modRoll == 123) {
-            if (modElite == 10) {
-                GMod = "[Robin Hood] (Elite) \nThe creature gains +8 Dexterity and Charisma.";}
-            else {
-                GMod = "[Robin Hood] \nThe creature gains +5 Dexterity and Charisma.";}
+            if (modElite == 10) {GDex += 8; GCha += 8;
+                GMod = `[Robin Hood] (Elite) \nThe creature gains +8 Dexterity and Charisma.`;}
+            else {GDex += 5; GCha += 5;
+                GMod = `[Robin Hood] \nThe creature gains +5 Dexterity and Charisma.`;}
             }
         else if (modRoll == 124) {
-            if (modElite == 10) {
-                GMod = "[Royalty] (Elite) \nThe creature gains +8 Constitution and Charisma.";}
-            else {
-                GMod = "[Royalty] \nThe creature gains +5 Contsitution and Charisma.";}
+            if (modElite == 10) {GCon += 8; GCha += 8;
+                GMod = `[Royalty] (Elite) \nThe creature gains +8 Constitution and Charisma.`;}
+            else {GCon += 5; GCha += 5;
+                GMod = `[Royalty] \nThe creature gains +5 Contsitution and Charisma.`;}
             }
         else if (modRoll == 125) {
-            if (modElite == 10) {
-                GMod = "[Queenly] (Elite) \nThe creature gains +8 Constitution and Intelligence.";}
-            else {
-                GMod = "[Queenly] \nThe creature gains +5 Constitution and Intelligence.";}
+            if (modElite == 10) {GCon += 8; GInt += 8;
+                GMod = `[Queenly] (Elite) \nThe creature gains +8 Constitution and Intelligence.`;}
+            else {GCon += 5; GInt += 5;
+                GMod = `[Queenly] \nThe creature gains +5 Constitution and Intelligence.`;}
             }
         else if (modRoll == 126) {
-            if (modElite == 10) {
-                GMod = "[Kingly] (Elite) \nThe creature gains +8 Constitution and Wisdom.";}
-            else {
-                GMod = "[Kingly] \nThe creature gains +5 Constitution and Wisdom.";}
+            if (modElite == 10) {GCon += 8; GWis += 8;
+                GMod = `[Kingly] (Elite) \nThe creature gains +8 Constitution and Wisdom.`;}
+            else {GCon += 5; GWis += 5;
+                GMod = `[Kingly] \nThe creature gains +5 Constitution and Wisdom.`;}
             }
         else if (modRoll == 127) {
             if (modElite == 10) {
-                GMod = "[Gambler] (Elite) \nWhen rolling Initiative, the creature draws two random Deck of Many Things cards. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)";}
+                GMod = `[Gambler] (Elite) \nWhen rolling Initiative, the creature draws two random Deck of Many Things cards. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
             else {
-                GMod = "[Gambler] \nWhen rolling Initiative, the creature draws a random Deck of Many Things card. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)";}
+                GMod = `[Gambler] \nWhen rolling Initiative, the creature draws a random Deck of Many Things card. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
             }
         else if (modRoll == 128) {
             if (modElite == 10) {
-                GMod = "[Nightmare] (Elite) \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.";}
+                GMod = `[Nightmare] (Elite) \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
             else {
-                GMod = "[Nightmare] \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.";}
+                GMod = `[Nightmare] \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
             }
         else if (modRoll == 129) {
             if (modElite == 10) {
-                GMod = "[Gourmet] (Elite) \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. \n\n(Other materials are up to the DM.) \n[Wood] Gain 4 AC. \n[Stone] Physical Resistance \n[Basic Metals] +4 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] Advantage on Attacks.";}
+                GMod = `[Gourmet] (Elite) \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. \n\n(Other materials are up to the DM.) \n[Wood] Gain 4 AC. \n[Stone] Physical Resistance \n[Basic Metals] +4 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] Advantage on Attacks.`;}
             else {
-                GMod = "[Gourmet] \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. \n\n(Other materials are up to the DM.) \n[Wood] Gain 2 AC. \n[Stone] Physical Resist, -5 Speed. \n[Basic Metals] +2 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] -2 AC and Advantage on Attacks.";}
+                GMod = `[Gourmet] \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. \n\n(Other materials are up to the DM.) \n[Wood] Gain 2 AC. \n[Stone] Physical Resist, -5 Speed. \n[Basic Metals] +2 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] -2 AC and Advantage on Attacks.`;}
             }
         else if (modRoll == 130) {
             if (modElite == 10) {
-                GMod = "[] (Elite) \n";}
+                GMod = `[] (Elite) \n`;}
             else {
-                GMod = "[] \n";}
+                GMod = `[] \n`;}
             }
 }
-function EnemyModBtn() {
-	EnemyMod()
-	document.getElementById("charBox").innerHTML = GMod;
+	function EnemyModBtn() {
+		EnemyGenMod();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n${GMod}`;
+	}
+
+function GetTier() {GCR = Number(document.getElementById("numCR").value);
+	if (GCR >= 1 && GCR <= 4) {GTier = 1; GPB = 2;}
+	else if (GCR >= 5 && GCR <= 8) {GTier = 2; GPB = 3;}
+	else if (GCR >= 9 && GCR <= 12) {GTier = 3; GPB = 4;}
+	else if (GCR >= 13 && GCR <= 16) {GTier = 4; GPB = 5;}
+	else if (GCR >= 17 && GCR <= 20) {GTier = 5; GPB = 6;}
+	else if (GCR >= 21 && GCR <= 24) {GTier = 6; GPB = 7;}
+	else if (GCR >= 25 && GCR <= 28) {GTier = 7; GPB = 8;}
+	else if (GCR >= 29 && GCR <= 32) {GTier = 8; GPB = 9;}
+	else if (GCR >= 33 && GCR <= 36) {GTier = 9; GPB = 10;}
+	else if (GCR >= 37 && GCR <= 40) {GTier = 10; GPB = 11;}
+	else if (GCR >= 41 && GCR <= 44) {GTier = 11; GPB = 12;}
+	else if (GCR >= 45 && GCR <= 48) {GTier = 12; GPB = 13;}
+	else if (GCR >= 49 && GCR <= 50) {GTier = 13; GPB = 14;}
+	else {GTier = 1; GPB = 2;}
 }
 
+function EnemyTrait() {
+		RNG = Math.floor(Math.random() * 7) + 1;
+		if (RNG == 1) {GTraitNames.push("Keen Sight"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight.");}
+		else if (RNG == 2) {GTraitNames.push("Keen Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on smell.");}
+		else if (RNG == 3) {GTraitNames.push("Keen Hearing"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on hearing.");}
+		else if (RNG == 4) {GTraitNames.push("Keen Sight and Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight or smell.");}
+		else if (RNG == 5) {GTraitNames.push("Keen Sight and Hearing"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight or hearing.");}
+		else if (RNG == 6) {GTraitNames.push("Keen Hearing and Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on hearing or smell.");}
+		else if (RNG == 7) {GTraitNames.push("Keen Senses"); GTraits.push("The creature has advantage on Wisdom (Perception) checks.");}
+		else if (RNG == 8) {GTraitNames.push(""); GTraits.push("");}
+}
+	function EnemyTraitBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2);
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyTrait();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GTraitNames}]\n${GTraits}`;
+		GTraitNames.length = 0;
+		GTraits.length = 0;
+	}
 
+function EnemyAction() {
+	let reachX = 5;
+	let RNG = Math.floor(Math.random() * 3) + 1; 
+	if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
+		RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GActionNames.push(`Poisonous Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or be poisoned for 1 minute. While poisoned this way, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 2) {GActionNames.push(`Ovipositor`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one target. Hit: The target is infested with 1d4 eggs, which immediately hatch into maggots. At the start of each of the target’s turns, the target takes ${Math.floor(GPB / 3) + 1}d6 piercing damage per maggot infesting it. Applying fire to the bite wound before the end of the target’s next turn deals 1 fire damage to the target and kills these maggots. After this time, the maggots are too far under the skin to be burned. If a target infested by maggots ends its turn with 0 hit points, it dies as the maggots burrow into its heart and kill it. Any effect that cures disease kills all maggots infesting the target.`);}
+		else if (RNG == 3) {GActionNames.push(``); GActions.push(``);}
+}
+	function EnemyActionBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2);
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyAction();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GActionNames}]\n${GActions}`;
+		GActionNames.length = 0;
+		GActions.length = 0;
+	}
 
+function EnemyBonus() {
+		RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GBonusNames.push("Ethereal Jaunt"); GBonuses.push("As a bonus action, the creature can magically shift from the Material Plane to the Ethereal Plane, or vice versa.");}
+		else if (RNG == 2) {GBonusNames.push("Teleport"); GBonuses.push("As a bonus action, the creature can teleport up to 15 feet to an unoccupied space it can see.");}
+		else if (RNG == 3) {GBonusNames.push(""); GBonuses.push("");}
+}
+	function EnemyBonusBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2)
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyBonus();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GBonusNames}]\n${GBonuses}`;
+		GBonusNames.length = 0;
+		GBonuses.length = 0;
+	}
+
+function EnemyReaction() {
+	RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GReactionNames.push("Absorb Attack"); GReactions.push(`When an enemy the creature can see hits it with a melee weapon attack, the weapon snags on a pocket of residual dimensional energy and is caught fast. The attack is negated and the weapon cannot be used until the enemy succeeds on a DC ${GTier + 11} Strength (Athletics) check as an action to pull it out of the creature. Natural weapons can have their attacks negated by this feature, but can then be retracted automatically at the end of the attacking creature’s turn.`);}
+		else if (RNG == 2) {GReactionNames.push(`Dream`); GReactions.push(`When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC ${GTier + 10} Wisdom saving throw. Unless the save succeeds, the target takes (${Math.floor(GTier * 0.8)}d10) psychic damage, and the creature regains hit points equal to the amount of damage taken.`);}
+		else if (RNG == 3) {GReactionNames.push(``); GReactions.push(``);}
+}
+	function EnemyReactionBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2)
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyReaction();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GReactionNames}]\n${GReactions}`;
+		GReactionNames.length = 0;
+		GReactions.length = 0;
+	}
+
+function EnemyRecharge() {
+	RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GRechargeNames.push(`Petty Tyrant (Recharge 5-6)`); GRecharges.push(`The creature shouts bloodcurdling threats at the creatures that serve it. Each medium or smaller ally of the creature within 120 feet of it that can see or hear it can use its reaction to make a melee attack.`);}
+		else if (RNG == 2) {GRechargeNames.push(`Blood Boiling Hex (Recharge 6)`); GRecharges.push(`The creature places a hex on a target it can see within 60 feet of it for 1 minute. If the creature is hidden, using this ability does not reveal its location. While the target is affected by this hex, whenever it makes an attack roll, an ability check, or a saving throw, it must roll a ${Math.ceil(GTier / 4)}d4 and subtract the number rolled from the d20 roll. On any turn in which it suffers the effect of the hex, the target can attack an ally as a reaction, ignoring the effect of the hex when it does so. It can then ignore the effect of the hex until the end of its turn.`);}
+		else if (RNG == 3) {GRechargeNames.push(``); GRecharges.push(``);}
+}
+	function EnemyRechargeBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2)
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyRecharge();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GRechargeNames}]\n${GRecharges}`;
+		GRechargeNames.length = 0;
+		GRecharges.length = 0;
+	}
+
+function EnemyLegendary() {
+	RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GLegendaryNames.push(`Weapon Attack`); GLegendaries.push(`Make one attack with a weapon.`);}
+		else if (RNG == 2) {if (GMagic == "Martial") {EnemyLegendary();} else {GLegendaryNames.push(`Spellcasting (Costs 2 Actions)`); GLegendaries.push(`Cast a Level ${Math.ceil(GTier / 2 + 2)} or lower spell.`);}}
+		else if (RNG == 3) {GLegendaryNames.push(``); GLegendaries.push(``);}
+}
+	function EnemyLegendaryBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2)
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyLegendary();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GLegendaryNames}]\n${GLegendaries}`;
+		GLegendaryNames.length = 0;
+		GLegendaries.length = 0;
+	}
+
+function EnemyLairActive() {
+	RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GLairActiveNames.push(`Cave In`); GLairActives.push(`A 40 ft. wide circular section of the roof starts to crumble. At the same point in the initiative order next turn, the ceiling crumbles down, making it difficult terrain. Anyone caught in it must succeed on a DC ${GPB + 12} Dexterity Saving Throw or else take (${Math.floor(GTier + 3)}d6 + ${Math.ceil(GTier * 1.5)}) bludgeoning damage and be knocked prone. On a Critical Fail, they are restrained under the rocks and they or someone else must succeed on a DC ${Math.ceil(GTier / 2 + 11)} Athletics check to escape or pull them out.`);}
+		else if (RNG == 2) {GLairActiveNames.push(`Plate Shift`); GLairActives.push(`A section of the floor shifts in a direction. All creatures, must make a DC ${GTier + 13} Dexterity Saving Throw or be moved 5 ft. in the direction and be knocked prone. The creature whose lair it is automatically passes. A creature that succeeds can choose to be moved 5 feet in the direction of the movement or jump to avoid moving.`);}
+		else if (RNG == 3) {GLairActiveNames.push(``); GLairActives.push(``);}
+}
+	function EnemyLairBtn() {
+		GetTier();
+		GMagic = "Not Applicable";
+		GWeaponMod = Math.floor((GPB+10) / 2)
+		GSpellMod = Math.floor((GPB+10) / 2);
+		GWeaponHit = GWeaponMod + GPB;
+		GSpellHit = GSpellMod + GPB;
+		EnemyLairActive();
+		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GLairActiveNames}]\n${GLairActives}`;
+		GLairActiveNames.length = 0;
+		GLairActives.length = 0;
+		EnemyLairPassive();
+		document.getElementById("charBox").innerHTML += `\n\n{Lair Passive}\n[${GLairPassiveNames}]\n${GLairPassives}`;
+		GLairPassiveNames.length = 0;
+		GLairPassives.length = 0;
+	}
+
+function EnemyLairPassive() {
+		RNG = Math.floor(Math.random() * 2) + 1;
+		if (RNG == 1) {GLairPassiveNames.push(`Paranoia`); GLairPassives.push(`Creatures within ${GLairPassiveRange} feel as if they are being followed, even when they're not.`);}
+		else if (RNG == 2) {GLairPassiveNames.push(`Telepathic Eavesdropping`); GLairPassives.push(`The creature can overhear any telepathic conversation within ${GLairPassiveRange} of it's lair. The creature that initiated the telepathic conversation makes a DC ${GTier + 11} Wisdom save. On a save, the creature is aware something is eavesdropping, but knows nothing about it.`);}
+		else if (RNG == 3) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+}
+
+function RollAttribute() {
+	let roll1 = Math.floor(Math.random() * 6) + 1;
+	let roll2 = Math.floor(Math.random() * 6) + 1;
+	let roll3 = Math.floor(Math.random() * 6) + 1;
+	let roll4 = Math.floor(Math.random() * 6) + 1;
+	let rollLow;
+	rollLow = roll1;
+	if (roll2 < rollLow) {rollLow = roll2;} else {}
+	if (roll3 < rollLow) {rollLow = roll3;} else {}
+	if (roll4 < rollLow) {rollLow = roll4;} else {}
+	GStatRoll = roll1 + roll2 + roll3 + roll4 - rollLow
+}
+
+function MainStats() {
+	if (GMagic == "Martial") {RNG1 = Math.floor(Math.random() * 2) + 1; RNG3 = Math.floor(Math.random() * 4) + 1; RNGBad = Math.floor(Math.random() * 3) + 1;
+		if (RNG1 == 1) {GFirstStat = "Str";} else if (RNG1 == 2) {GFirstStat = "Dex";}
+		GSecondStat = "Con"
+		if (RNG3 == 1) {GThirdStat = "Int";} else if (RNG3 == 2) {GThirdStat = "Wis";} else if (RNG3 == 3) {GThirdStat = "Cha";} else if (RNG3 == 4) {GThirdStat = "Dex";}
+		if (RNGBad == 1) {GBadStat = "Int";} else if (RNGBad == 2) {GBadStat = "Wis";} else if (RNGBad == 3) {GBadStat = "Cha";}
+	}
+	else if (GMagic == "Half") {RNG1 = Math.floor(Math.random() * 2) + 1; RNG2 = Math.floor(Math.random() * 3) + 1; RNGBad = Math.floor(Math.random() * 6) + 1;
+		if (RNG1 == 1) {GFirstStat = "Str";} else if (RNG1 == 2) {GFirstStat = "Dex";}
+		if (RNG2 == 1) {GSecondStat = "Int";} else if (RNG2 == 2) {GSecondStat = "Wis";} else if (RNG2 == 3) {GSecondStat = "Cha";}
+		GThirdStat = "Con"
+		if (RNGBad == 1) {GBadStat = "Str";} else if (RNGBad == 2) {GBadStat = "Dex";} else if (RNGBad == 3) {GBadStat = "Int";} else if (RNGBad == 4) {GBadStat = "Wis";} else if (RNGBad == 5) {GBadStat = "Cha";} else if (RNGBad == 6) {}
+		GSpellStat = GSecondStat;
+	}
+	else if (GMagic == "Caster") {RNG1 = Math.floor(Math.random() * 3) + 1; RNG2 = Math.floor(Math.random() * 3) + 1; RNG3 = Math.floor(Math.random() * 3) + 1; RNGBad = Math.floor(Math.random() * 6) + 1;
+		if (RNG1 == 1) {GFirstStat = "Int";} else if (RNG1 == 2) {GFirstStat = "Wis";} else if (RNG1 == 3) {GFirstStat = "Cha";}
+		if (RNG2 == 1) {GSecondStat = "Int";} else if (RNG2 == 2) {GSecondStat = "Wis";} else if (RNG2 == 3) {GSecondStat = "Cha";}
+		if (RNG3 == 1) {GThirdStat = "Str";} else if (RNG3 == 2) {GThirdStat = "Dex";} else if (RNG3 == 3) {GThirdStat = "Con";}
+		if (RNGBad == 1) {GBadStat = "Str";} else if (RNGBad == 2) {GBadStat = "Dex";} else if (RNGBad == 3) {GBadStat = "Con";} else if (RNGBad == 4) {GBadStat = "Int";} else if (RNGBad == 5) {GBadStat = "Wis";} else if (RNGBad == 6) {GBadStat = "Cha";}
+		GSpellStat = GFirstStat;
+	}
+}
+
+function GetSize() {
+	let RNG = Math.floor(Math.random() * 20) + 1;
+	if (GSize == "") {} else {GSize = "";} if (GHumanoid == "") {} else {GHumanoid = "";} if (GElemental == "") {} else {GElemental = "";}
+	if (GCreature == "Dragon") {if (GCR >= 1 && GCR <= 5) {GSize = "Medium";} else if (GCR >= 6 && GCR <= 12) {GSize = "Large";} else if (GCR >= 13 && GCR <= 18) {GSize = "Huge";} else if (GCR >= 19) {GSize = "Gargantuan";}}
+	else if (GCreature == "Giant") {if (RNG == 1) {GSize = "Large";} else if (RNG == 20) {GSize = "Gargantuan";} else {GSize = "Huge";}}
+	else if (GCreature == "Plant") {if (RNG == 1) {GSize = "Medium";} else if (RNG >= 15 && RNG <= 19) {GSize = "Huge";} else if (RNG == 20) {GSize = "Gargantuan";} else {GSize = "Large"}}
+	else if (GCreature == "Fey") {if (RNG == 1 || RNG == 2) {GSize = "Tiny";} else if (RNG >= 3 && RNG <= 9) {GSize = "Small";} else if (RNG >= 10 && RNG <= 19) {GSize = "Medium";} else if (RNG == 20) {GSize = "Large";}}
+	else if (GCreature == "Humanoid") {HumanoidRace();
+		if (GHumanoid == "Halfling" || GHumanoid == "Gnome" || GHumanoid == "Goblin") {GSize = "Small";} else if (GHumanoid == "Goliath" && RNG >= 19) {GSize = "Large";} else if (GHumanoid == "Goliath" && RNG < 19) {GSize = "Medium";}
+		else if (GHumanoid == "Orc" && RNG >= 19) {GSize = "Large";} else if (GHumanoid == "Orc" && RNG < 19) {GSize = "Medium";} else {GSize = "Medium";}}
+	else if (GCreature == "Elemental") {ElementalRace();
+		if (RNG == 1) {GSize = "Small";} else if (RNG >= 2 && RNG <= 5) {GSize = "Medium";} else if (RNG >= 6 && RNG <= 13) {GSize = "Large";} else if (RNG >= 14 && RNG <= 18) {GSize = "Huge";} else if (RNG >= 19) {GSize = "Gargantuan";}}
+	else {if (RNG == 1) {GSize = "Small";} else if (RNG >= 2 && RNG <= 5) {GSize = "Medium";} else if (RNG >= 6 && RNG <= 13) {GSize = "Large";} else if (RNG >= 14 && RNG <= 18) {GSize = "Huge";} else if (RNG >= 19) {GSize = "Gargantuan";}}
+}
+
+function HumanoidRace() {
+	if (GLanguage.includes("common") == false) {GLanguage.push("common")} else {}
+	let RNG = Math.floor(Math.random() * 100) + 1;
+	if (RNG >= 1 && RNG <= 14) {GHumanoid = "Human";}
+	else if (RNG >= 15 && RNG <= 23) {GHumanoid = "Halfling"; if (GLanguage.includes("halfling") == false) {GLanguage.push("halfling")} else {}}
+	else if (RNG >= 24 && RNG <= 28) {GHumanoid = "Gnome"; if (GLanguage.includes("gnomish") == false) {GLanguage.push("gnomish")} else {}}
+	else if (RNG >= 29 && RNG <= 36) {GHumanoid = "Goblin"; if (GLanguage.includes("goblin") == false) {GLanguage.push("goblin")} else {}}
+	else if (RNG >= 37 && RNG <= 42) {GHumanoid = "Dragonborn"; if (GLanguage.includes("draconic") == false) {GLanguage.push("draconic")} else {}}
+	else if (RNG >= 43 && RNG <= 54) {GHumanoid = "Dwarf"; if (GLanguage.includes("dwarvish") == false) {GLanguage.push("dwarvish")} else {}}
+	else if (RNG >= 55 && RNG <= 64) {GHumanoid = "Elf"; if (GLanguage.includes("elvish") == false) {GLanguage.push("elvish")} else {}}
+	else if (RNG >= 67 && RNG <= 71) {GHumanoid = "Tiefling"; if (GLanguage.includes("infernal") == false) {GLanguage.push("infernal")} else {}}
+	else if (RNG >= 72 && RNG <= 85) {GHumanoid = "Half-Elf"; if (GLanguage.includes("elvish") == false) {GLanguage.push("elvish")} else {}}
+	else if (RNG >= 86 && RNG <= 89) {GHumanoid = "Orc"; if (GLanguage.includes("orc") == false) {GLanguage.push("orc")} else {}}
+	else if (RNG >= 90 && RNG <= 95) {GHumanoid = "Half-Orc"; if (GLanguage.includes("orc") == false) {GLanguage.push("orc")} else {}}
+	else if (RNG >= 96 && RNG <= 100) {GHumanoid = "Goliath"; if (GLanguage.includes("giant") == false) {GLanguage.push("giant")} else {}}
+}
+
+function ElementalRace() {
+	let RNG = Math.floor(Math.random() * 4) + 1;
+	if (RNG == 1) {GElemental = "Fire";}
+	else if (RNG == 2) {GElemental = "Water";}
+	else if (RNG == 3) {GElemental = "Earth";}
+	else if (RNG == 4) {GElemental = "Air";}
+}
+
+function BurrowSpeed() {
+	burrowRNG = Math.floor(Math.random() * 3) + 1;
+	if (GSize == "Small") {GSpeedBurrow = 10;}
+	else if (GSize == "Medium") {if (burrowRNG == 1) {GSpeedBurrow = 15;} else {GSpeedburrow = 10};}
+	else if (GSize == "Large") {if (burrowRNG == 1) {GSpeedBurrow = 15;} else if (burrowRNG == 2) {GSpeedBurrow = 20;} else if (burrowRNG == 3) {GSpeedBurrow = 25;}}
+	else if (GSize == "Huge") {if (burrowRNG == 1) {GSpeedBurrow = 20;} else if (burrowRNG == 2) {GSpeedBurrow = 25;} else if (burrowRNG == 3) {GSpeedBurrow = 30;}}
+	else if (GSize == "Gargantuan") {if (burrowRNG == 1) {GSpeedBurrow = 30;} else if (burrowRNG == 2) {GSpeedBurrow = 35;} else if (burrowRNG == 3) {GSpeedBurrow = 40;}}
+}
+
+function SwimSpeed() {
+	swimRNG = Math.floor(Math.random() * 6) + 1;
+	if (swimRNG >= 1 && swimRNG <= 2) {GSpeedSwim = 20} else if (swimRNG >= 3 && swimRNG <= 5) {GSpeedSwim = 30} else if (swimRNG == 6) {GSpeedSwim = 40}
+}
+
+function ClimbSpeed() {
+	climbRNG = Math.floor(Math.random() * 6) + 1;
+	if (climbRNG >= 1 && climbRNG <= 2) {GSpeedClimb = 20} else if (climbRNG >= 3 && climbRNG <= 5) {GSpeedClimb = 30} else if (climbRNG == 6) {GSpeedClimb = 40}
+}
+
+function FlySpeed() {
+	flyRNG = Math.floor(Math.random() * 6) + 1;
+	if (GCreature == "Dragon" || GCreature == "Celestial") {flyRNG = flyRNG + 5} else {}
+	if (flyRNG >= 1 && flyRNG <= 2) {GSpeedFly = 20} else if (flyRNG >= 3 && flyRNG <= 5) {GSpeedFly = 30} else if (flyRNG == 6) {GSpeedFly = 40} else if (flyRNG == 7) {GSpeedFly = 50} else if (flyRNG == 8 || flyRNG == 9) {GSpeedFly = 60}
+	else if (flyRNG == 10) {GSpeedFly = 70} else if (flyRNG == 11) {GSpeedFly = 80}
+}
+
+function GetSave() {if (GMagic == "Martial" || GMagic == "Caster") {RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTempSave = "Str";} else if (RNG == 2) {GTempSave = "Dex";} else if (RNG == 3) {GTempSave = "Con";}
+	else if (RNG == 4) {GTempSave = "Int";} else if (RNG == 5) {GTempSave = "Wis";} else if (RNG == 6) {GTempSave = "Cha";}}
+	else if (GMagic == "Half") {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GTempSave = "Int";} else if (RNG == 1) {GTempSave = "Wis";} else if (RNG == 1) {GTempSave = "Cha";}}
+}
+
+function GetSaveX() {RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTempSave = "Str";} else if (RNG == 2) {GTempSave = "Dex";} else if (RNG == 3) {GTempSave = "Con";}
+	else if (RNG == 4) {GTempSave = "Int";} else if (RNG == 5) {GTempSave = "Wis";} else if (RNG == 6) {GTempSave = "Cha";}
+}
+
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+// BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
+
+function FullEnemyBtn() {
+	GSpell0 = ""
+	GSpell1 = ""
+	GSpell2 = ""
+	GSpell3 = ""
+	GSpell4 = ""
+	GSpell5 = ""
+	GSpell6 = ""
+	GSpell7 = ""
+	GSpell8 = ""
+	GSpell9 = ""
+	GStatRoll = 0
+	GCR = 0
+	GTier = 0
+	GPB = 0
+	GDarkvision = 0
+	GTremorsense = 0
+	GBlindsight = 0
+	GTruesight = 0
+	GLanguage.length = 0
+	GTelepathyRange = 0
+	GCreature = ""
+	GHumanoid = ""
+	GElemental = ""
+	GSize = ""
+	GMagic = ""
+	GHP = 0
+	GHPTotal = 0
+	GHPMulti = 1
+	GHitDiceQty = 0
+	GHitDiceSize = 0
+	GFirstStat = ""
+	GSecondStat = ""
+	GThirdStat = ""
+	GBadStat = ""
+	GStr = 0
+	GStrMod = 0
+	GDex = 0
+	GDexMod = 0
+	GCon = 0
+	GConMod = 0
+	GInt = 0
+	GIntMod = 0
+	GWis = 0
+	GWisMod = 0
+	GCha = 0
+	GChaMod = 0
+	GWeaponMod = 0
+	GWeaponHit = 0
+	GSpellMod = 0
+	GSpellHit = 0
+	GSpellDC = 0
+	GSkill.length = 0
+	GSave.length = 0
+	GSaveBonus = 0
+	GSkillBonus = 0
+	GRes.length = 0
+	GVuln.length = 0
+	GCondImmune.length = 0
+	GImmune.length = 0
+	GAC = 0
+	GHitPoints = ""
+	GSpeedTotal = ""
+	GSpeed = 0
+	GSpeedFly = 0
+	GSpeedSwim = 0
+	GSpeedClimb = 0
+	GSpeedBurrow = 0
+	GTraitQty = 1
+	GSpellQty.length = 0
+	GSpell0 = ""
+	GSpell1 = ""
+	GSpell3 = ""
+	GSpell5 = ""
+	GMultiattack = 0
+	GActionQty = 1
+	GBonusQty = 1
+	GRechargeQty = 1
+	GReactionQty = 1
+	GLegendaryQty = 1
+	GLegendaryUses = 1
+	GLegendaryResist = 1
+	GLairActiveQty = 1
+	GLairPassiveQty = 1
+	GLairPassiveRange = ""
+	GMod = ""
+	GSpellStats = ""
+	GTraitNames.length = 0
+	GTraits.length = 0
+	GActionNames.length = 0
+	GActions.length = 0
+	GBonusNames.length = 0
+	GBonuses.length = 0
+	GRechargeNames.length = 0
+	GRecharges.length = 0
+	GReactionNames.length = 0
+	GReactions.length = 0
+	GLegendaryNames.length = 0
+	GLegendaries.length = 0
+	GLairActiveNames.length = 0
+	GLairActives.length = 0
+	GLairPassiveNames.length = 0
+	GLairPassives.length = 0
+	GSpellStat = ""
+	GSaveTotal = ""
+	GSkillTotal = ""
+	GSenseTotal = ""
+	GLanguageTotal = ""
+	GResTotal = ""
+	GImmuneTotal = ""
+	GCondImmuneTotal = ""
+	GVulnTotal = ""
+		GetTier(); // Set Tier, CR, and PB
+ // Set Creature Type
+	if (document.getElementById("dropType").value == "Random") {CreatureTypeGen();}
+	else {GCreature = document.getElementById("dropType").value;}
+	if (GCreature == "Humanoid") {HumanoidRace();} else {}
+	if (GCreature == "Elemental") {ElementalRace();} else {}
+		let magicRNG = Math.floor(Math.random() * 20) + 1;
+ // Set Caster Type
+		if (magicRNG >= 1 && magicRNG <= 12) {GMagic = "Martial";}
+		else if (magicRNG >= 13 && magicRNG <= 17) {GMagic = "Half";}
+		else if (magicRNG >= 18 && magicRNG <= 20) {GMagic = "Caster";}
+ // Set Hit Dice Size
+			let hitDiceRNG = Math.floor(Math.random() * 4) + 1;
+			if (GMagic == "Martial") {
+				if (hitDiceRNG == 1) {GHitDiceSize = 10;}
+				else if (hitDiceRNG == 4) {GHitDiceSize = 20;}
+				else {GHitDiceSize = 12;}}
+			else if (GMagic == "Half") {
+				if (hitDiceRNG == 1) {GHitDiceSize = 8;}
+				else if (hitDiceRNG == 4) {GHitDiceSize = 12;}
+				else {GHitDiceSize = 10;}}
+			else if (GMagic == "Caster") {
+				if (hitDiceRNG == 1) {GHitDiceSize = 6;}
+				else if (hitDiceRNG == 4) {GHitDiceSize = 10;}
+				else {GHitDiceSize = 8;}}
+					GHitDiceQty = Number(GCR) + 1
+ // Set Flat HP Bonus
+					let hpRNG = (Math.floor(Math.random() * 8) + 1) + 12;;
+						if (document.getElementById("bossCheck").checked == false) {}
+						else if (document.getElementById("bossCheck").checked == true) {bossHP = ((Math.floor(Math.random() * 6) + 1) + 4) / 10 + 1; hpRNG = Math.floor(hpRNG * bossHP);}
+					GHP = GCR * hpRNG;
+ // Pick 3 Main Stats, then rolls all stats
+		MainStats();
+		while (GFirstStat == GSecondStat || GFirstStat == GThirdStat || GSecondStat == GThirdStat || GFirstStat == GBadStat || GSecondStat == GBadStat || GThirdStat == GBadStat) {MainStats();}
+		if (document.getElementById("bossCheck").checked == false) {RollAttribute(); GStr = GStatRoll + GPB; RollAttribute(); GDex = GStatRoll + GPB; RollAttribute(); GCon = GStatRoll + GPB;
+		RollAttribute(); GInt = GStatRoll + GPB; RollAttribute(); GWis = GStatRoll + GPB; RollAttribute(); GCha = GStatRoll + GPB;}
+		else if (document.getElementById("bossCheck").checked == true) {RollAttribute(); GStr = GStatRoll + GPB + 2; RollAttribute(); GDex = GStatRoll + GPB + 2; RollAttribute(); GCon = GStatRoll + GPB + 2;
+		RollAttribute(); GInt = GStatRoll + GPB + 2; RollAttribute(); GWis = GStatRoll + GPB + 2; RollAttribute(); GCha = GStatRoll + GPB + 2;}
+		if (GFirstStat == "Str") {GStr = GStr + 5} else if (GFirstStat == "Dex") {GDex = GDex + 5} else if (GFirstStat == "Con") {GCon = GCon + 5} else if (GFirstStat == "Int") {GInt = GInt + 5} else if (GFirstStat == "Wis") {GWis = GWis + 5} else if (GFirstStat == "Cha") {GCha = GCha + 5}
+		if (GSecondStat == "Str") {GStr = GStr + 3} else if (GSecondStat == "Dex") {GDex = GDex + 3} else if (GSecondStat == "Con") {GCon = GCon + 3} else if (GSecondStat == "Int") {GInt = GInt + 3} else if (GSecondStat == "Wis") {GWis = GWis + 3} else if (GSecondStat == "Cha") {GCha = GCha + 3}
+		if (GThirdStat == "Str") {GStr = GStr + 2} else if (GThirdStat == "Dex") {GDex = GDex + 2} else if (GThirdStat == "Con") {GCon = GCon + 2} else if (GThirdStat == "Int") {GInt = GInt + 2} else if (GThirdStat == "Wis") {GWis = GWis + 2} else if (GThirdStat == "Cha") {GCha = GCha + 2}
+		if (GBadStat == "Str") {GStr = GStr - 7} else if (GBadStat == "Dex") {GDex = GDex - 7} else if (GBadStat == "Con") {GCon = GCon - 7} else if (GBadStat == "Int") {GInt = GInt - 7} else if (GBadStat == "Wis") {GWis = GWis - 7} else if (GBadStat == "Cha") {GCha = GCha - 7} else {}
+ // Pick a size and multiattack
+			GetSize();
+			RNG = Math.floor(Math.random() * 4) + 1;
+				if (GCR >= 1 && GCR <= 5)   {if (RNG > 2) {GMultiattack = 2;} else {GMultiattack = 0;}}
+				if (GCR >= 6 && GCR <= 10)  {if (RNG == 1) {GMultiattack = 3;} else if (RNG == 2) {GMultiattack = 3} else {GMultiattack = 2;}}
+				if (GCR >= 11 && GCR <= 17) {if (RNG == 1) {GMultiattack = 3;} else if (RNG == 2) {GMultiattack = 4} else {GMultiattack = 2;}}
+				if (GCR >= 18 && GCR <= 25) {if (RNG == 1) {GMultiattack = 4;} else if (RNG == 2) {GMultiattack = 4} else {GMultiattack = 3;}}
+				if (GCR >= 26 && GCR <= 32) {if (RNG == 1) {GMultiattack = 4;} else if (RNG == 2) {GMultiattack = 5} else {GMultiattack = 3;}}
+				if (GCR >= 33 && GCR <= 39) {if (RNG == 1) {GMultiattack = 5;} else if (RNG == 2) {GMultiattack = 5} else {GMultiattack = 4;}}
+				if (GCR >= 40 && GCR <= 48) {if (RNG == 1) {GMultiattack = 5;} else if (RNG == 2) {GMultiattack = 6} else {GMultiattack = 4;}}
+				if (GCR >= 49 && GCR <= 50) {if (RNG == 1) {GMultiattack = 7;} else if (RNG == 2) {GMultiattack = 6} else {GMultiattack = 5;}}
+			if (GMagic == "Half") {GMultiattack -= 1;} else if (GMagic == "Caster") {GMultiattack -= 3;}
+			if (GMultiattack < 0) {GMultiattack = 0;} else {}
+ // Get Trait Qty
+			traitRNG = Math.floor(Math.random() * 2) + 1;
+			if (GTier == 1) {GTraitQty = 1;}
+			else if (GTier == 2) {if (traitRNG == 1) {GTraitQty = 1;} else {GTraitQty = 2;}} else if (GTier == 3) {if (traitRNG == 1) {GTraitQty = 2;} else {GTraitQty = 3;}}
+			else if (GTier == 4) {if (traitRNG == 1) {GTraitQty = 3;} else {GTraitQty = 4;}} else if (GTier == 5) {if (traitRNG == 1) {GTraitQty = 3;} else {GTraitQty = 4;}}
+			else if (GTier == 6) {if (traitRNG == 1) {GTraitQty = 4;} else {GTraitQty = 4;}} else if (GTier == 7) {if (traitRNG == 1) {GTraitQty = 4;} else {GTraitQty = 5;}}
+			else if (GTier == 8) {if (traitRNG == 1) {GTraitQty = 5;} else {GTraitQty = 5;}} else if (GTier == 9) {if (traitRNG == 1) {GTraitQty = 5;} else {GTraitQty = 6;}}
+			else if (GTier == 10) {if (traitRNG == 1) {GTraitQty = 5;} else {GTraitQty = 6;}} else if (GTier == 11) {if (traitRNG == 1) {GTraitQty = 6;} else {GTraitQty = 6;}}
+			else if (GTier == 12) {if (traitRNG == 1) {GTraitQty = 6;} else {GTraitQty = 7;}} else if (GTier == 13) {if (traitRNG == 1) {GTraitQty = 7;} else {GTraitQty = 7;}}
+			if (document.getElementById("bossCheck").checked == true) {bossTrait = Math.floor(Math.random() * 2) + 1; if (bossTrait == 1) {GTraitQty = GTraitQty + 1;} else {GTraitQty = GTraitQty + 2;}}
+ // Get Action Qty
+		actRNG = Math.floor(Math.random() * 3) + 1;
+		if (GTier == 1 || GTier == 2) {if (actRNG == 1) {GActionQty = 1;} else {GActionQty = 2;}}
+		else if (GTier == 3 || GTier == 4) {if (actRNG == 1) {GActionQty = 3;} else {GActionQty = 2;}} else if (GTier == 5 || GTier == 6) {if (actRNG == 1) {GActionQty = 2;} else if (actRNG == 2) {GActionQty = 3;} else {GActionQty = 4;}}
+		else if (GTier == 7 || GTier == 8) {if (actRNG == 1) {GActionQty = 4;} else {GActionQty = 3;}} else if (GTier == 9 || GTier == 10) {if (actRNG == 1) {GActionQty = 4;} else {GActionQty = 3;}}
+		else if (GTier == 11 || GTier == 12) {if (actRNG == 1) {GActionQty = 4;} else {GActionQty = 4;}} else if (GTier == 13 ) {if (actRNG == 1) {GActionQty = 5;} else {GActionQty = 4;}}
+			if (document.getElementById("bossCheck").checked == true) {bonusRNG = Math.floor(Math.random() * 2) + 1;} else {bonusRNG = Math.floor(Math.random() * 3) + 1;} // Get Bonus Action Qty
+			if (GTier >= 1 && GTier <= 3) {if (bonusRNG == 1) {GBonusQty = 1;} else {GBonusQty = 0;}} else if (GTier >= 4 && GTier <= 8) {if (bonusRNG == 1) {GBonusQty = 2;} else {GBonusQty = 1;}}
+			else if (GTier >= 9 && GTier <= 13) {if (bonusRNG == 1) {GBonusQty = 3;} else {GBonusQty = 2;}}
+ // Get Reaction Qty
+		reactRNG = Math.floor(Math.random() * 20) + 1;
+		if (reactRNG <= 4) {GReactionQty = 1;} else {GReactionQty = 0;}
+ // Get Recharge Qty
+			rechargeRNG = Math.floor(Math.random() * 10) + 1;
+			if (document.getElementById("bossCheck").checked == true && rechargeRNG <= 8) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == true && rechargeRNG >= 9) {GRechargeQty = 2;}
+			else if (document.getElementById("bossCheck").checked == false && rechargeRNG == 1) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == false && rechargeRNG >= 2) {GRechargeQty = 0;}
+ // Get Legendary Action Qty
+		if (document.getElementById("bossCheck").checked == false) {GLegendaryQty = 0;} else {legRNG = Math.floor(Math.random() * 10) + 1 ;
+			if (legRNG >= 1 && legRNG <= 3) {GLegendaryQty = 2;} else if (legRNG >= 4 && legRNG <= 7) {GLegendaryQty = 3;} else if (legRNG >= 8 && legRNG <= 9) {GLegendaryQty = 4;} else if (legRNG == 10) {GLegendaryQty = 5;}}
+ // Get Legendary Uses Qty
+		if (document.getElementById("bossCheck").checked == false) {GLegendaryUses = 0;} else {if (GTier == 1) {GLegendaryUses = 2;} else if (GTier >= 2 && GTier <= 6) {GLegendaryUses = 3;} else if (GTier >= 7 && GTier <= 10) {GLegendaryUses = 4;}
+		else if (GTier >= 11) {GLegendaryUses = 4;}}
+ // Get Legendary Resistances Qty
+		if (document.getElementById("bossCheck").checked == false) {GLegendaryResist = 0;} else {if (GTier == 1) {GLegendaryResist = 1;} else if (GTier == 2) {GLegendaryResist = 2;} else if (GTier >= 3 && GTier <= 6) {GLegendaryResist = 3;}
+		else if (GTier >= 7 && GTier <= 10) {GLegendaryResist = 4;} else if (GTier >= 11) {GLegendaryResist = 5;}}
+ // Get Lair Actives Qty
+		if (document.getElementById("lairCheck").checked == false) {GLairActiveQty = 0;} else {lairRNG = Math.floor(Math.random() * 5) + 1;
+			if (lairRNG >= 1 && lairRNG <= 2) {GLairActiveQty = 2;} else if (lairRNG >= 3 && lairRNG <= 4) {GLairActiveQty = 3;} else if (lairRNG == 5) {GLairActiveQty = 4;}}
+ // Get Lair Passives Qty and Range
+		rangeRNG = Math.floor(Math.random() * 10) + 1;
+		if (rangeRNG == 1) {GLairPassiveRange = "Half a Mile";} else if (rangeRNG == 2) {GLairPassiveRange = "1 Mile";} else if (rangeRNG == 3) {GLairPassiveRange = "2 Miles";} else if (rangeRNG == 4) {GLairPassiveRange = "4 Miles";}
+		else if (rangeRNG == 5) {GLairPassiveRange = "5 Miles";} else if (rangeRNG == 6) {GLairPassiveRange = "6 Miles";} else if (rangeRNG == 7) {GLairPassiveRange = "8 Miles";} else if (rangeRNG == 8) {GLairPassiveRange = "10 Miles";}
+		else if (rangeRNG == 9) {GLairPassiveRange = "15 Miles";} else if (rangeRNG == 10) {GLairPassiveRange = "20 Miles";}
+		if (document.getElementById("lairCheck").checked == false) {GLairPassiveQty = 0;} else {passRNG = Math.floor(Math.random() * 7) + 1;
+			if (passRNG >= 1 && passRNG <= 2) {GLairPassiveQty = 1;} else if (passRNG >= 3 && passRNG <= 4) {GLairPassiveQty = 2;} else if (passRNG >= 5 && passRNG <= 6) {GLairPassiveQty = 3;} else if (passRNG == 7) {GLairPassiveQty = 4;}}
+ // Get Speed
+		if (GCreature == "Aberration") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 25;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			burRNG = Math.floor(Math.random() * 20) + 1; if (burRNG <= 3) {BurrowSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 3) {ClimbSpeed();} else {}}
+		else if (GCreature == "Beast") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			burRNG = Math.floor(Math.random() * 20) + 1; if (burRNG <= 4) {BurrowSpeed();} else {}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 4) {SwimSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 3) {ClimbSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 4) {FlySpeed();} else {}}
+		else if (GCreature == "Celestial") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 10) {FlySpeed();} else {}}
+		else if (GCreature == "Construct") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 25;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 1) {SwimSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 1) {FlySpeed();} else {}}
+		else if (GCreature == "Dragon") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			burRNG = Math.floor(Math.random() * 20) + 1; if (burRNG <= 5) {BurrowSpeed();} else {}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 2) {ClimbSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 19) {FlySpeed();} else {}}
+		else if (GCreature == "Elemental") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			if (GElemental == "Earth") {BurrowSpeed();} else {}
+			if (GElemental == "Water") {SwimSpeed();} else {}
+			if (GElemental == "Air") {FlySpeed();} else {}}
+		else if (GCreature == "Fey") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 2) {ClimbSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 10) {FlySpeed();} else {}}
+		else if (GCreature == "Fiend") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 4) {ClimbSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 4) {FlySpeed();} else {}}
+		else if (GCreature == "Giant") {GSpeed = 40;}
+		else if (GCreature == "Humanoid") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}}
+		else if (GCreature == "Monstrosity") {RNG = Math.floor(Math.random() * 5) + 1;
+			if (RNG == 5) {GSpeed = 40;} else if (RNG == 4) {GSpeed = 35;} else {GSpeed = 30;}
+			burRNG = Math.floor(Math.random() * 20) + 1; if (burRNG <= 3) {BurrowSpeed();} else {}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 4) {SwimSpeed();} else {}
+			climbRNG = Math.floor(Math.random() * 20) + 1; if (climbRNG <= 4) {ClimbSpeed();} else {}
+			flyRNG = Math.floor(Math.random() * 20) + 1; if (flyRNG <= 4) {FlySpeed();} else {}}
+		else if (GCreature == "Plant" || GCreature == "Ooze") {RNG = Math.floor(Math.random() * 4) + 1;
+			if (RNG == 1) {GSpeed = 10;} else if (RNG == 2) {GSpeed = 15;} else if (RNG == 3) {GSpeed = 20;} else if (RNG == 4) {GSpeed = 25;}}
+		else if (GCreature == "Undead") {RNG = Math.floor(Math.random() * 8) + 1;
+			if (RNG >= 1 && RNG <= 4) {GSpeed = 20;} else if (RNG >= 5 && RNG <= 7) {GSpeed = 30;} else if (RNG == 8) {GSpeed = 40;}
+			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}}
+ // Get Spell Slots
+	if (GMagic == "Caster") {
+		if (GTier == 1) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(1);}
+			GSpellQty.push(0); GSpellQty.push(0); GSpellQty.push(1);}
+		else if (GTier == 2) {GSpellQty.push(1); GSpellQty.push(0); GSpellQty.push(1);
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}}
+		else if (GTier == 3) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			GSpellQty.push(0); RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);} GSpellQty.push(2);}
+		else if (GTier == 4) {GSpellQty.push(2); GSpellQty.push(1); GSpellQty.push(2);
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}}
+		else if (GTier == 5) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}}
+		else if (GTier == 6) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}}
+		else if (GTier == 7) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(4);}}
+		else if (GTier == 8) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(5);}}
+		else if (GTier == 9) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(5);}}
+		else if (GTier == 10) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(6);}}
+		else if (GTier == 11) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(6);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(6);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(6);}}
+		else if (GTier == 12) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(6);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(5);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(6);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(7);}}
+		else if (GTier == 13) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(7);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(5);} else {GSpellQty.push(6);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(6);} else {GSpellQty.push(7);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(7);} else {GSpellQty.push(8);}}
+				if (GTier == 1) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;}}}
+				else if (GTier == 2) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell1 += `${GSpellGen4}${spacerX}`;}}}
+				else if (GTier == 3) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;} else {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;}}}
+				else if (GTier == 4) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;} else if (RNG == 2) {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;}
+						else if (RNG == 3) {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;} else if (RNG == 4) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}}}
+				else if (GTier == 5) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell3 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;} else if (RNG == 2) {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;}
+						else if (RNG == 3) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;} else if (RNG == 4) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;}}}
+				else if (GTier == 6) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell3 += `${GSpellGen4}${spacerX}`;} else {Spell4(); GSpell3 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;} else if (RNG == 2) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}
+						else if (RNG == 3) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else if (RNG == 4) {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 7) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell5 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell3 += `${GSpellGen4}${spacerX}`;} else {Spell5(); GSpell3 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell1 += `${GSpellGen6}${spacerX}`;} else if (RNG == 2) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}
+						else if (RNG == 3) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else if (RNG == 4) {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 8) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell5 += `${GSpellGen4}${spacerX}`;} else {Spell4(); GSpell5 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell3 += `${GSpellGen5}${spacerX}`;} else {Spell0(); GSpell3 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;} else if (RNG == 2) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}
+						else if (RNG == 3) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else if (RNG == 4) {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 9) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell0 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell5 += `${GSpellGen4}${spacerX}`;} else {Spell5(); GSpell5 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell3 += `${GSpellGen5}${spacerX}`;} else {Spell6(); GSpell3 += `${GSpellGen6}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;} else if (RNG == 2) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}
+						else if (RNG == 3) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else if (RNG == 4) {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 10) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell0 += `${GSpellGen4}${spacerX}`;} else {Spell4(); GSpell0 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell5 += `${GSpellGen5}${spacerX}`;} else {Spell5(); GSpell5 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell3 += `${GSpellGen6}${spacerX}`;} else {Spell6(); GSpell3 += `${GSpellGen6}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 4) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;} else if (RNG == 2) {Spell7(); GSpell1 += `${GSpellGen7}${spacerX}`;}
+						else if (RNG == 3) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else if (RNG == 4) {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 11) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell0 += `${GSpellGen4}${spacerX}`;} else {Spell5(); GSpell0 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell5 += `${GSpellGen5}${spacerX}`;} else {Spell6(); GSpell5 += `${GSpellGen6}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell3 += `${GSpellGen6}${spacerX}`;} else {Spell7(); GSpell3 += `${GSpellGen7}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 12) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell0 += `${GSpellGen5}${spacerX}`;} else {Spell5(); GSpell0 += `${GSpellGen5}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell5 += `${GSpellGen6}${spacerX}`;} else {Spell6(); GSpell5 += `${GSpellGen6}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell7(); GSpell3 += `${GSpellGen7}${spacerX}`;} else {Spell7(); GSpell3 += `${GSpellGen7}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+				else if (GTier == 13) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell5(); GSpell0 += `${GSpellGen5}${spacerX}`;} else {Spell6(); GSpell0 += `${GSpellGen6}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell6(); GSpell5 += `${GSpellGen6}${spacerX}`;} else {Spell7(); GSpell5 += `${GSpellGen7}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell7(); GSpell3 += `${GSpellGen7}${spacerX}`;} else {Spell8(); GSpell3 += `${GSpellGen8}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell8(); GSpell1 += `${GSpellGen8}${spacerX}`;} else {Spell9(); GSpell1 += `${GSpellGen9}${spacerX}`;}}}
+			}
+	else if (GMagic == "Half") {
+		if (GTier == 1) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}}
+		else if (GTier == 2) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}}
+		else if (GTier == 3) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}}
+		else if (GTier == 4) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}}
+		else if (GTier == 5) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}}
+		else if (GTier == 6) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(0);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}}
+		else if (GTier == 7) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}}
+		else if (GTier == 8) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(1);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}}
+		else if (GTier == 9) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}}
+		else if (GTier == 10) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(1);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}}
+		else if (GTier == 11) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}}
+		else if (GTier == 12) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(2);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}}
+		else if (GTier == 13) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(4);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(2);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(3);} else {GSpellQty.push(3);}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(4);} else {GSpellQty.push(4);}}
+				if (GTier == 1) {
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell1 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell1 += `${GSpellGen1}${spacerX}`;}}}
+				else if (GTier == 2) {
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell1 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;}}}
+				else if (GTier == 3) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell1 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;}}}
+				else if (GTier == 4) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell3 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell3 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;}}}
+				else if (GTier == 5) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell3 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;}}}
+				else if (GTier == 6) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell0(); GSpell0 += `${GSpellGen0}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell3 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;}}}
+				else if (GTier == 7) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell1 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;}}}
+				else if (GTier == 8) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;} else {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;}}}
+				else if (GTier == 9) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;}}}
+				else if (GTier == 10) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell0 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell1(); GSpell5 += `${GSpellGen1}${spacerX}`;} else {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell3 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell1 += `${GSpellGen4}${spacerX}`;}}}
+				else if (GTier == 11) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell1 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell1 += `${GSpellGen4}${spacerX}`;}}}
+				else if (GTier == 12) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;} else {Spell2(); GSpell0 += `${GSpellGen2}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell2(); GSpell5 += `${GSpellGen2}${spacerX}`;} else {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell3 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell4(); GSpell1 += `${GSpellGen4}${spacerX}`;} else {Spell3(); GSpell1 += `${GSpellGen4}${spacerX}`;}}}
+				else if (GTier == 13) {
+					spellNum = GSpellQty[0]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell0 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[1]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;} else {Spell3(); GSpell5 += `${GSpellGen3}${spacerX}`;}}
+					spellNum = GSpellQty[2]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+						if (RNG == 1) {Spell3(); GSpell3 += `${GSpellGen3}${spacerX}`;} else {Spell4(); GSpell3 += `${GSpellGen4}${spacerX}`;}}
+					spellNum = GSpellQty[3]; while (spellNum > 0) {spellNum -= 1; RNG = Math.floor(Math.random() * 2) + 1; if (spellNum == 0) {spacerX = "";} else {spacerX = ", ";}
+				if (RNG == 1) {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;} else {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;}}}}
+		
+ // Random Enemy Modifier Chance 5%, 15% boss, 2% double boss
+			let modRNG = Math.floor(Math.random() * 100) + 1;
+			let modTwo;
+			if (document.getElementById("bossCheck").checked == true) {if (modRNG >= 1 && modRNG <= 15) {EnemyGenMod();} else {if (modRNG >= 99 && modRNG <= 100) {EnemyGenMod(); modTwo = GMod; EnemyGenMod(); GMod = `${GMod}\n\n${modTwo}`;} else {}}}
+			else if (document.getElementById("bossCheck").checked == false) {
+				if (modRNG >= 1 && modRNG <= 5) {EnemyGenMod();} else {}}
+// Random Traits based on Qty
+			let zNum = GTraitQty;
+			while (zNum > 0) {zNum -= 1; EnemyTrait();}
+// Get Languages
+			RNG = Math.floor(Math.random() * 7);
+			if (RNG == 1) {if (GLanguage.includes("common") == false) {GLanguage.push("common")} else {}}
+			RNG = Math.floor(Math.random() * 6);
+			if (RNG == 1) {if (GLanguage.includes("undercommon") == false) {GLanguage.push("undercommon")} else {}}
+			RNG = Math.floor(Math.random() * 9);
+			if (RNG == 1) {if (GLanguage.includes("dwarvish") == false) {GLanguage.push("dwarvish")} else {}}
+			RNG = Math.floor(Math.random() * 12);
+			if (RNG == 1) {if (GLanguage.includes("elvish") == false) {GLanguage.push("elvish")} else {}}
+			RNG = Math.floor(Math.random() * 9);
+			if (RNG == 1) {if (GLanguage.includes("giant") == false) {GLanguage.push("giant")} else {}}
+			RNG = Math.floor(Math.random() * 8);
+			if (RNG == 1) {if (GLanguage.includes("goblin") == false) {GLanguage.push("goblin")} else {}}
+			RNG = Math.floor(Math.random() * 10);
+			if (RNG == 1) {if (GLanguage.includes("orc") == false) {GLanguage.push("orc")} else {}}
+			RNG = Math.floor(Math.random() * 25);
+			if (RNG == 1) {if (GLanguage.includes("abyssal") == false) {GLanguage.push("abyssal")} else {}}
+			RNG = Math.floor(Math.random() * 35);
+			if (RNG == 1) {if (GLanguage.includes("celestial") == false) {GLanguage.push("celestial")} else {}}
+			RNG = Math.floor(Math.random() * 8);
+			if (RNG == 1) {if (GLanguage.includes("draconic") == false) {GLanguage.push("draconic")} else {}}
+			RNG = Math.floor(Math.random() * 35);
+			if (RNG == 1) {if (GLanguage.includes("deep speech") == false) {GLanguage.push("deep speech")} else {}}
+			RNG = Math.floor(Math.random() * 20);
+			if (RNG == 1) {if (GLanguage.includes("infernal") == false) {GLanguage.push("infernal")} else {}}
+			RNG = Math.floor(Math.random() * 35);
+			if (RNG == 1) {if (GLanguage.includes("primordial") == false) {GLanguage.push("primordial")} else {}}
+			RNG = Math.floor(Math.random() * 35);
+			if (RNG == 1) {if (GLanguage.includes("sylvan") == false) {GLanguage.push("sylvan")} else {}}
+// Creature-Type Specifics
+			
+			//if (GLanguage.includes("") == false) {GLanguage.push("")} else {}
+			// Certain types, removes all languages before adding native language
+// Get Final Attribute Modifiers, AC, and Saves
+			GStrMod = Math.floor((GStr - 10) / 2);
+			GDexMod = Math.floor((GDex - 10) / 2);
+			GConMod = Math.floor((GCon - 10) / 2);
+			GIntMod = Math.floor((GInt - 10) / 2);
+			GWisMod = Math.floor((GWis - 10) / 2);
+			GChaMod = Math.floor((GCha - 10) / 2);
+			let acMod;
+			if (GFirstStat == "Str") {acMod = GStrMod;} else if (GFirstStat == "Dex") {acMod = GDexMod;} else if (GFirstStat == "Con") {acMod = GConMod;} else {}
+			if (GMagic == "Martial") {GAC = 10 + acMod + Math.floor(GTier / 2);} else if (GMagic == "Half") {GAC = 7 + acMod + Math.floor(GTier / 2);} else if (GMagic == "Caster") {GAC = 10 + GDexMod;}
+			testHP = GConMod * 4; if (testHP <= 0) {GHP += 2 * GTier;} else if (testHP > 0) {GHP += testHP * GTier}
+				if (GMagic == "Martial") {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GSave.push("Str");} else if (RNG == 2) {GSave.push("Dex");} else {GSave.push("Con");}}
+				else if (GMagic == "Half") {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GSave.push("Str");} else if (RNG == 2) {GSave.push("Dex");} else {GSave.push("Con");}}
+				else if (GMagic == "Caster") {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GSave.push("Int");} else if (RNG == 2) {GSave.push("Wis");} else {GSave.push("Cha");}}
+			GetSave();
+			while (GSave.includes(`${GTempSave}`) == true) {GetSave();}
+			GSave.push(`${GTempSave}`);
+			if (GCR >= 10 && GCR <= 19) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
+			else if (GCR >= 20 && GCR <= 29) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
+			else if (GCR >= 30 && GCR <= 39) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);
+											GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
+			else if (GCR >= 40) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);
+								GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
+			GHPTotal = Math.floor(GHitDiceQty * (GHitDiceSize / 2 + 0.5) + GHP) * GHPMulti;
+// Get Skills
+			SkillTypeGen(); GSkill.push(`${GSkillX}`);
+			if (GCR >= 1 && GCR <= 3) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 4 && GCR <= 7) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 8 && GCR <= 14) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 15 && GCR <= 21) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 22 && GCR <= 28) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 29 && GCR <= 35) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 36 && GCR <= 42) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			else if (GCR >= 43 && GCR <= 50) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);
+											SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
+			if (GFirstStat == "Str") {GWeaponMod = GStrMod} else if (GFirstStat == "Dex") {GWeaponMod = GDexMod} else {GWeaponMod = GStrMod + GPB}
+			GWeaponHit = GWeaponMod + GPB
+			if (GSpellStat == "Int") {GSpellMod = GIntMod; GSpellDC = 8 + GIntMod + GPB;}
+			else if (GSpellStat == "Wis") {GSpellMod = GWisMod; GSpellDC = 7 + GWisMod + GPB;}
+			else if (GSpellStat == "Cha") {GSpellMod = GChaMod; GSpellDC = 7 + GChaMod + GPB;}
+			else {}
+			GSpellHit = GSpellMod + GPB
+// Random Actions based on Qty
+			zNum = GActionQty;
+			while (zNum > 0) {zNum -= 1; EnemyAction();}
+// Random Bonus Actions based on Qty
+			zNum = GBonusQty;
+			while (zNum > 0) {zNum -= 1; EnemyBonus();}
+// Random Reactions based on Qty
+			zNum = GReactionQty;
+			while (zNum > 0) {zNum -= 1; EnemyReaction();}
+// Random Rechargess based on Qty
+			zNum = GRechargeQty;
+			while (zNum > 0) {zNum -= 1; EnemyRecharge();}
+// Random Legendary Actions based on Qty
+			zNum = GLegendaryQty;
+			while (zNum > 0) {zNum -= 1; EnemyLegendary();}
+// Random Lair Actives based on Qty
+			zNum = GLairActiveQty;
+			while (zNum > 0) {zNum -= 1; EnemyLairActive();}
+// Random Lair Passives based on Qty
+			zNum = GLairPassiveQty;
+			while (zNum > 0) {zNum -= 1; EnemyLairPassive();}
+// Final Speed
+		GSpeedTotal = `walk ${GSpeed} ft.`;
+		if (GSpeedBurrow > 0) {GSpeedTotal += `, burrow ${GSpeedBurrow} ft.`} else {}
+		if (GSpeedSwim > 0) {GSpeedTotal += `, swim ${GSpeedSwim} ft.`} else {}
+		if (GSpeedClimb > 0) {GSpeedTotal += `, climb ${GSpeedClimb} ft.`} else {}
+		if (GSpeedFly > 0) {GSpeedTotal += `, fly ${GSpeedFly} ft.`} else {}
+// Final Saves
+		if (GSave.includes("Str") == true) {GSaveTotal += `Str +${GStrMod + GPB}, `} else {}
+		if (GSave.includes("Dex") == true) {GSaveTotal += `Dex +${GDexMod + GPB}, `} else {}
+		if (GSave.includes("Con") == true) {GSaveTotal += `Con +${GConMod + GPB}, `} else {}
+		if (GSave.includes("Int") == true) {GSaveTotal += `Int +${GIntMod + GPB}, `} else {}
+		if (GSave.includes("Wis") == true) {GSaveTotal += `Wis +${GWisMod + GPB}, `} else {}
+		if (GSave.includes("Cha") == true) {GSaveTotal += `Cha +${GChaMod + GPB}, `} else {}
+		GSaveTotal = GSaveTotal.slice(0, -2);
+		GSaveTotal = GSaveTotal.replace("+-", "-"); GSaveTotal = GSaveTotal.replace("+-", "-"); GSaveTotal = GSaveTotal.replace("+-", "-");
+// Final Skills
+		if (GSkill.includes("Athletics") == true) {GSkillTotal += `Athletics +${GStrMod + GPB}, `} else {}
+		if (GSkill.includes("Acrobatics") == true) {GSkillTotal += `Acrobatics +${GDexMod + GPB}, `} else {}
+		if (GSkill.includes("Sleight of Hands") == true) {GSkillTotal += `Sleight of Hands +${GDexMod + GPB}, `} else {}
+		if (GSkill.includes("Stealth") == true) {GSkillTotal += `Stealth +${GDexMod + GPB}, `} else {}
+		if (GSkill.includes("Arcana") == true) {GSkillTotal += `Arcana +${GIntMod + GPB}, `} else {}
+		if (GSkill.includes("History") == true) {GSkillTotal += `History +${GIntMod + GPB}, `} else {}
+		if (GSkill.includes("Investigation") == true) {GSkillTotal += `Investigation +${GIntMod + GPB}, `} else {}
+		if (GSkill.includes("Nature") == true) {GSkillTotal += `Nature +${GIntMod + GPB}, `} else {}
+		if (GSkill.includes("Religion") == true) {GSkillTotal += `Religion +${GIntMod + GPB}, `} else {}
+		if (GSkill.includes("Animal Handling") == true) {GSkillTotal += `Animal Handling +${GWisMod + GPB}, `} else {}
+		if (GSkill.includes("Insight") == true) {GSkillTotal += `Insight +${GWisMod + GPB}, `} else {}
+		if (GSkill.includes("Medicine") == true) {GSkillTotal += `Medicine +${GWisMod + GPB}, `} else {}
+		if (GSkill.includes("Perception") == true) {GSkillTotal += `Perception +${GWisMod + GPB}, `} else {}
+		if (GSkill.includes("Survival") == true) {GSkillTotal += `Survival +${GWisMod + GPB}, `} else {}
+		if (GSkill.includes("Deception") == true) {GSkillTotal += `Deception +${GChaMod + GPB}, `} else {}
+		if (GSkill.includes("Intimidation") == true) {GSkillTotal += `Intimidation +${GChaMod + GPB}, `} else {}
+		if (GSkill.includes("Performance") == true) {GSkillTotal += `Performance +${GChaMod + GPB}, `} else {}
+		if (GSkill.includes("Persuasion") == true) {GSkillTotal += `Persuasion +${GChaMod + GPB}, `} else {}
+		GSkillTotal = GSkillTotal.slice(0, -2);
+		GSkillTotal = GSkillTotal.replace("+-", "-"); GSkillTotal = GSkillTotal.replace("+-", "-"); GSkillTotal = GSkillTotal.replace("+-", "-");
+// Final Resistances
+		if (GRes.includes("physical") == true) {GResTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GRes.includes("acid") == true) {GResTotal += "acid, ";} else {}
+		if (GRes.includes("cold") == true) {GResTotal += "cold, ";} else {}
+		if (GRes.includes("fire") == true) {GResTotal += "fire, ";} else {}
+		if (GRes.includes("force") == true) {GResTotal += "force, ";} else {}
+		if (GRes.includes("lightning") == true) {GResTotal += "lightning, ";} else {}
+		if (GRes.includes("necrotic") == true) {GResTotal += "necrotic, ";} else {}
+		if (GRes.includes("poison") == true) {GResTotal += "poison, ";} else {}
+		if (GRes.includes("psychic") == true) {GResTotal += "psychic, ";} else {}
+		if (GRes.includes("radiant") == true) {GResTotal += "radiant, ";} else {}
+		if (GRes.includes("thunder") == true) {GResTotal += "thunder, ";} else {}
+		GResTotal = GResTotal.slice(0, -2);
+// Final Immunity
+		if (GImmune.includes("physical") == true) {GImmuneTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GImmune.includes("acid") == true) {GImmuneTotal += "acid, ";} else {}
+		if (GImmune.includes("cold") == true) {GImmuneTotal += "cold, ";} else {}
+		if (GImmune.includes("fire") == true) {GImmuneTotal += "fire, ";} else {}
+		if (GImmune.includes("force") == true) {GImmuneTotal += "force, ";} else {}
+		if (GImmune.includes("lightning") == true) {GImmuneTotal += "lightning, ";} else {}
+		if (GImmune.includes("necrotic") == true) {GImmuneTotal += "necrotic, ";} else {}
+		if (GImmune.includes("poison") == true) {GImmuneTotal += "poison, ";} else {}
+		if (GImmune.includes("psychic") == true) {GImmuneTotal += "psychic, ";} else {}
+		if (GImmune.includes("radiant") == true) {GImmuneTotal += "radiant, ";} else {}
+		if (GImmune.includes("thunder") == true) {GImmuneTotal += "thunder, ";} else {}
+		GImmuneTotal = GImmuneTotal.slice(0, -2);
+// Final Vulnerabilities
+		if (GVuln.includes("physical") == true) {GVulnTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GVuln.includes("acid") == true) {GVulnTotal += "acid, ";} else {}
+		if (GVuln.includes("cold") == true) {GVulnTotal += "cold, ";} else {}
+		if (GVuln.includes("fire") == true) {GVulnTotal += "fire, ";} else {}
+		if (GVuln.includes("force") == true) {GVulnTotal += "force, ";} else {}
+		if (GVuln.includes("lightning") == true) {GVulnTotal += "lightning, ";} else {}
+		if (GVuln.includes("necrotic") == true) {GVulnTotal += "necrotic, ";} else {}
+		if (GVuln.includes("poison") == true) {GVulnTotal += "poison, ";} else {}
+		if (GVuln.includes("psychic") == true) {GVulnTotal += "psychic, ";} else {}
+		if (GVuln.includes("radiant") == true) {GVulnTotal += "radiant, ";} else {}
+		if (GVuln.includes("thunder") == true) {GVulnTotal += "thunder, ";} else {}
+		GVulnTotal = GVulnTotal.slice(0, -2);
+// Final Condition Immunity
+		if (GCondImmune.includes("blinded") == true) {GCondImmuneTotal += "blinded, ";} else {}
+		if (GCondImmune.includes("deafened") == true) {GCondImmuneTotal += "deafened, ";} else {}
+		if (GCondImmune.includes("charmed") == true) {GCondImmuneTotal += "charmed, ";} else {}
+		if (GCondImmune.includes("exhaustion") == true) {GCondImmuneTotal += "exhaustion, ";} else {}
+		if (GCondImmune.includes("frightened") == true) {GCondImmuneTotal += "frightened, ";} else {}
+		if (GCondImmune.includes("grappled") == true) {GCondImmuneTotal += "grappled, ";} else {}
+		if (GCondImmune.includes("incapacitated") == true) {GCondImmuneTotal += "incapacitated, ";} else {}
+		if (GCondImmune.includes("paralyzed") == true) {GCondImmuneTotal += "paralyzed, ";} else {}
+		if (GCondImmune.includes("petrified") == true) {GCondImmuneTotal += "petrified, ";} else {}
+		if (GCondImmune.includes("poisoned") == true) {GCondImmuneTotal += "poisoned, ";} else {}
+		if (GCondImmune.includes("prone") == true) {GCondImmuneTotal += "prone, ";} else {}
+		if (GCondImmune.includes("restrained") == true) {GCondImmuneTotal += "restrained, ";} else {}
+		if (GCondImmune.includes("stunned") == true) {GCondImmuneTotal += "stunned, ";} else {}
+		if (GCondImmune.includes("disease") == true) {GCondImmuneTotal += "disease, ";} else {}
+		GCondImmuneTotal = GCondImmuneTotal.slice(0, -2);
+// Final Senses
+		if (GDarkvision > 0) {GSenseTotal += `darvision ${GDarkvision} ft., `} else {}
+		if (GTremorsense > 0) {GSenseTotal += `tremorsense ${GTremorsense} ft., `} else {}
+		if (GBlindsight > 0) {GSenseTotal += `blindsight ${GBlindsight} ft., `} else {}
+		if (GTruesight > 0) {GSenseTotal += `truesight ${GTruesight} ft., `} else {}
+		GSenseTotal = GSenseTotal.slice(0, -2);
+// Final Languages
+		if (GLanguage.includes("common") == true) {GLanguageTotal += "common, ";} else {}
+		if (GLanguage.includes("dwarvish") == true) {GLanguageTotal += "dwarvish, ";} else {}
+		if (GLanguage.includes("elvish") == true) {GLanguageTotal += "elvish, ";} else {}
+		if (GLanguage.includes("giant") == true) {GLanguageTotal += "giant, ";} else {}
+		if (GLanguage.includes("gnomish") == true) {GLanguageTotal += "gnomish, ";} else {}
+		if (GLanguage.includes("goblin") == true) {GLanguageTotal += "goblin, ";} else {}
+		if (GLanguage.includes("halfling") == true) {GLanguageTotal += "halfling, ";} else {}
+		if (GLanguage.includes("orc") == true) {GLanguageTotal += "orc, ";} else {}
+		if (GLanguage.includes("abyssal") == true) {GLanguageTotal += "abyssal, ";} else {}
+		if (GLanguage.includes("celestial") == true) {GLanguageTotal += "celestial, ";} else {}
+		if (GLanguage.includes("draconic") == true) {GLanguageTotal += "draconic, ";} else {}
+		if (GLanguage.includes("deep speech") == true) {GLanguageTotal += "deep speech, ";} else {}
+		if (GLanguage.includes("infernal") == true) {GLanguageTotal += "infernal, ";} else {}
+		if (GLanguage.includes("primordial") == true) {GLanguageTotal += "primordial, ";} else {}
+		if (GLanguage.includes("sylvan") == true) {GLanguageTotal += "sylvan, ";} else {}
+		if (GLanguage.includes("undercommon") == true) {GLanguageTotal += "undercommon, ";} else {}
+		if (GLanguage.includes("telepathy") == true) {GLanguageTotal += `telepathy up to ${GTelepathyRange}, `;} else {}
+		GLanguageTotal = GLanguageTotal.slice(0, -2);
+// Output Results
+		EnemyOutput();
+		EnemyHomebrew();
+		EnemyImproved();		
+		
+	//console.log(`Str ${GStr} (${GStrMod}), Dex ${GDex} (${GDexMod}), Con ${GCon} (${GConMod}), Int ${GInt} (${GIntMod}), Wis ${GWis} (${GWisMod}), Cha ${GCha} (${GChaMod})`);
+	//console.log(`Weapon: ${GFirstStat} + ${GPB} = ${GWeaponMod}`);
+	//console.log(`Spell: ${GSpellStat} + ${GPB} = ${GSpellMod}`);
+	//console.log (`DC: 7 + ${GSpellStat} + ${GPB} = ${GSpellDC}`);
+	//console.log(`HP: (${GHP}), AC: (${GAC})`);
+	//console.log(`${GSave}`);
+	//console.log(`${GSkill}`);
+	//console.log(`${GMagic}: Will/5/3/1: ${GSpellQty}`);
+	//console.log (`${GMod}`);
+	//console.log(`Traits(${GTraitQty}), Actions(${GActionQty}), Bonus(${GBonusQty}), Reaction(${GReactionQty}), Recharge(${GRechargeQty}), LegAct(${GLegendaryQty}), LegUse(${GLegendaryUses}), LegRes(${GLegendaryResist}), LairActive(${GLairActiveQty}), LairPassive(${GLairPassiveQty}), Range(${GLairPassiveRange})`);
+	//console.log(`${GSize} ${GCreature} (${GHumanoid}${GElemental}), ${GSpeed} ft., ${GSpeedFly} Fly ft., ${GSpeedSwim} Swim ft., ${GSpeedBurrow} Burrow ft., ${GSpeedClimb} Climb ft.`);
+	//console.log(`${GMagic} -- Main: ${GFirstStat}, Second: ${GSecondStat}, Third: ${GThirdStat}, Bad: ${GBadStat}, PB: ${GPB} Spellcasting Stat: ${GSpellStat}`);
+	//console.log(`Str(${GStr}), Dex(${GDex}), Con(${GCon}), Int(${GInt}), Wis(${GWis}), Cha(${GCha})`);
+	//console.log(`${GMagic}: ${GHitDiceQty}d${GHitDiceSize} + ${GHP}`);
+}
+
+function EnemyOutput() {
+	let TraitsList = ""
+	let ActionsList = ""
+	let BonusesList = ""
+	let ReactionsList = ""
+	let LegendaryList = ""
+	let LairActionsList = ""
+	let LairPassivesList = ""
+	document.getElementById("charBox").innerHTML = `Creature Name\n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
+STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
+Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\nDamage Immunities: ${GImmuneTotal}\nVulnerabilities: ${GVulnTotal}\nCondition Immunities ${GCondImmuneTotal}\nSenses: ${GSenseTotal}\nLanguages: ${GLanguageTotal}\nChallenge Rating: ${GCR}\n`;
+	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
+		if (GSpellQty[0] > 0) {TraitsList += `• at will: ${GSpell0}\n`;} else {}
+		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
+		if (GSpellQty[2] > 0) {TraitsList += `• 3/day each: ${GSpell3}\n`;} else {}
+		if (GSpellQty[1] > 0) {TraitsList += `• 5/day each: ${GSpell5}\n`;} else {}}
+	xNum = GTraitQty;
+	while (xNum > 0) {xNum -= 1; TraitsList += `&nbsp;&nbsp;[${GTraitNames[xNum]}]\n${GTraits[xNum]}\n\n`;}
+		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.`;} else {}
+	document.getElementById("charBox").innerHTML += `------TRAITS------\n${TraitsList}`;
+		xNum = GActionQty; xNum2 = GRechargeQty;
+		if (GMultiattack >= 2) {ActionsList += `&nbsp;&nbsp;[Multiattack]\nThe creature can make ${GMultiattack} attacks on its turn.\n\n`;} else {}
+		while (xNum > 0) {xNum -= 1; ActionsList += `&nbsp;&nbsp;[${GActionNames[xNum]}]\n${GActions[xNum]}\n\n`;}
+		while (xNum2 > 0) {xNum2 -= 1; ActionsList += `$&nbsp;&nbsp;[{GRechargeNames[xNum2]}]\n${GRecharges[xNum2]}\n\n`;}
+		document.getElementById("charBox").innerHTML += `------ACTIONS------\n${ActionsList}`;
+	if (GBonusQty > 0) {xNum = GBonusQty;
+	while (xNum > 0) {xNum -= 1; BonusesList += `&nbsp;&nbsp;[${GBonusNames[xNum]}]\n${GBonuses[xNum]}\n\n`;}
+	document.getElementById("charBox").innerHTML += `------BONUS ACTIONS------\n${BonusesList}`;}
+		if (GReactionQty > 0) {xNum = GReactionQty;
+		while (xNum > 0) {xNum -= 1; ReactionsList += `&nbsp;&nbsp;[${GReactionNames[xNum]}]\n${GReactions[xNum]}\n\n`;}
+		document.getElementById("charBox").innerHTML += `------REACTIONS------\n${ReactionsList}`;}
+	if (document.getElementById("bossCheck").checked == true) {if (GLegendaryQty > 0) {xNum = GLegendaryQty;
+		LegendaryList += `The creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn.\n\n`;
+		while (xNum > 0) {xNum -= 1; LegendaryList += `&nbsp;&nbsp;[${GLegendaryNames[xNum]}]\n${GLegendaries[xNum]}\n\n`;}
+		document.getElementById("charBox").innerHTML += `------LEGENDARY ACTIONS------\n${LegendaryList}`;}
+	} else {}
+	if (document.getElementById("lairCheck").checked == true) {if (GLairActiveQty > 0) {xNum = GLairActiveQty;
+		LairActionsList += `While in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties).\n\n`;
+		while (xNum > 0) {xNum -= 1; LairActionsList += `&nbsp;&nbsp;[${GLairActiveNames[xNum]}]\n${GLairActives[xNum]}\n\n`;}
+		document.getElementById("charBox").innerHTML += `------LAIR ACTIONS------\n${LairActionsList}`;}
+	} else {}
+	if (document.getElementById("lairCheck").checked == true) {if (GLairPassiveQty > 0) {xNum = GLairPassiveQty;
+		LairPassivesList += `The area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 8) + 1)} weeks.\n\n`;
+		while (xNum > 0) {xNum -= 1; LairPassivesList += `&nbsp;&nbsp;[${GLairPassiveNames[xNum]}]\n${GLairPassives[xNum]}\n\n`;}
+		document.getElementById("charBox").innerHTML += `------LAIR REGIONAL EFFECTS------\n${LairPassivesList}`;}
+	} else {}
+}
+
+function EnemyHomebrew() {
+	document.getElementById("homebrewBox").innerHTML = ``;
+}
+
+function EnemyImproved() {
+	document.getElementById("improvedBox").innerHTML = ``;
+}
+
+function copyOutput() {
+    document.getElementById("charBox").select();
+    document.execCommand('copy');
+}
+
+function copyHomebrew() {
+    document.getElementById("homebrewBox").select();
+    document.execCommand('copy');
+}
+
+function copyImproved() {
+    document.getElementById("improvedBox").select();
+    document.execCommand('copy');
+}
+
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
+// GLYPH GENERATOR //
 // GLYPH GENERATOR //
 // GLYPH GENERATOR //
 // GLYPH GENERATOR //
@@ -1768,7 +4038,7 @@ function GlyphHelp() {
 }
 
 function WeaponAffix() {
-	let wpnRNG = Math.floor(Math.random() * 35) + 1;
+	let wpnRNG = Math.floor(Math.random() * 45) + 1;
 	let wpnTier = Math.floor(Math.random() * 3) + 1;
 	if (wpnRNG >= 1 && wpnRNG <= 2) {
 		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) +2 to Weapon Hit";}
@@ -1848,6 +4118,22 @@ function WeaponAffix() {
 		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) Add weapon dice one more time and +3 to Critical Hits";}
 		else {GWeaponAffix = "• (T1 Weapon) Add weapon dice one more time to Critical Hits";}
 	}
+	else if (wpnRNG == 36) {GWeaponAffix = `• (T2 Weapon) Once per turn, as part of the Attack Action, you can teleport up to 5 ft. towards your target.`;}
+	else if (wpnRNG >= 37 && wpnRNG <= 38) {GWeaponAffix = `• (T2 Weapon) Once per turn, your attacks also hit an enemy directly behind you`;}
+	else if (wpnRNG == 39) {
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) After you attack, as a Bonus Action, attempt to grapple the target and gain +2 on the check`;}
+		else {GWeaponAffix = `• (T1 Weapon) After you attack, as a Bonus Action, attempt to grapple the target`;}
+	}
+	else if (wpnRNG >= 40 && wpnRNG <= 41) {CreatureTypeGen();
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) You can detect when ${GCreature} is within 20 ft. of you.`;}
+		else {GWeaponAffix = `• (T1 Weapon) You can detect when ${GCreature} is within 10 ft. of you.`;}
+	}
+	else if (wpnRNG == 42) {GWeaponAffix = `• (T2 Weapon) The weapon can deal half damage to creatures on the Ethereal Plane`;}
+	else if (wpnRNG == 43) {GWeaponAffix = `• (T2 Weapon) Once per turn, per creature, on a hit, move them 5 ft. in a direction.`;}
+	else if (wpnRNG >= 44 && wpnRNG <= 45) {
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) The weapon deals double damage to structures and objects`;}
+		else {GWeaponAffix = `• (T1 Weapon) The weapon deals 50% additional damage to structures and objects`;}
+	}
 }
 	function WeaponAffixBtn() {
 		let affNum = Number(document.getElementById("affixNum").value)
@@ -1861,7 +4147,7 @@ function WeaponAffix() {
 	}
 
 function ArmorAffix() {
-	let armRNG = Math.floor(Math.random() * 39) + 1;
+	let armRNG = Math.floor(Math.random() * 46) + 1;
 	let armTier = Math.floor(Math.random() * 3) + 1;
 	if (armRNG >= 1 && armRNG <= 2) {GArmorAffix = "• (T2 Armor) +1 AC";}
 	else if (armRNG >= 3 && armRNG <= 4) {
@@ -1879,10 +4165,7 @@ function ArmorAffix() {
 	else if (armRNG == 10) {GArmorAffix = "• (T2 Armor) Incoming Spell Attacks have Disadvantage";}
 	else if (armRNG >= 11 && armRNG <= 12) {
 		PhysicalTypeGen()
-		while (GPhysical == "Native Weapon Type") {
-			PhysicalTypeGen();
-		}
-		GArmorAffix = `• (T2 Armor) Gain nonmagical ${GPhysical} Resistance`;}
+		while (GPhysical == "Native Weapon Type") {PhysicalTypeGen();} GArmorAffix = `• (T2 Armor) Gain nonmagical ${GPhysical} Resistance`;}
 	else if (armRNG >= 13 && armRNG <= 14) {
 		ElementTypeGen()
 		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Reduce all ${GElement} damage by 7`;}
@@ -1948,6 +4231,28 @@ function ArmorAffix() {
 		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Gain Advantage on saving throws against ${GCondition} and it has 50% reduced duration (minimum 6 seconds)`;}
 		else {GArmorAffix = `• (T1 Armor) Gain Advantage on saving throws against ${GCondition}`;}
 	}
+	else if (armRNG == 40) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Attune to the object and give it to another creature. You take half of the physical damage they would take while you are within 60 ft.`;}
+		else {GArmorAffix = `• (T1 Armor) Attune to the object and give it to another creature. You take half of the physical damage they would take while you are within 30 ft.`;}
+	}
+	else if (armRNG == 41) {GArmorAffix = `• (T2 Armor) As a Reaction to taking damage, you may teleport up to 10 ft. to a location you can see.`;}
+	else if (armRNG >= 42 && armRNG <= 43) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) As a Reaction to being Hit, expend a number of charges and increase your AC by that for that attack, The item has 5 charges, regaining them at dawn.`;}
+		else {GArmorAffix = `• (T1 Armor) As a Reaction to being Hit, expend a number of charges and increase your AC by that for that attack, The item has 3 charges, regaining them at dawn.`;}
+	}
+	else if (armRNG >= 44) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) As a Reaction, attempt to grapple the attacker. Two uses per Long Rest.`;}
+		else {GArmorAffix = `• (T1 Armor) As a Reaction, attempt to grapple the attacker. One use per Long Rest.`;}
+	}
+	else if (armRNG == 45) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) Gain your level x1 to Hit Point Maximum`;}
+		else {GArmorAffix = `• (T1 Armor) Gain half of your level to Hit Point Maximum`;}
+	}
+	else if (armRNG >= 46) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.`;}
+		else {GArmorAffix = `• (T1 Armor) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.`;}
+	}
+	
 }
 	function ArmorAffixBtn() {
 		let affNum = Number(document.getElementById("affixNum").value)
@@ -1961,7 +4266,7 @@ function ArmorAffix() {
 	}
 
 function AccessoryAffix() {
-	let accRNG = Math.floor(Math.random() * 47) + 1;
+	let accRNG = Math.floor(Math.random() * 48) + 1;
 	let accTier = Math.floor(Math.random() * 3) + 1;
 	if (accRNG >= 1 && accRNG <= 2) {
 		let statOne
@@ -1993,8 +4298,8 @@ function AccessoryAffix() {
 	}
 	else if (accRNG >= 15 && accRNG <= 16) {
 		SkillTypeGen()
-		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain proficiency and expertise with ${GSkill}`}
-		else {GAccessoryAffix = `• (T1 Accessory) Gain proficiency with ${GSkill}`}
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain proficiency and expertise with ${GSkillX}`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain proficiency with ${GSkillX}`}
 	}
 	else if (accRNG >= 17 && accRNG <= 18) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Gain a random Cantrip, you have +8 to Spell Attack and a DC of 16 for this spell"}
@@ -2003,8 +4308,8 @@ function AccessoryAffix() {
 	else if (accRNG == 19) {GAccessoryAffix = "• (T2 Accessory) Gain Advantage on saving throws against magic that you can see"}
 	else if (accRNG >= 20 && accRNG <= 21) {
 		SkillTypeGen()
-		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and Advantage on ${GSkill} ability checks`}
-		else {GAccessoryAffix = `• (T1 Accessory) Gain +2 on ${GSkill} ability checks`}
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Gain +2 and Advantage on ${GSkillX} ability checks`}
+		else {GAccessoryAffix = `• (T1 Accessory) Gain +2 on ${GSkillX} ability checks`}
 	}
 	else if (accRNG == 22) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) You may roll all weapon damage dice a second time and use the higher roll. You can do this three time, recharging on a Short Rest"}
@@ -2078,6 +4383,7 @@ function AccessoryAffix() {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) Once a day, gain 10 ft. of Truesight for 15 minutes"}
 		else {GAccessoryAffix = "• (T1 Accessory) Once a day, gain 5 ft. of Truesight for 10 minutes"}
 	}
+	else if (accRNG == 48) {GAccessoryAffix = "• (T2 Accessory) Healing you take is split between you and all allies within 5 ft. of you";}
 }
 	function AccessoryAffixBtn() {
 		let affNum = Number(document.getElementById("affixNum").value)
@@ -2092,21 +4398,23 @@ function AccessoryAffix() {
 
 
 function TaintedWeaponAffix() {
-	let RNG = Math.floor(Math.random() * 36) + 1;
+	let RNG = Math.floor(Math.random() * 43) + 1;
 	if (RNG == 1) {GTaintedWeapon = "• (Tainted Weapon) +1 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen();
 		GTaintedWeapon = `• (Tainted Weapon) Gain +4 ${GAttribute}`;}
 	else if (RNG == 3) {GTaintedWeapon = "• (Tainted Weapon) +1 to Proficiency Bonus";}
-	else if (RNG == 4) {GTaintedWeapon = "• (Tainted Weapon) +3 Attunement Slots";}
+	else if (RNG == 4) {GTaintedWeapon = "• (Tainted Weapon) +1 Attunement Slot";}
 	else if (RNG == 5) {GTaintedWeapon = "• (Tainted Weapon) Gain a Class Affix with double effectiveness";}
 	else if (RNG == 6) {GTaintedWeapon = "• (Tainted Weapon) The item cannot be picked up by someone you do not trust implicitly";}
-	else if (RNG == 7) {GTaintedWeapon = "• (Tainted Weapon) You cannot be moved against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 7) {GTaintedWeapon = "• (Tainted Weapon) +2 AC";}
 	else if (RNG == 8) {GTaintedWeapon = "• (Tainted Weapon) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 9) {GTaintedWeapon = "• (Tainted Weapon) Gain an extra Bonus Action each turn";}
-	else if (RNG == 10) {GTaintedWeapon = "• (Tainted Weapon) Gain 15 ft. of all applicable speed";}
+	else if (RNG == 10) {
+		CreatureTypeGen()
+		GTaintedWeapon = `• (Tainted Weapon) You can detect the presence of ${GCreature}s within 60 ft. and you deal +6 damage to them`;}
 	else if (RNG == 11) {GTaintedWeapon = "• (Tainted Weapon) Gain an additional Reaction each turn";}
-	else if (RNG == 12) {GTaintedWeapon = "• (Tainted Weapon) Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.";}
+	else if (RNG == 12) {GTaintedWeapon = "• (Tainted Weapon) The weapon can deal full damage to creatures on the Etheral plane";}
 	else if (RNG == 13) {GTaintedWeapon = "• (Tainted Weapon) Gain a Class Affix that does not count towards the limit of 2";}
 	else if (RNG == 14) {GTaintedWeapon = "• (Tainted Weapon) Gain three Class Affixes (you cannot benefit from any other source of Class Affix while this item is equipped)";}
 	else if (RNG == 15) {GTaintedWeapon = "• (Tainted Weapon) The item is invisible to other outside of combat and unidentifiable in combat";}
@@ -2140,6 +4448,20 @@ function TaintedWeaponAffix() {
 	else if (RNG == 34) {GTaintedWeapon = "• (Tainted Weapon) As a Reaction or Bonus Action, this weapon can be changed into any other weapon type";}
 	else if (RNG == 35) {GTaintedWeapon = "• (Tainted Weapon) This weapon always has Advantage on Attacks (this can't be cancelled out with Disadvantage)";}
 	else if (RNG == 36) {GTaintedWeapon = "• (Tainted Weapon) Gain +1 Extra Attack with this weapon";}
+	else if (RNG == 37) {GTaintedWeapon = `• (Tainted Weapon) Deal quadruple damage to structures and objects`;}
+	else if (RNG == 38) {GTaintedWeapon = `• (Tainted Weapon) Attack with the weapon as a Bonus Action for full damage, or +2 AC if you don’t use your Bonus Action`;}
+	else if (RNG == 39) {GTaintedWeapon = `• (Tainted Weapon) Add weapon dice two more times to a critical hit`;}
+	else if (RNG == 40) {GTaintedWeapon = `• (Tainted Weapon) As part of the Attack, you can teleport up to 15 ft. towards the target`;}
+	else if (RNG == 41) {GTaintedWeapon = `• (Tainted Weapon) Your attacks also hit enemies directly behind you`;}
+	else if (RNG == 42) {GTaintedWeapon = `• (Tainted Weapon) You cannot be moved against your will and have +5 to escaping Grapple Check`;}
+	else if (RNG == 43) {GTaintedWeapon = `• (Tainted Weapon) Gain 15 ft. of all applicable speeds`;}
+	else if (RNG == 44) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 45) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 46) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 47) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 48) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 49) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 50) {GTaintedWeapon = `• (Tainted Weapon) `;}
 }
 	function TaintedWeaponAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
@@ -2211,7 +4533,7 @@ function TaintedWeaponAffix() {
 	}
 
 function TaintedArmorAffix() {
-	let RNG = Math.floor(Math.random() * 34) + 1;
+	let RNG = Math.floor(Math.random() * 40) + 1;
 	if (RNG == 1) {GTaintedArmor = "• (Tainted Armor) +1 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen();
@@ -2219,12 +4541,12 @@ function TaintedArmorAffix() {
 	else if (RNG == 3) {GTaintedArmor = "• (Tainted Armor) +1 to Proficiency Bonus";}
 	else if (RNG == 4) {GTaintedArmor = "• (Tainted Armor) +3 Attunement Slots";}
 	else if (RNG == 5) {GTaintedArmor = "• (Tainted Armor) Gain a Class Affix with double effectiveness";}
-	else if (RNG == 6) {GTaintedArmor = "• (Tainted Armor) The item cannot be picked up by someone you do not trust implicitly";}
+	else if (RNG == 6) {GTaintedArmor = "• (Tainted Armor) +1 Attunement Slot";}
 	else if (RNG == 7) {GTaintedArmor = "• (Tainted Armor) You cannot be moved against your will and have +5 to escaping Grapple Check";}
-	else if (RNG == 8) {GTaintedArmor = "• (Tainted Armor) You no longer need to eat, drink, breath, or sleep";}
+	else if (RNG == 8) {GTaintedArmor = "• (Tainted Armor) Gain Resistance to all attacks originating on a plane that you are not currently on";}
 	else if (RNG == 9) {GTaintedArmor = "• (Tainted Armor) Gain an extra Bonus Action each turn";}
 	else if (RNG == 10) {GTaintedArmor = "• (Tainted Armor) Gain 15 ft. of all applicable speed";}
-	else if (RNG == 11) {GTaintedArmor = "• (Tainted Armor) Gain an additional Reaction each turn";}
+	else if (RNG == 11) {GTaintedArmor = "• (Tainted Armor) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 12) {GTaintedArmor = "• (Tainted Armor) Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.";}
 	else if (RNG == 13) {GTaintedArmor = "• (Tainted Armor) Gain a Class Affix that does not count towards the limit of 2";}
 	else if (RNG == 14) {GTaintedArmor = "• (Tainted Armor) Gain three Class Affixes (you cannot benefit from any other source of Class Affix while this item is equipped)";}
@@ -2281,6 +4603,22 @@ function TaintedArmorAffix() {
 	else if (RNG == 32) {GTaintedArmor = "• (Tainted Armor) Critical Damage you take is reduced by 16";}
 	else if (RNG == 33) {GTaintedArmor = "• (Tainted Armor) Once a day, when you reach 3 failed Death Saves, regain 10 Hit Points and the armor loses 1 AC, it shatters after 4 activations";}
 	else if (RNG == 34) {GTaintedArmor = "• (Tainted Armor) Melee attackers take 12 Piercing Damage when they hit you";}
+	else if (RNG == 35) {CreatureTypeGen(); GTaintedArmor = `• (Tainted Armor) Take 50% less damage from ${GCreature}s`;}
+	else if (RNG == 36) {GTaintedArmor = `• (Tainted Armor) As a Reaction to taking damage, you can teleport up to 30 ft.`;}
+	else if (RNG == 37) {GTaintedArmor = `• (Tainted Armor) As a Reaction to being hit, expend a number of charges to gain that much AC for that attack. 10 charges, regain at dawn`;}
+	else if (RNG == 38) {GTaintedArmor = `• (Tainted Armor) Gain your level x3 Hit Point Maximum`;}
+	else if (RNG == 39) {GTaintedArmor = `• (Tainted Armor) As an Action, enter a Guard Stance. Your speed is halved and you cannot take Actions or Reactions, but gain +10 AC. You can leave the stance as an Bonus Action.`;}
+	else if (RNG == 40) {GTaintedArmor = `• (Tainted Armor) The item cannot be picked up by someone you do not trust implicitly`;}
+	else if (RNG == 41) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 42) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 43) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 44) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 45) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 46) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 47) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 48) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 49) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 50) {GTaintedArmor = `• (Tainted Armor) `;}
 }
 	function TaintedArmorAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
@@ -2352,8 +4690,8 @@ function TaintedArmorAffix() {
 	}
 
 function TaintedAccessoryAffix() {
-	let RNG = Math.floor(Math.random() * 45) + 1;
-	if (RNG == 1) {GTaintedAccessory = "• (Tainted Accessory) +1 to all Attributes";}
+	let RNG = Math.floor(Math.random() * 46) + 1;
+	if (RNG == 1) {GTaintedAccessory = "• (Tainted Accessory) +2 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen()
 		GTaintedAccessory = `• (Tainted Accessory) Gain +4 ${GAttribute}`;}
@@ -2361,7 +4699,7 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 4) {GTaintedAccessory = "• (Tainted Accessory) +3 Attunement Slots";}
 	else if (RNG == 5) {GTaintedAccessory = "• (Tainted Accessory) Gain a Class Affix with double effectiveness";}
 	else if (RNG == 6) {GTaintedAccessory = "• (Tainted Accessory) The item cannot be picked up by someone you do not trust implicitly";}
-	else if (RNG == 7) {GTaintedAccessory = "• (Tainted Accessory) You cannot be moved against your will and have +5 to escaping Grapple Check";}
+	else if (RNG == 7) {CreatureTypeGen(); GTaintedAccessory = `• (Tainted Accessory) You can detect ${GCreature} within 60 ft. and deal +6 damage to them`;}
 	else if (RNG == 8) {GTaintedAccessory = "• (Tainted Accessory) You no longer need to eat, drink, breath, or sleep";}
 	else if (RNG == 9) {GTaintedAccessory = "• (Tainted Accessory) Gain an extra Bonus Action each turn";}
 	else if (RNG == 10) {GTaintedAccessory = "• (Tainted Accessory) Gain 15 ft. of all applicable speed";}
@@ -2384,11 +4722,11 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 20) {
 		let skillOne;
 		SkillTypeGen();
-		skillOne = GSkill;
+		skillOne = GSkillX;
 		SkillTypeGen();
-		while (GSkill == skillOne) {
+		while (GSkillX == skillOne) {
 			SkillTypeGen();}
-		GTaintedAccessory = `• (Tainted Accessory) Gain Double Advantage on ${GSkill} and ${skillOne}`;}
+		GTaintedAccessory = `• (Tainted Accessory) Gain Double Advantage on ${GSkillX} and ${skillOne}`;}
 	else if (RNG == 21) {
 		let statOne;
 		AttributeTypeGen();
@@ -2417,11 +4755,11 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 32) {
 		let skillOne;
 		SkillTypeGen();
-		skillOne = GSkill;
+		skillOne = GSkillX;
 		SkillTypeGen();
-		while (GSkill == skillOne) {
+		while (GSkillX == skillOne) {
 			SkillTypeGen();}
-		GTaintedAccessory = `• (Tainted Accessory) Gain Proficiency and Expertise in ${GSkill} and ${skillOne}`;}
+		GTaintedAccessory = `• (Tainted Accessory) Gain Proficiency and Expertise in ${GSkillX} and ${skillOne}`;}
 	else if (RNG == 33) {GTaintedAccessory = "• (Tainted Accessory) Gain access to 3 random Cantrips (+12 to Spell Attack and DC20)";}
 	else if (RNG == 34) {GTaintedAccessory = "• (Tainted Accessory) Gain Resistance to Magic Damage";}
 	else if (RNG == 35) {GTaintedAccessory = "• (Tainted Accessory) Gain Advantage on all non-Death Saving Throws";}
@@ -2449,6 +4787,11 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 43) {GTaintedAccessory = "• (Tainted Accessory) Gain 90 ft. of Tremorsense";}
 	else if (RNG == 44) {GTaintedAccessory = "• (Tainted Accessory) Up to Proficiency Bonus times a day, gain 30 ft. of Truesight for 30 minutes";}
 	else if (RNG == 45) {GTaintedAccessory = "• (Tainted Accessory) One per Long Rest, gain an Extra Action on a turn";}
+	else if (RNG == 46) {GTaintedAccessory = `• (Tainted Accessory) Healing you take is duplicated to three allies within 10 ft. of you`;}
+	else if (RNG == 47) {GTaintedAccessory = `• (Tainted Accessory) `;}
+	else if (RNG == 48) {GTaintedAccessory = `• (Tainted Accessory) `;}
+	else if (RNG == 49) {GTaintedAccessory = `• (Tainted Accessory) `;}
+	else if (RNG == 50) {GTaintedAccessory = `• (Tainted Accessory) `;}
 }
 	function TaintedAccessoryAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
@@ -2587,7 +4930,7 @@ function ClassAffix() {
 			else if (RNG >= 5 && RNG <= 6) {
 				if (tierX == 3) {GClassAffix = `• (T2 Bard) +2 Song of Rest Dice Tier`;}
 				else {GClassAffix = `• (T1 Bard) +1 Song of Rest Dice Tier`;}}
-			else if (RNG >= 7 && RNG <= 8) {SkillTypeGen(); GClassAffix = `• (T2 Bard) Gain Expertise in ${GSkill}`;}
+			else if (RNG >= 7 && RNG <= 8) {SkillTypeGen(); GClassAffix = `• (T2 Bard) Gain Expertise in ${GSkillX}`;}
 			else if (RNG == 9) {
 				if (tierX == 3) {GClassAffix = `• (T2 Bard) Gain [Quick Song of Rest] - Twice per Long Rest, as an Action, allies within 20 ft. can spend Hit Dice and a Song of Rest dice to heal`;}
 				else {GClassAffix = `• (T1 Bard) Gain [Quick Song of Rest] - Once per Long Rest, as an Action, allies within 10 ft. can spend Hit Dice and a Song of Rest dice to heal`;}}
@@ -2717,8 +5060,8 @@ function ClassAffix() {
 				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Uncanny Dodge no longer requires a Reaction but you can only use it three times, recharging on a Long Rest`;}
 				else {GClassAffix = `• (T1 Rogue) Uncanny Dodge no longer requires a Reaction but you can only use it twice, recharging on a Long Rest`;}}
 			else if (RNG >= 7 && RNG <= 8) {
-				if (tierX == 3) {SkillTypeGen(); let skillX = GSkill; SkillTypeGen(); GClassAffix = `• (T2 Rogue) Gain Expertise in ${GSkill} and ${skillX}`;}
-				else {SkillTypeGen(); GClassAffix = `• (T1 Rogue) Gain Expertise in ${GSkill}`;}}
+				if (tierX == 3) {SkillTypeGen(); let skillX = GSkillX; SkillTypeGen(); GClassAffix = `• (T2 Rogue) Gain Expertise in ${GSkillX} and ${skillX}`;}
+				else {SkillTypeGen(); GClassAffix = `• (T1 Rogue) Gain Expertise in ${GSkillX}`;}}
 			else if (RNG == 9) {GClassAffix = `• (T2 Rogue) You can add half of your Charisma Modifier to Sleight of Hand and Stealth checks outside of combat`;}
 			else if (RNG == 10) {
 				if (tierX == 3) {GClassAffix = `• (T2 Rogue) Gain +2d6 Sneak Attakc Damage`;}
@@ -3034,4 +5377,3 @@ async function GearList() {
 
 document.getElementById("itemBox").innerHTML = txtConvert;
 }
-

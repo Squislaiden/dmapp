@@ -4,23 +4,23 @@
 
 +1 to Proficiency Bonus
 
-+3 Attunement Slots
++1 Attunement Slot
 
 Gain a Class Affix with double effectiveness
 
 The item cannot be picked up by someone you do not trust implicitly
 
-You cannot be moved against your will and have +5 on escape Grapple checks
++2 AC
 
-You no longer need to eat, breath, drink, or sleep
+Once per turn, per creature, on a hit, you can move them up to 15 ft., it does not have to be a straight line
 
-Gain an extra Bonus Action each turn
+You can detect (Creature) within 60 ft. and deal +6 damage to them
 
-Gain 15 ft. of all applicable Speeds
+After you hit with an attack, attempt to grapple and restrain the enemy with +6 to the check
+
+The weapon can deal full damage to creatures on the Etheral plane
 
 Gain an additional Reaction each turn
-
-Your unarmed attacks deal 1d8 + the higher of Strength or Dexterity. If the creature already has Unarmed Attack Dice, they deal 1d8 extra.
 
 Gain a Class Affix that does not count towards your limit of 2
 
@@ -69,3 +69,17 @@ As a Reaction or Bonus Action, the weapon can be changed into any other weapon
 This weapon always has with Advantage
 
 Gain 1 Extra Attack with this weapon
+
+Deal quadruple damage to structures and objects
+
+Attack with the weapon as a Bonus Action for full damage, or +2 AC if you don’t use your Bonus Action
+
+Add weapon dice two more times to a critical hit
+
+As part of the Attack, you can teleport up to 15 ft. towards the target
+
+Your attacks also hit enemies directly behind you
+
+You cannot be moved against your will and have +5 on escape Grapple checks
+
+Gain 15 ft. of all applicable Speeds

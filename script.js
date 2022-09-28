@@ -3910,6 +3910,7 @@ function FullEnemyBtn() {
 		if (GTremorsense > 0) {GSenseTotal += `tremorsense ${GTremorsense} ft., `} else {}
 		if (GBlindsight > 0) {GSenseTotal += `blindsight ${GBlindsight} ft., `} else {}
 		if (GTruesight > 0) {GSenseTotal += `truesight ${GTruesight} ft., `} else {}
+		if (GSkill.includes("Perception") == true) {GSenseTotal += `passive perception ${10 + GWisMod + GPB}, `;} else {GSenseTotal += `passive perception ${10 + GWisMod}, `;}
 		GSenseTotal = GSenseTotal.slice(0, -2);
 // Final Languages
 		if (GLanguage.includes("common") == true) {GLanguageTotal += "common, ";} else {}
@@ -3961,7 +3962,7 @@ function EnemyOutput() {
 	let LairPassivesList = ""
 	document.getElementById("charBox").innerHTML = `Name: \n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
 STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
-Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\nDamage Immunities: ${GImmuneTotal}\nVulnerabilities: ${GVulnTotal}\nCondition Immunities ${GCondImmuneTotal}\nSenses: ${GSenseTotal}\nLanguages: ${GLanguageTotal}\nChallenge Rating: ${GCR}\n`;
+Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\nDamage Immunities: ${GImmuneTotal}\nVulnerabilities: ${GVulnTotal}\nCondition Immunities ${GCondImmuneTotal}\nSenses: ${GSenseTotal}\nLanguages: ${GLanguageTotal}\nChallenge Rating: ${GCR} (Tier ${GTier})\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 		if (GSpellQty[0] > 0) {TraitsList += `• at will: ${GSpell0}\n`;} else {}
 		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
@@ -3974,7 +3975,7 @@ Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\
 		xNum = GActionQty; xNum2 = GRechargeQty;
 		if (GMultiattack >= 2) {ActionsList += `&nbsp;&nbsp;[Multiattack]\nThe creature can make ${GMultiattack} attacks on its turn.\n\n`;} else {}
 		while (xNum > 0) {xNum -= 1; ActionsList += `&nbsp;&nbsp;[${GActionNames[xNum]}]\n${GActions[xNum]}\n\n`;}
-		while (xNum2 > 0) {xNum2 -= 1; ActionsList += `$&nbsp;&nbsp;[{GRechargeNames[xNum2]}]\n${GRecharges[xNum2]}\n\n`;}
+		while (xNum2 > 0) {xNum2 -= 1; ActionsList += `&nbsp;&nbsp;[${GRechargeNames[xNum2]}]\n${GRecharges[xNum2]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------ACTIONS------\n${ActionsList}`;
 	if (GBonusQty > 0) {xNum = GBonusQty;
 	while (xNum > 0) {xNum -= 1; BonusesList += `&nbsp;&nbsp;[${GBonusNames[xNum]}]\n${GBonuses[xNum]}\n\n`;}

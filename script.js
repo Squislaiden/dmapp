@@ -2018,7 +2018,7 @@ function SpellScrollBtn() {
 function EnemyGenMod() {
 	let modRoll = Math.floor(Math.random() * 129) + 1;
 	let modElite
-	modElite = Math.floor(Math.random() * 10) + 1;
+	if (document.getElementById("modEliteCheck").checked == true) {modElite = 10} else {modElite = Math.floor(Math.random() * 10) + 1;}
 	if (modRoll == 1) {
             if (modElite == 10) {
                 GMod = `[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 14} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 2) + 2}d6 + ${GTier + 6} bludgeoning damage.`;}
@@ -2564,7 +2564,7 @@ function EnemyGenMod() {
                 GMod = `[Resistant] \nThe creature has 3 random resistances.`;}
             }
         else if (modRoll == 91) {
-            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GELement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
+            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
                 GMod = `[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.`;}
             else {ElementTypeGen(); GRes.length = 0; GRes.push(`All damage except ${GElement}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)}
                 GMod = `[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.`;}
@@ -2684,15 +2684,15 @@ function EnemyGenMod() {
                 GMod = `[Archmage] \nAll spells are upcast one level.`;}
 		}}
         else if (modRoll == 111) {
-            if (modElite == 10) {GMod = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
+            if (modElite == 10) {ModX = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
             else {GMod = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
             }
         else if (modRoll == 112) {
-            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSPeedFly += 20}
+            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSpeedFly += 20}
                 GMod = `[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
-            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSPeedFly += 10}
+            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSpeedFly += 10}
                 GMod = `[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
             }
         else if (modRoll == 113) {
@@ -2898,7 +2898,7 @@ function EnemyBonus() {
 function EnemyReaction() {
 	RNG = Math.floor(Math.random() * 2) + 1;
 		if (RNG == 1) {GReactionNames.push("Absorb Attack"); GReactions.push(`When an enemy the creature can see hits it with a melee weapon attack, the weapon snags on a pocket of residual dimensional energy and is caught fast. The attack is negated and the weapon cannot be used until the enemy succeeds on a DC ${GTier + 11} Strength (Athletics) check as an action to pull it out of the creature. Natural weapons can have their attacks negated by this feature, but can then be retracted automatically at the end of the attacking creature’s turn.`);}
-		else if (RNG == 2) {GReactionNames.push(`Dream`); GReactions.push(`When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC ${GTier + 10} Wisdom saving throw. Unless the save succeeds, the target takes (${Math.floor(GTier * 0.8)}d10) psychic damage, and the creature regains hit points equal to the amount of damage taken.`);}
+		else if (RNG == 2) {GReactionNames.push(`Dream`); GReactions.push(`When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC ${GTier + 10} Wisdom saving throw. Unless the save succeeds, the target takes (${Math.ceil(GTier * 0.8)}d10) psychic damage, and the creature regains hit points equal to the amount of damage taken.`);}
 		else if (RNG == 3) {GReactionNames.push(``); GReactions.push(``);}
 }
 	function EnemyReactionBtn() {
@@ -3311,9 +3311,9 @@ function FullEnemyBtn() {
 			if (lairRNG >= 1 && lairRNG <= 2) {GLairActiveQty = 2;} else if (lairRNG >= 3 && lairRNG <= 4) {GLairActiveQty = 3;} else if (lairRNG == 5) {GLairActiveQty = 4;}}
  // Get Lair Passives Qty and Range
 		rangeRNG = Math.floor(Math.random() * 10) + 1;
-		if (rangeRNG == 1) {GLairPassiveRange = "Half a Mile";} else if (rangeRNG == 2) {GLairPassiveRange = "1 Mile";} else if (rangeRNG == 3) {GLairPassiveRange = "2 Miles";} else if (rangeRNG == 4) {GLairPassiveRange = "4 Miles";}
-		else if (rangeRNG == 5) {GLairPassiveRange = "5 Miles";} else if (rangeRNG == 6) {GLairPassiveRange = "6 Miles";} else if (rangeRNG == 7) {GLairPassiveRange = "8 Miles";} else if (rangeRNG == 8) {GLairPassiveRange = "10 Miles";}
-		else if (rangeRNG == 9) {GLairPassiveRange = "15 Miles";} else if (rangeRNG == 10) {GLairPassiveRange = "20 Miles";}
+		if (rangeRNG == 1) {GLairPassiveRange = "half a mile";} else if (rangeRNG == 2) {GLairPassiveRange = "1 mile";} else if (rangeRNG == 3) {GLairPassiveRange = "2 miles";} else if (rangeRNG == 4) {GLairPassiveRange = "4 miles";}
+		else if (rangeRNG == 5) {GLairPassiveRange = "5 miles";} else if (rangeRNG == 6) {GLairPassiveRange = "6 miles";} else if (rangeRNG == 7) {GLairPassiveRange = "8 miles";} else if (rangeRNG == 8) {GLairPassiveRange = "10 miles";}
+		else if (rangeRNG == 9) {GLairPassiveRange = "15 miles";} else if (rangeRNG == 10) {GLairPassiveRange = "20 miles";}
 		if (document.getElementById("lairCheck").checked == false) {GLairPassiveQty = 0;} else {passRNG = Math.floor(Math.random() * 7) + 1;
 			if (passRNG >= 1 && passRNG <= 2) {GLairPassiveQty = 1;} else if (passRNG >= 3 && passRNG <= 4) {GLairPassiveQty = 2;} else if (passRNG >= 5 && passRNG <= 6) {GLairPassiveQty = 3;} else if (passRNG == 7) {GLairPassiveQty = 4;}}
  // Get Speed
@@ -3960,9 +3960,9 @@ function EnemyOutput() {
 	let LegendaryList = ""
 	let LairActionsList = ""
 	let LairPassivesList = ""
-	document.getElementById("charBox").innerHTML = `Name: \n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
+	document.getElementById("charBox").innerHTML = `Name: ??\n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
 STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
-- Saving Throws: ${GSaveTotal}\n- Skills: ${GSkillTotal}\n- Resistances: ${GResTotal}\n- Damage Immunities: ${GImmuneTotal}\n- Vulnerabilities: ${GVulnTotal}\n- Condition Immunities ${GCondImmuneTotal}\n- Senses: ${GSenseTotal}\n- Languages: ${GLanguageTotal}\n- Challenge Rating: ${GCR} (Tier ${GTier})\n\n`;
+- Saving Throws: ${GSaveTotal}\n- Skills: ${GSkillTotal}\n- Resistances: ${GResTotal}\n- Damage Immunities: ${GImmuneTotal}\n- Vulnerabilities: ${GVulnTotal}\n- Condition Immunities: ${GCondImmuneTotal}\n- Senses: ${GSenseTotal}\n- Languages: ${GLanguageTotal}\n- Challenge Rating: ${GCR} (Tier ${GTier})\n\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 		if (GSpellQty[0] > 0) {TraitsList += `• at will: ${GSpell0}\n`;} else {}
 		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
@@ -3970,6 +3970,7 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 		if (GSpellQty[1] > 0) {TraitsList += `• 5/day each: ${GSpell5}\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; TraitsList += `&nbsp;&nbsp;[${GTraitNames[xNum]}]\n${GTraits[xNum]}\n\n`;}
+		if (GMod = "") {} else {TraitsList += `&nbsp;&nbsp;[Random Enemy Modifier]\n${GMod}\n\n`;}
 		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.`;} else {}
 	document.getElementById("charBox").innerHTML += `------TRAITS------\n${TraitsList}`;
 		xNum = GActionQty; xNum2 = GRechargeQty;
@@ -4001,11 +4002,54 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 }
 
 function EnemyHomebrew() {
-	document.getElementById("homebrewBox").innerHTML = ``;
+	document.getElementById("homebrewBox").innerHTML = "{{monster,frame,wide\n## Name: ??\n";
+	document.getElementById("homebrewBox").innerHTML += `*${GSize}, ${GCreature}*\n___\n**Armor Class** :: ${GAC}\n**Hit Points** :: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nSpeed :: ${GSpeedTotal}\n___
+|STR|DEX|CON|INT|WIS|CHA|\n|:-:|:-:|:-:|:-:|:-:|:-:|\n|${GStr} (${GStrMod})|${GDex} (${GDexMod})|${GCon} (${GConMod})|${GInt} (${GIntMod})|${GWis} (${GWisMod})|${GCha} (${GChaMod})|\n___
+**Proficiency Bonus** :: +${GPB}\n`;
+	if (GSaveTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Saving Throws** :: ${GSaveTotal}\n`}
+	if (GSkillTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Skills** :: ${GSkillTotal}\n`}
+	if (GResTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Resistances** :: ${GResTotal}\n`}
+	if (GImmuneTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Immunities** :: ${GImmuneTotal}\n`}
+	if (GVulnTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Vulnerabilities** :: ${GVulnTotal}\n`}
+	if (GCondImmuneTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Condition Immunities** :: ${GCondImmuneTotal}\n`}
+	document.getElementById("homebrewBox").innerHTML += `**Challenge** :: ${GCR} (Tier ${GTier})\n___\n`;
+	if (GMagic == "Half" || GMagic == "Caster") {document.getElementById("homebrewBox").innerHTML += `Spellcasting\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
+	if (GSpellQty[0] > 0) {document.getElementById("homebrewBox").innerHTML += `at will: ${GSpell0}\n`;} else {}
+	if (GSpellQty[3] > 0) {document.getElementById("homebrewBox").innerHTML += `1/day each: ${GSpell1}\n`;} else {}
+	if (GSpellQty[2] > 0) {document.getElementById("homebrewBox").innerHTML += `3/day each: ${GSpell3}\n`;} else {}
+	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n`;} else {}}
+	xNum = GTraitQty;
+	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GTraitNames[xNum]}.*** ${GTraits[xNum]}\n:\n`;}
+		if (GMod = "") {} else {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier*** ${GMod}\n:\n`;}
+		if (GLegendaryResist > 0) {document.getElementById("homebrewBox").innerHTML += `***Legendary Resistance (${GLegendaryResist}/day).*** If the creature fails a saving throw, it can choose to succeed instead.\n:\n`;} else {}
+	document.getElementById("homebrewBox").innerHTML += `### Actions\n`;
+	xNum = GActionQty;
+	xNum2 = GRechargeQty;
+	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GActionNames[xNum]}.*** ${GActions[xNum]}\n:\n`;}
+	while (xNum2 > 0) {xNum2 -=1; document.getElementById("homebrewBox").innerHTML += `***${GRechargeNames[xNum2]}.*** ${GRecharges[xNum2]}\n:\n`;}
+	if (GBonusQty > 0) {xNum = GBonusQty; document.getElementById("homebrewBox").innerHTML += `### Bonus Actions\n`;
+	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GBonusNames[xNum]}.*** ${GBonuses[xNum]}\n:\n`;}} else {}
+	if (GReactionQty > 0) {document.getElementById("homebrewBox").innerHTML += `### Reactions\n`; xNum = GReactionQty;
+	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GReactionNames[xNum]}.*** ${GReactions[xNum]}\n:\n`;}} else {}
+	if (document.getElementById("bossCheck").checked == true) {if (GLegendaryQty > 0) {xNum = GLegendaryQty;
+		document.getElementById("homebrewBox").innerHTML += `### Legendary Actions\nThe creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn.\n:\n`;}
+		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLegendaryNames[xNum]}.*** ${GLegendaries[xNum]}\n:\n`;}} else {}
+	if (document.getElementById("bossCheck").checked == true) {if (GLairActiveQty > 0) {xNum = GLairActiveQty;
+		document.getElementById("homebrewBox").innerHTML += `### Lair Actions\nWhile in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties).\n:\n`;}
+		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairActiveNames[xNum]}.*** ${GLairActives[xNum]}\n:\n`;}} else {}
+	if (document.getElementById("bossCheck").checked == true) {if (GLairPassiveQty > 0) {xNum = GLairPassiveQty;
+		document.getElementById("homebrewBox").innerHTML += `### Regional Lair Effects\nThe area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 8) + 1)} weeks.\n:\n`;}
+		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairPassiveNames[xNum]}.*** ${GLairPassives[xNum]}\n:\n`;}} else {}
+	document.getElementById("homebrewBox").innerHTML += `}}`;
+	
+	//tempState = document.getElementById("homebrewBox").innerHTML;
+	//document.getElementById("homebrewBox").innerHTML = tempState.slice(0, -1);
 }
 
 function EnemyImproved() {
 	document.getElementById("improvedBox").innerHTML = ``;
+	
+	document.getElementById("improvedBox").innerHTML += ``;
 }
 
 function copyOutput() {

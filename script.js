@@ -3962,7 +3962,7 @@ function EnemyOutput() {
 	let LairPassivesList = ""
 	document.getElementById("charBox").innerHTML = `Name: \n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
 STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
-- Saving Throws: ${GSaveTotal}\n- Skills: ${GSkillTotal}\n- Resistances: ${GResTotal}\n- Damage Immunities: ${GImmuneTotal}\n- Vulnerabilities: ${GVulnTotal}\n- Condition Immunities ${GCondImmuneTotal}\n- Senses: ${GSenseTotal}\n- Languages: ${GLanguageTotal}\n- Challenge Rating: ${GCR} (Tier ${GTier})\n`;
+- Saving Throws: ${GSaveTotal}\n- Skills: ${GSkillTotal}\n- Resistances: ${GResTotal}\n- Damage Immunities: ${GImmuneTotal}\n- Vulnerabilities: ${GVulnTotal}\n- Condition Immunities ${GCondImmuneTotal}\n- Senses: ${GSenseTotal}\n- Languages: ${GLanguageTotal}\n- Challenge Rating: ${GCR} (Tier ${GTier})\n\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 		if (GSpellQty[0] > 0) {TraitsList += `• at will: ${GSpell0}\n`;} else {}
 		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
@@ -5376,7 +5376,7 @@ async function GearList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyTraitInfo() {
@@ -5384,7 +5384,7 @@ async function EnemyTraitInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyActionInfo() {
@@ -5392,7 +5392,7 @@ async function EnemyActionInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyBonusInfo() {
@@ -5400,7 +5400,7 @@ async function EnemyBonusInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyReactionInfo() {
@@ -5408,7 +5408,7 @@ async function EnemyReactionInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyRechargeInfo() {
@@ -5416,7 +5416,7 @@ async function EnemyRechargeInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyLegendaryInfo() {
@@ -5424,7 +5424,7 @@ async function EnemyLegendaryInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyLairInfo() {
@@ -5432,7 +5432,7 @@ async function EnemyLairInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function TypeSpecificInfo() {
@@ -5440,5 +5440,5 @@ async function TypeSpecificInfo() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("itemBox").innerHTML = txtConvert;
+document.getElementById("charBox").innerHTML = txtConvert;
 }

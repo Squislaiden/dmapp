@@ -1,0 +1,293 @@
+Poisonous Bite
+Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d6 + 2) piercing damage, and the target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. While poisoned this way, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Ovipositor
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: The target is infested with 1d3 eggs, which immediately hatch into maggots. At the start of each of the target’s turns, the target takes 1d6 piercing damage per maggot infesting it. Applying fire to the bite wound before the end of the target’s next turn deals 1 fire damage to the target and kills these maggots. After this time, the maggots are too far under the skin to be burned. If a target infested by maggots ends its turn with 0 hit points, it dies as the maggots burrow into its heart and kill it. Any effect that cures disease kills all maggots infesting the target.
+
+Bite
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+
+Dagger
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4
+
+Club
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4
+
+Handaxe
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+
+Light Hammer
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4
+
+Javelin
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+
+Quarterstaff
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+
+Spear
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+
+Mace
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+
+Greatclub
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Shortsword
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6
+
+Rapier
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Longsword
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+
+Whip
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4
+
+Battleaxe
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+
+Morningstar
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Flail
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Warhammer
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Pike
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+
+Barbed Whip
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+
+Halberd
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+
+Glaive
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+
+Greataxe
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d12
+
+Greatsword
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6
+
+Maul
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6
+
+Scimitar
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+
+Trident
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+
+War Pick
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+
+Light Crossbow
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d8 (RANGED 80/320)
+
+Shortbow
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d6 (RANGED 80/320)
+
+Hand Crossbow
+Ranged weapon attack: +4 to hit, ranged 30/120, one target. Hit: 1d8 (RANGED 30/120)
+
+Heavy Crossbow
+Ranged weapon attack: +4 to hit, ranged 100/400, one target. Hit: 1d10 (RANGED 100/400)
+
+Longbow
+Ranged weapon attack: +4 to hit, ranged 150/600, one target. Hit: 1d8 (RANGED 150/600)
+
+Radiant Blast
+Radiant energy erupts from the creature’s eyes in a 15-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or take 7 (2d6) radiant damage and be blinded until the end of the creature’s next turn. Creatures with the Sunlight Sensitivity trait have disadvantage on this saving throw.
+
+Claw
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 2) slashing damage.
+
+Claw (Grapple)
+Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 7 (1d6 + 4) bludgeoning damage and the target is grappled (escape DC 14). Until this grapple ends, the creature can automatically hit the target with its claw, and the creature can’t make attacks with that claw against other targets.
+
+Gemstone Eye of Fear
+The creature shoots a magical eye rays, choosing one target it can see within 90 feet of it. The target and up to four other creatures of the creature’s choice within 10 feet of the target must each succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Gemstone Eye of Flame
+The creature shoots a magical eye rays, choosing one target it can see within 90 feet of it. The target must make a DC 13 Dexterity saving throw. On a failed save, the target takes 13 (3d8) fire damage, and if it is a creature or a flammable object, it ignites. On a successful save, the target takes half as much damage and does not ignite. A target that ignites takes 3 (1d6) fire damage at the start of each of its turns until a creature takes an action to douse the fire.
+
+Rock
+Ranged Weapon Attack: +12 to hit, range 60/240 ft., one target. Hit: 30 (1d8 + 2) bludgeoning damage.
+
+Dart
+Ranged weapon attack: +3 to hit, range 20/60 ft., one target. Hit: 3 (1d4 + 1) piercing damage.
+
+Earth Phasing
+Until the end of its next turn, the creature can fly through nonmagical earth and stone. While doing so, it doesn’t disturb the material it moves through. It can end its movement within earth or stone, but if it remains within earth or stone when this ability ends, it takes 14 (4d6) force damage and immediately moves to the nearest unoccupied space.
+
+Needle Volley
+The creature makes up to 1d6 needle attacks, but it cannot attack the same target more than twice during its turn.
+
+Raking Vine
+Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) piercing damage, and the target is grappled (escape DC 14). Until this grapple ends, the target takes 11 piercing damage at the start of each of its turns. The creature has two raking vines, each of which can grapple only one target.
+
+Barbed Tail
+Melee weapon attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage.
+
+Scythe
+Melee Weapon Attack: +14 to hit, reach 10 ft., one creature. Hit: (1d8 + 7) slashing damage plus 5 (2d4) necrotic damage. Any creature reduced to 0 hit points by this attack dies, with its body and everything it is wearing and carrying, except magic items, exploding into a cloud of ash.
+
+Entropic Touch
+Melee Weapon Attack: +14 to hit, reach 5 ft., one target. Hit: (1d8 + 7) necrotic damage, and the target must succeed on a DC 10 Constitution saving throw or gain one level of exhaustion.
+
+Teleport
+The creature teleports, along with any equipment it is wearing or carrying, up to 30 feet to an unoccupied space it can see.
+
+Shadow Caw
+The creature releases an ear-splitting caw. Each creature within 60 feet of the creature and able to hear it must make a DC 13 Constitution saving throw. On a failure, a creature takes 10 (3d6) psychic damage.
+
+Tentacle
+Melee Weapon Attack: +6 to hit, reach 15 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage. If the target is a creature, it is grappled (escape DC 14). Until this grapple ends, the target is restrained. The creature can grapple no more than two targets at a time.
+
+Fist
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 3) bludgeoning damage.
+
+Acid Squirt
+Ranged Weapon Attack: +5 to hit, range 20/40 ft., one target. Hit: 7 (1d8 + 3) acid damage.
+
+Beer Shower
+The creature spews an unnaturally potent beer in a 15-foot cone or in a 30-foot line that is 5 feet wide. Each creature in the area must succeed on a DC 13 Constitution saving throw or be poisoned. While poisoned in this way, a creature has its speed halved by exposure to the potent brew. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Additionally, the beer shower extinguishes any fires or open flames in its area.
+
+Vitality Drain
+One creature grappled by the creature must make a DC 12 Constitution saving throw. On a failed save, the target takes 9 (2d8) necrotic damage, and the creature regains a number of hit points equal to half the necrotic damage taken.
+
+Nightmare Touch
+Melee Spell Attack: +7 to hit, reach 5 ft., one creature. Hit: 18 (4d6 + 4) psychic damage. If the target is unconscious, it takes an extra 10 (3d6) psychic damage and is cursed until the creature dies or the curse is removed. The cursed target’s hit point maximum decreases by 5 (1d10) whenever it finishes a long rest.
+
+Tentacle Whip
+Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 24 (3d10 + 8) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape DC 14), pulled into an unoccupied space within 5 feet of the creature, and must succeed on a DC 13 Intelligence saving throw or be stunned until this grapple ends. The creature can’t use the same tentacle whip on another target until this grapple ends. The creature has two tentacle whips.
+
+Extract Brain
+Melee Weapon Attack: +15 to hit, reach 5 ft., one incapacitated creature grappled by the creature. Hit: 17 (3d10) piercing damage. If this damage reduces the target to 0 hit points, the creature kills the target by extracting and devouring its brain.
+
+Idyllic Touch
+Melee Spell Attack: +8 to hit, reach 5 ft., one target. Hit: 9 (1d10 + 4) force damage. If the target is a creature, it must succeed on a DC 13 Wisdom saving throw or fall prone in a fit of laughter.
+
+Mind Thrust
+The creature targets a creature it can see within 60 feet of it. The target must make a DC 12 Wisdom saving throw, taking 14 (3d8) psychic damage on a failed save, or half as much damage on a successful one.
+
+Crysteel Dagger
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage plus 10 (3d6) force damage.
+
+Strong Bite
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or take an extra 3 (1d6) piercing damage and be grappled (escape DC 13). The creature can have only one creature grappled in this way at a time.
+
+Arcane Blast
+Ranged Spell Attack: +13 to hit, range 120 ft., one target. Hit: 12 (1d10 + 7) force damage.
+
+Soul Binding
+Melee Spell Attack: +13 to hit, reach 5 ft., one target. Hit: 15 (2d10 + 4) necrotic damage. A creature reduced to 0 hit points from this attack dies and has its soul imprisoned inside the creature's body. The target can’t be revived by any means short of a wish spell until the creature is destroyed.
+
+Paralyzing Claw
+Melee Weapon Attack: +10 to hit, reach 5 ft., one creature. Hit: 13 (3d6 + 3) slashing damage plus 10 (3d6) cold damage, and the target must succeed on a DC 13 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Holy Flail
+Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 10 (1d8 + 6) bludgeoning damage plus 18 (4d8) radiant damage.
+
+Chromatic Orb
+Ranged Spell Attack: +10 to hit, range 120 ft., one creature. Hit: 13 (3d8) damage of a type chosen by the creature: acid, cold, fire, lightning, poison, or thunder.
+
+Magic Staff
+Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 14 (2d10 + 4) force damage.
+
+Fire Bolt (Cantrip)
+Ranged Spell Attack: +4 to hit, range 120 ft., one target. Hit: 11 (2d10) fire damage. A flammable object hit by this spell ignites if it isn’t being worn or carried.
+
+Pincer
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) bludgeoning damage. The target is grappled (escape DC 14) if it is a Medium or smaller creature. The creature has two pincers, each of which can grapple one target.
+
+Hallucinogenic Stinger
+Melee Weapon Attack: +6 to hit, reach 10 ft., one creature. Hit: 8 (1d10 + 3) piercing damage plus 11 (2d10) psychic damage, and the target must succeed on a DC 13 Wisdom saving throw or be frightened of the creature for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Radiant Touch
+Melee Spell Attack: +9 to hit, reach 5 ft., one target. Hit: 15 (3d6 + 5) radiant damage.
+
+Talons
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d4 + 4) slashing damage.
+
+Hooves
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage.
+
+Slam
+Melee Weapon Attack: +18 to hit, reach 20 ft., one target. Hit: 29 (3d12 + 10) bludgeoning damage, and if the target if the same size as the creature, it can push the target 10 feet away from it.
+
+Eldritch Turret
+Ranged Spell Attack: +18 to hit, range 300 ft., one target. Hit: 18 (4d8) force damage, and if the target is a creature, it is knocked prone.
+
+Hammer of Justice
+Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage plus 10 (3d6) force damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.
+
+Arclight Touch
+Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 11 (3d6) lightning damage, and lightning jumps from the target to one creature of the creature’s choice that it can see within 30 feet of the target. That second creature must succeed on a DC 13 Dexterity saving throw or take 11 (3d6) lightning damage.
+
+Vampiric Bite
+Melee Weapon Attack: +7 to hit, reach 5 ft., a willing creature, a creature that is charmed by the creature, or a creature that is grappled, restrained, or incapacitated. Hit: 7 (1d6 + 4) piercing damage plus 7 (2d6) necrotic damage.
+The target’s hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.
+
+Chain
+Melee Weapon Attack: +9 to hit, reach 20 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage. If the target is a creature, it is grappled (escape DC 13). Until the grapple ends, the target is restrained, and the giant can’t use this attack on anyone else.
+
+Spit Acid
+Ranged Weapon Attack: +5 to hit, range 20/60 ft., one target. Hit: 10 (4d4) acid damage.
+
+Petrifying Gaze
+The creature fixes its gaze on one foe within 60 feet of it that it can see and that can see its eyes. The target must make a DC 12 Constitution saving throw. If the saving throw fails by 5 or more, the for is instantly petrified. Otherwise, a foe that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.
+
+Searing Touch
+The creature grabs a target and attempts to grapples them. The initial touch deals 11 (3d6) damage and an additional 11 (3d6) damage each turn they remain grappled.
+
+Pseudopod
+Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 16 (2d4 + 7) bludgeoning damage. 
+
+Little Fire Flower
+Melee Weapon Attack. +7 to hit, reach 5 ft., one target. Hit: 14 (3d8) fire damage. A creature hit by this attack is knocked back 5 ft. and cannot take a reaction until the end of their next turn.
+
+Poisoned Daggers
+Melee Weapon Attack: +10 to hit, reach 5 ft. or range 20/60 ft., one or two targets. Hit: 7 (1d4 + 5) piercing damage. The target must make a DC 14 Consitution Saving Throw or else take 14 (4d6) poison damage and become poisoned. A successful save takes half damage and is not poisoned.
+
+Pinning Thrust
+The creature attempts to pierce his sword through his target's leg into the ground. +8 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. The target makes a DC 14 Dexterity saving throw. On a fail, the sword pierces their leg into the ground and they are considered restrained until the sword is removed.
+
+Stunning Claw
+Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) slashing damage. A target hit by two claw attacks in the same turn must make a DC 14 Consitution saving throw or else be stunned until the end of their next turn.
+
+Haymaker
+Melee Weapon Attack. +11, 5 ft., one target. Hit: 18 (2d12 + 5) bludgeoning damage. A creature hit by this must make a Strength DC 13 saving throw or be knocked back 10 ft. Any creature hit by the target must make a Dex DC 13 saving throw or else take 18 (3d8 + 5) bludgeoning damage and be knocked back to just behind where the target ends.
+
+Tail
+Melee Weapon Attack: +13 to hit, reach 15 ft., one target. Hit: 9 (2d4 + 4) bludgeoning damage.
+
+Bleeding Claw
+Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 15 (2d6 + 8) slashing damage, and the target loses 2 hit points from bleeding at the start of each of its turns for six rounds unless it receives magical healing. Bleeding damage is cumulative; the target loses 2 hp per round for each bleeding wound it's taken from the creature's claws.
+
+Devour
+Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 18 (2d12 + 5) slashing damage and attempts to grapple the target. If the target was already grappled by the creature, it takes an additional 13 (2d12) piercing damage. The creature can grapple one creature at a time, and it can't use its devour attack against a different target while it has a creature grappled.
+
+Burning Claw
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage plus 3 (1d6) fire damage. If the target is a creature or a flammable object, it ignites. Until a creature takes an action to douse the fire, the target takes 5 (1d8) fire damage at the start of each of its turns.
+
+Spit Fire
+Ranged Weapon Attack: +4 to hit, range 15/30 ft., one target. Hit: 9 (2d6 + 2) fire damage. If the target is a creature or a flammable object, it ignites. Until a creature takes an action to douse the fire, the target takes 5 (1d8) fire damage at the start of each of its turns.
+
+Discombobulating Touch
+The creature can make a touch attack that grants its target +3 to Dexterity-based skill checks and melee attacks but also induces confusion as per the spell. This effect lasts for 1d4 rounds. A successful DC 13 Charisma saving throw negates this effect.
+
+Forgetful Spellcasting
+When a creature fails an Intelligence, Wisdom, or Charisma saving throw against a spell cast by the creature, the target immediately forgets the source of the spellcasting.
+
+Bone Shard
+Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 8 (2d4 + 3) piercing damage and the target must make a DC 14 Constitution saving throw. On a failure, a piece of the bone breaks and sticks in the target's wound. The target takes 5 (2d4) piercing damage at the start of each of its turns as long as the bone remains lodged in its wound. A creature, including the target, can take its action to remove the bone by succeeding on a DC 14 Wisdom (Medicine) check. The bone also falls out of the wound if the target receives magical healing.
+A creature typically carries 3 (1d6) bone shards, which are destroyed on a successful hit. It can use its action to tear a bone shard from a corpse within 5 feet.
+

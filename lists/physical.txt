@@ -1,0 +1,4 @@
+Bludgeoning
+Slashing
+Piercing
+Native Weapon Type

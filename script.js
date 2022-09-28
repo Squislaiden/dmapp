@@ -3959,7 +3959,7 @@ function EnemyOutput() {
 	let LegendaryList = ""
 	let LairActionsList = ""
 	let LairPassivesList = ""
-	document.getElementById("charBox").innerHTML = `Creature Name\n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
+	document.getElementById("charBox").innerHTML = `Name: \n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
 STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
 Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\nDamage Immunities: ${GImmuneTotal}\nVulnerabilities: ${GVulnTotal}\nCondition Immunities ${GCondImmuneTotal}\nSenses: ${GSenseTotal}\nLanguages: ${GLanguageTotal}\nChallenge Rating: ${GCR}\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
@@ -5270,7 +5270,7 @@ function GlyphHelp() {
 }
 
 async function WeaponAffixList() {
-	let grabFile = await fetch('/dmapp/lists/weaponaffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/weaponaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5278,7 +5278,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function ArmorAffixList() {
-	let grabFile = await fetch('/dmapp/lists/armoraffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/armoraffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5286,7 +5286,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function AccessoryAffixList() {
-	let grabFile = await fetch('/dmapp/lists/accessoryaffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/accessoryaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5294,7 +5294,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function TaintedWeaponList() {
-	let grabFile = await fetch('/dmapp/lists/taintedweaponaffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/taintedweaponaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5302,7 +5302,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function TaintedArmorList() {
-	let grabFile = await fetch('/dmapp/lists/taintedarmoraffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/taintedarmoraffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5310,7 +5310,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function TaintedAccessoryList() {
-	let grabFile = await fetch('/dmapp/lists/taintedaccessoryaffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/taintedaccessoryaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5318,7 +5318,7 @@ document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
 async function ClassAffixList() {
-	let grabFile = await fetch('/dmapp/lists/classaffix.txt');
+	let grabFile = await fetch('/dmapp/lists/affixes/classaffix.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5363,7 +5363,7 @@ document.getElementById("infoBox").innerHTML = txtConvert;
 }
 
 async function EnemyModInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemymodifier.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/enemymodifier.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5372,6 +5372,70 @@ document.getElementById("charBox").innerHTML = txtConvert;
 
 async function GearList() {
 	let grabFile = await fetch('/dmapp/lists/gear.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyTraitInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/traits.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyActionInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/actions.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyBonusInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/bonuses.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyReactionInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/reactions.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyRechargeInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/recharges.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyLegendaryInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/legactions.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function EnemyLairInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/lairtraits.txt');
+	let txtConvert = await grabFile.text();
+	const makeArray = txtConvert.split("\r?\n");
+
+document.getElementById("itemBox").innerHTML = txtConvert;
+}
+
+async function TypeSpecificInfo() {
+	let grabFile = await fetch('/dmapp/lists/enemy/typespecific.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 

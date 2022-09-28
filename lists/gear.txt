@@ -1,0 +1,82 @@
+------Armor------
+Shield
+(Light) Leather
+(Light) Studded Leather
+(Light) Padded
+(Medium) Hide
+(Medium) Breastplate
+(Medium) Chain Shirt
+(Medium) Half Plate
+(Medium) Scale Mail
+(Heavy) Ring Mail
+(Heavy) Chain Mail
+(Heavy) Splint
+(Heavy) Plate
+------Weapon------
+(Simple Melee) Club
+(Simple Melee) Dagger
+(Simple Melee) Greatclub
+(Simple Melee) Handaxe
+(Simple Melee) Javelin
+(Simple Melee) Light Hammer
+(Simple Melee) Mace
+(Simple Melee) Quarterstaff
+(Simple Melee) Sickle
+(Simple Melee) Spear
+(Martial Melee) Battleaxe
+(Martial Melee) Flail
+(Martial Melee) Glaive
+(Martial Melee) Greataxe
+(Martial Melee) Greatsword
+(Martial Melee) Halberd
+(Martial Melee) Lance
+(Martial Melee) Longsword
+(Martial Melee) Maul
+(Martial Melee) Morningstar
+(Martial Melee) Pike
+(Martial Melee) Rapier
+(Martial Melee) Scimitar
+(Martial Melee) Shortsword
+(Martial Melee) Trident
+(Martial Melee) War Pick
+(Martial Melee) War Hammer
+(Martial Melee) Whip
+(Simple Ranged) Light Crossbow
+(Simple Ranged) Shortbow
+(Simple Ranged) Sling
+(Martial Ranged) Hand Crossbow
+(Martial Ranged) Heavy Crossbow
+(Martial Ranged) Longbow
+(Martial Ranged) Blowgun
+------Accessories------
+Crown (0-8 gems)
+Amulet (0-2 gems)
+Ring (0-1 gem)
+Bracelet (0-3 gems)
+Choker (0-4 gems)
+Pair of Earrings (0-1 gem each)
+Quiver
+Timepiece (Watch, etc.)
+Belt
+------Artisan's Tools------
+Alchemist's Supplies
+Brewer's Supplies
+Calligrapher's Supplies
+Carpenter's Tools
+Cartographer's Tools
+Cobbler's Tools
+Cook's Utensils
+Glassblower's Tools
+Jeweler's Tools
+Leatherworker's Tools
+Mason's Tools
+Painter's Supplies
+Potter's Tools
+Smith's Tools
+Tinker's Tools
+Weaver's Tools
+Woodcarver's Tools
+Thieves' Tools"
+------x------
+
+------x------

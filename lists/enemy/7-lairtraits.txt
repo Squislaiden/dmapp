@@ -1,0 +1,46 @@
+	ACTIONS
+Cave In
+A 40 ft. wide circular section of the roof starts to crumble. At the same point in the initiative order next turn, the ceiling crumbles down, making it difficult terrain. Anyone caught in it must succeed on a DC 15 Dexterity Saving Throw or else take 24 (4d8 + 6) bludgeoning damage and be knocked prone. On a Critical Fail, they are restrained under the rocks and they or someone else must succeed on a DC 16 Athletics check to escape or pull them out.
+
+Plate Shift
+A section of the floor shifts in a direction. All creatures, must make a DC 14 Dexterity Saving Throw or be moved 5 ft. in the direction and be knocked prone. The creature whose lair it is automatically passes. A creature that succeeds can choose to be moved 5 feet in the direction of the movement or jump to avoid moving.
+
+Earth Crush
+A 10x10 foot section of the ceiling rushes down to the ground. A creature in the target area must make a DC 14 Dexterity Saving Throw or be pinned to the ground, taking 19 (5d6) bludgeoning damage. They are considered restrained and must succeed on a DC 14 Athletics Check to escape.
+
+Void Absorbance
+The creature can pull the life force from those it has converted to undead to replenish its own life. This takes 14 (4d6) hit points from undead within 30 feet of the creature, spread evenly between the undead, and healing the creature. If an undead reaches 0 hit points from this action, it perishes with no Undead Fortitude saving throw.
+
+Fissure
+A ten foot-wide, ten foot-long crack opens in the cavern floor where the creature wishes. Any creature occupying that space must make a successful DC 15 Dexterity saving throw or fall 20 feet, taking 7 (2d6) bludgeoning damage plus 7 (3d4) piercing damage from the jagged stones at the bottom.
+
+Insect Swarm
+The creature summons a swarm of insects as if it had cast insect plague, filling a 20-foot radius sphere within 90 feet of the creature. Creatures that are in the affected space or that enter it take 17 (3d10) piercing damage, or half damage with a successful DC 14 Constitution saving throw. The swarm lasts one full round.
+
+
+
+	PASSIVES (Range 500 ft-10 miles for a Lair) (When creature dies, these fade over 2d10 days.)
+Paranoia
+Creatures within range feel as if they are being followed, even when they're not.
+
+Telepathic Eavedropping
+The creature can overhear any telepathic conversation within range of it. The creature that initiated the telepathic conversation makes a DC 15 Wisdom save. On a save, the creature is aware something is eavesdropping, but know nothing about it.
+
+Earthen Sense
+The creature can sense the footsteps of any creatures within range while within its lair.
+
+Magical Awareness
+The creature can sense any magic within 200 ft. of itself as if it was under the effects of detect magic.
+
+Water Contamination
+Water sources within range of the creature's lair are not only supernaturally fouled but can spread a disease. A creature who drinks from such water must make a successful DC 14 Constitution check or become infected. An infected creature can only breath underwater.
+
+Poisonous Passages
+Poisonous and odorless gases suddenly fill passages and caverns, and just as quickly disperse, within range of the creature's lair.
+
+Flash Flooding
+Flash flooding turns tunnels into death traps as tremors create fissures in the stone within range of the lair. On the surface, ponds drain away, and long-dry creek beds break their banks in flood.
+
+Vermin Swarm
+Swarms of vermin within range of the lair increase in both size and number as they try to escape the creature's endless and undiscriminating hunger.
+

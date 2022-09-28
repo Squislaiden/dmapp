@@ -1,0 +1,126 @@
+Legendary Resistance (2-4/Day)
+If the creature fails a saving throw, it can choose to succeed instead.
+
+// Actions Below
+
+Weapon Attack
+Make one attack with a weapon.
+
+Spellcasting (Costs 2 Actions)
+Cast a 3rd Level or lower spell.
+
+Teleport
+The creature teleports up to 30 ft.
+
+Call the Void (Costs 3 Actions)
+Each creature that is not a construct or undead within 20 feet of the creature must make a DC 10 Constitution saving throw against the creature’s attempt to unmake life, taking 10 (3d6) necrotic damage on a failed save, or half as much damage on a successful one. The creature then regains a number of hit points equal to half the total damage taken by all affected creatures.
+
+Detect
+The creature makes a Wisdom (Perception) check.
+
+Wing Attack ( Costs 2 Actions)
+The creature beats its wings. Each target within 10 feet of the creature must succeed on a DC 14 Dexterity saving throw or take 14 (3d6 + 3) bludgeoning damage and be knocked prone.
+
+Implant Fear (Costs 2 Actions)
+The creature targets a creature it can see within 30 feet of it. The target must succeed on a DC 12 Wisdom saving throw or take 10 (2d8) psychic damage and immediately use its reaction, if available, to move as far as its speed allows away from the creature.
+
+Rend Reality (Costs 3 Actions)
+The creature rips at the bonds of reality in its immediate area. Each creature within 10 feet of the creature must succeed on a DC 13 Constitution saving throw or take 14 (2d12) force damage and gain one level of exhaustion.
+
+Spawn Aberration (Costs 2 Actions)
+The creature regurgitates an intellect devourer in an unoccupied space within 5 feet of it. The intellect devourer is under the creature’s control and acts immediately after the creature in the initiative order.
+
+Mind Blast (Costs 3 Actions)
+The creature magically emits psychic energy in a 30-foot cone. Each creature in that area must succeed on a DC 13 Intelligence saving throw or take 18 (3d8 + 4) psychic damage and be stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Frightening Presence (Costs 2 Actions)
+The creature targets up to three creatures it can see within 30 feet of it. Each target must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target’s saving throw is successful or the effect ends for it, the target is immune to the creature’s Frightening Presence for the next 24 hours.
+
+Chromatic Resistance
+The creature gains resistance to one damage type of its choice — acid, cold, fire, lightning, poison, or thunder — until the start of its next turn.
+
+Warlord’s Command (Costs 2 Actions)
+The creature targets up to two allies that it can see within 30 feet of it. If a target can see and hear it, the target can make one weapon attack as a reaction and gains advantage on the attack roll.
+
+End Magic (Costs 2 Actions)
+The creature casts dispel magic.
+
+Provoke Rage (Costs 3 Actions)
+Each enemy within 60 feet of the creature must succeed on a DC 14 Wisdom saving throw or use its reaction to make a melee weapon attack against a random creature within reach. If no creatures are within reach, it makes a ranged weapon attack against a random creature within range, throwing its weapon if necessary. This attack is made with advantage and gains a +2 bonus to the damage roll.
+
+Consume Magic (Costs 2 Actions)
+The creature targets a creature within 120 feet of it who is concentrating on a spell. The target must succeed on a DC 14 Constitution saving throw or its concentration is broken on the spell, and the creature gains 5 temporary hit points per level of that spell.
+
+Maddening Secrets (Costs 3 Actions)
+The creature whispers an arcane secret into the mind of a creature it can see within 60 feet of it. The target must succeed on a DC 14 Wisdom saving throw or expend one of its spell slots of 2nd level or lower and deal 14 (3d8) force damage to each creature within 15 feet of it. A creature that fails the saving throw but can’t expend a spell slot is instead stunned until the end of its next turn.
+
+Cast a Spell (Costs 2 Actions)
+The creature casts a spell of 2nd level or lower from its spell list that takes 1 action to cast.
+
+Mad Dash (Costs 2 Actions)
+The creature moves up to its speed without provoking opportunity attacks, then makes one melee attack.
+
+Blade Dash (Costs 3 Actions)
+The creature moves up to its speed without provoking opportunity attacks, then makes one melee attack. It can make one melee attack against each creature it moves past.
+
+Shimmering Aura (Costs 2 Actions)
+The creature channels positive energy into its aura. Until the end of the creature’s next turn, it sheds bright light in a 30-foot radius and dim light for an additional 30 feet. Any creature that starts its turn in the bright light must succeed on a DC 14 Constitution saving throw or be blinded until the end of the creature’s next turn.
+
+Detention (Costs 2 Actions)
+The creature targets a creature it can see within 60 feet of it. The target must succeed on a DC 12 Charisma saving throw or be magically teleported to a harmless demiplane until the end of the creature’s next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied.
+
+Command Allies (Costs 2 Actions)
+The creature chooses up to three creatures it can see within 30 feet of it. If a chosen creature can see or hear the creature, it can immediately use its reaction to make one weapon attack, with advantage on the attack roll.
+
+Disrupt Life (Costs 3 Actions)
+Each creature within 30 feet of the creature must make a DC 14 Constitution saving throw, taking 14 (4d6) necrotic damage on a failed save, or half as much damage on a successful one.
+
+Supreme Legal Authority (Costs 3 Actions)
+The creature chooses up to three creatures it can see within 90 feet of it. Each target must succeed on a DC 14 Intelligence saving throw or the creature chooses an action for that target: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, or Use an Object. The affected target can’t take that action for 1 minute. At the end of each of the target’s turns, it can end the effect on itself with a successful DC 14 Intelligence saving throw. A target that succeeds on the saving throw becomes immune to the creature’s Supreme Legal Authority for 24 hours.
+
+Shifting Nightmare (Costs 3 Actions)
+The creature rapidly takes the form of several nightmarish creatures, lashing out at all nearby. Each creature within 10 feet of the creature must succeed on a DC 13 Dexterity saving throw or take 18 (4d8) damage of a type chosen by the creature: acid, cold, fire, lightning, or necrotic.
+
+Sadistic Revelry
+Each creature within 60 feet of creature that is its ally or is charmed by it must use its reaction to move up to half its speed toward the creature closest to it that it can see, provided it isn’t already within 5 feet of that creature. It then must make one melee attack against that creature if it is able to do so.
+
+Touch of Pain (Costs 3 Actions)
+The creature makes a claw attack against one foe within 10 feet of him. The target must succeed on a DC 14 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the creature can’t maintain concentration on a spell or any other effect that requires concentration. The poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Voice of Harmony
+The creature makes one melee attack, with advantage on the attack roll.
+
+Voice of Life
+The creature bestows 20 temporary hit points on another creature it can see within 120 feet of it.
+
+Awaken Grove Guardians (Costs 3 Actions)
+The creature animates one or two trees it can see within 120 feet of it, causing them to uproot themselves and become awakened trees (see the Monster Manual for their stat blocks) for 1 minute or until the creature uses a bonus action to end the effect. These trees understand Druidic and obey the creature’s spoken commands, but can’t speak. If it issues no commands to them, the trees do nothing but follow it and take the Dodge action.
+
+Englarge (Costs 2 Actions)
+The creature casts enlarge/reduce on itself, using the enlarge option, without expending a spell slot.
+
+Sinners Beware
+Move up to 30 feet towards a hostile creature. This does not trigger opportunity attacks.
+
+Justice!
+A creature within 10 feet must make a DC 13 Charisma Saving Throw. On a fail, holy chains erupt from the ground, binding them for 10 minutes. They are considered restrained and magical effects on the target are suppressed while restrained this way.
+Creatures can repeat the saving throw when hit by a hostile creature, or every minute. Chaotic-aligned creatures make the save with disadvantage.
+
+Iron Will (Costs 2 Actions)
+When afflicted with any condition, except unconsciousness, the creature can choose to shrug it off, neutralizing it.
+
+Bulwark (Costs 2 Actions)
+The creature flares crimson with power, protecting those nearby. The next attack that would hit an ally within 5 feet of the creature hits the creature instead.
+
+Detect
+The creature makes a Wisdom (Perception) check.
+
+Void Slip (Costs 2 Actions)
+The creature twists the fabric of space. Each creature within 15 feet of the creature must succeed on a DC 14 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The creature can then teleport to an unoccupied space within 40 feet.
+
+Void Cache (Costs 3 Actions)
+The creature can magically reach into its personal cache and retrieve one item. If it is holding an item, it can use this ability to deposit the item into its cache. The cache is a literal physical place on the material plane connected to this ability.
+
+Pack Maneuver (Costs 2 Actions)
+The creature, or an ally within 30 feet that can see and hear it, moves up to half its speed without provoking opportunity attacks.
+

@@ -1,0 +1,93 @@
+Absorb Attack
+When an enemy the creature can see hits it with a melee weapon attack, the weapon snags on a pocket of residual dimensional energy and is caught fast. The attack is negated and the weapon cannot be used until the enemy succeeds on a DC 12 Strength (Athletics) check as an action to pull it out of the creature. Natural weapons can have their attacks negated by this feature, but can then be retracted automatically at the end of the attacking creature’s turn.
+
+Dream Eater
+When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC 13 Wisdom saving throw. Unless the save succeeds, the target takes 11 (2d10) psychic damage, and the creature regains hit points equal to the amount of damage taken.
+
+Empathic Feedback
+When the creature takes damage from a creature it can see within 60 feet of it, the creature can force that creature to succeed on a DC 12 Intelligence saving throw or take 9 (2d8) psychic damage.
+
+Psionic Counter (Recharge 5-6)
+When a spell is cast, the creature may attempt to psionically interfere with the target's mind to counterspell it.
+
+Parry
+The creature adds 3 to its AC against one melee attack that would hit it. To do so, the creature must see the attacker and be wielding a melee weapon.
+
+Protection
+When an attacker the creature can see makes an attack roll against a creature within 5 feet of the creature, the creature can impose disadvantage on the attack roll.
+
+Unyielding
+When the creature is subjected to an effect that would move it, knock it prone, or both, it can use its reaction to be neither moved nor knocked prone.
+
+Furious Defense
+After an ally the creature can see is dealt damage by a foe within 20 feet of the creature, the creature makes a ranged attack against that foe.
+
+Guided Attack (Recharge 5-6)
+When the creature or one creature it can see within 30 feet of it makes an attack roll, the creature grants a +10 bonus to that roll.
+
+Feed on Death
+When a creature within 30 feet of the creature drops to 0 hit points, the creature gains 5 (1d10) temporary hit points.
+
+Redirect Attack
+When a enemy the creature can see targets it with an attack, the creature chooses another goblin within 5 feet of it. The two creatures swap places, and the chosen creature becomes the target instead.
+
+Spell Vitalization
+Immediately after a creature casts a spell of 1st level or higher within 120 feet of the creature, the creature can move up to twice its speed without provoking opportunity attacks. It can then make one slam attack against a target of its choice.
+
+Precognitive Insight (3/Day)
+When the creature or a creature it can see makes an attack roll, a saving throw, or an ability check, the creature can cause the roll to be made with advantage or disadvantage.
+
+Lightning Backlash (Recharge 5-6)
+When a creature hits the creature with an attack, the attacker takes lightning damage equal to half the damage dealt by the attack.
+
+Self-Sacrifice
+When an ally within 5 feet of the creature is hit by an attack, the creature swaps places with that ally and is hit instead.
+
+Guided Strike (Once)
+The creature grants a +10 bonus to an attack roll made by itself or another creature within 30 ft. of it. the choice must be made before the roll is declared a hit or miss.
+
+Encirclement (Recharge 5-6)
+When an enemy attempts to move further than 30 ft. from the creature, it can use its reaction to cast Wall of Fire in front of them.
+
+Defensive Reflex
+The creature can choose to take half damage from an attack that hits it.
+
+Redirection
+When hit with fire, lightning, or cold damage, the creature can redirect it to another creature within 10 ft. of him and that creature takes half the damage it would have.
+
+Cutting Words
+When an enemy rolls an attack roll, ability check, or saving throw, roll a d6 and subtract that from the roll.
+
+Tactical Avoidance
+After taking damage from a hit, the creature can teleport up to 10 feet away.
+
+Legendary Block
+If the creature is critically hit, it can reduce the damage by 20, to a minimum of 1.
+
+Headbutt
+When a melee attack misses the creature, it can make a headbutt attack: +10 to hit. 9 (1d4 + 6) bludgeoning damage and the target makes a DC 13 Consitution saving throw or they have disadvantage on their next attack.
+
+Mind Blast (Recharge 5-6)
+Targets of the creature's choice with 30 feet of it must make a DC 13 Intelligence save or take 17 (4d6 + 3) psychic damage and be stunned for 1 minute. A target can repeat the saving throw at the end of each turn.
+
+Earth Counter (Recharge 6)
+When a foe the creature can see within 30 feet of it casts a spell, the creature counters it. This reaction works like the counterspell spell, except the creature can only counter spells that directly affect or create earth or stone, such as stone shape, wall of stone, or move earth, and it doesn’t need to make a spellcasting ability check, regardless of the spell’s level.
+
+Void Body
+The creature can reduce the damage it takes from a single source to 0. Radiant damage can only be reduced by half.
+
+Ruff Spikes
+When a foe tries to enter a space adjacent to the creature, the creature flares its many feelers and spikes. The foe cannot enter a space adjacent to the creature unless it makes a successful DC 14 Dexterity saving throw. If the saving throw fails, the foe can keep moving but only into spaces that aren't within 5 feet of the creature and takes 10 (3d6) piercing damage from spikes.
+
+Void Twist
+When the creature is hit by a ranged attack it can create a small rift in space to increase its AC by 3 against that attack. If the attack misses because of this increase the creature can choose a creature within 30 feet to become the new target for that attack. Use the original attack roll to determine if the attack hits the new target.
+
+Time-Assisted Counterattack
+The creature’s awareness of the near future allows it to see attacks before they happen. When a foe the creature can see attacks it while within 5 feet of it, the creature can attack the foe before the foe’s attack hits. The creature makes a single melee attack against the foe. If the foe is reduced to 0 hp as a result of the creature’s attack, the foe’s attack doesn’t hit the creature.
+
+On the Hunt
+When a foe the creature can see moves, the creature can move up to 20 feet toward the moving foe. If the creature moves within 10 feet of that foe, it can make one melees attack against the creature.
+
+Close In
+Upon taking ranged damage (not from a Saving Throw), the creature can move up to half it's speed towards the aggressor without triggering opportunity attacks.
+

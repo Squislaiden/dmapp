@@ -1,0 +1,14 @@
+Archery
+Blind Fighting
+Defense
+Dueling
+Great Weapon Fighting
+Interception
+Protection
+Superior Technique
+Thrown Weapon Fighting
+Two-Weapon Fighting
+Unarmed Fighting
+Close Quarter Shooter
+Mariner
+Tunnel Fighter

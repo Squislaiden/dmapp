@@ -1,0 +1,300 @@
+--------Classes--------
+Artificer
+----Alchemist
+----Armorer
+----Artillerist
+----Battle Smith
+Barbarian
+----Ancestral Guardian
+----Battlerager
+----Beast
+----Berserker
+----Storm Herald
+----Totem Warrior
+----Wild Magic
+----Zealot
+Bard
+----Creation
+----Eloquence
+----Glamour
+----Lore
+----Spirits
+----Swords
+----Valor
+----Whispers
+Cleric
+----Arcana
+----Death
+----Forge
+----Grave
+----Knowledge
+----Life
+----Light
+----Nature
+----Order
+----Peace
+----Tempest
+----Trickery
+----Twilight
+----War
+Druid
+----Dreams
+----Land
+----Moon
+----Sheperd
+----Spores
+----Stars
+----Wildfire
+Fighter
+----Arcane Archer
+----Banneret
+----Battle Master
+----Cavalier
+----Champion
+----Echo Knight
+----Eldritch Knight
+----Psi Warrior
+----Rune Knight
+----Samurai
+Monk
+----Astral Self
+----Drunken Master
+----Four Element
+----Kensei
+----Long Death
+----Mercy
+----Open Hand
+----Shadow
+----Sun Soul
+----Ascendant Dragon
+Paladin
+----Ancients
+----Conquest
+----Crown
+----Devotion
+----Glory
+----Redemption
+----Vengeance
+----Watchers
+----Oathbreaker
+Ranger
+----Beast Master
+----Fey Wanderer
+----Gloom Stalker
+----Horion Walker
+----Hunter
+----Monster slayer
+----Swarmkeeper
+----Drakewarden
+Sorcerer
+----Aberrant Mind
+----Clockwork Soul
+----Draconic Bloodline
+----Divine Soul
+----Shadow Magic
+----Storm Sorcery
+----Wild Magic
+Warlock
+----Archfery
+----Celestial
+----Fathomless
+----Fiend
+----Genie
+----Great Old One
+----Hexblade
+----Undead
+----Undying
+Wizard
+----Abjuration
+----Bladesinging
+----Chronurgy
+----Conjuration
+----Divination
+----Enchantment
+----Evocation
+----Graviturgy
+----Illusion
+----Necromancy
+----Order of Scribes
+----Transmutation
+----War Magic
+--------Backgrounds--------
+Acolyte
+Anthropologist
+Archaeologist
+Astrla Drifter
+Athlete
+Celebrity Scion
+Charlatan
+City Watch
+Clan Crafter
+Cloistered Scholar
+Courtier
+Criminal
+Entertainer
+Faction Agent
+Failed Merchant
+Far Traveler
+Feylost
+Fisher
+Folk Hero
+Gambler
+Guild Artisan
+Haunted One
+Hermit
+House Agent
+Inheritor
+Investigataor
+Knight of the Order
+Marine
+Mercenary Veteran
+Noble
+Outlander
+Sage
+Sailor
+Shipwright
+Smuggler
+Soldier
+Urban Bounty Hunter
+Urchin
+Tribe Member
+Wildspacer
+Witherbloom Student
+Silverquill Student
+Quandrix Student
+Prismari Student
+Lorehold Student
+--------Alignment--------
+Chaotic Good
+Chaotic Neutral
+Chaotic Evil
+Neutral Good
+True Neutral
+Neutral Evil
+Lawful Good
+Lawful Neutral
+Lawful Evil
+--------Official Reincarnation--------
+20% Human
+4% Dragonborn
+9% Hill Dwarf
+8% Mountain Dwarf
+4% Dark Elf
+9% High Elf
+8% Wood Elf
+4% Forest Gnome
+6% Rock Gnome
+4% Half-Elf
+4% Half-Orc
+8% Lightfoot Halfling
+8% Stout Halfling
+4% Tiefling
+--------All Races--------
+Aarakocra
+Aasimar
+Autognome
+------Fallen
+------Protector
+------Scourge
+Bugbear
+Centaur
+Changeling
+Dhampir
+Dragonborn
+------Black (Acid) 
+------Blue (Lightning) 
+------Green (Poison)
+------Red (Fire)
+------White (Cold)
+------Copper (Acid)
+------Bronze/Mithril (Lightning)
+------Brassungsten (Poison)
+------Gold (Fire)
+------Silver (Cold)
+------Amethyst (Force)
+------Crystal (Radiant)
+------Emerald (Psychic)
+------Sapphire (Thunder)
+------Topaz (Necrotic)
+Dwarf
+------Duergar (Dark)
+------Hill
+------Mountain
+Elf
+------Drow
+------Eladrin
+------High
+------Sea
+------Shadar-Kai
+------Wood
+------Pallid
+------Astral
+Fairy
+Firbolg
+Genasi
+------Air
+------Earth
+------Water
+------Fire
+Giff
+Gith--
+------Githyanki
+------Githzerai
+Gnome
+------Deep
+------Forest
+------Rock
+Goblin
+Goliath
+Half-Orc
+Hadozee
+Half-Elf
+------Aquatic
+------Drow
+------Wood
+------Moon
+------Sun
+Halfling
+------Lightfoot
+------Stous
+------Ghostwise
+------Lotusden
+Haregon
+Hexblood
+Hobgoblin
+Human
+Kalashtar
+Kenku
+Kobold
+Leonin
+Lizardfolk
+Loxodon
+Minotaur
+Orc
+Owlin
+Plasmoid
+Reborn
+Satyr
+Shifter
+------Beasthide
+------Longtooth
+------Swiftstride
+------Wildhunt
+Simic Hybrid
+Tabaxi
+Thri-Kreen
+Tiefling
+------(Asmodeus)
+------(Baalzebul)
+------(Dispater)
+------(Fierna)
+------(Glasya)
+------(Levistus)
+------(Mammon)
+------(Mephistopheles)
+------(Zariel)
+Triton
+Vedalken
+Verdan
+Warforged
+Yuan-Ti

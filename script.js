@@ -3962,7 +3962,7 @@ function EnemyOutput() {
 	let LairPassivesList = ""
 	document.getElementById("charBox").innerHTML = `Name: \n${GSize}, ${GCreature}\nHit Points: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nAC: ${GAC} &nbsp; - PB: +${GPB}\nSpeeds: ${GSpeedTotal}\n
 STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (${GConMod})\nINT: ${GInt} (${GIntMod}) &nbsp; WIS: ${GWis} (${GWisMod}) &nbsp; CHA: ${GCha} (${GChaMod})\n
-Saving Throws: ${GSaveTotal}\nSkills: ${GSkillTotal}\nResistances: ${GResTotal}\nDamage Immunities: ${GImmuneTotal}\nVulnerabilities: ${GVulnTotal}\nCondition Immunities ${GCondImmuneTotal}\nSenses: ${GSenseTotal}\nLanguages: ${GLanguageTotal}\nChallenge Rating: ${GCR} (Tier ${GTier})\n`;
+- Saving Throws: ${GSaveTotal}\n- Skills: ${GSkillTotal}\n- Resistances: ${GResTotal}\n- Damage Immunities: ${GImmuneTotal}\n- Vulnerabilities: ${GVulnTotal}\n- Condition Immunities ${GCondImmuneTotal}\n- Senses: ${GSenseTotal}\n- Languages: ${GLanguageTotal}\n- Challenge Rating: ${GCR} (Tier ${GTier})\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {TraitsList += `&nbsp;&nbsp;[Spellcasting]\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 		if (GSpellQty[0] > 0) {TraitsList += `• at will: ${GSpell0}\n`;} else {}
 		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
@@ -4126,8 +4126,8 @@ function WeaponAffix() {
 		else {GWeaponAffix = `• (T1 Weapon) After you attack, as a Bonus Action, attempt to grapple the target`;}
 	}
 	else if (wpnRNG >= 40 && wpnRNG <= 41) {CreatureTypeGen();
-		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) You can detect when ${GCreature} is within 20 ft. of you.`;}
-		else {GWeaponAffix = `• (T1 Weapon) You can detect when ${GCreature} is within 10 ft. of you.`;}
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) You can detect when ${GCreature}s are within 20 ft. of you.`;}
+		else {GWeaponAffix = `• (T1 Weapon) You can detect when ${GCreature}s are within 10 ft. of you.`;}
 	}
 	else if (wpnRNG == 42) {GWeaponAffix = `• (T2 Weapon) The weapon can deal half damage to creatures on the Ethereal Plane`;}
 	else if (wpnRNG == 43) {GWeaponAffix = `• (T2 Weapon) Once per turn, per creature, on a hit, move them 5 ft. in a direction.`;}
@@ -5267,7 +5267,7 @@ function GenGlyphsBtn() {
 }
 
 function GlyphHelp() {
-	document.getElementById("glyphBox").innerHTML = "Glyphs are items that can be used to Add or Modify Affixes on nonmagical items. For a full rundown, click the link below the Help button.\n\nThe regular (aqua) buttons will generate a number of affixes of that type.\n\nThe Tainted (red) buttons will roll for a Tainted outcome and output the result, potentially adding powerful Tainted Affixes to an item, but also corrupting it permanently.\n\nThe Chaotic (right side purple) buttons pick a random upgrade of the item, potentially changing item type or turning it into a ceonventional magic item.\n\nThe Expertise (purple) button will generate a Class Affix, which are tailored to the class and can be quite powerful. It will randomly select one class from the selected checkboxes to generate an affix for.\n\nThe 16 Green buttons are used to regenerate a Subtype, mainly for Tailoring Glyph usage, which can change Subtypes without changing the overall affix.\n\nLast, but not least, the Generate glyphs button will randomly generate that many Glyphs, for DMs placing loot."
+	document.getElementById("glyphBox").innerHTML = "Glyphs are items that can be used to Add or Modify Affixes on nonmagical items. For a full rundown, click the link below the Help button.\n\nThe regular (aqua) buttons will generate a number of affixes of that type.\n\nThe Tainted (red) buttons will roll for a Tainted outcome and output the result, potentially adding powerful Tainted Affixes to an item, but also corrupting it permanently.\n\nThe Chaotic (right side purple) buttons pick a random upgrade of the item, potentially changing item type or turning it into a conventional magic item.\n\nThe Expertise (purple) button will generate a Class Affix, which are tailored to the class and can be quite powerful. It will randomly select one class from the selected checkboxes to generate an affix for.\n\nThe 16 Green buttons are used to regenerate a Subtype, mainly for Tailoring Glyph usage, which can change Subtypes without changing the overall affix.\n\nLast, but not least, the Generate glyphs button will randomly generate that many Glyphs, for DMs placing loot."
 }
 
 async function WeaponAffixList() {
@@ -5380,7 +5380,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyTraitInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/traits.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/1-traits.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5388,7 +5388,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyActionInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/actions.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/2-actions.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5396,7 +5396,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyBonusInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/bonuses.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/3-bonuses.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5404,7 +5404,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyReactionInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/reactions.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/4-reactions.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5412,7 +5412,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyRechargeInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/recharges.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/5-recharges.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5420,7 +5420,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyLegendaryInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/legactions.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/6-legactions.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5428,7 +5428,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyLairInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/lairtraits.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/7-lairtraits.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
@@ -5436,7 +5436,7 @@ document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function TypeSpecificInfo() {
-	let grabFile = await fetch('/dmapp/lists/enemy/typespecific.txt');
+	let grabFile = await fetch('/dmapp/lists/enemy/8-typespecific.txt');
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 

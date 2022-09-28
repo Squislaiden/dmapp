@@ -2018,7 +2018,7 @@ function SpellScrollBtn() {
 function EnemyGenMod() {
 	let modRoll = Math.floor(Math.random() * 129) + 1;
 	let modElite
-	modElite = Math.floor(Math.random() * 10) + 1;
+	if (document.getElementById("modEliteCheck").checked == true) {modElite = 10} else {modElite = Math.floor(Math.random() * 10) + 1;}
 	if (modRoll == 1) {
             if (modElite == 10) {
                 GMod = `[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 14} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 2) + 2}d6 + ${GTier + 6} bludgeoning damage.`;}
@@ -2564,7 +2564,7 @@ function EnemyGenMod() {
                 GMod = `[Resistant] \nThe creature has 3 random resistances.`;}
             }
         else if (modRoll == 91) {
-            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GELement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
+            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
                 GMod = `[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.`;}
             else {ElementTypeGen(); GRes.length = 0; GRes.push(`All damage except ${GElement}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)}
                 GMod = `[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.`;}
@@ -2690,9 +2690,9 @@ function EnemyGenMod() {
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
             }
         else if (modRoll == 112) {
-            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSPeedFly += 20}
+            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSpeedFly += 20}
                 GMod = `[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
-            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSPeedFly += 10}
+            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSpeedFly += 10}
                 GMod = `[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
             }
         else if (modRoll == 113) {
@@ -3970,6 +3970,7 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 		if (GSpellQty[1] > 0) {TraitsList += `• 5/day each: ${GSpell5}\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; TraitsList += `&nbsp;&nbsp;[${GTraitNames[xNum]}]\n${GTraits[xNum]}\n\n`;}
+		if (GMod = "") {} else {TraitsList += `&nbsp;&nbsp;[Random Enemy Modifier]\n${GMod}\n\n`;}
 		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.`;} else {}
 	document.getElementById("charBox").innerHTML += `------TRAITS------\n${TraitsList}`;
 		xNum = GActionQty; xNum2 = GRechargeQty;
@@ -4019,6 +4020,7 @@ function EnemyHomebrew() {
 	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GTraitNames[xNum]}.*** ${GTraits[xNum]}\n:\n`;}
+		if (GMod = "") {} else {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier*** ${GMod}\n:\n`;}
 		if (GLegendaryResist > 0) {document.getElementById("homebrewBox").innerHTML += `***Legendary Resistance (${GLegendaryResist}/day).*** If the creature fails a saving throw, it can choose to succeed instead.\n:\n`;} else {}
 	document.getElementById("homebrewBox").innerHTML += `### Actions\n`;
 	xNum = GActionQty;

@@ -163,6 +163,9 @@ var GResTotal = ""
 var GImmuneTotal = ""
 var GCondImmuneTotal = ""
 var GVulnTotal = ""
+var GNum = 0
+var GSkillMod = ""
+var GModX = false
 	// Character Gen //
 // Global Variables //
 // Global Variables //
@@ -3296,7 +3299,7 @@ function FullEnemyBtn() {
  // Get Recharge Qty
 			rechargeRNG = Math.floor(Math.random() * 10) + 1;
 			if (document.getElementById("bossCheck").checked == true && rechargeRNG <= 8) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == true && rechargeRNG >= 9) {GRechargeQty = 2;}
-			else if (document.getElementById("bossCheck").checked == false && rechargeRNG == 1) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == false && rechargeRNG >= 2) {GRechargeQty = 0;}
+			else if (document.getElementById("bossCheck").checked == false && rechargeRNG == 2) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == false && rechargeRNG >= 3) {GRechargeQty = 0;}
  // Get Legendary Action Qty
 		if (document.getElementById("bossCheck").checked == false) {GLegendaryQty = 0;} else {legRNG = Math.floor(Math.random() * 10) + 1 ;
 			if (legRNG >= 1 && legRNG <= 3) {GLegendaryQty = 2;} else if (legRNG >= 4 && legRNG <= 7) {GLegendaryQty = 3;} else if (legRNG >= 8 && legRNG <= 9) {GLegendaryQty = 4;} else if (legRNG == 10) {GLegendaryQty = 5;}}
@@ -3685,9 +3688,9 @@ function FullEnemyBtn() {
  // Random Enemy Modifier Chance 5%, 15% boss, 2% double boss
 			let modRNG = Math.floor(Math.random() * 100) + 1;
 			let modTwo;
-			if (document.getElementById("bossCheck").checked == true) {if (modRNG >= 1 && modRNG <= 15) {EnemyGenMod();} else {if (modRNG >= 99 && modRNG <= 100) {EnemyGenMod(); modTwo = GMod; EnemyGenMod(); GMod = `${GMod}\n\n${modTwo}`;} else {}}}
+			if (document.getElementById("bossCheck").checked == true) {if (modRNG >= 1 && modRNG <= 15) {EnemyGenMod(); GModX = true;} else {if (modRNG >= 99 && modRNG <= 100) {EnemyGenMod(); GModX = true; modTwo = GMod; EnemyGenMod(); GMod = `${GMod}\n\n${modTwo}`;} else { GModX = false;}}}
 			else if (document.getElementById("bossCheck").checked == false) {
-				if (modRNG >= 1 && modRNG <= 5) {EnemyGenMod();} else {}}
+				if (modRNG >= 1 && modRNG <= 5) {EnemyGenMod(); GModX = true;} else { GModX = false;}}
 // Random Traits based on Qty
 			let zNum = GTraitQty;
 			while (zNum > 0) {zNum -= 1; EnemyTrait();}
@@ -3832,7 +3835,7 @@ function FullEnemyBtn() {
 // Final Skills
 		if (GSkill.includes("Athletics") == true) {GSkillTotal += `Athletics +${GStrMod + GPB}, `} else {}
 		if (GSkill.includes("Acrobatics") == true) {GSkillTotal += `Acrobatics +${GDexMod + GPB}, `} else {}
-		if (GSkill.includes("Sleight of Hands") == true) {GSkillTotal += `Sleight of Hands +${GDexMod + GPB}, `} else {}
+		if (GSkill.includes("Sleight of Hand") == true) {GSkillTotal += `Sleight of Hands +${GDexMod + GPB}, `} else {}
 		if (GSkill.includes("Stealth") == true) {GSkillTotal += `Stealth +${GDexMod + GPB}, `} else {}
 		if (GSkill.includes("Arcana") == true) {GSkillTotal += `Arcana +${GIntMod + GPB}, `} else {}
 		if (GSkill.includes("History") == true) {GSkillTotal += `History +${GIntMod + GPB}, `} else {}
@@ -3970,7 +3973,7 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 		if (GSpellQty[1] > 0) {TraitsList += `• 5/day each: ${GSpell5}\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; TraitsList += `&nbsp;&nbsp;[${GTraitNames[xNum]}]\n${GTraits[xNum]}\n\n`;}
-		if (GMod = "") {} else {TraitsList += `&nbsp;&nbsp;[Random Enemy Modifier]\n${GMod}\n\n`;}
+		if (GModX == true) {TraitsList += `&nbsp;&nbsp;[Random Enemy Modifier]\n${GMod}\n\n`;} else {}
 		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.`;} else {}
 	document.getElementById("charBox").innerHTML += `------TRAITS------\n${TraitsList}`;
 		xNum = GActionQty; xNum2 = GRechargeQty;
@@ -4012,6 +4015,8 @@ function EnemyHomebrew() {
 	if (GImmuneTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Immunities** :: ${GImmuneTotal}\n`}
 	if (GVulnTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Vulnerabilities** :: ${GVulnTotal}\n`}
 	if (GCondImmuneTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Condition Immunities** :: ${GCondImmuneTotal}\n`}
+	if (GSenseTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Senses** :: ${GSenseTotal}\n`}
+	if (GLanguageTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Languages** :: ${GLanguageTotal}\n`}
 	document.getElementById("homebrewBox").innerHTML += `**Challenge** :: ${GCR} (Tier ${GTier})\n___\n`;
 	if (GMagic == "Half" || GMagic == "Caster") {document.getElementById("homebrewBox").innerHTML += `Spellcasting\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 	if (GSpellQty[0] > 0) {document.getElementById("homebrewBox").innerHTML += `at will: ${GSpell0}\n`;} else {}
@@ -4020,11 +4025,12 @@ function EnemyHomebrew() {
 	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GTraitNames[xNum]}.*** ${GTraits[xNum]}\n:\n`;}
-		if (GMod = "") {} else {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier*** ${GMod}\n:\n`;}
-		if (GLegendaryResist > 0) {document.getElementById("homebrewBox").innerHTML += `***Legendary Resistance (${GLegendaryResist}/day).*** If the creature fails a saving throw, it can choose to succeed instead.\n:\n`;} else {}
+		if (GModX == true) {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier***\n${GMod}\n:\n`;} else {}
+		if (GLegendaryResist > 0) {document.getElementById("homebrewBox").innerHTML += `***Legendary Resistance (${GLegendaryResist}/day).***\nIf the creature fails a saving throw, it can choose to succeed instead.\n:\n`;} else {}
 	document.getElementById("homebrewBox").innerHTML += `### Actions\n`;
 	xNum = GActionQty;
 	xNum2 = GRechargeQty;
+	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `***Multiattack.*** The creature can make ${GMultiattack} attacks on its turn.\n:\n`;}
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GActionNames[xNum]}.*** ${GActions[xNum]}\n:\n`;}
 	while (xNum2 > 0) {xNum2 -=1; document.getElementById("homebrewBox").innerHTML += `***${GRechargeNames[xNum2]}.*** ${GRecharges[xNum2]}\n:\n`;}
 	if (GBonusQty > 0) {xNum = GBonusQty; document.getElementById("homebrewBox").innerHTML += `### Bonus Actions\n`;
@@ -4038,7 +4044,7 @@ function EnemyHomebrew() {
 		document.getElementById("homebrewBox").innerHTML += `### Lair Actions\nWhile in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties).\n:\n`;}
 		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairActiveNames[xNum]}.*** ${GLairActives[xNum]}\n:\n`;}} else {}
 	if (document.getElementById("bossCheck").checked == true) {if (GLairPassiveQty > 0) {xNum = GLairPassiveQty;
-		document.getElementById("homebrewBox").innerHTML += `### Regional Lair Effects\nThe area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 8) + 1)} weeks.\n:\n`;}
+		document.getElementById("homebrewBox").innerHTML += `### Regional Lair Effects\nThe area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 2) + 1)} weeks.\n:\n`;}
 		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairPassiveNames[xNum]}.*** ${GLairPassives[xNum]}\n:\n`;}} else {}
 	document.getElementById("homebrewBox").innerHTML += `}}`;
 	
@@ -4047,9 +4053,68 @@ function EnemyHomebrew() {
 }
 
 function EnemyImproved() {
-	document.getElementById("improvedBox").innerHTML = ``;
+	document.getElementById("improvedBox").innerHTML = `{ "Source": "Squislaiden's DM Assistant", "Type": "${GSize}, ${GCreature}", "HP": { "Value": ${GHPTotal}, "Notes": "(${GHitDiceQty}d${GHitDiceSize} + ${GHP})" }, "AC": { "Value": ${GAC}, "Notes": "" }, "InitiativeModifier": ${GDexMod}, "InitiativeAdvantage": false, "Speed": [ "${GSpeedTotal}" ], "Abilities": { "Str": ${GStr}, "Dex": ${GDex}, "Con": ${GCon}, "Int": ${GInt}, "Wis": ${GWis}, "Cha": ${GCha} }, `;
+	if (GVulnTotal == "") {document.getElementById("improvedBox").innerHTML += `"DamageVulnerabilities": [],`;} else {document.getElementById("improvedBox").innerHTML += `"DamageVulnerabilities": [ "${GVulnTotal}" ], `;}
+	if (GResTotal == "") {document.getElementById("improvedBox").innerHTML += `"DamageResistances": [],`;} else {document.getElementById("improvedBox").innerHTML += `"DamageResistances": [ "${GResTotal}" ], `;}
+	if (GImmuneTotal == "") {document.getElementById("improvedBox").innerHTML += `"DamageImmunities": [],`;} else {document.getElementById("improvedBox").innerHTML += `"DamageImmunities": [ "${GImmuneTotal}" ], `;}
+	if (GCondImmuneTotal == "") {document.getElementById("improvedBox").innerHTML += `"ConditionImmunities": [],`;} else {document.getElementById("improvedBox").innerHTML += `"ConditionImmunities": [ "${GCondImmuneTotal}" ], `;}
+	if (GSaveTotal == "") {document.getElementById("improvedBox").innerHTML += `"Saves": [],`;} else {document.getElementById("improvedBox").innerHTML += `"Saves": [`; xNum = GSave.length; 
+		while (xNum > 0) {xNum -=1; GSkillMod = GSave[xNum]; GetSaveMod(); document.getElementById("improvedBox").innerHTML += `{ "Name": "${GSave[xNum]}", "Modifier": ${GNum} }, `}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `],`
+	if (GSkillTotal == "") {document.getElementById("improvedBox").innerHTML += `"Skills": [],`;} else {document.getElementById("improvedBox").innerHTML += `"Skills": [`; xNum = GSkill.length; 
+		while (xNum > 0) {xNum -=1; GSkillMod = GSkill[xNum]; GetSkillMod(); document.getElementById("improvedBox").innerHTML += `{ "Name": "${GSkill[xNum]}", "Modifier": ${GNum} }, `}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `],`
+	if (GSenseTotal == "") {document.getElementById("improvedBox").innerHTML += `"Senses": [],`;} else {document.getElementById("improvedBox").innerHTML += `"Senses": [ "${GSenseTotal}" ], `;}
+	if (GLanguageTotal == "") {document.getElementById("improvedBox").innerHTML += `"Languages": [],`;} else {document.getElementById("improvedBox").innerHTML += `"Languages": [ "${GLanguageTotal}" ], `;}
+	document.getElementById("improvedBox").innerHTML += `"Challenge": "${GCR} (Tier ${GTier})", "Traits": [ `;
+	if (GMagic == "Half" || GMagic == "Caster") {document.getElementById("improvedBox").innerHTML += `{ "Name": "Spellcasting", "Content": "The creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.&#92;n&#92;n`;
+	if (GSpellQty[0] > 0) {document.getElementById("improvedBox").innerHTML += `at will: ${GSpell0}&#92;n&#92;n`;}
+	if (GSpellQty[3] > 0) {document.getElementById("improvedBox").innerHTML += `1/day each: ${GSpell1}&#92;n&#92;n`;}
+	if (GSpellQty[2] > 0) {document.getElementById("improvedBox").innerHTML += `3/day each: ${GSpell3}&#92;n&#92;n`;}
+	if (GSpellQty[1] > 0) {document.getElementById("improvedBox").innerHTML += `5/day each: ${GSpell5}`;}
+	document.getElementById("improvedBox").innerHTML += `"}, `;}
+	xNum = GTraitQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GTraitNames[xNum]}", "Content": "${GTraits[xNum]}"}, `;}
+	GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n");
+		if (GModX == true) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Random Enemy Modifier", "Content": "${GMod}"}, `;} else {}
+		if (GLegendaryResist > 0) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Legendary Resistance (${GLegendaryResist}/day)", "Content": "If the creature fails a saving throw, it can choose to succeed instead."}, `;} else {}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
+	document.getElementById("improvedBox").innerHTML += `], "Actions": [ `
+	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
+	xNum = GActionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
+	xNum2 = GRechargeQty; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
+	document.getElementById("improvedBox").innerHTML += `], "BonusActions": [ `
+	if (GBonusQty == 0) {} else {xNum = GBonusQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GBonusNames[xNum]}", "Content": "${GBonuses[xNum]}"}, `;}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `], "Reactions": [ `
+	if (GReactionQty == 0) {} else {xNum = GReactionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GReactionNames[xNum]}", "Content": "${GReactions[xNum]}"}, `;}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `], "LegendaryActions": [ `
+	if (document.getElementById("bossCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "", "Content": "The creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn."}, `;
+		xNum = GLegendaryQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLegendaryNames[xNum]}", "Content": "${GLegendaries[xNum]}"}, `;}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `], "MythicActions": [ `
+	if (document.getElementById("lairCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "Lair Actions", "Content": "While in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties)."}, `;
+	xNum = GLairActiveQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairActiveNames[xNum]}", "Content": "${GLairActives[xNum]}"}, `;}}
+	if (document.getElementById("lairCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "------REGIONAL LAIR EFFECTS------", "Content": "The area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 2) + 1)} weeks."}, `;
+	xNum = GLairPassiveQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairPassiveNames[xNum]}", "Content": "${GLairPassives[xNum]}"}, `;}
+	tempState = document.getElementById("improvedBox").innerHTML;
+	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
+	document.getElementById("improvedBox").innerHTML += `],`
 	
-	document.getElementById("improvedBox").innerHTML += ``;
+	document.getElementById("improvedBox").innerHTML += ` "Description": "", "Player": "", "Version": "3.3.0", "ImageURL": ""}`;
+	//tempState = document.getElementById("improvedBox").innerHTML;
+	//document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
+	//GMod = GMod.replace("\n", "&#92;n");
 }
 
 function copyOutput() {
@@ -4065,6 +4130,35 @@ function copyHomebrew() {
 function copyImproved() {
     document.getElementById("improvedBox").select();
     document.execCommand('copy');
+}
+
+function GetSkillMod() {
+	if (GSkillMod == "Athletics") {GNum = GStrMod + GPB;}
+	if (GSkillMod == "Acrobatics") {GNum = GDexMod + GPB;}
+	if (GSkillMod == "Sleight of Hand") {GNum = GDexMod + GPB;}
+	if (GSkillMod == "Stealth") {GNum = GDexMod + GPB;}
+	if (GSkillMod == "Arcana") {GNum = GIntMod + GPB;}
+	if (GSkillMod == "History") {GNum = GIntMod + GPB;}
+	if (GSkillMod == "Religion") {GNum = GIntMod + GPB;}
+	if (GSkillMod == "Nature") {GNum = GIntMod + GPB;}
+	if (GSkillMod == "Animal Handling") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Insight") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Medicine") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Perception") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Survival") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Deception") {GNum = GChaMod + GPB;}
+	if (GSkillMod == "Intimidation") {GNum = GChaMod + GPB;}
+	if (GSkillMod == "Performance") {GNum = GChaMod + GPB;}
+	if (GSkillMod == "Persuasion") {GNum = GChaMod + GPB;}
+}
+
+function GetSaveMod() {
+	if (GSkillMod == "Str") {GNum = GStrMod + GPB;}
+	if (GSkillMod == "Dex") {GNum = GDexMod + GPB;}
+	if (GSkillMod == "Con") {GNum = GConMod + GPB;}
+	if (GSkillMod == "Int") {GNum = GIntMod + GPB;}
+	if (GSkillMod == "Wis") {GNum = GWisMod + GPB;}
+	if (GSkillMod == "Cha") {GNum = GChaMod + GPB;}
 }
 
 // GLYPH GENERATOR //

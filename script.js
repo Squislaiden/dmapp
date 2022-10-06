@@ -4084,7 +4084,7 @@ function EnemyImproved() {
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
 	document.getElementById("improvedBox").innerHTML += `], "Actions": [ `
-	if (GMultiattack >= 2) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
+	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
 	xNum = GActionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
 	xNum2 = GRechargeQty; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;

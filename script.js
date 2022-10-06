@@ -4018,7 +4018,7 @@ function EnemyHomebrew() {
 	if (GSenseTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Senses** :: ${GSenseTotal}\n`}
 	if (GLanguageTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Languages** :: ${GLanguageTotal}\n`}
 	document.getElementById("homebrewBox").innerHTML += `**Challenge** :: ${GCR} (Tier ${GTier})\n___\n`;
-	if (GMagic == "Half" || GMagic == "Caster") {document.getElementById("homebrewBox").innerHTML += `Spellcasting\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
+	if (GMagic == "Half" || GMagic == "Caster") {document.getElementById("homebrewBox").innerHTML += `**Spellcasting**\nThe creature's spellcasting ability is ${GSpellStat} (save DC ${GSpellDC}). It can cast the following spells.\n`;
 	if (GSpellQty[0] > 0) {document.getElementById("homebrewBox").innerHTML += `at will: ${GSpell0}\n`;} else {}
 	if (GSpellQty[3] > 0) {document.getElementById("homebrewBox").innerHTML += `1/day each: ${GSpell1}\n`;} else {}
 	if (GSpellQty[2] > 0) {document.getElementById("homebrewBox").innerHTML += `3/day each: ${GSpell3}\n`;} else {}
@@ -4084,7 +4084,7 @@ function EnemyImproved() {
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
 	document.getElementById("improvedBox").innerHTML += `], "Actions": [ `
-	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
+	if (GMultiattack >= 2) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
 	xNum = GActionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
 	xNum2 = GRechargeQty; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;

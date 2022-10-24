@@ -2936,6 +2936,10 @@ function EnemyRecharge() {
 		GRecharges.length = 0;
 	}
 
+function RandomBreath() {
+	
+}
+
 function EnemyLegendary() {
 	RNG = Math.floor(Math.random() * 2) + 1;
 		if (RNG == 1) {GLegendaryNames.push(`Weapon Attack`); GLegendaries.push(`Make one attack with a weapon.`);}
@@ -2968,14 +2972,19 @@ function EnemyLairActive() {
 		GSpellMod = Math.floor((GPB+10) / 2);
 		GWeaponHit = GWeaponMod + GPB;
 		GSpellHit = GSpellMod + GPB;
+		rangeRNGx = Math.floor(Math.random() * 10) + 1;
+		if (rangeRNGx == 1) {GLairPassiveRange = "half a mile";} else if (rangeRNGx == 2) {GLairPassiveRange = "1 mile";} else if (rangeRNGx == 3) {GLairPassiveRange = "2 miles";} else if (rangeRNGx == 4) {GLairPassiveRange = "4 miles";}
+		else if (rangeRNGx == 5) {GLairPassiveRange = "5 miles";} else if (rangeRNGx == 6) {GLairPassiveRange = "6 miles";} else if (rangeRNGx == 7) {GLairPassiveRange = "8 miles";} else if (rangeRNGx == 8) {GLairPassiveRange = "10 miles";}
+		else if (rangeRNGx == 9) {GLairPassiveRange = "15 miles";} else if (rangeRNGx == 10) {GLairPassiveRange = "20 miles";}
 		EnemyLairActive();
 		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GLairActiveNames}]\n${GLairActives}`;
 		GLairActiveNames.length = 0;
 		GLairActives.length = 0;
 		EnemyLairPassive();
-		document.getElementById("charBox").innerHTML += `\n\n{Lair Passive}\n[${GLairPassiveNames}]\n${GLairPassives}`;
+		document.getElementById("charBox").innerHTML += `\n\n{Lair Passive}\n[${GLairPassiveNames}]\n${GLairPassives}\n\nLair Range: ${GLairPassiveRange}`;
 		GLairPassiveNames.length = 0;
 		GLairPassives.length = 0;
+		GLairPassiveRange = "";
 	}
 
 function EnemyLairPassive() {
@@ -3227,9 +3236,13 @@ function FullEnemyBtn() {
 	if (GCreature == "Elemental") {ElementalRace();} else {}
 		let magicRNG = Math.floor(Math.random() * 20) + 1;
  // Set Caster Type
-		if (magicRNG >= 1 && magicRNG <= 12) {GMagic = "Martial";}
-		else if (magicRNG >= 13 && magicRNG <= 17) {GMagic = "Half";}
-		else if (magicRNG >= 18 && magicRNG <= 20) {GMagic = "Caster";}
+		if (document.getElementById("magicRandom").checked == true) {
+			if (magicRNG >= 1 && magicRNG <= 12) {GMagic = "Martial";}
+			else if (magicRNG >= 13 && magicRNG <= 17) {GMagic = "Half";}
+			else if (magicRNG >= 18 && magicRNG <= 20) {GMagic = "Caster";}}
+		else if (document.getElementById("magicMartial").checked == true) {GMagic = "Martial";}
+		else if (document.getElementById("magicHalf").checked == true) {GMagic = "Half";}
+		else if (document.getElementById("magicCaster").checked == true) {GMagic = "Caster";}
  // Set Hit Dice Size
 			let hitDiceRNG = Math.floor(Math.random() * 4) + 1;
 			if (GMagic == "Martial") {
@@ -3296,10 +3309,12 @@ function FullEnemyBtn() {
  // Get Reaction Qty
 		reactRNG = Math.floor(Math.random() * 20) + 1;
 		if (reactRNG <= 4) {GReactionQty = 1;} else {GReactionQty = 0;}
+		if (document.getElementById("reactionCheck").checked == true) {GReactionQty += 1}
  // Get Recharge Qty
 			rechargeRNG = Math.floor(Math.random() * 10) + 1;
 			if (document.getElementById("bossCheck").checked == true && rechargeRNG <= 8) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == true && rechargeRNG >= 9) {GRechargeQty = 2;}
 			else if (document.getElementById("bossCheck").checked == false && rechargeRNG == 2) {GRechargeQty = 1;} else if (document.getElementById("bossCheck").checked == false && rechargeRNG >= 3) {GRechargeQty = 0;}
+			if (document.getElementById("rechargeCheck").checked == true) {GRechargeQty += 1}
  // Get Legendary Action Qty
 		if (document.getElementById("bossCheck").checked == false) {GLegendaryQty = 0;} else {legRNG = Math.floor(Math.random() * 10) + 1 ;
 			if (legRNG >= 1 && legRNG <= 3) {GLegendaryQty = 2;} else if (legRNG >= 4 && legRNG <= 7) {GLegendaryQty = 3;} else if (legRNG >= 8 && legRNG <= 9) {GLegendaryQty = 4;} else if (legRNG == 10) {GLegendaryQty = 5;}}
@@ -3373,6 +3388,10 @@ function FullEnemyBtn() {
 		else if (GCreature == "Undead") {RNG = Math.floor(Math.random() * 8) + 1;
 			if (RNG >= 1 && RNG <= 4) {GSpeed = 20;} else if (RNG >= 5 && RNG <= 7) {GSpeed = 30;} else if (RNG == 8) {GSpeed = 40;}
 			swimRNG = Math.floor(Math.random() * 20) + 1; if (swimRNG <= 2) {SwimSpeed();} else {}}
+		if (document.getElementById("swimCheck").checked == true && GSpeedSwim <= 0) {SwimSpeed();} else {}
+		if (document.getElementById("burrowCheck").checked == true && GSpeedBurrow <= 0) {BurrowSpeed();} else {}
+		if (document.getElementById("climbCheck").checked == true && GSpeedClimb <= 0) {ClimbSpeed();} else {}
+		if (document.getElementById("flyCheck").checked == true && GSpeedFly <= 0) {FlySpeed();} else {}
  // Get Spell Slots
 	if (GMagic == "Caster") {
 		if (GTier == 1) {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GSpellQty.push(0);} else {GSpellQty.push(1);}
@@ -3686,9 +3705,10 @@ function FullEnemyBtn() {
 				if (RNG == 1) {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;} else {Spell5(); GSpell1 += `${GSpellGen5}${spacerX}`;}}}}
 		
  // Random Enemy Modifier Chance 5%, 15% boss, 2% double boss
-			let modRNG = Math.floor(Math.random() * 100) + 1;
+			let modRNG
 			let modTwo;
-			if (document.getElementById("bossCheck").checked == true) {if (modRNG >= 1 && modRNG <= 15) {EnemyGenMod(); GModX = true;} else {if (modRNG >= 99 && modRNG <= 100) {EnemyGenMod(); GModX = true; modTwo = GMod; EnemyGenMod(); GMod = `${GMod}\n\n${modTwo}`;} else { GModX = false;}}}
+			if (document.getElementById("enemyModCheck").checked == true) {modRNG = Math.floor(Math.random() * 17) + 1;} else {modRNG = Math.floor(Math.random() * 100) + 1;}
+			if (document.getElementById("bossCheck").checked == true) {if (modRNG >= 1 && modRNG <= 15) {EnemyGenMod(); GModX = true;} else {if (modRNG >= 16 && modRNG <= 17) {EnemyGenMod(); GModX = true; modTwo = GMod; EnemyGenMod(); GMod = `${GMod}\n\n${modTwo}`;} else { GModX = false;}}}
 			else if (document.getElementById("bossCheck").checked == false) {
 				if (modRNG >= 1 && modRNG <= 5) {EnemyGenMod(); GModX = true;} else { GModX = false;}}
 // Random Traits based on Qty
@@ -3727,6 +3747,11 @@ function FullEnemyBtn() {
 			
 			//if (GLanguage.includes("") == false) {GLanguage.push("")} else {}
 			// Certain types, removes all languages before adding native language
+// Get Sense Checkboxes
+			if (document.getElementById("blindsightCheck").checked == true && GBlindsight <= 0) {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GBlindsight = 40} else {GBlindsight = 20}}
+			if (document.getElementById("darkvisionCheck").checked == true && GDarkvision <= 0) {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GDarkvision = 120} else {GDarkvision = 60}}
+			if (document.getElementById("tremorsenseCheck").checked == true && GTremorsense <= 0) {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GTremorsense = 40} else {GTremorsense = 20}}
+			if (document.getElementById("truesightCheck").checked == true && GTruesight <= 0) {RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GTruesight = 40} else {GTruesight = 20}}
 // Get Final Attribute Modifiers, AC, and Saves
 			GStrMod = Math.floor((GStr - 10) / 2);
 			GDexMod = Math.floor((GDex - 10) / 2);
@@ -3806,6 +3831,7 @@ function FullEnemyBtn() {
 			zNum = GReactionQty;
 			while (zNum > 0) {zNum -= 1; EnemyReaction();}
 // Random Rechargess based on Qty
+			if (document.getElementById("breathCheck").checked == true && GRechargeQty < 1) {RandomBreath();} else if (document.getElementById("breathCheck").checked == true && GRechargeQty > 0) {GRecharge; RandomBreath();} else {}
 			zNum = GRechargeQty;
 			while (zNum > 0) {zNum -= 1; EnemyRecharge();}
 // Random Legendary Actions based on Qty
@@ -3909,7 +3935,7 @@ function FullEnemyBtn() {
 		if (GCondImmune.includes("disease") == true) {GCondImmuneTotal += "disease, ";} else {}
 		GCondImmuneTotal = GCondImmuneTotal.slice(0, -2);
 // Final Senses
-		if (GDarkvision > 0) {GSenseTotal += `darvision ${GDarkvision} ft., `} else {}
+		if (GDarkvision > 0) {GSenseTotal += `darkvision ${GDarkvision} ft., `} else {}
 		if (GTremorsense > 0) {GSenseTotal += `tremorsense ${GTremorsense} ft., `} else {}
 		if (GBlindsight > 0) {GSenseTotal += `blindsight ${GBlindsight} ft., `} else {}
 		if (GTruesight > 0) {GSenseTotal += `truesight ${GTruesight} ft., `} else {}
@@ -4084,7 +4110,7 @@ function EnemyImproved() {
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
 	document.getElementById("improvedBox").innerHTML += `], "Actions": [ `
-	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
+	if (GMultiattack >= 2) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
 	xNum = GActionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
 	xNum2 = GRechargeQty; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
@@ -5499,6 +5525,13 @@ async function CreatureInfo() {
 	let txtConvert = await grabFile.text();
 
 document.getElementById("infoBox").innerHTML = txtConvert;
+}
+
+async function CharacterInfo() {
+	let grabFile = await fetch('/dmapp/lists/character.txt');
+	let txtConvert = await grabFile.text();
+
+document.getElementById("charBox").innerHTML = txtConvert;
 }
 
 async function EnemyModInfo() {

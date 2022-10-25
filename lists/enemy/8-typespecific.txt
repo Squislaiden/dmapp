@@ -23,6 +23,9 @@ Mechanical Resilience (50%)
 Resilience
 The creature has advantage on saving throws against being poisoned and is immune to disease. Magic can’t put it to sleep.
 
+Antimagic Susceptibility (15%)
+The creature is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.
+
 	DRAGON (Draconic, Resist Element, 5% Truesight)
 
 
@@ -44,7 +47,17 @@ The creature has advantage on Saving Throws against being Charmed, and magic can
 
 
 	OOZE (Resist Acid, Resist Bludgeoning)
+Amorphous
+The creature can move through a space as narrow as 1 inch wide without squeezing.
 
+Engulf
+The creature moves up to its speed. While doing so, it can enter Large or smaller enemies’ spaces. Whenever the ooze enters an enemies’s space, the enemy must make a DC 13 Dexterity saving throw. On a successful save, the enemy is pushed 5 feet back. On a failed save, the enemy is engulfed. The engulfed enemy can’t breathe, is restrained, and takes 1d6 acid damage at the start of their turns. They can attempt to break out with a DC 13 Athletics check.
+
+Corrosive Form (20%)
+An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 4 (1d8) acid damage. Any nonmagical weapon made of metal or wood that hits the creature corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical ammunition made of metal or wood that hits the creature is destroyed after dealing damage. The creature can eat through 2-inch-thick, nonmagical wood or metal in 1 round.
+
+Split
+When the ooze that is Medium or larger is subjected to lightning or slashing damage, it splits into two new oozes if it has at least 10 hit points. Each new ooze has hit points equal to half the original ooze's, rounded down. New oozes are one size smaller than the original ooze.
 
 	UNDEAD (Resist Necrotic, Vuln Radiant)
 Undead Fortitude (30%)
@@ -69,8 +82,8 @@ The creature stomps one of its feet at a point on the ground within 10 feet of i
 Structures, as well as nonmagical objects that are neither being worn nor carried, take the same amount of damage if they are in the cylinder (no save).
 
 Bite (85%)
-Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 22 (3d10 + 6) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 16 Dexterity saving throw or be swallowed by the creature. A swallowed foe is blinded and restrained, it has total cover against attacks and other effects outside the creature, and it takes 14 (4d6) acid damage at the start of each of the creature’s turns.
-If the creature takes 30 damage or more on a single turn from the swallowed foe, the creature must succeed on a DC 18 Constitution saving throw at the end of that turn or regurgitate the foe, which falls prone in a space within 10 feet of the creature. If the creature dies, a swallowed foe is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.
+Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 22 (3d10 + 6) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 16 Dexterity saving throw or be swallowed by the creature. A swallowed enemy is blinded and restrained, it has total cover against attacks and other effects outside the creature, and it takes 14 (4d6) acid damage at the start of each of the creature’s turns.
+If the creature takes 30 damage or more on a single turn from the swallowed enemy, the creature must succeed on a DC 18 Constitution saving throw at the end of that turn or regurgitate the enemy, which falls prone in a space within 10 feet of the creature. If the creature dies, a swallowed enemy is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.
 
 	FLYING ()
 Flyby (TRAIT - 15%)

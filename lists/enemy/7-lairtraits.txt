@@ -17,9 +17,69 @@ A ten foot-wide, ten foot-long crack opens in the cavern floor where the creatur
 Insect Swarm
 The creature summons a swarm of insects as if it had cast insect plague, filling a 20-foot radius sphere within 90 feet of the creature. Creatures that are in the affected space or that enter it take 17 (3d10) piercing damage, or half damage with a successful DC 14 Constitution saving throw. The swarm lasts one full round.
 
+Pure Darkness
+The creature snuffs all light sources within the lair. Spells that create light are dispelled, mundane light sources are extinguished, and magical light sources are suppressed. Even light created by artifacts is reduced to dim light with half its normal radius of illumination. This lasts until initiative count 20 on the following round.
+
+Haunting Melody
+Haunting, maddening music emanates from a point the creature can see. Enemies within 50 feet of the origin that can hear the music must make a DC 15 Wisdom saving throw. Those that fail are charmed, incapacitated, and have their speed reduced to 0 until they take damage or until initiative count 20 on the following round.
+
+Black Tendrils
+Black tendrils writhe around up to three enemies the creature can see within 100 feet. The enemies must succeed on a DC 15 Strength saving throw or be restrained until initiative count 20 on the following round.
+
+Smoke Cloud
+A cloud of smoke swirls in a 20-foot-radius sphere centered on a point the creature can see within 120 feet of it. The cloud spreads around corners and the area is lightly obscured. Each enemy in the cloud must succeed on a DC 15 Constitution saving throw or be blinded for 1 minute. An enemy creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Shattered Earth
+The ground erupts with volcanic force at a point the creature can see within 120 feet of it. Any enemy within 20 feet of the point must make a successful DC 15 Dexterity saving throw or be knocked prone and trapped in the ground. An enemy trapped in this way is restrained and can't stand up. An enemy can end the restraint if it or another enemy takes an action to make a successful DC 15 Strength check.
+
+Fire Wall
+A wall of fire rises up from the ground within 120 feet of the creature. The wall is up to 60 feet long, 10 feet high, and 5 feet thick, can take any shape the creature wants, and blocks line of sight. When the wall appears, each creature in its area must make a DC 15 Dexterity saving throw. An enemy that fails the saving throw takes 21 (6d6) fire damage. Each enemy that enters the wall for the first time each turn or ends its turn there takes 21 (6d6) fire damage. The wall is extinguished when the creature uses this lair action again or when the creature dies.
+
+Vortexes
+Four vortexes, each 5 feet in diameter and up to 30 feet tall, appear within the lair where the creature wishes. Eemies occupying the space where a vortex appears or who enter the vortex for the first time on a turn must make a DC 15 Dexterity save or be restrained. As an action, an enemy can free itself or another enemy from a vortex by succeeding on a DC 15 Strength check. The vortexes last until the creature uses this lair action again or until the creature dies.
+
+Coral Wall
+The creature creates a wall of living coral on a solid surface it can see within 120 feet of it. The wall can be up to 30 feet long, 30 feet high, and 1 foot thick. When the wall appears, each enemy within its area takes damage as if touching the wall and is pushed 5 feet out of the wall's space, on whichever side of the wall it wants. Touching the wall releases painful stings that deal 18 (4d8) poison damage, or half that with a successful DC 15 Constitution saving throw. Each 10-foot section of the wall has AC 5, 30 hit points, resistance to fire damage, and immunity to psychic damage. The wall lasts until the creature uses this lair action again or until the creature dies.
+
+Slow Time
+The creature bends time around its enemies. Four enemies the creature can see within 120 feet of it must succeed on a DC 15 Wisdom save or be affected by a slow spell. This effect last until initiative count 20 on the following round.
+
+Nullify Gravity
+The creature negates natural gravity within its lair. Enemies drift 10 feet away from the ground over the course of a round and are restrained. Flying enemies can move at half speed, unless they have the (hover) tag or use magical flight, in which case they move normally. This effect persists until initiative count 20 on the following round.
+
+Void Sphere
+The Void briefly overlaps the creature's lair in a 20-foot-radius sphere of blackness punctuated by deep blue streaks and pinpoints of light. The sphere is centered on a point the creature can see within 120 feet of the creature. The area spreads around corners, is heavily obscured, and contains no air (creatures must hold their breath). Each enemy in the sphere when it appears must make a DC 15 Constitution saving throw, taking 10 (3d6) cold damage on a failed save or half as much on a successful one. Any enemy that ends its turn in the sphere takes 10 (3d6) cold damage. The sphere lasts until the creature uses this lair action again or until the creature dies.
+
+Coterminous
+The creature rips the fabric of space, forcing two enemies it can see within 120 feet of it to suddenly exist in the same place. Space itself repels the enemies to their original positions. Each creature takes 16 (3d10) force damage and is knocked prone, or takes half as much damage and is not knocked prone with a successful DC 15 Strength saving throw.
+
+Dustdevils
+Sand and dust swirls up from the floor in a 20-foot radius sphere within 120 feet of the creature at a point the creature can see. The sphere spreads around corners. The area inside the sphere is lightly obscured, and each enemy in the sphere at the start of its turn must make a successful DC 15 Constitution saving throw or be blinded for 1 minute. A blinded enemy repeats the saving throw at the start of each of its turns, ending the effect on itself with a success.
+
+Splinters of Ice
+Fragments of ice and stone are torn from the lair's wall by a blast of wind and flung along a 15-foot cone. Enemies in the cone take 18 (4d8) bludgeoning damage, or half damage with a successful DC 15 Dexterity saving throw.
+
+Howling Gale
+A torrent of wind blasts outward from the creature in a 60-foot radius, either racing just above the floor or near the ceiling. If near the floor, it affects all enemies standing in the radius; if near the ceiling, it affects all enemies flying in the radius. Affected enemies must make a successful DC 15 Strength saving throw or be knocked prone and stunned until the end of their next turn.
+
+Beast Swarm
+The creature magically conjures up a swarm of eight giant beasts (of CR 1/2 or less) to defend his lair. The beasts act immediately, and on initiative count 20 in subsequent rounds. The beasts remain until they're killed or until the creature dismisses them as an action. The creature can use this action again, but no more than eight giant beasts can be present at a time.
+
+Becoming Animal
+The creature targets an enemy within the lair that it can see. The enemy must succeed on a DC 15 Constitution saving throw or be magically transformed into a CR 1 beast as if by a polymorph spell. At the beginning of its turn, a transformed enemy repeats the saving throw. If it fails, the enemy must use its action to attack one of the creature's foes. If it succeeds, the effect ends and the enemy returns to its normal form. The effect lasts until the enemy succeeds on the saving throw or until the creature uses this lair action again.
+
+Trembling Ground
+The creature causes the ground in a 20-foot radius to tremble and shake. Any enemies in the affected area must succeed on a DC 15 Strength saving throw or suffer 7 (2d6) bludgeoning damage and fall prone. The ground continues to tremble until initiative count 20 on the following round, during which time the area is difficult terrain.
+
+Sticky Ground
+A 50-foot square area of ground within 120 feet of the creature becomes slimy; that area is difficult terrain until initiative count 20 on the next round. The creature and its minions are immune to this effect.
+
+Living Walls
+Walls within 120 feet of the creature sprout grasping appendages until initiative count 20 on the round after next. Each enemy of the creature’s choice that starts its turn within 10 feet of such a wall must succeed on a DC 15 Dexterity saving throw or be grappled.
 
 
-	PASSIVES (Range 500 ft-10 miles for a Lair) (When creature dies, these fade over 2d10 days.)
+
+	PASSIVES (Range 500 ft-10 miles for a Lair) (When the creature dies, these fade over 2d10 days.)
 Paranoia
 Creatures within range feel as if they are being followed, even when they're not.
 
@@ -43,4 +103,58 @@ Flash flooding turns tunnels into death traps as tremors create fissures in the 
 
 Vermin Swarm
 Swarms of vermin within range of the lair increase in both size and number as they try to escape the creature's endless and undiscriminating hunger.
+
+Encroaching Darkness
+Within range of the lair all light sources except artifacts shed light to only half the usual radius.
+
+Nocturnal Swarm
+Owls and other nocturnal beasts become enraged and hostile within 5 miles of the lair, attacking intruders individually and in swarms.
+
+Shadow Omniscense
+Within range of the lair, the creature can cast its senses into any area of dim light or darkness as if using clairvoyance.
+
+Short Tempered
+Arguments and misunderstandings erupt easily within range of the lair. Friendships are easily broken and criminal acts are common.
+
+Heat Wave
+Temperatures rise within range of the lair. Crops wither, producing famines.
+
+Deadly Geysers
+Sulfur geysers form in and around the creature's lair. Some of them erupt only once an hour, so they're spotted only with a successful DC 20 Wisdom (Perception) check. A creature on top of an erupting geyser takes 21 (6d6) fire damage, or half damage with a successful DC 15 Dexterity saving throw.
+
+Proliferous Sea Life
+Sea life becomes richer within range of the lair. Schools of fish move into new waters, sharks become common, and whale migration paths shift to pass near the area.
+
+Icy Waters
+Water temperatures drop sharply within range of the lair. Creatures not accustomed to cold suffer exposure to extreme cold while swimming in this water.
+
+Rough Waters
+Storms and rough water are more common within range of the lair.
+
+The Truth Will Out
+Secrets have a way of coming to light within range of the lair. Clues are inadvertently discovered, slips of the tongue hint at a hidden truth, and creatures become morbidly curious for forbidden knowledge.
+
+Shadows Overcast
+Light is muted within range of the lair. Nonmagical illumination, including sunlight, can't create bright light in this area.
+
+Lowered Borders
+Visitations from otherworldly beings occur and disembodied voices whisper in the night within range of the creature's lair. Celestials, fey, and fiends of CR 2 or lower can slip into the world in this area.
+
+Swarm Prince
+The creature can communicate with spawns of itself and all vermin and insects, including swarms and giant varieties, within 120 feet via pheromone transmission. In the lair, this range extends to cover the entire lair. This is a silent and instantaneous mode of communication that only the creature, spawns of itself, insects, and vermin can understand. All these creatures follow the creature's orders and will never harm the creature.
+
+Chilling Colds
+Everywhere aboveground within range of the lair is considered exrteme cold. Nonmagical fires up to the size of a campfire are quenched. Exposed waters are frozen solid. Spells that protect against cold are subjected to a dispel magic every 10 minutes (at +5 spellcasting ability).
+
+Lycan Lands
+Within range of the lair, enemies have disadvantage on saving throws made to avoid contracting lycanthropy.
+
+Agitated Creatures
+Beasts within range of the lair are easily agitated quick to attack.
+
+Enflamed Emotions
+Emotions within range of the lair run high. Arguments quickly descend into physical scuffles and enjoyable get-togethers are likely to become raucous carousing or even brawls. 
+
+Warped Reality
+Within range of the lair, small things make change. Marks on cave walls might change subtly, an eerie trinket might appear where none existed before, harmless slime might coat a statue, and so on. These effects apply only to natural surfaces and to nonmagical objects that aren’t on anyone’s person.
 

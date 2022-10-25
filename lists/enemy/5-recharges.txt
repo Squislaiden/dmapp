@@ -122,7 +122,7 @@ Captivating Presence (Recharge 6)
 Each creature within 120 feet of the creature must succeed on a DC 13 Wisdom saving throw or be charmed by the master for 1 hour. While charmed in this way, a creature’s speed is 0. If the charmed creature takes damage, it can repeat the saving throw, ending the effect on itself on a success. A target that succeeds on the saving throw is immune to the Captivating Presence of all creature for the next 24 hours.
 
 Mind Siphon (Recharge 5-6)
-The creature targets a foe it can see within 30 feet of it. The target must make a DC 14 Intelligence saving throw, with disadvantage if the creature has previously consumed the target’s blood. On a failed save, the target takes 17 (5d6) psychic damage, and the creature discerns the target’s surface emotions and thoughts. On a successful save, the target takes half as much damage, and the creature discerns the target’s general emotional state but not its thoughts.
+The creature targets an enemy it can see within 30 feet of it. The target must make a DC 14 Intelligence saving throw, with disadvantage if the creature has previously consumed the target’s blood. On a failed save, the target takes 17 (5d6) psychic damage, and the creature discerns the target’s surface emotions and thoughts. On a successful save, the target takes half as much damage, and the creature discerns the target’s general emotional state but not its thoughts.
 
 Lashing Shadows (Recharge 5-6)
 Each creature within 60 feet of the creature, must succeed on a DC 14 Dexterity saving throw or take 14 (4d6) necrotic damage.
@@ -162,7 +162,7 @@ Sandslash (Recharge 5-6)
 As an action, the creature conjures a vortex of sand that surrounds it. All creatures within 10 feet of the creature take 17 (5d6) slashing damage, or half damage with a successful DC 14 Dexterity saving throw.
 
 Frightful Presence (Recharge 5-6)
-Each foe of the creature's choice that is within 90 feet of the creature and aware of it must succeed on a DC 14 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a foe's saving throw is successful or the effect ends for it, the foe is immune to the creature's Frightful Presence for the next 24 hours.
+Each enemy of the creature's choice that is within 90 feet of the creature and aware of it must succeed on a DC 14 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If an enemy's saving throw is successful or the effect ends for it, the enemy is immune to the creature's Frightful Presence for the next 24 hours.
 
 ELEMENT Breath (Recharge 5-6) (x3 Roll Chance)
 The creature exhales ELE in a (60-foot CONE or 120 ft. LINE that is 5 feet wide). Each creature in that line must make a DC 14 Dexterity saving throw, taking 24 (5d8) ELE damage on a failed save, or half as much damage on a successful one.
@@ -202,7 +202,7 @@ Stellar Flare Breath (Recharge 5-6)
 The creature exhales star fire in a (60-foot CONE or 120 ft. LINE that is 5 feet wide). Each creature in that area must make a DC 14 Dexterity saving throw, taking 14 (3d8) fire damage and 14 (3d8) radiant damage on a failed save, or half as much damage on a successful one.
 
 Whirlwind (Recharge 4-6)
-Each foe within 5 ft. of the creature's space must make a DC 13 Strength saving throw. On a failure, a target takes 111 (2d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.
+Each enemy within 5 ft. of the creature's space must make a DC 13 Strength saving throw. On a failure, a target takes 111 (2d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.
 
 Dust Devil (Recharge 5-6)
 A 5-foot-radius, 30-foot-tall cylinder of sand magically forms on a point the creature can see within 120 feet of it. The dust devil lasts as long as the creature maintains concentration (as if a spell). Any creature that enters the dust devil must succeed on a DC 14 Strength saving throw or be restrained by it; any number of creatures may be restrained this way. At the start of a restrained creature's turn, it takes 5 (2d4) slashing damage plus 5 (2d4) necrotic damage. The creature can move the dust devil up to 60 feet as an action; restrained creatures move with it. The dust devil ends if the creature loses sight of it. A creature can use its action to free a creature restrained by the dust devil, including itself, by making a DC 14 Strength check. If the check succeeds, it moves to the nearest space outside the dust devil.
@@ -224,4 +224,79 @@ The creature exhales a blast of wind in a 60-foot cone. Each creature in that co
 
 Cone of Negation (Recharge 5-6)
 The creature can project a cone of null energy. Targets inside the 30 foot cone take 18 (4d8) force damage and suffer the effect of a dispel magic spell. A successful DC 14 Dexterity saving throw reduces the damage to half and negates the dispel magic effect on that target.
+
+Ember Wreath (1/Day)
+As a bonus action, the creature wreathes its body in searing blue and white embers. The embers last for 1 minute or until the creature uses its breath weapon. An enemy that enters or starts its turn in a space within 10 feet of the creature must make a DC 23 Constitution saving throw, taking 10 (3d6) fire damage on a failed save, or half as much damage on a successful one. If an enemy fails the saving throw by 5 or more, it suffers one level of exhaustion as the water is sapped from its body by the unrelenting heat.
+
+Call the Dead (3/Day)
+The creature animates one humanoid corpse within 60 feet. This works like the animate dead spell, except it only creates zombies. The creature can control up to twenty zombies at one time.
+
+Eldritch Singularity (Recharge 5-6)
+The creature opens a momentary rupture in the eldritch source that fuels its words of power. This rupture appears at a spot designated by the creature within 100 feet. Any enemy within 60 feet of the spot must make a DC 17 Constitution saving throw. On a failure, the enemy takes 28 (8d6) force damage, falls prone, and is pulled 1d6 x 10 feet toward the eldritch singularity, taking an additional 3 (1d6) bludgeoning damage per 10 feet they were dragged. If the saving throw succeeds, the target takes half as much force damage and isn't knocked prone or pulled. The spot where the rupture occurs becomes the center of a 60-foot-radius antimagic field until the end of the creature's next turn. The creature's spells are not affected by this antimagic field.
+
+Fallen Glory (Recharge 5-6)
+All enemies within 50 feet of the creature and in its line of sight take 19 (3d12) radiant damage and are knocked prone, or take half damage and aren't knocked prone with a successful DC 15 Strength saving throw.
+
+Ethereal Lure (Recharge 4-6)
+The creature selects a spot within 20 feet of itself; that spot glows with a faint, blue light until the start of the worm's next turn. All other enemies that can see the light at the start of their turn must make a successful DC 12 Wisdom saving throw or be charmed until the start of their next turn. An enemy charmed this way must Dash toward the light by the most direct route, automatically fails saving throws against being grappled, and treats the creature as invisible.
+
+Acid Spray (Recharge 6)
+The creature spits acid in a line that is 30 ft. long and 5 ft. wide. Each enemy in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.
+
+Fiery Sands (Recharge 5-6)
+Sand whips violently around the creature. Each enemy within 10 feet of the creature must make a DC 13 Constitution saving throw, taking 10 (3d6) slashing damage and 10 (3d6) fire damage on a failed save, or half as much damage on a successful one.
+
+Ash Breath (recharge 5-6)
+The creature spews a 20-foot cone of blistering hot, choking ash. Any targets in the path of this spray takes 14 (4d6) fire damage and become poisoned for one minute; a successful DC 13 Dexterity saving throw reduces damage by half and negates the poisoning. A poisoned enemy repeats the saving throw at the end of each of its turns, ending the effect on itself with a successful save.
+
+Ash Storm (Recharge 5-6)
+The creature furiously beats its wings, throwing clinging ash into a 30-foot cone. Each enemy in the area must make a DC 16 Dexterity saving throw. On a failure, a enemy takes 28 (8d6) necrotic damage and is blinded until the end of its next turn. On a success, a enemy takes half the damage and isn’t blinded.
+
+Scream (Recharge 5-6)
+The creature shrieks thunderously in a 30-foot cone. Each enemy in that area must make a DC 15 Dexterity saving throw. On a failure, an enemy takes 27 (6d8) thunder damage and is deafened for 1 hour. On a success, an enemy takes half as much damage and isn’t deafened.
+
+Acid Wave (Recharge 5-6)
+The creature rises up and crashes down, releasing a 20-foot radius wave of acidic ooze. Each enemy in the area must make a DC 20 Dexterity saving throw. On a failure, an enemy takes 67 (15d8) acid damage and is knocked prone. On a success, an enemy takes half the damage and isn't knocked prone.
+
+Consult the Psyche (1/Day)
+Each enemy within 60 feet who can see the creature must succeed on a DC 20 Constitution saving throw or be blinded until the end of its next turn. Each enemy of the creature's choice within 60 feet that speaks a language must succeed on a DC 20 Charisma saving throw or be stunned until the end of its next turn as the creature telepathically utters a short expression that is particularly meaningful to that enemy.
+
+Animate Bones (Recharge 5-6)
+The creature creates a skeleton out of a pile of bones or a the corpse of a Large or smaller creature within 10 feet of it. The skeleton is under the control of the creature, obeying the creature’s mental commands, and uses the statistics of a CR 1 or lower skeleton of your choice. The creature can control up to three skeletons at one time. If the creature creates a skeleton while it already has three under its control, the oldest skeleton crumbles to dust.
+
+Temporal Strike (recharge 5-6)
+When the creature strikes a target with a melee attack, in addition to taking normal damage, the target must succeed on a DC 17 Constitution saving throw or instantly age 3d6 years. A creature that ages this way has disadvantage on attack rolls, ability checks, and saving throws based on Strength, Dexterity, and Constitution until the aging is reversed. A creature that ages beyond its lifespan dies immediately. The aging reverses automatically after 24 hours, or it can be reversed magically by greater restoration or comparable magic. A creature that succeeds on the save is immune to the temporal strike effect for 24 hours.
+
+Blood Bray (Recharge 6)
+The creature unleashes an otherworldly braying that causes the internal organs of nearby enemies to twist and rupture. Each enemy within 20 feet of the creature that can hear it must make a DC 18 Constitution saving throw. On a failure, the enemy takes 36 (8d8) necrotic damage and is stunned until the end of its next turn as it doubles over in agony. On a success, the enemy takes half the damage and isn’t stunned. The bray doesn’t affect creatures without internal organs, such as constructs, elementals, and oozes.
+
+Leadership (Recharges after a Short or Long Rest)
+For 1 minute, the creature can utter a special command or warning whenever an ally that it can see within 30 feet of it makes an attack roll or a saving throw. The ally can add a d4 to its roll provided it can hear and understand the bandit lord. An ally can benefit from only one Leadership die at a time. This effect ends if the creature is incapacitated.
+
+Crier’s Lament (1/Day)
+The creature unleashes a devastating peal of anguish and rage in a 30-foot cone. Each enemy in the area must make a DC 16 Charisma saving throw. On a failure, an enemy drops to 0 hp. On a success, an enemy takes 21 (6d6) psychic damage and is frightened for 1 minute. A frightened enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Steal Joy (Recharge 5-6)
+Each enemy of the creature’s choice that is within 20 feet of the creature and aware of it must succeed on a DC 13 Wisdom saving throw or its Charisma score is reduced by 1d4. An enemy that has its Charisma reduced to 0 ends its life at the earliest opportunity. Otherwise, the Charisma reduction lasts until the target finishes a long rest.
+
+Blood Magic (Recharge 5-6)
+The creature causes 10-foot-high blood spikes to burst from the ground within 15 feet of it. Each enemy in the area must make a DC 15 Dexterity saving throw, taking 26 (4d12) piercing damage plus 7 (2d6) cold damage on a failed save, or half as much damage on a successful one.
+
+Sonic Blast (Recharge 5-6)
+The creature can emit a howling thunderclap that deafens and damages those nearby. Enemies within 15 feet who fail a DC 17 Constitution saving throw take 36 (8d8) thunder damage and are permanently deafened. Those succeeding on the saving throw take half damage and are not deafened. The deafness can be cured with lesser restoration.
+
+Mock (Recharge 5-6)
+The creature mocks the futile efforts of up to three enemies it can see within 30 feet of it that aren’t undead or constructs. Each target must make a DC 12 Charisma saving throw, taking 5 (2d4) psychic damage on a failed save, or half as much damage on a successful one. A creature that fails this has disadvantage on their next saving throw.
+
+Call Potion (Recharge 5-6)
+The creature releases a hungry screech, magically reaching out to nearby potions. All potions within 10 feet of the creature magically move toward the creature by rolling out of backpacks, hopping off of belts, unburying themselves, etc. A creature wearing or carrying a potion must succeed on a DC 13 Dexterity saving throw or its potion moves to within 5 feet of the creature. The target must make a separate saving throw for each potion it is attempting to keep in its possession.
+
+Sunlight Petrification
+If the creature starts its turn in sunlight, it takes 10 radiant damage. While in sunlight, it moves at half speed and has disadvantage on attack rolls and ability checks. If the creature is reduced to 0 hp while in sunlight, it is petrified.
+
+Light Beam (Recharge 5-6)
+The creature shoots a 30-foot-long, 5-foot-wide line of scintillating light from the garnet on its forehead. Each enemy in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) radiant damage on a failed save, or half as much damage on a successful one.
+
+Quake (Recharge 6)
+The creature slams its fists into the ground, shaking the terrain within 60 feet of it. Each enemy standing on the ground in that area must make a DC 18 Dexterity saving throw. On a failure, the enemy takes 45 (10d8) bludgeoning damage and is knocked prone. On a success, the enemy takes half the damage and isn’t knocked prone.
 

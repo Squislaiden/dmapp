@@ -1,9 +1,9 @@
-	Innate Spellcasting (All Spellcasters and Half-Casters have this)
-	The creature’s spellcasting ability is STAT (+4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:
-	At will: spells
-	1/day: spells
-	3/day: spells
-	5/day: spells
+Spellcasting (All Spellcasters and Half-Casters have this)
+The creature’s spellcasting ability is STAT (+4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:
+at will: spells
+1/day each: spells
+3/day each: spells
+5/day each: spells
 
 Keen Sight
 The creature has advantage on Wisdom (Perception) checks that rely on sight.
@@ -35,17 +35,8 @@ The creature can breathe air and water, but it needs to be submerged once every 
 Dire Cocophony
 Any creature that starts its turn within 60 feet of the creature and can hear it must make a DC 11 Wisdom saving throw. On a failed save, the creature is unable to use the Dash action, cannot climb, or cast spells other than cantrips until the start of its next turn.
 
-Keen Hearing
-The creature has advantage on Wisdom (Perception) checks that rely on hearing.
-
 Magic Resistance
 The creature has advantage on saving throws against spells and other magical effects.
-
-Gore
-Melee weapon attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage.
-
-Chromatic Ray
-Ranged Spell Attack: +6 to hit, range 60 ft., one target. Hit: 3 (1d6) lightning damage plus 3 (1d6) fire damage plus 3 (1d6) cold damage.
 
 Lurker in the Shadow
 The creature is invisible to darkvision.
@@ -90,31 +81,22 @@ Sunlight Sensitivity
 While in sunlight, the creature has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
 
 Customizable Storage
-The creature can hold up to three types of liquid payload totaling 12 gallons within its hollow, body. A full creature can make one liquid attack per gallon before the liquid must be refilled. Filling a keg robot takes 2 rounds per gallon. Differing payloads can alter their attacks.
+The creature can hold up to three types of liquid payload totaling 12 gallons within its body. A full creature can make one liquid attack per gallon before the liquid must be refilled. Refilling takes 2 rounds per gallon. Differing payloads can alter their attacks.
 
 Defensive Advantage
 As long as two or more of the creature’s allies are within 5 feet of the creature and are not incapacitated, attack rolls against the creature are made with disadvantage.
 
-Touch of Madness
+Fey Ancestry
 The creature has advantage on saving throws against being charmed or frightened.
 
 Eye Thief
 The creature can see through the eyes of all creatures within 30 feet of it. All creatures within the sight of any creature within the 60 ft. count as in line of sight.
 
 Strong Regeneration
-The creature regains 8 hit points at the start of its turn. If it takes rediant damage, this trait doesn’t function at the start of its next turn. The creature dies only if it starts its turn with 0 hit points and doesn’t regenerate.
+The creature regains 8 hit points at the start of its turn. If it takes a critical hit, this trait doesn’t function at the start of its next turn. The creature dies only if it starts its turn with 0 hit points and doesn’t regenerate.
 
 Regeneration
 The creature regains 8 hit points at the start of its turn. If it takes fire damage or a critical hit, this trait doesn’t function at the start of its next turn.
-
-Mind-Weakening Ray
-The creature targets one crature within 30 ft. that it can see. The target must succeed on a DC 10 Intelligence saving throw or take 9 (2d8) psychic damage and be unable to cast spells or activate magic items for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
-
-Domination Ray
-The creature targets one crature within 30 ft. that it can see. The target must succeed on a DC 12 Wisdom saving throw or be charmed by the creature for 1 minute or until the target takes damage. The creature can issue telepathic commands to the charmed creature (no action required), which it does its best to obey.
-
-Psyche-Reconstruction Ray
-The creature targets one crature within 30 ft. that it can see. The target must make a DC 12 Wisdom saving throw, taking 12 (2d10) psychic damage on a failed save, or half as much damage on a successful one. If this damage reduces a creature to 0 hit points, it dies and transforms into a spectator under the creature’s control and acts immediately after the creature in the initiative order. The target can’t be returned to its original form by any means short of a wish spell while the creature is alive.
 
 Pack Tactics
 The creature has advantage on an attack roll against a target if at least one of the creature's allies is within 5 feet of the creature and the ally isn't incapacitated.
@@ -123,7 +105,7 @@ Pounce
 If the creature moves at least 20 feet straight toward a target and then hits it with a melee attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone.
 
 Better Pounce
-If the creature moves at least 20 feet straight toward a target and then hits it with a melee attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the creature can make one natural/unarmed attack against it as a bonus action.
+If the creature moves at least 20 feet straight toward a target and then hits it with a melee attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target falls or is already prone, the creature can make one natural/unarmed attack against it as a bonus action.
 
 Change Humanoid Appearance
 The creature can use its action to polymorph into a Medium humanoid it has seen, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn’t transformed. It reverts to its true form if it dies.
@@ -198,10 +180,10 @@ Siege Monster
 The creature deals double damage to objects and structures.
 
 Magic Weapons
-The creature’s weapon attacks are magical.
+The creature’s attacks are magical.
 
 Crackling Death
-When the creature dies, it explodes. Each creature within 30 feet of it must make a DC 14 Dexterity saving throw, taking 16 (4d8) lightning damage on a failed save, or half as much damage on a successful one. 
+When the creature dies, it explodes. Each creature within 30 feet of it must make a DC 14 Dexterity saving throw, taking 16 (4d8) lightning damage on a failed save, or half as much damage on a successful one.
 
 Bolstering Presence
 The creature magically emanates life-giving energy within 20 feet of itself. Any ally of the creature that starts its turn there regains 4 (1d8) hit points.
@@ -230,9 +212,6 @@ During its first turn, the creature poisoner has advantage on attack rolls again
 Poisonous Skin
 Any creature that touches the creature or hits it with a melee attack while within 5 feet of it takes 3 (1d6) poison damage.
 
-Chameleon Skin
-The creature has advantage on Dexterity (Stealth) checks made to hide.
-
 Spider Climb
 The creature can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
 
@@ -255,7 +234,7 @@ Locus of the Firemind
 The creature can maintain concentration on two different spells at the same time. In addition, it has advantage on saving throws to maintain concentration on spells.
 
 Focus
-As a bonus action, the creature can target a foe it can see within 30 feet of it and make that foe its focus. The target remains the creature’s focus for 1 minute, or until either the target or the creature drops to 0 hit points.
+As a bonus action, the creature can target an enemy it can see within 30 feet of it and make that enemy its focus. The target remains the creature’s focus for 1 minute, or until either the target or the creature drops to 0 hit points.
 When the creature makes an attack roll against its focus, it adds a d4 to its attack roll. If the creature attacks a different target while it has a focus, it subtracts a d4 from its attack roll.
 
 Shadow Stride
@@ -295,10 +274,10 @@ Great Constitution
 The creature has advantage on checks to be stunned, charmed, restrained, or exhausted.
 
 Icy Slime
-The creature’s body is covered in a layer of greasy, ice-cold slime that grants it the benefits of freedom of movement. In addition, a foe that touches the creature or hits it with a melee attack while within 5 feet of it takes 7 (2d6) cold damage from the freezing slime. A foe grappled by the creature takes this damage at the start of each of its turns.
+The creature’s body is covered in a layer of greasy, ice-cold slime that grants it the benefits of freedom of movement. In addition, an enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 7 (2d6) cold damage from the freezing slime. An enemy grappled by the creature takes this damage at the start of each of its turns.
 
 Strangle
-The creature has +2 to grapple checks. The creature strangles one foe grappled by it. The target must make a DC 14 Strength saving throw. On a failure, the target takes 14 (4d8) bludgeoning damage, can’t breathe, speak, or cast spells, and begins suffocating. On a success, the target takes half the bludgeoning damage and is no longer grappled. Until this strangling grapple ends (escape DC 14), the target takes 9 (2d8) bludgeoning damage at the start of each of its turns. The creature can strangle up to one creature the same size as it or two smaller than it.
+The creature has +2 to grapple checks. The creature strangles one enemy grappled by it. The target must make a DC 14 Strength saving throw. On a failure, the target takes 14 (4d8) bludgeoning damage, can’t breathe, speak, or cast spells, and begins suffocating. On a success, the target takes half the bludgeoning damage and is no longer grappled. Until this strangling grapple ends (escape DC 14), the target takes 9 (2d8) bludgeoning damage at the start of each of its turns. The creature can strangle up to one creature the same size as it or two smaller than it.
 
 Distance Distortion Aura
 The presence of the creature distorts the vision of creatures within 60 feet of it. Each creature that starts its turn in that area must succeed on a DC 13 Wisdom saving throw or be unable to correctly judge the distance between itself and its surroundings until the start of its next turn. An affected creature has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight, and it can’t move more than half its speed on its turn. On a successful saving throw, the creature is immune to the Aura for the next 24 hours. Creatures with blindsight, tremorsense, or truesight are unaffected by this trait.
@@ -307,7 +286,7 @@ Mucous Cloud
 While underwater, the creature is surrounded by transformative mucus. A creature that touches the creature or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.
 
 Probing Telepathy (grants 120 ft. telepathy)
-If a foe communicates telepathically with the creature, the creature learns the foe's greatest desires if the creature can see the creature.
+If an enemy communicates telepathically with the creature, the creature learns the enemy's greatest desires if the creature can see the creature.
 
 Dual State
 A creature exists upon the Material Plane in one of two forms and can switch between them at will. In its material form, it has resistance to damage from nonmagical attacks. In its ethereal form, it is immune to damage from nonmagical attacks. The creature's ethereal form appears as a dark purple outline of its material form, with a blackish-purple haze within. A creature in ethereal form can move through air as though it were water, with a fly speed of 40 feet.
@@ -352,8 +331,154 @@ Defensive Frenzy
 When it has half its hit points or fewer, the creature can make one unarmed attack as a bonus action.
 
 Pack Leader
-The creature has advantage on an attack roll against a foe if at least one of the creature‘s allies is within 5 feet of the foe and the ally isn’t incapacitated. Likewise, each of the creature‘s allies has advantage on an attack roll against a foe if the creature is within 5 feet of the foe and isn’t incapacitated.
+The creature has advantage on an attack roll against an enemy if at least one of the creature‘s allies is within 5 feet of the enemy and the ally isn’t incapacitated. Likewise, each of the creature‘s allies has advantage on an attack roll against an enemy if the creature is within 5 feet of the enemy and isn’t incapacitated.
 
 Master Manipulator
 The creature prefers to control from the shadows and manipulates whomsoever it pleases. It has advantage on any Charisma skill checks or saving throws, even if it would otherwise have disadvantage. It also adds +4 to any Deception or Persuasion rolls.
+
+Born of Darkness
+The creature can take the Hide action as a bonus action on each turn while it is in dim light or darkness, even if it is being observed.
+
+Woodfriend
+When in a forest, the creature leave no tracks and automatically discerns true north.
+
+Aversion to Water
+If the creature takes cold damage or is doused with at least three gallons of water, it has disadvantage on attack rolls and ability checks until the end of its next turn.
+
+Fire Absorption
+Whenever the creature is subjected to fire damage, it takes no damage and instead regains a number of hp equal to the fire damage dealt.
+
+Arboreal Movement
+The creature can move through trees as if they were difficult terrain. The creature can end its turn inside a tree, but it is expelled into an unoccupied space within 5 feet of the tree if the tree is destroyed. Enemies inside of or grappled by the creature are expelled into a spot within 5 ft. of the tree.
+
+Truespeak
+The creature can communicate with any living creature as if they shared a language.
+
+Aura of Necromancy's Bane
+Necromancy spells can't be cast within 120 feet of the creature. When an undead creature starts its turn within 30 feet of the creature, it must make a DC 22 Constitution saving throw, taking 21 (6d6) radiant damage on a failed save, or half as much damage on a successful one.
+
+Usher of Souls
+The creature can transport itself and up to eight creatures in contact with it to another plane of existence. This works like the plane shift spell, except dead or incorporeal creatures can be transported and don't have to be willing. The creature can't use this ability to banish an unwilling creature.
+
+Blood Sense
+The creature can pinpoint, by scent, the location of living creatures within 30 feet of it.
+
+Devil’s Sight
+Magical darkness doesn’t impede the creature’s darkvision.
+
+Speak with Spiders
+The creature can communicate with spiders and other arachnids as if they shared a language.
+
+Capturing Strings
+If two attacks hit a Medium or smaller target, the target is restrained in gilded webbing. As an action, the restrained target can make a DC 13 Strength check, bursting the restaint on a success. The restraints can also be attacked and destroyed (AC 12; hp 8; immunity to bludgeoning, poison, and psychic damage).
+
+Aura of Virulence
+Creatures that would normally be resistant or immune to poison damage or the poisoned condition lose their resistance or immunity while within 60 feet of the creature. All other creatures within 60 feet of the creature have disadvantage on saving throws against effects that cause poison damage or the poisoned condition.
+
+Swarm Prince
+The creature can communicate with all vermin and insects, including swarms and giant varieties, within 120 feet via pheromone transmission. This is a silent and instantaneous mode of communication that only Arbeyach, spawn of Arbeyach, insects, and vermin can understand. All these creatures follow the creature's orders and will never harm the creature.
+
+Shearing
+Whenever the creature suffers 10 or more damage from a single attack, a length of itself breaks free. This animated tendril is under the creature's control, moving and acting as an extension of the creature. Each tendril has AC 14, 10 hp, and a speed of 10 feet.
+
+Advanced (Skill)
+The creature has advantage on (Skill) checks.
+
+Shapechanger
+The creature can use its action to polymorph into a small object, such as a ring, wand, orb, rod, or scroll. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. While polymorphed and motionless, the creature is indistinguishable from an ordinary object.
+
+Arcane Discharge
+When the creature dies, it explodes in a surge of partially-digested magical energy. Each creature within 15 feet must make a DC 14 Dexterity saving throw, taking 3 (1d6) force damage per Feed score on a failed save, or half as much damage on a successful one. For 1 minute afterward, the affected area is awash with volatile magic. A creature that starts its turn in the affected area takes 7 (2d6) force damage.
+
+Ingest Magic
+At the start of each of the creature's turns, each enemy within 30 feet of it that is currently maintaining concentration on a spell must make a DC 14 Constitution saving throw. On a failure, the enemy's spell ends and the creature feeds on the magic, regaining hit points equal to twice the level of the spell.
+
+Slaver Strikes
+The creature can add a magical effect in addition to the normal damage done by its attacks. If so, the creature chooses from the following effects:
+Confusion. The target must succeed on a DC 14 Wisdom saving throw or become confused (as the spell) for 2d4 - 1 rounds.
+Fear. The target must succeed on a DC 14 Wisdom saving throw or become frightened for 2d4 rounds.
+Hideous Laughter. The target must succeed on a DC 14 Wisdom saving throw or become incapacitated for 2d4 rounds. While incapacitated, the target is prone and laughing uncontrollably.
+Sleep. The target must succeed on a DC 14 Wisdom saving throw or fall asleep for 2d4 minutes. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.
+
+Healing Presence
+When a friendly ally within 10 feet of the creature regains hp, they regain an extra 1d6 hp.
+
+Assassinate
+During its first turn, the creature has advantage on attack rolls against any enemy that hasn't taken a turn. Any hit the creature scores against a surprised enemy is a critical hit.
+
+Swarm
+The creature can occupy another creature’s space and vice versa, and the creature can move through any opening as small as an inch wide.
+
+Helping Hand
+The creature can take the Help action as a bonus action on each of its turns.
+
+Water Invisibility
+While fully immersed in water, the creature is invisible. If it attacks, it becomes visible until the start of its next turn. The creature can suppress this invisibility until the start of its next turn as a bonus action.
+
+Chilling Presence
+The creature freezes everything within 150 feet of it. After 5 rounds, nonmagical fires up to the size of a campfire are quenched. Water freezes within 1 minute. Spells that protect against cold are subjected to an immediate dispel magic (at +10 spellcasting ability) when within 150 feet of Boreas.
+
+Absorbent
+When the creature damages an enemy, it absorbs a portion of that enemy's knowledge and power. As a bonus action, it can recreate any action available to an enemy it damaged within the last minute. This includes spells and actions with limited uses or with a recharge. This recreated action is resolved using the creature's statistics where applicable.
+
+Soothing Aura
+Any enemy hostile to the creature that starts its turn within 30 feet of the creature must succeed on a DC 20 Wisdom saving throw or have disadvantage on all attack rolls until the end of its next turn. Creatures with Intelligence 3 or lower automatically fail the saving throw.
+
+Legendary Merge
+A creature with less than half its maximum hp can merge with any other of the same creature within 10 feet, adding its remaining hp to that creature's. The hp gained this way can exceed the normal maximum of that creature. The creature can accept any number of such mergers.
+
+Multiple Heads
+The creature's two heads grant it advantage on Perception Checks and saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.
+
+Reactive Heads
+The creature gets two extra reactions that can be used only for opportunity attacks.
+
+Fire Aura
+At the start of each of the creature's turns, each enemy within 5 feet of it takes 10 (3d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 10 (3d6) fire damage.
+
+Running Leap
+The creature's long jump is up to 40 feet and its high jump is up to 20 feet when it has a running start. (Adjusted for larger creatures)
+
+Petrifying Gaze
+If an enemy starts its turn within 30 ft. of the creature and the two of them can see each other, the creature can force the enemy to make a DC 12 Constitution saving throw if the creature isn't incapacitated. On a failed save, the enemy magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the enemy is petrified until freed by the greater restoration spell or other magic.
+An enemy that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the creature until the start of its next turn, when it can avert its eyes again. If it looks at the creature in the meantime, it must immediately make the save.
+
+Steadfast
+The creature can't be frightened while it can see an allied creature within 30 feet of it.
+
+Frenzy (1/rest)
+As a bonus action, the creature can trigger a berserk frenzy that lasts 1 minute. While in frenzy, it gains resistance to bludgeoning, piercing, and slashing damage and has advantage on attack rolls. Attack rolls made against a frenzied creature have advantage.
+
+Antimagic Cone
+The creature's creates an area of antimagic, as in the antimagic field spell, in a 60-foot cone. At the start of each of its turns, the creature decides which way the cone faces and whether the cone is active. The area works against the creature's own magics.
+
+Treasure Sense
+The creature can pinpoint, by scent, the location of precious metals and stones, such as coins and gems, within 60 ft. of it.
+
+Hateful Aura
+The creature and allies within 10 feet of the creature add their Charisma modifier to weapon damage rolls (unless it is negative).
+
+Carnivorous Compulsion
+If the creature can see an incapacitated creature, it must succeed on a DC 11 Wisdom save or be compelled to move toward that creature and attack it.
+
+Unholy Stench
+When the creature takes piercing or slashing damage, noxious vapors burst from its wounds. Each enemy within 10 feet of it must succeed on a DC 14 Constitution saving throw or take 7 (2d6) poison damage and be poisoned until the end of its next turn.
+
+Blood Sense
+The creature can pinpoint the location of living creatures within 60 feet of it and can sense the general direction of living creatures within 1 mile of it.
+
+Blood Scent
+A creature can smell blood within 240 feet of it. It can determine whether the blood is fresh or old and what type of creature shed the blood. In addition, the creature has advantage on Wisdom (Perception) and Wisdom (Survival) checks to find or track a creature that doesn’t have all its hp.
+
+Necrotic Absorption
+Whenever the creature is subjected to necrotic damage, it takes no damage and instead regains a number of hp equal to the necrotic damage dealt.
+
+Cackle
+The creature emits a constant, demoralizing cackle. When an enemy that isn’t an undead or a construct starts its turn within 30 feet of the creature and can hear it, it must make a DC 10 Wisdom saving throw or feel demoralized by the creature’s cackling. A demoralized enemy has disadvantage on attack rolls until the start of its next turn.
+
+Fiendish Blessing
+The AC of the creature includes its Charisma bonus.
+
+Detect Elixir
+The creature can pinpoint the location of potions and magic items within 60 feet of it. Outside of 60 feet, it can sense the general direction of potions within 1 mile of it.
 

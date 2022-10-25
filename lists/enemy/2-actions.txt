@@ -8,100 +8,100 @@ Bite
 Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
 
 Dagger
-Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4 piercing damage.
 
 Club
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4 bludgeoning damage.
 
 Handaxe
-Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6 slashing damage.
 
 Light Hammer
 Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4
 
 Javelin
-Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6 piercing damage.
 
 Quarterstaff
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8 bludgeoning damage.
 
 Spear
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8 piercing damage.
 
 Mace
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8 bludgeoning damage.
 
 Greatclub
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 bludgeoning damage.
 
 Shortsword
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6 piercing damage.
 
 Rapier
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 piercing damage.
 
 Longsword
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10 slashing damage.
 
 Whip
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d4 slashing damage.
 
 Battleaxe
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10 slashing damage.
 
 Morningstar
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 piercing damage.
 
 Flail
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 bludgeoning damage.
 
 Warhammer
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 bludgeoning damage.
 
 Pike
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10 piercing damage.
 
 Barbed Whip
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10 slashing damage.
 
 Halberd
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10 slashing damage.
 
 Glaive
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d10 slashing damage.
 
 Greataxe
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d12
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d12 slashing damage.
 
 Greatsword
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6 slashing damage.
 
 Maul
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 2d6 bludgeoning damage.
 
 Scimitar
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8 slashing damage.
 
 Trident
-Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d6 piercing damage.
 
 War Pick
-Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 piercing damage.
 
 Light Crossbow
-Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d8 (RANGED 80/320)
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d8 piercing damage.
 
 Shortbow
-Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d6 (RANGED 80/320)
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d6 piercing damage.
 
 Hand Crossbow
-Ranged weapon attack: +4 to hit, ranged 30/120, one target. Hit: 1d8 (RANGED 30/120)
+Ranged weapon attack: +4 to hit, ranged 30/120, one target. Hit: 1d8 piercing damage.
 
 Heavy Crossbow
-Ranged weapon attack: +4 to hit, ranged 100/400, one target. Hit: 1d10 (RANGED 100/400)
+Ranged weapon attack: +4 to hit, ranged 100/400, one target. Hit: 1d10 piercing damage.
 
 Longbow
-Ranged weapon attack: +4 to hit, ranged 150/600, one target. Hit: 1d8 (RANGED 150/600)
+Ranged weapon attack: +4 to hit, ranged 150/600, one target. Hit: 1d8 piercing damage.
 
 Radiant Blast
 Radiant energy erupts from the creature’s eyes in a 15-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or take 7 (2d6) radiant damage and be blinded until the end of the creature’s next turn. Creatures with the Sunlight Sensitivity trait have disadvantage on this saving throw.
@@ -243,7 +243,7 @@ Spit Acid
 Ranged Weapon Attack: +5 to hit, range 20/60 ft., one target. Hit: 10 (4d4) acid damage.
 
 Petrifying Gaze
-The creature fixes its gaze on one foe within 60 feet of it that it can see and that can see its eyes. The target must make a DC 12 Constitution saving throw. If the saving throw fails by 5 or more, the for is instantly petrified. Otherwise, a foe that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.
+The creature fixes its gaze on one enemy within 60 feet of it that it can see and that can see its eyes. The target must make a DC 12 Constitution saving throw. If the saving throw fails by 5 or more, the for is instantly petrified. Otherwise, an enemy that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.
 
 Searing Touch
 The creature grabs a target and attempts to grapples them. The initial touch deals 11 (3d6) damage and an additional 11 (3d6) damage each turn they remain grappled.
@@ -290,4 +290,127 @@ When a creature fails an Intelligence, Wisdom, or Charisma saving throw against 
 Bone Shard
 Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 8 (2d4 + 3) piercing damage and the target must make a DC 14 Constitution saving throw. On a failure, a piece of the bone breaks and sticks in the target's wound. The target takes 5 (2d4) piercing damage at the start of each of its turns as long as the bone remains lodged in its wound. A creature, including the target, can take its action to remove the bone by succeeding on a DC 14 Wisdom (Medicine) check. The bone also falls out of the wound if the target receives magical healing.
 A creature typically carries 3 (1d6) bone shards, which are destroyed on a successful hit. It can use its action to tear a bone shard from a corpse within 5 feet.
+
+Gore
+Melee weapon attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage.
+
+Chromatic Ray
+Ranged Spell Attack: +6 to hit, range 60 ft., one target. Hit: 3 (1d6) lightning damage plus 3 (1d6) fire damage plus 3 (1d6) cold damage.
+
+Rainbow Arch
+The creature can instantaneously teleport between sources of fresh water within 1 mile as an action. It can't move normally or take any other action on the turn when it uses this power. When this power is activated, a rainbow manifests between the origin and destination, lasting for 1 minute.
+
+Fiery Greatsword
+Melee Weapon Attack. +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage plus 16 (3d10) fire damage.
+
+Lightning Relocation
+The creature teleports up to 60 feet to an unoccupied space it can see. When it does, it briefly transforms into a bolt of lightning, flashes upwards, then crashes down unharmed at its destination. Each enemy within 5 feet of the creature’s starting location or destination must succeed on a DC 16 Dexterity saving throw, taking 14 (4d6) lightning damage on a failed save, or half as much on a successful one. An enemy within 5 feet of both locations makes this saving throw only once.
+
+Natural Climber
+The creature gains 20 ft. of climbing speed and can climb difficult surfaces, such as upside down on the ceiling. The creature does not provoke opportuniy attacks while climbing.
+
+Ash Cloud
+The creature can create a cloud of ash that extends 10 feet in all directions, centered on itself. This cloud provides half cover, though the creature can see normally through its own cloud. Any enemy that enters or starts its turn in the cloud must succeed on a DC 14 Constitution saving throw or become blinded for 1d6 rounds.
+
+Poisoned Dagger
+Melee weapon attack: +4 to hit, reach 5 ft. or 20/60 range, one target. Hit: 1d4 piercing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Shortsword
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6 piercing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Rapier
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8 piercing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Barbed Whip
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d8/1d10 slashing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Scimitar
+Melee weapon attack: +4 to hit, reach 5 ft., one target. Hit: 1d6/1d8 slashing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Light Crossbow
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d8 piercing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Shortbow
+Ranged weapon attack: +4 to hit, ranged 80/320, one target. Hit: 1d6 piercing and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Hand Crossbow
+Ranged weapon attack: +4 to hit, ranged 30/120, one target. Hit: 1d8 piercing, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Poisoned Claw
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 2) slashing damage, and the target must make a DC 15 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one.
+
+Healing Touch (3/Day)
+The creature touches another creature. The target magically regains 14 (3d8 + 1) hit points and is freed from any disease, poison, blindness, or deafness.
+
+North Wind Longbow
+Ranged Weapon Attack: +12 to hit, range 150/600 ft., one target. Hit: 10 (1d8 + 6) piercing damage plus 9 (2d8) cold damage.
+
+Wind Blast
+Ranged Spell Attack: +11 to hit, range 50 ft., one target. Hit: 18 (2d12 + 5) slashing damage.
+
+Pincers
+Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 15 (2d8 + 6) slashing damage. If the creature scores a critical hit against an enemy, roll a d10. On a 1-3, it severs the target’s arm, and on a 4-6 it severs the target’s leg. A creature missing an arm can’t wield weapons that require two hands, and if a creature is missing a leg, its speed is halved. Creatures without limbs are unaffected.
+
+Hurl Flame
+Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (3d6) fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire.
+
+Beard
+Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) piercing damage, and the target must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the target can't regain hit points. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Constrict
+Melee Weapon Attack: +10 to hit, reach 5 ft., one Large or smaller creature. Hit: 17 (2d10 + 6) bludgeoning damage plus 17 (2d10 + 6) slashing damage. The target is grappled (escape DC 16) if the creature isn't already constricting an enemy, and the target is restrained until this grapple ends.
+
+Eye Rays (Generates 1 with decreasing chances for each additional one) (make varible, to check and not double up rays)
+The creature shoots three of the following magical eye rays at random (reroll duplicates), choosing one to three targets it can see within 120 ft. of it:
+- Charm Ray. The targeted enemy must succeed on a DC 16 Wisdom saving throw or be charmed by the creature for 1 hour, or until the creature harms the enemy.
+- Paralyzing Ray. The targeted enemy must succeed on a DC 16 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+- Fear Ray. The targeted enemy must succeed on a DC 16 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+- Slowing Ray. The targeted enemy must succeed on a DC 16 Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the enemy can't take reactions, and it can take either an action or a bonus action on its turn, not both. The enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+- Enervation Ray. The targeted enemy must make a DC 16 Constitution saving throw, taking 36 (8d8) necrotic damage on a failed save, or half as much damage on a successful one.
+- Telekinetic Ray. If the target is an enemy, it must succeed on a DC 16 Strength saving throw or the creature moves it up to 30 ft. in any direction. It is restrained by the ray's telekinetic grip until the start of the creature's next turn or until the creature is incapacitated.
+If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 ft. in any direction. The creature can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container.
+- Sleep Ray. The targeted enemy must succeed on a DC 16 Wisdom saving throw or fall asleep and remain unconscious for 1 minute. The target awakens if it takes damage or another enemy takes an action to wake it. This ray has no effect on constructs and undead.
+- Petrification Ray. The targeted enemy must make a DC 16 Dexterity saving throw. On a failed save, the enemy begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the enemy is petrified until freed by the greater restoration spell or other magic.
+- Disintegration Ray. If the target is an enemy, it must succeed on a DC 16 Dexterity saving throw or take 45 (10d8) force damage. If this damage reduces the enemy to 0 hit points, its body becomes a pile of fine gray dust.
+If the target is a Large or smaller nonmagical object or creation of magical force, it is disintegrated without a saving throw. If the target is a Huge or larger object or creation of magical force, this ray disintegrates a 10-foot cube of it.
+- Death Ray. The targeted enemy must succeed on a DC 16 Dexterity saving throw or take 55 (10d10) necrotic damage. The target dies if the ray reduces it to 0 hit points.
+
+Icy Shortbow
+Ranged Weapon Attack: +5 to hit, range 80/320 ft., one target. Hit: 5 (1d4 + 3) piercing damage plus 2 (1d4) cold damage, and the target must make a successful DC 13 Constitution saving throw or gain 2 levels of exhaustion from the arrow's icy chill. If the save succeeds, the target also becomes immune to further exhaustion from the arrows for 24 hours (but any levels of exhaustion already gained remain in effect). A character who gains a sixth level of exhaustion doesn't die automatically but drops to 0 hit points and must make death saving throws as normal. The exhaustion lasts until the target recovers fully from the cold damage.
+
+Disheartening Touch
+Melee Spell Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (3d6) psychic damage.
+
+Sapping Claw
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (3d6 + 3) slashing damage. If the target is a creature other than an undead, it must succeed on a DC 14 Constitution saving throw or have its speed halved and have disadvantage on Dexterity-based checks and saving throws for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Hideous Feast
+The bloated ghoul feeds on a corpse within 5 feet of it that is less than 1 week old. It regains 1d8 hit points on a Tiny corpse and an additional 1d8 per size category above Tiny.
+
+Spectral Claw
+Melee Weapon Attack: +7 to hit, reach 15 ft., one target. Hit: 21 (4d8 + 3) slashing damage, and the target must succeed on a DC 16 Constitution saving throw or suffer 1 level of exhaustion. A creature can suffer no more than 2 levels of exhaustion from Spectral Claws.
+
+Invisibility
+The creature magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the creature wears or carries is invisible with it.
+
+Tusks
+Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 22 (4d6 + 8) slashing damage, and if the target is the same size as the creature or smaller it must succeed on a DC 20 Strength saving throw or be knocked prone.
+
+Psychic Stab
+The creature targets one enemy that it can sense within 30 feet of it. The target must make a DC 12 Intelligence saving throw, taking 7 (2d6) psychic damage on a failed save, or half as much damage on a successful one.
+
+Fissure
+The creature opens a fissure in the ground within 120 feet of it that is 60 feet long, 10 feet wide, and 2d4 x 10 feet deep. Each enemy standing on a spot where a fissure opens must succeed on a DC 18 Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure’s edge as it opens. A fissure that opens beneath a structure causes it to automatically collapse as if the structure was in the area of an earthquake spell. The creature can have only one fissure open at a time. If it opens another, the previous fissure closes, shunting all creatures inside it to the surface.
+
+Acid Touch
+As an action, the creature destroys one nonmagical object that isn't being worn or carried, such as a rope, plank, candlestick, or even an entire bronze cauldron.
+
+Mind-Weakening Ray
+The creature targets one crature within 30 ft. that it can see. The target must succeed on a DC 10 Intelligence saving throw or take 9 (2d8) psychic damage and be unable to cast spells or activate magic items for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+Domination Ray
+The creature targets one crature within 30 ft. that it can see. The target must succeed on a DC 12 Wisdom saving throw or be charmed by the creature for 1 minute or until the target takes damage. The creature can issue telepathic commands to the charmed creature (no action required), which it does its best to obey.
+
+Psyche-Reconstruction Ray
+The creature targets one crature within 30 ft. that it can see. The target must make a DC 12 Wisdom saving throw, taking 12 (2d10) psychic damage on a failed save, or half as much damage on a successful one. If this damage reduces a creature to 0 hit points, it dies and transforms into a spectator under the creature’s control and acts immediately after the creature in the initiative order. The target can’t be returned to its original form by any means short of a wish spell while the creature is alive.
 

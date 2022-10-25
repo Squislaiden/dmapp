@@ -71,3 +71,49 @@ As a bonus action, the alabaster tree moves up to two times its speed, leaving a
 Musk Spray (Recharge 5-6)
 The weasel unleashes a spray of foul musk in a 20-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
+Shield Wall (Recharge 4-6)
+The creature adjsuts its stance, moving shields and armor to encase its body. It regains 10 hp, and its AC increases by 2 until the end of its next turn.
+
+Elusive
+The creature can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.
+
+Liquid Courage (Recharge 5-6)
+As a bonus action, the creature imbibes nearby alcohol to gain access to a hidden reservoir of audacity and grit. The creature gains 7 (2d6) temporary hp for 1 minute.
+
+Smother
+If the creature grapples an opponent, it extends a semi-solid gaseous tendril down the target's throat as a bonus action. The target must make a successful DC 14 Strength saving or it is immediately out of breath and begins suffocating. Suffocation ends if the grapple is broken or if the creature is killed.
+
+Rage (3/day)
+The creature enters a rage. They have resistance to physical damage and advantage on Strength Checks and Saves for 1 minute. If they go a full turn without being hit or attempting to attack an enemy, the rage ends.
+
+Silent Entry (3/Day)
+As a bonus action, the creature can silently unlock a door within 10 feet of it that is held shut by a mundane lock. If a door has multiple locks, only one is unlocked per use of this trait.
+
+Vaporized Blood
+A red mist surroundsthe creature in a 20-foot-radius sphere. The mist spreads around corners, and its area is heavily obscured. It moves with the creature and doesn't impede the creature's vision. The mist dissipates after 1d4 + 1 rounds.
+
+Drown (Recharge 5-6)
+The creature sends blood pouring down the throat of one enemy within 30 feet, which must make a DC 15 Constitution saving throw. On a failure, the enemy is incapacitated until the end of its next turn as it coughs up the blood and is poisoned for 1 minute after that.
+
+Blood Choke Curse
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target's mouth fills with blood, preventing any speech or spellcasting with verbal components for 1 minute.
+
+Blood Eye
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target's eyes well up with bloody tears. The target is blinded for 1 minute.
+
+Heart Like Thunder
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target hears only the rushing of blood and their thumping heart. They are deaf for 1 minute.
+
+Rupturing Arteries
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the victim suffers 7 (2d6) slashing damage as its veins and arteries burst open. The target repeats the saving throw at the beginning of each of its turns. It takes 3 (1d6) necrotic damage if the saving throw fails, but the effect ends on a successful save.
+
+Dark Stare
+The creature stares balefully at one enemy it can see within 60 feet. That enemy must succeed on a DC 13 Wisdom saving throw or have disadvantage on all attacks until the end of its next turn.
+
+Unearthly Hum (Recharge 4-6)
+The creature targets one enemy it can see within 60 feet of it. It emits a high frequency humming noise which can only be heard by the target. The target must succeed on a DC 11 Wisdom saving throw or move toward the creature on its turn by the shortest and most direct route, ending its turn when it comes within 5 feet of the creature.
+
+Animate Chains (Recharges after a Short or Long Rest)
+Up to four chains the creature can see within 60 feet of it magically sprout razor-edged barbs and animate under the creature's control, provided that the chains aren't being worn or carried.
+Each animated chain is an object with AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the creature uses Multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one enemy of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the creature is incapacitated or dies.
+

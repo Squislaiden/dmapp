@@ -204,9 +204,12 @@ input[type='number']{
 <div id="chartab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<div style="float: left"><br>
+			<div style="float: left">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
-			<br>
+			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Generic Options</u></label></center>
+			&nbsp;&nbsp;<label style="font-size: 14px">CR (max 50):</label>
+			<input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
+			</select><br>
 			<label style="font-size: 14px">Creature Type:</label>
 			<select name="dropType" id="dropType">
 			<option value="Random">[Random Type]</option>
@@ -225,17 +228,32 @@ input[type='number']{
 			<option value="Ooze">Ooze</option>
 			<option value="Undead">Undead</option>		
 			</select><br>
-			&nbsp;&nbsp;<label style="font-size: 14px">CR (max 50):</label>
-			<input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
-			</select><br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px">Boss? </label><input type="checkbox" id="bossCheck" name="bossCheck">&nbsp;&nbsp;<label style="font-size: 14px">Lair? </label><input type="checkbox" id="lairCheck" name="lairCheck"><br><br>
 			
-			<textarea rows="16" cols="32" style="background-color: #383838; font-size: .5em; color: lightgray; resize: none" disabled>Generating a random enemy will randomly pick everything, except a name, and output in three formats in the outputs below: Text, Homebrewery Markup, and Improved-Initiative JSON.
-
-The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resistances, Traits, Actions, Bonus Actions, Reactions, Recharge Abilities, Legendary Actions, Lair Passives/Actives, and Traits specific to certian categories.
-			</textarea>
+			<div style="text-align: center">
+			<label style="font-size: 12px">Boss? </label><input type="checkbox" id="bossCheck" name="bossCheck">&nbsp;&nbsp;<label style="font-size: 12px">Lair? </label><input type="checkbox" id="lairCheck" name="lairCheck">
+			&nbsp;<label style="font-size: 12px">Modifier? </label><input type="checkbox" id="enemyModCheck" name="enemyModCheck"><br>
+			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Martial or Caster</u></label></center>
+			<input type="radio" id="magicMartial" name="magicType" value="Martial"><label for="magicMartial" style="font-size: 12px">Martial</label>
+			<input type="radio" id="magicHalf" name="magicType" value="HalfCaster"><label for="magicHalf" style="font-size: 12px">Half-Caster</label><br>
+			<input type="radio" id="magicCaster" name="magicType" value="Caster"><label for="magicCaster" style="font-size: 12px">Caster</label>
+			<input type="radio" id="magicRandom" name="magicType" value="Random" checked="true"><label for="magicRandom" style="font-size: 12px">Random</label>
+			
+			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Movement</u></label></center>
+			&nbsp;&nbsp;&nbsp;<label style="font-size: 12px">Climb </label><input type="checkbox" id="climbCheck" name="climbCheck">&nbsp;&nbsp;<label style="font-size: 12px">Swim </label><input type="checkbox" id="swimCheck" name="swimCheck"><br>
+			&nbsp;<label style="font-size: 12px">Burrow </label><input type="checkbox" id="burrowCheck" name="burrowCheck">&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 12px">Fly </label><input type="checkbox" id="flyCheck" name="flyCheck">
+			
+			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Senses</u></label></center>
+			<label style="font-size: 12px">Blindsight </label><input type="checkbox" id="blindsightCheck" name="blindsightCheck">&nbsp;<label style="font-size: 12px">Tremorsense </label><input type="checkbox" id="tremorsenseCheck" name="tremorsenseCheck"><br>
+			&nbsp;<label style="font-size: 12px">Darkvision </label><input type="checkbox" id="darkvisionCheck" name="darkvisionCheck">&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 12px">Truesight </label><input type="checkbox" id="truesightCheck" name="truesightCheck">
+			
+			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Specifics</u></label></center>
+			&nbsp;&nbsp;&nbsp;<label style="font-size: 12px">Breath Attack </label><input type="checkbox" id="breathCheck" name="breathCheck">&nbsp;<label style="font-size: 12px">+1 Recharge </label><input type="checkbox" id="rechargeCheck" name="rechargeCheck"><br>
+			<label style="font-size: 12px">+1 Bonus Action </label><input type="checkbox" id="bonusCheck" name="bonusCheck">&nbsp;&nbsp;<label style="font-size: 12px">+1 Reaction </label><input type="checkbox" id="reactionCheck" name="reactionCheck">
+			
 			
 			</div>
+			</div>
+			
 					
 			<div style="float: right">
 			&nbsp;<button class="button-71" onclick="RollStatsBtn();">Roll Attributes</button><br>
@@ -272,7 +290,9 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><font size=4>Results:</font> <button class="button-70" onclick="copyOutput();">Copy</button>
-				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>Everything is working. A Warning though, Traits, Actions, and like things have only a couple possible rolls, the rest are WIP. Also, Homebrewery Stat Blocks are likely to be too big to fit on one page.
+				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>Generating a random enemy will randomly pick everything, except a name, and output in three formats in the outputs below: Text, Homebrewery Markup, and Improved-Initiative JSON.
+
+The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resistances, Traits, Actions, Bonus Actions, Reactions, Recharge Abilities, Legendary Actions, Lair Passives/Actives, and Traits specific to certian categories.
 				</textarea></center>
 		</div>
 		<div class="grid-item grid-item-double">

@@ -2834,15 +2834,140 @@ function GetTier() {GCR = Number(document.getElementById("numCR").value);
 }
 
 function EnemyTrait() {
-		RNG = Math.floor(Math.random() * 7) + 1;
-		if (RNG == 1) {GTraitNames.push("Keen Sight"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight.");}
-		else if (RNG == 2) {GTraitNames.push("Keen Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on smell.");}
-		else if (RNG == 3) {GTraitNames.push("Keen Hearing"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on hearing.");}
-		else if (RNG == 4) {GTraitNames.push("Keen Sight and Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight or smell.");}
-		else if (RNG == 5) {GTraitNames.push("Keen Sight and Hearing"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on sight or hearing.");}
-		else if (RNG == 6) {GTraitNames.push("Keen Hearing and Smell"); GTraits.push("The creature has advantage on Wisdom (Perception) checks that rely on hearing or smell.");}
-		else if (RNG == 7) {GTraitNames.push("Keen Senses"); GTraits.push("The creature has advantage on Wisdom (Perception) checks.");}
-		else if (RNG == 8) {GTraitNames.push(""); GTraits.push("");}
+	let reachX = 5;
+	let RNG = Math.floor(Math.random() * 3) + 1; 
+	if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
+		RNG = Math.floor(Math.random() * 60) + 1;
+		if (RNG == 1) {GTraitNames.push(`Keen Sight`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on sight.`);}
+		else if (RNG == 2) {GTraitNames.push(`Keen Smell`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on smell.`);}
+		else if (RNG == 3) {GTraitNames.push(`Keen Hearing`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on hearing.`);}
+		else if (RNG == 4) {GTraitNames.push(`Keen Sight and Smell`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on sight or smell.`);}
+		else if (RNG == 5) {GTraitNames.push(`Keen Sight and Hearing`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on sight or hearing.`);}
+		else if (RNG == 6) {GTraitNames.push(`Keen Hearing and Smell`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on hearing or smell.`);}
+		else if (RNG == 7) {GTraitNames.push(`Keen Senses`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks.`);}
+		else if (RNG == 8) {GTraitNames.push(`Radiant Eyes`); GTraits.push(`While its eyes are open, the creature projects bright light in a 60-foot cone and dim light for an additional 60 feet. It sets the orientation of this cone at the end of each of its turns. All creatures that can see the creature have disadvantage on attack rolls while in the area of bright light and within 15 feet of the creature. Creatures with the Sunlight Sensitivity trait that can see the creature have disadvantage on attack rolls anywhere in the area of bright light.`);}
+		else if (RNG == 9) {GTraitNames.push(`Limited Amphibiousness`); GTraits.push(`The creature can breathe air and water, but it needs to be submerged once every 24 hours to avoid suffocating.`);}
+		else if (RNG == 10) {GTraitNames.push(`Dire Cacophony`); GTraits.push(`Any creature that starts its turn within 60 feet of the creature and can hear it must make a DC ${GTier + 12} Wisdom saving throw. On a failed save, the creature is unable to use the Dash action, cannot climb, or cast spells other than cantrips until the start of its next turn.`);}
+		else if (RNG == 11) {GTraitNames.push(`Magic Resistance`); GTraits.push(`The creature has advantage on saving throws against spells and other magical effects.`);}
+		else if (RNG == 12) {GTraitNames.push(`Lurker in the Shadow`); GTraits.push(`The creature is invisible to darkvision.`);}
+		else if (RNG == 13) {GTraitNames.push(`Vermin Friend`); GTraits.push(`The creature can speak to and understand rats and giant rats.`);}
+		else if (RNG == 14) {GTraitNames.push(`Swarming Rush`); GTraits.push(`The creature adds ${Math.ceil(GPB / 3) + 1}d4 to its weapon damage rolls while within 5 feet of another, conscious ally.`);}
+		else if (RNG == 15) {GTraitNames.push(`Iron Scent`); GTraits.push(`The creature can scent the location of ferrous metal within 30 feet of it.`);}
+		else if (RNG == 16) {GTraitNames.push(`Blessing of Bountiful Generosity (1/day)`); GTraits.push(`The creature targets up to eight creatures within 100 feet of it that it can see. The next time a target finishes a long rest, it regains all spent Hit Dice and gains ${Math.floor(GPB + 6)} temporary hit points.`);}
+		else if (RNG == 17) {GTraitNames.push(`Curse of Poor Hospitality (1/day)`); GTraits.push(`The creature targets up to eight creatures within 100 feet of it that it can see. The next time a target completes a long rest, it does not regain spent Hit Dice.`);}
+		else if (RNG == 18) {GTraitNames.push(`Vexing Presence`); GTraits.push(`While within 30 feet of an ally that can see it, a non-fey creature has disadvantage on Dexterity checks and Dexterity saving throws.`);}
+		else if (RNG == 19) {GTraitNames.push(`Needle Defense`); GTraits.push(`Each time a creature makes a melee attack against the creature, it takes ${Math.ceil(GCR + 8) / 2} piercing damage. A creature can choose to make an attack with disadvantage to avoid this damage.`);}
+		else if (RNG == 20) {GTraitNames.push(`Close Quarters Shooting`); GTraits.push(`The creature does not suffer disadvantage on ranged attacks while within 5 feet of a hostile creature that can see it and isn’t incapacitated, if the target of the attack is also within 5 feet of the creature.`);}
+		else if (RNG == 21) {GTraitNames.push(`Fight On, You Slugs`); GTraits.push(`The creature picks up to three allied creatures within 60 feet that can see it. The chosen creatures can each use their reactions to make a single melee attack.`);}
+		else if (RNG == 22) {GTraitNames.push(`Ceaseless Screaming`); GTraits.push(`Any creature other than allies that starts their turn within 30 feet of one or more screaming creatures and can hear it must make a DC ${GTier + 10} Wisdom saving throw. On a failure the creature is incapacitated until the start of its next turn. On a success, the creature suffers no effect.`);}
+		else if (RNG == 23) {GTraitNames.push(`Poison Stinger`); GTraits.push(`The creature injects poison into one creature it hit with an attack this turn. The chosen creature must make a DC ${GTier + 12} Constitution saving throw, with disadvantage if the creature hit it more than once this turn, taking ${Math.ceil(GPB / 4) + 1}d6 poison damage on a failed save, or half as much on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned this way.`);}
+		else if (RNG == 24) {GTraitNames.push(`Entropic Aura`); GTraits.push(`Each creature that is not a construct or undead that ends its turn within 15 feet of the creature takes ${Math.ceil(GPB / 2) + 1}d4 necrotic damage.`);}
+		else if (RNG == 25) {GTraitNames.push(`Sunlight Sensitivity`); GTraits.push(`While in sunlight, the creature has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.`);}
+		else if (RNG == 26) {GTraitNames.push(`Customizable Storage`); GTraits.push(`The creature can hold up to three types of liquid payload totaling 12 gallons within its body. A full creature can make one liquid attack per gallon before the liquid must be refilled. Refilling takes 2 rounds per gallon. Differing payloads can alter their attacks.`);}
+		else if (RNG == 27) {GTraitNames.push(`Defensive Advantage`); GTraits.push(`As long as two or more of the creature’s allies are within 5 feet of the creature and are not incapacitated, attack rolls against the creature are made with disadvantage.`);}
+		else if (RNG == 28) {GTraitNames.push(`Fey Ancsetry`); GTraits.push(`The creature has advantage on saving throws against being charmed or frightened.`);}
+		else if (RNG == 29) {GTraitNames.push(`Eye Thief`); GTraits.push(`The creature can see through the eyes of all creatures within 30 feet of it. All creatures within the sight of any creature within the 60 ft. count as in line of sight.`);}
+		else if (RNG == 30) {GTraitNames.push(`Strong Regeneration`); GTraits.push(`The creature regains ${Math.ceil(GCR / 2) + 10} hit points at the start of its turn. If it takes a critical hit, this trait doesn’t function at the start of its next turn. The creature dies only if it starts its turn with 0 hit points and doesn’t regenerate.`);}
+		else if (RNG == 31) {GTraitNames.push(`Regeneration`); GTraits.push(`The creature regains ${Math.ceil(GCR / 2) + 10} hit points at the start of its turn. If it takes fire damage or a critical hit, this trait doesn’t function at the start of its next turn.`);}
+		else if (RNG == 32) {GTraitNames.push(`Pack Tactics`); GTraits.push(`The creature has advantage on an attack roll against a target if at least one of the creature's allies is within 5 feet of the creature and the ally isn't incapacitated.`);}
+		else if (RNG == 33) {GTraitNames.push(`Pounce`); GTraits.push(`If the creature moves at least 15 feet straight toward a target and then hits it with a melee attack on the same turn, that target must succeed on a DC ${GTier + 12} Strength saving throw or be knocked prone.`);}
+		else if (RNG == 34) {GTraitNames.push(`Better Pounce`); GTraits.push(`If the creature moves at least 15 feet straight toward a target and then hits it with a melee attack on the same turn, that target must succeed on a DC ${GTier + 12} Strength saving throw or be knocked prone. If the target falls or is already prone, the creature can make one natural/unarmed attack against it as a bonus action.`);}
+		else if (RNG == 35) {GTraitNames.push(`Change Humanoid Appearance`); GTraits.push(`The creature can use its action to polymorph into a Medium humanoid it has seen, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn’t transformed. It reverts to its true form if it dies.`);}
+		else if (RNG == 36) {GTraitNames.push(`Brave`); GTraits.push(`The creature has advantage on saving throws against being frightened.`);}
+		else if (RNG == 37) {GTraitNames.push(`Sneak Attack`); GTraits.push(`The creature deals an extra ${GPB}d6 damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the creature that isn't incapacitated and the creature doesn't have disadvantage on the attack roll.`);}
+		else if (RNG == 38) {GTraitNames.push(`Evasion`); GTraits.push(`If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can’t use this trait if it’s incapacitated.`);}
+		else if (RNG == 39) {GTraitNames.push(`Dual-Consciousness`); GTraits.push(`The creature has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.`);}
+		else if (RNG == 40) {GTraitNames.push(`Telepathic Bond`); GTraits.push(`While the creature is on the same plane of existence as its master/servant, it can magically convey what it senses to them, and the two can communicate telepathically.`);}
+		else if (RNG == 41) {GTraitNames.push(`Aware`); GTraits.push(`The creature cannot be surprised.`);}
+		else if (RNG == 42) {GTraitNames.push(`Incorporeal Movement`); GTraits.push(`The creature can move through other creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.`);}
+		else if (RNG == 43) {GTraitNames.push(`Dual Mind`); GTraits.push(`The creature has advantage on Wisdom saving throws.`);}
+		else if (RNG == 44) {GTraitNames.push(`Ambusher`); GTraits.push(`In the first round of a combat, the creature has advantage on attack rolls against any creature it surprised.`);}
+		else if (RNG == 45) {GTraitNames.push(`Mimicry`); GTraits.push(`The creature can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC ${GTier + 12} Wisdom (Insight) check.`);}
+		else if (RNG == 46) {GTraitNames.push(`Amorphous`); GTraits.push(`The creature can move through a space as narrow as 1 inch wide without squeezing.`);}
+		else if (RNG == 47) {GTraitNames.push(`Aura of False Divinity`); GTraits.push(`An enemy that starts its turn within 30 feet of the creature must make a DC ${GTier + 12} Wisdom saving throw, provided the creature isn’t incapacitated. On a failed save, the enemy is charmed by the creature. An enemy charmed in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the saving throw, the enemy is immune to this creature’s Aura of False Divinity for 24 hours.`);}
+		else if (RNG == 48) {GTraitNames.push(`Limited Magic Immunity`); GTraits.push(`The creature can’t be affected or detected by spells of 2nd level or lower unless it wishes to be. The creature has advantage on saving throws against all other spells and magical effects.`);}
+		else if (RNG == 49) {GTraitNames.push(`Deadly Critical`); GTraits.push(`The creature scores a critical hit on a roll of 19 or 20 and rolls the damage dice three times, instead of twice.`);}
+		else if (RNG == 50) {GTraitNames.push(`Precision Blows`); GTraits.push(`The creature scores a critical hit on a roll of 19 or 20.`);}
+		else if (RNG == 51) {GTraitNames.push(`Powerful Critical`); GTraits.push(`On a critical hit the creature rolls the damage dice three times, instead of twice.`);}
+		else if (RNG == 52) {GTraitNames.push(`Whirlwind of Weapons`); GTraits.push(`A magical aura of weapons surrounds the creature in a 5 foot radius. At the start of each of its turns, any other creature in the aura takes ${Math.ceil(GPB / 2) + 2}d6 force damage.`);}
+		else if (RNG == 53) {GTraitNames.push(`Master of Magic`); GTraits.push(`The creature has advantage on Constitution saving throws to maintain concentration.`);}
+		else if (RNG == 54) {GTraitNames.push(`Adamantine Plating`); GTraits.push(`Any critical hit against the creature becomes a normal hit.`);}
+		else if (RNG == 55) {GTraitNames.push(`Bladed Armor`); GTraits.push(`An enemy that grapples the creature or is grappled by it takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage. An enemy takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage if it starts its turn grappling or being grappled by the creature.`);}
+		else if (RNG == 56) {GTraitNames.push(`Charge`); GTraits.push(`If the creature moves at least 10 feet straight toward a target and then hits it with a melee attack on the same turn, the target takes an extra ${Math.ceil(GPB / 2) + 1}d6 damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Strength saving throw or be pushed up to 10 feet away and knocked prone.`);}
+		else if (RNG == 57) {GTraitNames.push(`Aura of Radiance`); GTraits.push(`The creature magically sheds bright light in a 15-foot radius and dim light for an additional 15 feet. The creature can extinguish or restore this light as a bonus action. If the bright light overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created that darkness is dispelled.`);}
+		else if (RNG == 58) {GTraitNames.push(`Siege Monster`); GTraits.push(`The creature deals double damage to objects and structures.`);}
+		else if (RNG == 59) {GTraitNames.push(`Magic Weapons`); GTraits.push(`The creature’s attacks are magical.`);}
+		else if (RNG == 60) {GTraitNames.push(`Crackling Death`); GTraits.push(`When the creature dies, it explodes. Each creature within 30 feet of it must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GCR / 2) + 1}d8 lightning damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 61) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 62) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 63) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 64) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 65) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 66) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 67) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 68) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 69) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 70) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 71) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 72) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 73) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 74) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 75) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 76) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 77) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 78) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 79) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 80) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 81) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 82) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 83) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 84) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 85) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 86) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 87) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 88) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 89) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 90) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 91) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 92) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 93) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 94) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 95) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 96) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 97) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 98) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 99) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 100) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 101) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 102) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 103) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 104) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 105) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 106) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 107) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 108) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 109) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 110) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 111) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 112) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 113) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 114) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 115) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 116) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 117) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 118) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 119) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 120) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 121) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 122) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 123) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 124) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 125) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 126) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 127) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 128) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 129) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 130) {GTraitNames.push(``); GTraits.push(``);}
 }
 	function EnemyTraitBtn() {
 		GetTier();
@@ -4048,7 +4173,7 @@ function EnemyHomebrew() {
 	if (GSpellQty[0] > 0) {document.getElementById("homebrewBox").innerHTML += `at will: ${GSpell0}\n`;} else {}
 	if (GSpellQty[3] > 0) {document.getElementById("homebrewBox").innerHTML += `1/day each: ${GSpell1}\n`;} else {}
 	if (GSpellQty[2] > 0) {document.getElementById("homebrewBox").innerHTML += `3/day each: ${GSpell3}\n`;} else {}
-	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n`;} else {}}
+	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n:\n`;} else {}}
 	xNum = GTraitQty;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GTraitNames[xNum]}.*** ${GTraits[xNum]}\n:\n`;}
 		if (GModX == true) {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier***\n${GMod}\n:\n`;} else {}

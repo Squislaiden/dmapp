@@ -207,8 +207,8 @@ input[type='number']{
 			<div style="float: left">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
 			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Generic Options</u></label></center>
-			&nbsp;&nbsp;<label style="font-size: 14px">CR (max 50):</label>
-			<input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
+			<label style="font-size: 14px">CR (max 50):</label><input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
+			<label style="font-size: 12px">More HP?</label><input type="checkbox" id="hpCheck" name="hpCheck">
 			</select><br>
 			<label style="font-size: 14px">Creature Type:</label>
 			<select name="dropType" id="dropType">
@@ -230,8 +230,8 @@ input[type='number']{
 			</select><br>
 			
 			<div style="text-align: center">
-			<label style="font-size: 12px">Boss? </label><input type="checkbox" id="bossCheck" name="bossCheck">&nbsp;&nbsp;<label style="font-size: 12px">Lair? </label><input type="checkbox" id="lairCheck" name="lairCheck">
-			&nbsp;<label style="font-size: 12px">Modifier? </label><input type="checkbox" id="enemyModCheck" name="enemyModCheck"><br>
+			<label style="font-size: 12px">Boss?</label><input type="checkbox" id="bossCheck" name="bossCheck">&nbsp;&nbsp;<label style="font-size: 12px">Lair?</label><input type="checkbox" id="lairCheck" name="lairCheck">
+			&nbsp;<label style="font-size: 12px">Modifier?</label><input type="checkbox" id="enemyModCheck" name="enemyModCheck"><br>
 			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Martial or Caster</u></label></center>
 			<input type="radio" id="magicMartial" name="magicType" value="Martial"><label for="magicMartial" style="font-size: 12px">Martial</label>
 			<input type="radio" id="magicHalf" name="magicType" value="HalfCaster"><label for="magicHalf" style="font-size: 12px">Half-Caster</label><br>

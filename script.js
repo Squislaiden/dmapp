@@ -3901,6 +3901,7 @@ function FullEnemyBtn() {
 			else if (GCR >= 40) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);
 								GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
 			GHPTotal = Math.floor(GHitDiceQty * (GHitDiceSize / 2 + 0.5) + GHP) * GHPMulti;
+			if (document.getElementById("hpCheck").checked == false) {GHPTotal = Math.ceil(GHPTotal / 2);}
 // Get Skills
 			SkillTypeGen(); GSkill.push(`${GSkillX}`);
 			if (GCR >= 1 && GCR <= 3) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}

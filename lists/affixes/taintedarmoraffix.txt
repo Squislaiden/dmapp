@@ -77,3 +77,23 @@ Gain your level x3 Hit Point Maximum
 As an Action, enter a Guard Stance. Your speed is halved and you cannot take Actions or Reactions, but gain +10 AC. You can leave the stance as an Bonus Action.
 
 This item cannot be picked up by someone you do not trust implicitly
+
+While you’re under the Dodge Action, gain +4 to Saves and AC
+
+100% of your fall damage is instead taken by every creature within 5 feet of your landing area. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid
+
+While standing still or moving at half speed, you blend in with the background. Creature haves -8 to checks to find or see you
+
+While below 50% health, gain +5 damage and AC
+
+Gain 3 uses of Legendary Resistance that recharge at dawn
+
+Healing dice used to heal you heal for the maximum and add +2 per dice
+
+You cannot be Critically Hit
+
+Gain Immunity to Physical Damage
+
+When you hit a creature that has a Recharge ability with a weapon, they have disadvantage on their next turn on Recharge rolls
+
+(Hidden) The item is cursed and cannot be removed

@@ -128,3 +128,35 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) Healing you take is split between you and all allies within 5 ft. of you
 (Tier 3) Healing you take is duplicated to two allies within 5 ft. of you
 --------------------
+(Tier 1) N/A
+(Tier 2) (ACTION) lasts two rounds
+(Tier 3) (ACTION and (ACTION) last two rounds
+--------------------
+(Tier 1) As a Bonus Action, you can take a bite off the item and regain Hit Points equal to your PB times 3. The item loses all affixes until it regenerates at dawn.
+(Tier 2) As a Bonus Action, you can take a bite off the item and regain 25% of your Maximum Hit Points. The item loses all affixes until it regenerates at dawn.
+(Tier 3) As a Reaction, you can take a bite off the item and regain 50% of your Maximum Hit Points. The item loses all affixes until it regenerates at dawn.
+--------------------
+(Tier 1) As an Action, you can sacrifice multiples of 10 Hit Points to regain a Spell Slot of that multiple, max 3rd
+(Tier 2) As an Action, you can sacrifice multiples of 8 Hit Points to regain a Spell Slot of that multiple, max 5th
+(Tier 3) As an Action, you can sacrifice multiples of 6 Hit Points to regain a Spell Slot of that multiple, max 7th
+--------------------
+(Tier 1) As an Action, you can begin or stop glowing. While glowing, you shed dim light up to 10 feet.
+(Tier 2) As a Bonus Action, you can begin or stop glowing. While glowing, you shed dim light up to 20 feet.
+(Tier 3) As a Bonus Action, you can begin or stop glowing. While glowing, you shed dim light up to 30 feet. Melee attackers have disadvantage attacking you
+--------------------
+(Tier 1) While below 25% health, gain +2 damage and AC
+(Tier 2) While below 25% health, gain +3 damage and AC
+(Tier 3) While below 50% health, gain +3 damage and AC
+--------------------
+(Tier 1) N/A
+(Tier 2) Once per Long Rest, upcast a spell one slot for free
+(Tier 3) Twice per Long Rest, upcast a spell one slot for free
+--------------------
+(Tier 1) N/A
+(Tier 2) Healing Dice used to heal you are rolled with advantage
+(Tier 3) Healing Dice used to heal you heal for their maximum roll
+--------------------
+(Tier 1) Spells that deal (ELEMENT) damage gain +1 to Hit or DC
+(Tier 2) Spells that deal (ELEMENT) damage gain +2 to Hit or DC
+(Tier 3) Spells that deal (ELEMENT) damage gain +3 to Hit or DC
+--------------------

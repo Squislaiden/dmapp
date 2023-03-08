@@ -120,3 +120,23 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.
 (Tier 3) As an Action, enter a Guard Stance. You have half movement speed and you cannot take Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.
 --------------------
+(Tier 1) While you’re under the Dodge Action, gain +2 AC
+(Tier 2) While you’re under the Dodge Action, gain +2 AC and +2 to Saving throws
+(Tier 3) While you’re under the Dodge Action, gain +3 AC and +3 to Saving throws
+--------------------
+(Tier 1) 25% of your fall damage is instead taken by a creature you land on. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid.
+(Tier 2) 50% of your fall damage is instead taken by a creature you land on. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid.
+(Tier 3) All of your fall damage is instead taken by a creature you land on. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid.
+--------------------
+(Tier 1) While standing still, you blend in with the background. Creatures haves -2 to checks to find or see you.
+(Tier 2) While standing still, you blend in with the background. Creatures haves -4 to checks to find or see you.
+(Tier 3) While standing still or moving at half speed, you blend in with the background. Creatures haves -5 to checks to find or see you.
+--------------------
+(Tier 1) N/A
+(Tier 2) Gain 1 Legendary Resistance that recharges at dawn.
+(Tier 3) Gain 2 Legendary Resistance that recharges at dawn.
+--------------------
+(Tier 1) N/A
+(Tier 2) Once per Long Rest, a Critical Hit against you becomes a normal hit
+(Tier 3) Twice per Long Rest, a Critical Hit against you becomes a normal hit
+--------------------

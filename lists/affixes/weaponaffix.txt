@@ -132,3 +132,11 @@ NOTE: T3 Affixes CANNOT be obtained through any button on this webpage. They are
 (Tier 2) The weapon deals double damage to structures and objects
 (Tier 3) The weapon deals triple damage to structures and objects
 --------------------
+(Tier 1) Critical Hits deal an extra d6 damage
+(Tier 2) Critical Hits deal an extra d10 damage
+(Tier 3) Critical Hits deal an extra d10 and 2d6 damage
+--------------------
+(Tier 1) N/A
+(Tier 2) After hitting with this weapon, learn one Resistance, Immunity, or Vulnerability of the target
+(Tier 3) After hitting with this weapon, learn two Resistance, Immunity, or Vulnerability of the target
+--------------------

@@ -396,7 +396,3 @@
 [Basic Metals] +2 Damage.
 [Cloth] Incoming Attacks have Disadv.
 [Precious Metals] -2 AC and Advantage on Attacks.
-
-Extra Bonus
-Extra Reaction
-Extra Recharge

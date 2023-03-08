@@ -89,3 +89,11 @@ Up to Proficiency Bonus times a day, gain 30 ft. of Truesight for 30 minutes
 Once per Long Rest, gain an Extra Action
 
 Healing you take is duplicated to three allies within 10 ft. of you
+
+As a Bonus Action, you can take a bite off the item and regain all of your Hit Points. The item loses all affixes until it regenerates at dawn
+
+As an Action, you can sacrifice multiple of 5 Hit Points to regain a Spell Slot of that multiple, max 9th level
+
+All Spells are upcast one slot
+
+(Hidden) The item is cursed and cannot be removed

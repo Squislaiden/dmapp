@@ -166,6 +166,15 @@ var GVulnTotal = ""
 var GNum = 0
 var GSkillMod = ""
 var GModX = false
+var GRay = ``
+var GRay1 = ``
+var GRay2 = ``
+var GRay3 = ``
+var GRay4 = ``
+var GRay5 = ``
+var GRay6 = ``
+var GBreath = ``
+var GBreathName = ``
 	// Character Gen //
 // Global Variables //
 // Global Variables //
@@ -2021,6 +2030,7 @@ function SpellScrollBtn() {
 function EnemyGenMod() {
 	let modRoll = Math.floor(Math.random() * 129) + 1;
 	let modElite
+	let ModX = ``
 	if (document.getElementById("modEliteCheck").checked == true) {modElite = 10} else {modElite = Math.floor(Math.random() * 10) + 1;}
 	if (modRoll == 1) {
             if (modElite == 10) {
@@ -2187,7 +2197,7 @@ function EnemyGenMod() {
         else if (modRoll == 28) {
             if (modElite == 10) {GSpeed =+ 20; GSpeedBurrow =+ 20; GSpeedFly =+ 20; GSpeedSwim =+ 20; 
                 GMod = `[Hunter] (Elite) \nThe creatures gains 20 ft. of all speeds and two extra Reactions every turn.`;}
-            else {GSpeed =+ 10; GSpeedBurrow =+ 10; GSpeedFly =+ 10; if (GSpeedSwim == 0) {GSpeedSwim += 20} else {GSpeedSpeed += 10}
+            else {GSpeed =+ 10; GSpeedBurrow =+ 10; GSpeedFly =+ 10; if (GSpeedSwim == 0) {GSpeedSwim += 20} else {GSpeedSwim += 10}
                 GMod = `[Hunter] \nThe creatures gains 10 ft. of all speeds and an extra Reaction every turn.`;}
             }
         else if (modRoll == 29) {
@@ -2689,7 +2699,7 @@ function EnemyGenMod() {
         else if (modRoll == 111) {
             if (modElite == 10) {ModX = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
-            else {GMod = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
+            else {ModX = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
             }
         else if (modRoll == 112) {
@@ -2837,7 +2847,7 @@ function EnemyTrait() {
 	let reachX = 5;
 	let RNG = Math.floor(Math.random() * 3) + 1; 
 	if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
-		RNG = Math.floor(Math.random() * 60) + 1;
+		RNG = Math.floor(Math.random() * 162) + 1;
 		if (RNG == 1) {GTraitNames.push(`Keen Sight`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on sight.`);}
 		else if (RNG == 2) {GTraitNames.push(`Keen Smell`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on smell.`);}
 		else if (RNG == 3) {GTraitNames.push(`Keen Hearing`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on hearing.`);}
@@ -2856,7 +2866,7 @@ function EnemyTrait() {
 		else if (RNG == 16) {GTraitNames.push(`Blessing of Bountiful Generosity (1/day)`); GTraits.push(`The creature targets up to eight creatures within 100 feet of it that it can see. The next time a target finishes a long rest, it regains all spent Hit Dice and gains ${Math.floor(GPB + 6)} temporary hit points.`);}
 		else if (RNG == 17) {GTraitNames.push(`Curse of Poor Hospitality (1/day)`); GTraits.push(`The creature targets up to eight creatures within 100 feet of it that it can see. The next time a target completes a long rest, it does not regain spent Hit Dice.`);}
 		else if (RNG == 18) {GTraitNames.push(`Vexing Presence`); GTraits.push(`While within 30 feet of an ally that can see it, a non-fey creature has disadvantage on Dexterity checks and Dexterity saving throws.`);}
-		else if (RNG == 19) {GTraitNames.push(`Needle Defense`); GTraits.push(`Each time a creature makes a melee attack against the creature, it takes ${Math.ceil(GCR + 8) / 2} piercing damage. A creature can choose to make an attack with disadvantage to avoid this damage.`);}
+		else if (RNG == 19) {GTraitNames.push(`Needle Defense`); GTraits.push(`Each time a creature makes a melee attack against the creature, it takes ${Math.ceil((GCR + 8) / 2)} piercing damage. A creature can choose to make an attack with disadvantage to avoid this damage.`);}
 		else if (RNG == 20) {GTraitNames.push(`Close Quarters Shooting`); GTraits.push(`The creature does not suffer disadvantage on ranged attacks while within 5 feet of a hostile creature that can see it and isn’t incapacitated, if the target of the attack is also within 5 feet of the creature.`);}
 		else if (RNG == 21) {GTraitNames.push(`Fight On, You Slugs`); GTraits.push(`The creature picks up to three allied creatures within 60 feet that can see it. The chosen creatures can each use their reactions to make a single melee attack.`);}
 		else if (RNG == 22) {GTraitNames.push(`Ceaseless Screaming`); GTraits.push(`Any creature other than allies that starts their turn within 30 feet of one or more screaming creatures and can hear it must make a DC ${GTier + 10} Wisdom saving throw. On a failure the creature is incapacitated until the start of its next turn. On a success, the creature suffers no effect.`);}
@@ -2865,7 +2875,7 @@ function EnemyTrait() {
 		else if (RNG == 25) {GTraitNames.push(`Sunlight Sensitivity`); GTraits.push(`While in sunlight, the creature has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.`);}
 		else if (RNG == 26) {GTraitNames.push(`Customizable Storage`); GTraits.push(`The creature can hold up to three types of liquid payload totaling 12 gallons within its body. A full creature can make one liquid attack per gallon before the liquid must be refilled. Refilling takes 2 rounds per gallon. Differing payloads can alter their attacks.`);}
 		else if (RNG == 27) {GTraitNames.push(`Defensive Advantage`); GTraits.push(`As long as two or more of the creature’s allies are within 5 feet of the creature and are not incapacitated, attack rolls against the creature are made with disadvantage.`);}
-		else if (RNG == 28) {GTraitNames.push(`Fey Ancsetry`); GTraits.push(`The creature has advantage on saving throws against being charmed or frightened.`);}
+		else if (RNG == 28) {GTraitNames.push(`Fey Ancestry`); GTraits.push(`The creature has advantage on saving throws against being charmed or frightened.`);}
 		else if (RNG == 29) {GTraitNames.push(`Eye Thief`); GTraits.push(`The creature can see through the eyes of all creatures within 30 feet of it. All creatures within the sight of any creature within the 60 ft. count as in line of sight.`);}
 		else if (RNG == 30) {GTraitNames.push(`Strong Regeneration`); GTraits.push(`The creature regains ${Math.ceil(GCR / 2) + 10} hit points at the start of its turn. If it takes a critical hit, this trait doesn’t function at the start of its next turn. The creature dies only if it starts its turn with 0 hit points and doesn’t regenerate.`);}
 		else if (RNG == 31) {GTraitNames.push(`Regeneration`); GTraits.push(`The creature regains ${Math.ceil(GCR / 2) + 10} hit points at the start of its turn. If it takes fire damage or a critical hit, this trait doesn’t function at the start of its next turn.`);}
@@ -2890,86 +2900,131 @@ function EnemyTrait() {
 		else if (RNG == 50) {GTraitNames.push(`Precision Blows`); GTraits.push(`The creature scores a critical hit on a roll of 19 or 20.`);}
 		else if (RNG == 51) {GTraitNames.push(`Powerful Critical`); GTraits.push(`On a critical hit the creature rolls the damage dice three times, instead of twice.`);}
 		else if (RNG == 52) {GTraitNames.push(`Whirlwind of Weapons`); GTraits.push(`A magical aura of weapons surrounds the creature in a 5 foot radius. At the start of each of its turns, any other creature in the aura takes ${Math.ceil(GPB / 2) + 2}d6 force damage.`);}
-		else if (RNG == 53) {GTraitNames.push(`Master of Magic`); GTraits.push(`The creature has advantage on Constitution saving throws to maintain concentration.`);}
+		else if (RNG == 53) {
+			if (GMagic == "Martial") {EnemyTrait();} else {GTraitNames.push(`Master of Magic`); GTraits.push(`The creature has advantage on Constitution saving throws to maintain concentration.`);}}
 		else if (RNG == 54) {GTraitNames.push(`Adamantine Plating`); GTraits.push(`Any critical hit against the creature becomes a normal hit.`);}
 		else if (RNG == 55) {GTraitNames.push(`Bladed Armor`); GTraits.push(`An enemy that grapples the creature or is grappled by it takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage. An enemy takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage if it starts its turn grappling or being grappled by the creature.`);}
 		else if (RNG == 56) {GTraitNames.push(`Charge`); GTraits.push(`If the creature moves at least 10 feet straight toward a target and then hits it with a melee attack on the same turn, the target takes an extra ${Math.ceil(GPB / 2) + 1}d6 damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Strength saving throw or be pushed up to 10 feet away and knocked prone.`);}
 		else if (RNG == 57) {GTraitNames.push(`Aura of Radiance`); GTraits.push(`The creature magically sheds bright light in a 15-foot radius and dim light for an additional 15 feet. The creature can extinguish or restore this light as a bonus action. If the bright light overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created that darkness is dispelled.`);}
 		else if (RNG == 58) {GTraitNames.push(`Siege Monster`); GTraits.push(`The creature deals double damage to objects and structures.`);}
 		else if (RNG == 59) {GTraitNames.push(`Magic Weapons`); GTraits.push(`The creature’s attacks are magical.`);}
-		else if (RNG == 60) {GTraitNames.push(`Crackling Death`); GTraits.push(`When the creature dies, it explodes. Each creature within 30 feet of it must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GCR / 2) + 1}d8 lightning damage on a failed save, or half as much damage on a successful one.`);}
-		else if (RNG == 61) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 62) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 63) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 64) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 65) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 66) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 67) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 68) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 69) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 70) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 71) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 72) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 73) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 74) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 75) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 76) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 77) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 78) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 79) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 80) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 81) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 82) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 83) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 84) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 85) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 86) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 87) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 88) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 89) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 90) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 91) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 92) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 93) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 94) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 95) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 96) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 97) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 98) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 99) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 100) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 101) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 102) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 103) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 104) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 105) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 106) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 107) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 108) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 109) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 110) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 111) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 112) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 113) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 114) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 115) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 116) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 117) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 118) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 119) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 120) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 121) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 122) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 123) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 124) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 125) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 126) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 127) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 128) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 129) {GTraitNames.push(``); GTraits.push(``);}
-		else if (RNG == 130) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 60) {GTraitNames.push(`Crackling Death`); GTraits.push(`When the creature dies, it explodes. Each creature within 30 feet of it must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GCR / 3) + 1}d8 lightning damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 61) {GTraitNames.push(`Bolstering Presence`); GTraits.push(`The creature magically emanates life-giving energy within ${(Math.ceil(GPB / 2) * 5) + 5} feet of itself. Any ally of the creature that starts its turn there regains ${Math.ceil(GPB / 3)}d8 hit points.`);}
+		else if (RNG == 62) {GTraitNames.push(`Devil's Sight`); GTraits.push(`Magical darkness doesn’t impede the creature’s darkvision.`); GDarkvision += 60;}
+		else if (RNG == 63) {GTraitNames.push(`Last Laugh`); GTraits.push(`When the creature dies, it releases a dying laugh that scars the minds of other nearby creatures. Each enemy within 10 feet of the creature must succeed on a DC ${GTier + 12} Wisdom saving throw or take ${Math.ceil(GPB / 3) + 1}d8 psychic damage.`);}
+		else if (RNG == 64) {GTraitNames.push(`Amphibious`); GTraits.push(`The creature can breathe air and water.`);}
+		else if (RNG == 65) {GTraitNames.push(`Speak with Beasts`); GTraits.push(`The creature can communicate with beasts as if they shared a language.`);}
+		else if (RNG == 66) {GTraitNames.push(`Speak with Plants`); GTraits.push(`The creature can communicate with plants as if they shared a language.`);}
+		else if (RNG == 67) {GTraitNames.push(`Speak with Beasts and Plants`); GTraits.push(`The creature can communicate with beasts and plants as if they shared a language.`);}
+		else if (RNG == 68) {GTraitNames.push(`Empowered Spell (3/day)`); GTraits.push(`When the creature rolls damage for a spell, it can reroll up to two dice of damage. It must use the new rolls.`);}
+		else if (RNG == 69) {GTraitNames.push(`Relentless (Recharge 6)`); GTraits.push(`If the creature takes damage that would reduce it to 0 hit points, it is reduced to 1 hit point instead.`);}
+		else if (RNG == 70) {GTraitNames.push(`Assassinate`); GTraits.push(`During its first turn, the creature has advantage on attack rolls against any creature that hasn’t taken a turn. Any hit the creature scores against a surprised creature is a critical hit.`);}
+		else if (RNG == 71) {GTraitNames.push(`Poisonous Skin`); GTraits.push(`Any enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 3)}d6 poison damage.`);}
+		else if (RNG == 72) {GTraitNames.push(`Spider Climb`); GTraits.push(`The creature can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.`);}
+		else if (RNG == 73) {GTraitNames.push(`Inscrutable`); GTraits.push(`The creature is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Insight checks made to ascertain its intentions or sincerity have disadvantage.`);}
+		else if (RNG == 74) {GTraitNames.push(`Elusive`); GTraits.push(`No attack roll has advantage against the creature unless it is incapacitated.`);}
+		else if (RNG == 75) {GTraitNames.push(`Psychic Defense`); GTraits.push(`Unless the creature is incapacitated, it is immune to magic that allows other creatures to read its thoughts, determine whether it is lying, know its alignment, or know its creature type. Creatures can telepathically communicate with the creature only if it allows it.`);}
+		else if (RNG == 76) {GTraitNames.push(`Aura of Bloodlust`); GTraits.push(`When any other creature starts its turn within 30 feet of the creature, that enemy must succeed on a DC ${GTier + 12} Wisdom saving throw, or it must immediately take the Attack action, making one melee attack against a random creature within reach. If no creatures are within reach, it makes a ranged attack against a random creature within range, throwing its weapon if necessary.`);}
+		else if (RNG == 77) {GTraitNames.push(`Feed on the Crowd`); GTraits.push(`Whenever a creature within 60 feet of the creature dies, the creature gains ${GPB * 3} temporary hit points and has advantage on all attack rolls, ability checks, and saving throws until the end of its next turn.`);}
+		else if (RNG == 78) {if (GMagic == "Martial") {EnemyTrait();} else {GTraitNames.push(`Locus of the Firemind`); GTraits.push(`The creature can maintain concentration on two different spells at the same time. In addition, it has advantage on saving throws to maintain concentration on spells.`);}}
+		else if (RNG == 79) {GTraitNames.push(`Focus`); GTraits.push(`As a bonus action, the creature can target an enemy it can see within 30 feet of it and make that enemy its focus. The target remains the creature’s focus for 1 minute, or until either the target or the creature drops to 0 hit points. When the creature makes an attack roll against its focus, it adds a d4 to its attack roll. If the creature attacks a different target while it has a focus, it subtracts a d4 from its attack roll.`);}
+		else if (RNG == 80) {GTraitNames.push(`Shadow Strike`); GTraits.push(`As a bonus action, the creature can step into a shadow within 5 feet of it and magically appear in an unoccupied space within 5 feet of a second shadow that is up to 60 feet away. Both shadows must be cast by a Small or larger creature or object.`);}
+		else if (RNG == 81) {GTraitNames.push(`Formation Tactics`); GTraits.push(`The creature has advantage on saving throws against being charmed, frightened, grappled, or restrained while it is within 5 feet of at least one ally.`);}
+		else if (RNG == 82) {GTraitNames.push(`Reckless`); GTraits.push(`At the start of its turn, the creature can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn.`);}
+		else if (RNG == 83) {if (GMagic == "Martial") {EnemyTrait();} else {GTraitNames.push(`One With the Weave`); GTraits.push(`The creature has such a powerful connection to the weave that, if it did not use its action to cast a spell, it can use its bonus action to cast a Cantrip or the weakest tier of spell avaiable.`);}}
+		else if (RNG == 84) {GTraitNames.push(`Sheer Willpower`); GTraits.push(`The first time the creature drops to 0 HP in a combat, it is not downed and instead continues to fight for another turn. Taking a critical hit ends this effect early.`);}
+		else if (RNG == 85) {GTraitNames.push(`Controlled Rage`); GTraits.push(`When the creature takes ${GPB * 2} damage from a single creature in a turn, they gain 15 ft. of movement speed on their next turn and +${GPB * 2} damage to their next attack.`);}
+		else if (RNG == 86) {GTraitNames.push(`Group Distraction`); GTraits.push(`If an ally is within range of a target, the creature can Disengage as a Bonus Action.`);}
+		else if (RNG == 87) {GTraitNames.push(`Blood Frenzy`); GTraits.push(`The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.`);}
+		else if (RNG == 88) {GTraitNames.push(`Master Grappler`); GTraits.push(`The creature has advantage on grapple checks and can move at full speed while dragging a creature. Enemies grappled by the creature are considered restrained.`);}
+		else if (RNG == 89) {GTraitNames.push(`Lightning Rod`); GTraits.push(`Every successful hit has a 10% chance to cause the target to make a DC ${GTier + 13} Consitution saving throw or be paralyzed.`);}
+		else if (RNG == 90) {GTraitNames.push(`Projectile Shielding`); GTraits.push(`The creature takes half damage from all projectiles.`);}
+		else if (RNG == 91) {GTraitNames.push(`Great Consitution`); GTraits.push(`The creature has advantage on checks to be stunned, charmed, restrained, or exhausted.`);}
+		else if (RNG == 92) {GTraitNames.push(`Icy Slime`); GTraits.push(`The creature’s body is covered in a layer of greasy, ice-cold slime that grants it the benefits of freedom of movement. In addition, an enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 3) + 1}d6 cold damage from the freezing slime. An enemy grappled by the creature takes this damage at the start of each of its turns.`);}
+		else if (RNG == 93) {GTraitNames.push(`Strangle`); GTraits.push(`The creature has +${GPB + 1} to grapple checks. The creature strangles one enemy grappled by it. The target must make a DC ${GTier + 12} Strength saving throw. On a failure, the target takes ${Math.ceil(GPB / 2) + 3}d8 bludgeoning damage, can’t breathe, speak, or cast spells, and begins suffocating. On a success, the target takes half the bludgeoning damage and is no longer grappled. Until this strangling grapple ends (escape DC ${GTier + 12}), the target takes ${Math.ceil(GPB / 3) + 1}d8 bludgeoning damage at the start of each of its turns. The creature can strangle up to one creature the same size as it or two smaller than it.`);}
+		else if (RNG == 94) {GTraitNames.push(`Distance Distortion Aura`); GTraits.push(`The presence of the creature distorts the vision of creatures within 60 feet of it. Each creature that starts its turn in that area must succeed on a DC ${GTier + 12} Wisdom saving throw or be unable to correctly judge the distance between itself and its surroundings until the start of its next turn. An affected creature has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight, and it can’t move more than half its speed on its turn. On a successful saving throw, the creature is immune to the Aura for the next 24 hours. Creatures with blindsight, tremorsense, or truesight are unaffected by this trait.`);}
+		else if (RNG == 95) {GTraitNames.push(`Mucuous Cloud`); GTraits.push(`While underwater, the creature is surrounded by transformative mucus. A creature that touches the creature or that hits it with a melee attack while within 5 ft. of it must make a DC ${GTier + 12} Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.`);}
+		else if (RNG == 96) {GTraitNames.push(`Probing Telepathy`); GTraits.push(`If an enemy communicates telepathically with the creature, the creature learns the enemy's greatest desires if the creature can see the creature.`); if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 120;} else {}}
+		else if (RNG == 97) {GTraitNames.push(`Dual State`); GTraits.push(`A creature exists upon the Material Plane in one of two forms and can switch between them at will. In its material form, it has resistance to damage from nonmagical attacks. In its ethereal form, it is immune to damage from nonmagical attacks. The creature's ethereal form appears as a dark purple outline of its material form, with a blackish-purple haze within. A creature in ethereal form can move through air as though it were water, with a fly speed of 40 feet.`);}
+		else if (RNG == 98) {GTraitNames.push(`Camouflage`); GTraits.push(`The creature has advantage on Dexterity (Stealth) checks made to hide.`);}
+		else if (RNG == 99) {GTraitNames.push(`Cursed Existence`); GTraits.push(`When it drops to 0 hit points in its home terrain, the creature's body disintegrates into sand and a sudden parched breeze. However, unless it was killed in a hallowed location, with radiant damage, or by a blessed creature, the creature reforms at the next sundown 2d20 miles away in a random direction.`);}
+		else if (RNG == 100) {GTraitNames.push(`Darkness Aura`); GTraits.push(`The creature can generate an aura of darkness that fills its space and the surrounding 20 feet. This darkness prevents normal vision and darkvision from functioning. Blindsight and truesight function normally. Activating or deactivating the aura is a bonus action.`);}
+		else if (RNG == 101) {
+			if (GSpeedBurrow > 0) {GSpeedBurrow += 30} else {}
+			GTraitNames.push(`Earth Glide`); GTraits.push(`The creature glides through stone, dirt, or any sort of earth except metal as easily as a fish glides through water. Its burrowing produces no ripple or other sign of its presence and leaves no tunnel or hole unless the creature chooses to do so; in that case, it creates a passageway ${reachX * 2} feet wide by ${reachX * 2} feet high. The spell move earth cast on an area containing an earth-gliding cave creature flings the creature back 30 feet and stuns the creature for one round unless it succeeds on a Constitution saving throw.`);}
+		else if (RNG == 102) {GTraitNames.push(`Element Incarnate`); GTraits.push(`All non-physical damage dealt by the creature ignores resistance but not immunity.`);}
+		else if (RNG == 103) {GTraitNames.push(`Ethereal Sight`); GTraits.push(`The creature can see 60 feet into the Ethereal Plane when it is on the Material Plane, and vice versa.`);}
+		else if (RNG == 104) {GTraitNames.push(`Ice Walk`); GTraits.push(`The creature can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.`);}
+		else if (RNG == 105) {GTraitNames.push(`Uncontrollable`); GTraits.push(`The creature's movement is never impeded by difficult terrain, and its speed can't be reduced by spells or magical effects. It can't be restrained (per the condition), and it escapes automatically from any nonmagical restraints (such as chains, entanglement, or grappling) by spending 5 feet of movement. Being underwater imposes no penalty on its movement or attacks.`);}
+		else if (RNG == 106) {GTraitNames.push(`Unfixed in Time`); GTraits.push(`To those properly fixed in time, the creature flickers in and out of time, its position never fully clear. Attack rolls against the creature have disadvantage. If it is hit by an attack, this trait ceases to function until the start of its next turn.`);}
+		else if (RNG == 107) {GTraitNames.push(`Absorb Potion`); GTraits.push(`The creature can absorb any potion, oil, tincture, or alchemical draught that touches it, choosing to be affected by the substance or to nullify it.`);}
+		else if (RNG == 108) {GTraitNames.push(`Elemental Expulsion`); GTraits.push(`Whenever the creature takes acid, cold, fire, or lightning damage, all creatures within 20 feet of the creature must make a DC ${GTier + 12} Dexterity saving throw, taking damage equal to the damage the creature took on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 109) {timeX = Math.floor(Math.random() * 8) + 1; GTraitNames.push(`Hold Breath`); GTraits.push(`The creature can hold its breath for ${timeX} hours.`);}
+		else if (RNG == 110) {GTraitNames.push(`Defensive Frenzy`); GTraits.push(`When it has half its hit points or fewer, the creature can make one unarmed attack as a bonus action.`);}
+		else if (RNG == 111) {GTraitNames.push(`Pack Leader`); GTraits.push(`The creature has advantage on an attack roll against an enemy if at least one of the creature‘s allies is within 5 feet of the enemy and the ally isn’t incapacitated. Likewise, each of the creature‘s allies has advantage on an attack roll against an enemy if the creature is within 5 feet of the enemy and isn’t incapacitated.`);}
+		else if (RNG == 112) {GTraitNames.push(`Master Manipulator`); GTraits.push(`The creature prefers to control from the shadows and manipulates whomsoever it pleases. It has advantage on any Charisma skill checks or saving throws, even if it would otherwise have disadvantage. It also adds +${Math.ceil(GPB / 2)} to any Deception or Persuasion rolls.`);}
+		else if (RNG == 113) {GTraitNames.push(`Born of Darkness`); GTraits.push(`The creature can take the Hide action as a bonus action on each turn while it is in dim light or darkness, even if it is being observed.`);}
+		else if (RNG == 114) {GTraitNames.push(`Woodfriend`); GTraits.push(`When in a forest, the creature leave no tracks and automatically discerns true north.`);}
+		else if (RNG == 115) {GTraitNames.push(`Aversion to Water`); GTraits.push(`If the creature takes cold damage or is doused with at least three gallons of water, it has disadvantage on attack rolls and ability checks until the end of its next turn.`);}
+		else if (RNG == 116) {GTraitNames.push(`Fire Absorption`); GTraits.push(`Whenever the creature is subjected to fire damage, it takes no damage and instead regains a number of Hit Points equal to the fire damage taken.`);}
+		else if (RNG == 117) {GTraitNames.push(`Arboreal Movement`); GTraits.push(`The creature can move through trees as if they were difficult terrain. The creature can end its turn inside a tree, but it is expelled into an unoccupied space within 5 feet of the tree if the tree is destroyed. Enemies inside of or grappled by the creature are expelled into a spot within 5 ft. of the tree.`);}
+		else if (RNG == 118) {GTraitNames.push(`Truespeak`); GTraits.push(`The creature can communicate with any living creature as if they shared a language.`);}
+		else if (RNG == 119) {GTraitNames.push(`Aura of Necromancy's Bane`); GTraits.push(`Necromancy spells can't be cast within 120 feet of the creature. When an undead creature starts its turn within 30 feet of the creature, it must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 2) + 3}d6 radiant damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 120) {GTraitNames.push(`Usher of Souls`); GTraits.push(`The creature can transport itself and up to eight creatures in contact with it to another plane of existence. This works like the plane shift spell, except dead or incorporeal creatures can be transported and don't have to be willing. The creature can't use this ability to transport an unwilling creature.`);}
+		else if (RNG == 121) {GTraitNames.push(`Blood Sense`); GTraits.push(`The creature can pinpoint, by scent, the location of living creatures within 30 feet of it.`);}
+		else if (RNG == 122) {GTraitNames.push(`Devil's Sight`); GTraits.push(`Magical darkness doesn’t impede the creature’s darkvision.`);}
+		else if (RNG == 123) {GTraitNames.push(`Speak with Spiders`); GTraits.push(`The creature can communicate with spiders and other arachnids as if they shared a language.`);}
+		else if (RNG == 124) {GTraitNames.push(`Capturing Strings`); GTraits.push(`If two attacks hit a Medium or smaller target, the target is restrained in gilded webbing. As an action, the restrained target can make a DC ${GTier + 12} Strength check, bursting the restaint on a success. The restraints can also be attacked and destroyed (AC ${GPB + 8}; hp ${GPB * 3}; immunity to bludgeoning, poison, and psychic damage).`);}
+		else if (RNG == 125) {GTraitNames.push(`Aura of Virulence`); GTraits.push(`Creatures that would normally be resistant or immune to poison damage or the poisoned condition lose their resistance or immunity while within 60 feet of the creature. All other creatures within 60 feet of the creature have disadvantage on saving throws against effects that cause poison damage or the poisoned condition.`);}
+		else if (RNG == 126) {GTraitNames.push(`Swarm Prince`); GTraits.push(`The creature can communicate with all vermin and insects, including swarms and giant varieties, within 120 feet via pheromone transmission. This is a silent and instantaneous mode of communication that only this creature, spawns of this creature, insects, and vermin can understand. All these creatures follow the creature's orders and will never harm the creature.`);}
+		else if (RNG == 127) {GTraitNames.push(`Shearing`); GTraits.push(`Whenever the creature suffers ${GPB * 3} or more damage from a single attack, a length of itself breaks free. This animated tendril is under the creature's control, moving and acting as an extension of the creature. Each tendril has AC ${GPB + 9}, ${GPB * 3} hp, and a speed of 15 feet.`);}
+		else if (RNG == 128) {SkillTypeGen(); GTraitNames.push(`Advanced ${GSkillX}`); GTraits.push(`The creature has advantage on ${GSkillX} checks.`);}
+		else if (RNG == 129) {GTraitNames.push(`Shapechanger`); GTraits.push(`The creature can use its action to polymorph into a small object, such as a ring, wand, orb, rod, or scroll. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. While polymorphed and motionless, the creature is indistinguishable from an ordinary object.`);}
+		else if (RNG == 130) {GTraitNames.push(`Arcane Discharge`); GTraits.push(`This creature can consume and digest magic items and objects. When the creature dies, it explodes in a surge of partially-digested magical energy. Each creature within 15 feet must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 3)}d6 force damage per recently consumed magical item (roll 1d6 if unknown) on a failed save, or half as much damage on a successful one. For 1 minute afterward, the affected area is awash with volatile magic. A creature that starts its turn in the affected area takes ${Math.ceil(GPB / 3) + 2}d6 force damage.`);}
+		else if (RNG == 131) {GTraitNames.push(`Ingest Magic`); GTraits.push(`At the start of each of the creature's turns, each enemy within 30 feet of it that is currently maintaining concentration on a spell must make a DC ${GTier + 12} Constitution saving throw. On a failure, the enemy's spell ends and the creature feeds on the magic, regaining hit points equal to twice the level of the spell.`);}
+		else if (RNG == 132) {GTraitNames.push(`Slaver Strikes`); GTraits.push(`The creature can add a magical effect in addition to the normal damage done by its attacks. If so, the creature chooses from the following effects:\n\nConfusion. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or become confused (as the spell) for 2d4 - 1 rounds.\n\nFear. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or become frightened for 2d4 rounds.\n\nHideous Laughter. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or become incapacitated for 2d4 rounds. While incapacitated, the target is prone and laughing uncontrollably.\n\nSleep. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or fall asleep for 2d4 minutes. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.`);}
+		else if (RNG == 133) {GTraitNames.push(`Healing Presence`); GTraits.push(`When a friendly ally within 10 feet of the creature regains hp, they regain an extra ${Math.ceil(GPB / 3) + 1}d6 hp.`);}
+		else if (RNG == 134) {GTraitNames.push(`Assassinate`); GTraits.push(`During its first turn, the creature has advantage on attack rolls against any enemy that hasn't taken a turn. Any hit the creature scores against a surprised enemy is a critical hit.`);}
+		else if (RNG == 135) {GTraitNames.push(`Swarm`); GTraits.push(`The creature can occupy another creature’s space and vice versa, and the creature can move through any opening as small as an inch wide.`);}
+		else if (RNG == 136) {GTraitNames.push(`Helping Hand`); GTraits.push(`The creature can take the Help action as a bonus action on each of its turns.`);}
+		else if (RNG == 137) {GTraitNames.push(`Water Invisibility`); GTraits.push(`While fully immersed in water, the creature is invisible. If it attacks, it becomes visible until the start of its next turn. The creature can suppress this invisibility until the start of its next turn as a bonus action.`);}
+		else if (RNG == 138) {GTraitNames.push(`Chilling Presence`); GTraits.push(`The creature freezes everything within 150 feet of it. After 5 rounds, nonmagical fires up to the size of a campfire are quenched. Water freezes within 1 minute. Spells that protect against cold are subjected to an immediate dispel magic (at +${GPB + 3} spellcasting ability) when within 150 feet of the creature.`);}
+		else if (RNG == 139) {GTraitNames.push(`Absorbent`); GTraits.push(`When the creature damages an enemy, it absorbs a portion of that enemy's knowledge and power. As a bonus action, it can recreate any action available to an enemy it damaged within the last minute. This includes spells and actions with limited uses or with a recharge. This recreated action is resolved using the creature's statistics where applicable.`);}
+		else if (RNG == 140) {GTraitNames.push(`Soothing Aura`); GTraits.push(`Any enemy hostile to the creature that starts its turn within 30 feet of the creature must succeed on a DC ${GTier + 12} Wisdom saving throw or have disadvantage on all attack rolls until the end of its next turn. Creatures with Intelligence 3 or lower automatically fail the saving throw.`);}
+		else if (RNG == 141) {GTraitNames.push(`Legendary Merge`); GTraits.push(`A creature with less than half its maximum Hit Points can merge with any other of the same creature within 10 feet, adding its remaining hp to that creature's. The hp gained this way can exceed the normal maximum of that creature. The creature can accept any number of such mergers.`);}
+		else if (RNG == 142) {GTraitNames.push(`Multiple Heads`); GTraits.push(`The creature's two heads grant it advantage on Perception Checks and saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.`);}
+		else if (RNG == 143) {GTraitNames.push(`Reactive Heads`); GTraits.push(`The creature gets an extra head and two extra reactions that can be used only for opportunity attacks.`);}
+		else if (RNG == 144) {GTraitNames.push(`Fire Aura`); GTraits.push(`At the start of each of the creature's turns, each enemy within 5 feet of it takes ${Math.ceil(GPB / 2) + 3}d6 fire damage, and flammable objects in the aura that aren't being worn or carried ignite. An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 2) + 3}d6 fire damage.`);}
+		else if (RNG == 145) {GTraitNames.push(`Running Leap`); GTraits.push(`The creature's long jump is up to ${reachX * 3} feet and its high jump is up to ${reachX * 2} feet when it has a running start.`);}
+		else if (RNG == 146) {GTraitNames.push(`Petrifying Gaze`); GTraits.push(`If an enemy starts its turn within 30 ft. of the creature and the two of them can see each other, the creature can force the enemy to make a DC ${GTier + 12} Constitution saving throw if the creature isn't incapacitated. On a failed save, the enemy magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the enemy is petrified until freed by the greater restoration spell or other magic.\n\nAn enemy that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the creature until the start of its next turn, when it can avert its eyes again. If it looks at the creature in the meantime, it must immediately make the save.`);}
+		else if (RNG == 147) {GTraitNames.push(`Steadfast`); GTraits.push(`The creature can't be frightened while it can see an allied creature within 30 feet of it.`);}
+		else if (RNG == 148) {GTraitNames.push(`Frenzy (1/short rest)`); GTraits.push(`As a bonus action, the creature can trigger a berserk frenzy that lasts 1 minute. While in frenzy, it gains resistance to bludgeoning, piercing, and slashing damage and has advantage on attack rolls. Attack rolls made against a frenzied creature have advantage.`);}
+		else if (RNG == 149) {GTraitNames.push(`Antimagic Cone`); GTraits.push(`The creature creates an area of antimagic, as in the antimagic field spell, in a 60-foot cone. At the start of each of its turns, the creature decides which way the cone faces and whether the cone is active. The area works against the creature's own magics.`);}
+		else if (RNG == 150) {GTraitNames.push(`Treasure Sense`); GTraits.push(`The creature can pinpoint, by scent, the location of precious metals and stones, such as coins and gems, within 60 ft. of it.`);}
+		else if (RNG == 151) {GTraitNames.push(`Hateful Aura`); GTraits.push(`The creature and allies within 10 feet of the creature add their Charisma modifier to weapon damage rolls (unless it is negative).`);}
+		else if (RNG == 152) {GTraitNames.push(`Carnivorous Compulsion`); GTraits.push(`If the creature can see an incapacitated creature, it must succeed on a DC ${GTier + 12} Wisdom save or be compelled to move toward that creature and attack it.`);}
+		else if (RNG == 153) {GTraitNames.push(`Unholy Stench`); GTraits.push(`When the creature takes piercing or slashing damage, noxious vapors burst from its wounds. Each enemy within 10 feet of it must succeed on a DC ${GTier + 12} Constitution saving throw or take ${Math.ceil(GPB / 3) + 2}d6 poison damage and be poisoned until the end of its next turn.`);}
+		else if (RNG == 154) {GTraitNames.push(`Empowered Blood Sense`); GTraits.push(`The creature can pinpoint the location of living creatures within 60 feet of it and can sense the general direction of living creatures within 1 mile of it.`);}
+		else if (RNG == 155) {GTraitNames.push(`Blood Scent`); GTraits.push(`A creature can smell blood within 240 feet of it. It can determine whether the blood is fresh or old and what type of creature shed the blood. In addition, the creature has advantage on Wisdom (Perception) and Wisdom (Survival) checks to find or track a creature that doesn’t have all its Hit Points.`);}
+		else if (RNG == 156) {GTraitNames.push(`Necrotic Absorption`); GTraits.push(`Whenever the creature is subjected to necrotic damage, it takes no damage and instead regains a number of Hit Points equal to the necrotic damage dealt.`);}
+		else if (RNG == 157) {GTraitNames.push(`Cackle`); GTraits.push(`The creature emits a constant, demoralizing cackle. When an enemy that isn’t an undead or a construct starts its turn within 30 feet of the creature and can hear it, it must make a DC ${GTier + 12} Wisdom saving throw or feel demoralized by the creature’s cackling. A demoralized enemy has disadvantage on attack rolls until the start of its next turn.`);}
+		else if (RNG == 158) {GTraitNames.push(`Fiendish Blessing`); GTraits.push(`The AC of the creature includes its Charisma bonus.`);}
+		else if (RNG == 159) {GTraitNames.push(`Detect Elixir`); GTraits.push(`The creature can pinpoint the location of potions and magic items within 60 feet of it. Outside of 60 feet, it can sense the general direction of potions within 1 mile of it.`);}
+		else if (RNG == 160) {if (GMagic == "Martial") {EnemyTrait();} else {GTraitNames.push(`Forgetful Spellcasting`); GTraits.push(`When a creature fails an Intelligence, Wisdom, or Charisma saving throw against a spell cast by the creature, the target immediately forgets the source of the spellcasting.`);}}
+		else if (RNG == 161) {GTraitNames.push(`Natural Climber`); GTraits.push(`The creature gains 20 ft. of climbing speed and can climb difficult surfaces, such as upside down on the ceiling. The creature does not provoke opportunity attacks while climbing.`); GSpeedClimb += 20}
+		else if (RNG == 162) {GTraitNames.push(`Sunlight Petrification`); GTraits.push(`If the creature starts its turn in sunlight, it takes 10 radiant damage. While in sunlight, it moves at half speed and has disadvantage on attack rolls and ability checks. If the creature is reduced to 0 hp while in sunlight, it is petrified.`);}
+		else if (RNG == 163) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 164) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 165) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 166) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 167) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 168) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 169) {GTraitNames.push(``); GTraits.push(``);}
+		else if (RNG == 170) {GTraitNames.push(``); GTraits.push(``);}
 }
 	function EnemyTraitBtn() {
+		GTraitNames.length = 0;
+		GTraits.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2);
@@ -2986,12 +3041,170 @@ function EnemyAction() {
 	let reachX = 5;
 	let RNG = Math.floor(Math.random() * 3) + 1; 
 	if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
-		RNG = Math.floor(Math.random() * 2) + 1;
+		RNG = Math.floor(Math.random() * 133) + 1;
 		if (RNG == 1) {GActionNames.push(`Poisonous Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or be poisoned for 1 minute. While poisoned this way, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
 		else if (RNG == 2) {GActionNames.push(`Ovipositor`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one target. Hit: The target is infested with 1d4 eggs, which immediately hatch into maggots. At the start of each of the target’s turns, the target takes ${Math.floor(GPB / 3) + 1}d6 piercing damage per maggot infesting it. Applying fire to the bite wound before the end of the target’s next turn deals 1 fire damage to the target and kills these maggots. After this time, the maggots are too far under the skin to be burned. If a target infested by maggots ends its turn with 0 hit points, it dies as the maggots burrow into its heart and kill it. Any effect that cures disease kills all maggots infesting the target.`);}
-		else if (RNG == 3) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 3) {GActionNames.push(`Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 4) {GActionNames.push(`Dagger`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 5) {GActionNames.push(`Club`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) bludgeoning damage`);}
+		else if (RNG == 6) {GActionNames.push(`Handaxe`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 7) {GActionNames.push(`Light Hammer`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 8) {GActionNames.push(`Javelin`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 9) {GActionNames.push(`Quarterstaff`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage or (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 10) {GActionNames.push(`Spear`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage or (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 11) {GActionNames.push(`Mace`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 12) {GActionNames.push(`Greatclub`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 13) {GActionNames.push(`Shortsword`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 14) {GActionNames.push(`Rapier`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 15) {GActionNames.push(`Longsword`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage or (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 16) {GActionNames.push(`Whip`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 17) {GActionNames.push(`Battlaxe`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage or (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 18) {GActionNames.push(`Morningstar`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 19) {GActionNames.push(`Flail`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 10) {GActionNames.push(`Warhammer`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage or (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 21) {GActionNames.push(`Pike`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 22) {GActionNames.push(`Barbed Whip`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 23) {GActionNames.push(`Halberd`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 24) {GActionNames.push(`Glaive`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 25) {GActionNames.push(`Greataxe`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d12 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 26) {GActionNames.push(`Greatsword`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil((GPB / 3) * 2) + 1}d6 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 27) {GActionNames.push(`Maul`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil((GPB / 3) * 2) + 1}d6 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 28) {GActionNames.push(`Scimitar`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 29) {GActionNames.push(`Trident`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage or (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) when held in one hand.`);}
+		else if (RNG == 30) {GActionNames.push(`War Pick`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 31) {GActionNames.push(`Light Crossbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 8}/${(reachX + 5) * 32} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 32) {GActionNames.push(`Shortbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 8}/${(reachX + 5) * 32} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 33) {GActionNames.push(`Hand Crossbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 3}/${(reachX + 5) * 12} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 34) {GActionNames.push(`Heavy Crossbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 10}/${(reachX + 5) * 40} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 35) {GActionNames.push(`Longbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 15}/${(reachX + 5) * 60} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 36) {GActionNames.push(`Greatbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 25}/${(reachX + 5) * 100} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d12 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 37) {GActionNames.push(`Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 38) {GActionNames.push(`Claw (Grapple)`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) slashing damage and the target is grappled (escape DC ${GTier + 12}). Until this grapple ends, the creature can automatically hit the target with its claw, and the creature can’t make attacks with that claw against other targets..`);}
+		else if (RNG == 39) {GActionNames.push(`Radiant Blast`); GActions.push(`Radiant energy erupts from the creature’s eyes in a 15-foot cone. Each creature in that area must succeed on a DC ${GTier + 12} Constitution saving throw or take ${Math.ceil(GPB / 3) + 1}d6 radiant damage and be blinded until the end of the creature’s next turn. Creatures with the Sunlight Sensitivity trait have disadvantage on this saving throw.`);}
+		else if (RNG == 40) {GActionNames.push(`Gemstone Eye of Fear`); GActions.push(`The creature shoots a magical eye ray, choosing one target it can see within 90 feet of it. The target and up to four other creatures of the creature’s choice within 10 feet of the target must each succeed on a DC ${GTier + 12} Wisdom saving throw or be frightened for 1 minute. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 41) {GActionNames.push(`Gemstone Eye of Flame`); GActions.push(`The creature shoots a magical eye ray, choosing one target it can see within 90 feet of it. The target must make a DC ${GTier + 12} Dexterity saving throw. On a failed save, the target takes ${Math.ceil(GPB / 3) + 1}d8 fire damage, and if it is a creature or a flammable object, it ignites. On a successful save, the target takes half as much damage and does not ignite. A target that ignites takes ${Math.ceil(GPB / 3) + 1}d6 fire damage at the start of each of its turns until a creature takes an action to douse the fire.`);}
+		else if (RNG == 42) {GActionNames.push(`Rock`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 43) {GActionNames.push(`Dart`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 44) {GActionNames.push(`Earth Phasing`); GActions.push(`Until the end of its next turn, the creature can fly through nonmagical earth and stone. While doing so, it doesn’t disturb the material it moves through. It can end its movement within earth or stone, but if it remains within earth or stone when this ability ends, it takes 14 (4d6) force damage and immediately moves to the nearest unoccupied space.`);}
+		else if (RNG == 45) {GActionNames.push(`Needle Volley`); GActions.push(`The creature makes up to 1d6 needle attacks, but it cannot attack the same target more than twice during its turn. Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 46) {GActionNames.push(`Raking Vine`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage, and the target is grappled (escape DC ${GTier + 12}). Until this grapple ends, the target takes ${GPB * 2} piercing damage at the start of each of its turns. The creature has ${Math.floor(Math.random() * 3) + 1} raking vines, each of which can grapple only one target at a time.`);}
+		else if (RNG == 47) {GActionNames.push(`Barbed Tail`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 48) {GActionNames.push(`Scythe`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage plus ${Math.ceil(GPB / 3) + 1}d4 necrotic damage. Any creature reduced to 0 hit points by this attack dies, with its body and everything it is wearing and carrying, except magic items, exploding into a cloud of ash.`);}
+		else if (RNG == 49) {GActionNames.push(`Entropic Touch`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) necrotic damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or gain one level of exhaustion.`);}
+		else if (RNG == 50) {GActionNames.push(`Teleport`); GActions.push(`The creature teleports, along with any equipment it is wearing or carrying, up to 30 feet to an unoccupied space it can see.`);}
+		else if (RNG == 51) {GActionNames.push(`Shadow Caw`); GActions.push(`The creature releases an ear-splitting caw. Each creature within 60 feet of the creature and able to hear it must make a DC ${GTier + 12} Constitution saving throw. On a failure, a creature takes ${Math.ceil(GPB / 3) + 2}d6 psychic damage.`);}
+		else if (RNG == 52) {GActionNames.push(`Tentacle`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil((GPB / 3) * 2) + 1}d6 + ${GWeaponMod}) bludgeoning damage. If the target is a creature, it is grappled (escape DC ${GTier + 12}). Until this grapple ends, the target is restrained. The creature can grapple no more than two targets at a time.`);}
+		else if (RNG == 53) {GActionNames.push(`Fist`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 54) {GActionNames.push(`Acid Squirt`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 4} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) acid damage.`);}
+		else if (RNG == 55) {GActionNames.push(`Beer Shower`); GActions.push(`The creature spews an unnaturally potent beer in a ${reachX + 10}-foot cone or in a ${(reachX + 10) * 2}-foot line that is ${Math.ceil(reachX - 10) * 5} feet wide. Each creature in the area must succeed on a DC ${GTier + 13} Constitution saving throw or be poisoned. While poisoned in this way, a creature has its speed halved by exposure to the potent brew. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Additionally, the beer shower extinguishes any fires or open flames in its area.`);}
+		else if (RNG == 56) {GActionNames.push(`Vitality Drain`); GActions.push(`One creature grappled by the creature must make a DC ${GTier + 12} Constitution saving throw. On a failed save, the target takes ${Math.ceil(GPB / 3)}d8 necrotic damage, and the creature regains a number of hit points equal to half the necrotic damage taken.`);}
+		else if (RNG == 57) {GActionNames.push(`Nightmare Touch`); GActions.push(`Melee Spell Attack: +${GSpellHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 2) + 1}d6 + ${GSpellMod}) psychic damage. If the target is unconscious, it takes an extra ${Math.ceil(GPB / 3) + 2}d6 psychic damage and is cursed until the creature dies or the curse is removed. The cursed target’s hit point maximum decreases by ${Math.ceil(GPB / 4)}d6 whenever it finishes a long rest.`);}
+		else if (RNG == 58) {GActionNames.push(`Tentacle Whip`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) slashing damage. If the target is the same size or smaller than the creature, it is grappled (escape DC ${GTier + 12}), pulled into an unoccupied space within 5 feet of the creature, and must succeed on a DC ${GTier + 13} Intelligence saving throw or be stunned until this grapple ends. The creature can’t use the same tentacle whip on another target until this grapple ends. The creature has two tentacle whips.`);}
+		else if (RNG == 59) {GActionNames.push(`Extract Brain`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one incapacitated creature grappled by the creature. Hit: (${Math.ceil(GPB / 2) + 3}d10 + ${GWeaponMod}) piercing damage. If this damage reduces the target to 0 hit points, the creature kills the target by extracting and devouring its brain.`);}
+		else if (RNG == 60) {GActionNames.push(`Idyllic Touch`); GActions.push(`Melee Spell Attack: +${GSpellHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GSpellMod}) force damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Wisdom saving throw or fall prone in a fit of laughter.`);}
+		else if (RNG == 61) {GActionNames.push(`Mind Thrust`); GActions.push(`The creature targets a creature it can see within 60 feet of it. The target must make a DC ${GTier + 12} Wisdom saving throw, taking ${Math.ceil(GPB / 2) + 2}d8 psychic damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 62) {GActionNames.push(`Crysteel Dagger`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage. plus ${Math.ceil(GPB / 3) + 2}d6 force damage`);}
+		else if (RNG == 63) {GActionNames.push(`Strong Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Strength saving throw or take an extra ${Math.ceil(GPB / 3)}d6 piercing damage and be grappled (escape DC ${GTier + 12}). The creature can have only one creature grappled in this way at a time.`);}
+		else if (RNG == 64) {GActionNames.push(`Arcane Blast`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 120 ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GSpellMod}) force damage.`);}
+		else if (RNG == 65) {GActionNames.push(`Soul Binding`); GActions.push(`Melee Spell Attack: +${GSpellHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) necrotic damage. A creature reduced to 0 hit points from this attack dies and has its soul imprisoned inside the creature's body. The target can’t be revived by any means short of a wish spell until the creature is destroyed.`);}
+		else if (RNG == 66) {GActionNames.push(`Paralyzing Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage plus ${Math.ceil(GPB / 3) + 2}d6 cold damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 67) {GActionNames.push(`Holy Flail`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage plus ${Math.ceil(GPB / 2) + 2}d8 radiant damage.`);}
+		else if (RNG == 68) {GActionNames.push(`Chromatic Orb`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 120 ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GSpellMod}) damage of a type chosen by the creature: acid, cold, fire, lightning, poison, or thunder.`);}
+		else if (RNG == 69) {GActionNames.push(`Magic Staff`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) force damage.`);}
+		else if (RNG == 70) {GActionNames.push(`Fire Bolt`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 120 ft., one creature. Hit: (${Math.ceil(GPB / 2) + 2}d6) fire damage. A flammable object hit by this spell ignites if it isn’t being worn or carried.`);}
+		else if (RNG == 71) {GActionNames.push(`Pincer`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) bludgeoning damage. The target is grappled (escape DC ${GTier + 12}) if it is a Medium or smaller creature. The creature has two pincers, each of which can grapple one target.`);}
+		else if (RNG == 72) {GActionNames.push(`Hallucinogenic Stinger`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d10 + ${GWeaponMod}) piercing damage plus ${Math.ceil(GPB / 3) + 1}d10 psychic damage, and the target must succeed on a DC ${GTier + 12} Wisdom saving throw or be frightened of the creature for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 73) {GActionNames.push(`Radiant Touch`); GActions.push(`Melee Spell Attack: +${GSpellHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 2}d6 + ${GSpellMod}) radiant damage.`);}
+		else if (RNG == 74) {GActionNames.push(`Talons`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) slashing damage.`);}
+		else if (RNG == 75) {GActionNames.push(`Hooves`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil((GPB / 3) * 2) + 1}d6 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 76) {GActionNames.push(`Slam`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d12 + ${GWeaponMod}) bludgeoning damage, and if the target if the same size or smaller than the creature, it can push the target ${reachX + 5} feet away from it.`);}
+		else if (RNG == 77) {GActionNames.push(`Eldritch turret`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 300 ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GSpellMod}) force damage, and if the target is a creature, it is knocked prone.`);}
+		else if (RNG == 78) {GActionNames.push(`Hammer of Justice`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) bludgeoning damage plus ${Math.ceil(GPB / 3)}d6 force damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Strength saving throw or be knocked prone.`);}
+		else if (RNG == 79) {GActionNames.push(`Arclight Touch`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: ${Math.ceil(GPB / 3) + 2}d6 lightning damage, and lightning jumps from the target to one creature of the creature’s choice that it can see within 30 feet of the target. That second creature must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 3) + 2}d6 lightning damage.`);}
+		else if (RNG == 80) {GActionNames.push(`Vampiric Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., a willing creature, a creature that is charmed by the creature, or a creature that is grappled, restrained, or incapacitated. Hit: (${Math.ceil(GPB / 3)}d6 + ${GWeaponMod}) piercing damage plus ${Math.ceil(GPB / 3) + 2}d6 necrotic damage.
+The target’s hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.`);}
+		else if (RNG == 81) {GActionNames.push(`Chain`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 15} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) x damage. If the target is a creature, it is grappled (escape DC ${GTier + 12}). Until the grapple ends, the target is restrained, and the creature can’t use this attack on anyone else.`);}
+		else if (RNG == 82) {GActionNames.push(`Spit Acid`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) acid damage.`);}
+		else if (RNG == 83) {GActionNames.push(`Petrifying Gaze`); GActions.push(`The creature fixes its gaze on one enemy within 60 feet of it that it can see and that can see its eyes. The target must make a DC ${GTier + 12} Constitution saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. Otherwise, an enemy that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.`);}
+		else if (RNG == 84) {GActionNames.push(`Searing Touch`); GActions.push(`The creature grabs a target and attempts to grapples them. The initial touch deals ${Math.ceil(GPB / 3) + 2}d6 fire damage and an additional ${Math.ceil(GPB / 3) + 2}d6 fire damage each turn they remain grappled.`);}
+		else if (RNG == 85) {GActionNames.push(`Pseudopod`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 5} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 86) {GActionNames.push(`Combusting Touch`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: ${Math.ceil(GPB / 2) + 2}d8 fire damage. A creature hit by this attack is knocked back 5 ft. and cannot take a reaction until the end of their next turn.`);}
+		else if (RNG == 87) {GActionNames.push(`Poisoned Daggers`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) piercing damage. The target must make a DC ${GTier + 12} Consitution Saving Throw or else take ${Math.ceil(GPB / 2) + 3} poison damage and become poisoned. A successful save takes half damage and is not poisoned.`);}
+		else if (RNG == 88) {GActionNames.push(`Pinning Thrust`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage. The creature attempts to pierce his sword through his target's leg into the ground. The target makes a DC ${GTier + 12} Dexterity saving throw. On a fail, the sword pierces their leg into the ground and they are considered restrained until the sword is removed. The creature cannot use this attack unless they retrieve their weapon or carry more.`);}
+		else if (RNG == 89) {GActionNames.push(`Stunning Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d8 + ${GWeaponMod}) x damage. A target hit by two claw attacks in the same turn must make a DC ${GTier + 12} Consitution saving throw or else be stunned until the end of their next turn.`);}
+		else if (RNG == 90) {GActionNames.push(`Haymaker`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d12 + ${GWeaponMod}) bludgeoning damage. A creature hit by this must make a Strength DC ${GTier + 12} saving throw or be knocked back 10 ft. Any creature hit by the target must make a Dex DC ${GTier + 12} saving throw or else take ${Math.ceil(GPB / 3)}d8 + ${GWeaponMod} bludgeoning damage and be knocked back to just behind where the target ends.`);}
+		else if (RNG == 91) {GActionNames.push(`Tail`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 10} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) bludgeoning damage.`);}
+		else if (RNG == 92) {GActionNames.push(`Bleeding Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d6 + ${GWeaponMod}) slashing damage, and the target loses ${GTier} hit points from bleeding at the start of each of its turns for six rounds unless it receives magical healing. Bleeding damage is cumulative; the target loses ${GTier} hp per round for each bleeding wound it's taken from the creature's claws.`);}
+		else if (RNG == 93) {GActionNames.push(`Devour`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d12 + ${GWeaponMod}) slashing damage and attempts to grapple the target. If the target was already grappled by the creature, it takes an additional ${Math.ceil(GPB / 3)}d12 piercing damage. The creature can grapple one creature at a time, and it can't use its devour attack against a different target while it has a creature grappled.`);}
+		else if (RNG == 94) {GActionNames.push(`Burning Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) slashing damage plus ${Math.ceil(GPB / 4)}d6 fire damage. If the target is a creature or a flammable object, it ignites. Until a creature takes an action to douse the fire, the target takes ${Math.ceil(GPB / 4)}d8 fire damage at the start of each of its turns.`);}
+		else if (RNG == 95) {GActionNames.push(`Spit Fire`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) fire damage. If the target is a creature or a flammable object, it ignites. Until a creature takes an action to douse the fire, the target takes ${Math.ceil(GPB / 3)}d8 fire damage at the start of each of its turns.`);}
+		else if (RNG == 96) {GActionNames.push(`Discombobulating Touch`); GActions.push(`The creature can make a touch attack that grants its target +3 to Dexterity-based skill checks and melee attacks but also induces confusion as per the spell. This effect lasts for 1d4 rounds. A successful DC ${GTier + 12} Charisma saving throw negates this effect.`);}
+		else if (RNG == 97) {GActionNames.push(`Bone Shard`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage and the target must make a DC ${GTier + 12} Constitution saving throw. On a failure, a piece of the bone breaks and sticks in the target's wound. The target takes ${Math.ceil(GPB / 3) + 1}d4 piercing damage at the start of each of its turns as long as the bone remains lodged in its wound. A creature, including the target, can take its action to remove the bone by succeeding on a DC ${GTier + 12} Wisdom (Medicine) check. The bone also falls out of the wound if the target receives magical healing. A creature typically carries 3 (1d6) bone shards, which are destroyed on a successful hit. It can use its action to tear a bone shard from a corpse within 5 feet.`);}
+		else if (RNG == 98) {GActionNames.push(`Gore`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 99) {GActionNames.push(`Chromatic Ray`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 60 ft., one creature. Hit: ${Math.ceil(GPB / 3)}d6 lightning damage plus ${Math.ceil(GPB / 3)}d6 fire damage plus ${Math.ceil(GPB / 3)}d6 cold damage.`);}
+		else if (RNG == 100) {GActionNames.push(`Rainbow Arch`); GActions.push(`The creature can instantaneously teleport between sources of fresh water within 1 mile as an action. It can't move normally or take any other action on the turn when it uses this power. When this power is activated, a rainbow manifests between the origin and destination, lasting for 1 minute.`);}
+		else if (RNG == 101) {GActionNames.push(`Fiery Greatsword`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage plus 16 (3d10) fire damage`);}
+		else if (RNG == 102) {GActionNames.push(`Lightning Recolation`); GActions.push(`The creature teleports up to 60 feet to an unoccupied space it can see. When it does, it briefly transforms into a bolt of lightning, flashes upwards, then crashes down unharmed at its destination. Each enemy within 5 feet of the creature’s starting location or destination must succeed on a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 1}d6 lightning damage on a failed save, or half as much on a successful one. An enemy within 5 feet of both locations makes this saving throw only once.`);}
+		else if (RNG == 103) {GActionNames.push(`Ash Cloud`); GActions.push(`The creature can create a cloud of ash that extends ${reachX + 5} feet in all directions, centered on itself. This cloud provides half cover, though the creature can see normally through its own cloud. Any enemy that enters or starts its turn in the cloud must succeed on a DC ${GTier + 12} Constitution saving throw or become blinded for 1d6 rounds.`);}
+		else if (RNG == 104) {GActionNames.push(`Poisoned Dagger`); GActions.push(`Melee or Ranged Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft. or range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 105) {GActionNames.push(`Poisoned Shortsword`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 106) {GActionNames.push(`Poisoned Rapier`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 107) {GActionNames.push(`Poisoned Barbed Whip`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 108) {GActionNames.push(`Poisoned Scimitar`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 109) {GActionNames.push(`Poisoned Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 110) {GActionNames.push(`Poisoned Light Crossbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 8}/${(reachX + 5) * 32} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 111) {GActionNames.push(`Poisoned Shortbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 8}/${(reachX + 5) * 32} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 112) {GActionNames.push(`Poisoned Hand Crossbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 3}/${(reachX + 5) * 12} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage, and the target must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 poison damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 113) {GActionNames.push(`Healing Touch (3/day)`); GActions.push(`The creature touches a creature. The target magically regains (${Math.ceil(GPB / 3) + 1}}d8 + ${GConMod}) hit points and is freed from any disease, poison, blindness, or deafness.`);}
+		else if (RNG == 114) {GActionNames.push(`North Wind Longbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 15}/${(reachX + 5) * 60} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage plus ${Math.ceil(GPB / 3) + 1}d8 cold damage`);}
+		else if (RNG == 115) {GActionNames.push(`Wind Blast`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 50 ft., one creature. Hit: ${Math.ceil(GPB / 3) + 1}d12 slashing damage.`);}
+		else if (RNG == 116) {GActionNames.push(`Pincers`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage. If the creature scores a critical hit against an enemy, roll a d10. On a 1-3, it severs the target’s arm, and on a 4-6 it severs the target’s leg. A creature missing an arm can’t wield weapons that require two hands, and if a creature is missing a leg, its speed is halved. Creatures without limbs are unaffected.`);}
+		else if (RNG == 117) {GActionNames.push(`Hurl Flame`); GActions.push(`Ranged Spell Attack: +${GSpellHit} to hit, range 150 ft., one creature. Hit: ${Math.ceil(GPB / 3) + 3}d6 fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire.`);}
+		else if (RNG == 118) {GActionNames.push(`Beard`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) piercing damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the target can't regain hit points. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 119) {GActionNames.push(`Constrict`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature the same size or smaller. Hit: (${Math.ceil(GPB / 2) + 1}d10 + ${GWeaponMod}) bludgeoning damage plus (${Math.ceil(GPB / 3)}d10 + ${GWeaponMod}) slashing damage. The target is grappled (escape DC ${GTier + 12}) if the creature isn't already constricting an enemy, and the target is restrained until this grapple ends.`);}
+		else if (RNG == 120) {GRay = ``; GRay1 = ``; GRay2 = ``; GRay3 = ``; GRay4 = ``; GRay5 = ``; GRay6 = ``; RayX = ``;
+			Ray2 = Math.floor(Math.random() * 2) + 1; Ray3 = Math.floor(Math.random() * 3) + 1; Ray4 = Math.floor(Math.random() * 5) + 1; Ray5 = Math.floor(Math.random() * 7) + 1; Ray6 = Math.floor(Math.random() * 10) + 1;
+			if (GCR >= 30) {Ray2 = 1;} else {}
+			if (GCR >= 20) {Ray3 = 1;} else {}
+			if (GCR >= 15) {Ray4 = 1;} else {}
+			if (GCR >= 10) {Ray5 = 1;} else {}
+			if (GCR >= 5) {Ray6 = 1;} else {}
+			RandomRay(); RayX += `${GRay}`; GRay1 = GRay;
+			if (Ray2 == 1) {RandomRay(); GRay2 = GRay;
+				while(GRay2 == GRay1) {RandomRay(); GRay2 = GRay;} RayX += `\n${GRay}`;}
+			if (Ray3 == 1) {RandomRay(); GRay3 = GRay;
+				while(GRay3 == GRay1 || GRay3 == GRay2) {RandomRay(); GRay3 = GRay;} RayX += `\n${GRay}`;}
+			if (Ray4 == 1) {RandomRay(); GRay4 = GRay;
+				while(GRay4 == GRay1 || GRay4 == GRay2 || GRay4 == GRay3) {RandomRay(); GRay4 = GRay;} RayX += `\n${GRay}`;}
+			if (Ray5 == 1) {RandomRay(); GRay5 = GRay;
+				while(GRay5 == GRay1 || GRay5 == GRay2 || GRay5 == GRay3 || GRay5 == GRay4) {RandomRay(); GRay5 = GRay;} RayX += `\n${GRay}`;}
+			if (Ray6 == 1) {RandomRay(); GRay6 = GRay;
+				while(GRay6 == GRay1 || GRay6 == GRay2 || GRay6 == GRay3 || GRay6 == GRay4 || GRay6 == GRay5) {RandomRay(); GRay6 = GRay;} RayX += `\n${GRay}`;}
+		GActionNames.push(`Eye Rays`); GActions.push(`The creature shoots ${Math.floor(GPB / 3) + 1} of the following magical eye rays at random, choosing one to three targets it can see within 120 ft. of it:\n${RayX}`);}
+		else if (RNG == 121) {GActionNames.push(`Icy Shortbow`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 8}/${(reachX + 5) * 32} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage plus ${Math.ceil(GPB / 3) + 1}d6 cold damage, and the target must make a successful DC ${GTier + 11} Constitution saving throw or gain 2 levels of exhaustion from the arrow's icy chill. If the save succeeds, the target also becomes immune to further exhaustion from the arrows for 24 hours (but any levels of exhaustion already gained remain in effect). A character who gains a sixth level of exhaustion doesn't die automatically but drops to 0 hit points and must make death saving throws as normal. The exhaustion lasts until the target recovers fully from the cold damage.`);}
+		else if (RNG == 122) {GActionNames.push(`Disheartening Touch`); GActions.push(`Melee Spell Attack: +${GSpellHit} to hit, range 5 ft., one creature. Hit: ${Math.ceil(GPB / 2) + 1}d6 psychic damage.`);}
+		else if (RNG == 123) {GActionNames.push(`Sapping Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage. If the target is a creature other than an undead, it must succeed on a DC ${GTier + 12} Constitution saving throw or have its speed halved and have disadvantage on Dexterity-based checks and saving throws for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 124) {GActionNames.push(`Hideous Feast`); GActions.push(`The creature feeds on a corpse within 5 feet of it that is less than 1 week old. It regains ${Math.floor(GPB / 3) + 1}d8 hit points on a tiny corpse and an additional ${Math.floor(GPB / 3) + 1}d8 per size category above Tiny.`);}
+		else if (RNG == 125) {GActionNames.push(`Spectral Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) slashing damage, and the target must succeed on a DC ${GTier + 12} Constitution saving throw or suffer 1 level of exhaustion. A creature can suffer no more than 2 levels of exhaustion from Spectral Claws.`);}
+		else if (RNG == 126) {GActionNames.push(`Invisibility`); GActions.push(`The creature magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the creature wears or carries is invisible with it.`);}
+		else if (RNG == 127) {GActionNames.push(`Tusks`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) slashing damage, and if the target is the same size as the creature or smaller it must succeed on a DC ${GTier + 13} Strength saving throw or be knocked prone.`);}
+		else if (RNG == 128) {GActionNames.push(`Psychic Stab`); GActions.push(`The creature targets one enemy that it can sense within 30 feet of it. The target must make a DC ${GTier + 12} Intelligence saving throw, taking ${Math.ceil(GPB / 2) + 1}d6 psychic damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 129) {GActionNames.push(`Fissure`); GActions.push(`The creature opens a fissure in the ground within 120 feet of it that is 60 feet long, 10 feet wide, and 2d4 x 10 feet deep. Each enemy standing on a spot where a fissure opens must succeed on a DC ${GTier + 11} Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure’s edge as it opens. A fissure that opens beneath a structure causes it to automatically collapse as if the structure was in the area of an earthquake spell. The creature can have only one fissure open at a time. If it opens another, the previous fissure closes, shunting all creatures inside it to the surface.`);}
+		else if (RNG == 130) {GActionNames.push(`Acid Touch`); GActions.push(`As an action, the creature destroys one nonmagical object that isn't being worn or carried, such as a rope, plank, candlestick, or even an entire bronze cauldron.`);}
+		else if (RNG == 131) {GActionNames.push(`Mind-Weakening Ray`); GActions.push(`The creature targets one creature within 30 ft. that it can see. The target must succeed on a DC ${GTier + 12} Intelligence saving throw or take ${Math.ceil(GPB / 2) + 1}d8 psychic damage and be unable to cast spells or activate magic items for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 132) {GActionNames.push(`Domination Ray`); GActions.push(`The creature targets one creature within 30 ft. that it can see. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or be charmed by the creature for 1 minute or until the target takes damage. The creature can issue telepathic commands to the charmed creature (no action required), which it does its best to obey.`);}
+		else if (RNG == 133) {GActionNames.push(`Psyche-Reconstruction Ray`); GActions.push(`The creature targets one creature within 30 ft. that it can see. The target must make a DC ${GTier + 12} Wisdom saving throw, taking ${Math.ceil(GPB / 2) + 1}d10 psychic damage on a failed save, or half as much damage on a successful one. If this damage reduces a creature to 0 hit points, it dies and transforms into a spectator under the creature’s control and acts immediately after the creature in the initiative order. The target can’t be returned to its original form by any means short of a wish spell while the creature is alive.`);}
+		else if (RNG == 134) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 135) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 136) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 137) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 138) {GActionNames.push(``); GActions.push(``);}
+		else if (RNG == 139) {GActionNames.push(``); GActions.push(``);}
 }
 	function EnemyActionBtn() {
+		GRayTemp = ``;
+		GActionNames.length = 0;
+		GActions.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2);
@@ -3005,12 +3218,100 @@ function EnemyAction() {
 	}
 
 function EnemyBonus() {
-		RNG = Math.floor(Math.random() * 2) + 1;
-		if (RNG == 1) {GBonusNames.push("Ethereal Jaunt"); GBonuses.push("As a bonus action, the creature can magically shift from the Material Plane to the Ethereal Plane, or vice versa.");}
-		else if (RNG == 2) {GBonusNames.push("Teleport"); GBonuses.push("As a bonus action, the creature can teleport up to 15 feet to an unoccupied space it can see.");}
-		else if (RNG == 3) {GBonusNames.push(""); GBonuses.push("");}
+		RNG = Math.floor(Math.random() * 39) + 1;
+		if (RNG == 1) {GBonusNames.push(`Ethereal Jaunt`); GBonuses.push(`As a bonus action, the creature can magically shift from the Material Plane to the Ethereal Plane, or vice versa.`);}
+		else if (RNG == 2) {GBonusNames.push(`Teleport`); GBonuses.push(`As a bonus action, the creature can teleport up to 15 feet to an unoccupied space it can see.`);}
+		else if (RNG == 3) {GBonusNames.push(`Change Shape`); GBonuses.push(`The creature magically polymorphs into a humanoid, beast, or giant that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (its choice). In a new form, the creature retains his alignment, hit points, Hit Dice, ability to speak, proficiencies, and Intelligence, Wisdom, and Charisma scores, as well as this bonus action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.`);}
+		else if (RNG == 4) {GBonusNames.push(`Healing Touch (2/Day)`); GBonuses.push(`The creature touches another creature. The target magically regains ${Math.ceil(GPB / 2) + 2}d6 + ${GPB * 2} hit points and is freed from one curse afflicting it (creature’s choice).`);}
+		else if (RNG == 5) {GBonusNames.push(`Aggressive`); GBonuses.push(`As a bonus action, the creature can move up to its speed toward a hostile creature it can see.`);}
+		else if (RNG == 6) {GBonusNames.push(`Shadow Stealth`); GBonuses.push(`While in dim light or darkness, the creature can take the Hide action as a bonus action.`);}
+		else if (RNG == 7) {GBonusNames.push(`Nimble Escape`); GBonuses.push(`The creature can take the Disengage or Hide action as a bonus action on each of his turns.`);}
+		else if (RNG == 8) {GBonusNames.push(`Commander of Bones`); GBonuses.push(`As a bonus action, the creature can target one skeleton or zombie it can see within 30 feet of it. The target must make a DC ${GTier + 11} Wisdom saving throw. On a failed save, the target must obey the creature’s commands until the creature dies or until the creature releases it as a bonus action. The creature can command up to twelve undead at a time this way. While within 60 feet of the creature, any undead ally of the creature has advantage on saving throws against any effect that turns undead.`);}
+		else if (RNG == 9) {GBonusNames.push(`Cunning Action`); GBonuses.push(`On each of its turns, the creature can use a bonus action to take the Disengage or Hide action.`);}
+		else if (RNG == 10) {GBonusNames.push(`Leadership`); GBonuses.push(`The creature utters a few inspiring words to one creature it can see within 30 feet of it. If the creature can hear it, they can add a d6 to one attack roll or saving throw it makes before the start of the creature’s next turn.`);}
+		else if (RNG == 11) {GBonusNames.push(`Blood Witch Dance`); GBonuses.push(`The creature can cast hex as a bonus action. The creature can use a bonus action to control the movement of one creature cursed by its hex spell that it can see within 30 feet of it. The creature must succeed on a DC ${GTier + 12} Charisma saving throw or use its reaction to move up to 30 feet in a direction of the creature’s choice.`);}
+		else if (RNG == 12) {GBonusNames.push(`Summon Mount (1/Day)`); GBonuses.push(`The creature magically summons a mount, which appears in an unoccupied space within 60 feet of the creature. The mount remains for 8 hours, until it or the creature dies, or until the creature dismisses it as an action. The mount uses the stat block of an elk (see the Monster Manual) with these changes: it has an Intelligence of 6, and it understands the creature's languages but can’t speak. While within 1 mile of the mount, the creature can communicate with it telepathically.`);}
+		else if (RNG == 13) {GBonusNames.push(`Exploitation of the Peasants (Recharge 5-6)`); GBonuses.push(`As a bonus action, the creature targets a creature that it can see within 30 feet of it. The creature deals ${Math.ceil(GPB / 3) + 2}d10 necrotic damage to the target, and the creature gains temporary hit points equal to the damage dealt.`);}
+		else if (RNG == 14) {GBonusNames.push(`Gust-Propelled Leap`); GBonuses.push(`The creature can use a bonus action to fly up to 15 feet without provoking opportunity attacks.`);}
+		else if (RNG == 15) {GBonusNames.push(`Tree Stride`); GBonuses.push(`Once on its turn, the creature can use 10 feet of its movement to step magically into one living tree within its reach and emerge from a second living tree within 60 feet of the first tree, appearing in an unoccupied space within 5 feet of the second tree. Both trees must be Large or bigger.`);}
+		else if (RNG == 16) {GBonusNames.push(`Radiant Defense (Recharge 5-6)`); GBonuses.push(`The creature chooses an ally it can see within 30 feet of it. The first time that creature is hit by an attack in the next minute, the attacker takes ${Math.ceil(GPB / 2) + 1}d8 radiant damage.`);}
+		else if (RNG == 17) {GBonusNames.push(`Rift Beam (Recharge 5-6)`); GBonuses.push(`The creature can use an action to expend a charge to perform a Rift Beam attack. Each creature in a 5-foot wide 30-foot line must make a DC ${GTier + 12} Dexterity saving throw. On a failed save, the creature takes ${Math.ceil(GPB / 2) + 1}d6 and is pushed 5 feet away perpendicular from the line (the creature's choice of direction) and cannot take reactions until the start of their next turn. The Rift Beam also creates temporary tunnels in nonmagical walls. The tunnels last for 1 minute before closing and extend for up to 30 feet from where the rift beam originated. The tunnels are a distortion of space and do not cause structural damage.`);}
+		else if (RNG == 18) {GBonusNames.push(`Sonic Scream`); GBonuses.push(`The creature takes a deep breath and screams. Any creature within 15 ft. roll a DC ${GTier + 11} Constitution saving throw. On a fail, they take ${Math.ceil(GPB / 3) + 1}d20 + 10 force damage and half as much on a success. Creatures that fail their saving throw are deafened for 1 minute. Any creature within 5 ft. is defeaned and, if they failed their saving throw, they are stunned until the end of their next turn.`);}
+		else if (RNG == 19) {GBonusNames.push(`Piercing Spines (Recharge 6)`); GBonuses.push(`Two spines target the highest health creatures within 30 ft. and attempt to pin them to a surface. Targeted creatures must make a DC ${GTier + 12} Dex Save or take ${Math.ceil(GPB / 2) + 1}d8 piercing damage and become restrained (escape DC ${GTier + 12} Athletics). Creatures that pass the saving throw take half damage and are not restrained.`);}
+		else if (RNG == 20) {GBonusNames.push(`Bell of Dissonance (Recharge 5-6)`); GBonuses.push(`A bell tolls. All creatures within 40 ft. of the creature must make a DC ${GTier + 12} Constitution saving throw. On a fail, they are deafened and cannot take bonus actions until the end of their next turn. If they fail the saving throw by more than 5, they are stunned for 1 round and cannot use bonus actions for 1 minute.`);}
+		else if (RNG == 21) {GBonusNames.push(`Pull`); GBonuses.push(`A target within 30 ft. of creature and not in melee range must make a DC ${GTier + 12} Dexterity Saving Throw or be pulled 15 feet closer to the creature.`);}
+		else if (RNG == 22) {GBonusNames.push(`Churning Advance (Recharge 6)`); GBonuses.push(`As a bonus action, the creature moves up to two times its speed, leaving a trail of difficult terrain behind it.`);}
+		else if (RNG == 23) {GBonusNames.push(`Musk Spray (Recharge 5-6)`); GBonuses.push(`The creature unleashes a spray of foul musk in a 20-foot cone. Each creature in that area must succeed on a DC ${GTier + 12} Constitution saving throw or be poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 24) {GBonusNames.push(`Shield Wall (Recharge 4-6)`); GBonuses.push(`The creature adjsuts its stance, moving shields and armor to encase its body. It regains ${GPB * 6} hp, and its AC increases by ${Math.ceil(GPB / 4) + 1} until the end of its next turn.`);}
+		else if (RNG == 25) {GBonusNames.push(`Elusive`); GBonuses.push(`The creature can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.`);}
+		else if (RNG == 26) {GBonusNames.push(`Liquid Courage (Recharge 5-6)`); GBonuses.push(`As a bonus action, the creature imbibes nearby alcohol to gain access to a hidden reservoir of audacity and grit. The creature gains ${Math.ceil(GPB / 2) + 2}d6 temporary hp for 1 minute.`);}
+		else if (RNG == 27) {GBonusNames.push(`Smother`); GBonuses.push(`If the creature grapples an opponent, it extends a semi-solid gaseous tendril down the target's throat as a bonus action. The target must make a successful DC ${GTier + 12} Strength saving or it is immediately out of breath and begins suffocating. Suffocation ends if the grapple is broken or if the creature is killed.`);}
+		else if (RNG == 28) {GBonusNames.push(`Rage (${GPB}/Day)`); GBonuses.push(`The creature enters a rage. They have resistance to physical damage and advantage on Strength Checks and Saves for 1 minute. If they go a full turn without being hit or attempting to attack an enemy, the rage ends.`);}
+		else if (RNG == 29) {GBonusNames.push(`Silent Entry`); GBonuses.push(`As a bonus action, the creature can silently unlock a door within 10 feet of it that is held shut by a mundane lock. If a door has multiple locks, only one is unlocked per use of this trait.`);}
+		else if (RNG == 30) {GBonusNames.push(`Vaporized Blood`); GBonuses.push(`A red mist surroundsthe creature in a 20-foot-radius sphere. The mist spreads around corners, and its area is heavily obscured. It moves with the creature and doesn't impede the creature's vision. The mist dissipates after 1d4 + 1 rounds.`);}
+		else if (RNG == 31) {GBonusNames.push(`Drown (Recharge 5-6)`); GBonuses.push(`The creature sends blood pouring down the throat of one enemy within 30 feet, which must make a DC ${GTier + 12} Constitution saving throw. On a failure, the enemy is incapacitated until the end of its next turn as it coughs up the blood and is poisoned for 1 minute after that.`);}
+		else if (RNG == 32) {GBonusNames.push(`Blood Choke Curse`); GBonuses.push(`The creature targts one enemy it can sense. The target must make a successful DC ${GTier + 12} Constitution saving throw or the target's mouth fills with blood, preventing any speech or spellcasting with verbal components for 1 minute.`);}
+		else if (RNG == 33) {GBonusNames.push(`Bloody Eyes`); GBonuses.push(`The creature targts one enemy it can sense. The target must make a successful DC ${GTier + 12} Constitution saving throw or the target's eyes well up with bloody tears. The target is blinded for 1 minute.`);}
+		else if (RNG == 34) {GBonusNames.push(`Heart Like Thunder`); GBonuses.push(`The creature targts one enemy it can sense. The target must make a successful DC ${GTier + 12} Constitution saving throw or the target hears only the rushing of blood and their thumping heart. They are deaf for 1 minute.`);}
+		else if (RNG == 35) {GBonusNames.push(`Rupturing Arteries`); GBonuses.push(`The creature targts one enemy it can sense. The target must make a successful DC ${GTier + 12} Constitution saving throw or suffer or the victim suffers ${Math.ceil(GPB / 3) + 1}d6 slashing damage as its veins and arteries burst open. The target repeats the saving throw at the beginning of each of its turns. It takes ${Math.ceil(GPB / 3)}d6 necrotic damage if the saving throw fails, but the effect ends on a successful save.`);}
+		else if (RNG == 36) {GBonusNames.push(`Dark Stare`); GBonuses.push(`The creature stares balefully at one enemy it can see within 60 feet. That enemy must succeed on a DC ${GTier + 12} Wisdom saving throw or have disadvantage on all attacks until the end of its next turn.`);}
+		else if (RNG == 37) {GBonusNames.push(`Unearthly Hum (Recharge 4-6)`); GBonuses.push(`The creature targets one enemy it can see within 60 feet of it. It emits a high frequency humming noise which can only be heard by the target. The target must succeed on a DC ${GTier + 12} Wisdom saving throw or move toward the creature on its turn by the shortest and most direct route, ending its turn when it comes within 5 feet of the creature.`);}
+		else if (RNG == 38) {GBonusNames.push(`Animate Chains (Recharges after a short or long rest`); GBonuses.push(`Up to four chains the creature can see within 60 feet of it magically sprout razor-edged barbs and animate under the creature's control, provided that the chains aren't being worn or carried. Each animated chain is an object with AC 20, ${GTier * 9} hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the creature uses Multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one enemy of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the creature is incapacitated or dies.`);}
+		else if (RNG == 39) {GBonusNames.push(`Quickness (Recharge 4-6)`); GBonuses.push(`The creature can take the Dodge action as a bonus action.`);}
+		else if (RNG == 40) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 41) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 42) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 43) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 44) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 45) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 46) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 47) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 48) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 49) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 50) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 51) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 52) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 53) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 54) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 55) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 56) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 57) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 58) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 59) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 60) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 61) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 62) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 63) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 64) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 65) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 66) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 67) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 68) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 69) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 70) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 71) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 72) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 73) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 74) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 75) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 76) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 77) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 78) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 79) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 10) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 81) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 82) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 83) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 84) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 85) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 86) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 87) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 88) {GBonusNames.push(``); GBonuses.push(``);}
+		else if (RNG == 89) {GBonusNames.push(``); GBonuses.push(``);}
 }
 	function EnemyBonusBtn() {
+		GBonusNames.length = 0;
+		GBonuses.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2)
@@ -3024,12 +3325,59 @@ function EnemyBonus() {
 	}
 
 function EnemyReaction() {
-	RNG = Math.floor(Math.random() * 2) + 1;
+	RNG = Math.floor(Math.random() * 36) + 1;
 		if (RNG == 1) {GReactionNames.push("Absorb Attack"); GReactions.push(`When an enemy the creature can see hits it with a melee weapon attack, the weapon snags on a pocket of residual dimensional energy and is caught fast. The attack is negated and the weapon cannot be used until the enemy succeeds on a DC ${GTier + 11} Strength (Athletics) check as an action to pull it out of the creature. Natural weapons can have their attacks negated by this feature, but can then be retracted automatically at the end of the attacking creature’s turn.`);}
 		else if (RNG == 2) {GReactionNames.push(`Dream`); GReactions.push(`When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC ${GTier + 10} Wisdom saving throw. Unless the save succeeds, the target takes (${Math.ceil(GTier * 0.8)}d10) psychic damage, and the creature regains hit points equal to the amount of damage taken.`);}
-		else if (RNG == 3) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 3) {GReactionNames.push(`Absorb Attack`); GReactions.push(`When an enemy the creature can see hits it with a melee weapon attack, the weapon snags on a pocket of residual dimensional energy and is caught fast. The attack is negated and the weapon cannot be used until the enemy succeeds on a DC ${GTier + 11} Strength (Athletics) check as an action to pull it out of the creature. Natural weapons can have their attacks negated by this feature, but can then be retracted automatically at the end of the attacking creature’s turn.`);}
+		else if (RNG == 4) {GReactionNames.push(`Dream Eater`); GReactions.push(`When an unconscious target the creature can see within 30 feet of it regains consciousness, the creature can force the target to make a DC ${GTier + 12} Wisdom saving throw. Unless the save succeeds, the target takes ${Math.ceil(GPB / 3) + 1}d10 psychic damage, and the creature regains hit points equal to the amount of damage taken.`);}
+		else if (RNG == 5) {GReactionNames.push(`Emphatic Feedback`); GReactions.push(`When the creature takes damage from a creature it can see within 60 feet of it, the creature can force that creature to succeed on a DC ${GTier + 12} Intelligence saving throw or take ${Math.ceil(GPB / 3) + 1}d8 psychic damage.`);}
+		else if (RNG == 6) {GReactionNames.push(`Psionic Counter (Recharge 5-6)`); GReactions.push(`When a spell is cast, the creature may attempt to psionically interfere with the target's mind to counterspell it.`);}
+		else if (RNG == 7) {GReactionNames.push(`Parry`); GReactions.push(`The creature adds 3 to its AC against one melee attack that would hit it. To do so, the creature must see the attacker and be wielding a melee weapon.`);}
+		else if (RNG == 8) {GReactionNames.push(`Protection`); GReactions.push(`When an attacker the creature can see makes an attack roll against a creature within 5 feet of the creature, the creature can impose disadvantage on the attack roll.`);}
+		else if (RNG == 9) {GReactionNames.push(`Unyielding`); GReactions.push(`When the creature is subjected to an effect that would move it, knock it prone, or both, it can use its reaction to be neither moved nor knocked prone.`);}
+		else if (RNG == 10) {GReactionNames.push(`Furious Defense`); GReactions.push(`After an ally the creature can see is dealt damage by an enemy within 20 feet of the creature, the creature makes a ranged attack against that enemy.`);}
+		else if (RNG == 11) {GReactionNames.push(`Guided Attack (Recharge 5-6)`); GReactions.push(`When the creature or one creature it can see within 30 feet of it makes an attack roll, the creature grants a +10 bonus to that roll.`);}
+		else if (RNG == 12) {GReactionNames.push(`Feed on Death`); GReactions.push(`When a creature within 30 feet of the creature drops to 0 hit points, the creature gains ${Math.ceil(GPB / 3) + 1}d10 temporary hit points.`);}
+		else if (RNG == 13) {GReactionNames.push(`Redirect Attack`); GReactions.push(`When an enemy the creature can see targets it with an attack, the creature chooses another ally within 5 feet of it. The two creatures swap places, and the chosen ally becomes the target instead.`);}
+		else if (RNG == 14) {GReactionNames.push(`Spell Vitalization`); GReactions.push(`Immediately after a creature casts a spell of 1st level or higher within 120 feet of the creature, the creature can move up to twice its speed without provoking opportunity attacks. It can then make one melee attack against a target of its choice.`);}
+		else if (RNG == 15) {GReactionNames.push(`Precognitive Insight (3/Day)`); GReactions.push(`When the creature or a creature it can see makes an attack roll, a saving throw, or an ability check, the creature can cause the roll to be made with advantage or disadvantage.`);}
+		else if (RNG == 16) {GReactionNames.push(`Lightning Backlash (Recharge 5-6)`); GReactions.push(`When a creature hits the creature with an attack, the attacker takes lightning damage equal to half the damage dealt by the attack.`);}
+		else if (RNG == 17) {GReactionNames.push(`Self-Sacrifice`); GReactions.push(`When an ally within 5 feet of the creature is hit by an attack, the creature swaps places with that ally and is hit instead.`);}
+		else if (RNG == 18) {GReactionNames.push(`Encirclement (Recharge 5-6)`); GReactions.push(`When an enemy attempts to move further than 30 ft. from the creature, it can use its reaction to cast Wall of Fire in front of them.`);}
+		else if (RNG == 19) {GReactionNames.push(`Defensive Reflex`); GReactions.push(`The creature can choose to take half damage from an attack that hits it. This trait cannot be used on area of effect spells.`);}
+		else if (RNG == 20) {GReactionNames.push(`Redirection`); GReactions.push(`When hit with fire, lightning, or cold damage, the creature can redirect it to another creature within 10 ft. of him and that creature takes half the damage it would have.`);}
+		else if (RNG == 21) {GReactionNames.push(`Cutting Words`); GReactions.push(`When an enemy rolls an attack roll, ability check, or saving throw, roll a d6 and subtract that from the roll.`);}
+		else if (RNG == 22) {GReactionNames.push(`Tactical Avoidance`); GReactions.push(`After taking damage from a hit, the creature can teleport up to 10 feet away.`);}
+		else if (RNG == 23) {GReactionNames.push(`Legendary Block`); GReactions.push(`If the creature is critically hit, it can reduce the damage by ${GPB * 4}, to a minimum of 1.`);}
+		else if (RNG == 24) {GReactionNames.push(`Headbutt`); GReactions.push(`When a melee attack misses the creature, it can make a headbutt attack: +${GWeaponHit} to hit. (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) bludgeoning damage and the target makes a DC ${GTier + 11} Consitution saving throw or they have disadvantage on their next attack.`);}
+		else if (RNG == 25) {GReactionNames.push(`Earth Counter (Recharge 5-6)`); GReactions.push(`When an enemy the creature can see within 30 feet of it casts a spell, the creature counters it. This reaction works like the counterspell spell, except the creature can only counter spells that directly affect or create earth or stone, such as stone shape, wall of stone, or move earth, and it doesn’t need to make a spellcasting ability check, regardless of the spell’s level.`);}
+		else if (RNG == 26) {GReactionNames.push(`Void Body`); GReactions.push(`The creature can reduce the damage it takes from a single source to 0. Radiant damage can only be reduced by half.`);}
+		else if (RNG == 27) {GReactionNames.push(`Ruff Spikes`); GReactions.push(`When an enemy tries to enter a space adjacent to the creature, the creature flares its many feelers and spikes. The enemy cannot enter a space adjacent to the creature unless it makes a successful DC ${GTier + 12} Dexterity saving throw. If the saving throw fails, the enemy can keep moving but only into spaces that aren't within 5 feet of the creature and takes ${Math.ceil(GPB / 3) + 1}d6 piercing damage from spikes.`);}
+		else if (RNG == 28) {GReactionNames.push(`Void Twist`); GReactions.push(`When the creature is hit by a ranged attack it can create a small rift in space to increase its AC by 3 against that attack. If the attack misses because of this increase the creature can choose a creature within 30 feet to become the new target for that attack. Use the original attack roll to determine if the attack hits the new target.`);}
+		else if (RNG == 29) {GReactionNames.push(`Time-Assisted Counterattack`); GReactions.push(`The creature’s awareness of the near future allows it to see attacks before they happen. When an enemy the creature can see attacks it while within 5 feet of it, the creature can attack the enemy before the enemy’s attack hits. The creature makes a single melee attack against the enemy. If the enemy is reduced to 0 hp as a result of the creature’s attack, the enemy’s attack doesn’t hit the creature.`);}
+		else if (RNG == 30) {GReactionNames.push(`On the Hunt`); GReactions.push(`When an enemy the creature can see moves, the creature can move up to 20 feet toward the moving enemy. If the creature moves within 10 feet of that enemy, it can make one melee attack against the creature.`);}
+		else if (RNG == 31) {GReactionNames.push(`Close In`); GReactions.push(`Upon taking ranged damage (not from a Saving Throw), the creature can move up to half it's speed towards the aggressor without triggering opportunity attacks.`);}
+		else if (RNG == 32) {GReactionNames.push(`Shifting Sands`); GReactions.push(`The creature can shift parts of its body to avoid harm. When the creature takes damage, roll ${Math.ceil(GPB / 3)}d8. Reduce the damage it takes by the number rolled.`);}
+		else if (RNG == 33) {GReactionNames.push(`Voracious`); GReactions.push(`The creature's veins glow when a spell is cast within 30 feet of it, countering the spell. This reaction works like the counterspell spell, except the creature must always make a spellcasting ability check, no matter the spell level. Its ability check for this is +${Math.ceil(GPB * 1.5)}. If it successfully counters the spell, the creature feeds on the spell, regaining hit points equal to twice the level of the spell.`);}
+		else if (RNG == 34) {GReactionNames.push(`Ride the Bolt`); GReactions.push(`The creature can travel instantly along any bolt of lightning. When it is within 5 feet of a lightning effect, the creature can teleport to any unoccupied space inside or within 5 feet of that lightning effect.`);}
+		else if (RNG == 35) {GReactionNames.push(`Blood Drain`); GReactions.push(`An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 3) + 21}d4 necrotic damage and the creature gains temporary hit points equal to that amount as it drains blood from the victim. Its temporary hp can't exceed half its maximum hp. If the creature takes radiant damage, this trait doesn't function at the start of the creature's next turn, although it retains any temporary hp it previously gained.`);}
+		else if (RNG == 36) {GReactionNames.push(`Thick Skin`); GReactions.push(`When it is hit by an attack, the creature regains ${Math.ceil(GPB / 3)}d10 hit points and has resistance to that damage type until the end of its next turn.`);}
+		else if (RNG == 37) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 38) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 39) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 41) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 42) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 43) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 44) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 45) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 46) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 47) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 48) {GReactionNames.push(``); GReactions.push(``);}
+		else if (RNG == 49) {GReactionNames.push(``); GReactions.push(``);}
 }
 	function EnemyReactionBtn() {
+		GReactionNames.length = 0;
+		GReactions.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2)
@@ -3043,12 +3391,106 @@ function EnemyReaction() {
 	}
 
 function EnemyRecharge() {
-	RNG = Math.floor(Math.random() * 2) + 1;
-		if (RNG == 1) {GRechargeNames.push(`Petty Tyrant (Recharge 5-6)`); GRecharges.push(`The creature shouts bloodcurdling threats at the creatures that serve it. Each medium or smaller ally of the creature within 120 feet of it that can see or hear it can use its reaction to make a melee attack.`);}
-		else if (RNG == 2) {GRechargeNames.push(`Blood Boiling Hex (Recharge 6)`); GRecharges.push(`The creature places a hex on a target it can see within 60 feet of it for 1 minute. If the creature is hidden, using this ability does not reveal its location. While the target is affected by this hex, whenever it makes an attack roll, an ability check, or a saving throw, it must roll a ${Math.ceil(GTier / 4)}d4 and subtract the number rolled from the d20 roll. On any turn in which it suffers the effect of the hex, the target can attack an ally as a reaction, ignoring the effect of the hex when it does so. It can then ignore the effect of the hex until the end of its turn.`);}
-		else if (RNG == 3) {GRechargeNames.push(``); GRecharges.push(``);}
-}
+	let reachX = 5;
+	let RNG = Math.floor(Math.random() * 3) + 1; 
+	if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
+	RNG = Math.floor(Math.random() * 87) + 1;
+		if (RNG <= 9) {RandomBreath(); GRechargeNames.push(GBreathName); GRecharges.push(GBreath);}
+		else if (RNG == 10) {GRechargeNames.push(`Petty Tyrant (Recharge 5-6)`); GRecharges.push(`The creature shouts bloodcurdling threats at the creatures that serve it. Each medium or smaller ally of the creature within 120 feet of it that can see or hear it can use its reaction to make a melee attack.`);}
+		else if (RNG == 11) {GRechargeNames.push(`Blood Boiling Hex (Recharge 6)`); GRecharges.push(`The creature places a hex on a target it can see within 60 feet of it for 1 minute. If the creature is hidden, using this ability does not reveal its location. While the target is affected by this hex, whenever it makes an attack roll, an ability check, or a saving throw, it must roll a ${Math.ceil(GTier / 4)}d4 and subtract the number rolled from the d20 roll. On any turn in which it suffers the effect of the hex, the target can attack an ally as a reaction, ignoring the effect of the hex when it does so. It can then ignore the effect of the hex until the end of its turn.`);}
+		else if (RNG == 12) {GRechargeNames.push(`Chaos Cloud (Recharge 6)`); GRecharges.push(`The creature shoots forth a knot of roiling ethereal light that explodes at a point it can see within 60 feet of it. Each creature in a 20-foot-radius sphere centered on that point must succeed on a DC ${GTier + 12} Charisma saving throw or be stunned until the end of its next turn.`);}
+		else if (RNG == 13) {GRechargeNames.push(`Hot Oil Spray (Recharge 5-6)`); GRecharges.push(`The creature sprays hot oil in a 15-foot cone or in a 30-foot line that is 5 feet wide. Each creature in the area must make a DC ${GTier + 12} Dexterity saving throw. On a failed save, a creature takes ${Math.ceil(GPB / 2) + 3}d8 fire damage and falls prone. On a successful save, a creature takes half as much damage and doesn’t fall prone. Any creature affected by the hot oil spray that takes fire damage before the oil dries (after 1 minute) takes an additional ${Math.ceil(GPB / 3) + 1}d6 fire damage, and the oil burns away. If the oil that remains in the area of the spray is lit, it burns for 1d4 rounds and deals ${Math.ceil(GPB / 3) + 1}d6 fire damage to any creature that enters the area for the first time on a turn or ends its turn there.`);}
+		else if (RNG == 14) {GRechargeNames.push(`Words From Beyond (Recharge 5-6)`); GRecharges.push(`The creature remembers and repeats aloud a few words from a place he entered while walking back from the next world to this one. Each creature of his choice within 30 feet of him that can hear him must succeed on a DC ${GTier + 12} Wisdom saving throw or be stunned until the end of its next turn.`);}
+		else if (RNG == 15) {GRechargeNames.push(`Unsettling Visage (Recharge 5-6)`); GRecharges.push(`Each creature within 30 feet of the changeling must succeed on a DC ${GTier + 12} Wisdom saving throw or be frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 16) {GRechargeNames.push(`Corruption (Recharge 5-6)`); GRecharges.push(`The creature targets one creature it can see within 60 feet of it. The target must succeed on a DC ${GTier + 12} Constitution saving throw or take ${Math.ceil(GPB / 2) + 3}d6 necrotic damage and become corrupted for 1 minute. A corrupted creature’s flesh twists in alien ways. The creature has disadvantage on attack rolls, its speed is reduced by half, and if it tries to cast a spell, it must first succeed on a DC ${GTier + 12} Intelligence check or the spell fails and is wasted. The corrupted creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 17) {GRechargeNames.push(`Mind Blast (Recharge 5-6)`); GRecharges.push(`The creature magically emits psychic energy in a 30-foot cone. Each creature in that area must succeed on a DC ${GTier + 12} Intelligence saving throw or take (${Math.ceil(GPB / 3) + 2}d8 + ${GSpellMod}) psychic damage and be stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 18) {GRechargeNames.push(`Possession (Recharge 6)`); GRecharges.push(`One humanoid that the creature can see within 5 feet of it must succeed on a DC ${GTier + 12} Charisma saving throw or be possessed by the creature; the creature then disappears, and the target is incapacitated and loses control of its body. The creature now controls the body but doesn’t deprive the target of awareness. The creature can’t be targeted by any attack, spell, or other effect, and it retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being charmed and frightened. It otherwise uses the possessed target’s statistics, but doesn’t gain access to the target’s knowledge, class features, or proficiencies. The possession lasts until the body drops to 0 hit points, the creature ends it as a bonus action, or the creature is forced out by an effect like the dispel evil and good spell. When the possession ends, the creature reappears in an unoccupied space within 5 feet of the body. The target is immune to this creature’s Possession for 24 hours after succeeding on the saving throw or after the possession ends.`);}
+		else if (RNG == 19) {GRechargeNames.push(`Great Pierce (Recharge 4-6)`); GRecharges.push(`Thrust forward with a powerful blow. Each creature in a 15 ft. line much make a DC ${GTier + 12} Dexterity Saving Throw or take  (${Math.ceil(GPB / 2) + 2}d8 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 10) {GRechargeNames.push(`Whirlwind Slash (Recharge 5-6)`); GRecharges.push(`The creature spins, rolling a separate attack roll on each creature within melee range. On a hit, they take damage equal to a normal melee attack + ${GPB}.`);}
+		else if (RNG == 21) {GRechargeNames.push(`Bladestorm (Recharge 5-6)`); GRecharges.push(`The creature sprays a fan of sharp objects, rolling a separate attack roll on each creature in a 180 degree cone within 25 ft. of the creature. On a hit, they take (${Math.ceil(GPB / 3) + 1}d4 + ${GWeaponMod}) piercing damage.`);}
+		else if (RNG == 22) {GRechargeNames.push(`Tactician's Eye (Recharge 5-6)`); GRecharges.push(`The creature shouts an order, granting all allies within 30 ft. advantage on their next attack.`);}
+		else if (RNG == 23) {GRechargeNames.push(`Gravity Bomb (Recharge 5-6)`); GRecharges.push(`The creature causes an intense gravitational pressure to cascade out in a wave. All creatures within 40 ft. must make a DC ${GTier + 12} Strength saving throw or else be pulled 20 ft. towards the creature. A creature that impacts an object or another creature takes ${Math.ceil(GPB / 3) + 1}d10 bludgeoning damage and are knocked prone if they failed the saving throw by 5 or more.`);}
+		else if (RNG == 24) {GRechargeNames.push(`Deep Impact (Recharge 5-6)`); GRecharges.push(`The creature rears back and slams the ground, creating a crater 5 ft. around it, making it difficult terrain. All creatures within 10 ft. of the creature must make a DC ${GTier + 12} Dexterity saving throw or be knocked prone. Creatures within 5 ft. also take ${Math.ceil(GPB / 2) + 2}d6 bludgeoning damage on a failed save.`);}
+		else if (RNG == 25) {GRechargeNames.push(`Static Shock (Recharge 5-6)`); GRecharges.push(`Electricity channels through the creature and every creature touching water or metal that is connected to the creature within 15 ft. or touching the creature must make a DC ${GTier + 11} Constitution saving throw. On a fail, they take ${Math.ceil(GPB / 2) + 2}d10 lightning damage and are paralyzed for one turn. On a successful save, they take half damage and are not paralyzed.`);}
+		else if (RNG == 26) {GRechargeNames.push(`Heavy Shout (Recharge 5-6)`); GRecharges.push(`The creature lets out a powerful bellow in a 30 ft. cone in front of it, granting itself ${GPB * 4} Temporary Hit Points and advantage on its next attack. Creatures within the area must make a DC ${GTier + 12} Strength saving throw or be knocked back 10 ft.`);}
+		else if (RNG == 27) {GRechargeNames.push(`Summoning Call (Recharge 5-6)`); GRecharges.push(`The creature sends out a telepathic command, summoning 1d4 (min 2) creatures that are CR ${Math.ceil(GCR / 4)} or lower.`);}
+		else if (RNG == 28) {GRechargeNames.push(`Teleport (Recharge 5-6)`); GRecharges.push(`The creature teleports itself and one willing creature up to 60 ft. to a place it can see.`);}
+		else if (RNG == 29) {GRechargeNames.push(`Blazing Warp (Recharge 5-6)`); GRecharges.push(`The creature teleports itself in a blaze of fire to a location up to 30 ft. away. Creatures within 5 ft. of the departure and arrival points must make a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 2) + 2}d6 fire damage.`);}
+		else if (RNG == 30) {GRechargeNames.push(`Fire Flower (Recharge 5-6)`); GRecharges.push(`The creature expels two 10 ft. wide lines out 20 ft. on opposite sides of itself or four 5 ft. wide lines out 20 ft. in a cross shape from itself. The fire remains until the creature's second turn after using it. Creatures that the fire would hit initially must make a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 3) + 1}d8 fire damage. Creatures that start their turn in the fire or enter it for the first time on their turn take ${Math.ceil(GPB / 3) + 1}d6 fire damage.`);}
+		else if (RNG == 31) {GRechargeNames.push(`Winter Wind (Recharge 5-6)`); GRecharges.push(`A freezing wind whirls around the creature, affecting all creatures within 10 ft. Affected creatures must make a DC ${GTier + 12} Consitution saving throw or take ${Math.ceil(GPB / 2) + 3}d8 cold damage and are frozen in place. On a successful save, creatures take half damage and are not frozen. Frozen creatures are considered restrained until they or another creature spend an action to break away the ice.`);}
+		else if (RNG == 32) {GRechargeNames.push(`Mind Seed (1/Day`); GRecharges.push(`The creature touches one humanoid, which must succeed on a DC ${GTier + 12} Intelligence saving throw or be cursed. The curse lasts until it’s removed by a remove curse or greater restoration spell. The cursed target suffers 1 level of exhaustion every 24 hours, and finishing a long rest doesn’t reduce its exhaustion. If the cursed target reaches exhaustion level 6, it doesn’t die; it instead becomes a thrall under the creature’s control, and all its exhaustion is removed. Only the wish spell or the creature's death can free the thrall from this control.`);}
+		else if (RNG == 33) {GRechargeNames.push(`Swarm of Eyes (Recharge 5-6)`); GRecharges.push(`The creature creates a swarm of spectral eyes that fills a 30-foot-radius sphere centered on a point it can see within 60 feet of it. Each creature in that area must make a DC ${GTier + 12} Wisdom saving throw. On a failure, a creature takes ${Math.ceil(GPB / 2) + 3}d8 psychic damage, and it is blinded for 1 minute. On a success, a creature takes half as much damage and isn’t blinded. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 34) {GRechargeNames.push(`Radiant Strike (Recharge 5-6)`); GRecharges.push(`The creature chooses a point on the ground it can see within 60 feet of it. A 10-foot-radius, 40-foot-high cylinder of bright light appears there until the start of the creature’s next turn. Each creature in the cylinder when it appears or that ends its turn there must make a DC ${GTier + 12} Constitution saving throw, taking 1${Math.ceil(GPB / 2) + 3}d8 radiant damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 35) {GRechargeNames.push(`Arcane Cataclysm (Recharge 6)`); GRecharges.push(`The creature conjures orbs of magical energy that plummet to the ground at three different points its can see within 60 ft. of it. Each creature in a 5-foot-radius sphere centered on each point must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 force damage on a failed save or half as much damage on a successful one. A creature in the area of more than one arcane burst is affected only once. The area of each arcane burst then acts as an antimagic field for 2 rounds. The creature and spells it casts are unaffected by these fields.`);}
+		else if (RNG == 36) {GRechargeNames.push(`Flame Strike (Recharge 5-6)`); GRecharges.push(`The creature chooses a point it can see within 60 feet of it. Each creature in a 10-foot-radius, 40-foot-high cylinder centered on that point must make a DC ${GTier + 12} Dexterity saving throw. A creature takes ${Math.ceil(GPB / 3) + 2}d6 fire damage and ${Math.ceil(GPB / 3) + 2}d6 radiant damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 37) {GRechargeNames.push(`Incinerating Beam (Recharge 5-6)`); GRecharges.push(`The creature fires a beam of light in a 100-foot line that is 10 feet wide. Each creature in the line must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 radiant damage on a failed save, or half as much damage on a successful one. A creature reduced to 0 hit points by this beam is disintegrated, leaving behind anything it was wearing or carrying.`);}
+		else if (RNG == 38) {GRechargeNames.push(`Martial Prowess (Recharge 5-6)`); GRecharges.push(`Immediately make a melee attack. Until the start of its second turn after using this, when the creature hits a target with a melee weapon attack, the attack deals an extra ${Math.ceil(GPB / 3) + 1}d8 damage of the weapon’s type, and the target must make a DC ${GTier + 12} Strength saving throw. On a failure, the creature can push the target up to 10 feet away from it, knock the target prone, or make the target drop one item it is holding of the creature’s choice.`);}
+		else if (RNG == 39) {GRechargeNames.push(`Pacifying Presence (Recharge 6)`); GRecharges.push(`Each target of the creature’s choice that the creature can see within 60 feet of it must succeed on a DC ${GTier + 12} Wisdom saving throw, or else the target drops any weapons it is holding, ends its concentration on any spells or other effects, and becomes charmed by the creature for 1 minute. The charmed target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target’s saving throw is successful or the effect ends for it, the target is immune to the creature’s Pacifying Presence for the next 24 hours.`);}
+		else if (RNG == 40) {GRechargeNames.push(`Detention (Recharge 5-6)`); GRecharges.push(`The creature targets a creature it can see within 60 feet of it. The target must succeed on a DC ${GTier + 12} Charisma saving throw or be magically teleported to a harmless demiplane until the end of the creature’s next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied.`);}
+		else if (RNG == 41) {GRechargeNames.push(`Warleader's Helix (Recharge 5-6)`); GRecharges.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range 60 ft., one creature. Hit: (${Math.ceil(GPB / 2) + 3}d6 + ${GWeaponMod}) radiant damage, and the creature can choose another creature it can see within 10 feet of the target. The second creature regains ${Math.ceil(GPB / 2) + 2}d6 hit points.`);}
+		else if (RNG == 42) {GRechargeNames.push(`Suppress Magic (Recharge 5-6)`); GRecharges.push(`The creature targets one magic item it can see within 120 feet of it. If the magic item isn’t an artifact, its magical properties are suppressed for 10 minutes, until the creature is incapacitated or dies, or until the creature uses a bonus action to end the effect.`);}
+		else if (RNG == 43) {GRechargeNames.push(`Supreme Legal Authority (Recharge 5-6)`); GRecharges.push(`The creature chooses up to three creatures it can see within 90 feet of it. Each target must succeed on a DC ${GTier + 12} Intelligence saving throw or the creature chooses an action for that target: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, or Use an Object. The affected target can’t take that action for 1 minute. At the end of each of the target’s turns, it can end the effect on itself with a successful DC ${GTier + 12} Intelligence saving throw. A target that succeeds on the saving throw becomes immune to the creature’s Supreme Legal Authority for 24 hours.`);}
+		else if (RNG == 44) {GRechargeNames.push(`Captivating Presence (Recharge 5-6)`); GRecharges.push(`Each creature within 120 feet of the creature must succeed on a DC ${GTier + 12} Wisdom saving throw or be charmed by the creature for 1 hour. While charmed in this way, a creature’s speed is 0. If the charmed creature takes damage, it can repeat the saving throw, ending the effect on itself on a success. A target that succeeds on the saving throw is immune to the Captivating Presence of all creature for the next 24 hours.`);}
+		else if (RNG == 45) {GRechargeNames.push(`Mind Siphon (Recharge 5-6)`); GRecharges.push(`The creature targets an enemy it can see within 30 feet of it. The target must make a DC ${GTier + 12} Intelligence saving throw, with disadvantage if the creature has previously consumed the target’s blood. On a failed save, the target takes ${Math.ceil(GPB / 2) + 2}d6 psychic damage, and the creature discerns the target’s surface emotions and thoughts. On a successful save, the target takes half as much damage, and the creature discerns the target’s general emotional state but not its thoughts.`);}
+		else if (RNG == 46) {GRechargeNames.push(`Lashing Shadows (Recharge 5-6)`); GRecharges.push(`Each creature within 60 feet of the creature, must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 2) + 3}d6 necrotic damage.`);}
+		else if (RNG == 47) {GRechargeNames.push(`Wrath of Nature's Lord (Recharge 5-6)`); GRecharges.push(`The creature conjures a momentary whirl of branches and vines at a point it can see within 60 feet of it. Each creature in a 30-foot cube on that point must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 3) + 2}d6 bludgeoning damage and ${Math.ceil(GPB / 3) + 2}d8 slashing damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 48) {GRechargeNames.push(`Deluge (Recharge 5-6)`); GRecharges.push(`The creature conjures a wave of water that crashes down on an area within 120 feet of it. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw. On a failed save, a creature takes ${Math.ceil(GPB / 2) + 3}d6 bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn’t knocked prone. The water spreads out across the ground, extinguishing unprotected flames it comes in contact with, and then vanishes.`);}
+		else if (RNG == 49) {GRechargeNames.push(`Godspeed (Recharge 6)`); GRecharges.push(`For 3 rounds the creature's speed doubles and his movement does not provoke opportunity attacks. All attack damage is increased by ${Math.ceil(GPB / 3) + 1}d6.`);}
+		else if (RNG == 50) {GRechargeNames.push(`Charm (Recharge 5-6)`); GRecharges.push(`The creature targets one humanoid it can see within 30 ft. of it. If the target can see the creature, the target must succeed on a DC ${GTier + 12} Wisdom saving throw against this magic or be charmed by the creature. The charmed target regards the creature as a trusted friend to be heeded and protected. Although the target isn't under the creature's control, it takes the creature's requests or actions in the most favorable way it can. Each time the creature or the creature's companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the creature is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect.`);}
+		else if (RNG == 51) {GRechargeNames.push(`Gliding Stab (Recharge 5-6)`); GRecharges.push(`The creature glides up to 15 ft to make an attack. The glide itself does not provoke opportunity attacks but does require movement. The attack rolls a hit against any creature in the line of movement as well as any creature that would be hit by the extended weapon. Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 2) + 2}d10 + ${GWeaponMod}) piercing damage, this attack is considered magical for the purposes of overcoming resistance. Hit creatures within the line are move to within 5 ft. of the creature's final location.`);}
+		else if (RNG == 52) {GRechargeNames.push(`Jousting Swing (Recharge 5-6)`); GRecharges.push(`The creature charges up to 30 ft. and makes an upwards attack. The target and any creature in the path must make a DC 15 Dexterity saving throw. On a fail, creatures in the path take 12 (3d8 + 5) bludgeoning damage and be knocked 5 ft. to the side. Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 2) + 2}d8 + ${GWeaponMod}) bludgeoning damage and, if the target failed their saving throw, they are knocked 30 ft. into the air, potentially causing falling damage.`);}
+		else if (RNG == 53) {GRechargeNames.push(`Frozen Exhale (Recharge 5-6)`); GRecharges.push(`The creature exhales a blast of freezing wind in a 30-foot cone. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d6 cold damage on a failed save, or half as much damage on a successful one. A creature that failed the save has their movement speed reduced by 10 ft. for their next turn.`);}
+		else if (RNG == 54) {GRechargeNames.push(`Big Bang Impact (Recharge 6)`); GRecharges.push(`The creature rears back and powers up. Until the start of its next turn, its AC is reduced by 4, attacks against it have advantage, physical damage it takes is reduced by ${GPB * 2}, and it has advantage on saving throws that would result in it being stunned, paralyzed, or incapacitated. On its following turn, the creature punches the ground, creating a crater with a 20 ft. radius. The crater is considered difficult terrain and requires an Athletics/Acrobatics check of DC 15 to climb out of. A creature directly impacted by the attack takes (${Math.ceil(GPB) + 2}d6 + ${GWeaponMod * 3}) bludgeoning damage. Any creature within the radius of the crater on impact must make a DC 14 Strength Saving Throw or take (${Math.ceil(GPB / 2) + 3}d6 + ${GWeaponMod * 2}) force damage and is hurled 20 ft. away. On a successul save, they take half damage and are pushed half the distance.`);}
+		else if (RNG == 55) {GRechargeNames.push(`Chilling Gaze (Recharge 5-6)`); GRecharges.push(`The creature targets one creature it can see within 30 feet of it. If the target can see the creature, the target must succeed on a DC ${GTier + 12} Constitution saving throw against this magic or take ${Math.ceil(GPB / 2) + 3}d6 cold damage and then be paralyzed for 1 minute, unless it is immune to cold damage. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If the target's saving throw is successful, or if the effect ends on it, the target is immune to this creature's gaze for 1 hour.`);}
+		else if (RNG == 56) {GRechargeNames.push(`Sandslash (Recharge 5-6)`); GRecharges.push(`As an action, the creature conjures a vortex of sand that surrounds it. All creatures within 10 feet of the creature take ${Math.ceil(GPB / 2) + 2}d6 slashing damage, or half damage with a successful DC ${GTier + 12} Dexterity saving throw.`);}
+		else if (RNG == 57) {GRechargeNames.push(`Frightful Presence (Recharge 5-6)`); GRecharges.push(`Each enemy of the creature's choice that is within 90 feet of the creature and aware of it must succeed on a DC ${GTier + 12} Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If an enemy's saving throw is successful or the effect ends for it, the enemy is immune to the creature's Frightful Presence for the next 24 hours.`);}
+		else if (RNG == 58) {GRechargeNames.push(`Whirlwind (Recharge 5-6)`); GRecharges.push(`Each enemy within 5 ft. of the creature's space must make a DC ${GTier + 12} Strength saving throw. On a failure, a target takes (${Math.ceil(GPB / 3) + 1}d8 + ${GWeaponMod}) bludgeoning damage and is flung up 20 feet away from the creature in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes ${Math.ceil(GPB / 3)}d6 bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC ${GTier + 12} Dexterity saving throw or take the same damage and be knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.`);}
+		else if (RNG == 59) {GRechargeNames.push(`Dust Devil (Recharge 5-6)`); GRecharges.push(`A 5-foot-radius, 30-foot-tall cylinder of sand magically forms on a point the creature can see within 120 feet of it. The dust devil lasts as long as the creature maintains concentration (as if a spell). Any creature that enters the dust devil must succeed on a DC ${GTier + 12} Strength saving throw or be restrained by it; any number of creatures may be restrained this way. At the start of a restrained creature's turn, it takes ${Math.ceil(GPB / 3) + 2}d4 slashing damage plus ${Math.ceil(GPB / 3) + 2}d4 necrotic damage. The creature can move the dust devil up to 60 feet as an action; restrained creatures move with it. The dust devil ends if the creature loses sight of it. A creature can use its action to free a creature restrained by the dust devil, including itself, by making a DC ${GTier + 12} Strength check. If the check succeeds, it moves to the nearest space outside the dust devil.`);}
+		else if (RNG == 60) {GRechargeNames.push(`Lightning Kiss (Recharge 5-6)`); GRecharges.push(`One target within 50 feet must make a DC ${GTier + 12} Dexterity saving throw. It takes ${Math.ceil(GPB / 2) + 3}d6 lightning damage on a failed save, or half as much damage on a successful one. If a lightning storm is occuring, the save is made with disadvantage.`);}
+		else if (RNG == 61) {GRechargeNames.push(`Cloud of Needles (Recharge 5-6)`); GRecharges.push(`The creature fires a cloud of sharp needles at all creatures within 30 feet of it. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 piercing damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 62) {GRechargeNames.push(`Reality Bomb (Recharge 5-6)`); GRecharges.push(`The creature can summon forth a tiny rune of law and throw it as a weapon. Any creature within 30 feet of the square where the reality bomb lands takes ${Math.ceil(GPB / 2) + 3}d6 force damage and is stunned until the start of the creature's next turn. A target that makes a successful DC ${GTier + 12} Dexterity saving throw takes half damage and isn't stunned.`);}
+		else if (RNG == 63) {GRechargeNames.push(`Charged Melody (Recharge 5-6)`); GRecharges.push(`The creature sings a beautiful melody. Each creature within 30 feet of it that can hear the melody must succeed on a DC ${GTier + 12} Charisma saving throw or take ${Math.ceil(GPB / 2) + 2}d6 lightning damage the next time it moves.`);}
+		else if (RNG == 64) {GRechargeNames.push(`Cone of Negation (Recharge 5-6)`); GRecharges.push(`The creature can project a cone of null energy. Targets inside the 30 foot cone take ${Math.ceil(GPB / 2) + 2}d8 force damage and suffer the effect of a dispel magic spell. A successful DC ${GTier + 12} Dexterity saving throw reduces the damage to half and negates the dispel magic effect on that target.`);}
+		else if (RNG == 65) {GRechargeNames.push(`Ember Wreath (Recharge 6)`); GRecharges.push(`As a bonus action, the creature wreathes its body in searing blue and white embers. The embers last for 1 minute or until the creature uses a breath weapon. An enemy that enters or starts its turn in a space within 10 feet of the creature must make a DC ${GTier + 13} Constitution saving throw, taking ${Math.ceil(GPB / 2) + 1}d6 fire damage on a failed save, or half as much damage on a successful one. If an enemy fails the saving throw by 5 or more, it suffers one level of exhaustion as the water is sapped from its body by the unrelenting heat.`);}
+		else if (RNG == 66) {GRechargeNames.push(`Call the Dead (Recharge 4-6)`); GRecharges.push(`The creature animates one humanoid corpse within 60 feet. This works like the animate dead spell, except it only creates zombies. The creature can control up to twenty zombies at one time.`);}
+		else if (RNG == 67) {GRechargeNames.push(`Eldritch Singularity (Recharge 6)`); GRecharges.push(`The creature opens a momentary rupture in the eldritch source that fuels its words of power. This rupture appears at a spot designated by the creature within 100 feet. Any enemy within 60 feet of the spot must make a DC ${GTier + 13} Constitution saving throw. On a failure, the enemy takes ${Math.ceil(GPB / 2) + 3}d6 force damage, falls prone, and is pulled 1d6 x 10 feet toward the eldritch singularity, taking an additional ${Math.ceil(GPB / 3)}d6 bludgeoning damage per 10 feet they were dragged. If the saving throw succeeds, the target takes half as much force damage and isn't knocked prone or pulled. The spot where the rupture occurs becomes the center of a 60-foot-radius antimagic field until the end of the creature's next turn. The creature's spells are not affected by this antimagic field.`);}
+		else if (RNG == 68) {GRechargeNames.push(`Fallen Glory (Recharge 5-6)`); GRecharges.push(`All enemies within 50 feet of the creature and in its line of sight take ${Math.ceil(GPB / 2) + 2}d12 radiant damage and are knocked prone, or take half damage and aren't knocked prone with a successful DC ${GTier + 12} Strength saving throw.`);}
+		else if (RNG == 69) {GRechargeNames.push(`Ethereal Lure (Recharge 4-6)`); GRecharges.push(`The creature selects a spot within 20 feet of itself; that spot glows with a faint, blue light until the start of the worm's next turn. All other enemies that can see the light at the start of their turn must make a successful DC ${GTier + 12} Wisdom saving throw or be charmed until the start of their next turn. An enemy charmed this way must Dash toward the light by the most direct route, automatically fails saving throws against being grappled, and treats the creature as invisible.`);}
+		else if (RNG == 70) {GRechargeNames.push(`Acid Spray (Recharge 5-6)`); GRecharges.push(`The creature spits acid in a line that is 30 ft. long and 5 ft. wide. Each enemy in that line must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB)}d6 acid damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 71) {GRechargeNames.push(`Fiery Sands (Recharge 5-6)`); GRecharges.push(`Sand whips violently around the creature. Each enemy within 10 feet of the creature must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 2) + 2}d6 slashing damage and ${Math.ceil(GPB / 2) + 2}d6 fire damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 72) {GRechargeNames.push(`Ash Storm (Recharge 5-6)`); GRecharges.push(`The creature furiously beats its wings, throwing clinging ash into a 30-foot cone. Each enemy in the area must make a DC ${GTier + 12} Dexterity saving throw. On a failure, a enemy takes ${Math.ceil(GPB / 2) + 3}d6 necrotic damage and is blinded until the end of its next turn. On a success, a enemy takes half the damage and isn’t blinded.`);}
+		else if (RNG == 73) {GRechargeNames.push(`Scream (Recharge 5-6)`); GRecharges.push(`The creature shrieks thunderously in a 30-foot cone. Each enemy in that area must make a DC ${GTier + 12} Dexterity saving throw. On a failure, an enemy takes ${Math.ceil(GPB / 2) + 3}d8 thunder damage and is deafened for 1 hour. On a success, an enemy takes half as much damage and isn’t deafened.`);}
+		else if (RNG == 74) {GRechargeNames.push(`Acid Wave (Recharge 5-6)`); GRecharges.push(`The creature rises up and crashes down, releasing a 20-foot radius wave of acidic ooze. Each enemy in the area must make a DC ${GTier + 13} Dexterity saving throw. On a failure, an enemy takes ${Math.ceil(GPB)}d8 acid damage and is knocked prone. On a success, an enemy takes half the damage and isn't knocked prone.`);}
+		else if (RNG == 75) {GRechargeNames.push(`Consult the Psyche (Recharge 5-6)`); GRecharges.push(`Each enemy within 60 feet who can see the creature must succeed on a DC ${GTier + 13} Constitution saving throw or be blinded until the end of its next turn. Each enemy of the creature's choice within 60 feet that speaks a language must succeed on a DC ${GTier + 12} Charisma saving throw or be stunned until the end of its next turn as the creature telepathically utters a short expression that is particularly meaningful to that enemy.`);}
+		else if (RNG == 76) {GRechargeNames.push(`Animated Bones (Recharge 5-6)`); GRecharges.push(`The creature creates a skeleton out of a pile of bones or a the corpse of a Large or smaller creature within 10 feet of it. The skeleton is under the control of the creature, obeying the creature’s mental commands, and uses the statistics of a CR 1 or lower skeleton of your choice. The creature can control up to ${GTier + 1} skeletons at one time. If the creature creates a skeleton while it already has ${GTier + 1} under its control, the oldest skeleton crumbles to dust.`);}
+		else if (RNG == 77) {GRechargeNames.push(`Temporal Strike (Recharge 5-6)`); GRecharges.push(`Channel your weapon as a bonus action. This lasts for 3 rounds. When the creature strikes a target with a melee attack, in addition to taking normal damage, the target must succeed on a DC ${GTier + 13} Constitution saving throw or instantly age 3d6 years. A creature that ages this way has disadvantage on attack rolls, ability checks, and saving throws based on Strength, Dexterity, and Constitution until the aging is reversed. A creature that ages beyond its lifespan dies immediately. The aging reverses automatically after 24 hours, or it can be reversed magically by greater restoration or comparable magic. A creature that succeeds on the save is immune to the temporal strike effect for 24 hours.`);}
+		else if (RNG == 78) {GRechargeNames.push(`Blood Bray (Recharge 5-6)`); GRecharges.push(`The creature unleashes an otherworldly braying that causes the internal organs of nearby enemies to twist and rupture. Each enemy within 20 feet of the creature that can hear it must make a DC ${GTier + 12} Constitution saving throw. On a failure, the enemy takes ${Math.ceil(GPB / 2) + 2}d8 necrotic damage and is stunned until the end of its next turn as it doubles over in agony. On a success, the enemy takes half the damage and isn’t stunned. The bray doesn’t affect creatures without internal organs, such as constructs, elementals, and oozes.`);}
+		else if (RNG == 79) {GRechargeNames.push(`Leadership (Recharges after a short or long rest)`); GRecharges.push(`For 1 minute, the creature can utter a special command or warning whenever an ally that it can see within 30 feet of it makes an attack roll or a saving throw. The ally can add a d6 to its roll provided it can hear and understand the bandit lord. An ally can benefit from only one Leadership die at a time. This effect ends if the creature is incapacitated.`);}
+		else if (RNG == 80) {GRechargeNames.push(`Crier's Lament (1/Day)`); GRecharges.push(`The creature unleashes a devastating peal of anguish and rage in a 30-foot cone. Each enemy in the area must make a DC ${GTier + 10} Charisma saving throw. On a failure, an enemy drops to 0 hp. On a success, an enemy takes ${Math.ceil(GPB / 2) + 3}d6 psychic damage and is frightened for 1 minute. A frightened enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 81) {GRechargeNames.push(`Steal Joy (Recharge 5-6)`); GRecharges.push(`Each enemy of the creature’s choice that is within 20 feet of the creature and aware of it must succeed on a DC ${GTier + 12} Wisdom saving throw or its Charisma score is reduced by 1d4. An enemy that has its Charisma reduced to 0 ends its life at the earliest opportunity. Otherwise, the Charisma reduction lasts until the target finishes a long rest.`);}
+		else if (RNG == 82) {GRechargeNames.push(`Blood Magic (Recharge 5-6)`); GRecharges.push(`The creature causes 10-foot-high blood spikes to burst from the ground within 15 feet of it. Each enemy in the area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 2}d12 piercing damage plus ${Math.ceil(GPB / 2) + 1}d6 cold damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 83) {GRechargeNames.push(`Sonic Blast (Recharge 5-6)`); GRecharges.push(`The creature can emit a howling thunderclap that deafens and damages those nearby. Enemies within 15 feet who fail a DC ${GTier + 12} Constitution saving throw take ${Math.ceil(GPB / 2) + 3}d8 thunder damage and are permanently deafened. Those succeeding on the saving throw take half damage and are not deafened. The deafness can be cured with lesser restoration.`);}
+		else if (RNG == 84) {GRechargeNames.push(`Mock (Recharge 5-6)`); GRecharges.push(`The creature mocks the futile efforts of up to three enemies it can see within 30 feet of it that aren’t undead or constructs. Each target must make a DC ${GTier + 12} Charisma saving throw, taking ${Math.ceil(GPB / 2) + 2}d4 psychic damage on a failed save, or half as much damage on a successful one. A creature that fails this has disadvantage on their next saving throw.`);}
+		else if (RNG == 85) {GRechargeNames.push(`Call Potion (Recharge 5-6)`); GRecharges.push(`The creature releases a hungry screech, magically reaching out to nearby potions. All potions within 10 feet of the creature magically move toward the creature by rolling out of backpacks, hopping off of belts, unburying themselves, etc. A creature wearing or carrying a potion must succeed on a DC ${GTier + 12} Dexterity saving throw or its potion moves to within 5 feet of the creature. The target must make a separate saving throw for each potion it is attempting to keep in its possession.`);}
+		else if (RNG == 86) {GRechargeNames.push(`Light Beam (Recharge 5-6)`); GRecharges.push(`The creature shoots a 30-foot-long, 5-foot-wide line of scintillating light from the garnet on its forehead. Each enemy in that line must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d6 radiant damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 87) {GRechargeNames.push(`Quake (Recharge 5-6)`); GRecharges.push(`The creature slams its fists into the ground, shaking the terrain within 60 feet of it. Each enemy standing on the ground in that area must make a DC ${GTier + 12} Dexterity saving throw. On a failure, the enemy takes ${Math.ceil(GPB / 2) + 3}d8 bludgeoning damage and is knocked prone. On a success, the enemy takes half the damage and isn’t knocked prone.`);}
+		else if (RNG == 88) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 89) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 90) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 91) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 92) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 93) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 94) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 95) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 96) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 97) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 98) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+		else if (RNG == 99) {GRechargeNames.push(` (Recharge 5-6)`); GRecharges.push(``);}
+	}
+
 	function EnemyRechargeBtn() {
+		GRechargeNames.length = 0;
+		GRecharges.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2)
@@ -3062,7 +3504,69 @@ function EnemyRecharge() {
 	}
 
 function RandomBreath() {
-	
+	RNG = Math.floor(Math.random() * 24) + 1;
+	TypeX = Math.floor(Math.random() * 2) + 1;
+		if (TypeX == 1) {AreaX = `60-foot cone`;}
+		else if (TypeX == 2) {AreaX = `120 ft. line that is 5 ft wide`;}
+	if (RNG == 1) {GBreathName = `Cerebral Breath (Recharge 5-6)`; GBreath = `The creature exhales psionic waves in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 psychic damage on a failed save, or half as much damage on a successful one. On a failed save, the creature has disadvantage on their next d20 roll.`;}
+	else if (RNG == 2) {GBreathName = `Fire Breath (Recharge 5-6)`; GBreath = `The creature exhales fire in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 fire damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 3) {GBreathName = `Cold Breath (Recharge 5-6)`; GBreath = `The creature exhales cold in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 cold damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 4) {GBreathName = `Lightning Breath (Recharge 5-6)`; GBreath = `The creature exhales lightning in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 lightning damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 5) {GBreathName = `Acid Breath (Recharge 5-6)`; GBreath = `The creature exhales acid in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 acid damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 6) {GBreathName = `Necrotic Breath (Recharge 5-6)`; GBreath = `The creature exhales necrotic gas in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 necrotic damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 7) {GBreathName = `Radiant Breath (Recharge 5-6)`; GBreath = `The creature exhales radiant heat in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 radiant damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 8) {GBreathName = `Force Breath (Recharge 5-6)`; GBreath = `The creature exhales force in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Strength saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 force damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 9) {GBreathName = `Thunder Breath (Recharge 5-6)`; GBreath = `The creature exhales thunderous sound in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 thunder damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 10) {GBreathName = `Poison Breath (Recharge 5-6)`; GBreath = `The creature exhales poison in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 2) + 3}d8 poison damage and be poisoned for 1 minute on a failed save, or half as much damage on a successful one and is not poisoned.`;}
+	else if (RNG == 11) {GBreathName = `Breath of Undeath (Recharge 5-6)`; GBreath = `The creature exhales poisonous gas in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Constitution saving throw. On a failed save, a creature takes ${Math.ceil(GPB / 2) + 2}d6 poison damage and is poisoned for 1 minute. While poisoned in this way, the creature can’t regain hit points. On a successful save, the creature takes half as much damage and isn’t poisoned. A humanoid reduced to 0 hit points by this damage dies and rises at the start of the creature’s next turn as a zombie. The zombie acts immediately after the creature in the initiative count and is permanently under its command, following its verbal orders.`;}
+	else if (RNG == 12) {GBreathName = `Sleep Breath (Recharge 5-6)`; GBreath = `The creature exhales sleep gas in a ${AreaX}. Each creature in that area must succeed on a DC ${GTier + 12} Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.`;}
+	else if (RNG == 13) {GBreathName = `Repulsion Breath (Recharge 5-6)`; GBreath = `The creature exhales repulsion energy in a ${AreaX}. Each creature in that area must succeed on a DC ${GTier + 12} Strength saving throw. On a failed save, the creature is pushed 60 feet away from the creature.`;}
+	else if (RNG == 14) {GBreathName = `Slowing Breath (Recharge 5-6)`; GBreath = `The creature exhales gas in a ${AreaX}. Each creature in that area must succeed on a DC ${GTier + 12} Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.`;}
+	else if (RNG == 15) {GBreathName = `Weakening Breath (Recharge 5-6)`; GBreath = `The creature exhales gas in a ${AreaX}. Each creature in that area must succeed on a DC ${GTier + 12} Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`;}
+	else if (RNG == 16) {GBreathName = `Flaring Breath (Recharge 5-6)`; GBreath = `The creature emits a flash of dazzling light from its maw in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Constitution saving throw or be blinded. Undead within the area of effect must also make a DC 19 Wisdom saving throw or be turned for 1 minute. Undead of CR 2 or lower who fail the saving throw are instantly destroyed.`;}
+	else if (RNG == 17) {GBreathName = `Metallic Breath (Recharge 5-6)`; GBreath = `The creature can spit a ${AreaX} of metallic shards. Targets in its path take ${Math.ceil(GPB / 2) + 3}d6 magical slashing damage and lose another ${Math.ceil(GPB * 1.5)} hit points from bleeding at the start of their turns for 6 rounds; slashing and bleed damage are halved by a successful DC ${GTier + 12} Dexterity saving throw. Only magical healing stops the bleeding before 6 rounds. The shards dissolve into wisps of smoke 1 round after the breath weapon's use.`;}
+	else if (RNG == 18) {GBreathName = `Black Ice Spray (Recharge 5-6)`; GBreath = `The creature sprays slivers of ice in a line ${AreaX}. All creatures in the line take ${Math.ceil(GPB / 2) + 3}d12 necrotic damage and are blinded; a successful DC ${GTier + 12} Constitution saving throw prevents the blindness. A blinded creature repeats the saving throw at the end of its turn, ending the effect on itself with a successful save.`;}
+	else if (RNG == 19) {GBreathName = `Tidal Breath (Recharge 5-6)`; GBreath = `The creature exhales a crushing wave of frigid seawater in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw. On a failure, the target takes ${Math.ceil(GPB / 3) + 1}d10 bludgeoning damage and ${Math.ceil(GPB / 3) + 1}d10 cold damage, and is pushed 30 feet away from the creature and knocked prone. On a successful save the creature takes half as much damage and isn't pushed or knocked prone.`;}
+	else if (RNG == 20) {GBreathName = `Paralyzing Breath (Recharge 5-6)`; GBreath = `The creature exhales paralyzing gas in a ${AreaX}. Each creature in that area must succeed on a DC ${GTier + 11} Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns or each time it takes damage, ending the effect on itself on a success.`;}
+	else if (RNG == 21) {GBreathName = `Gravitic Breath (Recharge 5-6)`; GBreath = `The creature exhales a 60-foot cube of powerful localized gravity, originating from the creature. Falling damage in the area increases to 1d10 per 10 feet fallen. When a creature starts its turn within the area or enters it for the first time in a turn, including when the creature creates the field, must make a DC 14 Dexterity saving throw. On a failure the creature is restrained. On a success the creature's speed is halved as long as it remains in the field. A restrained creature repeats the saving throw at the end of its turn. The field persists until the creature's breath recharges, and it can't use gravitic breath twice consecutively.`;}
+	else if (RNG == 22) {GBreathName = `Stellar Flare Breath (Recharge 5-6)`; GBreath = `The creature exhales star fire in a ${AreaX}. Each creature in that area must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GPB / 3) + 1}d8 fire damage and ${Math.ceil(GPB / 3) + 1}d8 radiant damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 23) {GBreathName = `Ash Breath (Recharge 5-6)`; GBreath = `The creature spews a ${AreaX} of blistering hot, choking ash. Any targets in the path of this spray takes ${Math.ceil(GPB / 2) + 3}d6 fire damage and become poisoned for one minute; a successful DC ${GTier + 12} Dexterity saving throw reduces damage by half and negates the poisoning. A poisoned enemy repeats the saving throw at the end of each of its turns, ending the effect on itself with a successful save.`;}
+	else if (RNG == 24) {GBreathName = `Breath of the Gales (Recharge 5-6)`; GBreath = `The creature exhales a blast of wind in a 60-foot cone. Each creature in that cone takes ${Math.ceil(GPB / 2) + 3}4d10 bludgeoning damage and is pushed 25 feet away from the creature and knocked prone; a successful DC ${GTier + 12} Strength saving throw halves the damage and prevents being pushed (but not being knocked prone). All flames in the cone are extinguished.`;}
+	else if (RNG == 25) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+	else if (RNG == 26) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+	else if (RNG == 27) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+	else if (RNG == 28) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+	else if (RNG == 29) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+	else if (RNG == 30) {GBreathName = ` (Recharge 5-6)`; GBreath = ``;}
+}
+
+function RandomBreathBtn() {
+	GBreathName = `Undefined`;
+	GBreath = `Undefined`;
+	GetTier();
+	GMagic = "Not Applicable";
+	GWeaponMod = Math.floor((GPB+10) / 2)
+	GSpellMod = Math.floor((GPB+10) / 2);
+	GWeaponHit = GWeaponMod + GPB;
+	GSpellHit = GSpellMod + GPB;
+	RandomBreath();
+	document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n[${GBreathName}]\n${GBreath}`;
+	GBreathName = ``;
+	GBreath = ``;
+}
+
+function RandomRay() {
+	RNG = Math.floor(Math.random() * 17) + 1;
+	if (RNG == 1 || RNG == 2) {GRay = `• Charm Ray. The targeted enemy must succeed on a DC ${GTier + 12} Wisdom saving throw or be charmed by the creature for 1 hour, or until the creature harms the enemy.`;}
+	else if (RNG == 3 || RNG == 4) {GRay = `• Paralyzing Ray. The targeted enemy must succeed on a DC ${GTier + 12} Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`;}
+	else if (RNG == 5 || RNG == 6) {GRay = `• Fear Ray. The targeted enemy must succeed on a DC ${GTier + 12} Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`;}
+	else if (RNG == 7 || RNG == 8) {GRay = `• Slowing Ray. The targeted enemy must succeed on a DC ${GTier + 12} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the enemy can't take reactions, and it can take either an action or a bonus action on its turn, not both. The enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`;}
+	else if (RNG == 9 || RNG == 10) {GRay = `• Enervation Ray. The targeted enemy must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB / 2) + 1}d8 necrotic damage on a failed save, or half as much damage on a successful one.`;}
+	else if (RNG == 11 || RNG == 12) { GRay = `• Telekinetic Ray. If the target is an enemy, it must succeed on a DC ${GTier + 12} Strength saving throw or the creature moves it up to 30 ft. in any direction. It is restrained by the ray's telekinetic grip until the start of the creature's next turn or until the creature is incapacitated. If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 ft. in any direction. The creature can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container.`;}
+	else if (RNG == 13 || RNG == 14) {GRay = `• Sleep Ray. The targeted enemy must succeed on a DC ${GTier + 12} Wisdom saving throw or fall asleep and remain unconscious for 1 minute. The target awakens if it takes damage or another enemy takes an action to wake it. This ray has no effect on constructs and undead.`;}
+	else if (RNG == 15) {GRay = `• Petrification Ray. The targeted enemy must make a DC ${GTier + 12} Dexterity saving throw. On a failed save, the enemy begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the enemy is petrified until freed by the greater restoration spell or other magic.`;}
+	else if (RNG == 16) {GRay = `• Disintegration Ray. If the target is an enemy, it must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 2) + 3}d8 force damage. If this damage reduces the enemy to 0 hit points, its body becomes a pile of fine gray dust. If the target is a Large or smaller nonmagical object or creation of magical force, it is disintegrated without a saving throw. If the target is a Huge or larger object or creation of magical force, this ray disintegrates a 10•foot cube of it.`;}
+	else if (RNG == 17) {GRay = `• Death Ray. The targeted enemy must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 2) + 3}d10 necrotic damage. The target dies if the ray reduces it to 0 hit points.`;}
 }
 
 function EnemyLegendary() {
@@ -3072,6 +3576,8 @@ function EnemyLegendary() {
 		else if (RNG == 3) {GLegendaryNames.push(``); GLegendaries.push(``);}
 }
 	function EnemyLegendaryBtn() {
+		GLegendaryNames.length = 0;
+		GLegendaries.length = 0;
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2)
@@ -3091,6 +3597,11 @@ function EnemyLairActive() {
 		else if (RNG == 3) {GLairActiveNames.push(``); GLairActives.push(``);}
 }
 	function EnemyLairBtn() {
+		GLairActiveNames.length = 0;
+		GLairActives.length = 0;
+		GLairPassiveNames.length = 0;
+		GLairPassives.length = 0;
+		GLairPassiveRange = "";
 		GetTier();
 		GMagic = "Not Applicable";
 		GWeaponMod = Math.floor((GPB+10) / 2)
@@ -3188,11 +3699,12 @@ function HumanoidRace() {
 }
 
 function ElementalRace() {
-	let RNG = Math.floor(Math.random() * 4) + 1;
+	let RNG = Math.floor(Math.random() * 5) + 1;
 	if (RNG == 1) {GElemental = "Fire";}
 	else if (RNG == 2) {GElemental = "Water";}
 	else if (RNG == 3) {GElemental = "Earth";}
 	else if (RNG == 4) {GElemental = "Air";}
+	else if (RNG == 5) {GElemental = "Lightning";}
 }
 
 function BurrowSpeed() {
@@ -3353,6 +3865,15 @@ function FullEnemyBtn() {
 	GImmuneTotal = ""
 	GCondImmuneTotal = ""
 	GVulnTotal = ""
+	GRay = ``
+	GRay1 = ``
+	GRay2 = ``
+	GRay3 = ``
+	GRay4 = ``
+	GRay5 = ``
+	GRay6 = ``
+	GBreath = ``
+	GBreathName = ``
 		GetTier(); // Set Tier, CR, and PB
  // Set Creature Type
 	if (document.getElementById("dropType").value == "Random") {CreatureTypeGen();}
@@ -3869,7 +4390,375 @@ function FullEnemyBtn() {
 			RNG = Math.floor(Math.random() * 35);
 			if (RNG == 1) {if (GLanguage.includes("sylvan") == false) {GLanguage.push("sylvan")} else {}}
 // Creature-Type Specifics
-			
+			if (GCreature == "Aberration") {if (GLanguage.includes("deep speech") == false) {GLanguage.push("deep speech")} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GLanguage.includes("undercommon") == false) {GLanguage.push("undercommon")} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange = 120} else {}} else {}
+				if (GDarkvision == 0) {GDarkvision = 60} RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GTremorsense == 0) {GTremorsense = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("poison") == false) {GRes.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 18) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("force") == false) {GVuln.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GTraitNames.push(`Alien Mind`); GTraits.push(`If an enemy tries to read the creature's’s thoughts or deals psychic damage to it, that enemy must succeed on a DC ${GTier + 13} Intelligence saving throw or be stunned for 1 minute. The stunned enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {GTraitNames.push(`Umbral Sight`); GTraits.push(`While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness.`); GDarkvision += 60} else {}
+			} else {}
+			if (GCreature == "Beast") {GInt -= 5; if (GInt > 3) {GInt = 3} else {} RNG = Math.floor(Math.random() * 4) + 1; if (GInt <= 4 || RNG == 1) {GLanguage.length = 0} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG >= 3) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GTremorsense == 0) {GTremorsense = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("acid") == false) {GRes.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("slashing") == false) {GRes.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("piercing") == false) {GRes.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("poison") == false) {GRes.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG == 1) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG == 1) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG == 1) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("prone") == false) {GCondImmune.push("prone")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}} else {}
+			} else {}
+			if (GCreature == "Celestial") {if (GLanguage.includes("celestial") == false) {GLanguage.push("celestial")} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 7) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange = 120} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 18) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 4) {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 18) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("force") == false) {GRes.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("charmed") == false) {GCondImmune.push("charmed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("blinded") == false) {GCondImmune.push("blinded")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("deafened") == false) {GCondImmune.push("deafened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("petrified") == false) {GCondImmune.push("petrified")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 18) {if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("acid") == false) {GVuln.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {GBonusNames.push(`Eyes of the Law`); GBonuses.push(`As a bonus action, the creature can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.`);} else {}
+			} else {}
+			if (GCreature == "Construct") {
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GTremorsense == 0) {GTremorsense = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("slashing") == false) {GRes.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("piercing") == false) {GRes.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {}} else {}
+				if (GRes.includes("poison") == false) {GRes.push("poison")} else {} if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 4) {if (GCondImmune.includes("exhaustion") == false) {GCondImmune.push("exhaustion")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("charmed") == false) {GCondImmune.push("charmed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("petrified") == false) {GCondImmune.push("petrified")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("paralyzed") == false) {GCondImmune.push("paralyzed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GVuln.includes("force") == false) {GVuln.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("acid") == false) {GVuln.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GBonusNames.push(`Repair (3/day)`); GBonuses.push(`The magical mechanisms inside the creature restore ${Math.ceil(GPB / 3) + 1}d8 + ${GTier} hit points to itself or to one construct or object within 5 feet of it.`);} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GTraitNames.push(`Immutable Form`); GTraits.push(`The creature is immune to any spell or effect that would alter its form.`);} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GTraitNames.push(`Mechanical Resilience`); GTraits.push(`The creature has advantage on saving throws against being poisoned and is immune to disease. Magic can’t put it to sleep.`);} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {GTraitNames.push(`Antimagic Susceptibility`); GTraits.push(`The creature is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the creature must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.`);} else {}
+			} else {}
+			if (GCreature == "Dragon") {
+				if (GLanguage.includes("draconic") == false) {GLanguage.push("draconic")} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG <= 2) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 120} else {GTelepathyRange += 120}} else {}
+				if (GDarkvision == 0) {GDarkvision = 60} else {GDarkvision += 60}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG  == 1) {if (GBlindsight == 0) {GBlindsight = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 3) {if (GTremorsense == 0) {GTremorsense = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; xRNG = Math.floor(Math.random() * 21) + 1;
+					if (RNG == 1) {if (xRNG = 1) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else if (GRes.includes("fire") == false) {GRes.push("fire")}} if (GVuln.includes("cold") == false) {GVuln.push("cold")}}
+					else if (RNG == 2) {if (xRNG = 1) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else if (GRes.includes("cold") == false) {GRes.push("cold")}} if (GVuln.includes("fire") == false) {GVuln.push("fire")}}
+					else if (RNG == 3) {if (xRNG = 1) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else if (GRes.includes("radiant") == false) {GRes.push("radiant")}} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")}}
+					else if (RNG == 4) {if (xRNG = 1) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else if (GRes.includes("necrotic") == false) {GRes.push("necrotic")}} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")}}
+					else if (RNG == 5) {if (xRNG = 1) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else if (GRes.includes("lightning") == false) {GRes.push("lightning")}} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")}}
+					else if (RNG == 6) {if (xRNG = 1) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else if (GRes.includes("thunder") == false) {GRes.push("thunder")}} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")}}
+					else if (RNG == 7) {if (xRNG = 1) {if (GImmune.includes("force") == false) {GImmune.push("force")} else if (GRes.includes("force") == false) {GRes.push("force")}} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")}}
+					else if (RNG == 8) {if (xRNG = 1) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else if (GRes.includes("psychic") == false) {GRes.push("psychic")}} if (GVuln.includes("force") == false) {GVuln.push("force")}}
+					else if (RNG == 9) {if (GRes.includes("physical") == false) {GRes.push("physical")} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")}}
+					else if (RNG == 10) {if (xRNG = 1) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else if (GRes.includes("poison") == false) {GRes.push("poison")}} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")}}
+					else if (RNG == 11) {if (xRNG = 1) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else if (GRes.includes("radiant") == false) {GRes.push("radiant")}} if (GVuln.includes("poison") == false) {GVuln.push("poison")}}
+					else if (RNG == 12) {if (xRNG = 1) {if (GImmune.includes("force") == false) {GImmune.push("force")} else if (GRes.includes("force") == false) {GRes.push("force")}} if (GVuln.includes("acid") == false) {GVuln.push("acid")}}
+					else if (RNG == 13) {if (xRNG = 1) {if (GImmune.includes("acid") == false) {GImmune.push("acid")} else if (GRes.includes("acid") == false) {GRes.push("acid")}} if (GVuln.includes("force") == false) {GVuln.push("force")}}
+					else if (RNG == 14) {if (xRNG = 1) {if (GImmune.includes("bludgeoning") == false) {GImmune.push("bludgeoning")} else if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")}} if (GVuln.includes("poison") == false) {GVuln.push("poison")}}
+					else if (RNG == 15) {if (xRNG = 1) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else if (GRes.includes("poison") == false) {GRes.push("poison")}} if (GVuln.includes("bludgeoning") == false) {GVuln.push("bludgeoning")}}
+					else if (RNG == 16) {if (xRNG = 1) {if (GImmune.includes("slashing") == false) {GImmune.push("slashing")} else if (GRes.includes("slashing") == false) {GRes.push("slashing")}} if (GVuln.includes("acid") == false) {GVuln.push("acid")}}
+					else if (RNG == 17) {if (xRNG = 1) {if (GImmune.includes("acid") == false) {GImmune.push("acid")} else if (GRes.includes("acid") == false) {GRes.push("acid")}} if (GVuln.includes("slashing") == false) {GVuln.push("slashing")}}
+					else if (RNG == 18) {if (xRNG = 1) {if (GImmune.includes("piercing") == false) {GImmune.push("piercing")} else if (GRes.includes("piercing") == false) {GRes.push("piercing")}} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")}}
+					else if (RNG == 19) {if (xRNG = 1) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else if (GRes.includes("thunder") == false) {GRes.push("thunder")}} if (GVuln.includes("piercing") == false) {GVuln.push("piercing")}}
+					else if (RNG == 20) {if (xRNG = 1) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else if (GRes.includes("necrotic") == false) {GRes.push("necrotic")}} if (GVuln.includes("fire") == false) {GVuln.push("fire")}}
+					else if (RNG == 21) {if (xRNG = 1) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else if (GRes.includes("fire") == false) {GRes.push("fire")}} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")}}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("paralyzed") == false) {GCondImmune.push("paralyzed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {RandomBreath();} else {}
+			} else {}
+			if (GCreature == "Elemental") {
+				if (GElemental == "Fire") {
+					if (GLanguage.includes("primordial (ignan)") == false) {GLanguage.push("primordial (ignan)")} else {}
+					if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {}
+					if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {}
+					if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
+					GCha += 3;
+					RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTraitNames.push(`Illumination`); GTraits.push(`The creature sheds bright light in a 30-foot radius and dim light in an additional 30 ft.`);} else {}
+				}
+				if (GElemental == "Water") {
+					if (GLanguage.includes("primordial (aquan)") == false) {GLanguage.push("primordial (aquan)")} else {}
+					if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {}
+					if (GRes.includes("poison") == false) {GRes.push("poison")} else {}
+					if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}
+					if (GSpeedSwim > 0) {GSpeedSwim += 10} else {GSpeedSwim += 40}
+					GWis += 3;
+				}
+				if (GElemental == "Earth") {
+					if (GLanguage.includes("primordial (terran)") == false) {GLanguage.push("primordial (terran)")} else {}
+					if (GTremorsense == 0) {GTremorsense = 60} else {GTremorsense += 30}
+					if (GImmune.includes("bludgeoning") == false) {GImmune.push("bludgeoning")} else {}
+					if (GRes.includes("fire") == false) {GRes.push("fire")} else {}
+					if (GVuln.includes("force") == false) {GVuln.push("force")} else {}
+					if (GCondImmune.includes("petrified") == false) {GCondImmune.push("petrified")} else {}
+					if (GSpeedClimb > 0) {GSpeedClimb += 10} else {GSpeedClimb += 40}
+					GStr += 2; GCon += 2; GAC += 2;
+					RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTraitNames.push(`Earth Glide`); GTraits.push(`The creature can burrow through nonmagical, unworked earth and stone. While doing so, the creature doesn't disturb the material it moves through.`);} else {}
+					RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {GTraitNames.push(`Siege Monster`); GTraits.push(`The creature deals double damage to objects and structures.`);} else {}
+				}
+				if (GElemental == "Air") {
+					if (GLanguage.includes("primordial (auran)") == false) {GLanguage.push("primordial (auran)")} else {}
+					if (GTremorsense == 0) {GBlindsight = 30} else {GBlindsight += 10}
+					if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else {}
+					if (GRes.includes("") == false) {GRes.push("")} else {}
+					if (GVuln.includes("") == false) {GVuln.push("")} else {}
+					if (GCondImmune.includes("grappled") == false) {GCondImmune.push("grappled")} else {}
+					if (GSpeedFly > 0) {GSpeedFly += 10} else {GSpeedFly += 40}
+					GDex += 3;
+				}
+				if (GElemental == "Lightning") {
+					if (GLanguage.includes("primordial (auran)") == false) {GLanguage.push("primordial (auran)")} else {}
+					if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {}
+					if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {}
+					if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
+					if (GCondImmune.includes("paralyzed") == false) {GCondImmune.push("paralyzed")} else {}
+					RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GSpeedFly > 0) {GSpeedFly += 10} else {GSpeedFly += 30}}
+					GSpeed += 40; GInt += 3;
+				}
+				RNG = Math.floor(Math.random() * 6) + 1; if (RNG <= 3) {GTraitNames.push(`Elemental Form`); GTraits.push(`The creature can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.`);} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GCondImmune.includes("prone") == false) {GCondImmune.push("prone")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("petrified") == false) {GCondImmune.push("petrified")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+			} else {}
+			if (GCreature == "Fey") {
+				if (GLanguage.includes("sylvan") == false) {GLanguage.push("sylvan")} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GLanguage.includes("elvish") == false) {GLanguage.push("elvish")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GLanguage.includes("primordial") == false) {GLanguage.push("primordial")} else {}} else {}
+				RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 60} else {GTelepathyRange += 60}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 15) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GRes.includes("force") == false) {GRes.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GCondImmune.includes("charmed") == false) {GCondImmune.push("charmed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("acid") == false) {GVuln.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}} else {}
+				GTraitNames.push(`Fey Ancestry`); GTraits.push(`The creature has advantage on Saving Throws against being Charmed, and magic can't put you to sleep.`);
+			} else {}
+			if (GCreature == "Fiend") {
+				if (GLanguage.includes("abyssal") == false) {GLanguage.push("abyssal")} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GLanguage.includes("infernal") == false) {GLanguage.push("infernal")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GLanguage.includes("primordial") == false) {GLanguage.push("primordial")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GLanguage.includes("undercommon") == false) {GLanguage.push("undercommon")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 60} else {GTelepathyRange += 60}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 120} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 17) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else if (RNG == 20) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {}}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("exhaustion") == false) {GCondImmune.push("exhaustion")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}} else {}
+			} else {}
+			if (GCreature == "Giant") {
+				if (GLanguage.includes("giant") == false) {GLanguage.push("giant")} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GLanguage.includes("orcish") == false) {GLanguage.push("orcish")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GLanguage.includes("goblin") == false) {GLanguage.push("goblin")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("petrified") == false) {GCondImmune.push("petrified")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("poison") == false) {GVuln.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("acid") == false) {GVuln.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("force") == false) {GVuln.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}} else {}
+				GStr += 4;
+			} else {}
+			if (GCreature == "Plant") {RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GLanguage.length = 0;} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GLanguage.includes("sylvan") == false) {GLanguage.push("sylvan")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 120;} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG >= 2) {if (GTremorsense == 0) {GTremorsense = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GRes.includes("piercing") == false) {GRes.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GRes.includes("acid") == false) {GRes.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("poison") == false) {GRes.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("force") == false) {GRes.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 5) {if (GCondImmune.includes("prone") == false) {GCondImmune.push("prone")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 5) {if (GCondImmune.includes("blinded") == false) {GCondImmune.push("blinded")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 5) {if (GCondImmune.includes("deafened") == false) {GCondImmune.push("deafened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("charmed") == false) {GCondImmune.push("charmed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 8) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 7) {if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GVuln.includes("slashing") == false) {GVuln.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}} else {}
+			} else {}
+			if (GCreature == "Ooze") {RNG = Math.floor(Math.random() * 3) + 1; if (RNG <= 2) {GLanguage.length = 0;} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 60;} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GLanguage.includes("undercommon") == false) {GLanguage.push("undercommon")} else {}} else {}
+				if (GBlindsight == 0) {GBlindsight = 20} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GTremorsense == 0) {GTremorsense = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				if (GRes.includes("acid") == false) {GRes.push("acid")} else {}
+				if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GRes.includes("piercing") == false) {GRes.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("poison") == false) {GRes.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG >= 2) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG >= 2) {if (GImmune.includes("slashing") == false) {GImmune.push("slashing")} else {}} else {}
+				if (GCondImmune.includes("prone") == false) {GCondImmune.push("prone")} else {}
+				if (GCondImmune.includes("blinded") == false) {GCondImmune.push("blinded")} else {}
+				if (GCondImmune.includes("deafened") == false) {GCondImmune.push("deafened")} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("paralyzed") == false) {GCondImmune.push("paralyzed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}} else {}
+				GTraitNames.push(`Amorphous`); GTraits.push(`The creature can move through a space as narrow as 1 inch wide without squeezing.`);
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GTraitNames.push(`Split`); GTraits.push(`When the ooze that is Medium or larger is subjected to lightning or slashing damage, it splits into two new oozes if it has at least 10 hit points. Each new ooze has hit points equal to half the original ooze's, rounded down. New oozes are one size smaller than the original ooze.`);} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {GTraitNames.push(`Corrosive Form`); GTraits.push(`An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 3) + 1}d8 acid damage. Any nonmagical weapon made of metal or wood that hits the creature corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical ammunition made of metal or wood that hits the creature is destroyed after dealing damage. The creature can eat through 2-inch-thick, nonmagical wood or metal in 1 round.`);} else {}
+				GActionNames.push(`Engulf`); GActions.push(`The creature moves up to its speed. While doing so, it can enter Large or smaller enemy's spaces. Whenever the ooze enters an enemy’s space, the enemy must make a DC ${GTier + 12} Dexterity saving throw. On a successful save, the enemy is pushed 5 feet back. On a failed save, the enemy is engulfed. The engulfed enemy can’t breathe, is restrained, and takes ${Math.ceil((GPB / 3) - 0.9)}d6 acid damage at the start of their turns. They can attempt to break out with a DC ${GTier + 12} Athletics check.`);
+				GInt -= 4;
+			} else {}
+			if (GCreature == "Undead") {
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 5) {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GRes.includes("slashing") == false) {GRes.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 8) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else {}} else {}
+				if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("paralyzed") == false) {GCondImmune.push("paralyzed")} else {}} else {}
+				RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GVuln.includes("force") == false) {GVuln.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GTraitNames.push(`Undead Fortitude`); GTraits.push(`If damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the creature drops to 1 hit point instead.`);} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {GTraitNames.push(`Turn Resistance`); GTraits.push(`The creature has advantage on saving throws against any effect that turns undead.`);} else {}
+			} else {}
+			if (GCreature == "Montrosity") {
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GLanguage.includes("undercommon") == false) {GLanguage.push("undercommon")} else {}} else {}
+				RNG = Math.floor(Math.random() * 4) + 1; if (RNG == 1) {if (GLanguage.includes("abyssal") == false) {GLanguage.push("abyssal")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy"); GTelepathyRange += 120} else {}} else {}
+				RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {if (GDarkvision == 0) {GDarkvision = 60} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GBlindsight == 0) {GBlindsight = 20} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG <= 3) {if (GTremorsense == 0) {GTremorsense = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 50) + 1; if (RNG == 1) {if (GTruesight == 0) {GTruesight = 30} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("slashing") == false) {GRes.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("bludgeoning") == false) {GRes.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("piercing") == false) {GRes.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("fire") == false) {GRes.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("cold") == false) {GRes.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("poison") == false) {GRes.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("force") == false) {GRes.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("acid") == false) {GRes.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 8) {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("slashing") == false) {GImmune.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("bludgeoning") == false) {GImmune.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("piercing") == false) {GImmune.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("force") == false) {GImmune.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("acid") == false) {GImmune.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 1) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("slashing") == false) {GVuln.push("slashing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("bludgeoning") == false) {GVuln.push("bludgeoning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("piercing") == false) {GVuln.push("piercing")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("poison") == false) {GVuln.push("poison")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("force") == false) {GVuln.push("force")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("acid") == false) {GVuln.push("acid")} else {}} else {}
+				RNG = Math.floor(Math.random() * 100) + 1; if (RNG <= 3) {if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("blinded") == false) {GCondImmune.push("blinded")} else {}} else {}
+				RNG = Math.floor(Math.random() * 5) + 1; if (RNG == 1) {if (GCondImmune.includes("deafened") == false) {GCondImmune.push("deafened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("frightened") == false) {GCondImmune.push("frightened")} else {}} else {}
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {}} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG == 1) {if (GCondImmune.includes("stunned") == false) {GCondImmune.push("stunned")} else {}} else {}
+			} else {}
+			if (GSize == "Tiny" || GSize == "Small") {GTraitNames.push(`Nimbleness`); GTraits.push(`You can move through the space of any creature that is of a size larger than yours.`);} else {}
+			if (GSize == "Gargantuan") {
+				let reachX = 5;
+				GWeaponHit = GWeaponMod + (GPB * 1.5) + 5;
+				let RNG = Math.floor(Math.random() * 3) + 1; 
+			if (GSize == "Large" && RNG == 3) {reachX += 5} else if (GSize == "Huge") {reachX += 5} else if (GSize == "Gargantuan" && RNG == 3) {reachX += 15} else if (GSize == "Gargantuan" && RNG < 3) {reachX += 10} else {}
+			RNG = Math.floor(Math.random() * 2) + 1; if (RNG == 1) {GActionNames.push(`Stomp`); GActions.push(`The creature stomps one of its feet at a point on the ground within 10 feet of it. Any creature in a 10-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC ${GTier + 13} Dexterity saving throw or take ${Math.ceil(GPB / 2) + 3}d10 bludgeoning damage and fall prone. Until the creature uses its Stomp again or moves, the target is restrained. While restrained in this way, the target (or another creature within 5 feet of it) can use its action to make a DC ${GTier + 13} Strength check. On a success, the target relocates to an unoccupied space of its choice within 5 feet of the creature and is no longer restrained. Structures, as well as nonmagical objects that are neither being worn nor carried, take the same amount of damage if they are in the cylinder (no save).`);} else {}
+			RNG = Math.floor(Math.random() * 3) + 1; if (RNG == 1) {GActionNames.push(`Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one target. Hit: ${Math.ceil(GPB / 2) + 2}d10 + ${GStr} piercing damage. If the target is a Large or smaller creature, it must succeed on a DC ${GTier + 12} Dexterity saving throw or be swallowed by the creature. A swallowed enemy is blinded and restrained, it has total cover against attacks and other effects outside the creature, and it takes ${Math.ceil(GPB / 3) + 2}d6 acid damage at the start of each of the creature’s turns. If the creature takes 30 damage or more on a single turn from the swallowed enemy, the creature must succeed on a DC ${GTier + 14} Constitution saving throw at the end of that turn or regurgitate the enemy, which falls prone in a space within 10 feet of the creature. If the creature dies, a swallowed enemy is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.`);} else {}
+			} else {}
+			if (GSpeedFly > 0) {
+				RNG = Math.floor(Math.random() * 10) + 1; if (RNG == 1) {GTraitNames.push(`Flyby`); GTraits.push(`The creature doesn’t provoke opportunity attacks when it flies out of an enemy’s reach.`);} else {}
+				RNG = Math.floor(Math.random() * 20) + 1; if (RNG >= 18 && document.getElementById("bossCheck").checked == true) {GLegendaryNames.push(`Wing Attack (Costs 2 Actions)`); GLegendaries.push(`The creature beats its wings. Each creature within 10 ft. of the creature must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${GPB}d6 + ${GStr} bludgeoning damage and be knocked prone. The creature can then fly up to half its flying speed`);} else {}
+			} else {}
+
 			//if (GLanguage.includes("") == false) {GLanguage.push("")} else {}
 			// Certain types, removes all languages before adding native language
 // Get Sense Checkboxes
@@ -3901,7 +4790,7 @@ function FullEnemyBtn() {
 			else if (GCR >= 40) {GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);
 								GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`); GetSaveX(); while (GSave.includes(`${GTempSave}`) == true) {GetSaveX();} GSave.push(`${GTempSave}`);}
 			GHPTotal = Math.floor(GHitDiceQty * (GHitDiceSize / 2 + 0.5) + GHP) * GHPMulti;
-			if (document.getElementById("hpCheck").checked == false) {GHPTotal = Math.ceil(GHPTotal / 2);}
+			if (document.getElementById("hpCheck").checked == false) {GHPTotal = Math.ceil(GHPTotal / 2); GHP = Math.ceil(GHP / 2);}
 // Get Skills
 			SkillTypeGen(); GSkill.push(`${GSkillX}`);
 			if (GCR >= 1 && GCR <= 3) {SkillTypeGen(); while (GSkill.includes(`${GSkillX}`) == true || GSkillX == "Initiative") {SkillTypeGen();} GSkill.push(`${GSkillX}`);}
@@ -3946,7 +4835,7 @@ function FullEnemyBtn() {
 			else if (GSpellStat == "Wis") {GSpellMod = GWisMod; GSpellDC = 7 + GWisMod + GPB;}
 			else if (GSpellStat == "Cha") {GSpellMod = GChaMod; GSpellDC = 7 + GChaMod + GPB;}
 			else {}
-			GSpellHit = GSpellMod + GPB
+			if (GMagic == "Martial") {GSpellMod = GWisMod; GSpellHit = GSpellMod + (Math.ceil(GPB / 3));} else {GSpellHit = GSpellMod + GPB}
 // Random Actions based on Qty
 			zNum = GActionQty;
 			while (zNum > 0) {zNum -= 1; EnemyAction();}
@@ -3957,7 +4846,7 @@ function FullEnemyBtn() {
 			zNum = GReactionQty;
 			while (zNum > 0) {zNum -= 1; EnemyReaction();}
 // Random Rechargess based on Qty
-			if (document.getElementById("breathCheck").checked == true && GRechargeQty < 1) {RandomBreath();} else if (document.getElementById("breathCheck").checked == true && GRechargeQty > 0) {GRecharge; RandomBreath();} else {}
+			if (document.getElementById("breathCheck").checked == true) {RandomBreath(); GRechargeNames.push(GBreathName); GRecharges.push(GBreath);} else {}
 			zNum = GRechargeQty;
 			while (zNum > 0) {zNum -= 1; EnemyRecharge();}
 // Random Legendary Actions based on Qty
@@ -4007,6 +4896,9 @@ function FullEnemyBtn() {
 		GSkillTotal = GSkillTotal.replace("+-", "-"); GSkillTotal = GSkillTotal.replace("+-", "-"); GSkillTotal = GSkillTotal.replace("+-", "-");
 // Final Resistances
 		if (GRes.includes("physical") == true) {GResTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GRes.includes("slashing") == true) {GResTotal += "slashing, ";} else {}
+		if (GRes.includes("bludgeoning") == true) {GResTotal += "bludgeoning, ";} else {}
+		if (GRes.includes("piercing") == true) {GResTotal += "piercing, ";} else {}
 		if (GRes.includes("acid") == true) {GResTotal += "acid, ";} else {}
 		if (GRes.includes("cold") == true) {GResTotal += "cold, ";} else {}
 		if (GRes.includes("fire") == true) {GResTotal += "fire, ";} else {}
@@ -4020,6 +4912,9 @@ function FullEnemyBtn() {
 		GResTotal = GResTotal.slice(0, -2);
 // Final Immunity
 		if (GImmune.includes("physical") == true) {GImmuneTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GImmune.includes("slashing") == true) {GImmuneTotal += "slashing, ";} else {}
+		if (GImmune.includes("bludgeoning") == true) {GImmuneTotal += "bludgeoning, ";} else {}
+		if (GImmune.includes("piercing") == true) {GImmuneTotal += "piercing, ";} else {}
 		if (GImmune.includes("acid") == true) {GImmuneTotal += "acid, ";} else {}
 		if (GImmune.includes("cold") == true) {GImmuneTotal += "cold, ";} else {}
 		if (GImmune.includes("fire") == true) {GImmuneTotal += "fire, ";} else {}
@@ -4033,6 +4928,9 @@ function FullEnemyBtn() {
 		GImmuneTotal = GImmuneTotal.slice(0, -2);
 // Final Vulnerabilities
 		if (GVuln.includes("physical") == true) {GVulnTotal += "blugeoning, slashing, piercing, ";} else {}
+		if (GVuln.includes("slashing") == true) {GVulnTotal += "slashing, ";} else {}
+		if (GVuln.includes("bludgeoning") == true) {GVulnTotal += "bludgeoning, ";} else {}
+		if (GVuln.includes("piercing") == true) {GVulnTotal += "piercing, ";} else {}
 		if (GVuln.includes("acid") == true) {GVulnTotal += "acid, ";} else {}
 		if (GVuln.includes("cold") == true) {GVulnTotal += "cold, ";} else {}
 		if (GVuln.includes("fire") == true) {GVulnTotal += "fire, ";} else {}
@@ -4081,11 +4979,18 @@ function FullEnemyBtn() {
 		if (GLanguage.includes("draconic") == true) {GLanguageTotal += "draconic, ";} else {}
 		if (GLanguage.includes("deep speech") == true) {GLanguageTotal += "deep speech, ";} else {}
 		if (GLanguage.includes("infernal") == true) {GLanguageTotal += "infernal, ";} else {}
-		if (GLanguage.includes("primordial") == true) {GLanguageTotal += "primordial, ";} else {}
 		if (GLanguage.includes("sylvan") == true) {GLanguageTotal += "sylvan, ";} else {}
 		if (GLanguage.includes("undercommon") == true) {GLanguageTotal += "undercommon, ";} else {}
+		if (GLanguage.includes("primordial") == true) {GLanguageTotal += "primordial, ";} else {}
+		if (GLanguage.includes("primordial (ignan)") == true) {GLanguageTotal += "primordial (Ignan), ";} else {}
+		if (GLanguage.includes("primordial (aquan)") == true) {GLanguageTotal += "primordial (Aquan), ";} else {}
+		if (GLanguage.includes("primordial (auran)") == true) {GLanguageTotal += "primordial (Auran), ";} else {}
+		if (GLanguage.includes("primordial (terran)") == true) {GLanguageTotal += "primordial (Terran), ";} else {}
 		if (GLanguage.includes("telepathy") == true) {GLanguageTotal += `telepathy up to ${GTelepathyRange}, `;} else {}
 		GLanguageTotal = GLanguageTotal.slice(0, -2);
+// Humanoid/Elemental Subrace
+		if (GCreature == "Humanoid") {GCreature += ` (${GHumanoid})`} else {}
+		if (GCreature == "Elemental") {GCreature += ` (${GElemental})`} else {}
 // Output Results
 		EnemyOutput();
 		EnemyHomebrew();
@@ -4123,33 +5028,33 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 		if (GSpellQty[3] > 0) {TraitsList += `• 1/day each: ${GSpell1}\n`;} else {}
 		if (GSpellQty[2] > 0) {TraitsList += `• 3/day each: ${GSpell3}\n`;} else {}
 		if (GSpellQty[1] > 0) {TraitsList += `• 5/day each: ${GSpell5}\n`;} else {}}
-	xNum = GTraitQty;
+	xNum = GTraits.length;
 	while (xNum > 0) {xNum -= 1; TraitsList += `&nbsp;&nbsp;[${GTraitNames[xNum]}]\n${GTraits[xNum]}\n\n`;}
 		if (GModX == true) {TraitsList += `&nbsp;&nbsp;[Random Enemy Modifier]\n${GMod}\n\n`;} else {}
-		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.`;} else {}
+		if (GLegendaryResist > 0) {TraitsList += `&nbsp;&nbsp;[Legendary Resistance (${GLegendaryResist}/day)]\nIf the creature fails a saving throw, it can choose to succeed instead.\n\n`;} else {}
 	document.getElementById("charBox").innerHTML += `------TRAITS------\n${TraitsList}`;
-		xNum = GActionQty; xNum2 = GRechargeQty;
+		xNum = GActions.length; xNum2 = GRecharges.length;
 		if (GMultiattack >= 2) {ActionsList += `&nbsp;&nbsp;[Multiattack]\nThe creature can make ${GMultiattack} attacks on its turn.\n\n`;} else {}
 		while (xNum > 0) {xNum -= 1; ActionsList += `&nbsp;&nbsp;[${GActionNames[xNum]}]\n${GActions[xNum]}\n\n`;}
 		while (xNum2 > 0) {xNum2 -= 1; ActionsList += `&nbsp;&nbsp;[${GRechargeNames[xNum2]}]\n${GRecharges[xNum2]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------ACTIONS------\n${ActionsList}`;
-	if (GBonusQty > 0) {xNum = GBonusQty;
+	if (GBonuses.length > 0) {xNum = GBonuses.length;
 	while (xNum > 0) {xNum -= 1; BonusesList += `&nbsp;&nbsp;[${GBonusNames[xNum]}]\n${GBonuses[xNum]}\n\n`;}
 	document.getElementById("charBox").innerHTML += `------BONUS ACTIONS------\n${BonusesList}`;}
-		if (GReactionQty > 0) {xNum = GReactionQty;
+		if (GReactions.length > 0) {xNum = GReactions.length;
 		while (xNum > 0) {xNum -= 1; ReactionsList += `&nbsp;&nbsp;[${GReactionNames[xNum]}]\n${GReactions[xNum]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------REACTIONS------\n${ReactionsList}`;}
-	if (document.getElementById("bossCheck").checked == true) {if (GLegendaryQty > 0) {xNum = GLegendaryQty;
+	if (document.getElementById("bossCheck").checked == true) {if (GLegendaries.length > 0) {xNum = GLegendaries.length;
 		LegendaryList += `The creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn.\n\n`;
 		while (xNum > 0) {xNum -= 1; LegendaryList += `&nbsp;&nbsp;[${GLegendaryNames[xNum]}]\n${GLegendaries[xNum]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------LEGENDARY ACTIONS------\n${LegendaryList}`;}
 	} else {}
-	if (document.getElementById("lairCheck").checked == true) {if (GLairActiveQty > 0) {xNum = GLairActiveQty;
+	if (document.getElementById("lairCheck").checked == true) {if (GLairActives.length > 0) {xNum = GLairActives.length;
 		LairActionsList += `While in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties).\n\n`;
 		while (xNum > 0) {xNum -= 1; LairActionsList += `&nbsp;&nbsp;[${GLairActiveNames[xNum]}]\n${GLairActives[xNum]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------LAIR ACTIONS------\n${LairActionsList}`;}
 	} else {}
-	if (document.getElementById("lairCheck").checked == true) {if (GLairPassiveQty > 0) {xNum = GLairPassiveQty;
+	if (document.getElementById("lairCheck").checked == true) {if (GLairPassives.length > 0) {xNum = GLairPassives.length;
 		LairPassivesList += `The area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 8) + 1)} weeks.\n\n`;
 		while (xNum > 0) {xNum -= 1; LairPassivesList += `&nbsp;&nbsp;[${GLairPassiveNames[xNum]}]\n${GLairPassives[xNum]}\n\n`;}
 		document.getElementById("charBox").innerHTML += `------LAIR REGIONAL EFFECTS------\n${LairPassivesList}`;}
@@ -4175,27 +5080,27 @@ function EnemyHomebrew() {
 	if (GSpellQty[3] > 0) {document.getElementById("homebrewBox").innerHTML += `1/day each: ${GSpell1}\n`;} else {}
 	if (GSpellQty[2] > 0) {document.getElementById("homebrewBox").innerHTML += `3/day each: ${GSpell3}\n`;} else {}
 	if (GSpellQty[1] > 0) {document.getElementById("homebrewBox").innerHTML += `5/day each: ${GSpell5}\n:\n`;} else {}}
-	xNum = GTraitQty;
+	xNum = GTraits.length;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GTraitNames[xNum]}.*** ${GTraits[xNum]}\n:\n`;}
 		if (GModX == true) {document.getElementById("homebrewBox").innerHTML += `***Random Enemy Modifier***\n${GMod}\n:\n`;} else {}
 		if (GLegendaryResist > 0) {document.getElementById("homebrewBox").innerHTML += `***Legendary Resistance (${GLegendaryResist}/day).***\nIf the creature fails a saving throw, it can choose to succeed instead.\n:\n`;} else {}
 	document.getElementById("homebrewBox").innerHTML += `### Actions\n`;
-	xNum = GActionQty;
-	xNum2 = GRechargeQty;
+	xNum = GActions.length;
+	xNum2 = GRecharges.length;
 	if (GMultiattack >= 2) {document.getElementById("homebrewBox").innerHTML += `***Multiattack.*** The creature can make ${GMultiattack} attacks on its turn.\n:\n`;}
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GActionNames[xNum]}.*** ${GActions[xNum]}\n:\n`;}
 	while (xNum2 > 0) {xNum2 -=1; document.getElementById("homebrewBox").innerHTML += `***${GRechargeNames[xNum2]}.*** ${GRecharges[xNum2]}\n:\n`;}
-	if (GBonusQty > 0) {xNum = GBonusQty; document.getElementById("homebrewBox").innerHTML += `### Bonus Actions\n`;
+	if (GBonuses.length > 0) {xNum = GBonuses.length; document.getElementById("homebrewBox").innerHTML += `### Bonus Actions\n`;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GBonusNames[xNum]}.*** ${GBonuses[xNum]}\n:\n`;}} else {}
-	if (GReactionQty > 0) {document.getElementById("homebrewBox").innerHTML += `### Reactions\n`; xNum = GReactionQty;
+	if (GReactions.length > 0) {document.getElementById("homebrewBox").innerHTML += `### Reactions\n`; xNum = GReactions.length;
 	while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GReactionNames[xNum]}.*** ${GReactions[xNum]}\n:\n`;}} else {}
-	if (document.getElementById("bossCheck").checked == true) {if (GLegendaryQty > 0) {xNum = GLegendaryQty;
+	if (document.getElementById("bossCheck").checked == true) {if (GLegendaries.length > 0) {xNum = GLegendaries.length;
 		document.getElementById("homebrewBox").innerHTML += `### Legendary Actions\nThe creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn.\n:\n`;}
 		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLegendaryNames[xNum]}.*** ${GLegendaries[xNum]}\n:\n`;}} else {}
-	if (document.getElementById("bossCheck").checked == true) {if (GLairActiveQty > 0) {xNum = GLairActiveQty;
+	if (document.getElementById("bossCheck").checked == true) {if (GLairActives.length > 0) {xNum = GLairActives.length;
 		document.getElementById("homebrewBox").innerHTML += `### Lair Actions\nWhile in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties).\n:\n`;}
 		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairActiveNames[xNum]}.*** ${GLairActives[xNum]}\n:\n`;}} else {}
-	if (document.getElementById("bossCheck").checked == true) {if (GLairPassiveQty > 0) {xNum = GLairPassiveQty;
+	if (document.getElementById("bossCheck").checked == true) {if (GLairPassives.length > 0) {xNum = GLairPassives.length;
 		document.getElementById("homebrewBox").innerHTML += `### Regional Lair Effects\nThe area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 2) + 1)} weeks.\n:\n`;}
 		while (xNum > 0) {xNum -= 1; document.getElementById("homebrewBox").innerHTML += `***${GLairPassiveNames[xNum]}.*** ${GLairPassives[xNum]}\n:\n`;}} else {}
 	document.getElementById("homebrewBox").innerHTML += `}}`;
@@ -4229,7 +5134,7 @@ function EnemyImproved() {
 	if (GSpellQty[2] > 0) {document.getElementById("improvedBox").innerHTML += `3/day each: ${GSpell3}&#92;n&#92;n`;}
 	if (GSpellQty[1] > 0) {document.getElementById("improvedBox").innerHTML += `5/day each: ${GSpell5}`;}
 	document.getElementById("improvedBox").innerHTML += `"}, `;}
-	xNum = GTraitQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GTraitNames[xNum]}", "Content": "${GTraits[xNum]}"}, `;}
+	xNum = GTraits.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GTraitNames[xNum]}", "Content": "${GTraits[xNum]}"}, `;}
 	GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n"); GMod = GMod.replace("\n", "&#92;n");
 		if (GModX == true) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Random Enemy Modifier", "Content": "${GMod}"}, `;} else {}
 		if (GLegendaryResist > 0) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Legendary Resistance (${GLegendaryResist}/day)", "Content": "If the creature fails a saving throw, it can choose to succeed instead."}, `;} else {}
@@ -4237,28 +5142,45 @@ function EnemyImproved() {
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
 	document.getElementById("improvedBox").innerHTML += `], "Actions": [ `
 	if (GMultiattack >= 2) {document.getElementById("improvedBox").innerHTML += `{ "Name": "Multiattack", "Content": "The creature can make ${GMultiattack} attacks on its turn."}, `;}
-	xNum = GActionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
-	xNum2 = GRechargeQty; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
+			XNUM = GActions.length;
+			if (XNUM > 0) {BaseX = GActions[0]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[0] = BaseX;} else {}
+			if (XNUM > 1) {BaseX = GActions[1]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[1] = BaseX;} else {}
+			if (XNUM > 2) {BaseX = GActions[2]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[2] = BaseX;} else {}
+			if (XNUM > 3) {BaseX = GActions[3]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[3] = BaseX;} else {}
+			if (XNUM > 4) {BaseX = GActions[4]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[4] = BaseX;} else {}
+			if (XNUM > 5) {BaseX = GActions[5]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[5] = BaseX;} else {}
+			if (XNUM > 6) {BaseX = GActions[6]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[6] = BaseX;} else {}
+			if (XNUM > 7) {BaseX = GActions[7]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[7] = BaseX;} else {}
+			if (XNUM > 8) {BaseX = GActions[8]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[8] = BaseX;} else {}
+			if (XNUM > 9) {BaseX = GActions[9]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GActions[9] = BaseX;} else {}
+	xNum = GActions.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GActionNames[xNum]}", "Content": "${GActions[xNum]}"}, `;}
+			XNUM = GRecharges.length;
+			if (XNUM > 0) {BaseX = GRecharges[0]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GRecharges[0] = BaseX;} else {}
+			if (XNUM > 1) {BaseX = GRecharges[1]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GRecharges[1] = BaseX;} else {}
+			if (XNUM > 2) {BaseX = GRecharges[2]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GRecharges[2] = BaseX;} else {}
+			if (XNUM > 3) {BaseX = GRecharges[3]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GRecharges[3] = BaseX;} else {}
+			if (XNUM > 4) {BaseX = GRecharges[4]; BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); BaseX = BaseX.replace("\n", "&#92;n"); GRecharges[4] = BaseX;} else {}
+	xNum2 = GRecharges.length; while (xNum2 > 0) {xNum2 -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GRechargeNames[xNum2]}", "Content": "${GRecharges[xNum2]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);
 	document.getElementById("improvedBox").innerHTML += `], "BonusActions": [ `
-	if (GBonusQty == 0) {} else {xNum = GBonusQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GBonusNames[xNum]}", "Content": "${GBonuses[xNum]}"}, `;}
+	if (GBonuses.length == 0) {} else {xNum = GBonuses.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GBonusNames[xNum]}", "Content": "${GBonuses[xNum]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
 	document.getElementById("improvedBox").innerHTML += `], "Reactions": [ `
-	if (GReactionQty == 0) {} else {xNum = GReactionQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GReactionNames[xNum]}", "Content": "${GReactions[xNum]}"}, `;}
+	if (GReactions.length == 0) {} else {xNum = GReactions.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GReactionNames[xNum]}", "Content": "${GReactions[xNum]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
 	document.getElementById("improvedBox").innerHTML += `], "LegendaryActions": [ `
 	if (document.getElementById("bossCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "", "Content": "The creature has ${GLegendaryUses} Legendary Actions that it can use each round at the end of another creature's turn. It regains all Legendary Actions at the start of its turn."}, `;
-		xNum = GLegendaryQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLegendaryNames[xNum]}", "Content": "${GLegendaries[xNum]}"}, `;}
+		xNum = GLegendaries.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLegendaryNames[xNum]}", "Content": "${GLegendaries[xNum]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
 	document.getElementById("improvedBox").innerHTML += `], "MythicActions": [ `
 	if (document.getElementById("lairCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "Lair Actions", "Content": "While in its lair, the creature can one lair action on initiative count 20 (losing ties). Stronger creatures may have a second lair action use on initiative count 10 (losing ties)."}, `;
-	xNum = GLairActiveQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairActiveNames[xNum]}", "Content": "${GLairActives[xNum]}"}, `;}}
+	xNum = GLairActives.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairActiveNames[xNum]}", "Content": "${GLairActives[xNum]}"}, `;}}
 	if (document.getElementById("lairCheck").checked == false) {} else {document.getElementById("improvedBox").innerHTML += `{ "Name": "------REGIONAL LAIR EFFECTS------", "Content": "The area within ${GLairPassiveRange} is under the effects listed below. When the creature dies, these effects fade over the next ${GTier * (Math.floor(Math.random() * 2) + 1)} weeks."}, `;
-	xNum = GLairPassiveQty; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairPassiveNames[xNum]}", "Content": "${GLairPassives[xNum]}"}, `;}
+	xNum = GLairPassives.length; while (xNum > 0) {xNum -=1; document.getElementById("improvedBox").innerHTML += `{ "Name": "${GLairPassiveNames[xNum]}", "Content": "${GLairPassives[xNum]}"}, `;}
 	tempState = document.getElementById("improvedBox").innerHTML;
 	document.getElementById("improvedBox").innerHTML = tempState.slice(0, -2);}
 	document.getElementById("improvedBox").innerHTML += `],`
@@ -4329,7 +5251,7 @@ function GlyphHelp() {
 }
 
 function WeaponAffix() {
-	let wpnRNG = Math.floor(Math.random() * 45) + 1;
+	let wpnRNG = Math.floor(Math.random() * 47) + 1;
 	let wpnTier = Math.floor(Math.random() * 3) + 1;
 	if (wpnRNG >= 1 && wpnRNG <= 2) {
 		if (wpnTier == 3) {GWeaponAffix = "• (T2 Weapon) +2 to Weapon Hit";}
@@ -4425,7 +5347,12 @@ function WeaponAffix() {
 		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) The weapon deals double damage to structures and objects`;}
 		else {GWeaponAffix = `• (T1 Weapon) The weapon deals 50% additional damage to structures and objects`;}
 	}
-}
+	else if (wpnRNG == 46) {
+		if (wpnTier == 3) {GWeaponAffix = `• (T2 Weapon) 	Critical Hits deal an extra d10 damage`;}
+		else {GWeaponAffix = `• (T1 Weapon) 	Critical Hits deal an extra d6 damage`;}
+	}
+	else if (wpnRNG == 47) {GWeaponAffix = `• (T2 Weapon) After hitting a creature with this weapon, learn one random resistance, immunity, or vulnerability they have`;}
+	}
 	function WeaponAffixBtn() {
 		let affNum = Number(document.getElementById("affixNum").value)
 		let affWeapon = ""
@@ -4438,7 +5365,7 @@ function WeaponAffix() {
 	}
 
 function ArmorAffix() {
-	let armRNG = Math.floor(Math.random() * 46) + 1;
+	let armRNG = Math.floor(Math.random() * 51) + 1;
 	let armTier = Math.floor(Math.random() * 3) + 1;
 	if (armRNG >= 1 && armRNG <= 2) {GArmorAffix = "• (T2 Armor) +1 AC";}
 	else if (armRNG >= 3 && armRNG <= 4) {
@@ -4543,6 +5470,20 @@ function ArmorAffix() {
 		if (armTier == 3) {GArmorAffix = `• (T2 Armor) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.`;}
 		else {GArmorAffix = `• (T1 Armor) As an Action, enter a Guard Stance. You cannot move or Actions or Reactions, but gain +6 AC. You can leave the stance as a Bonus Action.`;}
 	}
+	else if (armRNG == 47) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) While you’re under the Dodge Action, gain +2 AC and +2 to Saving Throws`;}
+		else {GArmorAffix = `• (T1 Armor) While you’re under the Dodge Action, gain +2 AC`;}
+	}
+	else if (armRNG == 48) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) 50% of your fall damage is instead taken by a creature you land on. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid.`;}
+		else {GArmorAffix = `• (T1 Armor) 25% of your fall damage is instead taken by a creature you land on. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid.`;}
+	}
+	else if (armRNG == 49) {
+		if (armTier == 3) {GArmorAffix = `• (T2 Armor) While standing still, you blend in with the background. Creatures haves -4 to checks to find or see you.`;}
+		else {GArmorAffix = `• (T1 Armor) While standing still, you blend in with the background. Creature haves -2 to checks to find or see you.`;}
+	}
+	else if (armRNG == 50) {GArmorAffix = `• (T2 Armor) Gain 1 use of Legendary Resistance that recharges at dawn.`;}
+	else if (armRNG == 51) {GArmorAffix = `• (T2 Armor) Once per Long rest, a Critical Hit against you becomes a normal hit.`;}
 	
 }
 	function ArmorAffixBtn() {
@@ -4557,7 +5498,7 @@ function ArmorAffix() {
 	}
 
 function AccessoryAffix() {
-	let accRNG = Math.floor(Math.random() * 48) + 1;
+	let accRNG = Math.floor(Math.random() * 56) + 1;
 	let accTier = Math.floor(Math.random() * 3) + 1;
 	if (accRNG >= 1 && accRNG <= 2) {
 		let statOne
@@ -4675,6 +5616,30 @@ function AccessoryAffix() {
 		else {GAccessoryAffix = "• (T1 Accessory) Once a day, gain 5 ft. of Truesight for 10 minutes"}
 	}
 	else if (accRNG == 48) {GAccessoryAffix = "• (T2 Accessory) Healing you take is split between you and all allies within 5 ft. of you";}
+	else if (accRNG == 49) {ActionTypeGen(); GAccessoryAffix = `• (T2 Accessory) ${GAction} lasts for two rounds`;}
+	else if (accRNG == 50) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) As a Bonus Action, you can take a bite off the item and regain 25% of your Maximum Hit Points. The item loses all affixes until it regenerates at dawn."}
+		else {GAccessoryAffix = "• (T1 Accessory) As a Bonus Action, you can take a bite off the item and regain Hit Points equal to your PB times 3. The item loses all affixes until it regenerates at dawn."}
+	}
+	else if (accRNG == 51) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) As an Action, you can sacrifice multiples of 8 Hit Points to regain a Spell Slot of that multiple, max 5th."}
+		else {GAccessoryAffix = "• (T1 Accessory) As an Action, you can sacrifice multiples of 10 Hit Points to regain a Spell Slot of that multiple, max 3rd."}
+	}
+	else if (accRNG == 52) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) As a Bonus Action, you can begin or stop glowing. While glowing, you shed dim light up to 20 feet."}
+		else {GAccessoryAffix = "• (T1 Accessory) As an Action, you can begin or stop glowing. While glowing, you shed dim light up to 10 feet."}
+	}
+	else if (accRNG == 53) {
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) While below 25% health, gain +3 damage and AC"}
+		else {GAccessoryAffix = "• (T1 Accessory) While below 25% health, gain +2 damage and AC"}
+	}
+	else if (accRNG == 54) {GAccessoryAffix = "• (T2 Accessory) Once per Long Rest, upcast a spell for free";}
+	else if (accRNG == 55) {GAccessoryAffix = "• (T2 Accessory) Healing dice used to heal you are rolled with advantage";}
+	else if (accRNG == 56) {
+		ElementTypeGen();
+		if (accTier == 3) {GAccessoryAffix = `• (T2 Accessory) Spells that deal ${GElement} damage gain +2 to Hit or DC`}
+		else {GAccessoryAffix = `• (T1 Accessory) Spells that deal ${GElement} damage gain +1 to Hit or DC`}
+	}
 }
 	function AccessoryAffixBtn() {
 		let affNum = Number(document.getElementById("affixNum").value)
@@ -4689,7 +5654,7 @@ function AccessoryAffix() {
 
 
 function TaintedWeaponAffix() {
-	let RNG = Math.floor(Math.random() * 43) + 1;
+	let RNG = Math.floor(Math.random() * 50) + 1;
 	if (RNG == 1) {GTaintedWeapon = "• (Tainted Weapon) +1 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen();
@@ -4746,13 +5711,13 @@ function TaintedWeaponAffix() {
 	else if (RNG == 41) {GTaintedWeapon = `• (Tainted Weapon) Your attacks also hit enemies directly behind you`;}
 	else if (RNG == 42) {GTaintedWeapon = `• (Tainted Weapon) You cannot be moved against your will and have +5 to escaping Grapple Check`;}
 	else if (RNG == 43) {GTaintedWeapon = `• (Tainted Weapon) Gain 15 ft. of all applicable speeds`;}
-	else if (RNG == 44) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 45) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 46) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 47) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 48) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 49) {GTaintedWeapon = `• (Tainted Weapon) `;}
-	else if (RNG == 50) {GTaintedWeapon = `• (Tainted Weapon) `;}
+	else if (RNG == 44) {GTaintedWeapon = `• (Tainted Weapon) Critical Hits deal an additional 2d10`;}
+	else if (RNG == 45) {GTaintedWeapon = `• (Tainted Weapon) After hitting with this weapon, learn all Resistances, Vulnerabilities, and Immunities of the target`;}
+	else if (RNG == 46) {GTaintedWeapon = `• (Tainted Weapon) Every consecutive hit against a target increases your Critical Range by 1, this resets on a Critical Hit`;}
+	else if (RNG == 47) {GTaintedWeapon = `• (Tainted Weapon) Every consecutive miss against a target grants +2 to Hit, this rests when you hit`;}
+	else if (RNG == 48) {GTaintedWeapon = `• (Tainted Weapon) When you kill a creature with this weapon, immediately, as a Reaction, cast Disintegrate on another creature within range. You can do this once per day, recharging at dawn. The DC is the higher between your DC or 20`;}
+	else if (RNG == 49) {GTaintedWeapon = `• (Tainted Weapon) When you hit a creature that has a Recharge ability with a weapon, they have disadvantage on their next turn on Recharge rolls`;}
+	else if (RNG == 50) {GTaintedWeapon = `• (Tainted Weapon) (Hidden) The item is cursed and cannot be removed`;}
 }
 	function TaintedWeaponAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
@@ -4824,7 +5789,7 @@ function TaintedWeaponAffix() {
 	}
 
 function TaintedArmorAffix() {
-	let RNG = Math.floor(Math.random() * 40) + 1;
+	let RNG = Math.floor(Math.random() * 50) + 1;
 	if (RNG == 1) {GTaintedArmor = "• (Tainted Armor) +1 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen();
@@ -4900,16 +5865,16 @@ function TaintedArmorAffix() {
 	else if (RNG == 38) {GTaintedArmor = `• (Tainted Armor) Gain your level x3 Hit Point Maximum`;}
 	else if (RNG == 39) {GTaintedArmor = `• (Tainted Armor) As an Action, enter a Guard Stance. Your speed is halved and you cannot take Actions or Reactions, but gain +10 AC. You can leave the stance as an Bonus Action.`;}
 	else if (RNG == 40) {GTaintedArmor = `• (Tainted Armor) The item cannot be picked up by someone you do not trust implicitly`;}
-	else if (RNG == 41) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 42) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 43) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 44) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 45) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 46) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 47) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 48) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 49) {GTaintedArmor = `• (Tainted Armor) `;}
-	else if (RNG == 50) {GTaintedArmor = `• (Tainted Armor) `;}
+	else if (RNG == 41) {GTaintedArmor = `• (Tainted Armor) While you’re under the Dodge Action, gain +4 to Saves and AC`;}
+	else if (RNG == 42) {GTaintedArmor = `• (Tainted Armor) 100% of your fall damage is instead taken by every creature within 5 feet of your landing area. They must make a (10 + PB + Dex or Str) Dexterity saving throw to avoid`;}
+	else if (RNG == 43) {GTaintedArmor = `• (Tainted Armor) While standing still or moving at half speed, you blend in with the background. Creature haves -8 to checks to find or see you`;}
+	else if (RNG == 44) {GTaintedArmor = `• (Tainted Armor) While below 50% health, gain +5 damage and AC`;}
+	else if (RNG == 45) {GTaintedArmor = `• (Tainted Armor) Gain 3 uses of Legendary Resistance that recharge at dawn`;}
+	else if (RNG == 46) {GTaintedArmor = `• (Tainted Armor) Healing dice used to heal you heal for the maximum and add +2 per dice`;}
+	else if (RNG == 47) {GTaintedArmor = `• (Tainted Armor) You cannot be critically hit`;}
+	else if (RNG == 48) {GTaintedArmor = `• (Tainted Armor) Gain Immunity to Physical Damage`;}
+	else if (RNG == 49) {GTaintedArmor = `• (Tainted Armor) When you hit a creature that has a Recharge ability with a weapon, they have disadvantage on their next turn on Recharge rolls`;}
+	else if (RNG == 50) {GTaintedArmor = `• (Tainted Armor) (Hidden) The item is cursed and cannot be removed`;}
 }
 	function TaintedArmorAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;
@@ -4981,7 +5946,7 @@ function TaintedArmorAffix() {
 	}
 
 function TaintedAccessoryAffix() {
-	let RNG = Math.floor(Math.random() * 46) + 1;
+	let RNG = Math.floor(Math.random() * 50) + 1;
 	if (RNG == 1) {GTaintedAccessory = "• (Tainted Accessory) +2 to all Attributes";}
 	else if (RNG == 2) {
 		AttributeTypeGen()
@@ -5079,10 +6044,10 @@ function TaintedAccessoryAffix() {
 	else if (RNG == 44) {GTaintedAccessory = "• (Tainted Accessory) Up to Proficiency Bonus times a day, gain 30 ft. of Truesight for 30 minutes";}
 	else if (RNG == 45) {GTaintedAccessory = "• (Tainted Accessory) One per Long Rest, gain an Extra Action on a turn";}
 	else if (RNG == 46) {GTaintedAccessory = `• (Tainted Accessory) Healing you take is duplicated to three allies within 10 ft. of you`;}
-	else if (RNG == 47) {GTaintedAccessory = `• (Tainted Accessory) `;}
-	else if (RNG == 48) {GTaintedAccessory = `• (Tainted Accessory) `;}
-	else if (RNG == 49) {GTaintedAccessory = `• (Tainted Accessory) `;}
-	else if (RNG == 50) {GTaintedAccessory = `• (Tainted Accessory) `;}
+	else if (RNG == 47) {GTaintedAccessory = `• (Tainted Accessory) As a Bonus Action, you can take a bite off the item and regain all of your Hit Points. The item loses all affixes until it regenerates at dawn`;}
+	else if (RNG == 48) {GTaintedAccessory = `• (Tainted Accessory) As an Action, you can sacrifice multiple of 5 Hit Points to regain a Spell Slot of that multiple, max 9th level`;}
+	else if (RNG == 49) {GTaintedAccessory = `• (Tainted Accessory) All Spells are upcast one slot`;}
+	else if (RNG == 50) {GTaintedAccessory = `• (Tainted Accessory) (Hidden) The item is cursed and cannot be removed`;}
 }
 	function TaintedAccessoryAffixBtn() {
 		let RNG = Math.floor(Math.random() * 20) + 1;

@@ -5,8 +5,7 @@ Teleport
 As a bonus action, the creature can teleport up to 15 feet to an unoccupied space it can see.
 
 Change Shape
-The creature magically polymorphs into a humanoid, beast, or giant that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (its choice).
-In a new form, the creature retains his alignment, hit points, Hit Dice, ability to speak, proficiencies, and Intelligence, Wisdom, and Charisma scores, as well as this bonus action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.
+The creature magically polymorphs into a humanoid, beast, or giant that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (its choice). In a new form, the creature retains his alignment, hit points, Hit Dice, ability to speak, proficiencies, and Intelligence, Wisdom, and Charisma scores, as well as this bonus action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.
 
 Healing Touch (2-3/Day)
 The creature touches another creature. The target magically regains 10 (2d6 + 3) hit points and is freed from one curse afflicting it (creature’s choice).
@@ -21,8 +20,7 @@ Nimble Escape
 The creature can take the Disengage or Hide action as a bonus action on each of his turns.
 
 Commander of Bones
-As a bonus action, the creature can target one skeleton or zombie it can see within 30 feet of it. The target must make a DC 13 Wisdom saving throw. On a failed save, the target must obey the creature’s commands until the creature dies or until the creature releases it as a bonus action. The creature can command up to twelve undead at a time this way.
-While within 60 feet of the creature, any undead ally of the creature has advantage on saving throws against any effect that turns undead.
+As a bonus action, the creature can target one skeleton or zombie it can see within 30 feet of it. The target must make a DC 13 Wisdom saving throw. On a failed save, the target must obey the creature’s commands until the creature dies or until the creature releases it as a bonus action. The creature can command up to twelve undead at a time this way. While within 60 feet of the creature, any undead ally of the creature has advantage on saving throws against any effect that turns undead.
 
 Cunning Action
 On each of its turns, the creature can use a bonus action to take the Dash, Disengage, or Hide action.
@@ -31,8 +29,7 @@ Leadership
 The creature utters a few inspiring words to one creature it can see within 30 feet of it. If the creature can hear it, they can add a d6 to one attack roll or saving throw it makes before the start of the creature’s next turn.
 
 Blood Witch Dance
-The creature can cast hex as a bonus action.
-The creature can use a bonus action to control the movement of one creature cursed by its hex spell that it can see within 30 feet of it. The creature must succeed on a DC 15 Charisma saving throw or use its reaction to move up to 30 feet in a direction of the creature’s choice.
+The creature can cast hex as a bonus action. The creature can use a bonus action to control the movement of one creature cursed by its hex spell that it can see within 30 feet of it. The creature must succeed on a DC 15 Charisma saving throw or use its reaction to move up to 30 feet in a direction of the creature’s choice.
 
 Summon Mount (1/Day)
 The creature magically summons a mount, which appears in an unoccupied space within 60 feet of the creature. The mount remains for 8 hours, until it or the creature dies, or until the creature dismisses it as an action. The mount uses the stat block of an elk (see the Monster Manual) with these changes: it has an Intelligence of 6, and it understands the creature's languages but can’t speak. While within 1 mile of the mount, the creature can communicate with it telepathically.
@@ -53,8 +50,7 @@ Rift Beam (Recharge 5-6)
 The creature can use an action to expend a charge to perform a Rift Beam attack. Each creature in a 5-foot wide 30-foot line must make a DC 14 Dexterity saving throw. On a failed save, the creature takes 14 (4d6) and is pushed 5 feet away perpendicular from the line (the creature's choice of direction) and cannot take reactions until the start of their next turn. The Rift Beam also creates temporary tunnels in nonmagical walls. The tunnels last for 1 minute before closing and extend for up to 30 feet from where the rift beam originated. The tunnels are a distortion of space and do not cause structural damage.
 
 Sonic Scream
-The creature takes a deep breath and screams. Any creature within 15 ft. roll a DC 15 Consitution saving throw. On a fail, they take 40 (3d20 + 10) force damage and half as much on a success.
-Creatures that fail their saving throw are deafened for 1 minute. Any creature within 5 ft. is defeaned and, if they failed their saving throw, they are stunned until the end of their next turn.
+The creature takes a deep breath and screams. Any creature within 15 ft. roll a DC 15 Constitution saving throw. On a fail, they take 40 (3d20 + 10) force damage and half as much on a success. Creatures that fail their saving throw are deafened for 1 minute. Any creature within 5 ft. is defeaned and, if they failed their saving throw, they are stunned until the end of their next turn.
 
 Piercing Spines (Recharge 6)
 Two spines target the highest health creatures within 30 ft. and attempt to pin them to a surface. Targeted creatures must make a DC 14 Dex Save or take 18 (4d8) piercing damage and become restrained (escape DC 15 Athletics). Creatures that pass the saving throw take half damage and are not restrained.
@@ -66,10 +62,10 @@ Pull
 A target within 30 ft. of creature and not in melee range must make a DC 14 Dexterity Saving Throw or be pulled 15 feet closer to the creature.
 
 Churning Advance (Recharge 6)
-As a bonus action, the alabaster tree moves up to two times its speed, leaving a trail of difficult terrain behind it.
+As a bonus action, the creature moves up to two times its speed, leaving a trail of difficult terrain behind it.
 
 Musk Spray (Recharge 5-6)
-The weasel unleashes a spray of foul musk in a 20-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+The creature unleashes a spray of foul musk in a 20-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
 Shield Wall (Recharge 4-6)
 The creature adjsuts its stance, moving shields and armor to encase its body. It regains 10 hp, and its AC increases by 2 until the end of its next turn.
@@ -86,7 +82,7 @@ If the creature grapples an opponent, it extends a semi-solid gaseous tendril do
 Rage (3/day)
 The creature enters a rage. They have resistance to physical damage and advantage on Strength Checks and Saves for 1 minute. If they go a full turn without being hit or attempting to attack an enemy, the rage ends.
 
-Silent Entry (3/Day)
+Silent Entry
 As a bonus action, the creature can silently unlock a door within 10 feet of it that is held shut by a mundane lock. If a door has multiple locks, only one is unlocked per use of this trait.
 
 Vaporized Blood
@@ -96,13 +92,13 @@ Drown (Recharge 5-6)
 The creature sends blood pouring down the throat of one enemy within 30 feet, which must make a DC 15 Constitution saving throw. On a failure, the enemy is incapacitated until the end of its next turn as it coughs up the blood and is poisoned for 1 minute after that.
 
 Blood Choke Curse
-The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target's mouth fills with blood, preventing any speech or spellcasting with verbal components for 1 minute.
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or the target's mouth fills with blood, preventing any speech or spellcasting with verbal components for 1 minute.
 
-Blood Eye
-The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target's eyes well up with bloody tears. The target is blinded for 1 minute.
+Bloody Eyes
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or the target's eyes well up with bloody tears. The target is blinded for 1 minute.
 
 Heart Like Thunder
-The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the target hears only the rushing of blood and their thumping heart. They are deaf for 1 minute.
+The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or the target hears only the rushing of blood and their thumping heart. They are deaf for 1 minute.
 
 Rupturing Arteries
 The creature targts one enemy it can sense. The target must make a successful DC 16 Constitution saving throw or suffer or the victim suffers 7 (2d6) slashing damage as its veins and arteries burst open. The target repeats the saving throw at the beginning of each of its turns. It takes 3 (1d6) necrotic damage if the saving throw fails, but the effect ends on a successful save.
@@ -114,6 +110,14 @@ Unearthly Hum (Recharge 4-6)
 The creature targets one enemy it can see within 60 feet of it. It emits a high frequency humming noise which can only be heard by the target. The target must succeed on a DC 11 Wisdom saving throw or move toward the creature on its turn by the shortest and most direct route, ending its turn when it comes within 5 feet of the creature.
 
 Animate Chains (Recharges after a Short or Long Rest)
-Up to four chains the creature can see within 60 feet of it magically sprout razor-edged barbs and animate under the creature's control, provided that the chains aren't being worn or carried.
-Each animated chain is an object with AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the creature uses Multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one enemy of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the creature is incapacitated or dies.
+Up to four chains the creature can see within 60 feet of it magically sprout razor-edged barbs and animate under the creature's control, provided that the chains aren't being worn or carried. Each animated chain is an object with AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the creature uses Multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one enemy of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the creature is incapacitated or dies.
+
+Quickness (Recharge 4–6)
+The creature can take the Dodge action as a bonus action.
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 

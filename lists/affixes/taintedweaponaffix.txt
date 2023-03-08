@@ -83,3 +83,17 @@ Your attacks also hit enemies directly behind you
 You cannot be moved against your will and have +5 on escape Grapple checks
 
 Gain 15 ft. of all applicable Speeds
+
+Critical Hit deal an extra 2d10 damage
+
+After hitting with this weapon, learn all Resistances, Vulnerabilities, and Immunities of the target
+
+Every consecutive hit against a target increases your Critical Range by 1, this resets on a Critical Hit
+
+Every consecutive miss against a target grants +2 to Hit, this rests when you hit
+
+When you kill a creature with this weapon, immediately, as a Reaction, cast disintegrate on another creature within range. You can do this once per day, recharging at dawn. The DC is the higher between your DC or 20
+
+When you hit a creature that has a Recharge ability with a weapon, they have disadvantage on their next turn on Recharge rolls
+
+(Hidden) The item is cursed and cannot be removed

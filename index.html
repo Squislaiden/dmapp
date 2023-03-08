@@ -62,12 +62,12 @@ input[type='number']{
 
 <div class="tab">
 <center><font size=6 color=redorange>Dungeon Master's Assistant</font></center>
-  <button class="tablinks" onclick="openCity(event, 'standardtab')" id="defaultOpen">Standard Tools</button>
-  <button class="tablinks" onclick="openCity(event, 'itemtab')">Items and Loot</button>
-  <button class="tablinks" onclick="openCity(event, 'chartab')">Character Tools</button><br>
-  <button class="tablinks" onclick="openCity(event, 'gemtab')">Jewelry Calculator</button>
+  <button class="tablinks" onclick="openCity(event, 'standardtab')" id="defaultOpen">Tools</button>
+  <button class="tablinks" onclick="openCity(event, 'itemtab')">Items</button>
+  <button class="tablinks" onclick="openCity(event, 'gemtab')">Jewelry</button>
+  <button class="tablinks" onclick="openCity(event, 'chartab')">Character</button>
   <button class="tablinks" onclick="openCity(event, 'glyphtab')">Glyphs</button>
-  <div style="float: right"><button class="tablinks" onclick="openCity(event, 'infotab')">Notes</button></div>
+  <div style="float: right"><button class="tablinks" onclick="openCity(event, 'infotab')">(v0.93)</button></div>
 </div>
 <br><br><br><br><br><br><br><br>
 <div id="standardtab" class="tabcontent">
@@ -122,7 +122,7 @@ input[type='number']{
 						
 			<br>
 			<label for="critFail" style="font-size: 18px">Critical Fail: </label><button class="button-71" onclick="CriticalFail();">Failure!</button><br>
-			&nbsp;<output id="failResult" style="font-size: 14px">?</output>
+			&nbsp;<output id="failResult" style="font-size: 12px">?</output>
 			<br><br>
 			
 			<div style="float: right">
@@ -208,7 +208,7 @@ input[type='number']{
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
 			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Generic Options</u></label></center>
 			<label style="font-size: 14px">CR (max 50):</label><input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
-			<label style="font-size: 12px">More HP?</label><input type="checkbox" id="hpCheck" name="hpCheck">
+			<label style="font-size: 12px">&nbsp;&nbsp;x2 HP</label><input type="checkbox" id="hpCheck" name="hpCheck">
 			</select><br>
 			<label style="font-size: 14px">Creature Type:</label>
 			<select name="dropType" id="dropType">
@@ -222,7 +222,7 @@ input[type='number']{
 			<option value="Fey">Fey</option>
 			<option value="Fiend">Fiend</option>
 			<option value="Giant">Giant</option>
-			<option value="Humandoid">Humanoid</option>
+			<option value="Humanoid">Humanoid</option>
 			<option value="Monstrosity">Monstrosity</option>
 			<option value="Plant">Plant</option>
 			<option value="Ooze">Ooze</option>
@@ -257,7 +257,7 @@ input[type='number']{
 					
 			<div style="float: right">
 			&nbsp;<button class="button-71" onclick="RollStatsBtn();">Roll Attributes</button><br>
-			<button class="button-70" onclick="CharacterInfo();">All Char Info</button><br><br><br>
+			<button class="button-70" onclick="CharacterInfo();">All Char Info</button><br><br><br><br>
 			<button class="button-70" onclick="EnemyTraitInfo();">Trait List</button><br>
 			<button class="button-70" onclick="EnemyActionInfo();">Action List</button><br>
 			<button class="button-70" onclick="EnemyBonusInfo();">Bonus Action List</button><br>
@@ -275,6 +275,7 @@ input[type='number']{
 			<label style="font-size: 12px">Use Official Table: </label><input type="checkbox" id="reincarnateCheck" name="reincarnateCheck">
 			<br><br>
 			<div style="line-height: 1.6">
+			<button class="button-71" onclick="RandomBreathBtn();">Random Breath</button><br>
 			<button class="button-71" onclick="EnemyTraitBtn();">Random Trait</button><br>
 			<button class="button-71" onclick="EnemyActionBtn();">Random Action</button><br>
 			<button class="button-71" onclick="EnemyBonusBtn();">Random Bonus Action</button><br>
@@ -292,7 +293,7 @@ input[type='number']{
 			<center><font size=4>Results:</font> <button class="button-70" onclick="copyOutput();">Copy</button>
 				<textarea rows="48" cols="66" name="charBox" spellcheck="false" id="charBox" readonly="textareaEdit" style="font-size: 12px";>Generating a random enemy will randomly pick everything, except a name, and output in three formats in the outputs below: Text, Homebrewery Markup, and Improved-Initiative JSON.
 
-The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resistances, Traits, Actions, Bonus Actions, Reactions, Recharge Abilities, Legendary Actions, Lair Passives/Actives, and Traits specific to certian categories.
+The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resistances, Traits, Actions, Bonus Actions, Reactions, Recharge Abilities, Legendary Actions, Lair Passives/Actives, and Traits specific to certain categories.
 				</textarea></center>
 		</div>
 		<div class="grid-item grid-item-double">
@@ -301,7 +302,7 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 				</textarea></center>
 		</div>
 		<div class="grid-item grid-item-double">
-			<center><a href="https://www.improved-initiative.com/" target="_blank"><font size="5">🔗</font></a> <div class='tooltip'><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted as JSON into a new creature in Improved-Initiative to create a Stat Block.</span></div> <font size=4>Improved-Initiative JSON Text:</font> <button class="button-70" onclick="copyImproved();">Copy</button>
+			<center><a href="https://www.improvedinitiative.app/" target="_blank"><font size="5">🔗</font></a> <div class='tooltip'><font color=green>ⓘ</font><span class="tooltiptext">When a full random enemy is generated, text will output here that can be pasted as JSON into a new creature in Improved-Initiative to create a Stat Block.</span></div> <font size=4>Improved-Initiative JSON Text:</font> <button class="button-70" onclick="copyImproved();">Copy</button>
 				<textarea rows="14" cols="82" name="improvedBox" spellcheck="false" id="improvedBox" readonly="textareaEdit" style="font-size: 10px">
 				</textarea></center>
 		</div>
@@ -355,7 +356,6 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 		<input type="checkbox" id="Ranger"><font size="2">Ranger</font><br>
 		<input type="checkbox" id="Rogue"><font size="2">Rogue</font><br>
 		<input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
-		<input type="checkbox" id="Sorcerer"><font size="2">Sorcerer</font><br>
 		<input type="checkbox" id="Warlock"><font size="2">Warlock</font><br>
 		<input type="checkbox" id="Wizard"><font size="2">Wizard</font><br>
 		</div>
@@ -392,19 +392,26 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 <div id="infotab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-		Patreon: <br>
-		Discord: <br>
+		Patreon: NYI<br>
+		Discord: NYI<br>
 		<br>
 		<font size="4">Select a button to see the list of possible results.</font><br>
 		<button class="button-70" onclick="WeatherInfo();">Weather List</button> <button class="button-70" onclick="PartInfo();">Parts List</button> <button class="button-70" onclick="OrganInfo();">Organs List</button>
 		 <button class="button-70" onclick="FailInfo();">Critical Fail List</button> <button class="button-70" onclick="ConjureInfo();">Conjure CR List</button> <button class="button-70" onclick="MadnessInfo();">Madness List</button>
-		 <button class="button-70" onclick="CreatureInfo();">Creature List</button>
 		 
 		<br>
 		<button class="button-70" onclick="???();">X</button>
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><textarea rows="46" cols="60" name="infoBox" spellcheck="false" id="infoBox" readonly="textareaEdit">
+---- Changelog (version 1.0): All standard tools have been completed and the Random Character Generator has
+
+---- TO DO LIST:
+• Finish adding Traits, Action, etc to the Random Enemy Generator.
+• Gender and Sexuality randomizers (This will mainly be male/female and straight with small chances for various LGBTQ+ outcomes).
+• Add the jewelry calculator that will automatically calculate the value of a piece of jewelry based on material and contained gems.
+• Add a random card draw with the following decks: Standard Deck with and without Jokers, Tarot Deck with and without Minor Arcana, Deck of Many Things, Deck of Many Fates.
+   • Further on, I plan to add every single deck from the Deck of Decks on Reddit: https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/
 			</textarea></center>
 		</div>
 	</div>

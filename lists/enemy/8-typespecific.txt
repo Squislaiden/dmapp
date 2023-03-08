@@ -1,52 +1,112 @@
-	ABERRATIONS (Deep Speech, Darkvision, 75% Resist Psychic, 50% Telepathy)
+	ABERRATIONS
+Language	- Deep Speech, 25% Undercommon, 50% Telepathy
+Senses		- Darkvision, 20% Blindsight, 10% Tremorsense, 2% Truesight
+Resist		- 85% Psychic, 50% Cold, 10% Poison
+Immune		- 5% Psychic, 2% Cold
+Cond		- 5% Frightened, 10% Poisoned
+Vuln		- 5% Force, 5% Necrotic, 10% Radiant
+
 Alien Mind (50%)
-If a creature tries to read the crature's’s thoughts or deals psychic damage to it, that creature must succeed on a DC 22 Intelligence saving throw or be stunned for 1 minute. The stunned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+If an enemy tries to read the creature's’s thoughts or deals psychic damage to it, that enemy must succeed on a DC 22 Intelligence saving throw or be stunned for 1 minute. The stunned enemy can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
 Umbral Sight (10%)
 Gain Darkvision. While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness.
 
 	BEAST (-Int)
+Senses		- 60% Darkvision, 10% Blindsight, 10% Tremorsense
+Resist		- 5% Acid, 10% Bludgeoning, 10% Slashing, 10% Piercing, 5% Poison, 5% Cold, 5% Fire
+Immune		- 1% Fire, 1% Cold, 1% Poison
+Cond		- 2% Prone, 5% Frightened, 5% Poisoned
+Vuln		- 5% Psychic, 5% Thunder, 5% Lightning
 
+	CELESTIAL
+Language	- Celestial, 35% Telepathy
+Senses		- 10% Blindsight, 15% Truesight
+Resist		- 85% Radiant, 10% Fire, 15% Pyschic, 5% Physical, 5% Force
+Immune		- 10% Radiant, 2% Fire
+Cond		- 5% Charm, 10% Blinded, 10% Deafened, 10% Poisoned, 5% Petrified
+Vuln		- 15% Necrotic, 10% Cold, 5% Acid
 
-	CELESTIAL (Celestial, Radiant Resist, 15% Truesight)
 Eye of the Law (10%)
 As a bonus action, the creature can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.
 
-	CONSTRUCT ()
+	CONSTRUCT
+Senses		- 20% Dark/Blind/Tremor
+Resist		- 50% Bludgeoning, 25% Slashing, 25% Piercing, 25% Fire, 25% Cold, 5% Lightning, Poison, Psychic
+Immune		- 20% Poison, 25% Psychic
+Cond		- 85% Exhaustion, 20% Charmed, 35% Frightened, 20% Petrified, 10% Paralyzed, 15% Stunned
+Vuln		- 35% Thunder, 20% Force, 10% Acid, 10% Lightning
+
 Repair (2-3/Day) (30%)
 The magical mechanisms inside the creature restore 2d8 + 2 hit points to itself or to one construct or object within 5 feet of it.
 
-Immutable Form (30%)
+Immutable Form (50%)
 The creature is immune to any spell or effect that would alter its form.
 
 Mechanical Resilience (50%)
-Resilience
 The creature has advantage on saving throws against being poisoned and is immune to disease. Magic can’t put it to sleep.
 
 Antimagic Susceptibility (15%)
-The creature is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.
+The creature is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the creature must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.
 
-	DRAGON (Draconic, Resist Element, 5% Truesight)
+	DRAGON
+Language	- Draconic, 40% Telepathy
+Senses		- Darkvision, 20% Blindsight, 15% Tremorsense, 5% Truesight
+Resist		- Resist to one, and vulnerable to the opposing element (5% Immune)
+Cond		- 50% Frightened, 5% Stunned, 5% Paralyzed
 
+Breath Attack (33%)
+Random breath attack.
 
-	ELEMENTAL (Resist/Vuln Element, Primordial)
+	ELEMENTAL
+Language	- Primordial
+Senses		- 50% Darkvision
+Resist		- Immune to one and Vulnerable to opposing, 25% physical
+Cond		- 35% Prone, 20% Petrified, 15% Stunned
+
 Elemental Form (40% no solid elements)
 The creature can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.
 
-	FEY (Sylvan, 25% Telepathy)
+	FEY
+Language	- Sylvan, 30% Elvish, 20% Primordial, 17% Telepathy
+Senses		- 25% Darkvision, 10% Blind, 7% Truesight
+Resist		- 20% Psychic, 15% Radiant, 20% Force, 10% Thunder, 5% Physical
+Immune/Cond	- 50% Charm
+Vuln		- 10% Acid, 25% Necrotic, 5% Lightning
+
 Fey Ancestry
 The creature has advantage on Saving Throws against being Charmed, and magic can't put you to sleep.
 
-	FIEND (Infernal, Resist Fire)
+	FIEND
+Language	- Abyssal, 50% Infernal, 25% Primordial, 5% Undercommon, 10% Telepathy
+Senses		- 40% Darkvision, 5% Blindsight, 2% Truesight
+Resist		- 85% Fire, 20% Physical
+Immune		- 5% Fire
+Cond		- 5% Poisoned, 10% Exhaustion, 10% Frightened
+Vuln		- 15% Cold, 30% Radiant, 
 
+	GIANT (+Str)
+Language	- Giant, 20% Orc, 15% Goblin
+Resist		- 10% Fire, 10% Cold, 10% Lightning, 15% Physical
+Cond		- 5% Frightened, 5% Petrified
+Vuln		- 5% Poison, 5% Acid, 5% Thunder, 5% Force, 5% Psychic
 
-	GIANT (Giant, )
+	PLANT
+Language	- 25% Sylvan, 15% Telepathy
+Senses		- 20% Darkvision, 80% Tremorsense, 25% Blindsight
+Resist		- 30% Piercing, 15% Bludgeoning, 25% Lightning, 30% Acid, 25% Poison, 10% Thunder, 10% Force, 25% Psychic
+Immune		- 15% Psychic
+Cond		- 80% Prone, 80% Blinded/Deafened, 20% Charmed, 25% Frightened, 40% Poisoned
+Vuln		- 70% Fire, 40% Slashing, 20% Necrotic
 
+	OOZE (-Int)
+Language	- 10% Undercommon
+Senses		- Blindsight, 30% Tremorsense, 2% Truesight
+Resist		- Acid, Bludgeoning, 30% Piercing, 25% Poison, 15% Necrotic, 20% Psychic
+Immune		- 75% Lightning, 60% Slashing
+Cond		- Prone, 20% Paralyzed, 20% Stunned, Blind, Deaf
+Vuln		- 15% Cold, 10% Radiant
 
-	PLANT (Sylvan, 60% Fire Vulnerability, 10% Telepathy)
-
-
-	OOZE (Resist Acid, Resist Bludgeoning)
 Amorphous
 The creature can move through a space as narrow as 1 inch wide without squeezing.
 
@@ -56,36 +116,44 @@ The creature moves up to its speed. While doing so, it can enter Large or smalle
 Corrosive Form (20%)
 An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 4 (1d8) acid damage. Any nonmagical weapon made of metal or wood that hits the creature corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical ammunition made of metal or wood that hits the creature is destroyed after dealing damage. The creature can eat through 2-inch-thick, nonmagical wood or metal in 1 round.
 
-Split
+Split (50%)
 When the ooze that is Medium or larger is subjected to lightning or slashing damage, it splits into two new oozes if it has at least 10 hit points. Each new ooze has hit points equal to half the original ooze's, rounded down. New oozes are one size smaller than the original ooze.
 
-	UNDEAD (Resist Necrotic, Vuln Radiant)
+	UNDEAD (33% -Int)
+Senses		- 30% Darkvision, 5% Blindsight
+Resist		- 80% Necrotic, 50% Bludgeoning, 20% Slashing, 10% Psychic, 25% Cold
+Immune		- 40% Poison, 10% Necrotic
+Cond		- Poisoned, 10% Stunned, 10% Paralyzed
+Vuln		- 50% Radiant, 30% Force, 10% Thunder, 15% Fire
+
 Undead Fortitude (30%)
 If damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the creature drops to 1 hit point instead.
 
 Turn Resistance (10%)
 The creature has advantage on saving throws against any effect that turns undead.
 
-	MONSTROSITY (25% Abyssal, 5% Telepathy)
+	MONSTROSITY
+Language	- 10% Undercommon, 25% Abyssal, 5% Telepathy
+Senses		- 35% Darkvision, 20% Blind, 15% Tremor, 2% Truesight
+Resist		- 8% Each
+Immune		- 1% Each
+Cond		- 20% Blind/Deaf, 10% Frightened, 10% Poisoned, 5% Stunned
+Vuln		- 3% Each
 
-
-	HUMANOID (By Race)
-
-
-	SMALL SIZE
+	SMALL/TINY
 Nimbleness
 You can move through the space of any creature that is of a size larger than yours.
 
 	GARGANTUAN
-Stomp
+Stomp (50%)
 The creature stomps one of its feet at a point on the ground within 10 feet of it. Any creature in a 10-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC 15 Dexterity saving throw or take 17 (3d10) bludgeoning damage and fall prone. Until the creature uses its Stomp again or moves, the target is restrained. While restrained in this way, the target (or another creature within 5 feet of it) can use its action to make a DC 15 Strength check. On a success, the target relocates to an unoccupied space of its choice within 5 feet of the creature and is no longer restrained.
 Structures, as well as nonmagical objects that are neither being worn nor carried, take the same amount of damage if they are in the cylinder (no save).
 
-Bite (85%)
+Bite (33%)
 Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 22 (3d10 + 6) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 16 Dexterity saving throw or be swallowed by the creature. A swallowed enemy is blinded and restrained, it has total cover against attacks and other effects outside the creature, and it takes 14 (4d6) acid damage at the start of each of the creature’s turns.
 If the creature takes 30 damage or more on a single turn from the swallowed enemy, the creature must succeed on a DC 18 Constitution saving throw at the end of that turn or regurgitate the enemy, which falls prone in a space within 10 feet of the creature. If the creature dies, a swallowed enemy is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.
 
-	FLYING ()
+	FLYING
 Flyby (TRAIT - 15%)
 The creature doesn’t provoke opportunity attacks when it flies out of an enemy’s reach.
 

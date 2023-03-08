@@ -39,7 +39,7 @@ body {
     color: #aaa;
     font-weight: bold;
 }
-.grid-item:nth-child(1)	{	background: #111111;	height: 430px;	}
+.grid-item:nth-child(1)	{	background: #111111;	height: 460px;	}
 .grid-item:nth-child(2)	{	background: #222222;	height: 720px;	}
 .grid-item:nth-child(3)	{	background: #111111;	height: 242px;	}
 .grid-item:nth-child(4)	{	background: #222222;	height: 242px;	}

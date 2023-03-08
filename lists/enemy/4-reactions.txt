@@ -22,17 +22,17 @@ When the creature is subjected to an effect that would move it, knock it prone, 
 Furious Defense
 After an ally the creature can see is dealt damage by an enemy within 20 feet of the creature, the creature makes a ranged attack against that enemy.
 
-Guided Attack (Recharge 5-6)
+Guided Strike (Recharge 5-6)
 When the creature or one creature it can see within 30 feet of it makes an attack roll, the creature grants a +10 bonus to that roll.
 
 Feed on Death
 When a creature within 30 feet of the creature drops to 0 hit points, the creature gains 5 (1d10) temporary hit points.
 
 Redirect Attack
-When an enemy the creature can see targets it with an attack, the creature chooses another goblin within 5 feet of it. The two creatures swap places, and the chosen creature becomes the target instead.
+When an enemy the creature can see targets it with an attack, the creature chooses another ally within 5 feet of it. The two creatures swap places, and the chosen ally becomes the target instead.
 
 Spell Vitalization
-Immediately after a creature casts a spell of 1st level or higher within 120 feet of the creature, the creature can move up to twice its speed without provoking opportunity attacks. It can then make one slam attack against a target of its choice.
+Immediately after a creature casts a spell of 1st level or higher within 120 feet of the creature, the creature can move up to twice its speed without provoking opportunity attacks. It can then make one melee attack against a target of its choice.
 
 Precognitive Insight (3/Day)
 When the creature or a creature it can see makes an attack roll, a saving throw, or an ability check, the creature can cause the roll to be made with advantage or disadvantage.
@@ -43,14 +43,11 @@ When a creature hits the creature with an attack, the attacker takes lightning d
 Self-Sacrifice
 When an ally within 5 feet of the creature is hit by an attack, the creature swaps places with that ally and is hit instead.
 
-Guided Strike (Once)
-The creature grants a +10 bonus to an attack roll made by itself or another creature within 30 ft. of it. the choice must be made before the roll is declared a hit or miss.
-
 Encirclement (Recharge 5-6)
 When an enemy attempts to move further than 30 ft. from the creature, it can use its reaction to cast Wall of Fire in front of them.
 
 Defensive Reflex
-The creature can choose to take half damage from an attack that hits it.
+The creature can choose to take half damage from an attack that hits it. This trait cannot be used on area of effect spells.
 
 Redirection
 When hit with fire, lightning, or cold damage, the creature can redirect it to another creature within 10 ft. of him and that creature takes half the damage it would have.
@@ -67,10 +64,7 @@ If the creature is critically hit, it can reduce the damage by 20, to a minimum 
 Headbutt
 When a melee attack misses the creature, it can make a headbutt attack: +10 to hit. 9 (1d4 + 6) bludgeoning damage and the target makes a DC 13 Consitution saving throw or they have disadvantage on their next attack.
 
-Mind Blast (Recharge 5-6)
-Targets of the creature's choice with 30 feet of it must make a DC 13 Intelligence save or take 17 (4d6 + 3) psychic damage and be stunned for 1 minute. A target can repeat the saving throw at the end of each turn.
-
-Earth Counter (Recharge 6)
+Earth Counter (Recharge 5-6)
 When an enemy the creature can see within 30 feet of it casts a spell, the creature counters it. This reaction works like the counterspell spell, except the creature can only counter spells that directly affect or create earth or stone, such as stone shape, wall of stone, or move earth, and it doesn’t need to make a spellcasting ability check, regardless of the spell’s level.
 
 Void Body
@@ -86,7 +80,7 @@ Time-Assisted Counterattack
 The creature’s awareness of the near future allows it to see attacks before they happen. When an enemy the creature can see attacks it while within 5 feet of it, the creature can attack the enemy before the enemy’s attack hits. The creature makes a single melee attack against the enemy. If the enemy is reduced to 0 hp as a result of the creature’s attack, the enemy’s attack doesn’t hit the creature.
 
 On the Hunt
-When an enemy the creature can see moves, the creature can move up to 20 feet toward the moving enemy. If the creature moves within 10 feet of that enemy, it can make one melees attack against the creature.
+When an enemy the creature can see moves, the creature can move up to 20 feet toward the moving enemy. If the creature moves within 10 feet of that enemy, it can make one melee attack against the creature.
 
 Close In
 Upon taking ranged damage (not from a Saving Throw), the creature can move up to half it's speed towards the aggressor without triggering opportunity attacks.
@@ -100,12 +94,15 @@ The creature's veins glow when a spell is cast within 30 feet of it, countering 
 Ride the Bolt
 The creature can travel instantly along any bolt of lightning. When it is within 5 feet of a lightning effect, the creature can teleport to any unoccupied space inside or within 5 feet of that lightning effect.
 
-Redirect Attack
-When an enemy the creature can see targets it with an attack, the creature chooses an ally within 5 feet of it. The creature and the ally swap places, and the chosen ally becomes the target instead.
-
 Blood Drain
-An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 5 (2d4) necrotic damage and the creature gains temporary hp equal to that amount as it drains blood from the victim. Its temporary hp can't exceed half its maximum hp. If the creature takes radiant damage, this trait doesn't function at the start of the creature's next turn, although it retains any temporary hp it previously gained.
+An enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes 5 (2d4) necrotic damage and the creature gains temporary hit points equal to that amount as it drains blood from the victim. Its temporary hp can't exceed half its maximum hp. If the creature takes radiant damage, this trait doesn't function at the start of the creature's next turn, although it retains any temporary hp it previously gained.
 
 Thick Skin
 When it is hit by an attack, the creature regains 5 (1d10) hit points and has resistance to that damage type until the end of its next turn.
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 

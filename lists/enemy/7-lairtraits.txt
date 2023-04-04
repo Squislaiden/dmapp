@@ -123,7 +123,7 @@ Within range of the lair all light sources except artifacts shed light to only h
 Nocturnal Swarm
 Owls and other nocturnal beasts become enraged and hostile within 5 miles of the lair, attacking intruders individually and in swarms.
 
-Shadow Omniscense
+Shadow Omnisciense
 Within range of the lair, the creature can cast its senses into any area of dim light or darkness as if using clairvoyance.
 
 Short Tempered

@@ -28,7 +28,7 @@ Rend Reality (Costs 3 Actions)
 The creature rips at the bonds of reality in its immediate area. Each creature within 10 feet of the creature must succeed on a DC 13 Constitution saving throw or take 14 (2d12) force damage and gain one level of exhaustion.
 
 Spawn Aberration (Costs 2 Actions)
-The creature regurgitates an intellect devourer in an unoccupied space within 5 feet of it. The intellect devourer is under the creature’s control and acts immediately after the creature in the initiative order.
+Uses per day is equal to Proficiency Bonus. The creature regurgitates an intellect devourer in an unoccupied space within 5 feet of it. The intellect devourer is under the creature’s control and acts immediately after the creature in the initiative order.
 
 Mind Blast (Costs 3 Actions)
 The creature magically emits psychic energy in a 30-foot cone. Each creature in that area must succeed on a DC 13 Intelligence saving throw or take 18 (3d8 + 4) psychic damage and be stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
@@ -57,6 +57,9 @@ The creature whispers an arcane secret into the mind of a creature it can see wi
 Cast a Spell (Costs 2 Actions)
 The creature casts a spell of 2nd level or lower from its spell list that takes 1 action to cast.
 
+Charge
+The creature moves up to its speed without provoking opportunity attacks towards an enemy.
+
 Mad Dash (Costs 2 Actions)
 The creature moves up to its speed without provoking opportunity attacks, then makes one melee attack.
 
@@ -75,7 +78,7 @@ The creature chooses up to three creatures it can see within 30 feet of it. If a
 Disrupt Life (Costs 3 Actions)
 Each creature within 30 feet of the creature must make a DC 14 Constitution saving throw, taking 14 (4d6) necrotic damage on a failed save, or half as much damage on a successful one.
 
-Supreme Legal Authority (Costs 3 Actions)
+Supreme Authority (Costs 3 Actions)
 The creature chooses up to three creatures it can see within 90 feet of it. Each target must succeed on a DC 14 Intelligence saving throw or the creature chooses an action for that target: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, or Use an Object. The affected target can’t take that action for 1 minute. At the end of each of the target’s turns, it can end the effect on itself with a successful DC 14 Intelligence saving throw. A target that succeeds on the saving throw becomes immune to the creature’s Supreme Legal Authority for 24 hours.
 
 Shifting Nightmare (Costs 3 Actions)
@@ -84,7 +87,7 @@ The creature rapidly takes the form of several nightmarish creatures, lashing ou
 Sadistic Revelry
 Each creature within 60 feet of creature that is its ally or is charmed by it must use its reaction to move up to half its speed toward the creature closest to it that it can see, provided it isn’t already within 5 feet of that creature. It then must make one melee attack against that creature if it is able to do so.
 
-Touch of Pain (Costs 3 Actions)
+Touch of Pain (Costs 2 Actions)
 The creature makes a claw attack against one enemy within 10 feet of him. The target must succeed on a DC 14 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the creature can’t maintain concentration on a spell or any other effect that requires concentration. The poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
 Voice of Harmony
@@ -99,26 +102,25 @@ The creature animates one or two trees it can see within 120 feet of it, causing
 Englarge (Costs 2 Actions)
 The creature casts enlarge/reduce on itself, using the enlarge option, without expending a spell slot.
 
+Reduce (Costs 2 Actions)
+The creature casts enlarge/reduce on an enemy, using the reduce option, without expending a spell slot.
+
 Sinners Beware
 Move up to 30 feet towards a hostile creature. This does not trigger opportunity attacks.
 
 Justice!
-A creature within 10 feet must make a DC 13 Charisma Saving Throw. On a fail, holy chains erupt from the ground, binding them for 10 minutes. They are considered restrained and magical effects on the target are suppressed while restrained this way.
-Creatures can repeat the saving throw when hit by a hostile creature, or every minute. Chaotic-aligned creatures make the save with disadvantage.
+A creature within 10 feet must make a DC 13 Charisma Saving Throw. On a fail, holy chains erupt from the ground, binding them for 10 minutes. They are considered restrained and magical effects on the target are suppressed while restrained this way. Creatures can repeat the saving throw when hit by a hostile creature, or every minute. Chaotic-aligned creatures make the save with disadvantage.
 
 Iron Will (Costs 2 Actions)
-When afflicted with any condition, except unconsciousness, the creature can choose to shrug it off, neutralizing it.
+While afflicted with any condition, except unconsciousness, the creature can choose to shrug it off, neutralizing it.
 
 Bulwark (Costs 2 Actions)
 The creature flares crimson with power, protecting those nearby. The next attack that would hit an ally within 5 feet of the creature hits the creature instead.
 
-Detect
-The creature makes a Wisdom (Perception) check.
-
 Void Slip (Costs 2 Actions)
 The creature twists the fabric of space. Each creature within 15 feet of the creature must succeed on a DC 14 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The creature can then teleport to an unoccupied space within 40 feet.
 
-Void Cache (Costs 3 Actions)
+Void Cache (Costs 2 Actions)
 The creature can magically reach into its personal cache and retrieve one item. If it is holding an item, it can use this ability to deposit the item into its cache. The cache is a literal physical place on the material plane connected to this ability.
 
 Pack Maneuver (Costs 2 Actions)
@@ -130,7 +132,7 @@ The creature moves up to half its speed without provoking opportunity attacks.
 Shroud (2 actions)
 The creature radiates magical darkness in a 30 foot radius. The darkness lasts until the start of the creatures's next turn.
 
-Envelope in Shadow (Costs 2 Actions)
+Envelop in Shadow (Costs 2 Actions)
 The creature moves up to half its speed without provoking opportunity attacks. Any enemy whose space it moves through must make a DC 22 Dexterity saving throw, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.
 
 Poison
@@ -145,20 +147,20 @@ The creature may roll to attempt to recharge a rechargable ability.
 Intent Recharge (Costs 2 Actions)
 The creature may roll to attempt to recharge a rechargable ability. The recharge roll range is increased by 1.
 
-Power Up (Costs all Actions) (1/day)
+Power Up (Costs 3 Actions) (1/day)
 The creature selects and recharge ability and recharges it.
 
 Control Weather
 The creature can alter the weather in a 5-mile radius centered on itself. The effect is identical to the control weather spell, except the casting time and effects are immediate.
 
-Call Lightning (Cost 2 Actions). A bolt of lightning flashes down from the clouds to a point the creature can see within 120 feet of it. Each enemy within 5 feet of that point must make a DC 20 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save, or half as much damage on a successful one.
+Call Lightning (Cost 2 Actions)
+A bolt of lightning flashes down from the clouds to a point the creature can see within 120 feet of it. Each enemy within 5 feet of that point must make a DC 20 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save, or half as much damage on a successful one.
 
 Enlightening Roar
 Each ally the creature chooses within 30 feet of it can immediately repeat a saving throw to end one condition currently affecting it.
 
 Tar Toss
 The creature hurls a glob of tar at a target within 30 feet as a ranged weapon attack (+9 to hit). If the attack hits, the target is restrained (escape DC 17).
-
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

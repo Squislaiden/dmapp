@@ -1234,183 +1234,183 @@ function ClassGen() {
 	let classRNG = Math.floor(Math.random() * 13) + 1;
 	let classSub;
 			if (classRNG == 1) {classSub = Math.floor(Math.random() * 8) + 1;
-            if (classSub == 1) {GClass = "Ancestral Guardian Barbarian";}
-            else if (classSub == 2) {GClass = "Battlerager Barbarian";}
-            else if (classSub == 3) {GClass = "Beast Barbarian";}
-            else if (classSub == 4) {GClass = "Berserker Barbarian";}
-            else if (classSub == 5) {GClass = "Storm Herald Barbarian";}
-            else if (classSub == 6) {GClass = "Totem Warrior Barbarian";}
-            else if (classSub == 7) {GClass = "Wild Magic Barbarian";}
-            else if (classSub == 8) {GClass = "Zealot Barbarian";}}
-        else if (classRNG == 2) {classSub = Math.floor(Math.random() * 8) + 1;
-            if (classSub == 1) {GClass = "Creation Bard";}
-            else if (classSub == 2) {GClass = "Eloquence Bard";}
-            else if (classSub == 3) {GClass = "Glamour Bard";}
-            else if (classSub == 4) {GClass = "Lore Bard";}
-            else if (classSub == 5) {GClass = "Spirits Bard";}
-            else if (classSub == 6) {GClass = "Swords Bard";}
-            else if (classSub == 7) {GClass = "Valor Bard";}
-            else if (classSub == 8) {GClass = "Whispers Bard";}}
-        else if (classRNG == 3) {classSub = Math.floor(Math.random() * 14) + 1;
-            if (classSub == 1) {GClass = "Arcana Cleric";}
-            else if (classSub == 2) {GClass = "Death Cleric";}
-            else if (classSub == 3) {GClass = "Forge Cleric";}
-            else if (classSub == 4) {GClass = "Grave Cleric";}
-            else if (classSub == 5) {GClass = "Knowledge Cleric";}
-            else if (classSub == 6) {GClass = "Life Cleric";}
-            else if (classSub == 7) {GClass = "Light Cleric";}
-            else if (classSub == 8) {GClass = "Nature Cleric";}
-            else if (classSub == 9) {GClass = "Order Cleric";}
-            else if (classSub == 10) {GClass = "Peace Cleric";}
-            else if (classSub == 11) {GClass = "Tempest Cleric";}
-            else if (classSub == 12) {GClass = "Trickery Cleric";}
-            else if (classSub == 13) {GClass = "Twilight Cleric";}
-            else if (classSub == 14) {GClass = "War Cleric";}}
-        else if (classRNG == 4) {classSub = Math.floor(Math.random() * 7) + 1;
-            if (classSub == 1) {GClass = "Dreams Druid";}
-            else if (classSub == 2) {GClass = "Land Druid";}
-            else if (classSub == 3) {GClass = "Moon Druid";}
-            else if (classSub == 4) {GClass = "Shepherd Druid";}
-            else if (classSub == 5) {GClass = "Spores Druid";}
-            else if (classSub == 6) {GClass = "Stars Druid";}
+if (classSub == 1) {GClass = "Ancestral Guardian Barbarian";}
+else if (classSub == 2) {GClass = "Battlerager Barbarian";}
+else if (classSub == 3) {GClass = "Beast Barbarian";}
+else if (classSub == 4) {GClass = "Berserker Barbarian";}
+else if (classSub == 5) {GClass = "Storm Herald Barbarian";}
+else if (classSub == 6) {GClass = "Totem Warrior Barbarian";}
+else if (classSub == 7) {GClass = "Wild Magic Barbarian";}
+else if (classSub == 8) {GClass = "Zealot Barbarian";}}
+else if (classRNG == 2) {classSub = Math.floor(Math.random() * 8) + 1;
+if (classSub == 1) {GClass = "Creation Bard";}
+else if (classSub == 2) {GClass = "Eloquence Bard";}
+else if (classSub == 3) {GClass = "Glamour Bard";}
+else if (classSub == 4) {GClass = "Lore Bard";}
+else if (classSub == 5) {GClass = "Spirits Bard";}
+else if (classSub == 6) {GClass = "Swords Bard";}
+else if (classSub == 7) {GClass = "Valor Bard";}
+else if (classSub == 8) {GClass = "Whispers Bard";}}
+else if (classRNG == 3) {classSub = Math.floor(Math.random() * 14) + 1;
+if (classSub == 1) {GClass = "Arcana Cleric";}
+else if (classSub == 2) {GClass = "Death Cleric";}
+else if (classSub == 3) {GClass = "Forge Cleric";}
+else if (classSub == 4) {GClass = "Grave Cleric";}
+else if (classSub == 5) {GClass = "Knowledge Cleric";}
+else if (classSub == 6) {GClass = "Life Cleric";}
+else if (classSub == 7) {GClass = "Light Cleric";}
+else if (classSub == 8) {GClass = "Nature Cleric";}
+else if (classSub == 9) {GClass = "Order Cleric";}
+else if (classSub == 10) {GClass = "Peace Cleric";}
+else if (classSub == 11) {GClass = "Tempest Cleric";}
+else if (classSub == 12) {GClass = "Trickery Cleric";}
+else if (classSub == 13) {GClass = "Twilight Cleric";}
+else if (classSub == 14) {GClass = "War Cleric";}}
+else if (classRNG == 4) {classSub = Math.floor(Math.random() * 7) + 1;
+if (classSub == 1) {GClass = "Dreams Druid";}
+else if (classSub == 2) {GClass = "Land Druid";}
+else if (classSub == 3) {GClass = "Moon Druid";}
+else if (classSub == 4) {GClass = "Shepherd Druid";}
+else if (classSub == 5) {GClass = "Spores Druid";}
+else if (classSub == 6) {GClass = "Stars Druid";}
 			else if (classSub == 7) {GClass = "Wildfire Druid";}}
-        else if (classRNG == 5) {classSub = Math.floor(Math.random() * 10) + 1;
-            if (classSub == 1) {GClass = "Arcane Archer Fighter";}
-            else if (classSub == 2) {GClass = "Banneret Fighter";}
-            else if (classSub == 3) {GClass = "Battle Master Fighter";}
-            else if (classSub == 4) {GClass = "Cavalier Fighter";}
-            else if (classSub == 5) {GClass = "Champion Fighter";}
-            else if (classSub == 6) {GClass = "Echo Knight Fighter";}
-            else if (classSub == 7) {GClass = "Eldritch Knight Fighter";}
-            else if (classSub == 8) {GClass = "Psi Warrior Fighter";}
-            else if (classSub == 9) {GClass = "Rune Knight Fighter";}
-            else if (classSub == 10) {GClass = "Samurai Fighter";}}
-        else if (classRNG == 6) {classSub = Math.floor(Math.random() * 10) + 1;
-            if (classSub == 1) {GClass = "Astral Self Monk";}
-            else if (classSub == 2) {GClass = "Drunken Master Monk";}
-            else if (classSub == 3) {GClass = "Four Elements Monk";}
-            else if (classSub == 4) {GClass = "Kensei Monk";}
-            else if (classSub == 5) {GClass = "Long Death Monk";}
-            else if (classSub == 6) {GClass = "Mercy Monk";}
-            else if (classSub == 7) {GClass = "Open Hand Monk";}
-            else if (classSub == 8) {GClass = "Shadow Monk";}
-            else if (classSub == 9) {GClass = "Sun Soul Monk";}
-            else if (classSub == 10) {GClass = "Ascendant Dragon Monk";}}
-        else if (classRNG == 7) {classSub = Math.floor(Math.random() * 9) + 1;
-            if (classSub == 1) {GClass = "Ancients Paladin";}
-            else if (classSub == 2) {GClass = "Conquest Paladin";}
-            else if (classSub == 3) {GClass = "Crown Paladin";}
-            else if (classSub == 4) {GClass = "Devotion Paladin";}
-            else if (classSub == 5) {GClass = "Glory Paladin";}
-            else if (classSub == 6) {GClass = "Redemption Paladin";}
-            else if (classSub == 7) {GClass = "Vengeance Paladin";}
-            else if (classSub == 8) {GClass = "Watchers Paladin";}
-            else if (classSub == 9) {GClass = "Oathbreaker Paladin";}}
-        else if (classRNG == 8) {classSub = Math.floor(Math.random() * 8) + 1;
-            if (classSub == 1) {GClass = "Beast Master Ranger";}
-            else if (classSub == 2) {GClass = "Fey Wanderer Ranger";}
-            else if (classSub == 3) {GClass = "Gloom Stalker Ranger";}
-            else if (classSub == 4) {GClass = "Horizon Walker Ranger";}
-            else if (classSub == 5) {GClass = "Hunter Ranger";}
-            else if (classSub == 6) {GClass = "Monster Slayer Ranger";}
-            else if (classSub == 7) {GClass = "Swarmkeeper Ranger";}
+else if (classRNG == 5) {classSub = Math.floor(Math.random() * 10) + 1;
+if (classSub == 1) {GClass = "Arcane Archer Fighter";}
+else if (classSub == 2) {GClass = "Banneret Fighter";}
+else if (classSub == 3) {GClass = "Battle Master Fighter";}
+else if (classSub == 4) {GClass = "Cavalier Fighter";}
+else if (classSub == 5) {GClass = "Champion Fighter";}
+else if (classSub == 6) {GClass = "Echo Knight Fighter";}
+else if (classSub == 7) {GClass = "Eldritch Knight Fighter";}
+else if (classSub == 8) {GClass = "Psi Warrior Fighter";}
+else if (classSub == 9) {GClass = "Rune Knight Fighter";}
+else if (classSub == 10) {GClass = "Samurai Fighter";}}
+else if (classRNG == 6) {classSub = Math.floor(Math.random() * 10) + 1;
+if (classSub == 1) {GClass = "Astral Self Monk";}
+else if (classSub == 2) {GClass = "Drunken Master Monk";}
+else if (classSub == 3) {GClass = "Four Elements Monk";}
+else if (classSub == 4) {GClass = "Kensei Monk";}
+else if (classSub == 5) {GClass = "Long Death Monk";}
+else if (classSub == 6) {GClass = "Mercy Monk";}
+else if (classSub == 7) {GClass = "Open Hand Monk";}
+else if (classSub == 8) {GClass = "Shadow Monk";}
+else if (classSub == 9) {GClass = "Sun Soul Monk";}
+else if (classSub == 10) {GClass = "Ascendant Dragon Monk";}}
+else if (classRNG == 7) {classSub = Math.floor(Math.random() * 9) + 1;
+if (classSub == 1) {GClass = "Ancients Paladin";}
+else if (classSub == 2) {GClass = "Conquest Paladin";}
+else if (classSub == 3) {GClass = "Crown Paladin";}
+else if (classSub == 4) {GClass = "Devotion Paladin";}
+else if (classSub == 5) {GClass = "Glory Paladin";}
+else if (classSub == 6) {GClass = "Redemption Paladin";}
+else if (classSub == 7) {GClass = "Vengeance Paladin";}
+else if (classSub == 8) {GClass = "Watchers Paladin";}
+else if (classSub == 9) {GClass = "Oathbreaker Paladin";}}
+else if (classRNG == 8) {classSub = Math.floor(Math.random() * 8) + 1;
+if (classSub == 1) {GClass = "Beast Master Ranger";}
+else if (classSub == 2) {GClass = "Fey Wanderer Ranger";}
+else if (classSub == 3) {GClass = "Gloom Stalker Ranger";}
+else if (classSub == 4) {GClass = "Horizon Walker Ranger";}
+else if (classSub == 5) {GClass = "Hunter Ranger";}
+else if (classSub == 6) {GClass = "Monster Slayer Ranger";}
+else if (classSub == 7) {GClass = "Swarmkeeper Ranger";}
 			else if (classSub == 8) {GClass = "Drakewarden Ranger";}}
-        else if (classRNG == 9) {classSub = Math.floor(Math.random() * 9) + 1;
-            if (classSub == 1) {GClass = "Arcane Trickster Rogue";}
-            else if (classSub == 2) {GClass = "Assassin Rogue";}
-            else if (classSub == 3) {GClass = "Inquisitive Rogue";}
-            else if (classSub == 4) {GClass = "Mastermind Rogue";}
-            else if (classSub == 5) {GClass = "Phantom Rogue";}
-            else if (classSub == 6) {GClass = "Scout Rogue";}
-            else if (classSub == 7) {GClass = "Soulknife Rogue";}
-            else if (classSub == 8) {GClass = "Swashbuckler Rogue";}
+else if (classRNG == 9) {classSub = Math.floor(Math.random() * 9) + 1;
+if (classSub == 1) {GClass = "Arcane Trickster Rogue";}
+else if (classSub == 2) {GClass = "Assassin Rogue";}
+else if (classSub == 3) {GClass = "Inquisitive Rogue";}
+else if (classSub == 4) {GClass = "Mastermind Rogue";}
+else if (classSub == 5) {GClass = "Phantom Rogue";}
+else if (classSub == 6) {GClass = "Scout Rogue";}
+else if (classSub == 7) {GClass = "Soulknife Rogue";}
+else if (classSub == 8) {GClass = "Swashbuckler Rogue";}
 			else if (classSub == 9) {GClass = "Thief Rogue";}}
-        else if (classRNG == 10) {classSub = Math.floor(Math.random() * 7) + 1;
-            if (classSub == 1) {GClass = "Aberrant Mind Sorcerer";}
-            else if (classSub == 2) {GClass = "Clockwork Soul Sorcerer";}
-            else if (classSub == 3) {GClass = "Draconic Bloodline Sorcerer";}
-            else if (classSub == 4) {GClass = "Divine Soul Sorcerer";}
-            else if (classSub == 5) {GClass = "Shadow Magic Sorcerer";}
-            else if (classSub == 6) {GClass = "Storm Sorcery Sorcerer";}
-            else if (classSub == 7) {GClass = "Wild Magic Sorcerer";}}
-        else if (classRNG == 11) {classSub = Math.floor(Math.random() * 9) + 1;
-            if (classSub == 1) {GClass = "Archfey Warlock";}
-            else if (classSub == 2) {GClass = "Celestial Warlock";}
-            else if (classSub == 3) {GClass = "Fathomless Warlock";}
-            else if (classSub == 4) {GClass = "Fiend Warlock";}
-            else if (classSub == 5) {GClass = "Genie Warlock";}
-            else if (classSub == 6) {GClass = "Great Old One Warlock";}
-            else if (classSub == 7) {GClass = "Hexblade Warlock";}
-            else if (classSub == 8) {GClass = "Undead Warlock";}
+else if (classRNG == 10) {classSub = Math.floor(Math.random() * 7) + 1;
+if (classSub == 1) {GClass = "Aberrant Mind Sorcerer";}
+else if (classSub == 2) {GClass = "Clockwork Soul Sorcerer";}
+else if (classSub == 3) {GClass = "Draconic Bloodline Sorcerer";}
+else if (classSub == 4) {GClass = "Divine Soul Sorcerer";}
+else if (classSub == 5) {GClass = "Shadow Magic Sorcerer";}
+else if (classSub == 6) {GClass = "Storm Sorcery Sorcerer";}
+else if (classSub == 7) {GClass = "Wild Magic Sorcerer";}}
+else if (classRNG == 11) {classSub = Math.floor(Math.random() * 9) + 1;
+if (classSub == 1) {GClass = "Archfey Warlock";}
+else if (classSub == 2) {GClass = "Celestial Warlock";}
+else if (classSub == 3) {GClass = "Fathomless Warlock";}
+else if (classSub == 4) {GClass = "Fiend Warlock";}
+else if (classSub == 5) {GClass = "Genie Warlock";}
+else if (classSub == 6) {GClass = "Great Old One Warlock";}
+else if (classSub == 7) {GClass = "Hexblade Warlock";}
+else if (classSub == 8) {GClass = "Undead Warlock";}
 			else if (classSub == 9) {GClass = "Undying Warlock";}}
-        else if (classRNG == 12) {classSub = Math.floor(Math.random() * 13) + 1;
-            if (classSub == 1) {GClass = "Abjuration Wizard";}
-            else if (classSub == 2) {GClass = "Bladesinging Wizard";}
-            else if (classSub == 3) {GClass = "Chronurgy Wizard";}
-            else if (classSub == 4) {GClass = "Conjuration Wizard";}
-            else if (classSub == 5) {GClass = "Divination Wizard";}
-            else if (classSub == 6) {GClass = "Enchantment Wizard";}
-            else if (classSub == 7) {GClass = "Evocation Wizard";}
-            else if (classSub == 8) {GClass = "Graviturgy Wizard";}
-            else if (classSub == 9) {GClass = "Illusion Wizard";}
-            else if (classSub == 10) {GClass = "Necromancy Wizard";}
-            else if (classSub == 11) {GClass = "Order of Scribes Wizard";}
-            else if (classSub == 12) {GClass = "Transmutation Wizard";}
+else if (classRNG == 12) {classSub = Math.floor(Math.random() * 13) + 1;
+if (classSub == 1) {GClass = "Abjuration Wizard";}
+else if (classSub == 2) {GClass = "Bladesinging Wizard";}
+else if (classSub == 3) {GClass = "Chronurgy Wizard";}
+else if (classSub == 4) {GClass = "Conjuration Wizard";}
+else if (classSub == 5) {GClass = "Divination Wizard";}
+else if (classSub == 6) {GClass = "Enchantment Wizard";}
+else if (classSub == 7) {GClass = "Evocation Wizard";}
+else if (classSub == 8) {GClass = "Graviturgy Wizard";}
+else if (classSub == 9) {GClass = "Illusion Wizard";}
+else if (classSub == 10) {GClass = "Necromancy Wizard";}
+else if (classSub == 11) {GClass = "Order of Scribes Wizard";}
+else if (classSub == 12) {GClass = "Transmutation Wizard";}
 			else if (classSub == 13) {GClass = "War Magic Wizard";}}
-        else if (classRNG == 13) {classSub = Math.floor(Math.random() * 4) + 1;
-            if (classSub == 1) {GClass = "Alchemist Artificer";}
-            else if (classSub == 2) {GClass = "Armorer Artificer";}
-            else if (classSub == 3) {GClass = "Artillerist Artificer";}
-            else if (classSub == 4) {GClass = "Battle Smith Artificer";}}
+else if (classRNG == 13) {classSub = Math.floor(Math.random() * 4) + 1;
+if (classSub == 1) {GClass = "Alchemist Artificer";}
+else if (classSub == 2) {GClass = "Armorer Artificer";}
+else if (classSub == 3) {GClass = "Artillerist Artificer";}
+else if (classSub == 4) {GClass = "Battle Smith Artificer";}}
 }
 
 function BackgroundGen() {
 	charBackground = Math.floor(Math.random() * 44) + 1;
 		if (charBackground == 1) {GBackground = "Background: Acolyte";}
-        else if (charBackground == 1) {GBackground = "Background: Anthropologist";}
-        else if (charBackground == 2) {GBackground = "Background: Archaeologist";}
-        else if (charBackground == 3) {GBackground = "Background: Athlete";}
-        else if (charBackground == 4) {GBackground = "Background: Celebrity Scion";}
-        else if (charBackground == 5) {GBackground = "Background: Charlatan";}
-        else if (charBackground == 6) {GBackground = "Background: City Watch";}
-        else if (charBackground == 7) {GBackground = "Background: Clan Crafter";}
-        else if (charBackground == 8) {GBackground = "Background: Cloistered Scholar";}
-        else if (charBackground == 8) {GBackground = "Background: Courtier";}
-        else if (charBackground == 10) {GBackground = "Background: Criminal";}
-        else if (charBackground == 11) {GBackground = "Background: Entertainer";}
-        else if (charBackground == 12) {GBackground = "Background: Astral Drifter";}
-        else if (charBackground == 13) {GBackground = "Background: Faction Agent";}
-        else if (charBackground == 14) {GBackground = "Background: Failed Merchant";}
-        else if (charBackground == 15) {GBackground = "Background: Far Traveler";}
-        else if (charBackground == 16) {GBackground = "Background: Feylost";}
-        else if (charBackground == 17) {GBackground = "Background: Fisher";}
-        else if (charBackground == 18) {GBackground = "Background: Folk Hero";}
-        else if (charBackground == 19) {GBackground = "Background: Gambler";}
-        else if (charBackground == 20) {GBackground = "Background: Wildspacer";}
-        else if (charBackground == 21) {GBackground = "Background: Guild Artisan";}
-        else if (charBackground == 22) {GBackground = "Background: Haunted One";}
-        else if (charBackground == 23) {GBackground = "Background: Hermit";}
-        else if (charBackground == 24) {GBackground = "Background: House Agent";}
-        else if (charBackground == 25) {GBackground = "Background: Inheritor";}
-        else if (charBackground == 26) {GBackground = "Background: Investigator";}
-        else if (charBackground == 27) {GBackground = "Background: Knight of the Order";}
-        else if (charBackground == 28) {GBackground = "Background: Marine";}
-        else if (charBackground == 29) {GBackground = "Background: Mercenary Veteran";}
-        else if (charBackground == 30) {GBackground = "Background: Noble";}
-        else if (charBackground == 31) {GBackground = "Background: Outlander";}
-        else if (charBackground == 32) {GBackground = "Background: Sage";}
-        else if (charBackground == 33) {GBackground = "Background: Sailor";}
-        else if (charBackground == 34) {GBackground = "Background: Shipwright";}
-        else if (charBackground == 35) {GBackground = "Background: Smuggler";}
-        else if (charBackground == 36) {GBackground = "Background: Soldier";}
-        else if (charBackground == 37) {GBackground = "Background: Urban Bounty Hunter";}
-        else if (charBackground == 38) {GBackground = "Background: Urchin";}
-        else if (charBackground == 39) {GBackground = "Background: Tribe Member"}
-        else if (charBackground == 40) {GBackground = "Background: Witherbloom Student"}
-        else if (charBackground == 41) {GBackground = "Background: Silverquill Student"}
-        else if (charBackground == 42) {GBackground = "Background: Quandrix Student"}
-        else if (charBackground == 43) {GBackground = "Background: Prismari Student"}
-        else if (charBackground == 44) {GBackground = "Background: Lorehold Student"}
+else if (charBackground == 1) {GBackground = "Background: Anthropologist";}
+else if (charBackground == 2) {GBackground = "Background: Archaeologist";}
+else if (charBackground == 3) {GBackground = "Background: Athlete";}
+else if (charBackground == 4) {GBackground = "Background: Celebrity Scion";}
+else if (charBackground == 5) {GBackground = "Background: Charlatan";}
+else if (charBackground == 6) {GBackground = "Background: City Watch";}
+else if (charBackground == 7) {GBackground = "Background: Clan Crafter";}
+else if (charBackground == 8) {GBackground = "Background: Cloistered Scholar";}
+else if (charBackground == 8) {GBackground = "Background: Courtier";}
+else if (charBackground == 10) {GBackground = "Background: Criminal";}
+else if (charBackground == 11) {GBackground = "Background: Entertainer";}
+else if (charBackground == 12) {GBackground = "Background: Astral Drifter";}
+else if (charBackground == 13) {GBackground = "Background: Faction Agent";}
+else if (charBackground == 14) {GBackground = "Background: Failed Merchant";}
+else if (charBackground == 15) {GBackground = "Background: Far Traveler";}
+else if (charBackground == 16) {GBackground = "Background: Feylost";}
+else if (charBackground == 17) {GBackground = "Background: Fisher";}
+else if (charBackground == 18) {GBackground = "Background: Folk Hero";}
+else if (charBackground == 19) {GBackground = "Background: Gambler";}
+else if (charBackground == 20) {GBackground = "Background: Wildspacer";}
+else if (charBackground == 21) {GBackground = "Background: Guild Artisan";}
+else if (charBackground == 22) {GBackground = "Background: Haunted One";}
+else if (charBackground == 23) {GBackground = "Background: Hermit";}
+else if (charBackground == 24) {GBackground = "Background: House Agent";}
+else if (charBackground == 25) {GBackground = "Background: Inheritor";}
+else if (charBackground == 26) {GBackground = "Background: Investigator";}
+else if (charBackground == 27) {GBackground = "Background: Knight of the Order";}
+else if (charBackground == 28) {GBackground = "Background: Marine";}
+else if (charBackground == 29) {GBackground = "Background: Mercenary Veteran";}
+else if (charBackground == 30) {GBackground = "Background: Noble";}
+else if (charBackground == 31) {GBackground = "Background: Outlander";}
+else if (charBackground == 32) {GBackground = "Background: Sage";}
+else if (charBackground == 33) {GBackground = "Background: Sailor";}
+else if (charBackground == 34) {GBackground = "Background: Shipwright";}
+else if (charBackground == 35) {GBackground = "Background: Smuggler";}
+else if (charBackground == 36) {GBackground = "Background: Soldier";}
+else if (charBackground == 37) {GBackground = "Background: Urban Bounty Hunter";}
+else if (charBackground == 38) {GBackground = "Background: Urchin";}
+else if (charBackground == 39) {GBackground = "Background: Tribe Member"}
+else if (charBackground == 40) {GBackground = "Background: Witherbloom Student"}
+else if (charBackground == 41) {GBackground = "Background: Silverquill Student"}
+else if (charBackground == 42) {GBackground = "Background: Quandrix Student"}
+else if (charBackground == 43) {GBackground = "Background: Prismari Student"}
+else if (charBackground == 44) {GBackground = "Background: Lorehold Student"}
 }
 
 function AlignmentGen() {
@@ -1456,562 +1456,562 @@ function RollStatsBtn() {
 
 function Spell0() {
 	RNG = Math.floor(Math.random() * 46) + 1;
-        if (RNG == 1) {GSpellGen0 = "Acid Splash";}
-        else if (RNG == 2) {GSpellGen0 = "Blade Ward";}
-        else if (RNG == 3) {GSpellGen0 = "Booming Blade";}
-        else if (RNG == 4) {GSpellGen0 = "Chill Touch";}
-        else if (RNG == 5) {GSpellGen0 = "Control Flames";}
-        else if (RNG == 6) {GSpellGen0 = "Create Bonfire";}
-        else if (RNG == 7) {GSpellGen0 = "Dancing Lights";}
-        else if (RNG == 8) {GSpellGen0 = "Druidcraft";}
-        else if (RNG == 9) {GSpellGen0 = "Eldritch Blast";}
-        else if (RNG == 10) {GSpellGen0 = "Encode Thoughts";}
-        else if (RNG == 11) {GSpellGen0 = "Fire Bolt";}
-        else if (RNG == 12) {GSpellGen0 = "Friends";}
-        else if (RNG == 13) {GSpellGen0 = "Frostbite";}
-        else if (RNG == 14) {GSpellGen0 = "Green-Flame Blade";}
-        else if (RNG == 15) {GSpellGen0 = "Guidance";}
-        else if (RNG == 16) {GSpellGen0 = "Gust";}
-        else if (RNG == 17) {GSpellGen0 = "Infestation";}
-        else if (RNG == 18) {GSpellGen0 = "Light";}
-        else if (RNG == 19) {GSpellGen0 = "Lightning Lure";}
-        else if (RNG == 20) {GSpellGen0 = "Mage Hand";}
-        else if (RNG == 21) {GSpellGen0 = "Magic Stone";}
-        else if (RNG == 22) {GSpellGen0 = "Mending";}
-        else if (RNG == 23) {GSpellGen0 = "Message";}
-        else if (RNG == 24) {GSpellGen0 = "Mind Sliver";}
-        else if (RNG == 25) {GSpellGen0 = "Minor Illusion";}
-        else if (RNG == 26) {GSpellGen0 = "Mold Earth";}
-        else if (RNG == 27) {GSpellGen0 = "Poison Spray";}
-        else if (RNG == 28) {GSpellGen0 = "Prestidigitation";}
-        else if (RNG == 29) {GSpellGen0 = "Primal Savagery";}
-        else if (RNG == 30) {GSpellGen0 = "Produce Flames";}
-        else if (RNG == 31) {GSpellGen0 = "Ray of Frost";}
-        else if (RNG == 32) {GSpellGen0 = "Resistance";}
-        else if (RNG == 33) {GSpellGen0 = "Sacred Flame";}
-        else if (RNG == 34) {GSpellGen0 = "Sapping Sting";}
-        else if (RNG == 35) {GSpellGen0 = "Shape Water";}
-        else if (RNG == 36) {GSpellGen0 = "Shillelagh";}
-        else if (RNG == 37) {GSpellGen0 = "Shocking Grasp";}
-        else if (RNG == 38) {GSpellGen0 = "Spare the Dying";}
-        else if (RNG == 39) {GSpellGen0 = "Sword Burst";}
-        else if (RNG == 40) {GSpellGen0 = "Thaumaturgy";}
-        else if (RNG == 41) {GSpellGen0 = "Thorn Whip";}
-        else if (RNG == 42) {GSpellGen0 = "Thunderclap";}
-        else if (RNG == 43) {GSpellGen0 = "Toll the Dead";}
-        else if (RNG == 44) {GSpellGen0 = "True Strike";}
-        else if (RNG == 45) {GSpellGen0 = "Vicious Mockery";}
-        else if (RNG == 46) {GSpellGen0 = "Word of Radiance";}
+if (RNG == 1) {GSpellGen0 = "Acid Splash";}
+else if (RNG == 2) {GSpellGen0 = "Blade Ward";}
+else if (RNG == 3) {GSpellGen0 = "Booming Blade";}
+else if (RNG == 4) {GSpellGen0 = "Chill Touch";}
+else if (RNG == 5) {GSpellGen0 = "Control Flames";}
+else if (RNG == 6) {GSpellGen0 = "Create Bonfire";}
+else if (RNG == 7) {GSpellGen0 = "Dancing Lights";}
+else if (RNG == 8) {GSpellGen0 = "Druidcraft";}
+else if (RNG == 9) {GSpellGen0 = "Eldritch Blast";}
+else if (RNG == 10) {GSpellGen0 = "Encode Thoughts";}
+else if (RNG == 11) {GSpellGen0 = "Fire Bolt";}
+else if (RNG == 12) {GSpellGen0 = "Friends";}
+else if (RNG == 13) {GSpellGen0 = "Frostbite";}
+else if (RNG == 14) {GSpellGen0 = "Green-Flame Blade";}
+else if (RNG == 15) {GSpellGen0 = "Guidance";}
+else if (RNG == 16) {GSpellGen0 = "Gust";}
+else if (RNG == 17) {GSpellGen0 = "Infestation";}
+else if (RNG == 18) {GSpellGen0 = "Light";}
+else if (RNG == 19) {GSpellGen0 = "Lightning Lure";}
+else if (RNG == 20) {GSpellGen0 = "Mage Hand";}
+else if (RNG == 21) {GSpellGen0 = "Magic Stone";}
+else if (RNG == 22) {GSpellGen0 = "Mending";}
+else if (RNG == 23) {GSpellGen0 = "Message";}
+else if (RNG == 24) {GSpellGen0 = "Mind Sliver";}
+else if (RNG == 25) {GSpellGen0 = "Minor Illusion";}
+else if (RNG == 26) {GSpellGen0 = "Mold Earth";}
+else if (RNG == 27) {GSpellGen0 = "Poison Spray";}
+else if (RNG == 28) {GSpellGen0 = "Prestidigitation";}
+else if (RNG == 29) {GSpellGen0 = "Primal Savagery";}
+else if (RNG == 30) {GSpellGen0 = "Produce Flames";}
+else if (RNG == 31) {GSpellGen0 = "Ray of Frost";}
+else if (RNG == 32) {GSpellGen0 = "Resistance";}
+else if (RNG == 33) {GSpellGen0 = "Sacred Flame";}
+else if (RNG == 34) {GSpellGen0 = "Sapping Sting";}
+else if (RNG == 35) {GSpellGen0 = "Shape Water";}
+else if (RNG == 36) {GSpellGen0 = "Shillelagh";}
+else if (RNG == 37) {GSpellGen0 = "Shocking Grasp";}
+else if (RNG == 38) {GSpellGen0 = "Spare the Dying";}
+else if (RNG == 39) {GSpellGen0 = "Sword Burst";}
+else if (RNG == 40) {GSpellGen0 = "Thaumaturgy";}
+else if (RNG == 41) {GSpellGen0 = "Thorn Whip";}
+else if (RNG == 42) {GSpellGen0 = "Thunderclap";}
+else if (RNG == 43) {GSpellGen0 = "Toll the Dead";}
+else if (RNG == 44) {GSpellGen0 = "True Strike";}
+else if (RNG == 45) {GSpellGen0 = "Vicious Mockery";}
+else if (RNG == 46) {GSpellGen0 = "Word of Radiance";}
 }
 
 function Spell1() {
 	RNG = Math.floor(Math.random() * 79) + 1;
-        if (RNG == 1) {GSpellGen1 = "Absorb Elements";}
-        else if (RNG == 2) {GSpellGen1 = "Alarm";}
-        else if (RNG == 3) {GSpellGen1 = "Animal Friendship";}
-        else if (RNG == 4) {GSpellGen1 = "Armor of Agathys";}
-        else if (RNG == 5) {GSpellGen1 = "Arms of Hadar";}
-        else if (RNG == 6) {GSpellGen1 = "Bane";}
-        else if (RNG == 7) {GSpellGen1 = "Beast Bond";}
-        else if (RNG == 8) {GSpellGen1 = "Bless";}
-        else if (RNG == 9) {GSpellGen1 = "Burning Hands";}
-        else if (RNG == 10) {GSpellGen1 = "Catapult";}
-        else if (RNG == 11) {GSpellGen1 = "Cause Fear";}
-        else if (RNG == 12) {GSpellGen1 = "Ceremony";}
-        else if (RNG == 13) {GSpellGen1 = "Chaos Bolt";}
-        else if (RNG == 14) {GSpellGen1 = "Charm Person";}
-        else if (RNG == 15) {GSpellGen1 = "Chromatic Orb";}
-        else if (RNG == 16) {GSpellGen1 = "Color Spray";}
-        else if (RNG == 17) {GSpellGen1 = "Command";}
-        else if (RNG == 18) {GSpellGen1 = "Compelled Duel";}
-        else if (RNG == 19) {GSpellGen1 = "Comprehend Languages";}
-        else if (RNG == 20) {GSpellGen1 = "Create or Destroy Water";}
-        else if (RNG == 21) {GSpellGen1 = "Cure Wounds";}
-        else if (RNG == 22) {GSpellGen1 = "Detect Evil and Good";}
-        else if (RNG == 23) {GSpellGen1 = "Detect Magic";}
-        else if (RNG == 24) {GSpellGen1 = "Detect Poison and Disease";}
-        else if (RNG == 25) {GSpellGen1 = "Disguise Self";}
-        else if (RNG == 26) {GSpellGen1 = "Dissonant Whispers";}
-        else if (RNG == 27) {GSpellGen1 = "Distort Value";}
-        else if (RNG == 28) {GSpellGen1 = "Divine Favor";}
-        else if (RNG == 29) {GSpellGen1 = "Earth Tremor";}
-        else if (RNG == 30) {GSpellGen1 = "Ensnaring Strike";}
-        else if (RNG == 31) {GSpellGen1 = "Entangle";}
-        else if (RNG == 32) {GSpellGen1 = "Expeditious Retreat";}
-        else if (RNG == 33) {GSpellGen1 = "Faerie Fire";}
-        else if (RNG == 34) {GSpellGen1 = "False Life";}
-        else if (RNG == 35) {GSpellGen1 = "Feather Fall";}
-        else if (RNG == 36) {GSpellGen1 = "Find Familiar";}
-        else if (RNG == 37) {GSpellGen1 = "Fog Cloud";}
-        else if (RNG == 38) {GSpellGen1 = "Frost Fingers";}
-        else if (RNG == 39) {GSpellGen1 = "Gift of Alacrity";}
-        else if (RNG == 40) {GSpellGen1 = "Goodberry";}
-        else if (RNG == 41) {GSpellGen1 = "Grease";}
-        else if (RNG == 42) {GSpellGen1 = "Guiding Bolt";}
-        else if (RNG == 43) {GSpellGen1 = "Hail of Thorns";}
-        else if (RNG == 44) {GSpellGen1 = "Healing Word";}
-        else if (RNG == 45) {GSpellGen1 = "Hellish Rebuke";}
-        else if (RNG == 46) {GSpellGen1 = "Heroism";}
-        else if (RNG == 47) {GSpellGen1 = "Hex";}
-        else if (RNG == 48) {GSpellGen1 = "Hunter's Mark";}
-        else if (RNG == 49) {GSpellGen1 = "Ice Knife";}
-        else if (RNG == 50) {GSpellGen1 = "Identify";}
-        else if (RNG == 51) {GSpellGen1 = "Illusory Script";}
-        else if (RNG == 52) {GSpellGen1 = "Inflict Wounds";}
-        else if (RNG == 53) {GSpellGen1 = "Jim's Magic Missile";}
-        else if (RNG == 54) {GSpellGen1 = "Jump";}
-        else if (RNG == 55) {GSpellGen1 = "Longstrider";}
-        else if (RNG == 56) {GSpellGen1 = "Mage Armor";}
-        else if (RNG == 57) {GSpellGen1 = "Magic Missile";}
-        else if (RNG == 58) {GSpellGen1 = "Magnify Gravity";}
-        else if (RNG == 59) {GSpellGen1 = "Protection from Evil and Good";}
-        else if (RNG == 60) {GSpellGen1 = "Purify Food and Drink";}
-        else if (RNG == 61) {GSpellGen1 = "Ray of Sickness";}
-        else if (RNG == 62) {GSpellGen1 = "Sanctuary";}
-        else if (RNG == 63) {GSpellGen1 = "Searing Smite";}
-        else if (RNG == 64) {GSpellGen1 = "Shield";}
-        else if (RNG == 65) {GSpellGen1 = "Shield Of Faith";}
-        else if (RNG == 66) {GSpellGen1 = "Silent Image";}
-        else if (RNG == 67) {GSpellGen1 = "Sleep";}
-        else if (RNG == 68) {GSpellGen1 = "Snare";}
-        else if (RNG == 69) {GSpellGen1 = "Speak with Animals";}
-        else if (RNG == 70) {GSpellGen1 = "Tasha's Caustic Brew";}
-        else if (RNG == 71) {GSpellGen1 = "Tasha's Hideous Laughter";}
-        else if (RNG == 72) {GSpellGen1 = "Tenser's Floating Disk";}
-        else if (RNG == 73) {GSpellGen1 = "Thunderous Smite";}
-        else if (RNG == 74) {GSpellGen1 = "Unseen Servant";}
-        else if (RNG == 75) {GSpellGen1 = "Witch Bolt";}
-        else if (RNG == 76) {GSpellGen1 = "Wrathful Smite";}
-        else if (RNG == 77) {GSpellGen1 = "Zephyr Strike";}
-        else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
-        else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
-        else if (RNG == 79) {GSpellGen1 = "Silvery Barbs";}
+if (RNG == 1) {GSpellGen1 = "Absorb Elements";}
+else if (RNG == 2) {GSpellGen1 = "Alarm";}
+else if (RNG == 3) {GSpellGen1 = "Animal Friendship";}
+else if (RNG == 4) {GSpellGen1 = "Armor of Agathys";}
+else if (RNG == 5) {GSpellGen1 = "Arms of Hadar";}
+else if (RNG == 6) {GSpellGen1 = "Bane";}
+else if (RNG == 7) {GSpellGen1 = "Beast Bond";}
+else if (RNG == 8) {GSpellGen1 = "Bless";}
+else if (RNG == 9) {GSpellGen1 = "Burning Hands";}
+else if (RNG == 10) {GSpellGen1 = "Catapult";}
+else if (RNG == 11) {GSpellGen1 = "Cause Fear";}
+else if (RNG == 12) {GSpellGen1 = "Ceremony";}
+else if (RNG == 13) {GSpellGen1 = "Chaos Bolt";}
+else if (RNG == 14) {GSpellGen1 = "Charm Person";}
+else if (RNG == 15) {GSpellGen1 = "Chromatic Orb";}
+else if (RNG == 16) {GSpellGen1 = "Color Spray";}
+else if (RNG == 17) {GSpellGen1 = "Command";}
+else if (RNG == 18) {GSpellGen1 = "Compelled Duel";}
+else if (RNG == 19) {GSpellGen1 = "Comprehend Languages";}
+else if (RNG == 20) {GSpellGen1 = "Create or Destroy Water";}
+else if (RNG == 21) {GSpellGen1 = "Cure Wounds";}
+else if (RNG == 22) {GSpellGen1 = "Detect Evil and Good";}
+else if (RNG == 23) {GSpellGen1 = "Detect Magic";}
+else if (RNG == 24) {GSpellGen1 = "Detect Poison and Disease";}
+else if (RNG == 25) {GSpellGen1 = "Disguise Self";}
+else if (RNG == 26) {GSpellGen1 = "Dissonant Whispers";}
+else if (RNG == 27) {GSpellGen1 = "Distort Value";}
+else if (RNG == 28) {GSpellGen1 = "Divine Favor";}
+else if (RNG == 29) {GSpellGen1 = "Earth Tremor";}
+else if (RNG == 30) {GSpellGen1 = "Ensnaring Strike";}
+else if (RNG == 31) {GSpellGen1 = "Entangle";}
+else if (RNG == 32) {GSpellGen1 = "Expeditious Retreat";}
+else if (RNG == 33) {GSpellGen1 = "Faerie Fire";}
+else if (RNG == 34) {GSpellGen1 = "False Life";}
+else if (RNG == 35) {GSpellGen1 = "Feather Fall";}
+else if (RNG == 36) {GSpellGen1 = "Find Familiar";}
+else if (RNG == 37) {GSpellGen1 = "Fog Cloud";}
+else if (RNG == 38) {GSpellGen1 = "Frost Fingers";}
+else if (RNG == 39) {GSpellGen1 = "Gift of Alacrity";}
+else if (RNG == 40) {GSpellGen1 = "Goodberry";}
+else if (RNG == 41) {GSpellGen1 = "Grease";}
+else if (RNG == 42) {GSpellGen1 = "Guiding Bolt";}
+else if (RNG == 43) {GSpellGen1 = "Hail of Thorns";}
+else if (RNG == 44) {GSpellGen1 = "Healing Word";}
+else if (RNG == 45) {GSpellGen1 = "Hellish Rebuke";}
+else if (RNG == 46) {GSpellGen1 = "Heroism";}
+else if (RNG == 47) {GSpellGen1 = "Hex";}
+else if (RNG == 48) {GSpellGen1 = "Hunter's Mark";}
+else if (RNG == 49) {GSpellGen1 = "Ice Knife";}
+else if (RNG == 50) {GSpellGen1 = "Identify";}
+else if (RNG == 51) {GSpellGen1 = "Illusory Script";}
+else if (RNG == 52) {GSpellGen1 = "Inflict Wounds";}
+else if (RNG == 53) {GSpellGen1 = "Jim's Magic Missile";}
+else if (RNG == 54) {GSpellGen1 = "Jump";}
+else if (RNG == 55) {GSpellGen1 = "Longstrider";}
+else if (RNG == 56) {GSpellGen1 = "Mage Armor";}
+else if (RNG == 57) {GSpellGen1 = "Magic Missile";}
+else if (RNG == 58) {GSpellGen1 = "Magnify Gravity";}
+else if (RNG == 59) {GSpellGen1 = "Protection from Evil and Good";}
+else if (RNG == 60) {GSpellGen1 = "Purify Food and Drink";}
+else if (RNG == 61) {GSpellGen1 = "Ray of Sickness";}
+else if (RNG == 62) {GSpellGen1 = "Sanctuary";}
+else if (RNG == 63) {GSpellGen1 = "Searing Smite";}
+else if (RNG == 64) {GSpellGen1 = "Shield";}
+else if (RNG == 65) {GSpellGen1 = "Shield Of Faith";}
+else if (RNG == 66) {GSpellGen1 = "Silent Image";}
+else if (RNG == 67) {GSpellGen1 = "Sleep";}
+else if (RNG == 68) {GSpellGen1 = "Snare";}
+else if (RNG == 69) {GSpellGen1 = "Speak with Animals";}
+else if (RNG == 70) {GSpellGen1 = "Tasha's Caustic Brew";}
+else if (RNG == 71) {GSpellGen1 = "Tasha's Hideous Laughter";}
+else if (RNG == 72) {GSpellGen1 = "Tenser's Floating Disk";}
+else if (RNG == 73) {GSpellGen1 = "Thunderous Smite";}
+else if (RNG == 74) {GSpellGen1 = "Unseen Servant";}
+else if (RNG == 75) {GSpellGen1 = "Witch Bolt";}
+else if (RNG == 76) {GSpellGen1 = "Wrathful Smite";}
+else if (RNG == 77) {GSpellGen1 = "Zephyr Strike";}
+else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
+else if (RNG == 78) {GSpellGen1 = "Thunderwave";}
+else if (RNG == 79) {GSpellGen1 = "Silvery Barbs";}
 }
 
 function Spell2() {
 	RNG = Math.floor(Math.random() * 86) + 1;
-        if (RNG == 1) {GSpellGen2 = "Aganazzar's Scorcher";}
-        else if (RNG == 2) {GSpellGen2 = "Aid";}
-        else if (RNG == 3) {GSpellGen2 = "Alter Self";}
-        else if (RNG == 4) {GSpellGen2 = "Animal Messenger";}
-        else if (RNG == 5) {GSpellGen2 = "Arcane Lock";}
-        else if (RNG == 6) {GSpellGen2 = "Augury";}
-        else if (RNG == 7) {GSpellGen2 = "Barkskin";}
-        else if (RNG == 8) {GSpellGen2 = "Beast Sense";}
-        else if (RNG == 9) {GSpellGen2 = "Blindness/Deafness";}
-        else if (RNG == 10) {GSpellGen2 = "Blur";}
-        else if (RNG == 11) {GSpellGen2 = "Branding Smite";}
-        else if (RNG == 12) {GSpellGen2 = "Calm Emotions";}
-        else if (RNG == 13) {GSpellGen2 = "Cloud of Daggers";}
-        else if (RNG == 14) {GSpellGen2 = "Continual Flame";}
-        else if (RNG == 15) {GSpellGen2 = "Cordon of Arrows";}
-        else if (RNG == 16) {GSpellGen2 = "Crown of Madness";}
-        else if (RNG == 17) {GSpellGen2 = "Darkness";}
-        else if (RNG == 18) {GSpellGen2 = "Darkvision";}
-        else if (RNG == 19) {GSpellGen2 = "Detect Thoughts";}
-        else if (RNG == 20) {GSpellGen2 = "Dragon's Breath";}
-        else if (RNG == 21) {GSpellGen2 = "Dust Devil";}
-        else if (RNG == 22) {GSpellGen2 = "Earthbind";}
-        else if (RNG == 23) {GSpellGen2 = "Enhance Ability";}
-        else if (RNG == 24) {GSpellGen2 = "Enlarge/Reduce";}
-        else if (RNG == 25) {GSpellGen2 = "Enthrall";}
-        else if (RNG == 26) {GSpellGen2 = "Find Steed";}
-        else if (RNG == 27) {GSpellGen2 = "Find Traps";}
-        else if (RNG == 28) {GSpellGen2 = "Flame Blade";}
-        else if (RNG == 29) {GSpellGen2 = "Flaming Sphere";}
-        else if (RNG == 30) {GSpellGen2 = "Fortune's Favor";}
-        else if (RNG == 31) {GSpellGen2 = "Gentle Repose";}
-        else if (RNG == 32) {GSpellGen2 = "Gift of Gab";}
-        else if (RNG == 33) {GSpellGen2 = "Gust of Wind";}
-        else if (RNG == 34) {GSpellGen2 = "Healing Spirit";}
-        else if (RNG == 35) {GSpellGen2 = "Heat Metal";}
-        else if (RNG == 36) {GSpellGen2 = "Hold Person";}
-        else if (RNG == 37) {GSpellGen2 = "Immovable Object";}
-        else if (RNG == 38) {GSpellGen2 = "Invisibility";}
-        else if (RNG == 39) {GSpellGen2 = "Jim's Glowing Coin";}
-        else if (RNG == 40) {GSpellGen2 = "Knock";}
-        else if (RNG == 41) {GSpellGen2 = "Lesser Restoration";}
-        else if (RNG == 42) {GSpellGen2 = "Levitate";}
-        else if (RNG == 43) {GSpellGen2 = "Locate Animals or Plants";}
-        else if (RNG == 44) {GSpellGen2 = "Locate Object";}
-        else if (RNG == 45) {GSpellGen2 = "Magic Mouth";}
-        else if (RNG == 46) {GSpellGen2 = "Magic Weapon";}
-        else if (RNG == 47) {GSpellGen2 = "Maximilian's Earthen Grasp";}
-        else if (RNG == 48) {GSpellGen2 = "Melf's Acid Arrow";}
-        else if (RNG == 49) {GSpellGen2 = "Mind Spike";}
-        else if (RNG == 50) {GSpellGen2 = "Misty Step";}
-        else if (RNG == 51) {GSpellGen2 = "Moonbeam";}
-        else if (RNG == 52) {GSpellGen2 = "Nathair's Mischief";}
-        else if (RNG == 53) {GSpellGen2 = "Nystul's Magic Aura";}
-        else if (RNG == 54) {GSpellGen2 = "Pass without Trace";}
-        else if (RNG == 55) {GSpellGen2 = "Phantasmal Force";}
-        else if (RNG == 56) {GSpellGen2 = "Prayer of Healing";}
-        else if (RNG == 57) {GSpellGen2 = "Protection from Poison";}
-        else if (RNG == 58) {GSpellGen2 = "Pyrotechnics";}
-        else if (RNG == 59) {GSpellGen2 = "Ray of Enfeeblement";}
-        else if (RNG == 60) {GSpellGen2 = "Rime's Binding Ice";}
-        else if (RNG == 61) {GSpellGen2 = "Rope Trick";}
-        else if (RNG == 62) {GSpellGen2 = "Scorching Ray";}
-        else if (RNG == 63) {GSpellGen2 = "See Invisibility";}
-        else if (RNG == 64) {GSpellGen2 = "Shadow Blade";}
-        else if (RNG == 65) {GSpellGen2 = "Shatter";}
-        else if (RNG == 66) {GSpellGen2 = "Silence";}
-        else if (RNG == 67) {GSpellGen2 = "Skywrite";}
-        else if (RNG == 68) {GSpellGen2 = "Snilloc's Snowball Swarm";}
-        else if (RNG == 69) {GSpellGen2 = "Spider Climb";}
-        else if (RNG == 70) {GSpellGen2 = "Spike Growth";}
-        else if (RNG == 71) {GSpellGen2 = "Spiritual Weapon";}
-        else if (RNG == 72) {GSpellGen2 = "Suggestion";}
-        else if (RNG == 73) {GSpellGen2 = "Summon Beast";}
-        else if (RNG == 74) {GSpellGen2 = "Tasha's Mind Whip";}
-        else if (RNG == 75) {GSpellGen2 = "Warding Bond";}
-        else if (RNG == 76) {GSpellGen2 = "Warding Wind";}
-        else if (RNG == 77) {GSpellGen2 = "Web";}
-        else if (RNG == 78) {GSpellGen2 = "Wristpocket";}
-        else if (RNG == 79) {GSpellGen2 = "Zone of Truth";}
-        else if (RNG == 80) {GSpellGen2 = "Mirror Image";}
-        else if (RNG == 81) {GSpellGen2 = "Air Bubble";}
-        else if (RNG == 82) {GSpellGen2 = "Borrowed Knowledge";}
-        else if (RNG == 83) {GSpellGen2 = "Flock of Familiars";}
-        else if (RNG == 84) {GSpellGen2 = "Kinetic Jaunt";}
-        else if (RNG == 85) {GSpellGen2 = "Vortex Warp";}
-        else if (RNG == 86) {GSpellGen2 = "Wither and Bloom";}
+if (RNG == 1) {GSpellGen2 = "Aganazzar's Scorcher";}
+else if (RNG == 2) {GSpellGen2 = "Aid";}
+else if (RNG == 3) {GSpellGen2 = "Alter Self";}
+else if (RNG == 4) {GSpellGen2 = "Animal Messenger";}
+else if (RNG == 5) {GSpellGen2 = "Arcane Lock";}
+else if (RNG == 6) {GSpellGen2 = "Augury";}
+else if (RNG == 7) {GSpellGen2 = "Barkskin";}
+else if (RNG == 8) {GSpellGen2 = "Beast Sense";}
+else if (RNG == 9) {GSpellGen2 = "Blindness/Deafness";}
+else if (RNG == 10) {GSpellGen2 = "Blur";}
+else if (RNG == 11) {GSpellGen2 = "Branding Smite";}
+else if (RNG == 12) {GSpellGen2 = "Calm Emotions";}
+else if (RNG == 13) {GSpellGen2 = "Cloud of Daggers";}
+else if (RNG == 14) {GSpellGen2 = "Continual Flame";}
+else if (RNG == 15) {GSpellGen2 = "Cordon of Arrows";}
+else if (RNG == 16) {GSpellGen2 = "Crown of Madness";}
+else if (RNG == 17) {GSpellGen2 = "Darkness";}
+else if (RNG == 18) {GSpellGen2 = "Darkvision";}
+else if (RNG == 19) {GSpellGen2 = "Detect Thoughts";}
+else if (RNG == 20) {GSpellGen2 = "Dragon's Breath";}
+else if (RNG == 21) {GSpellGen2 = "Dust Devil";}
+else if (RNG == 22) {GSpellGen2 = "Earthbind";}
+else if (RNG == 23) {GSpellGen2 = "Enhance Ability";}
+else if (RNG == 24) {GSpellGen2 = "Enlarge/Reduce";}
+else if (RNG == 25) {GSpellGen2 = "Enthrall";}
+else if (RNG == 26) {GSpellGen2 = "Find Steed";}
+else if (RNG == 27) {GSpellGen2 = "Find Traps";}
+else if (RNG == 28) {GSpellGen2 = "Flame Blade";}
+else if (RNG == 29) {GSpellGen2 = "Flaming Sphere";}
+else if (RNG == 30) {GSpellGen2 = "Fortune's Favor";}
+else if (RNG == 31) {GSpellGen2 = "Gentle Repose";}
+else if (RNG == 32) {GSpellGen2 = "Gift of Gab";}
+else if (RNG == 33) {GSpellGen2 = "Gust of Wind";}
+else if (RNG == 34) {GSpellGen2 = "Healing Spirit";}
+else if (RNG == 35) {GSpellGen2 = "Heat Metal";}
+else if (RNG == 36) {GSpellGen2 = "Hold Person";}
+else if (RNG == 37) {GSpellGen2 = "Immovable Object";}
+else if (RNG == 38) {GSpellGen2 = "Invisibility";}
+else if (RNG == 39) {GSpellGen2 = "Jim's Glowing Coin";}
+else if (RNG == 40) {GSpellGen2 = "Knock";}
+else if (RNG == 41) {GSpellGen2 = "Lesser Restoration";}
+else if (RNG == 42) {GSpellGen2 = "Levitate";}
+else if (RNG == 43) {GSpellGen2 = "Locate Animals or Plants";}
+else if (RNG == 44) {GSpellGen2 = "Locate Object";}
+else if (RNG == 45) {GSpellGen2 = "Magic Mouth";}
+else if (RNG == 46) {GSpellGen2 = "Magic Weapon";}
+else if (RNG == 47) {GSpellGen2 = "Maximilian's Earthen Grasp";}
+else if (RNG == 48) {GSpellGen2 = "Melf's Acid Arrow";}
+else if (RNG == 49) {GSpellGen2 = "Mind Spike";}
+else if (RNG == 50) {GSpellGen2 = "Misty Step";}
+else if (RNG == 51) {GSpellGen2 = "Moonbeam";}
+else if (RNG == 52) {GSpellGen2 = "Nathair's Mischief";}
+else if (RNG == 53) {GSpellGen2 = "Nystul's Magic Aura";}
+else if (RNG == 54) {GSpellGen2 = "Pass without Trace";}
+else if (RNG == 55) {GSpellGen2 = "Phantasmal Force";}
+else if (RNG == 56) {GSpellGen2 = "Prayer of Healing";}
+else if (RNG == 57) {GSpellGen2 = "Protection from Poison";}
+else if (RNG == 58) {GSpellGen2 = "Pyrotechnics";}
+else if (RNG == 59) {GSpellGen2 = "Ray of Enfeeblement";}
+else if (RNG == 60) {GSpellGen2 = "Rime's Binding Ice";}
+else if (RNG == 61) {GSpellGen2 = "Rope Trick";}
+else if (RNG == 62) {GSpellGen2 = "Scorching Ray";}
+else if (RNG == 63) {GSpellGen2 = "See Invisibility";}
+else if (RNG == 64) {GSpellGen2 = "Shadow Blade";}
+else if (RNG == 65) {GSpellGen2 = "Shatter";}
+else if (RNG == 66) {GSpellGen2 = "Silence";}
+else if (RNG == 67) {GSpellGen2 = "Skywrite";}
+else if (RNG == 68) {GSpellGen2 = "Snilloc's Snowball Swarm";}
+else if (RNG == 69) {GSpellGen2 = "Spider Climb";}
+else if (RNG == 70) {GSpellGen2 = "Spike Growth";}
+else if (RNG == 71) {GSpellGen2 = "Spiritual Weapon";}
+else if (RNG == 72) {GSpellGen2 = "Suggestion";}
+else if (RNG == 73) {GSpellGen2 = "Summon Beast";}
+else if (RNG == 74) {GSpellGen2 = "Tasha's Mind Whip";}
+else if (RNG == 75) {GSpellGen2 = "Warding Bond";}
+else if (RNG == 76) {GSpellGen2 = "Warding Wind";}
+else if (RNG == 77) {GSpellGen2 = "Web";}
+else if (RNG == 78) {GSpellGen2 = "Wristpocket";}
+else if (RNG == 79) {GSpellGen2 = "Zone of Truth";}
+else if (RNG == 80) {GSpellGen2 = "Mirror Image";}
+else if (RNG == 81) {GSpellGen2 = "Air Bubble";}
+else if (RNG == 82) {GSpellGen2 = "Borrowed Knowledge";}
+else if (RNG == 83) {GSpellGen2 = "Flock of Familiars";}
+else if (RNG == 84) {GSpellGen2 = "Kinetic Jaunt";}
+else if (RNG == 85) {GSpellGen2 = "Vortex Warp";}
+else if (RNG == 86) {GSpellGen2 = "Wither and Bloom";}
 }
 
 function Spell3() {
 	RNG = Math.floor(Math.random() * 74) + 1;
-        if (RNG == 1) {GSpellGen3 = "Animate Dead";}
-        else if (RNG == 2) {GSpellGen3 = "Ashardalon's Stride";}
-        else if (RNG == 3) {GSpellGen3 = "Aura of Vitality";}
-        else if (RNG == 4) {GSpellGen3 = "Beacon of Hope";}
-        else if (RNG == 5) {GSpellGen3 = "Bestow Curse";}
-        else if (RNG == 6) {GSpellGen3 = "Blinding Smite";}
-        else if (RNG == 7) {GSpellGen3 = "Blink";}
-        else if (RNG == 8) {GSpellGen3 = "Call Lightning";}
-        else if (RNG == 9) {GSpellGen3 = "Catnap";}
-        else if (RNG == 10) {GSpellGen3 = "Clairvoyance";}
-        else if (RNG == 11) {GSpellGen3 = "Conjure Animals";}
-        else if (RNG == 12) {GSpellGen3 = "Conjure Barrage";}
-        else if (RNG == 13) {GSpellGen3 = "Counterspell";}
-        else if (RNG == 14) {GSpellGen3 = "Create Food and Water";}
-        else if (RNG == 15) {GSpellGen3 = "Crusader's Mantle";}
-        else if (RNG == 16) {GSpellGen3 = "Daylight";}
-        else if (RNG == 17) {GSpellGen3 = "Dispel Magic";}
-        else if (RNG == 18) {GSpellGen3 = "Elemental Weapon";}
-        else if (RNG == 19) {GSpellGen3 = "Enemies Abound";}
-        else if (RNG == 20) {GSpellGen3 = "Erupting Earth";}
-        else if (RNG == 21) {GSpellGen3 = "Fast Friends";}
-        else if (RNG == 22) {GSpellGen3 = "Fear";}
-        else if (RNG == 23) {GSpellGen3 = "Feign Death";}
-        else if (RNG == 24) {GSpellGen3 = "Fireball";}
-        else if (RNG == 25) {GSpellGen3 = "Flame Arrows";}
-        else if (RNG == 26) {GSpellGen3 = "Fly";}
-        else if (RNG == 27) {GSpellGen3 = "Gaseous Form";}
-        else if (RNG == 28) {GSpellGen3 = "Glyph of Warding";}
-        else if (RNG == 29) {GSpellGen3 = "Haste";}
-        else if (RNG == 30) {GSpellGen3 = "Hunger of Hadar";}
-        else if (RNG == 31) {GSpellGen3 = "Hypnotic Pattern";}
-        else if (RNG == 32) {GSpellGen3 = "Incite Greed";}
-        else if (RNG == 33) {GSpellGen3 = "Intellect Fortress";}
-        else if (RNG == 34) {GSpellGen3 = "Leomund's Tiny Hut";}
-        else if (RNG == 35) {GSpellGen3 = "Life Transference";}
-        else if (RNG == 36) {GSpellGen3 = "Lightning Arrow";}
-        else if (RNG == 37) {GSpellGen3 = "Lightning Bolt";}
-        else if (RNG == 38) {GSpellGen3 = "Magic Circle";}
-        else if (RNG == 39) {GSpellGen3 = "Major Image";}
-        else if (RNG == 40) {GSpellGen3 = "Mass Healing Word";}
-        else if (RNG == 41) {GSpellGen3 = "Meld into Stone";}
-        else if (RNG == 42) {GSpellGen3 = "Melf's Minute Meteors";}
-        else if (RNG == 43) {GSpellGen3 = "Motivational Speech";}
-        else if (RNG == 44) {GSpellGen3 = "Nondetection";}
-        else if (RNG == 45) {GSpellGen3 = "Phantom Steed";}
-        else if (RNG == 46) {GSpellGen3 = "Plant Growth";}
-        else if (RNG == 47) {GSpellGen3 = "Protection from Energy";}
-        else if (RNG == 48) {GSpellGen3 = "Pulse Wave";}
-        else if (RNG == 49) {GSpellGen3 = "Remove Curse";}
-        else if (RNG == 50) {GSpellGen3 = "Revivify";}
-        else if (RNG == 51) {GSpellGen3 = "Sending";}
-        else if (RNG == 52) {GSpellGen3 = "Sleet Storm";}
-        else if (RNG == 53) {GSpellGen3 = "Slow";}
-        else if (RNG == 54) {GSpellGen3 = "Speak with Dead";}
-        else if (RNG == 55) {GSpellGen3 = "Speak with Plants";}
-        else if (RNG == 56) {GSpellGen3 = "Spirit Guardians";}
-        else if (RNG == 57) {GSpellGen3 = "Spirit Shroud";}
-        else if (RNG == 58) {GSpellGen3 = "Stinking Cloud";}
-        else if (RNG == 59) {GSpellGen3 = "Summon Fey";}
-        else if (RNG == 60) {GSpellGen3 = "Summon Lesser Demons";}
-        else if (RNG == 61) {GSpellGen3 = "Summon Shadowspawn";}
-        else if (RNG == 62) {GSpellGen3 = "Summon Undead";}
-        else if (RNG == 63) {GSpellGen3 = "Thunder Step";}
-        else if (RNG == 64) {GSpellGen3 = "Tidal Wave";}
-        else if (RNG == 65) {GSpellGen3 = "Tiny Servant";}
-        else if (RNG == 66) {GSpellGen3 = "Tongues";}
-        else if (RNG == 67) {GSpellGen3 = "Vampiric Touch";}
-        else if (RNG == 68) {GSpellGen3 = "Wall of Sand";}
-        else if (RNG == 69) {GSpellGen3 = "Wall of Water";}
-        else if (RNG == 70) {GSpellGen3 = "Water Breathing";}
-        else if (RNG == 71) {GSpellGen3 = "Water Walk";}
-        else if (RNG == 72) {GSpellGen3 = "Wind Wall";}
-        else if (RNG == 73) {GSpellGen3 = "Galder's Tower";}
-        else if (RNG == 74) {GSpellGen3 = "Linked Glyphs";}
+if (RNG == 1) {GSpellGen3 = "Animate Dead";}
+else if (RNG == 2) {GSpellGen3 = "Ashardalon's Stride";}
+else if (RNG == 3) {GSpellGen3 = "Aura of Vitality";}
+else if (RNG == 4) {GSpellGen3 = "Beacon of Hope";}
+else if (RNG == 5) {GSpellGen3 = "Bestow Curse";}
+else if (RNG == 6) {GSpellGen3 = "Blinding Smite";}
+else if (RNG == 7) {GSpellGen3 = "Blink";}
+else if (RNG == 8) {GSpellGen3 = "Call Lightning";}
+else if (RNG == 9) {GSpellGen3 = "Catnap";}
+else if (RNG == 10) {GSpellGen3 = "Clairvoyance";}
+else if (RNG == 11) {GSpellGen3 = "Conjure Animals";}
+else if (RNG == 12) {GSpellGen3 = "Conjure Barrage";}
+else if (RNG == 13) {GSpellGen3 = "Counterspell";}
+else if (RNG == 14) {GSpellGen3 = "Create Food and Water";}
+else if (RNG == 15) {GSpellGen3 = "Crusader's Mantle";}
+else if (RNG == 16) {GSpellGen3 = "Daylight";}
+else if (RNG == 17) {GSpellGen3 = "Dispel Magic";}
+else if (RNG == 18) {GSpellGen3 = "Elemental Weapon";}
+else if (RNG == 19) {GSpellGen3 = "Enemies Abound";}
+else if (RNG == 20) {GSpellGen3 = "Erupting Earth";}
+else if (RNG == 21) {GSpellGen3 = "Fast Friends";}
+else if (RNG == 22) {GSpellGen3 = "Fear";}
+else if (RNG == 23) {GSpellGen3 = "Feign Death";}
+else if (RNG == 24) {GSpellGen3 = "Fireball";}
+else if (RNG == 25) {GSpellGen3 = "Flame Arrows";}
+else if (RNG == 26) {GSpellGen3 = "Fly";}
+else if (RNG == 27) {GSpellGen3 = "Gaseous Form";}
+else if (RNG == 28) {GSpellGen3 = "Glyph of Warding";}
+else if (RNG == 29) {GSpellGen3 = "Haste";}
+else if (RNG == 30) {GSpellGen3 = "Hunger of Hadar";}
+else if (RNG == 31) {GSpellGen3 = "Hypnotic Pattern";}
+else if (RNG == 32) {GSpellGen3 = "Incite Greed";}
+else if (RNG == 33) {GSpellGen3 = "Intellect Fortress";}
+else if (RNG == 34) {GSpellGen3 = "Leomund's Tiny Hut";}
+else if (RNG == 35) {GSpellGen3 = "Life Transference";}
+else if (RNG == 36) {GSpellGen3 = "Lightning Arrow";}
+else if (RNG == 37) {GSpellGen3 = "Lightning Bolt";}
+else if (RNG == 38) {GSpellGen3 = "Magic Circle";}
+else if (RNG == 39) {GSpellGen3 = "Major Image";}
+else if (RNG == 40) {GSpellGen3 = "Mass Healing Word";}
+else if (RNG == 41) {GSpellGen3 = "Meld into Stone";}
+else if (RNG == 42) {GSpellGen3 = "Melf's Minute Meteors";}
+else if (RNG == 43) {GSpellGen3 = "Motivational Speech";}
+else if (RNG == 44) {GSpellGen3 = "Nondetection";}
+else if (RNG == 45) {GSpellGen3 = "Phantom Steed";}
+else if (RNG == 46) {GSpellGen3 = "Plant Growth";}
+else if (RNG == 47) {GSpellGen3 = "Protection from Energy";}
+else if (RNG == 48) {GSpellGen3 = "Pulse Wave";}
+else if (RNG == 49) {GSpellGen3 = "Remove Curse";}
+else if (RNG == 50) {GSpellGen3 = "Revivify";}
+else if (RNG == 51) {GSpellGen3 = "Sending";}
+else if (RNG == 52) {GSpellGen3 = "Sleet Storm";}
+else if (RNG == 53) {GSpellGen3 = "Slow";}
+else if (RNG == 54) {GSpellGen3 = "Speak with Dead";}
+else if (RNG == 55) {GSpellGen3 = "Speak with Plants";}
+else if (RNG == 56) {GSpellGen3 = "Spirit Guardians";}
+else if (RNG == 57) {GSpellGen3 = "Spirit Shroud";}
+else if (RNG == 58) {GSpellGen3 = "Stinking Cloud";}
+else if (RNG == 59) {GSpellGen3 = "Summon Fey";}
+else if (RNG == 60) {GSpellGen3 = "Summon Lesser Demons";}
+else if (RNG == 61) {GSpellGen3 = "Summon Shadowspawn";}
+else if (RNG == 62) {GSpellGen3 = "Summon Undead";}
+else if (RNG == 63) {GSpellGen3 = "Thunder Step";}
+else if (RNG == 64) {GSpellGen3 = "Tidal Wave";}
+else if (RNG == 65) {GSpellGen3 = "Tiny Servant";}
+else if (RNG == 66) {GSpellGen3 = "Tongues";}
+else if (RNG == 67) {GSpellGen3 = "Vampiric Touch";}
+else if (RNG == 68) {GSpellGen3 = "Wall of Sand";}
+else if (RNG == 69) {GSpellGen3 = "Wall of Water";}
+else if (RNG == 70) {GSpellGen3 = "Water Breathing";}
+else if (RNG == 71) {GSpellGen3 = "Water Walk";}
+else if (RNG == 72) {GSpellGen3 = "Wind Wall";}
+else if (RNG == 73) {GSpellGen3 = "Galder's Tower";}
+else if (RNG == 74) {GSpellGen3 = "Linked Glyphs";}
 }
 
 function Spell4() {
 	RNG = Math.floor(Math.random() * 51) + 1;
-        if (RNG == 1) {GSpellGen4 = "Arcane Eye";}
-        else if (RNG == 2) {GSpellGen4 = "Aura of Life";}
-        else if (RNG == 3) {GSpellGen4 = "Aura of Purity";}
-        else if (RNG == 4) {GSpellGen4 = "Banishment";}
-        else if (RNG == 5) {GSpellGen4 = "Blight";}
-        else if (RNG == 6) {GSpellGen4 = "Charm Monster";}
-        else if (RNG == 7) {GSpellGen4 = "Compulsion";}
-        else if (RNG == 8) {GSpellGen4 = "Confusion";}
-        else if (RNG == 9) {GSpellGen4 = "Conjure Minor Elementals";}
-        else if (RNG == 10) {GSpellGen4 = "Conjure Woodland Beings";}
-        else if (RNG == 11) {GSpellGen4 = "Control Water";}
-        else if (RNG == 12) {GSpellGen4 = "Death Ward";}
-        else if (RNG == 13) {GSpellGen4 = "Dimension Door";}
-        else if (RNG == 14) {GSpellGen4 = "Divination";}
-        else if (RNG == 15) {GSpellGen4 = "Dominate Beast";}
-        else if (RNG == 16) {GSpellGen4 = "Elemental Bane";}
-        else if (RNG == 17) {GSpellGen4 = "Evard's Black Tentacles";}
-        else if (RNG == 18) {GSpellGen4 = "Fabricate";}
-        else if (RNG == 19) {GSpellGen4 = "Find Greater Steed";}
-        else if (RNG == 20) {GSpellGen4 = "Fire Shield";}
-        else if (RNG == 21) {GSpellGen4 = "Freedom of Movement";}
-        else if (RNG == 22) {GSpellGen4 = "Giant Insect";}
-        else if (RNG == 23) {GSpellGen4 = "Grasping Vine";}
-        else if (RNG == 24) {GSpellGen4 = "Gravity Sinkhole";}
-        else if (RNG == 25) {GSpellGen4 = "Greater invisibility";}
-        else if (RNG == 26) {GSpellGen4 = "Guardian of Faith";}
-        else if (RNG == 27) {GSpellGen4 = "Guardian of Nature";}
-        else if (RNG == 28) {GSpellGen4 = "Hallucinatory Terrain";}
-        else if (RNG == 29) {GSpellGen4 = "Ice Storm";}
-        else if (RNG == 30) {GSpellGen4 = "Leomund's Secret Chest";}
-        else if (RNG == 31) {GSpellGen4 = "Locate Creature";}
-        else if (RNG == 32) {GSpellGen4 = "Mordenkainen's Fithful hound";}
-        else if (RNG == 33) {GSpellGen4 = "Mordenkainen's Private Sanctum";}
-        else if (RNG == 34) {GSpellGen4 = "Otiluke's Resilient Sphere";}
-        else if (RNG == 35) {GSpellGen4 = "Phantasmal Killer";}
-        else if (RNG == 36) {GSpellGen4 = "Polymorph";}
-        else if (RNG == 37) {GSpellGen4 = "Raulothim's Psychic Lance";}
-        else if (RNG == 38) {GSpellGen4 = "Shadow of Moil";}
-        else if (RNG == 39) {GSpellGen4 = "Sickening Radiance";}
-        else if (RNG == 40) {GSpellGen4 = "Staggering Smite";}
-        else if (RNG == 41) {GSpellGen4 = "Stone Shape";}
-        else if (RNG == 42) {GSpellGen4 = "Stoneskin";}
-        else if (RNG == 43) {GSpellGen4 = "Storm Sphere";}
-        else if (RNG == 44) {GSpellGen4 = "Summon Aberration";}
-        else if (RNG == 45) {GSpellGen4 = "Summon Construct";}
-        else if (RNG == 46) {GSpellGen4 = "Summon Elemental";}
-        else if (RNG == 47) {GSpellGen4 = "Summon Greater Demon";}
-        else if (RNG == 48) {GSpellGen4 = "Vitriolic Sphere";}
-        else if (RNG == 49) {GSpellGen4 = "Wall of Fire";}
-        else if (RNG == 50) {GSpellGen4 = "Watery Sphere";}
-        else if (RNG == 51) {GSpellGen4 = "Galder's Speedy Courier";}
+if (RNG == 1) {GSpellGen4 = "Arcane Eye";}
+else if (RNG == 2) {GSpellGen4 = "Aura of Life";}
+else if (RNG == 3) {GSpellGen4 = "Aura of Purity";}
+else if (RNG == 4) {GSpellGen4 = "Banishment";}
+else if (RNG == 5) {GSpellGen4 = "Blight";}
+else if (RNG == 6) {GSpellGen4 = "Charm Monster";}
+else if (RNG == 7) {GSpellGen4 = "Compulsion";}
+else if (RNG == 8) {GSpellGen4 = "Confusion";}
+else if (RNG == 9) {GSpellGen4 = "Conjure Minor Elementals";}
+else if (RNG == 10) {GSpellGen4 = "Conjure Woodland Beings";}
+else if (RNG == 11) {GSpellGen4 = "Control Water";}
+else if (RNG == 12) {GSpellGen4 = "Death Ward";}
+else if (RNG == 13) {GSpellGen4 = "Dimension Door";}
+else if (RNG == 14) {GSpellGen4 = "Divination";}
+else if (RNG == 15) {GSpellGen4 = "Dominate Beast";}
+else if (RNG == 16) {GSpellGen4 = "Elemental Bane";}
+else if (RNG == 17) {GSpellGen4 = "Evard's Black Tentacles";}
+else if (RNG == 18) {GSpellGen4 = "Fabricate";}
+else if (RNG == 19) {GSpellGen4 = "Find Greater Steed";}
+else if (RNG == 20) {GSpellGen4 = "Fire Shield";}
+else if (RNG == 21) {GSpellGen4 = "Freedom of Movement";}
+else if (RNG == 22) {GSpellGen4 = "Giant Insect";}
+else if (RNG == 23) {GSpellGen4 = "Grasping Vine";}
+else if (RNG == 24) {GSpellGen4 = "Gravity Sinkhole";}
+else if (RNG == 25) {GSpellGen4 = "Greater invisibility";}
+else if (RNG == 26) {GSpellGen4 = "Guardian of Faith";}
+else if (RNG == 27) {GSpellGen4 = "Guardian of Nature";}
+else if (RNG == 28) {GSpellGen4 = "Hallucinatory Terrain";}
+else if (RNG == 29) {GSpellGen4 = "Ice Storm";}
+else if (RNG == 30) {GSpellGen4 = "Leomund's Secret Chest";}
+else if (RNG == 31) {GSpellGen4 = "Locate Creature";}
+else if (RNG == 32) {GSpellGen4 = "Mordenkainen's Fithful hound";}
+else if (RNG == 33) {GSpellGen4 = "Mordenkainen's Private Sanctum";}
+else if (RNG == 34) {GSpellGen4 = "Otiluke's Resilient Sphere";}
+else if (RNG == 35) {GSpellGen4 = "Phantasmal Killer";}
+else if (RNG == 36) {GSpellGen4 = "Polymorph";}
+else if (RNG == 37) {GSpellGen4 = "Raulothim's Psychic Lance";}
+else if (RNG == 38) {GSpellGen4 = "Shadow of Moil";}
+else if (RNG == 39) {GSpellGen4 = "Sickening Radiance";}
+else if (RNG == 40) {GSpellGen4 = "Staggering Smite";}
+else if (RNG == 41) {GSpellGen4 = "Stone Shape";}
+else if (RNG == 42) {GSpellGen4 = "Stoneskin";}
+else if (RNG == 43) {GSpellGen4 = "Storm Sphere";}
+else if (RNG == 44) {GSpellGen4 = "Summon Aberration";}
+else if (RNG == 45) {GSpellGen4 = "Summon Construct";}
+else if (RNG == 46) {GSpellGen4 = "Summon Elemental";}
+else if (RNG == 47) {GSpellGen4 = "Summon Greater Demon";}
+else if (RNG == 48) {GSpellGen4 = "Vitriolic Sphere";}
+else if (RNG == 49) {GSpellGen4 = "Wall of Fire";}
+else if (RNG == 50) {GSpellGen4 = "Watery Sphere";}
+else if (RNG == 51) {GSpellGen4 = "Galder's Speedy Courier";}
 }
 
 function Spell5() {
 	RNG = Math.floor(Math.random() * 61) + 1;
-        if (RNG == 1) {GSpellGen5 = "Animate Objects";}
-        else if (RNG == 2) {GSpellGen5 = "Anitlife shell";}
-        else if (RNG == 3) {GSpellGen5 = "Awaken";}
-        else if (RNG == 4) {GSpellGen5 = "Banishing Smite";}
-        else if (RNG == 5) {GSpellGen5 = "Bigby's Hand";}
-        else if (RNG == 6) {GSpellGen5 = "Circle of Power";}
-        else if (RNG == 7) {GSpellGen5 = "Cloudkill";}
-        else if (RNG == 8) {GSpellGen5 = "Commune";}
-        else if (RNG == 9) {GSpellGen5 = "Commune with Nature";}
-        else if (RNG == 10) {GSpellGen5 = "Cone of Cold";}
-        else if (RNG == 11) {GSpellGen5 = "Conjure Elemental";}
-        else if (RNG == 12) {GSpellGen5 = "Conjure Volley";}
-        else if (RNG == 13) {GSpellGen5 = "Contact Other Plane";}
-        else if (RNG == 14) {GSpellGen5 = "Contagion";}
-        else if (RNG == 15) {GSpellGen5 = "Control Winds";}
-        else if (RNG == 16) {GSpellGen5 = "Creation";}
-        else if (RNG == 17) {GSpellGen5 = "Danse Macabre";}
-        else if (RNG == 18) {GSpellGen5 = "Dawn";}
-        else if (RNG == 19) {GSpellGen5 = "Destructive Wave";}
-        else if (RNG == 20) {GSpellGen5 = "Dispel Evil and Good";}
-        else if (RNG == 21) {GSpellGen5 = "Dominate Person";}
-        else if (RNG == 22) {GSpellGen5 = "Dream";}
-        else if (RNG == 23) {GSpellGen5 = "Enervation";}
-        else if (RNG == 24) {GSpellGen5 = "Far Step";}
-        else if (RNG == 25) {GSpellGen5 = "Flame Strike";}
-        else if (RNG == 26) {GSpellGen5 = "Geas";}
-        else if (RNG == 27) {GSpellGen5 = "Greater Restoration";}
-        else if (RNG == 28) {GSpellGen5 = "Hallow";}
-        else if (RNG == 29) {GSpellGen5 = "Hold Monster";}
-        else if (RNG == 30) {GSpellGen5 = "Holy Weapon";}
-        else if (RNG == 31) {GSpellGen5 = "Immolation";}
-        else if (RNG == 32) {GSpellGen5 = "Infernal Callling";}
-        else if (RNG == 33) {GSpellGen5 = "Insect Plague";}
-        else if (RNG == 34) {GSpellGen5 = "Legend Lore";}
-        else if (RNG == 35) {GSpellGen5 = "Maelstrom";}
-        else if (RNG == 36) {GSpellGen5 = "Mass Cure Wounds";}
-        else if (RNG == 37) {GSpellGen5 = "Mislead";}
-        else if (RNG == 38) {GSpellGen5 = "Modify Memory";}
-        else if (RNG == 39) {GSpellGen5 = "Negative Energy Flood";}
-        else if (RNG == 40) {GSpellGen5 = "Passwall";}
-        else if (RNG == 41) {GSpellGen5 = "Planar Binding";}
-        else if (RNG == 42) {GSpellGen5 = "Raise Dead";}
-        else if (RNG == 43) {GSpellGen5 = "Rary's Telepathic Bond";}
-        else if (RNG == 44) {GSpellGen5 = "Reincarnate";}
-        else if (RNG == 45) {GSpellGen5 = "Scrying";}
-        else if (RNG == 46) {GSpellGen5 = "Seeming";}
-        else if (RNG == 47) {GSpellGen5 = "Skill Empowerment";}
-        else if (RNG == 48) {GSpellGen5 = "Steel Wind Strike";}
-        else if (RNG == 49) {GSpellGen5 = "Summon Celestial";}
-        else if (RNG == 50) {GSpellGen5 = "Summon Draconic Spirit";}
-        else if (RNG == 51) {GSpellGen5 = "Swift Quiver";}
-        else if (RNG == 52) {GSpellGen5 = "Synaptic Static";}
-        else if (RNG == 53) {GSpellGen5 = "Telekinesis";}
-        else if (RNG == 54) {GSpellGen5 = "Teleportation Circle";}
-        else if (RNG == 55) {GSpellGen5 = "Temporal Shunt";}
-        else if (RNG == 56) {GSpellGen5 = "Transmute Rock";}
-        else if (RNG == 57) {GSpellGen5 = "Tree Stride";}
-        else if (RNG == 58) {GSpellGen5 = "Wall of Force";}
-        else if (RNG == 59) {GSpellGen5 = "Wall of Light";}
-        else if (RNG == 60) {GSpellGen5 = "Wall of Stone";}
-        else if (RNG == 61) {GSpellGen5 = "Wrath of Nature";}
+if (RNG == 1) {GSpellGen5 = "Animate Objects";}
+else if (RNG == 2) {GSpellGen5 = "Anitlife shell";}
+else if (RNG == 3) {GSpellGen5 = "Awaken";}
+else if (RNG == 4) {GSpellGen5 = "Banishing Smite";}
+else if (RNG == 5) {GSpellGen5 = "Bigby's Hand";}
+else if (RNG == 6) {GSpellGen5 = "Circle of Power";}
+else if (RNG == 7) {GSpellGen5 = "Cloudkill";}
+else if (RNG == 8) {GSpellGen5 = "Commune";}
+else if (RNG == 9) {GSpellGen5 = "Commune with Nature";}
+else if (RNG == 10) {GSpellGen5 = "Cone of Cold";}
+else if (RNG == 11) {GSpellGen5 = "Conjure Elemental";}
+else if (RNG == 12) {GSpellGen5 = "Conjure Volley";}
+else if (RNG == 13) {GSpellGen5 = "Contact Other Plane";}
+else if (RNG == 14) {GSpellGen5 = "Contagion";}
+else if (RNG == 15) {GSpellGen5 = "Control Winds";}
+else if (RNG == 16) {GSpellGen5 = "Creation";}
+else if (RNG == 17) {GSpellGen5 = "Danse Macabre";}
+else if (RNG == 18) {GSpellGen5 = "Dawn";}
+else if (RNG == 19) {GSpellGen5 = "Destructive Wave";}
+else if (RNG == 20) {GSpellGen5 = "Dispel Evil and Good";}
+else if (RNG == 21) {GSpellGen5 = "Dominate Person";}
+else if (RNG == 22) {GSpellGen5 = "Dream";}
+else if (RNG == 23) {GSpellGen5 = "Enervation";}
+else if (RNG == 24) {GSpellGen5 = "Far Step";}
+else if (RNG == 25) {GSpellGen5 = "Flame Strike";}
+else if (RNG == 26) {GSpellGen5 = "Geas";}
+else if (RNG == 27) {GSpellGen5 = "Greater Restoration";}
+else if (RNG == 28) {GSpellGen5 = "Hallow";}
+else if (RNG == 29) {GSpellGen5 = "Hold Monster";}
+else if (RNG == 30) {GSpellGen5 = "Holy Weapon";}
+else if (RNG == 31) {GSpellGen5 = "Immolation";}
+else if (RNG == 32) {GSpellGen5 = "Infernal Callling";}
+else if (RNG == 33) {GSpellGen5 = "Insect Plague";}
+else if (RNG == 34) {GSpellGen5 = "Legend Lore";}
+else if (RNG == 35) {GSpellGen5 = "Maelstrom";}
+else if (RNG == 36) {GSpellGen5 = "Mass Cure Wounds";}
+else if (RNG == 37) {GSpellGen5 = "Mislead";}
+else if (RNG == 38) {GSpellGen5 = "Modify Memory";}
+else if (RNG == 39) {GSpellGen5 = "Negative Energy Flood";}
+else if (RNG == 40) {GSpellGen5 = "Passwall";}
+else if (RNG == 41) {GSpellGen5 = "Planar Binding";}
+else if (RNG == 42) {GSpellGen5 = "Raise Dead";}
+else if (RNG == 43) {GSpellGen5 = "Rary's Telepathic Bond";}
+else if (RNG == 44) {GSpellGen5 = "Reincarnate";}
+else if (RNG == 45) {GSpellGen5 = "Scrying";}
+else if (RNG == 46) {GSpellGen5 = "Seeming";}
+else if (RNG == 47) {GSpellGen5 = "Skill Empowerment";}
+else if (RNG == 48) {GSpellGen5 = "Steel Wind Strike";}
+else if (RNG == 49) {GSpellGen5 = "Summon Celestial";}
+else if (RNG == 50) {GSpellGen5 = "Summon Draconic Spirit";}
+else if (RNG == 51) {GSpellGen5 = "Swift Quiver";}
+else if (RNG == 52) {GSpellGen5 = "Synaptic Static";}
+else if (RNG == 53) {GSpellGen5 = "Telekinesis";}
+else if (RNG == 54) {GSpellGen5 = "Teleportation Circle";}
+else if (RNG == 55) {GSpellGen5 = "Temporal Shunt";}
+else if (RNG == 56) {GSpellGen5 = "Transmute Rock";}
+else if (RNG == 57) {GSpellGen5 = "Tree Stride";}
+else if (RNG == 58) {GSpellGen5 = "Wall of Force";}
+else if (RNG == 59) {GSpellGen5 = "Wall of Light";}
+else if (RNG == 60) {GSpellGen5 = "Wall of Stone";}
+else if (RNG == 61) {GSpellGen5 = "Wrath of Nature";}
 }
 
 function Spell6() {
 	RNG = Math.floor(Math.random() * 48) + 1;
-        if (RNG == 1) {GSpellGen6 = "Arcane Gate";}
-        else if (RNG == 2) {GSpellGen6 = "Blade Barrier";}
-        else if (RNG == 3) {GSpellGen6 = "Bones of the Earth";}
-        else if (RNG == 4) {GSpellGen6 = "Chain Lightning";}
-        else if (RNG == 5) {GSpellGen6 = "Circle of Death";}
-        else if (RNG == 6) {GSpellGen6 = "Conjure Fey";}
-        else if (RNG == 7) {GSpellGen6 = "Contingency";}
-        else if (RNG == 8) {GSpellGen6 = "Create Homunculus";}
-        else if (RNG == 9) {GSpellGen6 = "Create Undead";}
-        else if (RNG == 10) {GSpellGen6 = "Disentegrate";}
-        else if (RNG == 11) {GSpellGen6 = "Drawmij's Instant Summons";}
-        else if (RNG == 12) {GSpellGen6 = "Druid Grove";}
-        else if (RNG == 13) {GSpellGen6 = "Eyebite";}
-        else if (RNG == 14) {GSpellGen6 = "Find the Path";}
-        else if (RNG == 15) {GSpellGen6 = "Fizban's Platinum Shield";}
-        else if (RNG == 16) {GSpellGen6 = "Flesh to Stone";}
-        else if (RNG == 17) {GSpellGen6 = "Forbiddance";}
-        else if (RNG == 18) {GSpellGen6 = "Globe of Invulnerability";}
-        else if (RNG == 19) {GSpellGen6 = "Gravity Fissure";}
-        else if (RNG == 20) {GSpellGen6 = "Guards and Wards";}
-        else if (RNG == 21) {GSpellGen6 = "Harm";}
-        else if (RNG == 22) {GSpellGen6 = "Heal";}
-        else if (RNG == 23) {GSpellGen6 = "Heroes' Feast";}
-        else if (RNG == 24) {GSpellGen6 = "Investiture of Flame";}
-        else if (RNG == 25) {GSpellGen6 = "Investiture of Ice";}
-        else if (RNG == 26) {GSpellGen6 = "Investiture of Stone";}
-        else if (RNG == 27) {GSpellGen6 = "Investiture of Wind";}
-        else if (RNG == 28) {GSpellGen6 = "Magic Jar";}
-        else if (RNG == 29) {GSpellGen6 = "Mass Suggestion";}
-        else if (RNG == 30) {GSpellGen6 = "Mental Prison";}
-        else if (RNG == 31) {GSpellGen6 = "Move Earth";}
-        else if (RNG == 32) {GSpellGen6 = "Otiluke's Freezing Sphere";}
-        else if (RNG == 33) {GSpellGen6 = "Otto's Irresistible Dance";}
-        else if (RNG == 34) {GSpellGen6 = "Planar Ally";}
-        else if (RNG == 35) {GSpellGen6 = "Primordial Ward";}
-        else if (RNG == 36) {GSpellGen6 = "Programmed Illusion";}
-        else if (RNG == 37) {GSpellGen6 = "Scatter";}
-        else if (RNG == 38) {GSpellGen6 = "Soul Cage";}
-        else if (RNG == 39) {GSpellGen6 = "Summon Fiend";}
-        else if (RNG == 40) {GSpellGen6 = "Sunbeam";}
-        else if (RNG == 41) {GSpellGen6 = "Tasha's Otherworldly Guise";}
-        else if (RNG == 42) {GSpellGen6 = "Tenser's Transformation";}
-        else if (RNG == 43) {GSpellGen6 = "Transport via Plants";}
-        else if (RNG == 44) {GSpellGen6 = "True Seeing";}
-        else if (RNG == 45) {GSpellGen6 = "Wall of Ice";}
-        else if (RNG == 46) {GSpellGen6 = "Wall of Thorns";}
-        else if (RNG == 47) {GSpellGen6 = "Wind Walk";}
-        else if (RNG == 48) {GSpellGen6 = "Word of Recall";}
+if (RNG == 1) {GSpellGen6 = "Arcane Gate";}
+else if (RNG == 2) {GSpellGen6 = "Blade Barrier";}
+else if (RNG == 3) {GSpellGen6 = "Bones of the Earth";}
+else if (RNG == 4) {GSpellGen6 = "Chain Lightning";}
+else if (RNG == 5) {GSpellGen6 = "Circle of Death";}
+else if (RNG == 6) {GSpellGen6 = "Conjure Fey";}
+else if (RNG == 7) {GSpellGen6 = "Contingency";}
+else if (RNG == 8) {GSpellGen6 = "Create Homunculus";}
+else if (RNG == 9) {GSpellGen6 = "Create Undead";}
+else if (RNG == 10) {GSpellGen6 = "Disentegrate";}
+else if (RNG == 11) {GSpellGen6 = "Drawmij's Instant Summons";}
+else if (RNG == 12) {GSpellGen6 = "Druid Grove";}
+else if (RNG == 13) {GSpellGen6 = "Eyebite";}
+else if (RNG == 14) {GSpellGen6 = "Find the Path";}
+else if (RNG == 15) {GSpellGen6 = "Fizban's Platinum Shield";}
+else if (RNG == 16) {GSpellGen6 = "Flesh to Stone";}
+else if (RNG == 17) {GSpellGen6 = "Forbiddance";}
+else if (RNG == 18) {GSpellGen6 = "Globe of Invulnerability";}
+else if (RNG == 19) {GSpellGen6 = "Gravity Fissure";}
+else if (RNG == 20) {GSpellGen6 = "Guards and Wards";}
+else if (RNG == 21) {GSpellGen6 = "Harm";}
+else if (RNG == 22) {GSpellGen6 = "Heal";}
+else if (RNG == 23) {GSpellGen6 = "Heroes' Feast";}
+else if (RNG == 24) {GSpellGen6 = "Investiture of Flame";}
+else if (RNG == 25) {GSpellGen6 = "Investiture of Ice";}
+else if (RNG == 26) {GSpellGen6 = "Investiture of Stone";}
+else if (RNG == 27) {GSpellGen6 = "Investiture of Wind";}
+else if (RNG == 28) {GSpellGen6 = "Magic Jar";}
+else if (RNG == 29) {GSpellGen6 = "Mass Suggestion";}
+else if (RNG == 30) {GSpellGen6 = "Mental Prison";}
+else if (RNG == 31) {GSpellGen6 = "Move Earth";}
+else if (RNG == 32) {GSpellGen6 = "Otiluke's Freezing Sphere";}
+else if (RNG == 33) {GSpellGen6 = "Otto's Irresistible Dance";}
+else if (RNG == 34) {GSpellGen6 = "Planar Ally";}
+else if (RNG == 35) {GSpellGen6 = "Primordial Ward";}
+else if (RNG == 36) {GSpellGen6 = "Programmed Illusion";}
+else if (RNG == 37) {GSpellGen6 = "Scatter";}
+else if (RNG == 38) {GSpellGen6 = "Soul Cage";}
+else if (RNG == 39) {GSpellGen6 = "Summon Fiend";}
+else if (RNG == 40) {GSpellGen6 = "Sunbeam";}
+else if (RNG == 41) {GSpellGen6 = "Tasha's Otherworldly Guise";}
+else if (RNG == 42) {GSpellGen6 = "Tenser's Transformation";}
+else if (RNG == 43) {GSpellGen6 = "Transport via Plants";}
+else if (RNG == 44) {GSpellGen6 = "True Seeing";}
+else if (RNG == 45) {GSpellGen6 = "Wall of Ice";}
+else if (RNG == 46) {GSpellGen6 = "Wall of Thorns";}
+else if (RNG == 47) {GSpellGen6 = "Wind Walk";}
+else if (RNG == 48) {GSpellGen6 = "Word of Recall";}
 }
 
 function Spell7() {
 	RNG = Math.floor(Math.random() * 28) + 1;
-        if (RNG == 1) {GSpellGen7 = "Conjure Celestial";}
-        else if (RNG == 2) {GSpellGen7 = "Create Magen";}
-        else if (RNG == 3) {GSpellGen7 = "Crown of Stars";}
-        else if (RNG == 4) {GSpellGen7 = "Delayed Blast Fireball";}
-        else if (RNG == 5) {GSpellGen7 = "Divine Word";}
-        else if (RNG == 6) {GSpellGen7 = "Draconic Transformation";}
-        else if (RNG == 7) {GSpellGen7 = "Dream of the Blue Veil";}
-        else if (RNG == 8) {GSpellGen7 = "Etherealness";}
-        else if (RNG == 9) {GSpellGen7 = "Finger of Death";}
-        else if (RNG == 10) {GSpellGen7 = "Fire Storm";}
-        else if (RNG == 11) {GSpellGen7 = "Forcecage";}
-        else if (RNG == 12) {GSpellGen7 = "Mirage Arcane";}
-        else if (RNG == 13) {GSpellGen7 = "Mordenkainen's Magnificent Mansion";}
-        else if (RNG == 14) {GSpellGen7 = "Mordenkainen's Sword";}
-        else if (RNG == 15) {GSpellGen7 = "Plane Shift";}
-        else if (RNG == 16) {GSpellGen7 = "Power Word Pain";}
-        else if (RNG == 17) {GSpellGen7 = "Prismatic Spray";}
-        else if (RNG == 18) {GSpellGen7 = "Project Image";}
-        else if (RNG == 19) {GSpellGen7 = "Regenerate";}
-        else if (RNG == 20) {GSpellGen7 = "Resurrection";}
-        else if (RNG == 21) {GSpellGen7 = "Reverse Gravity";}
-        else if (RNG == 22) {GSpellGen7 = "Sequester";}
-        else if (RNG == 23) {GSpellGen7 = "Simulacrum";}
-        else if (RNG == 24) {GSpellGen7 = "Symbol";}
-        else if (RNG == 25) {GSpellGen7 = "Teleport";}
-        else if (RNG == 26) {GSpellGen7 = "Temple of the Gods";}
-        else if (RNG == 27) {GSpellGen7 = "Tether Essence";}
-        else if (RNG == 28) {GSpellGen7 = "Whirlwind";}
+if (RNG == 1) {GSpellGen7 = "Conjure Celestial";}
+else if (RNG == 2) {GSpellGen7 = "Create Magen";}
+else if (RNG == 3) {GSpellGen7 = "Crown of Stars";}
+else if (RNG == 4) {GSpellGen7 = "Delayed Blast Fireball";}
+else if (RNG == 5) {GSpellGen7 = "Divine Word";}
+else if (RNG == 6) {GSpellGen7 = "Draconic Transformation";}
+else if (RNG == 7) {GSpellGen7 = "Dream of the Blue Veil";}
+else if (RNG == 8) {GSpellGen7 = "Etherealness";}
+else if (RNG == 9) {GSpellGen7 = "Finger of Death";}
+else if (RNG == 10) {GSpellGen7 = "Fire Storm";}
+else if (RNG == 11) {GSpellGen7 = "Forcecage";}
+else if (RNG == 12) {GSpellGen7 = "Mirage Arcane";}
+else if (RNG == 13) {GSpellGen7 = "Mordenkainen's Magnificent Mansion";}
+else if (RNG == 14) {GSpellGen7 = "Mordenkainen's Sword";}
+else if (RNG == 15) {GSpellGen7 = "Plane Shift";}
+else if (RNG == 16) {GSpellGen7 = "Power Word Pain";}
+else if (RNG == 17) {GSpellGen7 = "Prismatic Spray";}
+else if (RNG == 18) {GSpellGen7 = "Project Image";}
+else if (RNG == 19) {GSpellGen7 = "Regenerate";}
+else if (RNG == 20) {GSpellGen7 = "Resurrection";}
+else if (RNG == 21) {GSpellGen7 = "Reverse Gravity";}
+else if (RNG == 22) {GSpellGen7 = "Sequester";}
+else if (RNG == 23) {GSpellGen7 = "Simulacrum";}
+else if (RNG == 24) {GSpellGen7 = "Symbol";}
+else if (RNG == 25) {GSpellGen7 = "Teleport";}
+else if (RNG == 26) {GSpellGen7 = "Temple of the Gods";}
+else if (RNG == 27) {GSpellGen7 = "Tether Essence";}
+else if (RNG == 28) {GSpellGen7 = "Whirlwind";}
 }
 
 function Spell8() {
 	RNG = Math.floor(Math.random() * 24) + 1;
-        if (RNG == 1) {GSpellGen8 = "Abi-Dalzim's Horrid Writing";}
-        else if (RNG == 2) {GSpellGen8 = "Animal Shapes";}
-        else if (RNG == 3) {GSpellGen8 = "Anitpathy/Sympathy";}
-        else if (RNG == 4) {GSpellGen8 = "Clone";}
-        else if (RNG == 5) {GSpellGen8 = "Control Weather";}
-        else if (RNG == 6) {GSpellGen8 = "Dark Star";}
-        else if (RNG == 7) {GSpellGen8 = "Demiplane";}
-        else if (RNG == 8) {GSpellGen8 = "Dominate Monster";}
-        else if (RNG == 9) {GSpellGen8 = "Earthquake";}
-        else if (RNG == 10) {GSpellGen8 = "Feeblemind";}
-        else if (RNG == 11) {GSpellGen8 = "Glibness";}
-        else if (RNG == 12) {GSpellGen8 = "Holy Aura";}
-        else if (RNG == 13) {GSpellGen8 = "Illusory Dragon";}
-        else if (RNG == 14) {GSpellGen8 = "Incendiary Cloud";}
-        else if (RNG == 15) {GSpellGen8 = "Maddening Darkness";}
-        else if (RNG == 16) {GSpellGen8 = "Maze";}
-        else if (RNG == 17) {GSpellGen8 = "Mighty Fortress";}
-        else if (RNG == 18) {GSpellGen8 = "Mind Blank";}
-        else if (RNG == 19) {GSpellGen8 = "Power Word Stun";}
-        else if (RNG == 20) {GSpellGen8 = "Reality Break";}
-        else if (RNG == 21) {GSpellGen8 = "Sunburst";}
-        else if (RNG == 22) {GSpellGen8 = "Telepathy";}
-        else if (RNG == 23) {GSpellGen8 = "Tsunami";}
-        else if (RNG == 24) {GSpellGen8 = "Antimagic Field";}
+if (RNG == 1) {GSpellGen8 = "Abi-Dalzim's Horrid Writing";}
+else if (RNG == 2) {GSpellGen8 = "Animal Shapes";}
+else if (RNG == 3) {GSpellGen8 = "Anitpathy/Sympathy";}
+else if (RNG == 4) {GSpellGen8 = "Clone";}
+else if (RNG == 5) {GSpellGen8 = "Control Weather";}
+else if (RNG == 6) {GSpellGen8 = "Dark Star";}
+else if (RNG == 7) {GSpellGen8 = "Demiplane";}
+else if (RNG == 8) {GSpellGen8 = "Dominate Monster";}
+else if (RNG == 9) {GSpellGen8 = "Earthquake";}
+else if (RNG == 10) {GSpellGen8 = "Feeblemind";}
+else if (RNG == 11) {GSpellGen8 = "Glibness";}
+else if (RNG == 12) {GSpellGen8 = "Holy Aura";}
+else if (RNG == 13) {GSpellGen8 = "Illusory Dragon";}
+else if (RNG == 14) {GSpellGen8 = "Incendiary Cloud";}
+else if (RNG == 15) {GSpellGen8 = "Maddening Darkness";}
+else if (RNG == 16) {GSpellGen8 = "Maze";}
+else if (RNG == 17) {GSpellGen8 = "Mighty Fortress";}
+else if (RNG == 18) {GSpellGen8 = "Mind Blank";}
+else if (RNG == 19) {GSpellGen8 = "Power Word Stun";}
+else if (RNG == 20) {GSpellGen8 = "Reality Break";}
+else if (RNG == 21) {GSpellGen8 = "Sunburst";}
+else if (RNG == 22) {GSpellGen8 = "Telepathy";}
+else if (RNG == 23) {GSpellGen8 = "Tsunami";}
+else if (RNG == 24) {GSpellGen8 = "Antimagic Field";}
 }
 
 function Spell9() {
 	RNG = Math.floor(Math.random() * 22) + 1;
-        if (RNG == 1) {GSpellGen9 = "Astral Projection";}
-        else if (RNG == 2) {GSpellGen9 = "Blade of Disaster";}
-        else if (RNG == 3) {GSpellGen9 = "Foresight";}
-        else if (RNG == 4) {GSpellGen9 = "Gate";}
-        else if (RNG == 5) {GSpellGen9 = "Imprisonment";}
-        else if (RNG == 6) {GSpellGen9 = "Invulnerability";}
-        else if (RNG == 7) {GSpellGen9 = "Mass Heal";}
-        else if (RNG == 8) {GSpellGen9 = "Mass Polymorph";}
-        else if (RNG == 9) {GSpellGen9 = "Meteor Swarm";}
-        else if (RNG == 10) {GSpellGen9 = "Power Word Heal";}
-        else if (RNG == 11) {GSpellGen9 = "Power Word Kill";}
-        else if (RNG == 12) {GSpellGen9 = "Prismatic Wall";}
-        else if (RNG == 13) {GSpellGen9 = "Psychic Scream";}
-        else if (RNG == 14) {GSpellGen9 = "Ravenous Void";}
-        else if (RNG == 15) {GSpellGen9 = "Shapechange";}
-        else if (RNG == 16) {GSpellGen9 = "Storm of Vengeance";}
-        else if (RNG == 17) {GSpellGen9 = "Time Ravage";}
-        else if (RNG == 18) {GSpellGen9 = "Time Stop";}
-        else if (RNG == 19) {GSpellGen9 = "True Polymorph";}
-        else if (RNG == 20) {GSpellGen9 = "True Resurrection";}
-        else if (RNG == 21) {GSpellGen9 = "Weird";}
-        else if (RNG == 22) {GSpellGen9 = "Wish";}
+if (RNG == 1) {GSpellGen9 = "Astral Projection";}
+else if (RNG == 2) {GSpellGen9 = "Blade of Disaster";}
+else if (RNG == 3) {GSpellGen9 = "Foresight";}
+else if (RNG == 4) {GSpellGen9 = "Gate";}
+else if (RNG == 5) {GSpellGen9 = "Imprisonment";}
+else if (RNG == 6) {GSpellGen9 = "Invulnerability";}
+else if (RNG == 7) {GSpellGen9 = "Mass Heal";}
+else if (RNG == 8) {GSpellGen9 = "Mass Polymorph";}
+else if (RNG == 9) {GSpellGen9 = "Meteor Swarm";}
+else if (RNG == 10) {GSpellGen9 = "Power Word Heal";}
+else if (RNG == 11) {GSpellGen9 = "Power Word Kill";}
+else if (RNG == 12) {GSpellGen9 = "Prismatic Wall";}
+else if (RNG == 13) {GSpellGen9 = "Psychic Scream";}
+else if (RNG == 14) {GSpellGen9 = "Ravenous Void";}
+else if (RNG == 15) {GSpellGen9 = "Shapechange";}
+else if (RNG == 16) {GSpellGen9 = "Storm of Vengeance";}
+else if (RNG == 17) {GSpellGen9 = "Time Ravage";}
+else if (RNG == 18) {GSpellGen9 = "Time Stop";}
+else if (RNG == 19) {GSpellGen9 = "True Polymorph";}
+else if (RNG == 20) {GSpellGen9 = "True Resurrection";}
+else if (RNG == 21) {GSpellGen9 = "Weird";}
+else if (RNG == 22) {GSpellGen9 = "Wish";}
 }
 
 function SpellScrollBtn() {
@@ -2033,793 +2033,793 @@ function EnemyGenMod() {
 	let ModX = ``
 	if (document.getElementById("modEliteCheck").checked == true) {modElite = 10} else {modElite = Math.floor(Math.random() * 10) + 1;}
 	if (modRoll == 1) {
-            if (modElite == 10) {
-                GMod = `[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 14} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 2) + 2}d6 + ${GTier + 6} bludgeoning damage.`;}
-            else {
-                GMod = `[Grappler] \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 12} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 3) + 1}d6 + ${GTier + 4} bludgeoning damage.`;}
-            }
-        else if (modRoll == 2) {
-            if (modElite == 10) {GMultiattack += 2;
-                GMod = `[Armed] (Elite) \nThe creature grows two extra limbs. The creature can attack 2 extra times each turn.`;}
-            else {GMultiattack += 1;
-                GMod = `[Armed] \nThe creature grows an extra limb. The creature can attack 1 extra time each turn.`;}
-            }
-        else if (modRoll == 3) {
-            if (modElite == 10) {
-                GMod = `[Muscular] (Elite) \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice and gains +${GTier + 3} damage.`;}
-            else {
-                GMod = `[Muscular] \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice.`;}
-            }
-        else if (modRoll == 4) {
-            if (modElite == 10) {
-                GMod = `[Split] (Elite) \nThe creature is weaker and smaller, but has two identical clones of itself.`;}
-            else {
-                GMod = `[Split] \nThe creature is weaker and smaller, but has an identical clone of itself.`;}
-            }
-        else if (modRoll == 5) {
-            if (modElite == 10) {
-                GMod = `[Shadow Form] (Elite) \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows up to 60 feet away. Twice per turn, it can half the damage of one attack.`;}
-            else {
-                GMod = `[Shadow Form] \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows. Once per turn, it can half the damage of one attack.`;}
-            }
-        else if (modRoll == 6) {
-            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
-                GMod = `[Blazing] (Elite) \nThe creature has a 30 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 2}d6 fire damage. \n\nIt can cast Burning Hands and Scorching Ray at will, is Immune to Fire, and is Vulnerable to Cold.`;}
-            else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
-                GMod = `[Blazing] \nThe creature has a 15 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 fire damage. \n\nIt can cast Burning Hands at will, has Resistance to Fire, and is Vulnerable to Cold.`;}
-            }
-        else if (modRoll == 7) {
-            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}
-                GMod = `[Drenched] (Elite) \nThe creature is lightly obscured in mist \n\nIt can cast Wall of Water and Watery Sphere at will, has 40 ft. of swim speed, is Immune to Fire and Cold, and is Vulnerable to Lightning.`;}
-            else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {} if (GRes.includes("cold") == false) {GRes.push("cold")} else {}
-                GMod = `[Drenched] \nThe creature is lightly obscured in mist. \n\nIt can cast Wall of Water at will, is Resistant to Fire and Cold, and is Vulnerable to Lightning.`;}
-            }
-        else if (modRoll == 8) {
-            if (modElite == 10) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
-                GMod = `[Glacial] (Elite) \nThe creature has a 30 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 3}d6 cold damage. \n\nIt can cast Ice Knife and Rimes Binding Ice at will, is Immune to Cold, and is Vulnerable to Fire.`;}
-            else {if (GRes.includes("cold") == false) {GRes.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
-                GMod = `[Glacial] \nThe creature has a 15 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 cold damage. \n\nIt can cast Ice Knife at will, is Resistant to Cold, and is Vulnerable to Fire.`;}
-            }
-        else if (modRoll == 9) {
-            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
-                GMod = `[Storming] (Elite) \nThe creature has a 30 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 lightning damage and make a DC ${GTier + 12} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow and Lightning Bolt at will, is Immune to Lightning, and is Vulnerable to Psychic.`;}
-            else {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
-                GMod = `[Storming] \nThe creature has a 15 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 lightning damage and make a DC ${GTier + 10} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow at will, is Resistant to Lightning, and is Vulnerable to Psychic.`;}
-            }
-        else if (modRoll == 10) {
-            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {} if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
-                GMod = `[Grounded] (Elite) \nThe creature has a 40 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp and Erupting Earth at will, is Immune to Lightning, is Resistant to Physical, and is Vulnerable to Thunder.`;}
-            else {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
-                GMod = `[Grounded] \nThe creature has a 20 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp at will, is Immune to Lightning, and is Vulnerable to Thunder.`;}
-            }
-        else if (modRoll == 11) {
-            if (modElite == 10) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
-                GMod = `[Wispy] (Elite) \nAll projeciles fired at the creature are made with disadvantage and the creature can hover. \n\nIt can cast Wind Wall and Pulse Wave at will, is Immune to Thunder, and is Vulnerable to Fire.`;}
-            else {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
-                GMod = `[Wispy] \nAll projeciles fired at the creature are made with disadvantage. \n\nIt can cast Wind Wall at will, is Resistant to Thunder, and is Vulnerable to Fire.`;}
-            }
-        else if (modRoll == 12) {
-            if (modElite == 10) {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
-                GMod = `[Venomous] (Elite) \nOn Non-Spell attacks, the target makes a DC ${GTier + 14} Con Save. On a fail, they take ${Math.ceil(GPB / 2) + 3}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream and Stinking Cloud at will, is Immune to Poison and Disease, and is Vulnerable to Radiant.`;}
-            else {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GRes.includes("poison") == false) {GRes.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
-                GMod = `[Venomous] \nOn Non-Spell attacks, the target makes a DC ${GTier + 12} Con Save. On a fail, they take ${Math.ceil(GPB / 3) + 1}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream at will, is Immune to Disease, is Resistant to Poison, and is Vulnerable to Radiant.`;}
-            }
-        else if (modRoll == 13) {
-            if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
-                GMod = `[Decaying] (Elite) \nThe creature has a 60 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 25. \n\nIt can cast Wither and Bloom and Blight at will, is Immune to Necrotic, and is Vulnerable to Radiant.`;}
-            else {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
-                GMod = `[Decaying] \nThe creature has a 30 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 15. \n\nIt can cast Wither and Bloom at will, is Resistant to Necrotic, and is Vulnerable to Radiant.`;}
-            }
-        else if (modRoll == 14) {
-            if (modElite == 10) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
-                GMod = `[Radiant] (Elite) \nThe creature has a 20 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite and Dawn at will, is Immune to Radiant, and is Resistant to Necrotic.`;}
-            else {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
-                GMod = `[Radiant] \nThe creature has a 10 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite at will, is Resistant to Radiant, and is Vulnerable to Necrotic.`;}
-            }
-        else if (modRoll == 15) {
-            if (modElite == 10) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
-                GMod = `[Psionic] (Elite) \nThe creature has advantage on Attacks made on creatures within 60 ft. and advantage on Saving Throws against effect originating from within 60 ft. \n\nThe creature can cast Mind Thrust and Psychic Lance at will, is Immune to Psychic, and is Vulnerable to Thunder.`;}
-            else {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
-                GMod = `[Psionic] \nThe creature has advantage on Attacks made on creatures within 30 ft. and advantage on Saving Throws against effect originating from within 30 ft. \n\nThe creature can cast Mind Thrust at will, is Resistant to Psychic, and is Vulnerable to Thunder.`;}
-            }
-        else if (modRoll == 16) {
-            if (modElite == 10) {
-                GMod = `[Ocular] (Elite) \nThe creature has grown two random Beholder eye stalks. The effects and damage are at 66% normal effectiveness. The Save DC is ${GTier + 14}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
-            else {
-                GMod = `[Ocular] \nThe creature has grown a random Beholder eye stalk. The effects and damage are at 33% normal effectiveness. The Save DC is ${GTier + 12}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
-            }
-        else if (modRoll == 17) {
-            if (modElite == 10) {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 20;}
-                GMod = `[Winged] (Elite) \nThe creature gains a pair of wings and 60 ft. of fly speed and can cast Gust of Wind as a Bonus Action.`;}
-            else {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 10;}
-                GMod = `[Winged] \nThe creature gains a pair of wings and 40 ft. of fly speed.`;}
-            }
-        else if (modRoll == 18) {
-            if (modElite == 10) {
-                GMod = `[Reckless] (Elite) \nAll attacks made by the creature are made at advantage.`;}
-            else {
-                GMod = `[Reckless] \nAll attacks made by and against the creature are made at advantage.`;}
-            }
-        else if (modRoll == 19) {
-            if (modElite == 10) {
-                GMod = `[Stalker] (Elite) \nThe creature has +5 to stealth rolls and can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 2) + 1}d6 damage.`;}
-            else {
-                GMod = `[Stalker] \nThe creature can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
-            }
-        else if (modRoll == 20) {
-            if (modElite == 10) {
-                GMod = `[Hypnotist] (Elite) \nThe creature can cast Dominate Monster four times and can have a maximum of 2 creatures dominated at a time. The Save DC is ${GTier + 14}.`;}
-            else {
-                GMod = `[Hypnotist] \nThe creature can cast Dominate Monster twice and can have a maximum of 1 creature dominated at a time. The Save DC is ${GTier + 12}.`;}
-            }
-        else if (modRoll == 21) {
-            if (modElite == 10) {
-                GMod = `[Observant] (Elite) \nThe creatures grows many extra eyes on its body. It gains +10 and advantage to Perception rolls and cannot be surprised.`;}
-            else {
-                GMod = `[Observant] \nThe creatures grows many extra eyes on its body. It gains +5 to Perception rolls and cannot be surprised.`;}
-            }
-        else if (modRoll == 22) {
-            if (modElite == 10) {
-                GMod = `[Sticky] (Elite) \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 14}.`;}
-            else {
-                GMod = `[Sticky] \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 12}.`;}
-            }
-        else if (modRoll == 23) {
-            if (modElite == 10) {
-                GMod = `[Repulsor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pushed back 15 ft.`;}
-            else {
-                GMod = `[Repulsor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pushed back 10 ft.`;}
-            }
-        else if (modRoll == 24) {
-            if (modElite == 10) {
-                GMod = `[Attractor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pulled 15 ft. closer.`;}
-            else {
-                GMod = `[Attractor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pulled 10 ft. closer.`;}
-            }
-        else if (modRoll == 25) {
-            if (modElite == 10) {
-                GMod = `[Spell Eater] (Elite) \nDamage dealt by Spells or effects that consume a Spell Slot has a 50% chance to heal the creature instead.`;}
-            else {
-                GMod = `[Spell Eater] \nDamage dealt by Spells or effects that consume a Spell Slot has a 25% chance to heal the creature instead.`;}
-            }
-        else if (modRoll == 26) {
-            if (modElite == 10) {if (GMagic == "Caster"){EnemyGenMod();} else {
+if (modElite == 10) {
+GMod = `[Grappler] (Elite) \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 14} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 2) + 2}d6 + ${GTier + 6} bludgeoning damage.`;}
+else {
+GMod = `[Grappler] \nThe creatures grows a tentacle somewhere on its body. \n---Bonus Action--- \nDC ${GTier + 12} Grapple. Restrained. On following turns, can crush, throw, or slam to deal ${Math.ceil(GPB / 3) + 1}d6 + ${GTier + 4} bludgeoning damage.`;}
+}
+else if (modRoll == 2) {
+if (modElite == 10) {GMultiattack += 2;
+GMod = `[Armed] (Elite) \nThe creature grows two extra limbs. The creature can attack 2 extra times each turn.`;}
+else {GMultiattack += 1;
+GMod = `[Armed] \nThe creature grows an extra limb. The creature can attack 1 extra time each turn.`;}
+}
+else if (modRoll == 3) {
+if (modElite == 10) {
+GMod = `[Muscular] (Elite) \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice and gains +${GTier + 3} damage.`;}
+else {
+GMod = `[Muscular] \nThe creature bulks up. Non-Spell attacks deal up to half of the dice of an attack as extra damage, minimum 1 dice.`;}
+}
+else if (modRoll == 4) {
+if (modElite == 10) {
+GMod = `[Split] (Elite) \nThe creature is weaker and smaller, but has two identical clones of itself.`;}
+else {
+GMod = `[Split] \nThe creature is weaker and smaller, but has an identical clone of itself.`;}
+}
+else if (modRoll == 5) {
+if (modElite == 10) {
+GMod = `[Shadow Form] (Elite) \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows up to 60 feet away. Twice per turn, it can half the damage of one attack.`;}
+else {
+GMod = `[Shadow Form] \nThe creature gains a connection to the shadows. It can cast Misty Step when in shadow to other shadows. Once per turn, it can half the damage of one attack.`;}
+}
+else if (modRoll == 6) {
+if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
+GMod = `[Blazing] (Elite) \nThe creature has a 30 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 2}d6 fire damage. \n\nIt can cast Burning Hands and Scorching Ray at will, is Immune to Fire, and is Vulnerable to Cold.`;}
+else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
+GMod = `[Blazing] \nThe creature has a 15 ft. radius aura of fire that lights objects on fire. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 fire damage. \n\nIt can cast Burning Hands at will, has Resistance to Fire, and is Vulnerable to Cold.`;}
+}
+else if (modRoll == 7) {
+if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire")} if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {}
+GMod = `[Drenched] (Elite) \nThe creature is lightly obscured in mist \n\nIt can cast Wall of Water and Watery Sphere at will, has 40 ft. of swim speed, is Immune to Fire and Cold, and is Vulnerable to Lightning.`;}
+else {if (GRes.includes("fire") == false) {GRes.push("fire")} else {} if (GVuln.includes("lightning") == false) {GVuln.push("lightning")} else {} if (GRes.includes("cold") == false) {GRes.push("cold")} else {}
+GMod = `[Drenched] \nThe creature is lightly obscured in mist. \n\nIt can cast Wall of Water at will, is Resistant to Fire and Cold, and is Vulnerable to Lightning.`;}
+}
+else if (modRoll == 8) {
+if (modElite == 10) {if (GImmune.includes("cold") == false) {GImmune.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+GMod = `[Glacial] (Elite) \nThe creature has a 30 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 2) + 3}d6 cold damage. \n\nIt can cast Ice Knife and Rimes Binding Ice at will, is Immune to Cold, and is Vulnerable to Fire.`;}
+else {if (GRes.includes("cold") == false) {GRes.push("cold")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+GMod = `[Glacial] \nThe creature has a 15 ft. radius aura of cold that slows movement speeds within by half. Creatures that enter the aura for the first time or start their turn in the aura take ${Math.ceil(GPB / 3) + 1}d6 cold damage. \n\nIt can cast Ice Knife at will, is Resistant to Cold, and is Vulnerable to Fire.`;}
+}
+else if (modRoll == 9) {
+if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
+GMod = `[Storming] (Elite) \nThe creature has a 30 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 4d6 lightning damage and make a DC ${GTier + 12} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow and Lightning Bolt at will, is Immune to Lightning, and is Vulnerable to Psychic.`;}
+else {if (GRes.includes("lightning") == false) {GRes.push("lightning")} else {} if (GVuln.includes("psychic") == false) {GVuln.push("psychic")} else {}
+GMod = `[Storming] \nThe creature has a 15 ft. radius aura of lightning. Creatures that enter the aura for the first time or start their turn in the aura take 2d6 lightning damage and make a DC ${GTier + 10} Con Save or be paralyzed until their next turn. \n\nIt can cast Lightning Arrow at will, is Resistant to Lightning, and is Vulnerable to Psychic.`;}
+}
+else if (modRoll == 10) {
+if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {} if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
+GMod = `[Grounded] (Elite) \nThe creature has a 40 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp and Erupting Earth at will, is Immune to Lightning, is Resistant to Physical, and is Vulnerable to Thunder.`;}
+else {if (GImmune.includes("lightning") == false) {GImmune.push("lightning")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+GMod = `[Grounded] \nThe creature has a 20 ft. radius aura of rumbling ground that is difficult terrain. \n\nIt can cast Maximillians Earthen Grasp at will, is Immune to Lightning, and is Vulnerable to Thunder.`;}
+}
+else if (modRoll == 11) {
+if (modElite == 10) {if (GImmune.includes("thunder") == false) {GImmune.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+GMod = `[Wispy] (Elite) \nAll projeciles fired at the creature are made with disadvantage and the creature can hover. \n\nIt can cast Wind Wall and Pulse Wave at will, is Immune to Thunder, and is Vulnerable to Fire.`;}
+else {if (GRes.includes("thunder") == false) {GRes.push("thunder")} else {} if (GVuln.includes("fire") == false) {GVuln.push("fire")} else {}
+GMod = `[Wispy] \nAll projeciles fired at the creature are made with disadvantage. \n\nIt can cast Wind Wall at will, is Resistant to Thunder, and is Vulnerable to Fire.`;}
+}
+else if (modRoll == 12) {
+if (modElite == 10) {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+GMod = `[Venomous] (Elite) \nOn Non-Spell attacks, the target makes a DC ${GTier + 14} Con Save. On a fail, they take ${Math.ceil(GPB / 2) + 3}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream and Stinking Cloud at will, is Immune to Poison and Disease, and is Vulnerable to Radiant.`;}
+else {if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GRes.includes("poison") == false) {GRes.push("poison")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+GMod = `[Venomous] \nOn Non-Spell attacks, the target makes a DC ${GTier + 12} Con Save. On a fail, they take ${Math.ceil(GPB / 3) + 1}d6 poison damage and are Poisoned. Half damage on a save. \n\nIt can cast Acid Stream at will, is Immune to Disease, is Resistant to Poison, and is Vulnerable to Radiant.`;}
+}
+else if (modRoll == 13) {
+if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+GMod = `[Decaying] (Elite) \nThe creature has a 60 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 25. \n\nIt can cast Wither and Bloom and Blight at will, is Immune to Necrotic, and is Vulnerable to Radiant.`;}
+else {if (GRes.includes("necrotic") == false) {GRes.push("necrotic")} else {} if (GVuln.includes("radiant") == false) {GVuln.push("radiant")} else {}
+GMod = `[Decaying] \nThe creature has a 30 ft. aura of death. Creatures that enter the aura or start their turn in the aura have their Maximum Hit Points reduced by 15. \n\nIt can cast Wither and Bloom at will, is Resistant to Necrotic, and is Vulnerable to Radiant.`;}
+}
+else if (modRoll == 14) {
+if (modElite == 10) {if (GImmune.includes("radiant") == false) {GImmune.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
+GMod = `[Radiant] (Elite) \nThe creature has a 20 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite and Dawn at will, is Immune to Radiant, and is Resistant to Necrotic.`;}
+else {if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {} if (GVuln.includes("necrotic") == false) {GVuln.push("necrotic")} else {}
+GMod = `[Radiant] \nThe creature has a 10 ft. aura of bright light. Creatures within the aura are considered Blinded. \n\nIt can cast Branding Smite at will, is Resistant to Radiant, and is Vulnerable to Necrotic.`;}
+}
+else if (modRoll == 15) {
+if (modElite == 10) {if (GImmune.includes("psychic") == false) {GImmune.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+GMod = `[Psionic] (Elite) \nThe creature has advantage on Attacks made on creatures within 60 ft. and advantage on Saving Throws against effect originating from within 60 ft. \n\nThe creature can cast Mind Thrust and Psychic Lance at will, is Immune to Psychic, and is Vulnerable to Thunder.`;}
+else {if (GRes.includes("psychic") == false) {GRes.push("psychic")} else {} if (GVuln.includes("thunder") == false) {GVuln.push("thunder")} else {}
+GMod = `[Psionic] \nThe creature has advantage on Attacks made on creatures within 30 ft. and advantage on Saving Throws against effect originating from within 30 ft. \n\nThe creature can cast Mind Thrust at will, is Resistant to Psychic, and is Vulnerable to Thunder.`;}
+}
+else if (modRoll == 16) {
+if (modElite == 10) {
+GMod = `[Ocular] (Elite) \nThe creature has grown two random Beholder eye stalks. The effects and damage are at 66% normal effectiveness. The Save DC is ${GTier + 14}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
+else {
+GMod = `[Ocular] \nThe creature has grown a random Beholder eye stalk. The effects and damage are at 33% normal effectiveness. The Save DC is ${GTier + 12}. \n\n(For balance reasons, Disintegration and Death Rays can be removed from the possible rolls, especially at lower levels)`;}
+}
+else if (modRoll == 17) {
+if (modElite == 10) {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 20;}
+GMod = `[Winged] (Elite) \nThe creature gains a pair of wings and 60 ft. of fly speed and can cast Gust of Wind as a Bonus Action.`;}
+else {if (GSpeedFly = 0) {GSpeedFly = 60;} else {GSpeedFly += 10;}
+GMod = `[Winged] \nThe creature gains a pair of wings and 40 ft. of fly speed.`;}
+}
+else if (modRoll == 18) {
+if (modElite == 10) {
+GMod = `[Reckless] (Elite) \nAll attacks made by the creature are made at advantage.`;}
+else {
+GMod = `[Reckless] \nAll attacks made by and against the creature are made at advantage.`;}
+}
+else if (modRoll == 19) {
+if (modElite == 10) {
+GMod = `[Stalker] (Elite) \nThe creature has +5 to stealth rolls and can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 2) + 1}d6 damage.`;}
+else {
+GMod = `[Stalker] \nThe creature can cast Invisibility on itself as an Action at will. It also has a Sneak Attack for ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
+}
+else if (modRoll == 20) {
+if (modElite == 10) {
+GMod = `[Hypnotist] (Elite) \nThe creature can cast Dominate Monster four times and can have a maximum of 2 creatures dominated at a time. The Save DC is ${GTier + 14}.`;}
+else {
+GMod = `[Hypnotist] \nThe creature can cast Dominate Monster twice and can have a maximum of 1 creature dominated at a time. The Save DC is ${GTier + 12}.`;}
+}
+else if (modRoll == 21) {
+if (modElite == 10) {
+GMod = `[Observant] (Elite) \nThe creatures grows many extra eyes on its body. It gains +10 and advantage to Perception rolls and cannot be surprised.`;}
+else {
+GMod = `[Observant] \nThe creatures grows many extra eyes on its body. It gains +5 to Perception rolls and cannot be surprised.`;}
+}
+else if (modRoll == 22) {
+if (modElite == 10) {
+GMod = `[Sticky] (Elite) \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 14}.`;}
+else {
+GMod = `[Sticky] \nCreatures or objects that touch the creature stick to it, just like a Mimic, with a escape DC of ${GTier + 12}.`;}
+}
+else if (modRoll == 23) {
+if (modElite == 10) {
+GMod = `[Repulsor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pushed back 15 ft.`;}
+else {
+GMod = `[Repulsor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pushed back 10 ft.`;}
+}
+else if (modRoll == 24) {
+if (modElite == 10) {
+GMod = `[Attractor] (Elite) \nAt the start of the creatures turn, all creatures within 40 ft. make a DC ${GTier + 14} Strength Save or are pulled 15 ft. closer.`;}
+else {
+GMod = `[Attractor] \nAt the start of the creatures turn, all creatures within 20 ft. make a DC ${GTier + 12} Strength Save or are pulled 10 ft. closer.`;}
+}
+else if (modRoll == 25) {
+if (modElite == 10) {
+GMod = `[Spell Eater] (Elite) \nDamage dealt by Spells or effects that consume a Spell Slot has a 50% chance to heal the creature instead.`;}
+else {
+GMod = `[Spell Eater] \nDamage dealt by Spells or effects that consume a Spell Slot has a 25% chance to heal the creature instead.`;}
+}
+else if (modRoll == 26) {
+if (modElite == 10) {if (GMagic == "Caster"){EnemyGenMod();} else {
 				GMod = `[Spell Breaker] (Elite) \nThe creature has a 30 ft. radius aura of Anti-Magic all around it.`;}}
-            else {
+else {
 				GMod = `[Spell Breaker] \nThe creature has a 60 ft. cone of Anti-Magic in front of it.`;}
-            }
-        else if (modRoll == 27) {
-            if (modElite == 10) {
-                GMod = `[Single-Minded] (Elite) \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.`;}
-            else {
-                GMod = `[Single-Minded] \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. \n\nThe creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.`;}
-            }
-        else if (modRoll == 28) {
-            if (modElite == 10) {GSpeed =+ 20; GSpeedBurrow =+ 20; GSpeedFly =+ 20; GSpeedSwim =+ 20; 
-                GMod = `[Hunter] (Elite) \nThe creatures gains 20 ft. of all speeds and two extra Reactions every turn.`;}
-            else {GSpeed =+ 10; GSpeedBurrow =+ 10; GSpeedFly =+ 10; if (GSpeedSwim == 0) {GSpeedSwim += 20} else {GSpeedSwim += 10}
-                GMod = `[Hunter] \nThe creatures gains 10 ft. of all speeds and an extra Reaction every turn.`;}
-            }
-        else if (modRoll == 29) {
-            if (modElite == 10) {GAC = GAC += 4; GSaveBonus = GSaveBonus += 4;
-                GMod = `[Exoskeleton] (Elite) \nThe creatures skin grows thicker, granting it +4 to AC and Saving Throws.`;}
-            else {GAC = GAC += 2; GSaveBonus = GSaveBonus += 2;
-                GMod = `[Exoskeleton] \nThe creatures skin grows thicker, granting it +2 to AC and Saving Throws.`;}
-            }
-        else if (modRoll == 30) {
-            if (modElite == 10) {
-                GMod = `[Regenerator] (Elite) \nThe creature heals for 20 Hit Points at the start of its turn. If the creature has taken fire damage since its last turn, it does not heal.`;}
-            else {
-                GMod = `[Regenerator] \nThe creature heals for 10 Hit Points at the start of its turn. If the creature has taken fire damage or a critical hit since its last turn, it does not heal.`;}
-            }
-        else if (modRoll == 31) {
-            if (modElite == 10) {if (GImmune.includes("physical") == false) {GImmune.push("physical")} else {}
-                GMod = `[Steel Skin] (Elite) \nThe creature's skin grows remarkably dense, granting them Immunity to Bludgeoning, Slashing, and Piercing damage.`;}
-            else {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
-                GMod = `[Steel Skin] \nThe creature's skin grows denser, granting them Resistance to Bludgeoning, Slashing, and Piercing damage.`;}
-            }
-        else if (modRoll == 32) {
-            if (modElite == 10) {
-                GMod = `[Reflection] (Elite) \nThe first time the creature takes damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 3)}d6 of that type on its next attack.`;}
-            else {
-                GMod = `[Reflection] \nThe first time the creature takes Non-Physical damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 4)}d6 of that type on its next attack.`;}
-            }
-        else if (modRoll == 33) {
-            if (modElite == 10) {
-                GMod = `[Symbiosis] (Elite) \nAt the start of combat, the creature selects up to three allies. All damage and healing taken by either is split between both of them.`;}
-            else {
-                GMod = `[Symbiosis] \nAt the start of combat, the creature selects one ally. All damage and healing taken by either is split between both of them.`;}
-            }
-        else if (modRoll == 34) {
-            if (modElite == 10) {
-                GMod = `[Host] (Elite) \nWhen the creature dies, it splits into 5 much weaker and smaller versions.`;}
-            else {
-                GMod = `[Host] \nWhen the creature dies, it splits into 3 much weaker and smaller versions.`;}
-            }
-        else if (modRoll == 35) {
-            if (modElite == 10) {
-                GMod = `[Undying] (Elite) \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC equal to the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
-            else {
-                GMod = `[Undying] \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
-            }
-        else if (modRoll == 36) {
-            if (modElite == 10) {ModX = `[Mother] (Elite) \nThe creature grows four beholder-like stalks that each have a separate Random Modifier:`;
+}
+else if (modRoll == 27) {
+if (modElite == 10) {
+GMod = `[Single-Minded] (Elite) \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one.`;}
+else {
+GMod = `[Single-Minded] \nAt the start of combat the creature selects one target, either at random or intent, and focuses completely on them until they are killed. Once it no longer has a target, it selects a new one. \n\nThe creature crits on 18-20 (Or +2 crit range if it already has an expanded crit range) against its selected target.`;}
+}
+else if (modRoll == 28) {
+if (modElite == 10) {GSpeed =+ 20; GSpeedBurrow =+ 20; GSpeedFly =+ 20; GSpeedSwim =+ 20; 
+GMod = `[Hunter] (Elite) \nThe creatures gains 20 ft. of all speeds and two extra Reactions every turn.`;}
+else {GSpeed =+ 10; GSpeedBurrow =+ 10; GSpeedFly =+ 10; if (GSpeedSwim == 0) {GSpeedSwim += 20} else {GSpeedSwim += 10}
+GMod = `[Hunter] \nThe creatures gains 10 ft. of all speeds and an extra Reaction every turn.`;}
+}
+else if (modRoll == 29) {
+if (modElite == 10) {GAC = GAC += 4; GSaveBonus = GSaveBonus += 4;
+GMod = `[Exoskeleton] (Elite) \nThe creatures skin grows thicker, granting it +4 to AC and Saving Throws.`;}
+else {GAC = GAC += 2; GSaveBonus = GSaveBonus += 2;
+GMod = `[Exoskeleton] \nThe creatures skin grows thicker, granting it +2 to AC and Saving Throws.`;}
+}
+else if (modRoll == 30) {
+if (modElite == 10) {
+GMod = `[Regenerator] (Elite) \nThe creature heals for 20 Hit Points at the start of its turn. If the creature has taken fire damage since its last turn, it does not heal.`;}
+else {
+GMod = `[Regenerator] \nThe creature heals for 10 Hit Points at the start of its turn. If the creature has taken fire damage or a critical hit since its last turn, it does not heal.`;}
+}
+else if (modRoll == 31) {
+if (modElite == 10) {if (GImmune.includes("physical") == false) {GImmune.push("physical")} else {}
+GMod = `[Steel Skin] (Elite) \nThe creature's skin grows remarkably dense, granting them Immunity to Bludgeoning, Slashing, and Piercing damage.`;}
+else {if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
+GMod = `[Steel Skin] \nThe creature's skin grows denser, granting them Resistance to Bludgeoning, Slashing, and Piercing damage.`;}
+}
+else if (modRoll == 32) {
+if (modElite == 10) {
+GMod = `[Reflection] (Elite) \nThe first time the creature takes damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 3)}d6 of that type on its next attack.`;}
+else {
+GMod = `[Reflection] \nThe first time the creature takes Non-Physical damage in a round, it absorbs some of it and adds ${Math.ceil(GPB / 4)}d6 of that type on its next attack.`;}
+}
+else if (modRoll == 33) {
+if (modElite == 10) {
+GMod = `[Symbiosis] (Elite) \nAt the start of combat, the creature selects up to three allies. All damage and healing taken by either is split between both of them.`;}
+else {
+GMod = `[Symbiosis] \nAt the start of combat, the creature selects one ally. All damage and healing taken by either is split between both of them.`;}
+}
+else if (modRoll == 34) {
+if (modElite == 10) {
+GMod = `[Host] (Elite) \nWhen the creature dies, it splits into 5 much weaker and smaller versions.`;}
+else {
+GMod = `[Host] \nWhen the creature dies, it splits into 3 much weaker and smaller versions.`;}
+}
+else if (modRoll == 35) {
+if (modElite == 10) {
+GMod = `[Undying] (Elite) \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC equal to the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
+else {
+GMod = `[Undying] \nIf damage reduces the creature to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is from a critical hit. On a success, the creature drops to 1 hit point instead.`;}
+}
+else if (modRoll == 36) {
+if (modElite == 10) {ModX = `[Mother] (Elite) \nThe creature grows four beholder-like stalks that each have a separate Random Modifier:`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
-            else {ModX = `[Mother] \nThe creature grows two beholder-like stalks that each have a separate Random Modifier:`;
+else {ModX = `[Mother] \nThe creature grows two beholder-like stalks that each have a separate Random Modifier:`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
 			}
-        else if (modRoll == 37) {
-            if (modElite == 10) {GInt = GInt += 6; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 120;
-                GMod = `[Genius] (Elite) \nThe creature gains +5 Intelligence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 120 ft.`;}
-            else {GInt = GInt += 3; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 60;
-                GMod = `[Genius] \nThe creature gains +3 Inteliigence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 60 ft.`;}
-            }
-        else if (modRoll == 38) {
-            if (modElite == 10) {
-                GMod = `[Necromancer] (Elite) \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 50% maximum Hit Points.`;}
-            else {
-                GMod = `[Necromancer] \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 25% maximum Hit Points.`;}
-            }
-        else if (modRoll == 39) {
-            if (modElite == 10) {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 15;} else if (GSize == "Large") {GSpeedBurrow += 20;} else if (GSize == "Huge") {GSpeedBurrow += 25;} else if (GSize == "Gargantuan") {GSpeedBurrow += 30;}
-                GMod = `[Tunneler] (Elite) \nThe creature gains 20 ft. of burrow speed and leave tunnels. The burrow speed increases by 10 ft. for each size category above medium.`;}
-            else {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 10;} else if (GSize == "Large") {GSpeedBurrow += 15;} else if (GSize == "Huge") {GSpeedBurrow += 20;} else if (GSize == "Gargantuan") {GSpeedBurrow += 25;}
-                GMod = `[Tunneler] \nThe creature gains 10 ft. of burrow speed and leave tunnels. The burrow speed increases by 5 ft. for each size category above medium.`;}
-            }
-        else if (modRoll == 40) {
-            if (modElite == 10) {Spell3(); Spell5();
-                GMod = `[Mage] (Elite) \nThe creature can use ${GSpell3} and ${GSpell5} at will.`; GSpell3 = ""; GSpell5 = "";}
-            else {Spell2(); Spell4();
-                GMod = `[Mage] \nThe creature can use ${GSpell2} and ${GSpell4} at will.`; GSpell2 = ""; GSpell4 = "";}
-            }
-        else if (modRoll == 41) {
-            if (modElite == 10) {
-                GMod = `[Modular] (Elite) \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate. Each clone has a separate randomly rolled Modifier.`;}
-            else {
-                GMod = `[Modular] \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate.`;}
-            }
-        else if (modRoll == 42) {
-            if (modElite == 10) {
-                GMod = `[Wrong] (Elite) \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature. It gains one trait or attack from the creature it appears as.`;}
-            else {
-                GMod = `[Wrong] \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature.`;}
-            }
-        else if (modRoll == 43) {
-            if (modElite == 10) {
-                GMod = `[Phantom] (Elite) \nThe creature can phase through creatures, objects, and walls. Creatures it passes through take ${Math.ceil(GPB / 3) + 1}d6 psychic damage.`;}
-            else {
-                GMod = `[Phantom] \nThe creature can phase through creatures, objects, and walls.`;}
-            }
-        else if (modRoll == 44) {
-            if (modElite == 10) {GHPMulti = 1.66;
-                GMod = `[Hearty] (Elite) \nThe creature has an additional 66% Hit Points.`;}
-            else {GHPMulti = 1.33;
-                GMod = `[Hearty] \nThe creature has an additional 33% Hit Points.`;}
-            }
-        else if (modRoll == 45) {
-            if (modElite == 10) {
-                GMod = `[Webbing] (Elite) \nAs a Bonus Action, the creature can spray webbing at three targets. It has a range of 60/120 ft. with an escape DC of ${GTier + 14}, AC of 16, and ${Math.ceil(GPB / 2) * 22} Hit Points.`;}
-            else {
-                GMod = `[Webbing] \nAs a Bonus Action, the creature can spray webbing at one target. It has a range of 30/60 ft. with an escape DC of ${GTier + 12}, AC of 12, and ${Math.ceil(GPB / 2) * 15} Hit Points.`;}
-            }
-        else if (modRoll == 46) {
-            if (modElite == 10) {
-                GMod = `[Lingering] (Elite) \nNon-Spell attacks leave a 15x15 feet puddle of ${Math.ceil(GPB / 2) + 4}d6 acid (or applicable type) for 6 rounds.`;}
-            else {
-                GMod = `[Lingering] \nNon-Spell attacks leave a 10x10 feet puddle of ${Math.ceil(GPB / 3) + 1}d6 acid (or applicable type) for 3 rounds.`;}
-            }
-        else if (modRoll == 47) {
-            if (modElite == 10) {
-                GMod = `[Berzerker] (Elite) \nEvery successful attack during a combat adds +3 damage to all following attacks.`;}
-            else {
-                GMod = `[Berzerker] \nEvery successful attack during a combat adds +2 damage to all following attacks.`;}
-            }
-        else if (modRoll == 48) {
-            if (modElite == 10) {
-                GMod = `[Triggered] (Elite) \nThe creature takes a second turn on a different initative, gains +6 on initiative rolls, and gains an additional Reaction every round (3 total counting both turns).`;}
-            else {
-                GMod = `[Triggered] \nThe creature takes a second turn on a different initative.`;}
-            }
-        else if (modRoll == 49) {
-            if (modElite == 10) {
-                GMod = `[Mirrored] (Elite) \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3. When the creature hits 0 Images, it instantly gains 3 Images.`;}
-            else {
-                GMod = `[Mirrored] \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3.`;}
-            }
-        else if (modRoll == 50) {
-            if (modElite == 10) {
-                GMod = `[Mistling] (Elite) \nThe creature gains a 40 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 2) + 4}d6 damage.`;}
-            else {
-                GMod = `[Mistling] \nThe creature gains a 20 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
-            }
-        else if (modRoll == 51) {
-            if (modElite == 10) {GSpeed += 20;
-                GMod = `[Lightweight] (Elite) \nThe creature has triple jump distance and height, and has 20 ft. increased speed.`;}
-            else {GSpeed += 10;
-                GMod = `[Lightweight] \nThe creature has double jump distance and height, and has 10 ft. increased speed.`;}
-            }
-        else if (modRoll == 52) {
-            if (modElite == 10) {GCondImmune.length = 0; GCondImmune.push("All Conditions");
-                GMod = `[Hidden Organs] (Elite) \nThe creature cannot be critically hit and is immune to conditions.`;}
-            else {
-                GMod = `[Hidden Organs] \nThe creature cannot be critically hit.`;}
-            }
-        else if (modRoll == 53) {
-            if (modElite == 10) {
-                GMod = `[Iron Jaw] (Elite) \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is tripled and has the vorpal effect on bitten limbs. Default Bite damage is 1d8 + Str.`;}
-            else {
-                GMod = `[Iron Jaw] \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is doubled. Default Bite damage is 1d6 + Str.`;}
-            }
-        else if (modRoll == 54) {
-            if (modElite == 10) {
-                GMod = `[Breath] (Elite) \nThe creature gains a random DC 18 Young Dragon Breath Attack.`;}
-            else {
-                GMod = `[Breath] \nThe creature gains a random DC 15 Wyrmling Dragon Breath Attack.`;}
-            }
-        else if (modRoll == 55) {
-            if (modElite == 10) {EnemyGenMod();}
+else if (modRoll == 37) {
+if (modElite == 10) {GInt = GInt += 6; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 120;
+GMod = `[Genius] (Elite) \nThe creature gains +5 Intelligence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 120 ft.`;}
+else {GInt = GInt += 3; if (GSave.includes("Intelligence") == false) {GSave.push("Intelligence");} else {} if (GLanguage.includes("telepathy") == false) {GLanguage.push("telepathy");} GTelepathyRange = GTelepathyRange += 60;
+GMod = `[Genius] \nThe creature gains +3 Inteliigence, gains Intelligence Saving Throw proficiency, and can speak telepathically up to 60 ft.`;}
+}
+else if (modRoll == 38) {
+if (modElite == 10) {
+GMod = `[Necromancer] (Elite) \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 50% maximum Hit Points.`;}
+else {
+GMod = `[Necromancer] \nThe creature looks physically frail and unassuming. As an Action, the creature can resurrect a dead ally at 25% maximum Hit Points.`;}
+}
+else if (modRoll == 39) {
+if (modElite == 10) {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 15;} else if (GSize == "Large") {GSpeedBurrow += 20;} else if (GSize == "Huge") {GSpeedBurrow += 25;} else if (GSize == "Gargantuan") {GSpeedBurrow += 30;}
+GMod = `[Tunneler] (Elite) \nThe creature gains 20 ft. of burrow speed and leave tunnels. The burrow speed increases by 10 ft. for each size category above medium.`;}
+else {if (GSize == "Tiny" || GSize == "Small" || GSize == "Medium") {GSpeedBurrow += 10;} else if (GSize == "Large") {GSpeedBurrow += 15;} else if (GSize == "Huge") {GSpeedBurrow += 20;} else if (GSize == "Gargantuan") {GSpeedBurrow += 25;}
+GMod = `[Tunneler] \nThe creature gains 10 ft. of burrow speed and leave tunnels. The burrow speed increases by 5 ft. for each size category above medium.`;}
+}
+else if (modRoll == 40) {
+if (modElite == 10) {Spell3(); Spell5();
+GMod = `[Mage] (Elite) \nThe creature can use ${GSpell3} and ${GSpell5} at will.`; GSpell3 = ""; GSpell5 = "";}
+else {Spell2(); Spell4();
+GMod = `[Mage] \nThe creature can use ${GSpell2} and ${GSpell4} at will.`; GSpell2 = ""; GSpell4 = "";}
+}
+else if (modRoll == 41) {
+if (modElite == 10) {
+GMod = `[Modular] (Elite) \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate. Each clone has a separate randomly rolled Modifier.`;}
+else {
+GMod = `[Modular] \nThe creature is much easier to dismember. Dismembered parts form into a smaller, weaker, version of the creature. These clones cannot replicate.`;}
+}
+else if (modRoll == 42) {
+if (modElite == 10) {
+GMod = `[Wrong] (Elite) \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature. It gains one trait or attack from the creature it appears as.`;}
+else {
+GMod = `[Wrong] \nThe creature has the physical appearance of a completely different creature. It retains all stats, skills, and abilities, of the original creature.`;}
+}
+else if (modRoll == 43) {
+if (modElite == 10) {
+GMod = `[Phantom] (Elite) \nThe creature can phase through creatures, objects, and walls. Creatures it passes through take ${Math.ceil(GPB / 3) + 1}d6 psychic damage.`;}
+else {
+GMod = `[Phantom] \nThe creature can phase through creatures, objects, and walls.`;}
+}
+else if (modRoll == 44) {
+if (modElite == 10) {GHPMulti = 1.66;
+GMod = `[Hearty] (Elite) \nThe creature has an additional 66% Hit Points.`;}
+else {GHPMulti = 1.33;
+GMod = `[Hearty] \nThe creature has an additional 33% Hit Points.`;}
+}
+else if (modRoll == 45) {
+if (modElite == 10) {
+GMod = `[Webbing] (Elite) \nAs a Bonus Action, the creature can spray webbing at three targets. It has a range of 60/120 ft. with an escape DC of ${GTier + 14}, AC of 16, and ${Math.ceil(GPB / 2) * 22} Hit Points.`;}
+else {
+GMod = `[Webbing] \nAs a Bonus Action, the creature can spray webbing at one target. It has a range of 30/60 ft. with an escape DC of ${GTier + 12}, AC of 12, and ${Math.ceil(GPB / 2) * 15} Hit Points.`;}
+}
+else if (modRoll == 46) {
+if (modElite == 10) {
+GMod = `[Lingering] (Elite) \nNon-Spell attacks leave a 15x15 feet puddle of ${Math.ceil(GPB / 2) + 4}d6 acid (or applicable type) for 6 rounds.`;}
+else {
+GMod = `[Lingering] \nNon-Spell attacks leave a 10x10 feet puddle of ${Math.ceil(GPB / 3) + 1}d6 acid (or applicable type) for 3 rounds.`;}
+}
+else if (modRoll == 47) {
+if (modElite == 10) {
+GMod = `[Berzerker] (Elite) \nEvery successful attack during a combat adds +3 damage to all following attacks.`;}
+else {
+GMod = `[Berzerker] \nEvery successful attack during a combat adds +2 damage to all following attacks.`;}
+}
+else if (modRoll == 48) {
+if (modElite == 10) {
+GMod = `[Triggered] (Elite) \nThe creature takes a second turn on a different initative, gains +6 on initiative rolls, and gains an additional Reaction every round (3 total counting both turns).`;}
+else {
+GMod = `[Triggered] \nThe creature takes a second turn on a different initative.`;}
+}
+else if (modRoll == 49) {
+if (modElite == 10) {
+GMod = `[Mirrored] (Elite) \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3. When the creature hits 0 Images, it instantly gains 3 Images.`;}
+else {
+GMod = `[Mirrored] \nWhile in combat, the creature is under the effect of Mirror Image. At the end of every turn, it gains an Image, to a max of 3.`;}
+}
+else if (modRoll == 50) {
+if (modElite == 10) {
+GMod = `[Mistling] (Elite) \nThe creature gains a 40 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 2) + 4}d6 damage.`;}
+else {
+GMod = `[Mistling] \nThe creature gains a 20 ft. aura of acid mist (or applicable damage type). Creatures that enter or start their turn in the mist take ${Math.ceil(GPB / 3) + 1}d6 damage.`;}
+}
+else if (modRoll == 51) {
+if (modElite == 10) {GSpeed += 20;
+GMod = `[Lightweight] (Elite) \nThe creature has triple jump distance and height, and has 20 ft. increased speed.`;}
+else {GSpeed += 10;
+GMod = `[Lightweight] \nThe creature has double jump distance and height, and has 10 ft. increased speed.`;}
+}
+else if (modRoll == 52) {
+if (modElite == 10) {GCondImmune.length = 0; GCondImmune.push("All Conditions");
+GMod = `[Hidden Organs] (Elite) \nThe creature cannot be critically hit and is immune to conditions.`;}
+else {
+GMod = `[Hidden Organs] \nThe creature cannot be critically hit.`;}
+}
+else if (modRoll == 53) {
+if (modElite == 10) {
+GMod = `[Iron Jaw] (Elite) \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is tripled and has the vorpal effect on bitten limbs. Default Bite damage is 1d8 + Str.`;}
+else {
+GMod = `[Iron Jaw] \nThe creature has a jaw that is capable of biting through most nonmagical materials. Bite damage is doubled. Default Bite damage is 1d6 + Str.`;}
+}
+else if (modRoll == 54) {
+if (modElite == 10) {
+GMod = `[Breath] (Elite) \nThe creature gains a random DC 18 Young Dragon Breath Attack.`;}
+else {
+GMod = `[Breath] \nThe creature gains a random DC 15 Wyrmling Dragon Breath Attack.`;}
+}
+else if (modRoll == 55) {
+if (modElite == 10) {EnemyGenMod();}
 			else {EnemyGenMod();}
 			}
-        else if (modRoll == 56) {
-            if (modElite == 10) {
-                GMod = `[Hidden Form] (Elite) \nThe creature can undetectably disguise themself as an object, like a mimic. The size limit is 2 stages larger and smaller than ${GSize}.`;}
-            else {
-                GMod = `[Hidden Form] \nThe creature can undetectably disguise themself as an object, like a mimic.`;}
-            }
-        else if (modRoll == 57) {
-            if (modElite == 10) {
-                GMod = `[Disease-Ridden] (Elite) \nNon-Spell attacks invoke a DC ${GTier + 14} Con Save. On a fail, the target contracts a disease and is Poisoned.`;}
-            else {
-                GMod = `[Disease-Ridden] \nNon-Spell attacks invoke a DC ${GTier + 12} Con Save. On a fail, the target contracts a disease.`;}
-            }
-        else if (modRoll == 58) {
-            if (modElite == 10) {
-                GMod = `[Subsumer] (Elite) \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 40 Hit Points and gains two traits from the creature or +6 damage for the duration of the fight.`;}
-            else {
-                GMod = `[Subsumer] \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 20 Hit Points and gains one trait from the creature or +3 damage for the duration of the fight.`;}
-            }
-        else if (modRoll == 59) {
-            if (modElite == 10) {
-                GMod = `[Vampiric] (Elite) \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 3}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
-            else {
-                GMod = `[Vampiric] \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 1}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
-            }
-        else if (modRoll == 60) {
-            if (modElite == 10) {
-                GMod = `[Leader] (Elite) \nThe creature has 5 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
-            else {
-                GMod = `[Leader] \nThe creature has 3 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
-            }
-        else if (modRoll == 61) {
-            if (modElite == 10) {
-                GMod = `[Terrifying] (Elite) \nGains a DC ${GTier + 14} dragons Frighteneing Presence.`;}
-            else {
-                GMod = `[Terrifying] \nGains a DC ${GTier + 12} dragons Frighteneing Presence.`;}
-            }
-        else if (modRoll == 62) {
-            if (modElite == 10) {
-                GMod = `[Vines] (Elite) \nGround within 30 ft. of the creature requires three feet to move one foot.`;}
-            else {
-                GMod = `[Vines] \nGround within 30 ft. of the creature is difficult terrain.`;}
-            }
-        else if (modRoll == 63) {
-            if (modElite == 10) {
-                GMod = `[Duplicant] (Elite) \nDamage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
-            else {
-                GMod = `[Duplicant] \nHalf of the damage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
-            }
-        else if (modRoll == 64) {
-            if (modElite == 10) {
-                GMod = `[Oozing] (Elite) \nWhen hit by a weapon attack, slime fires off at two creature within 60 ft. with a +${GPB + 7} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
-            else {
-                GMod = `[Oozing] \nWhen hit by a weapon attack, a piece of slime fires off at a creature within 30 ft. with a +${GPB + 4} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
-            }
-        else if (modRoll == 65) {
-            if (modElite == 10) {
-                GMod = `[Enraged] (Elite) \nEvery 20% of health lost grants the creature ${Math.ceil(GPB / 3) + 1}d6 more damage.`;}
-            else {
-                GMod = `[Enraged] \nEvery 25% of health lost grants the creature ${Math.ceil(GPB / 4)}d6 more damage.`;}
-            }
-        else if (modRoll == 66) {
-            if (modElite == 10) {
-                GMod = `[Gravity Well] (Elite) \nWithin 120 feet, moving towards the creature requires only one-third of the the normal speed. Moving away requires triple the normal speed.`;}
-            else {
-                GMod = `[Gravity Well] \nWithin 60 feet, moving towards the creature requires only half of the the normal speed. Moving away requires double the normal speed.`;}
-            }
-        else if (modRoll == 67) {
-            if (modElite == 10) {
-                GMod = `[Telekinetic] (Elite) \nEvery turn, all enemies within 80 feet make a DC ${GTier + 14} Intelligence (Athletics) roll or be moved 15 ft. in a direction.`;}
-            else {
-                GMod = `[Telekinetic] \nEvery turn, two enemies within 40 feet make a DC ${GTier + 12} Intelligence (Athletics) roll or be moved 10 ft. in a direction.`;}
-            }
-        else if (modRoll == 68) {
-            if (modElite == 10) {
-                GMod = `[Swapper] (Elite) \nAs a Bonus Action, the creature swaps the locations of two creatures within 60 ft. of it.`;}
-            else {
-                GMod = `[Swapper] \nAs a Bonus Action, the creature swaps the locations of two creatures within 30 ft. of it.`;}
-            }
-        else if (modRoll == 69) {
-            if (modElite == 10) {
-                GMod = `[Rigged] (Elite) \nOn death, the creature explodes for ${Math.floor(GPB * 1.5)}d8 within 40 ft.`;}
-            else {
-                GMod = `[Rigged] \nOn death, the creature explodes for ${GPB}d8 within 20 ft.`;}
-            }
-        else if (modRoll == 70) {
-            if (modElite == 10) {
-                GMod = `[Sweeping] (Elite) \nAll Non-Spell attacks also hit all creatures within 5 ft. of the target.`;}
-            else {
-                GMod = `[Sweeping] \nAll Non-Spell attacks also hit 5 ft. to the left and right of the target.`;}
-            }
-        else if (modRoll == 71) {
-            if (modElite == 10) {
-                GMod = `[Gravity Flip] (Elite) \nAs an Action, the creature picks a spot within 100 ft. and creates a 30 ft. square of reversed gravity 100 ft. tall. It lasts 6 rounds and recharges on a 4-6.`;}
-            else {
-                GMod = `[Gravity Flip] \nAs an Action, the creature picks a spot within 50 ft. and creates a 15 ft. square of reversed gravity 50 ft. tall. It lasts 3 rounds and recharges on a 5-6.`;}
-            }
-        else if (modRoll == 72) {
-            if (modElite == 10) {
-                GMod = `[Anti-Grav] (Elite) \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 14} Charisma Save. On a fail, gravity is negated for them for 6 rounds.`;}
-            else {
-                GMod = `[Anti-Grav] \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 12} Charisma Save. On a fail, gravity is negated for them for 3 rounds.`;}
-            }
-        else if (modRoll == 73) {
-            if (modElite == 10) {
-                GMod = `[Sapper] (Elite) \nAttack impose a DC ${GTier + 14} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack and an extra attack.`;}
-            else {
-                GMod = `[Sapper] \nAttack impose a DC ${GTier + 12} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack.`;}
-            }
-        else if (modRoll == 74) {
-            if (modElite == 10) {if (GSpeedClimb == 0) {GSpeedClimb += 60} else {GSpeedClimb += 20} if (GTremorsense == 0) {GTremorsense += 90} else {GTremorsense += 40}
-                GMod = `[Spider Climb] (Elite) \nThe creature gains 60 ft. of climbing speed, 90 ft. of tremorsense. Surprised creatures have disadvantage on attacks on their next turn.`;}
-            else {if (GSpeedClimb == 0) {GSpeedClimb += 30} else {GSpeedClimb += 10} if (GTremorsense == 0) {GTremorsense += 45} else {GTremorsense += 20}
-                GMod = `[Spider Climb] \nThe creature gains 30 ft. of climbing speed, 45 ft. of tremorsense. Surprised creatures have disadvantage on attack on their next turn.`;}
-            }
-        else if (modRoll == 75) {
-            if (modElite == 10) {
-                GMod = `[Charging] (Elite) \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and triple damage.`;}
-            else {
-                GMod = `[Charging] \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and double damage.`;}
-            }
-        else if (modRoll == 76) {
-            if (modElite == 10) {
-                GMod = `[Time Watcher] (Elite) \nEvery turn, one target makes a DC ${GTier + 14} Charisma Save or they cannot use Bonus Actions or Reactions on their next turn. They also have half movement speed until then.`;}
-            else {
-                GMod = `[Time Watcher] \nEvery turn, one target makes a DC ${GTier + 12} Charisma Save or they cannot use Bonus Actions on their next turn.`;}
-            }
-        else if (modRoll == 77) {
-            if (modElite == 10) {
-                GMod = `[Blinking] (Elite) \nAs a Reaction, the creature can cast Misty Step up to 60 ft. The creature has an additional Reaction every turn.`;}
-            else {
-                GMod = `[Blinking] \nAs a Reaction, the creature can cast Misty Step.`;}
-            }
-        else if (modRoll == 78) {
-            if (modElite == 10) {
-                GMod = `[Consumer] (Elite) \nAll consumable items used within 90 ft. instead benefit the creature.`;}
-            else {
-                GMod = `[Consumer] \nAll consumable items used within 45 ft. instead benefit the creature.`;}
-            }
-        else if (modRoll == 79) {
-            if (modElite == 10) {
-                GMod = `[Mouth of Holding] (Elite) \nThe creature's mouth functions as a Large Bag of Holding. Creatures inside are incapacitated.`;}
-            else {
-                GMod = `[Mouth of Holding] \nThe creature's mouth functions as a Large Bag of Holding.`;}
-            }
-        else if (modRoll == 80) {
-            if (modElite == 10) {
-                GMod = `[Redirector] (Elite) \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 2}d6 +${GPB + 4}. If reduced to 0, throw the projectile back with +${GPB + 6} attack.`;}
-            else {
-                GMod = `[Redirector] \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 1}d6 +${GPB + 2}. If redcued to 0, throw the projectile back with +${GPB + 4} attack.`;}
-            }
-        else if (modRoll == 81) {
-            if (modElite == 10) {
-                GMod = `[Mutant] (Elite) \nThe creature is completely merged with two others. It gains the traits and attacks of all three and the highest of each Stat and HP.`;}
-            else {
-                GMod = `[Mutant] \nThe creature is completely merged with another. It gains the traits and attacks of both and the highest of each Stat and HP.`;}
-            }
-        else if (modRoll == 82) {
-            if (modElite == 10) {
-                GMod = `[Plant Growth] (Elite) \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will. The creature can also use Misty Step to travel through plants up to 60 feet.`;}
-            else {
-                GMod = `[Plant Growth] \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will.`;}
-            }
-        else if (modRoll == 83) {
-            if (modElite == 10) {
-                GMod = `[Trapper] (Elite) \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 13}-${GTier + 15} and damage is ${Math.ceil(GPB / 2) + 4}d6.`;}
-            else {
-                GMod = `[Trapper] \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 11}-${GTier + 13} and damage is ${Math.ceil(GPB / 3) + 1}d6.`;}
-            }
-        else if (modRoll == 84) {
-            if (modElite == 10) {
-                GMod = `[Blood Bags] (Elite) \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 2) + 1}d6 extra damage and crit on 18-20.`;}
-            else {
-                GMod = `[Blood Bags] \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 3) + 1}d6 extra damage.`;}
-            }
-        else if (modRoll == 85) {
-            if (modElite == 10) {
-                GMod = `[Waller] (Elite) \nCreates walls of stone (or applicable material) to limit movement. Can create two walls per turn, up to 30 ft. tall and long with 120 Hit Points.`;}
-            else {
-                GMod = `[Waller] \nCreates walls of stone (or applicable material) to limit movement. Can create one wall per turn, up to 20 ft. tall and long with 60 Hit Points.`;}
-            }
-        else if (modRoll == 86) {
-            if (modElite == 10) {
-                GMod = `[Riddler] (Elite) \nAs a Bonus Action, the creature asks two targets that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
-            else {
-                GMod = `[Riddler] \nAs a Bonus Action, the creature asks one target that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
-            }
-        else if (modRoll == 87) {
-            if (modElite == 10) {
-                GMod = `[Gangly] (Elite) \nThe creature has 20 foot longer reach with melee attacks and triple range with ranged attacks.`;}
-            else {
-                GMod = `[Gangly] \nThe creature has 10 foot longer reach with melee attacks and double range with ranged attacks.`;}
-            }
-        else if (modRoll == 88) {
-            if (modElite == 10) {
-                GMod = `[Pinpoint] (Elite) \nAll hits are Critical Hits, but the creature has -5 to hit.`;}
-            else {
-                GMod = `[Pinpoint] \nAll hits are Critical Hits, but the creature has -7 to hit.`;}
-            }
-        else if (modRoll == 89) {
-            if (modElite == 10) {
-                GMod = `[Consistent] (Elite) \nThe creature's attacks always hit and enemies have -4 to Saving Throws, but it cannot land critical hits.`;}
-            else {
-                GMod = `[Consistent] \nThe creature's attacks always hit and enemies have -2 to Saving Throws, but it cannot land critical hits.`;}
-            }
-        else if (modRoll == 90) {
-            if (modElite == 10) {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+else if (modRoll == 56) {
+if (modElite == 10) {
+GMod = `[Hidden Form] (Elite) \nThe creature can undetectably disguise themself as an object, like a mimic. The size limit is 2 stages larger and smaller than ${GSize}.`;}
+else {
+GMod = `[Hidden Form] \nThe creature can undetectably disguise themself as an object, like a mimic.`;}
+}
+else if (modRoll == 57) {
+if (modElite == 10) {
+GMod = `[Disease-Ridden] (Elite) \nNon-Spell attacks invoke a DC ${GTier + 14} Con Save. On a fail, the target contracts a disease and is Poisoned.`;}
+else {
+GMod = `[Disease-Ridden] \nNon-Spell attacks invoke a DC ${GTier + 12} Con Save. On a fail, the target contracts a disease.`;}
+}
+else if (modRoll == 58) {
+if (modElite == 10) {
+GMod = `[Subsumer] (Elite) \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 40 Hit Points and gains two traits from the creature or +6 damage for the duration of the fight.`;}
+else {
+GMod = `[Subsumer] \nThe creature can replace an attack with absorbing a corpse. After absorbing a corpse, it heals for 20 Hit Points and gains one trait from the creature or +3 damage for the duration of the fight.`;}
+}
+else if (modRoll == 59) {
+if (modElite == 10) {
+GMod = `[Vampiric] (Elite) \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 3}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
+else {
+GMod = `[Vampiric] \nNatural/Unarmed weapons attacks deal an extra ${Math.ceil(GPB / 4) + 1}d6 necrotic damage. The targets Maximum Hit Points is reduced and the creature heals for the necrotic damage dealt.`;}
+}
+else if (modRoll == 60) {
+if (modElite == 10) {
+GMod = `[Leader] (Elite) \nThe creature has 5 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
+else {
+GMod = `[Leader] \nThe creature has 3 minion-type creatures with it and gains the Leadership trait:\nLeadership (Recharges after a Short or Long Rest)\n For 1 minute, the creature can utter a special command whenever an allied creature that it can see within 30 feet of it makes an attack roll or a saving throw. The target can add a d4 to its roll provided it can hear and understand the creature. A creature can benefit from only one Leadership die at a time. This effect ends if this creature  is incapacitated.`;}
+}
+else if (modRoll == 61) {
+if (modElite == 10) {
+GMod = `[Terrifying] (Elite) \nGains a DC ${GTier + 14} dragons Frighteneing Presence.`;}
+else {
+GMod = `[Terrifying] \nGains a DC ${GTier + 12} dragons Frighteneing Presence.`;}
+}
+else if (modRoll == 62) {
+if (modElite == 10) {
+GMod = `[Vines] (Elite) \nGround within 30 ft. of the creature requires three feet to move one foot.`;}
+else {
+GMod = `[Vines] \nGround within 30 ft. of the creature is difficult terrain.`;}
+}
+else if (modRoll == 63) {
+if (modElite == 10) {
+GMod = `[Duplicant] (Elite) \nDamage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
+else {
+GMod = `[Duplicant] \nHalf of the damage the creature deals is also dealt to a creature within 5 ft. of the target.`;}
+}
+else if (modRoll == 64) {
+if (modElite == 10) {
+GMod = `[Oozing] (Elite) \nWhen hit by a weapon attack, slime fires off at two creature within 60 ft. with a +${GPB + 7} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
+else {
+GMod = `[Oozing] \nWhen hit by a weapon attack, a piece of slime fires off at a creature within 30 ft. with a +${GPB + 4} to hit. if it hits, the target is Slimed and their movement speed is halved. A second slime reduces speed to 0. One layer of slime can be removed as an action.`;}
+}
+else if (modRoll == 65) {
+if (modElite == 10) {
+GMod = `[Enraged] (Elite) \nEvery 20% of health lost grants the creature ${Math.ceil(GPB / 3) + 1}d6 more damage.`;}
+else {
+GMod = `[Enraged] \nEvery 25% of health lost grants the creature ${Math.ceil(GPB / 4)}d6 more damage.`;}
+}
+else if (modRoll == 66) {
+if (modElite == 10) {
+GMod = `[Gravity Well] (Elite) \nWithin 120 feet, moving towards the creature requires only one-third of the the normal speed. Moving away requires triple the normal speed.`;}
+else {
+GMod = `[Gravity Well] \nWithin 60 feet, moving towards the creature requires only half of the the normal speed. Moving away requires double the normal speed.`;}
+}
+else if (modRoll == 67) {
+if (modElite == 10) {
+GMod = `[Telekinetic] (Elite) \nEvery turn, all enemies within 80 feet make a DC ${GTier + 14} Intelligence (Athletics) roll or be moved 15 ft. in a direction.`;}
+else {
+GMod = `[Telekinetic] \nEvery turn, two enemies within 40 feet make a DC ${GTier + 12} Intelligence (Athletics) roll or be moved 10 ft. in a direction.`;}
+}
+else if (modRoll == 68) {
+if (modElite == 10) {
+GMod = `[Swapper] (Elite) \nAs a Bonus Action, the creature swaps the locations of two creatures within 60 ft. of it.`;}
+else {
+GMod = `[Swapper] \nAs a Bonus Action, the creature swaps the locations of two creatures within 30 ft. of it.`;}
+}
+else if (modRoll == 69) {
+if (modElite == 10) {
+GMod = `[Rigged] (Elite) \nOn death, the creature explodes for ${Math.floor(GPB * 1.5)}d8 within 40 ft.`;}
+else {
+GMod = `[Rigged] \nOn death, the creature explodes for ${GPB}d8 within 20 ft.`;}
+}
+else if (modRoll == 70) {
+if (modElite == 10) {
+GMod = `[Sweeping] (Elite) \nAll Non-Spell attacks also hit all creatures within 5 ft. of the target.`;}
+else {
+GMod = `[Sweeping] \nAll Non-Spell attacks also hit 5 ft. to the left and right of the target.`;}
+}
+else if (modRoll == 71) {
+if (modElite == 10) {
+GMod = `[Gravity Flip] (Elite) \nAs an Action, the creature picks a spot within 100 ft. and creates a 30 ft. square of reversed gravity 100 ft. tall. It lasts 6 rounds and recharges on a 4-6.`;}
+else {
+GMod = `[Gravity Flip] \nAs an Action, the creature picks a spot within 50 ft. and creates a 15 ft. square of reversed gravity 50 ft. tall. It lasts 3 rounds and recharges on a 5-6.`;}
+}
+else if (modRoll == 72) {
+if (modElite == 10) {
+GMod = `[Anti-Grav] (Elite) \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 14} Charisma Save. On a fail, gravity is negated for them for 6 rounds.`;}
+else {
+GMod = `[Anti-Grav] \nAs a Bonus Action, a targeted creature makes a DC ${GTier + 12} Charisma Save. On a fail, gravity is negated for them for 3 rounds.`;}
+}
+else if (modRoll == 73) {
+if (modElite == 10) {
+GMod = `[Sapper] (Elite) \nAttack impose a DC ${GTier + 14} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack and an extra attack.`;}
+else {
+GMod = `[Sapper] \nAttack impose a DC ${GTier + 12} Con Save. On a fail, they gain one level of exhaustion and the creature gains advantage on their next attack.`;}
+}
+else if (modRoll == 74) {
+if (modElite == 10) {if (GSpeedClimb == 0) {GSpeedClimb += 60} else {GSpeedClimb += 20} if (GTremorsense == 0) {GTremorsense += 90} else {GTremorsense += 40}
+GMod = `[Spider Climb] (Elite) \nThe creature gains 60 ft. of climbing speed, 90 ft. of tremorsense. Surprised creatures have disadvantage on attacks on their next turn.`;}
+else {if (GSpeedClimb == 0) {GSpeedClimb += 30} else {GSpeedClimb += 10} if (GTremorsense == 0) {GTremorsense += 45} else {GTremorsense += 20}
+GMod = `[Spider Climb] \nThe creature gains 30 ft. of climbing speed, 45 ft. of tremorsense. Surprised creatures have disadvantage on attack on their next turn.`;}
+}
+else if (modRoll == 75) {
+if (modElite == 10) {
+GMod = `[Charging] (Elite) \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and triple damage.`;}
+else {
+GMod = `[Charging] \nAttacks take a full turn before they fire off. They deal damage in a sizable AoE (depending on the original attack size) and double damage.`;}
+}
+else if (modRoll == 76) {
+if (modElite == 10) {
+GMod = `[Time Watcher] (Elite) \nEvery turn, one target makes a DC ${GTier + 14} Charisma Save or they cannot use Bonus Actions or Reactions on their next turn. They also have half movement speed until then.`;}
+else {
+GMod = `[Time Watcher] \nEvery turn, one target makes a DC ${GTier + 12} Charisma Save or they cannot use Bonus Actions on their next turn.`;}
+}
+else if (modRoll == 77) {
+if (modElite == 10) {
+GMod = `[Blinking] (Elite) \nAs a Reaction, the creature can cast Misty Step up to 60 ft. The creature has an additional Reaction every turn.`;}
+else {
+GMod = `[Blinking] \nAs a Reaction, the creature can cast Misty Step.`;}
+}
+else if (modRoll == 78) {
+if (modElite == 10) {
+GMod = `[Consumer] (Elite) \nAll consumable items used within 90 ft. instead benefit the creature.`;}
+else {
+GMod = `[Consumer] \nAll consumable items used within 45 ft. instead benefit the creature.`;}
+}
+else if (modRoll == 79) {
+if (modElite == 10) {
+GMod = `[Mouth of Holding] (Elite) \nThe creature's mouth functions as a Large Bag of Holding. Creatures inside are incapacitated.`;}
+else {
+GMod = `[Mouth of Holding] \nThe creature's mouth functions as a Large Bag of Holding.`;}
+}
+else if (modRoll == 80) {
+if (modElite == 10) {
+GMod = `[Redirector] (Elite) \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 2}d6 +${GPB + 4}. If reduced to 0, throw the projectile back with +${GPB + 6} attack.`;}
+else {
+GMod = `[Redirector] \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 1}d6 +${GPB + 2}. If redcued to 0, throw the projectile back with +${GPB + 4} attack.`;}
+}
+else if (modRoll == 81) {
+if (modElite == 10) {
+GMod = `[Mutant] (Elite) \nThe creature is completely merged with two others. It gains the traits and attacks of all three and the highest of each Stat and HP.`;}
+else {
+GMod = `[Mutant] \nThe creature is completely merged with another. It gains the traits and attacks of both and the highest of each Stat and HP.`;}
+}
+else if (modRoll == 82) {
+if (modElite == 10) {
+GMod = `[Plant Growth] (Elite) \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will. The creature can also use Misty Step to travel through plants up to 60 feet.`;}
+else {
+GMod = `[Plant Growth] \nThe creature can cast Plant Growth, Grasping Vines, and Guardian of Nature at will.`;}
+}
+else if (modRoll == 83) {
+if (modElite == 10) {
+GMod = `[Trapper] (Elite) \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 13}-${GTier + 15} and damage is ${Math.ceil(GPB / 2) + 4}d6.`;}
+else {
+GMod = `[Trapper] \nThe creature has a large variety of traps and tricks set up within its territory. DCs are ${GTier + 11}-${GTier + 13} and damage is ${Math.ceil(GPB / 3) + 1}d6.`;}
+}
+else if (modRoll == 84) {
+if (modElite == 10) {
+GMod = `[Blood Bags] (Elite) \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 2) + 1}d6 extra damage and crit on 18-20.`;}
+else {
+GMod = `[Blood Bags] \nThe creature will fake its death to get an advantage. Sneak attacks from feign death deal ${Math.ceil(GPB / 3) + 1}d6 extra damage.`;}
+}
+else if (modRoll == 85) {
+if (modElite == 10) {
+GMod = `[Waller] (Elite) \nCreates walls of stone (or applicable material) to limit movement. Can create two walls per turn, up to 30 ft. tall and long with 120 Hit Points.`;}
+else {
+GMod = `[Waller] \nCreates walls of stone (or applicable material) to limit movement. Can create one wall per turn, up to 20 ft. tall and long with 60 Hit Points.`;}
+}
+else if (modRoll == 86) {
+if (modElite == 10) {
+GMod = `[Riddler] (Elite) \nAs a Bonus Action, the creature asks two targets that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
+else {
+GMod = `[Riddler] \nAs a Bonus Action, the creature asks one target that can hear it a riddle. An incorrect or no answer results in paralysis until the end of their next turn.`;}
+}
+else if (modRoll == 87) {
+if (modElite == 10) {
+GMod = `[Gangly] (Elite) \nThe creature has 20 foot longer reach with melee attacks and triple range with ranged attacks.`;}
+else {
+GMod = `[Gangly] \nThe creature has 10 foot longer reach with melee attacks and double range with ranged attacks.`;}
+}
+else if (modRoll == 88) {
+if (modElite == 10) {
+GMod = `[Pinpoint] (Elite) \nAll hits are Critical Hits, but the creature has -5 to hit.`;}
+else {
+GMod = `[Pinpoint] \nAll hits are Critical Hits, but the creature has -7 to hit.`;}
+}
+else if (modRoll == 89) {
+if (modElite == 10) {
+GMod = `[Consistent] (Elite) \nThe creature's attacks always hit and enemies have -4 to Saving Throws, but it cannot land critical hits.`;}
+else {
+GMod = `[Consistent] \nThe creature's attacks always hit and enemies have -2 to Saving Throws, but it cannot land critical hits.`;}
+}
+else if (modRoll == 90) {
+if (modElite == 10) {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GImmune.includes(GElement) == false) {} else {ElementTypeGen();} GImmune.push(GElement);
-                GMod = `[Resistant] (Elite) \nThe creature has 4 random resistances and 1 random immunity.`;}
-            else {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
+GMod = `[Resistant] (Elite) \nThe creature has 4 random resistances and 1 random immunity.`;}
+else {ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
 			ElementTypeGen(); if (GRes.includes(GElement) == false) {} else {ElementTypeGen();} GRes.push(GElement);
-                GMod = `[Resistant] \nThe creature has 3 random resistances.`;}
-            }
-        else if (modRoll == 91) {
-            if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
-                GMod = `[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.`;}
-            else {ElementTypeGen(); GRes.length = 0; GRes.push(`All damage except ${GElement}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)}
-                GMod = `[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.`;}
-            }
-        else if (modRoll == 92) {
-            if (modElite == 10) {
-                GMod = `[Gibbering] (Elite) \nEach creature that starts its turn within 40 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 14} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
-            else {
-                GMod = `[Gibbering] \nEach creature that starts its turn within 20 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 12} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
-            }
-        else if (modRoll == 93) {
-            if (modElite == 10) {
-                GMod = `[Fortified] (Elite) \nInstances of damage ${Math.ceil(GPB / 2) + 12} or less deal no damage to the creature.`;}
-            else {
-                GMod = `[Fortified] \nInstances of damage ${Math.ceil(GPB / 2) + 8} or less deal no damage to the creature.`;}
-            }
-        else if (modRoll == 94) {
-            if (modElite == 10) {
-                GMod = `[Hivemind] (Elite) \n(Spellcasters Only) The creature can concentrate on 3 spells at once and has advantage and +2 on Saving Throws to maintain Concentration.`;}
-            else {
-                GMod = `[Hivemind] \n(Spellcasters Only) The creature can concentrate on 2 spells at once and has advantage on Saving Throws to maintain Concentration.`;}
-            }
-        else if (modRoll == 95) {
-            if (modElite == 10) {
-                GMod = `[Tactician] (Elite) \nAs a Bonus Action, command two allies to use their Reaction to make an attack. As a Reaction, add 2d6 to the Hit or Save roll of an ally.`;}
-            else {
-                GMod = `[Tactician] \nAs a Bonus Action, command an ally to use their Reaction to make an attack. As a Reaction, add 1d6 to the Hit or Save roll of an ally.`;}
-            }
-        else if (modRoll == 96) {
-            if (modElite == 10) {
-                GMod = `[Tiring] (Elite) \nEvery turn, a random creature within 1200 ft. makes a DC ${GTier + 12} Con Save or they gain a level of Exhaustion.`;}
-            else {
-                GMod = `[Tiring] \nEvery turn, a random creature within 60 ft. makes a DC ${GTier + 10} Con Save or they gain a level of Exhaustion.`;}
-            }
-        else if (modRoll == 97) {
-            if (modElite == 10) {GHP += GPB * 8;
-                GMod = `[Tough] (Elite) \nThe creature gains ${GPB * 8} Maximum Hit Points and has Resistance to the two most recent damage types taken.`;}
-            else {GHP += GPB * 4
-                GMod = `[Tough] \nThe creature gains ${GPB * 4} Maximum Hit Points and has Resistance to the most recent damage type taken.`;}
-            }
-        else if (modRoll == 98) {
-            if (modElite == 10) {GLegendaryResist += 4;
-                GMod = `[Epic] (Elite) \nGains 4 uses of Legendary Resistance.`;}
-            else {GLegendaryResist += 2
-                GMod = `[Epic] \nGains 2 uses of Legendary Resistance.`;}
-            }
-        else if (modRoll == 99) {
-            if (modElite == 10) {GLegendaryUses =+ 2;
-                GMod = `[Legendary] (Elite) \nGain 2 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
-            else {GLegendaryUses =+ 1;
-                GMod = `[Legendary] \nGain 1 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
-            }
-        else if (modRoll == 100) {
-            if (modElite == 10) {
-                GMod = `[Titan] (Elite) \nThe creatures grows two size categories larger, gains 10 feet of melee reach, and adds +13 to Non-Spell damage.`;}
-            else {
-                GMod = `[Titan] \nThe creatures grows one size category larger, gains 5 feet of melee reach, and adds +7 to Non-Spell damage.`;}
-            }
-        else if (modRoll == 101) {
-            if (modElite == 10) {
-                GMod = `[Time Flux] (Elite) \nThe creature gains an extra turn. Recharges on 4-6.`;}
-            else {
-                GMod = `[Time Flux] \nThe creature gains an extra Action. Recharges on 5-6.`;}
-            }
-        else if (modRoll == 102) {
-            if (modElite == 10) {
-                GMod = `[Glass Cannon] (Elite) \nThe creature deals 50% more damage and takes 25% more damage.`;}
-            else {
-                GMod = `[Glass Cannon] \nThe creature deals 25% more damage and takes 25% more damage.`;}
-            }
-        else if (modRoll == 103) {
-            if (modElite == 10) {
-                GMod = `[Weakener] (Elite) \nAt the end of the creatures turn, it chooses up to 2 creatures. Their Resistance is reduced for the rest of combat to a damage type that the creature can deal. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
-            else {
-                GMod = `[Weakener] \nDamage dealt by this creature reduces the Resistance of the target to that element for the rest of combat. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
-            }
-        else if (modRoll == 104) {
-            if (modElite == 10) {
-                GMod = `[Pustules] (Elite) \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +10 to hit up to 60 ft. They take ${Math.ceil(GPB / 2)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
-            else {
-                GMod = `[Pustules] \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +8 to hit up to 30 ft. They take ${Math.ceil(GPB / 3)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
-            }
-        else if (modRoll == 105) {
-            if (modElite == 10) {
-                GMod = `[Gunsmith] (Elite) \nAs a Bonus Action, the creature morphs a limb into a firearm or a siege weapon. These weapons do not need ammo and gain two additional damage die.`;}
-            else {
-                GMod = `[Gunsmith] \nAs a Bonus Action, the creature morphs a limb into a firearm. These firearms do not need ammo and gain one additional damage die.`;}
-            }
-        else if (modRoll == 106) {
-            if (modElite == 10) {
-                GMod = `[Magnetic] (Elite) \nMetal weapons and ammunition have -8 to hit against the creature. As a Bonus Action, the creature can pull three metal item (that can be magnetically affected) with 120 ft. towards it (DC ${GTier + 14} Strength Save).`;}
-            else {
-                GMod = `[Magnetic] \nMetal weapons and ammunition have -4 to hit against the creature. As a Bonus Action, the creature can pull a metal item (that can be magnetically affected) with 60 ft. towards it (DC ${GTier + 12} Strength Save).`;}
-            }
-        else if (modRoll == 107) {
-            if (modElite == 10) {
-                GMod = `[Magnifier] (Elite) \nEvery die rolled by enemies is one tier lower and every die rolled by the creature is one tier higher. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
-            else {
-                GMod = `[Magnifier] \nEvery die rolled by enemies is one tier lower. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
-            }
-        else if (modRoll == 108) {
-            if (modElite == 10) {
-                GMod = `[Copycat] (Elite) \nTwice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
-            else {
-                GMod = `[Copycat] \nOnce a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
-            }
-        else if (modRoll == 109) {
-            if (modElite == 10) {
-                GMod = `[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
-            else {
-                GMod = `[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
-            }
-        else if (modRoll == 110) {if (GMagic == "Martial") {EnemyGenMod();} else {
-            if (modElite == 10) {
-                GMod = `[Archmage] (Elite) \All spells are upcast two levels.`;}
-            else {
-                GMod = `[Archmage] \nAll spells are upcast one level.`;}
+GMod = `[Resistant] \nThe creature has 3 random resistances.`;}
+}
+else if (modRoll == 91) {
+if (modElite == 10) {ElementTypeGen(); eleOne = GElement; ElementTypeGen(); GImmune.length = 0; GImmune.push(`All damage except ${GElement} and ${eleOne}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)} if (GVuln.includes(`${eleOne}`) == false) {GVuln.push(`${eleOne}`)}
+GMod = `[Weakness] (Elite) \nThe creature is Immune to damage of all types except for 2, which it is Vulnerable to.`;}
+else {ElementTypeGen(); GRes.length = 0; GRes.push(`All damage except ${GElement}`); if (GVuln.includes(`${GElement}`) == false) {GVuln.push(`${GElement}`)}
+GMod = `[Weakness] \nThe creature has Resistance to all except for one type, which it is Vulnerable to.`;}
+}
+else if (modRoll == 92) {
+if (modElite == 10) {
+GMod = `[Gibbering] (Elite) \nEach creature that starts its turn within 40 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 14} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
+else {
+GMod = `[Gibbering] \nEach creature that starts its turn within 20 feet of the creature and can hear the gibbering must succeed on a DC ${GTier + 12} Wisdom Save. On a failure, the creature cant take reactions until the start of its next turn and rolls a d8 to determine what it does. 1-4, do nothing. 5-6, take no action or bonus action and use all movement in a random direction. 7-8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it cant make such an attack.`;}
+}
+else if (modRoll == 93) {
+if (modElite == 10) {
+GMod = `[Fortified] (Elite) \nInstances of damage ${Math.ceil(GPB / 2) + 12} or less deal no damage to the creature.`;}
+else {
+GMod = `[Fortified] \nInstances of damage ${Math.ceil(GPB / 2) + 8} or less deal no damage to the creature.`;}
+}
+else if (modRoll == 94) {
+if (modElite == 10) {
+GMod = `[Hivemind] (Elite) \n(Spellcasters Only) The creature can concentrate on 3 spells at once and has advantage and +2 on Saving Throws to maintain Concentration.`;}
+else {
+GMod = `[Hivemind] \n(Spellcasters Only) The creature can concentrate on 2 spells at once and has advantage on Saving Throws to maintain Concentration.`;}
+}
+else if (modRoll == 95) {
+if (modElite == 10) {
+GMod = `[Tactician] (Elite) \nAs a Bonus Action, command two allies to use their Reaction to make an attack. As a Reaction, add 2d6 to the Hit or Save roll of an ally.`;}
+else {
+GMod = `[Tactician] \nAs a Bonus Action, command an ally to use their Reaction to make an attack. As a Reaction, add 1d6 to the Hit or Save roll of an ally.`;}
+}
+else if (modRoll == 96) {
+if (modElite == 10) {
+GMod = `[Tiring] (Elite) \nEvery turn, a random creature within 1200 ft. makes a DC ${GTier + 12} Con Save or they gain a level of Exhaustion.`;}
+else {
+GMod = `[Tiring] \nEvery turn, a random creature within 60 ft. makes a DC ${GTier + 10} Con Save or they gain a level of Exhaustion.`;}
+}
+else if (modRoll == 97) {
+if (modElite == 10) {GHP += GPB * 8;
+GMod = `[Tough] (Elite) \nThe creature gains ${GPB * 8} Maximum Hit Points and has Resistance to the two most recent damage types taken.`;}
+else {GHP += GPB * 4
+GMod = `[Tough] \nThe creature gains ${GPB * 4} Maximum Hit Points and has Resistance to the most recent damage type taken.`;}
+}
+else if (modRoll == 98) {
+if (modElite == 10) {GLegendaryResist += 4;
+GMod = `[Epic] (Elite) \nGains 4 uses of Legendary Resistance.`;}
+else {GLegendaryResist += 2
+GMod = `[Epic] \nGains 2 uses of Legendary Resistance.`;}
+}
+else if (modRoll == 99) {
+if (modElite == 10) {GLegendaryUses =+ 2;
+GMod = `[Legendary] (Elite) \nGain 2 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
+else {GLegendaryUses =+ 1;
+GMod = `[Legendary] \nGain 1 Legendary Action per round. If it does not have any, it can be used to make a single attack, move up to full speed, or casting a known cantrip.`;}
+}
+else if (modRoll == 100) {
+if (modElite == 10) {
+GMod = `[Titan] (Elite) \nThe creatures grows two size categories larger, gains 10 feet of melee reach, and adds +13 to Non-Spell damage.`;}
+else {
+GMod = `[Titan] \nThe creatures grows one size category larger, gains 5 feet of melee reach, and adds +7 to Non-Spell damage.`;}
+}
+else if (modRoll == 101) {
+if (modElite == 10) {
+GMod = `[Time Flux] (Elite) \nThe creature gains an extra turn. Recharges on 4-6.`;}
+else {
+GMod = `[Time Flux] \nThe creature gains an extra Action. Recharges on 5-6.`;}
+}
+else if (modRoll == 102) {
+if (modElite == 10) {
+GMod = `[Glass Cannon] (Elite) \nThe creature deals 50% more damage and takes 25% more damage.`;}
+else {
+GMod = `[Glass Cannon] \nThe creature deals 25% more damage and takes 25% more damage.`;}
+}
+else if (modRoll == 103) {
+if (modElite == 10) {
+GMod = `[Weakener] (Elite) \nAt the end of the creatures turn, it chooses up to 2 creatures. Their Resistance is reduced for the rest of combat to a damage type that the creature can deal. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
+else {
+GMod = `[Weakener] \nDamage dealt by this creature reduces the Resistance of the target to that element for the rest of combat. \n\n(Immunity > Resistance > Normal > +50% Damage > Vulnerable)`;}
+}
+else if (modRoll == 104) {
+if (modElite == 10) {
+GMod = `[Pustules] (Elite) \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +10 to hit up to 60 ft. They take ${Math.ceil(GPB / 2)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
+else {
+GMod = `[Pustules] \nEach separate instance of damage pops a pustle. A popped pustle squirts nitroglycerin towards a creatures with +8 to hit up to 30 ft. They take ${Math.ceil(GPB / 3)}d6 acid damage and gain a stack of nitro. \n\nNitro can be ignited by bludgeoning damage of 20 or higher, fire, lightnings, or sparks.`;}
+}
+else if (modRoll == 105) {
+if (modElite == 10) {
+GMod = `[Gunsmith] (Elite) \nAs a Bonus Action, the creature morphs a limb into a firearm or a siege weapon. These weapons do not need ammo and gain two additional damage die.`;}
+else {
+GMod = `[Gunsmith] \nAs a Bonus Action, the creature morphs a limb into a firearm. These firearms do not need ammo and gain one additional damage die.`;}
+}
+else if (modRoll == 106) {
+if (modElite == 10) {
+GMod = `[Magnetic] (Elite) \nMetal weapons and ammunition have -8 to hit against the creature. As a Bonus Action, the creature can pull three metal item (that can be magnetically affected) with 120 ft. towards it (DC ${GTier + 14} Strength Save).`;}
+else {
+GMod = `[Magnetic] \nMetal weapons and ammunition have -4 to hit against the creature. As a Bonus Action, the creature can pull a metal item (that can be magnetically affected) with 60 ft. towards it (DC ${GTier + 12} Strength Save).`;}
+}
+else if (modRoll == 107) {
+if (modElite == 10) {
+GMod = `[Magnifier] (Elite) \nEvery die rolled by enemies is one tier lower and every die rolled by the creature is one tier higher. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
+else {
+GMod = `[Magnifier] \nEvery die rolled by enemies is one tier lower. \n\n(2d12 > 1d20 > 2d8 > 1d12 > 1d10 > 1d8 > 1d6 > 1d4 > 1 > 0)`;}
+}
+else if (modRoll == 108) {
+if (modElite == 10) {
+GMod = `[Copycat] (Elite) \nTwice a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
+else {
+GMod = `[Copycat] \nOnce a day, as an Action or upon rolling Initiative, the creature may morph into an exact copy of one of its enemies. It takes on the Hit Points of the creature as well, and reverts back to its original form with its original HP once it hits 0 HP. Overkill damage carries over.`;}
+}
+else if (modRoll == 109) {
+if (modElite == 10) {
+GMod = `[Plunderer] (Elite) \nAt the start of the creatures turn, roll a d20. On 11-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it upcast one level, or they can choose to add 4d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
+else {
+GMod = `[Plunderer] \nAt the start of the creatures turn, roll a d20. On 15-20, target a random spellcaster and steal one of their highest Spell Slots. If the creature is a spellcaster, they can use it, or they can choose to add 2d8 on a successful attack. The stolen energy must be used before more can be stolen.`;}
+}
+else if (modRoll == 110) {if (GMagic == "Martial") {EnemyGenMod();} else {
+if (modElite == 10) {
+GMod = `[Archmage] (Elite) \All spells are upcast two levels.`;}
+else {
+GMod = `[Archmage] \nAll spells are upcast one level.`;}
 		}}
-        else if (modRoll == 111) {
-            if (modElite == 10) {ModX = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
+else if (modRoll == 111) {
+if (modElite == 10) {ModX = `[Double Trouble] (Elite) \nGeneate a new modifier three times and the creatures gains all three.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
-            else {ModX = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
+else {ModX = `[Double Trouble] \nGenerate a new modifier twice and the creature gains both.`;
 			EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; EnemyGenMod(); ModX = `${ModX}\n\n${GMod}`; GMod = ModX;}
-            }
-        else if (modRoll == 112) {
-            if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSpeedFly += 20}
-                GMod = `[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
-            else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSpeedFly += 10}
-                GMod = `[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
-            }
-        else if (modRoll == 113) {
-            if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
-                GMod = `[Fiendish] (Elite) \nThis creature is considered as Fiend. The creature has Immunity to Fire and Resistance to Nonmagical Physical damage. Spells of 2nd Level or lower cannot affect the creature unless it wills them to.`;}
-            else {if (GRes.includes("fire") == false) {GRes.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
-                GMod = `[Fiendish] \nThis creature is considered as Fiend. The creature has Resistance to Fire and Nonmagical Physical damage. Spells of 1st Level or lower cannot affect the creature unless it wills them to.`;}
-            }
-        else if (modRoll == 114) {
-            if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning");} if (GImmune.includes("physical") == false) {GImmune.push("physical");} 
-                GMod = `[Slimeling] (Elite) \nThis creature is considered as Ooze. The creature is Immune to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 2) + 4}d6 acid damage at the start of their turn (escape DC ${GTier + 14}).`;}
-            else {if (GRes.includes("lightning") == false) {GRes.push("lightning");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
-                GMod = `[Slimeling] \nThis creature is considered as Ooze. The creature has Resistance to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 3) + 2}d6 acid damage at the start of their turn (escape DC ${GTier + 12}).`;}
-            }
-        else if (modRoll == 115) {
-            if (modElite == 10) {GStr += 5; if (GBlindsight == 0) {GBlindsight += 60} else {GBlindsight += 30}
-                GMod = `[Dragonkin] (Elite) \nThis creature is considered as Dragon. It gains +5 Strength and 60ft. of Blindsight. The creature gains 5 uses of a Dragonborn Breath weapon of DC ${GTier + 14} for ${Math.ceil(GPB / 3) + 2}d10 damage and Resistance to the matching element.`;}
-            else {GStr += 3; if (GBlindsight == 0) {GBlindsight += 30} else {GBlindsight += 10}
-                GMod = `[Dragonkin] \nThis creature is considered as Dragon. It gains +3 Strength and 30ft. of Blindsight. The creature gains 3 uses of a Dragonborn Breath weapon of DC ${GTier + 12} for ${Math.ceil(GPB / 4) + 1}d10 damage and Resistance to the matching element.`;}
-            }
-        else if (modRoll == 116) {
-            if (modElite == 10) {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
+}
+else if (modRoll == 112) {
+if (modElite == 10) {GCha += 5; if (GSpeedFly == 0) {GSpeedFly += 50} else {GSpeedFly += 20}
+GMod = `[Feylost] (Elite) \nThis creature is considered as Fey. It gains +5 Charisma and wings with a 50 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
+else {GCha += 3; if (GSpeedFly == 0) {GSpeedFly += 30} else {GSpeedFly += 10}
+GMod = `[Feylost] \nThis creature is considered as Fey. It gains +3 Charisma and wings with a 30 ft. fly speed. It has advantage on Saves against spells and magical effects.`;}
+}
+else if (modRoll == 113) {
+if (modElite == 10) {if (GImmune.includes("fire") == false) {GImmune.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+GMod = `[Fiendish] (Elite) \nThis creature is considered as Fiend. The creature has Immunity to Fire and Resistance to Nonmagical Physical damage. Spells of 2nd Level or lower cannot affect the creature unless it wills them to.`;}
+else {if (GRes.includes("fire") == false) {GRes.push("fire");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+GMod = `[Fiendish] \nThis creature is considered as Fiend. The creature has Resistance to Fire and Nonmagical Physical damage. Spells of 1st Level or lower cannot affect the creature unless it wills them to.`;}
+}
+else if (modRoll == 114) {
+if (modElite == 10) {if (GImmune.includes("lightning") == false) {GImmune.push("lightning");} if (GImmune.includes("physical") == false) {GImmune.push("physical");} 
+GMod = `[Slimeling] (Elite) \nThis creature is considered as Ooze. The creature is Immune to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 2) + 4}d6 acid damage at the start of their turn (escape DC ${GTier + 14}).`;}
+else {if (GRes.includes("lightning") == false) {GRes.push("lightning");} else {} if (GRes.includes("physical") == false) {GRes.push("physical");} else {}
+GMod = `[Slimeling] \nThis creature is considered as Ooze. The creature has Resistance to Physical and Lightning damage. A grappled creature of a size smaller than the creature can be absorbed into its body where they takes ${Math.ceil(GPB / 3) + 2}d6 acid damage at the start of their turn (escape DC ${GTier + 12}).`;}
+}
+else if (modRoll == 115) {
+if (modElite == 10) {GStr += 5; if (GBlindsight == 0) {GBlindsight += 60} else {GBlindsight += 30}
+GMod = `[Dragonkin] (Elite) \nThis creature is considered as Dragon. It gains +5 Strength and 60ft. of Blindsight. The creature gains 5 uses of a Dragonborn Breath weapon of DC ${GTier + 14} for ${Math.ceil(GPB / 3) + 2}d10 damage and Resistance to the matching element.`;}
+else {GStr += 3; if (GBlindsight == 0) {GBlindsight += 30} else {GBlindsight += 10}
+GMod = `[Dragonkin] \nThis creature is considered as Dragon. It gains +3 Strength and 30ft. of Blindsight. The creature gains 3 uses of a Dragonborn Breath weapon of DC ${GTier + 12} for ${Math.ceil(GPB / 4) + 1}d10 damage and Resistance to the matching element.`;}
+}
+else if (modRoll == 116) {
+if (modElite == 10) {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
 			if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}
 			 if (GImmune.includes("physical") == false) {GImmune.push("physical")} else {}
-                GMod = `[Construct] (Elite) \nThis creature is considered as Construct. It gains +5 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and non-adamantite Physical damage. \nOn death, the creatures core overloads and it explodes for ${Math.ceil(GPB / 2) + 2}d8 fire within 30 ft.`;}
-            else {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
+GMod = `[Construct] (Elite) \nThis creature is considered as Construct. It gains +5 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and non-adamantite Physical damage. \nOn death, the creatures core overloads and it explodes for ${Math.ceil(GPB / 2) + 2}d8 fire within 30 ft.`;}
+else {GCon += 5; if (GCondImmune.includes("charm") == false) {GCondImmune.push("charm")} else {} if (GCondImmune.includes("sleep") == false) {GCondImmune.push("sleep")} else {}
 			if (GCondImmune.includes("disease") == false) {GCondImmune.push("disease")} else {} if (GCondImmune.includes("poisoned") == false) {GCondImmune.push("poisoned")} else {} if (GImmune.includes("poison") == false) {GImmune.push("poison")} else {}
 			 if (GRes.includes("physical") == false) {GRes.push("physical")} else {}
-                GMod = `[Construct] \nThis creature is considered as Construct. It gains +3 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and Resists non-adamantite Physical damage.`;}
-            }
-        else if (modRoll == 117) {
-            if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
-                GMod = `[Angelborn] (Elite) \nThis creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by ${Math.floor(GPB / 3)}d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.`;}
-            else {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
-                GMod = `[Angelborn] \nThis creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.`;}
-            }
-        else if (modRoll == 118) {
-            if (modElite == 10) {GStr += 8; GInt += 8;
-                GMod = `[Determinist] (Elite) \nThe creature gains +8 Strength and Intelligence.`;}
-            else {GStr += 5; GInt += 5;
-                GMod = `[Determinist] \nThe creature gains +5 Strength and Intelligence.`;}
-            }
-        else if (modRoll == 119) {
-            if (modElite == 10) {GStr += 8; GWis += 8;
-                GMod = `[Veteran] (Elite) \nThe creature gains +8 Strength and Wisdom.`;}
-            else {GStr += 5; GWis += 5;
-                GMod = `[Veteran] \nThe creature gains +5 Strength and Wisdom.`;}
-            }
-        else if (modRoll == 120) {
-            if (modElite == 10) {GStr += 8; GCha += 8;
-                GMod = `[Gladiator] (Elite) \nThe creature gains +8 Strength and Charisma.`;}
-            else {GStr += 5; GCha += 5;
-                GMod = `[Gladiator] \nThe creature gains +5 Strength and Charisma.`;}
-            }
-        else if (modRoll == 121) {
-            if (modElite == 10) {GDex += 8; GInt += 8;
-                GMod = `[Opportunist] (Elite) \nThe creature gains +5 Dexterity and Intelligence.`;}
-            else {GDex += 5; GInt += 5;
-                GMod = `[Opportunist] \nThe creature gains +5 Dexterity and Intelligence.`;}
-            }
-        else if (modRoll == 122) {
-            if (modElite == 10) {GDex += 8; GWis += 8;
-                GMod = `[Pursuer] (Elite) \nThe creature gains +8 Dexterity and Wisdom.`;}
-            else {GDex += 5; GWis += 5;
-                GMod = `[Pursuer] \nThe creature gains +5 Dexterity and Wisdom.`;}
-            }
-        else if (modRoll == 123) {
-            if (modElite == 10) {GDex += 8; GCha += 8;
-                GMod = `[Robin Hood] (Elite) \nThe creature gains +8 Dexterity and Charisma.`;}
-            else {GDex += 5; GCha += 5;
-                GMod = `[Robin Hood] \nThe creature gains +5 Dexterity and Charisma.`;}
-            }
-        else if (modRoll == 124) {
-            if (modElite == 10) {GCon += 8; GCha += 8;
-                GMod = `[Royalty] (Elite) \nThe creature gains +8 Constitution and Charisma.`;}
-            else {GCon += 5; GCha += 5;
-                GMod = `[Royalty] \nThe creature gains +5 Contsitution and Charisma.`;}
-            }
-        else if (modRoll == 125) {
-            if (modElite == 10) {GCon += 8; GInt += 8;
-                GMod = `[Queenly] (Elite) \nThe creature gains +8 Constitution and Intelligence.`;}
-            else {GCon += 5; GInt += 5;
-                GMod = `[Queenly] \nThe creature gains +5 Constitution and Intelligence.`;}
-            }
-        else if (modRoll == 126) {
-            if (modElite == 10) {GCon += 8; GWis += 8;
-                GMod = `[Kingly] (Elite) \nThe creature gains +8 Constitution and Wisdom.`;}
-            else {GCon += 5; GWis += 5;
-                GMod = `[Kingly] \nThe creature gains +5 Constitution and Wisdom.`;}
-            }
-        else if (modRoll == 127) {
-            if (modElite == 10) {
-                GMod = `[Gambler] (Elite) \nWhen rolling Initiative, the creature draws two random Deck of Many Things cards. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
-            else {
-                GMod = `[Gambler] \nWhen rolling Initiative, the creature draws a random Deck of Many Things card. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
-            }
-        else if (modRoll == 128) {
-            if (modElite == 10) {
-                GMod = `[Nightmare] (Elite) \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
-            else {
-                GMod = `[Nightmare] \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
-            }
-        else if (modRoll == 129) {
-            if (modElite == 10) {
-                GMod = `[Gourmet] (Elite) \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. \n\n(Other materials are up to the DM.) \n[Wood] Gain 4 AC. \n[Stone] Physical Resistance \n[Basic Metals] +4 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] Advantage on Attacks.`;}
-            else {
-                GMod = `[Gourmet] \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. \n\n(Other materials are up to the DM.) \n[Wood] Gain 2 AC. \n[Stone] Physical Resist, -5 Speed. \n[Basic Metals] +2 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] -2 AC and Advantage on Attacks.`;}
-            }
-        else if (modRoll == 130) {
-            if (modElite == 10) {
-                GMod = `[] (Elite) \n`;}
-            else {
-                GMod = `[] \n`;}
-            }
+GMod = `[Construct] \nThis creature is considered as Construct. It gains +3 Consitution and its form cannot be changed. The creature is Immune to Sleep, Charm, Poison, Disease, Poisoned, and Resists non-adamantite Physical damage.`;}
+}
+else if (modRoll == 117) {
+if (modElite == 10) {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
+GMod = `[Angelborn] (Elite) \nThis creature is considered as Celestial. All Physical damage dealt is Radiant instead and is increased by ${Math.floor(GPB / 3)}d6. The creature knows if it hears a lie. It is Immune to Fear and Necrotic.`;}
+else {if (GImmune.includes("necrotic") == false) {GImmune.push("necrotic");} else {} if (GCondImmune.includes("fear") == false) {GCondImmune.push("fear");} else {}
+GMod = `[Angelborn] \nThis creature is considered as Celestial and its normal type. All Physical damage dealt is Radiant instead and the creature knows if it hears a lie. It is Immune to Fear and Resists Necrotic.`;}
+}
+else if (modRoll == 118) {
+if (modElite == 10) {GStr += 8; GInt += 8;
+GMod = `[Determinist] (Elite) \nThe creature gains +8 Strength and Intelligence.`;}
+else {GStr += 5; GInt += 5;
+GMod = `[Determinist] \nThe creature gains +5 Strength and Intelligence.`;}
+}
+else if (modRoll == 119) {
+if (modElite == 10) {GStr += 8; GWis += 8;
+GMod = `[Veteran] (Elite) \nThe creature gains +8 Strength and Wisdom.`;}
+else {GStr += 5; GWis += 5;
+GMod = `[Veteran] \nThe creature gains +5 Strength and Wisdom.`;}
+}
+else if (modRoll == 120) {
+if (modElite == 10) {GStr += 8; GCha += 8;
+GMod = `[Gladiator] (Elite) \nThe creature gains +8 Strength and Charisma.`;}
+else {GStr += 5; GCha += 5;
+GMod = `[Gladiator] \nThe creature gains +5 Strength and Charisma.`;}
+}
+else if (modRoll == 121) {
+if (modElite == 10) {GDex += 8; GInt += 8;
+GMod = `[Opportunist] (Elite) \nThe creature gains +5 Dexterity and Intelligence.`;}
+else {GDex += 5; GInt += 5;
+GMod = `[Opportunist] \nThe creature gains +5 Dexterity and Intelligence.`;}
+}
+else if (modRoll == 122) {
+if (modElite == 10) {GDex += 8; GWis += 8;
+GMod = `[Pursuer] (Elite) \nThe creature gains +8 Dexterity and Wisdom.`;}
+else {GDex += 5; GWis += 5;
+GMod = `[Pursuer] \nThe creature gains +5 Dexterity and Wisdom.`;}
+}
+else if (modRoll == 123) {
+if (modElite == 10) {GDex += 8; GCha += 8;
+GMod = `[Robin Hood] (Elite) \nThe creature gains +8 Dexterity and Charisma.`;}
+else {GDex += 5; GCha += 5;
+GMod = `[Robin Hood] \nThe creature gains +5 Dexterity and Charisma.`;}
+}
+else if (modRoll == 124) {
+if (modElite == 10) {GCon += 8; GCha += 8;
+GMod = `[Royalty] (Elite) \nThe creature gains +8 Constitution and Charisma.`;}
+else {GCon += 5; GCha += 5;
+GMod = `[Royalty] \nThe creature gains +5 Contsitution and Charisma.`;}
+}
+else if (modRoll == 125) {
+if (modElite == 10) {GCon += 8; GInt += 8;
+GMod = `[Queenly] (Elite) \nThe creature gains +8 Constitution and Intelligence.`;}
+else {GCon += 5; GInt += 5;
+GMod = `[Queenly] \nThe creature gains +5 Constitution and Intelligence.`;}
+}
+else if (modRoll == 126) {
+if (modElite == 10) {GCon += 8; GWis += 8;
+GMod = `[Kingly] (Elite) \nThe creature gains +8 Constitution and Wisdom.`;}
+else {GCon += 5; GWis += 5;
+GMod = `[Kingly] \nThe creature gains +5 Constitution and Wisdom.`;}
+}
+else if (modRoll == 127) {
+if (modElite == 10) {
+GMod = `[Gambler] (Elite) \nWhen rolling Initiative, the creature draws two random Deck of Many Things cards. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
+else {
+GMod = `[Gambler] \nWhen rolling Initiative, the creature draws a random Deck of Many Things card. \n\n(Optionally: Roll a d20. Even is Many Things, Odds is Many Fates) \n\n(Recommended: Reroll for card draws that would end or prevent the combat from happening. Also, DM fiat: reroll really bad cards, as this mod system is supposed to add challenge)`;}
+}
+else if (modRoll == 128) {
+if (modElite == 10) {
+GMod = `[Nightmare] (Elite) \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 50x50 ft pocket dimension. They must fight a creature of CR equal to 1/2 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
+else {
+GMod = `[Nightmare] \nAt the start of combat, the creature designates (or randomly picks) a creature. They are pulled into a 100x100 ft pocket dimension. They must fight a creature of CR equal to 1/3 of their level. The only escape is the death of one of the fighters, in which the creature vanishes and the character, or their body, is returned where they were.`;}
+}
+else if (modRoll == 129) {
+if (modElite == 10) {
+GMod = `[Gourmet] (Elite) \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to four different bonuses can be active at once. \n\n(Other materials are up to the DM.) \n[Wood] Gain 4 AC. \n[Stone] Physical Resistance \n[Basic Metals] +4 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] Advantage on Attacks.`;}
+else {
+GMod = `[Gourmet] \nAs a Bonus Action, the creature can ingest a coin-sized material to gain a bonus for 1 minute (10 rounds). Up to two different bonuses can be active at once. The second active reduces both durations by 4 rounds. \n\n(Other materials are up to the DM.) \n[Wood] Gain 2 AC. \n[Stone] Physical Resist, -5 Speed. \n[Basic Metals] +2 Damage. \n[Cloth] Incoming Attacks have Disadv. \n[Precious Metals] -2 AC and Advantage on Attacks.`;}
+}
+else if (modRoll == 130) {
+if (modElite == 10) {
+GMod = `[] (Elite) \n`;}
+else {
+GMod = `[] \n`;}
+}
 }
 	function EnemyModBtn() {
 		EnemyGenMod();
@@ -2855,7 +2855,7 @@ function EnemyTrait() {
 		else if (RNG == 5) {GTraitNames.push(`Keen Sight and Hearing`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on sight or hearing.`);}
 		else if (RNG == 6) {GTraitNames.push(`Keen Hearing and Smell`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks that rely on hearing or smell.`);}
 		else if (RNG == 7) {GTraitNames.push(`Keen Senses`); GTraits.push(`The creature has advantage on Wisdom (Perception) checks.`);}
-		else if (RNG == 8) {GTraitNames.push(`Radiant Eyes`); GTraits.push(`While its eyes are open, the creature projects bright light in a 60-foot cone and dim light for an additional 60 feet. It sets the orientation of this cone at the end of each of its turns. All creatures that can see the creature have disadvantage on attack rolls while in the area of bright light and within 15 feet of the creature. Creatures with the Sunlight Sensitivity trait that can see the creature have disadvantage on attack rolls anywhere in the area of bright light.`);}
+		else if (RNG == 8) {GTraitNames.push(`Radiant Eyes`); GTraits.push(`While its eyes are open, the creature projects bright light in a 60-foot cone and light for an additional 60 feet. It sets the orientation of this cone at the end of each of its turns. All creatures that can see the creature have disadvantage on attack rolls while in the area of bright light and within 15 feet of the creature. Creatures with the Sunlight Sensitivity trait that can see the creature have disadvantage on attack rolls anywhere in the area of bright light.`);}
 		else if (RNG == 9) {GTraitNames.push(`Limited Amphibiousness`); GTraits.push(`The creature can breathe air and water, but it needs to be submerged once every 24 hours to avoid suffocating.`);}
 		else if (RNG == 10) {GTraitNames.push(`Dire Cacophony`); GTraits.push(`Any creature that starts its turn within 60 feet of the creature and can hear it must make a DC ${GTier + 12} Wisdom saving throw. On a failed save, the creature is unable to use the Dash action, cannot climb, or cast spells other than cantrips until the start of its next turn.`);}
 		else if (RNG == 11) {GTraitNames.push(`Magic Resistance`); GTraits.push(`The creature has advantage on saving throws against spells and other magical effects.`);}
@@ -2905,7 +2905,7 @@ function EnemyTrait() {
 		else if (RNG == 54) {GTraitNames.push(`Adamantine Plating`); GTraits.push(`Any critical hit against the creature becomes a normal hit.`);}
 		else if (RNG == 55) {GTraitNames.push(`Bladed Armor`); GTraits.push(`An enemy that grapples the creature or is grappled by it takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage. An enemy takes ${Math.ceil(GPB / 2) + 2}d8 slashing damage if it starts its turn grappling or being grappled by the creature.`);}
 		else if (RNG == 56) {GTraitNames.push(`Charge`); GTraits.push(`If the creature moves at least 10 feet straight toward a target and then hits it with a melee attack on the same turn, the target takes an extra ${Math.ceil(GPB / 2) + 1}d6 damage. If the target is a creature, it must succeed on a DC ${GTier + 12} Strength saving throw or be pushed up to 10 feet away and knocked prone.`);}
-		else if (RNG == 57) {GTraitNames.push(`Aura of Radiance`); GTraits.push(`The creature magically sheds bright light in a 15-foot radius and dim light for an additional 15 feet. The creature can extinguish or restore this light as a bonus action. If the bright light overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created that darkness is dispelled.`);}
+		else if (RNG == 57) {GTraitNames.push(`Aura of Radiance`); GTraits.push(`The creature magically sheds bright light in a 15-foot radius and light for an additional 15 feet. The creature can extinguish or restore this light as a bonus action. If the bright light overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created that darkness is dispelled.`);}
 		else if (RNG == 58) {GTraitNames.push(`Siege Monster`); GTraits.push(`The creature deals double damage to objects and structures.`);}
 		else if (RNG == 59) {GTraitNames.push(`Magic Weapons`); GTraits.push(`The creature’s attacks are magical.`);}
 		else if (RNG == 60) {GTraitNames.push(`Crackling Death`); GTraits.push(`When the creature dies, it explodes. Each creature within 30 feet of it must make a DC ${GTier + 12} Dexterity saving throw, taking ${Math.ceil(GCR / 3) + 1}d8 lightning damage on a failed save, or half as much damage on a successful one.`);}
@@ -2916,7 +2916,7 @@ function EnemyTrait() {
 		else if (RNG == 65) {GTraitNames.push(`Speak with Beasts`); GTraits.push(`The creature can communicate with beasts as if they shared a language.`);}
 		else if (RNG == 66) {GTraitNames.push(`Speak with Plants`); GTraits.push(`The creature can communicate with plants as if they shared a language.`);}
 		else if (RNG == 67) {GTraitNames.push(`Speak with Beasts and Plants`); GTraits.push(`The creature can communicate with beasts and plants as if they shared a language.`);}
-		else if (RNG == 68) {GTraitNames.push(`Empowered Spell (3/day)`); GTraits.push(`When the creature rolls damage for a spell, it can reroll up to two dice of damage. It must use the new rolls.`);}
+		else if (RNG == 68) {if (GMagic == "Martial") {EnemyTrait();} else {GTraitNames.push(`Empowered Spell (3/day)`); GTraits.push(`When the creature rolls damage for a spell, it can reroll up to two dice of damage. It must use the new rolls.`);}}
 		else if (RNG == 69) {GTraitNames.push(`Relentless (Recharge 6)`); GTraits.push(`If the creature takes damage that would reduce it to 0 hit points, it is reduced to 1 hit point instead.`);}
 		else if (RNG == 70) {GTraitNames.push(`Assassinate`); GTraits.push(`During its first turn, the creature has advantage on attack rolls against any creature that hasn’t taken a turn. Any hit the creature scores against a surprised creature is a critical hit.`);}
 		else if (RNG == 71) {GTraitNames.push(`Poisonous Skin`); GTraits.push(`Any enemy that touches the creature or hits it with a melee attack while within 5 feet of it takes ${Math.ceil(GPB / 3)}d6 poison damage.`);}
@@ -2963,7 +2963,7 @@ function EnemyTrait() {
 		else if (RNG == 110) {GTraitNames.push(`Defensive Frenzy`); GTraits.push(`When it has half its hit points or fewer, the creature can make one unarmed attack as a bonus action.`);}
 		else if (RNG == 111) {GTraitNames.push(`Pack Leader`); GTraits.push(`The creature has advantage on an attack roll against an enemy if at least one of the creature‘s allies is within 5 feet of the enemy and the ally isn’t incapacitated. Likewise, each of the creature‘s allies has advantage on an attack roll against an enemy if the creature is within 5 feet of the enemy and isn’t incapacitated.`);}
 		else if (RNG == 112) {GTraitNames.push(`Master Manipulator`); GTraits.push(`The creature prefers to control from the shadows and manipulates whomsoever it pleases. It has advantage on any Charisma skill checks or saving throws, even if it would otherwise have disadvantage. It also adds +${Math.ceil(GPB / 2)} to any Deception or Persuasion rolls.`);}
-		else if (RNG == 113) {GTraitNames.push(`Born of Darkness`); GTraits.push(`The creature can take the Hide action as a bonus action on each turn while it is in dim light or darkness, even if it is being observed.`);}
+		else if (RNG == 113) {GTraitNames.push(`Born of Darkness`); GTraits.push(`The creature can take the Hide action as a bonus action on each turn while it is in light or darkness, even if it is being observed.`);}
 		else if (RNG == 114) {GTraitNames.push(`Woodfriend`); GTraits.push(`When in a forest, the creature leave no tracks and automatically discerns true north.`);}
 		else if (RNG == 115) {GTraitNames.push(`Aversion to Water`); GTraits.push(`If the creature takes cold damage or is doused with at least three gallons of water, it has disadvantage on attack rolls and ability checks until the end of its next turn.`);}
 		else if (RNG == 116) {GTraitNames.push(`Fire Absorption`); GTraits.push(`Whenever the creature is subjected to fire damage, it takes no damage and instead regains a number of Hit Points equal to the fire damage taken.`);}
@@ -3123,7 +3123,7 @@ function EnemyAction() {
 		else if (RNG == 79) {GActionNames.push(`Arclight Touch`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: ${Math.ceil(GPB / 3) + 2}d6 lightning damage, and lightning jumps from the target to one creature of the creature’s choice that it can see within 30 feet of the target. That second creature must succeed on a DC ${GTier + 12} Dexterity saving throw or take ${Math.ceil(GPB / 3) + 2}d6 lightning damage.`);}
 		else if (RNG == 80) {GActionNames.push(`Vampiric Bite`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., a willing creature, a creature that is charmed by the creature, or a creature that is grappled, restrained, or incapacitated. Hit: (${Math.ceil(GPB / 3)}d6 + ${GWeaponMod}) piercing damage plus ${Math.ceil(GPB / 3) + 2}d6 necrotic damage.
 The target’s hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.`);}
-		else if (RNG == 81) {GActionNames.push(`Chain`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 15} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) x damage. If the target is a creature, it is grappled (escape DC ${GTier + 12}). Until the grapple ends, the target is restrained, and the creature can’t use this attack on anyone else.`);}
+		else if (RNG == 81) {GActionNames.push(`Chain`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 15} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) bludgeoning damage. If the target is a creature, it is grappled (escape DC ${GTier + 12}). Until the grapple ends, the target is restrained, and the creature can’t use this attack on anyone else.`);}
 		else if (RNG == 82) {GActionNames.push(`Spit Acid`); GActions.push(`Ranged Weapon Attack: +${GWeaponHit} to hit, range ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) acid damage.`);}
 		else if (RNG == 83) {GActionNames.push(`Petrifying Gaze`); GActions.push(`The creature fixes its gaze on one enemy within 60 feet of it that it can see and that can see its eyes. The target must make a DC ${GTier + 12} Constitution saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. Otherwise, an enemy that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.`);}
 		else if (RNG == 84) {GActionNames.push(`Searing Touch`); GActions.push(`The creature grabs a target and attempts to grapples them. The initial touch deals ${Math.ceil(GPB / 3) + 2}d6 fire damage and an additional ${Math.ceil(GPB / 3) + 2}d6 fire damage each turn they remain grappled.`);}
@@ -3131,7 +3131,7 @@ The target’s hit point maximum is reduced by an amount equal to the necrotic d
 		else if (RNG == 86) {GActionNames.push(`Combusting Touch`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: ${Math.ceil(GPB / 2) + 2}d8 fire damage. A creature hit by this attack is knocked back 5 ft. and cannot take a reaction until the end of their next turn.`);}
 		else if (RNG == 87) {GActionNames.push(`Poisoned Daggers`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${(reachX + 5) * 2}/${(reachX + 5) * 6} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) piercing damage. The target must make a DC ${GTier + 12} Consitution Saving Throw or else take ${Math.ceil(GPB) * 2} poison damage and become poisoned. A successful save takes half damage and is not poisoned.`);}
 		else if (RNG == 88) {GActionNames.push(`Pinning Thrust`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d6 + ${GWeaponMod}) piercing damage. The creature attempts to pierce his sword through his target's leg into the ground. The target makes a DC ${GTier + 12} Dexterity saving throw. On a fail, the sword pierces their leg into the ground and they are considered restrained until the sword is removed. The creature cannot use this attack unless they retrieve their weapon or carry more.`);}
-		else if (RNG == 89) {GActionNames.push(`Stunning Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d8 + ${GWeaponMod}) x damage. A target hit by two claw attacks in the same turn must make a DC ${GTier + 12} Consitution saving throw or else be stunned until the end of their next turn.`);}
+		else if (RNG == 89) {GActionNames.push(`Stunning Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d8 + ${GWeaponMod}) slashing damage. A target hit by two claw attacks in the same turn must make a DC ${GTier + 12} Consitution saving throw or else be stunned until the end of their next turn.`);}
 		else if (RNG == 90) {GActionNames.push(`Haymaker`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3) + 1}d12 + ${GWeaponMod}) bludgeoning damage. A creature hit by this must make a Strength DC ${GTier + 12} saving throw or be knocked back 10 ft. Any creature hit by the target must make a Dex DC ${GTier + 12} saving throw or else take ${Math.ceil(GPB / 3)}d8 + ${GWeaponMod} bludgeoning damage and be knocked back to just behind where the target ends.`);}
 		else if (RNG == 91) {GActionNames.push(`Tail`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX + 10} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d4 + ${GWeaponMod}) bludgeoning damage.`);}
 		else if (RNG == 92) {GActionNames.push(`Bleeding Claw`); GActions.push(`Melee Weapon Attack: +${GWeaponHit} to hit, reach ${reachX} ft., one creature. Hit: (${Math.ceil(GPB / 3)}d6 + ${GWeaponMod}) slashing damage, and the target loses ${GTier} hit points from bleeding at the start of each of its turns for six rounds unless it receives magical healing. Bleeding damage is cumulative; the target loses ${GTier} hp per round for each bleeding wound it's taken from the creature's claws.`);}
@@ -3224,7 +3224,7 @@ function EnemyBonus() {
 		else if (RNG == 3) {GBonusNames.push(`Change Shape`); GBonuses.push(`The creature magically polymorphs into a humanoid, beast, or giant that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (its choice). In a new form, the creature retains his alignment, hit points, Hit Dice, ability to speak, proficiencies, and Intelligence, Wisdom, and Charisma scores, as well as this bonus action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.`);}
 		else if (RNG == 4) {GBonusNames.push(`Healing Touch (2/Day)`); GBonuses.push(`The creature touches another creature. The target magically regains ${Math.ceil(GPB / 2) + 2}d6 + ${GPB * 2} hit points and is freed from one curse afflicting it (creature’s choice).`);}
 		else if (RNG == 5) {GBonusNames.push(`Aggressive`); GBonuses.push(`As a bonus action, the creature can move up to its speed toward a hostile creature it can see.`);}
-		else if (RNG == 6) {GBonusNames.push(`Shadow Stealth`); GBonuses.push(`While in dim light or darkness, the creature can take the Hide action as a bonus action.`);}
+		else if (RNG == 6) {GBonusNames.push(`Shadow Stealth`); GBonuses.push(`While in light or darkness, the creature can take the Hide action as a bonus action.`);}
 		else if (RNG == 7) {GBonusNames.push(`Nimble Escape`); GBonuses.push(`The creature can take the Disengage or Hide action as a bonus action on each of his turns.`);}
 		else if (RNG == 8) {GBonusNames.push(`Commander of Bones`); GBonuses.push(`As a bonus action, the creature can target one skeleton or zombie it can see within 30 feet of it. The target must make a DC ${GTier + 11} Wisdom saving throw. On a failed save, the target must obey the creature’s commands until the creature dies or until the creature releases it as a bonus action. The creature can command up to twelve undead at a time this way. While within 60 feet of the creature, any undead ally of the creature has advantage on saving throws against any effect that turns undead.`);}
 		else if (RNG == 9) {GBonusNames.push(`Cunning Action`); GBonuses.push(`On each of its turns, the creature can use a bonus action to take the Disengage or Hide action.`);}
@@ -3570,46 +3570,76 @@ function RandomRay() {
 }
 
 function EnemyLegendary() {
-	RNG = Math.floor(Math.random() * 2) + 1;
+	RNG = Math.floor(Math.random() * 53) + 1;
 		if (RNG == 1) {GLegendaryNames.push(`Weapon Attack`); GLegendaries.push(`Make one attack with a weapon.`);}
 		else if (RNG == 2) {if (GMagic == "Martial") {EnemyLegendary();} else {GLegendaryNames.push(`Spellcasting (Costs 2 Actions)`); GLegendaries.push(`Cast a Level ${Math.ceil(GTier / 2 + 2)} or lower spell.`);}}
-		else if (RNG == 3) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 4) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 5) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 6) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 7) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 8) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 9) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 10) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 11) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 12) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 13) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 14) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 15) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 16) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 17) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 18) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 19) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 20) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 21) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 22) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 23) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 24) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 25) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 26) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 27) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 28) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 29) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 30) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 31) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 32) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 33) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 34) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 35) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 36) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 37) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 38) {GLegendaryNames.push(``); GLegendaries.push(``);}
-		else if (RNG == 39) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 3) {GLegendaryNames.push(`Teleport`); GLegendaries.push(`The creature teleports up to 30 ft.`);}
+		else if (RNG == 4) {if (GLegendaryUses <= 2) {EnemyLegendary();} else {GLegendaryNames.push(`Call the Void (Costs 3 Actions)`); GLegendaries.push(`Each creature that is not a construct or undead within 20 feet of the creature must make a DC ${GTier + 14} Constitution saving throw against the creature’s attempt to unmake life, taking ${Math.ceil(GPB) + 1}d6 necrotic damage on a failed save, or half as much damage on a successful one. The creature then regains a number of hit points equal to half the total damage taken by all affected creatures.`);}}
+		else if (RNG == 5) {GLegendaryNames.push(`Detect`); GLegendaries.push(`The creature makes a Wisdom (Perception) check.`);}
+		else if (RNG == 6) {if (GSpeedFly <= 0) {EnemyLegendary();} else {GLegendaryNames.push(`Wing Attack (Costs 2 Actions)`); GLegendaries.push(`The creature beats its wings. Each target within 10 feet of the creature must succeed on a DC ${GTier + 13} Dexterity saving throw or take (${Math.ceil(GPB)}d6 + ${GStrMod}) bludgeoning damage and be knocked prone.`);}}
+		else if (RNG == 7) {GLegendaryNames.push(`Implant Fear (Costs 2 Actions)`); GLegendaries.push(`The creature targets a creature it can see within 30 feet of it. The target must succeed on a DC ${GTier + 14} Wisdom saving throw or take ${Math.ceil(GPB / 2) + 2}d8 psychic damage and immediately use its reaction, if available, to move as far as its speed allows away from the creature.`);}
+		else if (RNG == 8) {if (GLegendaryUses <= 2) {EnemyLegendary();} else {GLegendaryNames.push(`Rend Reality (3 Actions)`); GLegendaries.push(`The creature rips at the bonds of reality in its immediate area. Each creature within 10 feet of the creature must succeed on a DC ${GTier + 14} Constitution saving throw or take ${Math.ceil(GPB) + 1}d12 force damage and gain one level of exhaustion.`);}}
+		else if (RNG == 9) {GLegendaryNames.push(`Spawn Aberration (Costs 2 Actions)`); GLegendaries.push(`Uses per day is equal to Proficiency Bonus. The creature regurgitates an intellect devourer in an unoccupied space within 5 feet of it. The intellect devourer is under the creature’s control and acts immediately after the creature in the initiative order.`);}
+		else if (RNG == 10) {if (GLegendaryUses <= 2) {EnemyLegendary();} else {GLegendaryNames.push(`Mind Blast (Costs 3 Actions)`); GLegendaries.push(`The creature magically emits psychic energy in a 30-foot cone. Each creature in that area must succeed on a DC ${GTier + 13} Intelligence saving throw or take (${Math.ceil(GPB)}d8 + ${GWisMod}) psychic damage and be stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}}
+		else if (RNG == 11) {GLegendaryNames.push(`Frightening Presence (Costs 2 Actions)`); GLegendaries.push(`The creature targets up to three creatures it can see within 30 feet of it. Each target must succeed on a DC ${GTier  +13} Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target’s saving throw is successful or the effect ends for it, the target is immune to the creature’s Frightening Presence for the next 24 hours.`);}
+		else if (RNG == 12) {GLegendaryNames.push(`Chromatic Resistance`); GLegendaries.push(`The creature gains resistance to one damage type of its choice — acid, cold, fire, lightning, poison, or thunder — until the start of its next turn.`);}
+		else if (RNG == 13) {GLegendaryNames.push(`Warlord's Command (Costs 2 Actions)`); GLegendaries.push(`The creature targets up to two allies that it can see within 30 feet of it. If a target can see and hear it, the target can make one weapon attack as a reaction and gains advantage on the attack roll.`);}
+		else if (RNG == 14) {GLegendaryNames.push(`End Magic (Costs 2 Actions)`); GLegendaries.push(`The creature effectively casts dispel magic.`);}
+		else if (RNG == 15) {if (GLegendaryUses <= 2) {EnemyLegendary();} else {GLegendaryNames.push(`Provoke Rage (Costs 3 Actions)`); GLegendaries.push(`Each enemy within 60 feet of the creature must succeed on a DC ${GTier + 14} Wisdom saving throw or use its reaction to make a melee weapon attack against a random creature within reach. If no creatures are within reach, it makes a ranged weapon attack against a random creature within range, throwing its weapon if necessary. This attack is made with advantage and gains a +2 bonus to the damage roll.`);}}
+		else if (RNG == 16) {GLegendaryNames.push(`Consume Magic (Costs 2 Actions)`); GLegendaries.push(`The creature targets a creature within 120 feet of it who is concentrating on a spell. The target must succeed on a DC ${GTier + 13} Constitution saving throw or its concentration is broken on the spell, and the creature gains ${GPB * 2} temporary hit points per level of that spell.`);}
+		else if (RNG == 17) {if (GLegendaryUses <= 2) {EnemyLegendary();} else {GLegendaryNames.push(`Maddening Secrets (Costs 3 Actions)`); GLegendaries.push(`The creature whispers an arcane secret into the mind of a creature it can see within 60 feet of it. The target must succeed on a DC ${GTier + 13} Wisdom saving throw or expend one of its spell slots of 2nd level or lower and deal ${Math.ceil(GPB) + 1}d8 force damage to each creature within 15 feet of it. A creature that fails the saving throw but can’t expend a spell slot is instead stunned until the end of its next turn.`);}}
+		else if (RNG == 18) {if (GMagic == "Martial") {EnemyLegendary();} else {GLegendaryNames.push(`Cast a Spell (Costs 2 Actions)`); GLegendaries.push(`The creature casts a spell of level ${Math.ceil(GPB / 2)} or lower from its spell list that takes 1 action to cast.`);}}
+		else if (RNG == 19) {GLegendaryNames.push(`Charge`); GLegendaries.push(`The creature moves up to its speed without provoking opportunity attacks towards an enemy.`);}
+		else if (RNG == 20) {GLegendaryNames.push(`Mad Dash (Costs 2 Actions)`); GLegendaries.push(`The creature moves up to its speed without provoking opportunity attacks, then makes one melee attack.`);}
+		else if (RNG == 21) {GLegendaryNames.push(`Blade Dash (Costs 3 Actions)`); GLegendaries.push(`The creature moves up to its speed without provoking opportunity attacks, then makes one melee attack. It can make one melee attack against each creature it moves past.`);}
+		else if (RNG == 22) {GLegendaryNames.push(`Shimmering Aura (Costs 2 Actions)`); GLegendaries.push(`The creature channels positive energy into its aura. Until the end of the creature’s next turn, it sheds bright light in a 30-foot radius and light for an additional 30 feet. Any creature that starts its turn in the bright light must succeed on a DC ${GTier + 13} Constitution saving throw or be blinded until the end of the creature’s next turn.`);}
+		else if (RNG == 23) {GLegendaryNames.push(`Detention (Costs 2 Actions)`); GLegendaries.push(`The creature targets a creature it can see within 60 feet of it. The target must succeed on a DC ${GTier + 13} Charisma saving throw or be magically teleported to a harmless demiplane until the end of the creature’s next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied.`);}
+		else if (RNG == 24) {GLegendaryNames.push(`Command Allies (Costs 2 Actions)`); GLegendaries.push(`The creature chooses up to three creatures it can see within 30 feet of it. If a chosen creature can see or hear the creature, it can immediately use its reaction to make one weapon attack, with advantage on the attack roll.`);}
+		else if (RNG == 25) {GLegendaryNames.push(`Disrupt Life (Costs 3 Actions)`); GLegendaries.push(`Each creature within 30 feet of the creature must make a DC ${GTier + 13} Constitution saving throw, taking ${Math.ceil(GPB) + 2}d6 necrotic damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 26) {GLegendaryNames.push(`Supreme Authority (Costs 3 Actions)`); GLegendaries.push(`The creature chooses up to three creatures it can see within 90 feet of it. Each target must succeed on a DC ${GTier + 13} Intelligence saving throw or the creature chooses an action for that target: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, or Use an Object. The affected target can’t take that action for 1 minute. At the end of each of the target’s turns, it can end the effect on itself with a successful DC ${GTier + 13} Intelligence saving throw. A target that succeeds on the saving throw becomes immune to the creature’s Supreme Authority for 24 hours.`);}
+		else if (RNG == 27) {GLegendaryNames.push(`Shifting Nightmares (Costs 3 Actions)`); GLegendaries.push(`The creature rapidly takes the form of several nightmarish creatures, lashing out at all nearby. Each creature within 10 feet of the creature must succeed on a DC ${GTier + 13} Dexterity saving throw or take ${Math.ceil(GPB) + 2}d8 damage of a type chosen by the creature: acid, cold, fire, lightning, or necrotic.`);}
+		else if (RNG == 28) {GLegendaryNames.push(`Sadistic Revely`); GLegendaries.push(`Each creature within 60 feet of creature that is its ally or is charmed by it must use its reaction to move up to half its speed toward the creature closest to it that it can see, provided it isn’t already within 5 feet of that creature. It then must make one melee attack against that creature if it is able to do so.`);}
+		else if (RNG == 29) {GLegendaryNames.push(`Touch of Pain (Costs 2 Actions)`); GLegendaries.push(`The creature makes an unarmed attack against one enemy within 10 feet of him. The target must succeed on a DC ${GTier + 13} Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the creature can’t maintain concentration on a spell or any other effect that requires concentration. The poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 30) {GLegendaryNames.push(`Voice of Harmony`); GLegendaries.push(`The creature makes one melee attack, with advantage on the attack roll.`);}
+		else if (RNG == 31) {GLegendaryNames.push(`Voice of Life`); GLegendaries.push(`The creature bestows ${GPB * 10} temporary hit points on another creature it can see within 120 feet of it.`);}
+		else if (RNG == 32) {GLegendaryNames.push(`Awaken Grove Guardians (Costs 3 Actions)`); GLegendaries.push(`The creature animates ${Math.ceil(GPB / 2)} trees it can see within 120 feet of it, causing them to uproot themselves and become awakened trees (see the Monster Manual for their stat blocks) for 1 minute or until the creature uses a bonus action to end the effect. These trees understand Druidic and obey the creature’s spoken commands, but can’t speak. If it issues no commands to them, the trees do nothing but follow it and take the Dodge action.`);}
+		else if (RNG == 33) {GLegendaryNames.push(`Enlarge (Costs 2 Actions)`); GLegendaries.push(`The creature casts enlarge/reduce on itself, using the enlarge option, without expending a spell slot.`);}
+		else if (RNG == 34) {GLegendaryNames.push(`Reduce (Costs 2 Actions)`); GLegendaries.push(`The creature casts enlarge/reduce on an enemy, using the reduce option, without expending a spell slot.`);}
+		else if (RNG == 35) {GLegendaryNames.push(`Sinners Beware`); GLegendaries.push(`Move up to 30 feet towards a hostile creature. This does not trigger opportunity attacks.`);}
+		else if (RNG == 36) {GLegendaryNames.push(`Justice!`); GLegendaries.push(`A creature within 10 feet must make a DC ${GTier + 13} Charisma Saving Throw. On a fail, holy chains erupt from the ground, binding them for 10 minutes. They are considered restrained and magical effects on the target are suppressed while restrained this way. Creatures can repeat the saving throw when hit by a hostile creature, or every minute. Chaotic-aligned creatures make the save with disadvantage.`);}
+		else if (RNG == 37) {GLegendaryNames.push(`Iron Will (Costs 2 Actions)`); GLegendaries.push(`While afflicted with any condition, except unconsciousness, the creature can choose to shrug it off, neutralizing it.`);}
+		else if (RNG == 38) {GLegendaryNames.push(`Bulwark`); GLegendaries.push(`The creature flares crimson with power, protecting those nearby. The next attack that would hit an ally within 5 feet of the creature hits the creature instead.`);}
+		else if (RNG == 39) {GLegendaryNames.push(`Void Slip (Costs 2 Actions)`); GLegendaries.push(`The creature twists the fabric of space. Each creature within 15 feet of the creature must succeed on a DC ${GTier + 13} Dexterity saving throw or take (${Math.ceil(GPB)}d6 + ${GChaMod}) bludgeoning damage and be knocked prone. The creature can then teleport to an unoccupied space within 40 feet.`);}
+		else if (RNG == 40) {GLegendaryNames.push(`Void Cache (Costs 2 Actions)`); GLegendaries.push(`The creature can magically reach into its personal cache and retrieve one item. If it is holding an item, it can use this ability to deposit the item into its cache. The cache is a literal physical place on the material plane connected to this ability.`);}
+		else if (RNG == 41) {GLegendaryNames.push(`Pack Maneuver (Costs 2 Actions)`); GLegendaries.push(`The creature, or an ally within 30 feet that can see and hear it, moves up to half its speed without provoking opportunity attacks.`);}
+		else if (RNG == 42) {GLegendaryNames.push(`Move`); GLegendaries.push(`The creature moves up to half its speed without provoking opportunity attacks.`);}
+		else if (RNG == 43) {GLegendaryNames.push(`Shroud (Costs 2 Actions)`); GLegendaries.push(`The creature radiates magical darkness in a 30 foot radius. The darkness lasts until the start of the creatures's next turn.`);}
+		else if (RNG == 44) {GLegendaryNames.push(`Envelop in Shadow (Costs 2 Actions)`); GLegendaries.push(`The creature moves up to half its speed without provoking opportunity attacks. Any enemy whose space it moves through must make a DC ${GTier + 13} Dexterity saving throw, taking ${Math.ceil(GPB) + 1}d6 necrotic damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 45) {GLegendaryNames.push(`Poison`); GLegendaries.push(`The creature targets an enemy within 120 feet. If the target isn't poisoned, it must make a DC ${GTier + 13} Constitution saving throw or become poisoned. The poisoned target repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 46) {GLegendaryNames.push(`North Wind's Glare`); GLegendaries.push(`The creature freezes a foe with a look. One enemy within 60 feet that the creature can see must make a successful DC ${GTier + 13} Constitution saving throw or be petrified until the start of the creature's next turn.`);}
+		else if (RNG == 47) {if (GRechargeQty <= 0) {EnemyLegendary();} else {GLegendaryNames.push(`Recharge`); GLegendaries.push(`The creature may roll to attempt to recharge a rechargable ability.`);}}
+		else if (RNG == 48) {if (GRechargeQty <= 0) {EnemyLegendary();} else {GLegendaryNames.push(`Intent Recharge (Costs 2 Actions)`); GLegendaries.push(`The creature may roll to attempt to recharge a rechargable ability. The recharge roll range is increased by 1.`);}}
+		else if (RNG == 49) {GLegendaryNames.push(`Power Up (Costs 3 Actions) (1/day)`); GLegendaries.push(`The creature selects and recharge ability and recharges it.`);}
+		else if (RNG == 50) {GLegendaryNames.push(`Control Weather`); GLegendaries.push(`The creature can alter the weather in a 5-mile radius centered on itself. The effect is identical to the control weather spell, except the casting time and effects are immediate.`);}
+		else if (RNG == 51) {GLegendaryNames.push(`Call Lightning (Costs 2 Actions)`); GLegendaries.push(`A bolt of lightning flashes down from the clouds to a point the creature can see within 120 feet of it. Each enemy within 5 feet of that point must make a DC ${GTier + 13} Dexterity saving throw, taking ${Math.ceil(GPB) + 2}d10 lightning damage on a failed save, or half as much damage on a successful one.`);}
+		else if (RNG == 52) {GLegendaryNames.push(`Enlightening Roar`); GLegendaries.push(`Each ally the creature chooses within 30 feet of it can immediately repeat a saving throw to end one condition currently affecting it.`);}
+		else if (RNG == 53) {GLegendaryNames.push(`Tar Toss`); GLegendaries.push(`The creature hurls a glob of tar at a target within 30 feet as a ranged weapon attack (+${GDexMod + GPB} to hit). If the attack hits, the target is restrained (escape DC ${GTier + 12}).`);}
+		else if (RNG == 54) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 55) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 56) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 57) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 58) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 59) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 60) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 61) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 62) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 63) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 64) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 65) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 66) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 67) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 68) {GLegendaryNames.push(``); GLegendaries.push(``);}
+		else if (RNG == 69) {GLegendaryNames.push(``); GLegendaries.push(``);}
 }
 	function EnemyLegendaryBtn() {
 		GLegendaryNames.length = 0;
@@ -3627,10 +3657,46 @@ function EnemyLegendary() {
 	}
 
 function EnemyLairActive() {
-	RNG = Math.floor(Math.random() * 2) + 1;
-		if (RNG == 1) {GLairActiveNames.push(`Cave In`); GLairActives.push(`A 40 ft. wide circular section of the roof starts to crumble. At the same point in the initiative order next turn, the ceiling crumbles down, making it difficult terrain. Anyone caught in it must succeed on a DC ${GPB + 12} Dexterity Saving Throw or else take (${Math.floor(GTier + 3)}d6 + ${Math.ceil(GTier * 1.5)}) bludgeoning damage and be knocked prone. On a Critical Fail, they are restrained under the rocks and they or someone else must succeed on a DC ${Math.ceil(GTier / 2 + 11)} Athletics check to escape or pull them out.`);}
+	RNG = Math.floor(Math.random() * 26) + 1;
+		if (RNG == 1) {GLairActiveNames.push(`Cave In`); GLairActives.push(`A 40 ft. wide circular section of the roof starts to crumble. At the same point in the initiative order next turn, the ceiling crumbles down, making it difficult terrain. Anyone caught in it must succeed on a DC ${GTier + 12} Dexterity Saving Throw or else take (${Math.floor(GTier + 3)}d6 + ${Math.ceil(GTier * 1.5)}) bludgeoning damage and be knocked prone. On a Critical Fail, they are restrained under the rocks and they or someone else must succeed on a DC ${GTier + 12} Athletics check to escape or pull them out.`);}
 		else if (RNG == 2) {GLairActiveNames.push(`Plate Shift`); GLairActives.push(`A section of the floor shifts in a direction. All creatures, must make a DC ${GTier + 13} Dexterity Saving Throw or be moved 5 ft. in the direction and be knocked prone. The creature whose lair it is automatically passes. A creature that succeeds can choose to be moved 5 feet in the direction of the movement or jump to avoid moving.`);}
-		else if (RNG == 3) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 3) {GLairActiveNames.push(`Earth Crush`); GLairActives.push(`A 10x10 foot section of the ceiling rushes down to the ground. A creature in the target area must make a DC ${GTier + 12} Dexterity Saving Throw or be pinned to the ground, taking ${Math.ceil(GPB / 1.5) + 3}d6 bludgeoning damage. They are considered restrained and must succeed on a DC ${GTier + 12} Athletics Check to escape.`);}
+		else if (RNG == 4) {GLairActiveNames.push(`Void Absorbance`); GLairActives.push(`The creature can pull the life force from those it has converted to undead to replenish its own life. This takes ${Math.ceil(GPB / 2) + 3}d6 hit points from undead within 30 feet of the creature, spread evenly between the undead, and healing the creature. If an undead reaches 0 hit points from this action, it perishes with no Undead Fortitude saving throw.`);}
+		else if (RNG == 5) {GLairActiveNames.push(`Fissure`); GLairActives.push(`A ten foot-wide, ten foot-long crack opens in the cavern floor where the creature wishes. Any creature occupying that space must make a successful DC ${GTier + 12} Dexterity saving throw or fall 20 feet, taking ${Math.ceil(GPB / 3) + 2}d6 bludgeoning damage plus ${Math.ceil(GPB / 3) + 3}d4 piercing damage from the jagged stones at the bottom.`);}
+		else if (RNG == 6) {GLairActiveNames.push(`Insect Swarm`); GLairActives.push(`The creature summons a swarm of insects as if it had cast insect plague, filling a 20-foot radius sphere within 90 feet of the creature. Creatures that are in the affected space or that enter it take {Math.ceil(GPB / 1.5) + 3}d10 piercing damage, or half damage with a successful DC ${GTier + 12} Constitution saving throw. The swarm lasts one full round.`);}
+		else if (RNG == 7) {GLairActiveNames.push(`Pure Darkness`); GLairActives.push(`The creature snuffs all light sources within the lair. Spells that create light are dispelled, mundane light sources are extinguished, and magical light sources are suppressed. Even light created by artifacts is reduced to light with half its normal radius of illumination. This lasts until the initiative count that this effect occured on in the following round.`);}
+		else if (RNG == 8) {GLairActiveNames.push(`Haunting Melody`); GLairActives.push(`Haunting, maddening music emanates from a point the creature can see. Enemies within 50 feet of the origin that can hear the music must make a DC ${GTier + 12} Wisdom saving throw. Those that fail are charmed, incapacitated, and have their speed reduced to 0 until they take damage or until the initiative count that this effect occured on in the following round.`);}
+		else if (RNG == 9) {GLairActiveNames.push(`Black Tendrils`); GLairActives.push(`Black tendrils writhe around up to three enemies the creature can see within 100 feet. The enemies must succeed on a DC ${GTier + 12} Strength saving throw or be restrained until the initiative count that this effect occured on in the following round.`);}
+		else if (RNG == 10) {GLairActiveNames.push(`Smoke Cloud`); GLairActives.push(`A cloud of smoke swirls in a 20-foot-radius sphere centered on a point the creature can see within 120 feet of it. The cloud spreads around corners and the area is lightly obscured. Each enemy in the cloud must succeed on a DC ${GTier + 12} Constitution saving throw or be blinded for 1 minute. An enemy creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success.`);}
+		else if (RNG == 11) {GLairActiveNames.push(`Shattered Ground`); GLairActives.push(`The ground erupts with volcanic force at a point the creature can see within 120 feet of it. Any enemy within 20 feet of the point must make a successful DC ${GTier + 12} Dexterity saving throw or be knocked prone and trapped in the ground. An enemy trapped in this way is restrained and can't stand up. An enemy can end the restraint if it or another enemy takes an action to make a successful DC ${GTier + 12} Strength check.`);}
+		else if (RNG == 12) {GLairActiveNames.push(`Fire Wall`); GLairActives.push(`A wall of fire rises up from the ground within 120 feet of the creature. The wall is up to 60 feet long, 10 feet high, and 5 feet thick, can take any shape the creature wants, and blocks line of sight. When the wall appears, each creature in its area must make a DC ${GTier + 12} Dexterity saving throw. An enemy that fails the saving throw takes ${Math.ceil(GPB / 2) + 2}d6 fire damage. Each enemy that enters the wall for the first time each turn or ends its turn there takes ${Math.ceil(GPB / 2) + 2}d6 fire damage. The wall is extinguished when the creature uses this lair action again or when the creature dies.`);}
+		else if (RNG == 13) {GLairActiveNames.push(`Vortexes`); GLairActives.push(`Four vortexes, each 5 feet in diameter and up to 30 feet tall, appear within the lair where the creature wishes. Eemies occupying the space where a vortex appears or who enter the vortex for the first time on a turn must make a DC ${GTier + 12} Dexterity save or be restrained. As an action, an enemy can free itself or another enemy from a vortex by succeeding on a DC ${GTier + 12} Strength check. The vortexes last until the creature uses this lair action again or until the creature dies.`);}
+		else if (RNG == 14) {GLairActiveNames.push(`Coral Wall`); GLairActives.push(`The creature creates a wall of living coral on a solid surface it can see within 120 feet of it. The wall can be up to 30 feet long, 30 feet high, and 1 foot thick. When the wall appears, each enemy within its area takes damage as if touching the wall and is pushed 5 feet out of the wall's space, on whichever side of the wall it wants. Touching the wall releases painful stings that deal ${Math.ceil(GPB)}d8 poison damage, or half that with a successful DC ${GTier + 12} Constitution saving throw. Each 10-foot section of the wall has AC 5, ${GPB * 7} hit points, resistance to fire damage, and immunity to psychic damage. The wall lasts until the creature uses this lair action again or until the creature dies.`);}
+		else if (RNG == 15) {GLairActiveNames.push(`Slow Time`); GLairActives.push(`The creature bends time around its enemies. Four enemies the creature can see within 120 feet of it must succeed on a DC ${GTier + 12} Wisdom save or be affected by a slow spell. This effect last until the initiative count that this effect occured on in the following round.`);}
+		else if (RNG == 16) {GLairActiveNames.push(`Nullify Gravity`); GLairActives.push(`The creature negates natural gravity within its lair. Enemies drift 10 feet away from the ground over the course of a round and are restrained. Flying enemies can move at half speed, unless they have the (hover) tag or use magical flight, in which case they move normally. This effect persists until the initiative count that this effect occured on in the following round.`);}
+		else if (RNG == 17) {GLairActiveNames.push(`Void Sphere`); GLairActives.push(`The Void briefly overlaps the creature's lair in a 20-foot-radius sphere of blackness punctuated by deep blue streaks and pinpoints of light. The sphere is centered on a point the creature can see within 120 feet of the creature. The area spreads around corners, is heavily obscured, and contains no air (creatures must hold their breath). Each enemy in the sphere when it appears must make a DC ${GTier + 12} Constitution saving throw, taking ${Math.ceil(GPB)}d6 cold damage on a failed save or half as much on a successful one. Any enemy that ends its turn in the sphere takes ${Math.ceil(GPB)}d6 cold damage. The sphere lasts until the creature uses this lair action again or until the creature dies.`);}
+		else if (RNG == 18) {GLairActiveNames.push(`Coterminous`); GLairActives.push(`The creature rips the fabric of space, forcing two enemies it can see within 120 feet of it to suddenly exist in the same place. Space itself repels the enemies to their original positions. Each creature takes ${Math.ceil(GPB / 1.5) + 2}d10 force damage and is knocked prone, or takes half as much damage and is not knocked prone with a successful DC ${GTier + 12} Strength saving throw.`);}
+		else if (RNG == 19) {GLairActiveNames.push(`Dust Devils`); GLairActives.push(`Sand and dust swirls up from the floor in a 20-foot radius sphere within 120 feet of the creature at a point the creature can see. The sphere spreads around corners. The area inside the sphere is lightly obscured, and each enemy in the sphere at the start of its turn must make a successful DC ${GTier + 12} Constitution saving throw or be blinded for 1 minute. A blinded enemy repeats the saving throw at the start of each of its turns, ending the effect on itself with a success.`);}
+		else if (RNG == 20) {GLairActiveNames.push(`Splinter of Ice`); GLairActives.push(`Fragments of ice and stone are torn from the lair's wall by a blast of wind and flung along a 15-foot cone. Enemies in the cone take ${Math.ceil(GPB / 1.5) + 2}d8 bludgeoning damage, or half damage with a successful DC ${GTier + 12} Dexterity saving throw.`);}
+		else if (RNG == 21) {GLairActiveNames.push(`Howling Gale`); GLairActives.push(`A torrent of wind blasts outward from the creature in a 60-foot radius, either racing just above the floor or near the ceiling. If near the floor, it affects all enemies standing in the radius; if near the ceiling, it affects all enemies flying in the radius. Affected enemies must make a successful DC ${GTier + 12} Strength saving throw or be knocked prone and stunned until the end of their next turn.`);}
+		else if (RNG == 22) {GLairActiveNames.push(`Beast Swarm`); GLairActives.push(`The creature magically conjures up a swarm of eight giant beasts (of CR ${Math.ceil(GPB / 2)} or less) to defend his lair. The beasts act immediately, and on the initiative count that this effect occured on in subsequent rounds. The beasts remain until they're killed or until the creature dismisses them as an action. The creature can use this action again, but no more than eight giant beasts can be present at a time.`);}
+		else if (RNG == 23) {GLairActiveNames.push(`Becoming Animal`); GLairActives.push(`The creature targets an enemy within the lair that it can see. The enemy must succeed on a DC ${GTier + 12} Constitution saving throw or be magically transformed into a CR 1 beast as if by a polymorph spell. At the beginning of its turn, a transformed enemy repeats the saving throw. If it fails, the enemy must use its action to attack one of the creature's foes. If it succeeds, the effect ends and the enemy returns to its normal form. The effect lasts until the enemy succeeds on the saving throw or until the creature uses this lair action again.`);}
+		else if (RNG == 24) {GLairActiveNames.push(`Trembling Ground`); GLairActives.push(`The creature causes the ground in a 20-foot radius to tremble and shake. Any enemies in the affected area must succeed on a DC ${GTier + 12} Strength saving throw or suffer ${Math.ceil(GPB / 2) + 2}d6 bludgeoning damage and fall prone. The ground continues to tremble until the initiative count that this effect occured on in the following round, during which time the area is difficult terrain.`);}
+		else if (RNG == 25) {GLairActiveNames.push(`Sticky Ground`); GLairActives.push(`A 50-foot square area of ground within 120 feet of the creature becomes slimy; that area is difficult terrain until the initiative count that this effect occured on in the next round. The creature and its minions are immune to this effect.`);}
+		else if (RNG == 26) {GLairActiveNames.push(`Living Walls`); GLairActives.push(`Walls within 120 feet of the creature sprout grasping appendages until the initiative count that this effect occured on in the round after next. Each enemy of the creature’s choice that starts its turn within 10 feet of such a wall must succeed on a DC ${GTier + 12} Dexterity saving throw or be grappled.`);}
+		else if (RNG == 27) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 28) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 29) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 30) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 31) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 32) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 33) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 34) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 35) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 36) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 37) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 38) {GLairActiveNames.push(``); GLairActives.push(``);}
+		else if (RNG == 39) {GLairActiveNames.push(``); GLairActives.push(``);}
 }
 	function EnemyLairBtn() {
 		GLairActiveNames.length = 0;
@@ -3660,10 +3726,46 @@ function EnemyLairActive() {
 	}
 
 function EnemyLairPassive() {
-		RNG = Math.floor(Math.random() * 2) + 1;
+		RNG = Math.floor(Math.random() * 26) + 1;
 		if (RNG == 1) {GLairPassiveNames.push(`Paranoia`); GLairPassives.push(`Creatures within ${GLairPassiveRange} feel as if they are being followed, even when they're not.`);}
 		else if (RNG == 2) {GLairPassiveNames.push(`Telepathic Eavesdropping`); GLairPassives.push(`The creature can overhear any telepathic conversation within ${GLairPassiveRange} of it's lair. The creature that initiated the telepathic conversation makes a DC ${GTier + 11} Wisdom save. On a save, the creature is aware something is eavesdropping, but knows nothing about it.`);}
-		else if (RNG == 3) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 3) {GLairPassiveNames.push(`Earthen Sense`); GLairPassives.push(`The creature can sense the footsteps of any creatures within ${GLairPassiveRange} while within its lair.`);}
+		else if (RNG == 4) {GLairPassiveNames.push(`Magical Awareness`); GLairPassives.push(`The creature can sense any magic within 200 ft. of itself as if it was under the effects of detect magic.`);}
+		else if (RNG == 5) {GLairPassiveNames.push(`Water Contimation`); GLairPassives.push(`Water sources within ${GLairPassiveRange} of the creature's lair are not only supernaturally fouled but can spread a disease. A creature who drinks from such water must make a successful DC ${GTier + 11} Constitution check or become infected. An infected creature can only breath underwater.`);}
+		else if (RNG == 6) {GLairPassiveNames.push(`Poisonous Passage`); GLairPassives.push(`Poisonous and odorless gases suddenly fill passages and caverns, and just as quickly disperse, within ${GLairPassiveRange} of the creature's lair.`);}
+		else if (RNG == 7) {GLairPassiveNames.push(`Flash Flooding`); GLairPassives.push(`Flash flooding turns tunnels into death traps as tremors create fissures in the stone within ${GLairPassiveRange} of the lair. On the surface, ponds drain away, and long-dry creek beds break their banks in flood.`);}
+		else if (RNG == 8) {GLairPassiveNames.push(`Vermin Swarm`); GLairPassives.push(`Swarms of vermin within ${GLairPassiveRange} of the lair increase in both size and number as they try to escape the creature's endless and undiscriminating hunger.`);}
+		else if (RNG == 9) {GLairPassiveNames.push(`Encroaching Darkness`); GLairPassives.push(`Within ${GLairPassiveRange} of the lair all light sources except artifacts shed light to only half the usual radius.`);}
+		else if (RNG == 10) {GLairPassiveNames.push(`Nocturnal Swarm`); GLairPassives.push(`Owls and other nocturnal beasts become enraged and hostile within 5 miles of the lair, attacking intruders individually and in swarms.`);}
+		else if (RNG == 11) {GLairPassiveNames.push(`Shadow Ominscience`); GLairPassives.push(`Within ${GLairPassiveRange} of the lair, the creature can cast its senses into any area of light or darkness as if using clairvoyance.`);}
+		else if (RNG == 12) {GLairPassiveNames.push(`Short Tempered`); GLairPassives.push(`Arguments and misunderstandings erupt easily within ${GLairPassiveRange} of the lair. Friendships are easily broken and criminal acts are common.`);}
+		else if (RNG == 13) {GLairPassiveNames.push(`Heat Wave`); GLairPassives.push(`Temperatures rise within ${GLairPassiveRange} of the lair. Crops wither, producing famines.`);}
+		else if (RNG == 14) {GLairPassiveNames.push(`Deadly Geysers`); GLairPassives.push(`Sulfur geysers form in and around the creature's lair. Some of them erupt only once an hour, so they're spotted only with a successful DC ${GTier + 13} Wisdom (Perception) check. A creature on top of an erupting geyser takes ${Math.ceil(GPB / 2) + 2}d6 fire damage, or half damage with a successful DC ${GTier + 12} Dexterity saving throw.`);}
+		else if (RNG == 15) {GLairPassiveNames.push(`Proliferous Sea Life`); GLairPassives.push(`Sea life becomes richer within ${GLairPassiveRange} of the lair. Schools of fish move into new waters, sharks become common, and whale migration paths shift to pass near the area.`);}
+		else if (RNG == 16) {GLairPassiveNames.push(`Icy Waters`); GLairPassives.push(`Water temperatures drop sharply within ${GLairPassiveRange} of the lair. Creatures not accustomed to cold suffer exposure to extreme cold while swimming in this water.`);}
+		else if (RNG == 17) {GLairPassiveNames.push(`Rogue Waters`); GLairPassives.push(`Storms and rough water are more common within ${GLairPassiveRange} of the lair.`);}
+		else if (RNG == 18) {GLairPassiveNames.push(`The Truth Will Out`); GLairPassives.push(`Secrets have a way of coming to light within ${GLairPassiveRange} of the lair. Clues are inadvertently discovered, slips of the tongue hint at a hidden truth, and creatures become morbidly curious for forbidden knowledge.`);}
+		else if (RNG == 19) {GLairPassiveNames.push(`Shadows Overcast`); GLairPassives.push(`Light is muted within ${GLairPassiveRange} of the lair. Nonmagical illumination, including sunlight, can't create bright light in this area.`);}
+		else if (RNG == 20) {GLairPassiveNames.push(`Lowered Borders`); GLairPassives.push(`Visitations from otherworldly beings occur and disembodied voices whisper in the night within ${GLairPassiveRange} of the creature's lair. Celestials, fey, and fiends of CR ${Math.ceil(GPB / 2)} or lower can slip into the world in this area.`);}
+		else if (RNG == 21) {GLairPassiveNames.push(`Swarm Prince`); GLairPassives.push(`The creature can communicate with spawns of itself and all vermin and insects, including swarms and giant varieties, within 120 feet via pheromone transmission. In the lair, this range extends to cover the entire lair. This is a silent and instantaneous mode of communication that only the creature, spawns of itself, insects, and vermin can understand. All these creatures follow the creature's orders and will never harm the creature.`);}
+		else if (RNG == 22) {GLairPassiveNames.push(`Chilling Colds`); GLairPassives.push(`Everywhere aboveground within ${GLairPassiveRange} of the lair is considered exrteme cold. Nonmagical fires up to the size of a campfire are quenched. Exposed waters are frozen solid. Spells that protect against cold are subjected to a dispel magic every 10 minutes (at +${Math.ceil(GPB + 4)} spellcasting ability).`);}
+		else if (RNG == 23) {GLairPassiveNames.push(`Lycan Lands`); GLairPassives.push(`Within ${GLairPassiveRange} of the lair, enemies have disadvantage on saving throws made to avoid contracting lycanthropy.`);}
+		else if (RNG == 24) {GLairPassiveNames.push(`Agitated Creatures`); GLairPassives.push(`Beasts within ${GLairPassiveRange} of the lair are easily agitated quick to attack.`);}
+		else if (RNG == 25) {GLairPassiveNames.push(`Enflamed Emotions`); GLairPassives.push(`Emotions within ${GLairPassiveRange} of the lair run high. Arguments quickly descend into physical scuffles and enjoyable get-togethers are likely to become raucous carousing or even brawls. `);}
+		else if (RNG == 26) {GLairPassiveNames.push(`Warped Reality`); GLairPassives.push(`Within ${GLairPassiveRange} of the lair, small things make change. Marks on cave walls might change subtly, an eerie trinket might appear where none existed before, harmless slime might coat a statue, and so on. These effects apply only to natural surfaces and to nonmagical objects that aren’t on anyone’s person.`);}
+		else if (RNG == 27) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 28) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 29) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 30) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 31) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 32) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 33) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 34) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 35) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 36) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 37) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 38) {GLairPassiveNames.push(``); GLairPassives.push(``);}
+		else if (RNG == 39) {GLairPassiveNames.push(``); GLairPassives.push(``);}
 }
 
 function RollAttribute() {
@@ -4556,7 +4658,7 @@ function FullEnemyBtn() {
 					if (GRes.includes("radiant") == false) {GRes.push("radiant")} else {}
 					if (GVuln.includes("cold") == false) {GVuln.push("cold")} else {}
 					GCha += 3;
-					RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTraitNames.push(`Illumination`); GTraits.push(`The creature sheds bright light in a 30-foot radius and dim light in an additional 30 ft.`);} else {}
+					RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTraitNames.push(`Illumination`); GTraits.push(`The creature sheds bright light in a 30-foot radius and light in an additional 30 ft.`);} else {}
 				}
 				if (GElemental == "Water") {
 					if (GLanguage.includes("primordial (aquan)") == false) {GLanguage.push("primordial (aquan)")} else {}
@@ -5228,18 +5330,18 @@ function EnemyImproved() {
 }
 
 function copyOutput() {
-    document.getElementById("charBox").select();
-    document.execCommand('copy');
+document.getElementById("charBox").select();
+document.execCommand('copy');
 }
 
 function copyHomebrew() {
-    document.getElementById("homebrewBox").select();
-    document.execCommand('copy');
+document.getElementById("homebrewBox").select();
+document.execCommand('copy');
 }
 
 function copyImproved() {
-    document.getElementById("improvedBox").select();
-    document.execCommand('copy');
+document.getElementById("improvedBox").select();
+document.execCommand('copy');
 }
 
 function GetSkillMod() {
@@ -5662,8 +5764,8 @@ function AccessoryAffix() {
 		else {GAccessoryAffix = "• (T1 Accessory) As an Action, you can sacrifice multiples of 10 Hit Points to regain a Spell Slot of that multiple, max 3rd."}
 	}
 	else if (accRNG == 52) {
-		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) As a Bonus Action, you can begin or stop glowing. While glowing, you shed dim light up to 20 feet."}
-		else {GAccessoryAffix = "• (T1 Accessory) As an Action, you can begin or stop glowing. While glowing, you shed dim light up to 10 feet."}
+		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) As a Bonus Action, you can begin or stop glowing. While glowing, you shed light up to 20 feet."}
+		else {GAccessoryAffix = "• (T1 Accessory) As an Action, you can begin or stop glowing. While glowing, you shed light up to 10 feet."}
 	}
 	else if (accRNG == 53) {
 		if (accTier == 3) {GAccessoryAffix = "• (T2 Accessory) While below 25% health, gain +3 damage and AC"}
@@ -6617,11 +6719,320 @@ async function ClassAffixList() {
 document.getElementById("glyphBox").innerHTML = txtConvert;
 }
 
+// JEWELRY TAB //
+// JEWELRY TAB //
+// JEWELRY TAB //
+// JEWELRY TAB //
+// JEWELRY TAB //
+
+function jewCalc() {
+	if (document.getElementById("jewSize").value == "Tiny") {gemSize = 0.25}
+	else if (document.getElementById("jewSize").value == "Small") {gemSize = 0.5}
+	else if (document.getElementById("jewSize").value == "Standard") {gemSize = 1}
+	else if (document.getElementById("jewSize").value == "Large") {gemSize = 2}
+	else if (document.getElementById("jewSize").value == "Huge") {gemSize = 4}
+	if (document.getElementById("jewType").value == "Gems") {jewX = 0}
+	else if (document.getElementById("jewType").value == "Amulet") {jewX = 0.4}
+	else if (document.getElementById("jewType").value == "Bracelet") {jewX = 0.8}
+	else if (document.getElementById("jewType").value == "Choker") {jewX = 1.2}
+	else if (document.getElementById("jewType").value == "Crown") {jewX = 3}
+	else if (document.getElementById("jewType").value == "Earrings") {jewX = 0.1}
+	else if (document.getElementById("jewType").value == "Ring") {jewX = 0.2}
+	if (document.getElementById("jewMaterial").value == "Wood") {jewX *= 0.1}
+	else if (document.getElementById("jewMaterial").value == "Stone") {jewX *= 0.15}
+	else if (document.getElementById("jewMaterial").value == "Copper") {jewX *= 1}
+	else if (document.getElementById("jewMaterial").value == "Tin") {jewX *= 0.25}
+	else if (document.getElementById("jewMaterial").value == "Iron") {jewX *= 0.5}
+	else if (document.getElementById("jewMaterial").value == "Steel") {jewX *= 10}
+	else if (document.getElementById("jewMaterial").value == "Silver") {jewX *= 5}
+	else if (document.getElementById("jewMaterial").value == "Electrum") {jewX *= 25}
+	else if (document.getElementById("jewMaterial").value == "Gold") {jewX *= 50}
+	else if (document.getElementById("jewMaterial").value == "Platinum") {jewX *= 500}
+	else if (document.getElementById("jewMaterial").value == "Mithril") {jewX *= 750}
+	else if (document.getElementById("jewMaterial").value == "Adamantium") {jewX *= 1250}
+	jewX += document.getElementById("jewPearl").value * 10 * gemSize;
+	jewX += document.getElementById("jewAzu").value * 12 * gemSize;
+	jewX += document.getElementById("jewLapis").value * 12 * gemSize;
+	jewX += document.getElementById("jewTiger").value * 14 * gemSize;
+	jewX += document.getElementById("jewCitrine").value * 20 * gemSize;
+	jewX += document.getElementById("jewPeridot").value * 24 * gemSize;
+	jewX += document.getElementById("jewRose").value * 28 * gemSize;
+	jewX += document.getElementById("jewBlood").value * 33 * gemSize;
+	jewX += document.getElementById("jewOnyx").value * 38 * gemSize;
+	jewX += document.getElementById("jewJade").value * 50 * gemSize;
+	jewX += document.getElementById("jewGold").value * 54 * gemSize;
+	jewX += document.getElementById("jewMoon").value * 61 * gemSize;
+	jewX += document.getElementById("jewGarnet").value * 84 * gemSize;
+	jewX += document.getElementById("jewSpinel").value * 100 * gemSize;
+	jewX += document.getElementById("jewAqua").value * 135 * gemSize;
+	jewX += document.getElementById("jewBlack").value * 200 * gemSize;
+	jewX += document.getElementById("jewTopaz").value * 250 * gemSize;
+	jewX += document.getElementById("jewAmethyst").value * 400 * gemSize;
+	jewX += document.getElementById("jewSapphire").value * 500 * gemSize;
+	jewX += document.getElementById("jewRuby").value * 720 * gemSize;
+	jewX += document.getElementById("jewEmerald").value * 1250 * gemSize;
+	jewX += document.getElementById("jewDiamond").value * 2000 * gemSize;
+	jewX += document.getElementById("jewEber").value * 800 * gemSize;
+	jewX += document.getElementById("jewKhyber").value * 1200 * gemSize;
+	jewX += document.getElementById("jewSiber").value * 1600 * gemSize;
+	jewX = jewX.toFixed(2);
+	if (jewX >= 1) {document.getElementById("jewBox").innerHTML = `${Math.floor(jewX)} gp`}
+	else if (jewX > 0.1 && jewX < 1) {jewX *= 10; document.getElementById("jewBox").innerHTML = `${Math.floor(jewX)} sp`}
+	else if (jewX < 0.1) {jewX *= 100; document.getElementById("jewBox").innerHTML = `${Math.floor(jewX)} cp`}
+}
+
+function gemBag() {
+	if (document.getElementById("gemBagTier").value == "tier1") {bagTier = 1}
+	else if (document.getElementById("gemBagTier").value == "tier2") {bagTier = 2}
+	else if (document.getElementById("gemBagTier").value == "tier3") {bagTier = 3}
+	else if (document.getElementById("gemBagTier").value == "tier4") {bagTier = 4}
+	else if (document.getElementById("gemBagTier").value == "tier5") {bagTier = 5}
+	bagRolls = Math.floor(Math.random() * 7) + 4;
+	gemPearl = 0
+	gemAzurite = 0
+	gemLapis = 0
+	gemTiger = 0
+	gemCitrine = 0
+	gemPeridot = 0
+	gemRose = 0
+	gemBloodstone = 0
+	gemOnyx = 0
+	gemJade = 0
+	gemGPearl = 0
+	gemMoonstone = 0
+	gemGarnet = 0
+	gemSpinel = 0
+	gemAqua = 0
+	gemBPearl = 0
+	gemTopaz = 0
+	gemAmethyst = 0
+	gemSapphire = 0
+	gemRuby = 0
+	gemEmerald = 0
+	gemDiamond = 0
+	gemEberron = 0
+	gemKhyber = 0
+	gemSiberys = 0
+	while (bagRolls > 0) {
+		if (bagTier == 1) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 2) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 3) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 4) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {RNG = Math.floor(Math.random() * 14) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {RNG = Math.floor(Math.random() * 20) + 1;}
+		
+		if (bagTier == 1 && RNG == 1) {gemPearl += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 2) {gemAzurite += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 3) {gemLapis += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 4) {gemTiger += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 1) {gemCitrine += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 2) {gemPeridot += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 3) {gemRose += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 4) {gemBloodstone += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 5) {gemOnyx += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 1) {gemJade += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 2) {gemGPearl += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 3) {gemMoonstone += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 4) {gemGarnet += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 5) {gemSpinel += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 1) {gemAqua += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 2) {gemBPearl += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 3) {gemTopaz += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 4) {gemAmethyst += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 1 && RNG <= 4) {gemSapphire += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 5 && RNG <= 8) {gemRuby += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 9 && RNG <= 11) {gemEmerald += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 12 && RNG <= 14) {gemDiamond += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 15 && RNG <= 16) {gemEberron += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 17 && RNG <= 18) {gemKhyber += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 19 && RNG <= 20) {gemSiberys += 1; bagRolls -=1;}
+		
+		if (bagTier == 1) {
+			document.getElementById("itemBox").innerHTML = `${gemPearl} Pearls\n${gemAzurite} Azurites\n${gemLapis} Lapis Lazulis\n${gemTiger} Tiger Eyes`}
+		else if (bagTier == 2) {
+			document.getElementById("itemBox").innerHTML = `${gemCitrine} Citrines\n${gemPeridot} Peridots\n${gemRose} Rose Quartz\n${gemBloodstone} Bloodstones\n${gemOnyx} Onyxes`}
+		else if (bagTier == 3) {
+			document.getElementById("itemBox").innerHTML = `${gemJade} Jades\n${gemGPearl} Gold Pearls\n${gemMoonstone} Moonstones\n${gemGarnet} Garnets\n${gemSpinel} Spinels`}
+		else if (bagTier == 4) {
+			document.getElementById("itemBox").innerHTML = `${gemAqua} Aquamarines\n${gemBPearl} Black Pearls\n${gemTopaz} Topazes\n${gemAmethyst} Amethysts`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
+			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+	}
+}
+
+function gemBagSmall() {
+	if (document.getElementById("gemBagTier").value == "tier1") {bagTier = 1}
+	else if (document.getElementById("gemBagTier").value == "tier2") {bagTier = 2}
+	else if (document.getElementById("gemBagTier").value == "tier3") {bagTier = 3}
+	else if (document.getElementById("gemBagTier").value == "tier4") {bagTier = 4}
+	else if (document.getElementById("gemBagTier").value == "tier5") {bagTier = 5}
+	bagRolls = Math.floor(Math.random() * 4) + 2;
+	gemPearl = 0
+	gemAzurite = 0
+	gemLapis = 0
+	gemTiger = 0
+	gemCitrine = 0
+	gemPeridot = 0
+	gemRose = 0
+	gemBloodstone = 0
+	gemOnyx = 0
+	gemJade = 0
+	gemGPearl = 0
+	gemMoonstone = 0
+	gemGarnet = 0
+	gemSpinel = 0
+	gemAqua = 0
+	gemBPearl = 0
+	gemTopaz = 0
+	gemAmethyst = 0
+	gemSapphire = 0
+	gemRuby = 0
+	gemEmerald = 0
+	gemDiamond = 0
+	gemEberron = 0
+	gemKhyber = 0
+	gemSiberys = 0
+	while (bagRolls > 0) {
+		if (bagTier == 1) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 2) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 3) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 4) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {RNG = Math.floor(Math.random() * 14) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {RNG = Math.floor(Math.random() * 20) + 1;}
+		
+		if (bagTier == 1 && RNG == 1) {gemPearl += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 2) {gemAzurite += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 3) {gemLapis += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 4) {gemTiger += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 1) {gemCitrine += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 2) {gemPeridot += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 3) {gemRose += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 4) {gemBloodstone += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 5) {gemOnyx += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 1) {gemJade += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 2) {gemGPearl += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 3) {gemMoonstone += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 4) {gemGarnet += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 5) {gemSpinel += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 1) {gemAqua += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 2) {gemBPearl += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 3) {gemTopaz += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 4) {gemAmethyst += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 1 && RNG <= 4) {gemSapphire += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 5 && RNG <= 8) {gemRuby += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 9 && RNG <= 11) {gemEmerald += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 12 && RNG <= 14) {gemDiamond += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 15 && RNG <= 16) {gemEberron += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 17 && RNG <= 18) {gemKhyber += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 19 && RNG <= 20) {gemSiberys += 1; bagRolls -=1;}
+		
+		if (bagTier == 1) {
+			document.getElementById("itemBox").innerHTML = `${gemPearl} Pearls\n${gemAzurite} Azurites\n${gemLapis} Lapis Lazulis\n${gemTiger} Tiger Eyes`}
+		else if (bagTier == 2) {
+			document.getElementById("itemBox").innerHTML = `${gemCitrine} Citrines\n${gemPeridot} Peridots\n${gemRose} Rose Quartz\n${gemBloodstone} Bloodstones\n${gemOnyx} Onyxes`}
+		else if (bagTier == 3) {
+			document.getElementById("itemBox").innerHTML = `${gemJade} Jades\n${gemGPearl} Gold Pearls\n${gemMoonstone} Moonstones\n${gemGarnet} Garnets\n${gemSpinel} Spinels`}
+		else if (bagTier == 4) {
+			document.getElementById("itemBox").innerHTML = `${gemAqua} Aquamarines\n${gemBPearl} Black Pearls\n${gemTopaz} Topazes\n${gemAmethyst} Amethysts`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
+			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+	}
+}
+
+function gemBagLarge() {
+	if (document.getElementById("gemBagTier").value == "tier1") {bagTier = 1}
+	else if (document.getElementById("gemBagTier").value == "tier2") {bagTier = 2}
+	else if (document.getElementById("gemBagTier").value == "tier3") {bagTier = 3}
+	else if (document.getElementById("gemBagTier").value == "tier4") {bagTier = 4}
+	else if (document.getElementById("gemBagTier").value == "tier5") {bagTier = 5}
+	bagRolls = Math.floor(Math.random() * 9) + 12;
+	gemPearl = 0
+	gemAzurite = 0
+	gemLapis = 0
+	gemTiger = 0
+	gemCitrine = 0
+	gemPeridot = 0
+	gemRose = 0
+	gemBloodstone = 0
+	gemOnyx = 0
+	gemJade = 0
+	gemGPearl = 0
+	gemMoonstone = 0
+	gemGarnet = 0
+	gemSpinel = 0
+	gemAqua = 0
+	gemBPearl = 0
+	gemTopaz = 0
+	gemAmethyst = 0
+	gemSapphire = 0
+	gemRuby = 0
+	gemEmerald = 0
+	gemDiamond = 0
+	gemEberron = 0
+	gemKhyber = 0
+	gemSiberys = 0
+	while (bagRolls > 0) {
+		if (bagTier == 1) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 2) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 3) {RNG = Math.floor(Math.random() * 5) + 1;}
+		else if (bagTier == 4) {RNG = Math.floor(Math.random() * 4) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {RNG = Math.floor(Math.random() * 14) + 1;}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {RNG = Math.floor(Math.random() * 20) + 1;}
+		
+		if (bagTier == 1 && RNG == 1) {gemPearl += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 2) {gemAzurite += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 3) {gemLapis += 1; bagRolls -=1;}
+		else if (bagTier == 1 && RNG == 4) {gemTiger += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 1) {gemCitrine += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 2) {gemPeridot += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 3) {gemRose += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 4) {gemBloodstone += 1; bagRolls -=1;}
+		else if (bagTier == 2 && RNG == 5) {gemOnyx += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 1) {gemJade += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 2) {gemGPearl += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 3) {gemMoonstone += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 4) {gemGarnet += 1; bagRolls -=1;}
+		else if (bagTier == 3 && RNG == 5) {gemSpinel += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 1) {gemAqua += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 2) {gemBPearl += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 3) {gemTopaz += 1; bagRolls -=1;}
+		else if (bagTier == 4 && RNG == 4) {gemAmethyst += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 1 && RNG <= 4) {gemSapphire += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 5 && RNG <= 8) {gemRuby += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 9 && RNG <= 11) {gemEmerald += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 12 && RNG <= 14) {gemDiamond += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 15 && RNG <= 16) {gemEberron += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 17 && RNG <= 18) {gemKhyber += 1; bagRolls -=1;}
+		else if (bagTier == 5 && RNG >= 19 && RNG <= 20) {gemSiberys += 1; bagRolls -=1;}
+		
+		if (bagTier == 1) {
+			document.getElementById("itemBox").innerHTML = `${gemPearl} Pearls\n${gemAzurite} Azurites\n${gemLapis} Lapis Lazulis\n${gemTiger} Tiger Eyes`}
+		else if (bagTier == 2) {
+			document.getElementById("itemBox").innerHTML = `${gemCitrine} Citrines\n${gemPeridot} Peridots\n${gemRose} Rose Quartz\n${gemBloodstone} Bloodstones\n${gemOnyx} Onyxes`}
+		else if (bagTier == 3) {
+			document.getElementById("itemBox").innerHTML = `${gemJade} Jades\n${gemGPearl} Gold Pearls\n${gemMoonstone} Moonstones\n${gemGarnet} Garnets\n${gemSpinel} Spinels`}
+		else if (bagTier == 4) {
+			document.getElementById("itemBox").innerHTML = `${gemAqua} Aquamarines\n${gemBPearl} Black Pearls\n${gemTopaz} Topazes\n${gemAmethyst} Amethysts`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
+		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
+			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+	}
+}
+
 // INFO BUTTONS //
 // INFO BUTTONS //
 // INFO BUTTONS //
 // INFO BUTTONS //
 // INFO BUTTONS //
+
+function GemBagInfo() {
+	document.getElementById("itemBox").innerHTML = "[Gem Bag Tier 1]\nPearl, Azurite, Lapis Lazuli, and Tiger Eye\n\n[GemBag Tier 2]\nCitrine, Peridot, Rose Quartz, Bloodstone, and Onyx\n\n[GemBag Tier 3]\nJade, Gold Pearl, Moonstone, Garnet, and Spinel\n\n[GemBag Tier 4]\nAquamarine, Black Pearl, Topaz, and Amethyst\n\n[GemBag Tier 5]\nSapphire, Ruby, Emerald, and Diamond\n\n[Eberron Gems]\nEberron Gem, Khyber Gem, and Siberys Gem";
+}
 
 function WeatherInfo() {
 	document.getElementById("infoBox").innerHTML = "Partially Cloudy \nThunderstorm \nHailstorm/Wildfire \nSnow/Heavy Downpour \nRain \nOvercast \nSunny \nLight Drizzle \nVery Windy \nHeavy Fog \nAcid Rain \nHeatwave/Duststorm/Blizzard/Flood";

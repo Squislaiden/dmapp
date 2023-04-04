@@ -162,17 +162,17 @@ input[type='number']{
 			<button class="button-71" onclick="ArmorHeavyBtn();">Heavy Armor</button><br>
 			</div>
 			<div style="float: left; text-align: center">
-			<font size=3><u>Weapons:</u></font><br>
-			<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
-			<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
-			<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
-			<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
+			&nbsp;<font size=3><u>Weapons:</u></font><br>
+			&nbsp;<button class="button-71" onclick="WeaponAllBtn();">All Weapons</button><br>
+			&nbsp;<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
+			&nbsp;<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
+			&nbsp;<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
+			
 			</div>
 			<br><br><br><br><br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="button-70" onclick="GearList();">Gear List</button><br>
+			&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GearList();">Gear List</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GemBagInfo();">Gem List</button><br>
 			<div style="float: left; text-align: center">
-			<font size=2><u>Other Gear:</u></font><font size=2><u>???:</u></font><br>
+			<font size=2><u>Other Gear:</u></font><br>
 			<button class="button-71" onclick="AccessoryBtn();">Accessory</button><br><button class="button-71" onclick="ArtisanToolBtn();">Artisan Tool</button><br>
 			<button class="button-71" onclick="SpellScrollBtn();">Spell Scroll</button><br>
 			<select name="spellLevel" id="spellLevel">
@@ -186,14 +186,28 @@ input[type='number']{
 			<option value="Spell7">7th Level</option>
 			<option value="Spell8">8th Level</option>
 			<option value="Spell9">9th Level</option>
-			</select><br>
+			</select>
 			</div>
-			
+			<div style="float: left; text-align: center">&nbsp;
+			<font size=2><u>Gem Bag - Tier:</u> <select name="gemBagTier" id="gemBagTier"></font><u/><br>
+			<option value="tier1">1</option>
+			<option value="tier2">2</option>
+			<option value="tier3">3</option>
+			<option value="tier4">4</option>
+			<option value="tier5">5</option>
+			</select>
+			<br>
+			<button class="button-71" onclick="gemBagSmall();">Small Gem Bag</button><br>
+			<button class="button-71" onclick="gemBag();"> Gem Bag</button><br>
+			<button class="button-71" onclick="gemBagLarge();">Large Gem Bag</button><br>
+			</div>
+			<br><br><br><br>
+			<label style="font-size: 11px">Include Eberron Gems in Tier 5 Bags? </label><input type="checkbox" id="eberCheck" name="eberCheck">
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><form>
 			<font size=4>Results:</font>
-			<textarea rows="45" cols="60" name="itemBox" spellcheck="false" id="itemBox" readonly="textareaEdit"></textarea>
+			<textarea rows="27" cols="60" name="itemBox" spellcheck="false" id="itemBox" readonly="textareaEdit"></textarea>
 			</form></center>
 		</div>
 	</div>
@@ -312,8 +326,78 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 <div id="gemtab" class="tabcontent">
   	<div class="grid">
 	<div class="grid-item grid-item-double">
-		<button class="button-71" onclick="???();">Gem Value Tab</button><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3>Item Type </font><select name="jewType" id="jewType" onchange="jewCalc();">
+			<option value="Gems">(Gems Only)</option>
+			<option value="Amulet">Amulet</option>
+			<option value="Bracelet">Bracelet</option>
+			<option value="Choker">Choker</option>
+			<option value="Crown">Crown</option>
+			<option value="Earrings">Earrings</option>
+			<option value="Ring">Ring</option>
+		</select><br>		
+		<font size=3>Base Material </font><select name="jewMaterial" id="jewMaterial" onchange="jewCalc();">
+			<option value="Wood">Wood</option>
+			<option value="Stone">Stone</option>
+			<option value="Copper">Copper</option>
+			<option value="Tin">Tin</option>
+			<option value="Iron">Iron</option>
+			<option value="Steel">Steel</option>
+			<option value="Silver">Silver</option>
+			<option value="Electrum">Electrum</option>
+			<option value="Gold">Gold</option>
+			<option value="Platinum">Platinum</option>
+			<option value="Mithril">Mithril</option>
+			<option value="Adamantium">Adamantium</option>
+		</select>
+		&nbsp;&nbsp;&nbsp;<font size=3> Jewelry Value</font><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3>Gem Size </font><select name="jewSize" id="jewSize" onchange="jewCalc();">
+			<option value="Tiny">Tiny</option>
+			<option value="Small">Small</option>
+			<option value="Standard" selected>Standard</option>
+			<option value="Large">Large</option>
+			<option value="Huge">Huge</option>
+		</select>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="1" cols="10" name="jewBox" spellcheck="false" id="jewBox" readonly="textareaEdit" style="font-size: 14px; resize:none">0 gp</textarea>
+		<br><br>
+		
+		<div style="float: left; text-align: right">
+		<label for="" style="font-size: 12px">Pearls </label><input type="number" id="jewPearl" name="jewPearl" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Tiger Eye </label><input type="number" id="jewTiger" name="jewTiger" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Rose Quartz </label><input type="number" id="jewRose" name="jewRose" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Jade </label><input type="number" id="jewJade" name="jewJade" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Garnet </label><input type="number" id="jewGarnet" name="jewGarnet" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Black Pearl </label><input type="number" id="jewBlack" name="jewBlack" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Sapphire </label><input type="number" id="jewSapphire" name="jewSapphire" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		<label for="" style="font-size: 12px">Diamond </label><input type="number" id="jewDiamond" name="jewDiamond" min="0" max="1000" value="0" onchange="jewCalc();"><br>
 		</div>
+		
+		<div style="float: left; text-align: right">
+		&nbsp;<label for="" style="font-size: 12px">Azurite </label><input type="number" id="jewAzu" name="jewAzu" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Citrine </label><input type="number" id="jewCitrine" name="jewCitrine" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Bloodstone </label><input type="number" id="jewBlood" name="jewBlood" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Gold Pearl </label><input type="number" id="jewGold" name="jewGold" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Spinel </label><input type="number" id="jewSpinel" name="jewSpinel" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Topaz </label><input type="number" id="jewTopaz" name="jewTopaz" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Ruby </label><input type="number" id="jewRuby" name="jewRuby" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		</div>
+		
+		<div style="float: left; text-align: right">
+		&nbsp;<label for="" style="font-size: 12px">Lapis Lazuli </label><input type="number" id="jewLapis" name="jewLapis" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Peridot </label><input type="number" id="jewPeridot" name="jewPeridot" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Onyx </label><input type="number" id="jewOnyx" name="jewOnyx" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Moonstone </label><input type="number" id="jewMoon" name="jewMoon" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Aquamarine </label><input type="number" id="jewAqua" name="jewAqua" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Amethyst </label><input type="number" id="jewAmethyst" name="jewAmethyst" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Emerald </label><input type="number" id="jewEmerald" name="jewEmerald" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		</div>
+		
+		<div style="float: left; text-align: right"><br>
+		<div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">These Eberron Gems are smaller cut versions of the Dragonshards from the Eberron Setting.</span></div>&nbsp;&nbsp;&nbsp;<br>
+		&nbsp;<label for="" style="font-size: 12px">Eberron </label><input type="number" id="jewEber" name="jewEber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Khyber </label><input type="number" id="jewKhyber" name="jewKhyber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		&nbsp;<label for="" style="font-size: 12px">Siberys </label><input type="number" id="jewSiber" name="jewSiber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		</div>
+	</div>
 	</div>
 	
 </div>
@@ -404,12 +488,10 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 		</div>
 		<div class="grid-item grid-item-double">
 			<center><textarea rows="46" cols="60" name="infoBox" spellcheck="false" id="infoBox" readonly="textareaEdit">
----- Changelog (version 1.0): All standard tools have been completed and the Random Character Generator has
+---- Changelog (version 1.0): All standard tools have been completed and the Random Character Generator is in a fully usable state.
 
 ---- TO DO LIST:
-• Finish adding Traits, Action, etc to the Random Enemy Generator.
-• Gender and Sexuality randomizers (This will mainly be male/female and straight with small chances for various LGBTQ+ outcomes).
-• Add the jewelry calculator that will automatically calculate the value of a piece of jewelry based on material and contained gems.
+• Gender and Sexuality randomizers
 • Add a random card draw with the following decks: Standard Deck with and without Jokers, Tarot Deck with and without Minor Arcana, Deck of Many Things, Deck of Many Fates.
    • Further on, I plan to add every single deck from the Deck of Decks on Reddit: https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/
 			</textarea></center>

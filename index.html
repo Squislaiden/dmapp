@@ -349,7 +349,6 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 			<option value="Mithril">Mithril</option>
 			<option value="Adamantium">Adamantium</option>
 		</select>
-		&nbsp;&nbsp;&nbsp;<font size=3> Jewelry Value</font><br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=3>Gem Size </font><select name="jewSize" id="jewSize" onchange="jewCalc();">
 			<option value="Tiny">Tiny</option>
 			<option value="Small">Small</option>
@@ -357,7 +356,6 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 			<option value="Large">Large</option>
 			<option value="Huge">Huge</option>
 		</select>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="1" cols="10" name="jewBox" spellcheck="false" id="jewBox" readonly="textareaEdit" style="font-size: 14px; resize:none">0 gp</textarea>
 		<br><br>
 		
 		<div style="float: left; text-align: right">
@@ -396,6 +394,12 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 		&nbsp;<label for="" style="font-size: 12px">Eberron </label><input type="number" id="jewEber" name="jewEber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
 		&nbsp;<label for="" style="font-size: 12px">Khyber </label><input type="number" id="jewKhyber" name="jewKhyber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
 		&nbsp;<label for="" style="font-size: 12px">Siberys </label><input type="number" id="jewSiber" name="jewSiber" min="0" max="1000" value="0" onchange="jewCalc();"><br>
+		</div>
+		
+		<div style="float: right; text-align: right">
+		<br><br><br>
+		<font size=5> Total Value</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+		<textarea rows="1" cols="10" name="jewBox" spellcheck="false" id="jewBox" readonly="textareaEdit" style="font-size: 24px; resize:none">0 gp</textarea>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 	</div>
 	</div>

@@ -288,8 +288,8 @@ function CriticalFail() {
 	if (critFail == 1 || critFail == 2) {critFailX = "Nothing Happens";}
 	else if (critFail == 3 || critFail == 4) {critFailX = "Drop Weapon";}
 	else if (critFail == 5 || critFail == 6) {critFailX = "Hit Adjacent Creature";}
-	else if (critFail == 7 || critFail == 8) {critFailX = "Target gets an Opporunity Attack";}
-	else if (critFail == 9 || critFail == 10) {critFailX = "Target has Advantage on Next Attack";}
+	else if (critFail == 7 || critFail == 8) {critFailX = "Target gets an Opportunity Attack";}
+	else if (critFail == 9 || critFail == 10) {critFailX = "Next Attack against You has Advantage";}
 	else if (critFail == 11 || critFail == 12) {critFailX = "Fall Prone";}
 	else if (critFail == 13 || critFail == 14) {critFailX = "You have Disadvantage on Next Attack";}
 	else if (critFail == 15) {critFailX = "Self Injury (Weapon Dice Only)";}

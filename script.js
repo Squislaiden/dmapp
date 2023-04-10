@@ -7085,7 +7085,7 @@ async function GearList() {
 	let txtConvert = await grabFile.text();
 	const makeArray = txtConvert.split("\r?\n");
 
-document.getElementById("charBox").innerHTML = txtConvert;
+document.getElementById("itemBox").innerHTML = txtConvert;
 }
 
 async function EnemyTraitInfo() {

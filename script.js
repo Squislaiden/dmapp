@@ -2822,6 +2822,7 @@ GMod = `[] \n`;}
 }
 }
 	function EnemyModBtn() {
+		GetTier();
 		EnemyGenMod();
 		document.getElementById("charBox").innerHTML = `(Choose DC, # of dice, and other values to fit your difficulty) \n\n${GMod}`;
 	}

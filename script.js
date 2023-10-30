@@ -5202,7 +5202,7 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 
 function EnemyHomebrew() {
 	document.getElementById("homebrewBox").innerHTML = "{{monster,frame,wide\n## Name: ??\n";
-	document.getElementById("homebrewBox").innerHTML += `*${GSize}, ${GCreature}*\n___\n**Armor Class** :: ${GAC}\n**Hit Points** :: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nSpeed :: ${GSpeedTotal}\n___
+	document.getElementById("homebrewBox").innerHTML += `*${GSize}, ${GCreature}*\n___\n**Armor Class** :: ${GAC}\n**Hit Points** :: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\n**Speed** :: ${GSpeedTotal}\n___
 |STR|DEX|CON|INT|WIS|CHA|\n|:-:|:-:|:-:|:-:|:-:|:-:|\n|${GStr} (${GStrMod})|${GDex} (${GDexMod})|${GCon} (${GConMod})|${GInt} (${GIntMod})|${GWis} (${GWisMod})|${GCha} (${GChaMod})|\n___
 **Proficiency Bonus** :: +${GPB}\n`;
 	if (GSaveTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Saving Throws** :: ${GSaveTotal}\n`}

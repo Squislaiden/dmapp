@@ -176,13 +176,19 @@ var GRay6 = ``
 var GBreath = ``
 var GBreathName = ``
 	// Character Gen //
+var GSyll = ``
+var GSyllMin = ``
+var GSyllMax = ``
+var GNamePart = ``
+var GNameResult = ``
+var nameCount = ``
 // Global Variables //
 // Global Variables //
 // Global Variables //
 
 function RandomNum() {
 	let rngMin = Number(document.getElementById("rngMin").value)
-	let rngMax = Number(document.getElementById("rngMax").value)
+	let rngMax = Number(document.getElementById("rngMax").value) + 1
 	document.getElementById("rngResult").innerHTML = Math.floor(Math.random() * (rngMax - rngMin) + rngMin);
 }
 
@@ -2508,7 +2514,7 @@ else if (modRoll == 80) {
 if (modElite == 10) {
 GMod = `[Redirector] (Elite) \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 2}d6 +${GPB + 4}. If reduced to 0, throw the projectile back with +${GPB + 6} attack.`;}
 else {
-GMod = `[Redirector] \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 1}d6 +${GPB + 2}. If redcued to 0, throw the projectile back with +${GPB + 4} attack.`;}
+GMod = `[Redirector] \nAs a Reaction, reduce a projectles damage by ${Math.ceil(GPB / 4) + 1}d6 +${GPB + 2}. If reduced to 0, throw the projectile back with +${GPB + 4} attack.`;}
 }
 else if (modRoll == 81) {
 if (modElite == 10) {
@@ -3881,6 +3887,1017 @@ function GetSaveX() {RNG = Math.floor(Math.random() * 6) + 1; if (RNG == 1) {GTe
 	else if (RNG == 4) {GTempSave = "Int";} else if (RNG == 5) {GTempSave = "Wis";} else if (RNG == 6) {GTempSave = "Cha";}
 }
 
+function NameGenJapan() {
+	let jpnRNG = Math.floor(Math.random() * 99) + 1;
+	if (jpnRNG == 1) {GNamePart = "a";}
+else if (jpnRNG == 2) {GNamePart = "o";}
+else if (jpnRNG == 3) {GNamePart = "u";}
+else if (jpnRNG == 4) {GNamePart = "e";}
+else if (jpnRNG == 5) {GNamePart = "i";}
+else if (jpnRNG == 6) {GNamePart = "n";}
+else if (jpnRNG == 7) {GNamePart = "tsu";}
+else if (jpnRNG == 8) {GNamePart = "shi";}
+else if (jpnRNG == 9) {GNamePart = "chi";}
+else if (jpnRNG == 10) {GNamePart = "na";}
+else if (jpnRNG == 11) {GNamePart = "ja";}
+else if (jpnRNG == 12) {GNamePart = "ma";}
+else if (jpnRNG == 13) {GNamePart = "ka";}
+else if (jpnRNG == 14) {GNamePart = "ba";}
+else if (jpnRNG == 15) {GNamePart = "va";}
+else if (jpnRNG == 16) {GNamePart = "za";}
+else if (jpnRNG == 17) {GNamePart = "la";}
+else if (jpnRNG == 18) {GNamePart = "ha";}
+else if (jpnRNG == 19) {GNamePart = "ga";}
+else if (jpnRNG == 20) {GNamePart = "fa";}
+else if (jpnRNG == 21) {GNamePart = "da";}
+else if (jpnRNG == 22) {GNamePart = "sa";}
+else if (jpnRNG == 23) {GNamePart = "wa";}
+else if (jpnRNG == 24) {GNamePart = "ra";}
+else if (jpnRNG == 25) {GNamePart = "ta";}
+else if (jpnRNG == 26) {GNamePart = "ya";}
+else if (jpnRNG == 27) {GNamePart = "pa";}
+else if (jpnRNG == 28) {GNamePart = "ni";}
+else if (jpnRNG == 29) {GNamePart = "ji";}
+else if (jpnRNG == 30) {GNamePart = "mi";}
+else if (jpnRNG == 31) {GNamePart = "ki";}
+else if (jpnRNG == 32) {GNamePart = "bi";}
+else if (jpnRNG == 33) {GNamePart = "vi";}
+else if (jpnRNG == 34) {GNamePart = "zi";}
+else if (jpnRNG == 35) {GNamePart = "li";}
+else if (jpnRNG == 36) {GNamePart = "hi";}
+else if (jpnRNG == 37) {GNamePart = "gi";}
+else if (jpnRNG == 38) {GNamePart = "fi";}
+else if (jpnRNG == 39) {GNamePart = "di";}
+else if (jpnRNG == 40) {GNamePart = "si";}
+else if (jpnRNG == 41) {GNamePart = "wi";}
+else if (jpnRNG == 42) {GNamePart = "ri";}
+else if (jpnRNG == 43) {GNamePart = "ti";}
+else if (jpnRNG == 44) {GNamePart = "yi";}
+else if (jpnRNG == 45) {GNamePart = "pi";}
+else if (jpnRNG == 46) {GNamePart = "ne";}
+else if (jpnRNG == 47) {GNamePart = "je";}
+else if (jpnRNG == 48) {GNamePart = "me";}
+else if (jpnRNG == 49) {GNamePart = "ke";}
+else if (jpnRNG == 50) {GNamePart = "be";}
+else if (jpnRNG == 51) {GNamePart = "ve";}
+else if (jpnRNG == 52) {GNamePart = "ze";}
+else if (jpnRNG == 53) {GNamePart = "le";}
+else if (jpnRNG == 54) {GNamePart = "he";}
+else if (jpnRNG == 55) {GNamePart = "ge";}
+else if (jpnRNG == 56) {GNamePart = "fe";}
+else if (jpnRNG == 57) {GNamePart = "de";}
+else if (jpnRNG == 58) {GNamePart = "se";}
+else if (jpnRNG == 59) {GNamePart = "we";}
+else if (jpnRNG == 60) {GNamePart = "re";}
+else if (jpnRNG == 61) {GNamePart = "te";}
+else if (jpnRNG == 62) {GNamePart = "ye";}
+else if (jpnRNG == 63) {GNamePart = "pe";}
+else if (jpnRNG == 64) {GNamePart = "nu";}
+else if (jpnRNG == 65) {GNamePart = "ju";}
+else if (jpnRNG == 66) {GNamePart = "mu";}
+else if (jpnRNG == 67) {GNamePart = "ku";}
+else if (jpnRNG == 68) {GNamePart = "bu";}
+else if (jpnRNG == 69) {GNamePart = "vu";}
+else if (jpnRNG == 70) {GNamePart = "zu";}
+else if (jpnRNG == 71) {GNamePart = "lu";}
+else if (jpnRNG == 72) {GNamePart = "hu";}
+else if (jpnRNG == 73) {GNamePart = "gu";}
+else if (jpnRNG == 74) {GNamePart = "fu";}
+else if (jpnRNG == 75) {GNamePart = "du";}
+else if (jpnRNG == 76) {GNamePart = "su";}
+else if (jpnRNG == 77) {GNamePart = "wu";}
+else if (jpnRNG == 78) {GNamePart = "ru";}
+else if (jpnRNG == 79) {GNamePart = "tu";}
+else if (jpnRNG == 80) {GNamePart = "yu";}
+else if (jpnRNG == 81) {GNamePart = "pu";}
+else if (jpnRNG == 82) {GNamePart = "no";}
+else if (jpnRNG == 83) {GNamePart = "jo";}
+else if (jpnRNG == 84) {GNamePart = "mo";}
+else if (jpnRNG == 85) {GNamePart = "ko";}
+else if (jpnRNG == 86) {GNamePart = "bo";}
+else if (jpnRNG == 87) {GNamePart = "vo";}
+else if (jpnRNG == 88) {GNamePart = "zo";}
+else if (jpnRNG == 89) {GNamePart = "lo";}
+else if (jpnRNG == 90) {GNamePart = "ho";}
+else if (jpnRNG == 91) {GNamePart = "go";}
+else if (jpnRNG == 92) {GNamePart = "fo";}
+else if (jpnRNG == 93) {GNamePart = "do";}
+else if (jpnRNG == 94) {GNamePart = "so";}
+else if (jpnRNG == 95) {GNamePart = "wo";}
+else if (jpnRNG == 96) {GNamePart = "ro";}
+else if (jpnRNG == 97) {GNamePart = "to";}
+else if (jpnRNG == 98) {GNamePart = "yo";}
+else if (jpnRNG == 99) {GNamePart = "po";}
+}
+
+function NameEndJapan() {
+	let jpnRNG = Math.floor(Math.random() * 5) + 1;
+	if (jpnRNG == 1) {GNamePart = "n";}
+	else if (jpnRNG == 2) {GNamePart = "s";}
+	else if (jpnRNG == 3) {GNamePart = "d";}
+	else if (jpnRNG == 4) {GNamePart = "k";}
+	else if (jpnRNG == 5) {GNamePart = "t";}
+}
+
+function NameGen() {
+	let xRNG = Math.floor(Math.random() * 20) + 1;
+	if (xRNG == 1) {
+		let nameRNG = Math.floor(Math.random() * 75) + 1;
+		if (nameRNG == 1) {GNamePart = "x";}
+else if (nameRNG == 2) {GNamePart = "z";}
+else if (nameRNG == 3) {GNamePart = "owth";}
+else if (nameRNG == 4) {GNamePart = "ight";}
+else if (nameRNG == 5) {GNamePart = "yght";}
+else if (nameRNG == 6) {GNamePart = "anch";}
+else if (nameRNG == 7) {GNamePart = "ench";}
+else if (nameRNG == 8) {GNamePart = "inch";}
+else if (nameRNG == 9) {GNamePart = "onch";}
+else if (nameRNG == 10) {GNamePart = "unch";}
+else if (nameRNG == 11) {GNamePart = "ynch";}
+else if (nameRNG == 12) {GNamePart = "anst";}
+else if (nameRNG == 13) {GNamePart = "enst";}
+else if (nameRNG == 14) {GNamePart = "inst";}
+else if (nameRNG == 15) {GNamePart = "onst";}
+else if (nameRNG == 16) {GNamePart = "unst";}
+else if (nameRNG == 17) {GNamePart = "ynst";}
+else if (nameRNG == 18) {GNamePart = "arch";}
+else if (nameRNG == 19) {GNamePart = "erch";}
+else if (nameRNG == 20) {GNamePart = "irch";}
+else if (nameRNG == 21) {GNamePart = "orch";}
+else if (nameRNG == 22) {GNamePart = "urch";}
+else if (nameRNG == 23) {GNamePart = "yrch";}
+else if (nameRNG == 24) {GNamePart = "atch";}
+else if (nameRNG == 25) {GNamePart = "etch";}
+else if (nameRNG == 26) {GNamePart = "itch";}
+else if (nameRNG == 27) {GNamePart = "otch";}
+else if (nameRNG == 28) {GNamePart = "utch";}
+else if (nameRNG == 29) {GNamePart = "ytch";}
+else if (nameRNG == 30) {GNamePart = "chra";}
+else if (nameRNG == 31) {GNamePart = "chre";}
+else if (nameRNG == 32) {GNamePart = "chri";}
+else if (nameRNG == 33) {GNamePart = "chro";}
+else if (nameRNG == 34) {GNamePart = "chru";}
+else if (nameRNG == 35) {GNamePart = "chry";}
+else if (nameRNG == 36) {GNamePart = "scra";}
+else if (nameRNG == 37) {GNamePart = "scre";}
+else if (nameRNG == 38) {GNamePart = "scri";}
+else if (nameRNG == 39) {GNamePart = "scro";}
+else if (nameRNG == 40) {GNamePart = "scru";}
+else if (nameRNG == 41) {GNamePart = "scry";}
+else if (nameRNG == 42) {GNamePart = "shra";}
+else if (nameRNG == 43) {GNamePart = "shre";}
+else if (nameRNG == 44) {GNamePart = "shri";}
+else if (nameRNG == 45) {GNamePart = "shro";}
+else if (nameRNG == 46) {GNamePart = "shru";}
+else if (nameRNG == 47) {GNamePart = "shry";}
+else if (nameRNG == 48) {GNamePart = "spla";}
+else if (nameRNG == 49) {GNamePart = "sple";}
+else if (nameRNG == 50) {GNamePart = "spli";}
+else if (nameRNG == 51) {GNamePart = "splo";}
+else if (nameRNG == 52) {GNamePart = "splu";}
+else if (nameRNG == 53) {GNamePart = "sply";}
+else if (nameRNG == 54) {GNamePart = "spra";}
+else if (nameRNG == 55) {GNamePart = "spre";}
+else if (nameRNG == 56) {GNamePart = "spri";}
+else if (nameRNG == 57) {GNamePart = "spro";}
+else if (nameRNG == 58) {GNamePart = "spru";}
+else if (nameRNG == 59) {GNamePart = "spry";}
+else if (nameRNG == 60) {GNamePart = "squa";}
+else if (nameRNG == 61) {GNamePart = "sque";}
+else if (nameRNG == 62) {GNamePart = "squi";}
+else if (nameRNG == 63) {GNamePart = "squo";}
+else if (nameRNG == 64) {GNamePart = "stra";}
+else if (nameRNG == 65) {GNamePart = "stre";}
+else if (nameRNG == 66) {GNamePart = "stri";}
+else if (nameRNG == 67) {GNamePart = "stro";}
+else if (nameRNG == 68) {GNamePart = "stru";}
+else if (nameRNG == 69) {GNamePart = "stry";}
+else if (nameRNG == 70) {GNamePart = "thra";}
+else if (nameRNG == 71) {GNamePart = "thre";}
+else if (nameRNG == 72) {GNamePart = "thri";}
+else if (nameRNG == 73) {GNamePart = "thro";}
+else if (nameRNG == 74) {GNamePart = "thru";}
+else if (nameRNG == 75) {GNamePart = "thry";}
+		}
+	if (xRNG > 1 && xRNG < 6) {
+		let nameRNG = Math.floor(Math.random() * 23) + 1;
+		if (nameRNG == 1) {GNamePart = "a";}
+else if (nameRNG == 2) {GNamePart = "b";}
+else if (nameRNG == 3) {GNamePart = "c";}
+else if (nameRNG == 4) {GNamePart = "d";}
+else if (nameRNG == 5) {GNamePart = "e";}
+else if (nameRNG == 6) {GNamePart = "f";}
+else if (nameRNG == 7) {GNamePart = "g";}
+else if (nameRNG == 8) {GNamePart = "h";}
+else if (nameRNG == 9) {GNamePart = "i";}
+else if (nameRNG == 10) {GNamePart = "j";}
+else if (nameRNG == 11) {GNamePart = "k";}
+else if (nameRNG == 12) {GNamePart = "l";}
+else if (nameRNG == 13) {GNamePart = "m";}
+else if (nameRNG == 14) {GNamePart = "n";}
+else if (nameRNG == 15) {GNamePart = "o";}
+else if (nameRNG == 16) {GNamePart = "p";}
+else if (nameRNG == 17) {GNamePart = "r";}
+else if (nameRNG == 18) {GNamePart = "s";}
+else if (nameRNG == 19) {GNamePart = "t";}
+else if (nameRNG == 20) {GNamePart = "u";}
+else if (nameRNG == 21) {GNamePart = "v";}
+else if (nameRNG == 22) {GNamePart = "w";}
+else if (nameRNG == 23) {GNamePart = "y";}
+	}
+	if (xRNG > 5 && xRNG < 10) {
+		let nameRNG = Math.floor(Math.random() * 509) + 1;
+		if (nameRNG == 1) {GNamePart = "nn";}
+else if (nameRNG == 2) {GNamePart = "ll";}
+else if (nameRNG == 3) {GNamePart = "tt";}
+else if (nameRNG == 4) {GNamePart = "ss";}
+else if (nameRNG == 5) {GNamePart = "rr";}
+else if (nameRNG == 6) {GNamePart = "ph";}
+else if (nameRNG == 7) {GNamePart = "ign";}
+else if (nameRNG == 8) {GNamePart = "ryl";}
+else if (nameRNG == 9) {GNamePart = "typ";}
+else if (nameRNG == 10) {GNamePart = "abl";}
+else if (nameRNG == 11) {GNamePart = "ebl";}
+else if (nameRNG == 12) {GNamePart = "ibl";}
+else if (nameRNG == 13) {GNamePart = "obl";}
+else if (nameRNG == 14) {GNamePart = "ubl";}
+else if (nameRNG == 15) {GNamePart = "ybl";}
+else if (nameRNG == 16) {GNamePart = "ach";}
+else if (nameRNG == 17) {GNamePart = "ech";}
+else if (nameRNG == 18) {GNamePart = "ich";}
+else if (nameRNG == 19) {GNamePart = "och";}
+else if (nameRNG == 20) {GNamePart = "uch";}
+else if (nameRNG == 21) {GNamePart = "ych";}
+else if (nameRNG == 22) {GNamePart = "ack";}
+else if (nameRNG == 23) {GNamePart = "eck";}
+else if (nameRNG == 24) {GNamePart = "ick";}
+else if (nameRNG == 25) {GNamePart = "ock";}
+else if (nameRNG == 26) {GNamePart = "uck";}
+else if (nameRNG == 27) {GNamePart = "yck";}
+else if (nameRNG == 28) {GNamePart = "act";}
+else if (nameRNG == 29) {GNamePart = "ect";}
+else if (nameRNG == 30) {GNamePart = "ict";}
+else if (nameRNG == 31) {GNamePart = "oct";}
+else if (nameRNG == 32) {GNamePart = "uct";}
+else if (nameRNG == 33) {GNamePart = "yct";}
+else if (nameRNG == 34) {GNamePart = "adg";}
+else if (nameRNG == 35) {GNamePart = "edg";}
+else if (nameRNG == 36) {GNamePart = "idg";}
+else if (nameRNG == 37) {GNamePart = "odg";}
+else if (nameRNG == 38) {GNamePart = "udg";}
+else if (nameRNG == 39) {GNamePart = "ydg";}
+else if (nameRNG == 40) {GNamePart = "aft";}
+else if (nameRNG == 41) {GNamePart = "eft";}
+else if (nameRNG == 42) {GNamePart = "ift";}
+else if (nameRNG == 43) {GNamePart = "oft";}
+else if (nameRNG == 44) {GNamePart = "uft";}
+else if (nameRNG == 45) {GNamePart = "yft";}
+else if (nameRNG == 46) {GNamePart = "agh";}
+else if (nameRNG == 47) {GNamePart = "egh";}
+else if (nameRNG == 48) {GNamePart = "igh";}
+else if (nameRNG == 49) {GNamePart = "ogh";}
+else if (nameRNG == 50) {GNamePart = "ugh";}
+else if (nameRNG == 51) {GNamePart = "ygh";}
+else if (nameRNG == 52) {GNamePart = "agl";}
+else if (nameRNG == 53) {GNamePart = "egl";}
+else if (nameRNG == 54) {GNamePart = "igl";}
+else if (nameRNG == 55) {GNamePart = "ogl";}
+else if (nameRNG == 56) {GNamePart = "ugl";}
+else if (nameRNG == 57) {GNamePart = "ygl";}
+else if (nameRNG == 58) {GNamePart = "ald";}
+else if (nameRNG == 59) {GNamePart = "eld";}
+else if (nameRNG == 60) {GNamePart = "ild";}
+else if (nameRNG == 61) {GNamePart = "old";}
+else if (nameRNG == 62) {GNamePart = "uld";}
+else if (nameRNG == 63) {GNamePart = "yld";}
+else if (nameRNG == 64) {GNamePart = "alf";}
+else if (nameRNG == 65) {GNamePart = "elf";}
+else if (nameRNG == 66) {GNamePart = "ilf";}
+else if (nameRNG == 67) {GNamePart = "olf";}
+else if (nameRNG == 68) {GNamePart = "ulf";}
+else if (nameRNG == 69) {GNamePart = "ylf";}
+else if (nameRNG == 70) {GNamePart = "alk";}
+else if (nameRNG == 71) {GNamePart = "elk";}
+else if (nameRNG == 72) {GNamePart = "ilk";}
+else if (nameRNG == 73) {GNamePart = "olk";}
+else if (nameRNG == 74) {GNamePart = "ulk";}
+else if (nameRNG == 75) {GNamePart = "ylk";}
+else if (nameRNG == 76) {GNamePart = "alm";}
+else if (nameRNG == 77) {GNamePart = "elm";}
+else if (nameRNG == 78) {GNamePart = "ilm";}
+else if (nameRNG == 79) {GNamePart = "olm";}
+else if (nameRNG == 80) {GNamePart = "ulm";}
+else if (nameRNG == 81) {GNamePart = "aln";}
+else if (nameRNG == 82) {GNamePart = "eln";}
+else if (nameRNG == 83) {GNamePart = "iln";}
+else if (nameRNG == 84) {GNamePart = "oln";}
+else if (nameRNG == 85) {GNamePart = "uln";}
+else if (nameRNG == 86) {GNamePart = "alp";}
+else if (nameRNG == 87) {GNamePart = "elp";}
+else if (nameRNG == 88) {GNamePart = "ilp";}
+else if (nameRNG == 89) {GNamePart = "olp";}
+else if (nameRNG == 90) {GNamePart = "ulp";}
+else if (nameRNG == 91) {GNamePart = "ylp";}
+else if (nameRNG == 92) {GNamePart = "alt";}
+else if (nameRNG == 93) {GNamePart = "elt";}
+else if (nameRNG == 94) {GNamePart = "ilt";}
+else if (nameRNG == 95) {GNamePart = "olt";}
+else if (nameRNG == 96) {GNamePart = "ult";}
+else if (nameRNG == 97) {GNamePart = "ylt";}
+else if (nameRNG == 98) {GNamePart = "alv";}
+else if (nameRNG == 99) {GNamePart = "elv";}
+else if (nameRNG == 100) {GNamePart = "ilv";}
+else if (nameRNG == 101) {GNamePart = "olv";}
+else if (nameRNG == 102) {GNamePart = "ulv";}
+else if (nameRNG == 103) {GNamePart = "ylv";}
+else if (nameRNG == 104) {GNamePart = "amb";}
+else if (nameRNG == 105) {GNamePart = "emb";}
+else if (nameRNG == 106) {GNamePart = "imb";}
+else if (nameRNG == 107) {GNamePart = "omb";}
+else if (nameRNG == 108) {GNamePart = "umb";}
+else if (nameRNG == 109) {GNamePart = "ymb";}
+else if (nameRNG == 110) {GNamePart = "amp";}
+else if (nameRNG == 111) {GNamePart = "emp";}
+else if (nameRNG == 112) {GNamePart = "imp";}
+else if (nameRNG == 113) {GNamePart = "omp";}
+else if (nameRNG == 114) {GNamePart = "ump";}
+else if (nameRNG == 115) {GNamePart = "ymp";}
+else if (nameRNG == 116) {GNamePart = "anc";}
+else if (nameRNG == 117) {GNamePart = "enc";}
+else if (nameRNG == 118) {GNamePart = "inc";}
+else if (nameRNG == 119) {GNamePart = "onc";}
+else if (nameRNG == 120) {GNamePart = "unc";}
+else if (nameRNG == 121) {GNamePart = "ync";}
+else if (nameRNG == 122) {GNamePart = "and";}
+else if (nameRNG == 123) {GNamePart = "end";}
+else if (nameRNG == 124) {GNamePart = "ind";}
+else if (nameRNG == 125) {GNamePart = "ond";}
+else if (nameRNG == 126) {GNamePart = "und";}
+else if (nameRNG == 127) {GNamePart = "ynd";}
+else if (nameRNG == 128) {GNamePart = "anf";}
+else if (nameRNG == 129) {GNamePart = "enf";}
+else if (nameRNG == 130) {GNamePart = "inf";}
+else if (nameRNG == 131) {GNamePart = "onf";}
+else if (nameRNG == 132) {GNamePart = "unf";}
+else if (nameRNG == 133) {GNamePart = "ynf";}
+else if (nameRNG == 134) {GNamePart = "ang";}
+else if (nameRNG == 135) {GNamePart = "eng";}
+else if (nameRNG == 136) {GNamePart = "ing";}
+else if (nameRNG == 137) {GNamePart = "ong";}
+else if (nameRNG == 138) {GNamePart = "ung";}
+else if (nameRNG == 139) {GNamePart = "yng";}
+else if (nameRNG == 140) {GNamePart = "ank";}
+else if (nameRNG == 141) {GNamePart = "enk";}
+else if (nameRNG == 142) {GNamePart = "ink";}
+else if (nameRNG == 143) {GNamePart = "onk";}
+else if (nameRNG == 144) {GNamePart = "unk";}
+else if (nameRNG == 145) {GNamePart = "ynk";}
+else if (nameRNG == 146) {GNamePart = "ant";}
+else if (nameRNG == 147) {GNamePart = "ent";}
+else if (nameRNG == 148) {GNamePart = "int";}
+else if (nameRNG == 149) {GNamePart = "ont";}
+else if (nameRNG == 150) {GNamePart = "unt";}
+else if (nameRNG == 151) {GNamePart = "ynt";}
+else if (nameRNG == 152) {GNamePart = "anv";}
+else if (nameRNG == 153) {GNamePart = "env";}
+else if (nameRNG == 154) {GNamePart = "inv";}
+else if (nameRNG == 155) {GNamePart = "onv";}
+else if (nameRNG == 156) {GNamePart = "unv";}
+else if (nameRNG == 157) {GNamePart = "ynv";}
+else if (nameRNG == 158) {GNamePart = "ans";}
+else if (nameRNG == 159) {GNamePart = "ens";}
+else if (nameRNG == 160) {GNamePart = "ins";}
+else if (nameRNG == 161) {GNamePart = "ons";}
+else if (nameRNG == 162) {GNamePart = "uns";}
+else if (nameRNG == 163) {GNamePart = "yns";}
+else if (nameRNG == 164) {GNamePart = "aph";}
+else if (nameRNG == 165) {GNamePart = "eph";}
+else if (nameRNG == 166) {GNamePart = "iph";}
+else if (nameRNG == 167) {GNamePart = "oph";}
+else if (nameRNG == 168) {GNamePart = "uph";}
+else if (nameRNG == 169) {GNamePart = "yph";}
+else if (nameRNG == 170) {GNamePart = "apt";}
+else if (nameRNG == 171) {GNamePart = "ept";}
+else if (nameRNG == 172) {GNamePart = "ipt";}
+else if (nameRNG == 173) {GNamePart = "opt";}
+else if (nameRNG == 174) {GNamePart = "upt";}
+else if (nameRNG == 175) {GNamePart = "ypt";}
+else if (nameRNG == 176) {GNamePart = "ard";}
+else if (nameRNG == 177) {GNamePart = "erd";}
+else if (nameRNG == 178) {GNamePart = "ird";}
+else if (nameRNG == 179) {GNamePart = "ord";}
+else if (nameRNG == 180) {GNamePart = "urd";}
+else if (nameRNG == 181) {GNamePart = "yrd";}
+else if (nameRNG == 182) {GNamePart = "arg";}
+else if (nameRNG == 183) {GNamePart = "erg";}
+else if (nameRNG == 184) {GNamePart = "irg";}
+else if (nameRNG == 185) {GNamePart = "org";}
+else if (nameRNG == 186) {GNamePart = "urg";}
+else if (nameRNG == 187) {GNamePart = "yrg";}
+else if (nameRNG == 188) {GNamePart = "ark";}
+else if (nameRNG == 189) {GNamePart = "erk";}
+else if (nameRNG == 190) {GNamePart = "irk";}
+else if (nameRNG == 191) {GNamePart = "ork";}
+else if (nameRNG == 192) {GNamePart = "urk";}
+else if (nameRNG == 193) {GNamePart = "yrk";}
+else if (nameRNG == 194) {GNamePart = "arl";}
+else if (nameRNG == 195) {GNamePart = "erl";}
+else if (nameRNG == 196) {GNamePart = "irl";}
+else if (nameRNG == 197) {GNamePart = "orl";}
+else if (nameRNG == 198) {GNamePart = "url";}
+else if (nameRNG == 199) {GNamePart = "yrl";}
+else if (nameRNG == 200) {GNamePart = "arm";}
+else if (nameRNG == 201) {GNamePart = "erm";}
+else if (nameRNG == 202) {GNamePart = "irm";}
+else if (nameRNG == 203) {GNamePart = "orm";}
+else if (nameRNG == 204) {GNamePart = "urm";}
+else if (nameRNG == 205) {GNamePart = "yrm";}
+else if (nameRNG == 206) {GNamePart = "arn";}
+else if (nameRNG == 207) {GNamePart = "ern";}
+else if (nameRNG == 208) {GNamePart = "irn";}
+else if (nameRNG == 209) {GNamePart = "orn";}
+else if (nameRNG == 210) {GNamePart = "urn";}
+else if (nameRNG == 211) {GNamePart = "yrn";}
+else if (nameRNG == 212) {GNamePart = "ars";}
+else if (nameRNG == 213) {GNamePart = "ers";}
+else if (nameRNG == 214) {GNamePart = "irs";}
+else if (nameRNG == 215) {GNamePart = "ors";}
+else if (nameRNG == 216) {GNamePart = "urs";}
+else if (nameRNG == 217) {GNamePart = "yrs";}
+else if (nameRNG == 218) {GNamePart = "art";}
+else if (nameRNG == 219) {GNamePart = "ert";}
+else if (nameRNG == 220) {GNamePart = "irt";}
+else if (nameRNG == 221) {GNamePart = "ort";}
+else if (nameRNG == 222) {GNamePart = "urt";}
+else if (nameRNG == 223) {GNamePart = "yrt";}
+else if (nameRNG == 224) {GNamePart = "arv";}
+else if (nameRNG == 225) {GNamePart = "erv";}
+else if (nameRNG == 226) {GNamePart = "irv";}
+else if (nameRNG == 227) {GNamePart = "orv";}
+else if (nameRNG == 228) {GNamePart = "urv";}
+else if (nameRNG == 229) {GNamePart = "yrv";}
+else if (nameRNG == 230) {GNamePart = "ary";}
+else if (nameRNG == 231) {GNamePart = "ery";}
+else if (nameRNG == 232) {GNamePart = "iry";}
+else if (nameRNG == 233) {GNamePart = "ory";}
+else if (nameRNG == 234) {GNamePart = "ury";}
+else if (nameRNG == 235) {GNamePart = "ash";}
+else if (nameRNG == 236) {GNamePart = "esh";}
+else if (nameRNG == 237) {GNamePart = "ish";}
+else if (nameRNG == 238) {GNamePart = "osh";}
+else if (nameRNG == 239) {GNamePart = "ush";}
+else if (nameRNG == 240) {GNamePart = "ysh";}
+else if (nameRNG == 241) {GNamePart = "asp";}
+else if (nameRNG == 242) {GNamePart = "esp";}
+else if (nameRNG == 243) {GNamePart = "isp";}
+else if (nameRNG == 244) {GNamePart = "osp";}
+else if (nameRNG == 245) {GNamePart = "usp";}
+else if (nameRNG == 246) {GNamePart = "ysp";}
+else if (nameRNG == 247) {GNamePart = "ast";}
+else if (nameRNG == 248) {GNamePart = "est";}
+else if (nameRNG == 249) {GNamePart = "ist";}
+else if (nameRNG == 250) {GNamePart = "ost";}
+else if (nameRNG == 251) {GNamePart = "ust";}
+else if (nameRNG == 252) {GNamePart = "yst";}
+else if (nameRNG == 253) {GNamePart = "ath";}
+else if (nameRNG == 254) {GNamePart = "eth";}
+else if (nameRNG == 255) {GNamePart = "ith";}
+else if (nameRNG == 256) {GNamePart = "oth";}
+else if (nameRNG == 257) {GNamePart = "uth";}
+else if (nameRNG == 258) {GNamePart = "yth";}
+else if (nameRNG == 259) {GNamePart = "aty";}
+else if (nameRNG == 260) {GNamePart = "ety";}
+else if (nameRNG == 261) {GNamePart = "ity";}
+else if (nameRNG == 262) {GNamePart = "oty";}
+else if (nameRNG == 263) {GNamePart = "uty";}
+else if (nameRNG == 264) {GNamePart = "awn";}
+else if (nameRNG == 265) {GNamePart = "ewn";}
+else if (nameRNG == 266) {GNamePart = "own";}
+else if (nameRNG == 267) {GNamePart = "uwn";}
+else if (nameRNG == 268) {GNamePart = "awl";}
+else if (nameRNG == 269) {GNamePart = "ewl";}
+else if (nameRNG == 270) {GNamePart = "iwl";}
+else if (nameRNG == 271) {GNamePart = "owl";}
+else if (nameRNG == 272) {GNamePart = "uwl";}
+else if (nameRNG == 273) {GNamePart = "ywl";}
+else if (nameRNG == 274) {GNamePart = "awt";}
+else if (nameRNG == 275) {GNamePart = "ewt";}
+else if (nameRNG == 276) {GNamePart = "owt";}
+else if (nameRNG == 277) {GNamePart = "bla";}
+else if (nameRNG == 278) {GNamePart = "ble";}
+else if (nameRNG == 279) {GNamePart = "bli";}
+else if (nameRNG == 280) {GNamePart = "blo";}
+else if (nameRNG == 281) {GNamePart = "blu";}
+else if (nameRNG == 282) {GNamePart = "bly";}
+else if (nameRNG == 283) {GNamePart = "bra";}
+else if (nameRNG == 284) {GNamePart = "bre";}
+else if (nameRNG == 285) {GNamePart = "bri";}
+else if (nameRNG == 286) {GNamePart = "bro";}
+else if (nameRNG == 287) {GNamePart = "bru";}
+else if (nameRNG == 288) {GNamePart = "bry";}
+else if (nameRNG == 289) {GNamePart = "cha";}
+else if (nameRNG == 290) {GNamePart = "che";}
+else if (nameRNG == 291) {GNamePart = "chi";}
+else if (nameRNG == 292) {GNamePart = "cho";}
+else if (nameRNG == 293) {GNamePart = "chu";}
+else if (nameRNG == 294) {GNamePart = "chy";}
+else if (nameRNG == 295) {GNamePart = "cla";}
+else if (nameRNG == 296) {GNamePart = "cle";}
+else if (nameRNG == 297) {GNamePart = "cli";}
+else if (nameRNG == 298) {GNamePart = "clo";}
+else if (nameRNG == 299) {GNamePart = "clu";}
+else if (nameRNG == 300) {GNamePart = "cly";}
+else if (nameRNG == 301) {GNamePart = "cra";}
+else if (nameRNG == 302) {GNamePart = "cre";}
+else if (nameRNG == 303) {GNamePart = "cri";}
+else if (nameRNG == 304) {GNamePart = "cro";}
+else if (nameRNG == 305) {GNamePart = "cru";}
+else if (nameRNG == 306) {GNamePart = "cry";}
+else if (nameRNG == 307) {GNamePart = "dra";}
+else if (nameRNG == 308) {GNamePart = "dre";}
+else if (nameRNG == 309) {GNamePart = "dri";}
+else if (nameRNG == 310) {GNamePart = "dro";}
+else if (nameRNG == 311) {GNamePart = "dru";}
+else if (nameRNG == 312) {GNamePart = "dry";}
+else if (nameRNG == 313) {GNamePart = "dwa";}
+else if (nameRNG == 314) {GNamePart = "dwe";}
+else if (nameRNG == 315) {GNamePart = "dwi";}
+else if (nameRNG == 316) {GNamePart = "dwo";}
+else if (nameRNG == 317) {GNamePart = "dwu";}
+else if (nameRNG == 318) {GNamePart = "dja";}
+else if (nameRNG == 319) {GNamePart = "dje";}
+else if (nameRNG == 320) {GNamePart = "dji";}
+else if (nameRNG == 321) {GNamePart = "djo";}
+else if (nameRNG == 322) {GNamePart = "dju";}
+else if (nameRNG == 323) {GNamePart = "fla";}
+else if (nameRNG == 324) {GNamePart = "fle";}
+else if (nameRNG == 325) {GNamePart = "fli";}
+else if (nameRNG == 326) {GNamePart = "flo";}
+else if (nameRNG == 327) {GNamePart = "flu";}
+else if (nameRNG == 328) {GNamePart = "fly";}
+else if (nameRNG == 329) {GNamePart = "fra";}
+else if (nameRNG == 330) {GNamePart = "fre";}
+else if (nameRNG == 331) {GNamePart = "fri";}
+else if (nameRNG == 332) {GNamePart = "fro";}
+else if (nameRNG == 333) {GNamePart = "fru";}
+else if (nameRNG == 334) {GNamePart = "fry";}
+else if (nameRNG == 335) {GNamePart = "gha";}
+else if (nameRNG == 336) {GNamePart = "ghe";}
+else if (nameRNG == 337) {GNamePart = "ghi";}
+else if (nameRNG == 338) {GNamePart = "gho";}
+else if (nameRNG == 339) {GNamePart = "ghu";}
+else if (nameRNG == 340) {GNamePart = "ghy";}
+else if (nameRNG == 341) {GNamePart = "gla";}
+else if (nameRNG == 342) {GNamePart = "gle";}
+else if (nameRNG == 343) {GNamePart = "gli";}
+else if (nameRNG == 344) {GNamePart = "glo";}
+else if (nameRNG == 345) {GNamePart = "glu";}
+else if (nameRNG == 346) {GNamePart = "gly";}
+else if (nameRNG == 347) {GNamePart = "gna";}
+else if (nameRNG == 348) {GNamePart = "gne";}
+else if (nameRNG == 349) {GNamePart = "gni";}
+else if (nameRNG == 350) {GNamePart = "gno";}
+else if (nameRNG == 351) {GNamePart = "gnu";}
+else if (nameRNG == 352) {GNamePart = "gny";}
+else if (nameRNG == 353) {GNamePart = "gra";}
+else if (nameRNG == 354) {GNamePart = "gre";}
+else if (nameRNG == 355) {GNamePart = "gri";}
+else if (nameRNG == 356) {GNamePart = "gro";}
+else if (nameRNG == 357) {GNamePart = "gru";}
+else if (nameRNG == 358) {GNamePart = "gry";}
+else if (nameRNG == 359) {GNamePart = "kna";}
+else if (nameRNG == 360) {GNamePart = "kne";}
+else if (nameRNG == 361) {GNamePart = "kni";}
+else if (nameRNG == 362) {GNamePart = "kno";}
+else if (nameRNG == 363) {GNamePart = "knu";}
+else if (nameRNG == 364) {GNamePart = "kra";}
+else if (nameRNG == 365) {GNamePart = "kre";}
+else if (nameRNG == 366) {GNamePart = "kri";}
+else if (nameRNG == 367) {GNamePart = "kro";}
+else if (nameRNG == 368) {GNamePart = "kru";}
+else if (nameRNG == 369) {GNamePart = "kry";}
+else if (nameRNG == 370) {GNamePart = "kwa";}
+else if (nameRNG == 371) {GNamePart = "kwe";}
+else if (nameRNG == 372) {GNamePart = "kwi";}
+else if (nameRNG == 373) {GNamePart = "kwo";}
+else if (nameRNG == 374) {GNamePart = "kwu";}
+else if (nameRNG == 375) {GNamePart = "pha";}
+else if (nameRNG == 376) {GNamePart = "phe";}
+else if (nameRNG == 377) {GNamePart = "phi";}
+else if (nameRNG == 378) {GNamePart = "pho";}
+else if (nameRNG == 379) {GNamePart = "phu";}
+else if (nameRNG == 380) {GNamePart = "phy";}
+else if (nameRNG == 381) {GNamePart = "pla";}
+else if (nameRNG == 382) {GNamePart = "ple";}
+else if (nameRNG == 383) {GNamePart = "pli";}
+else if (nameRNG == 384) {GNamePart = "plo";}
+else if (nameRNG == 385) {GNamePart = "plu";}
+else if (nameRNG == 386) {GNamePart = "ply";}
+else if (nameRNG == 387) {GNamePart = "pra";}
+else if (nameRNG == 388) {GNamePart = "pre";}
+else if (nameRNG == 389) {GNamePart = "pri";}
+else if (nameRNG == 390) {GNamePart = "pro";}
+else if (nameRNG == 391) {GNamePart = "pru";}
+else if (nameRNG == 392) {GNamePart = "pry";}
+else if (nameRNG == 393) {GNamePart = "psa";}
+else if (nameRNG == 394) {GNamePart = "pse";}
+else if (nameRNG == 395) {GNamePart = "psi";}
+else if (nameRNG == 396) {GNamePart = "pso";}
+else if (nameRNG == 397) {GNamePart = "psu";}
+else if (nameRNG == 398) {GNamePart = "psy";}
+else if (nameRNG == 399) {GNamePart = "qua";}
+else if (nameRNG == 400) {GNamePart = "que";}
+else if (nameRNG == 401) {GNamePart = "qui";}
+else if (nameRNG == 402) {GNamePart = "quo";}
+else if (nameRNG == 403) {GNamePart = "sca";}
+else if (nameRNG == 404) {GNamePart = "sce";}
+else if (nameRNG == 405) {GNamePart = "sci";}
+else if (nameRNG == 406) {GNamePart = "sco";}
+else if (nameRNG == 407) {GNamePart = "scu";}
+else if (nameRNG == 408) {GNamePart = "scy";}
+else if (nameRNG == 409) {GNamePart = "sha";}
+else if (nameRNG == 410) {GNamePart = "she";}
+else if (nameRNG == 411) {GNamePart = "shi";}
+else if (nameRNG == 412) {GNamePart = "sho";}
+else if (nameRNG == 413) {GNamePart = "shu";}
+else if (nameRNG == 414) {GNamePart = "shy";}
+else if (nameRNG == 415) {GNamePart = "ska";}
+else if (nameRNG == 416) {GNamePart = "ske";}
+else if (nameRNG == 417) {GNamePart = "ski";}
+else if (nameRNG == 418) {GNamePart = "sko";}
+else if (nameRNG == 419) {GNamePart = "sku";}
+else if (nameRNG == 420) {GNamePart = "sky";}
+else if (nameRNG == 421) {GNamePart = "sla";}
+else if (nameRNG == 422) {GNamePart = "sle";}
+else if (nameRNG == 423) {GNamePart = "sli";}
+else if (nameRNG == 424) {GNamePart = "slo";}
+else if (nameRNG == 425) {GNamePart = "slu";}
+else if (nameRNG == 426) {GNamePart = "sly";}
+else if (nameRNG == 427) {GNamePart = "sma";}
+else if (nameRNG == 428) {GNamePart = "sme";}
+else if (nameRNG == 429) {GNamePart = "smi";}
+else if (nameRNG == 430) {GNamePart = "smo";}
+else if (nameRNG == 431) {GNamePart = "smu";}
+else if (nameRNG == 432) {GNamePart = "smy";}
+else if (nameRNG == 433) {GNamePart = "sna";}
+else if (nameRNG == 434) {GNamePart = "sne";}
+else if (nameRNG == 435) {GNamePart = "sni";}
+else if (nameRNG == 436) {GNamePart = "sno";}
+else if (nameRNG == 437) {GNamePart = "snu";}
+else if (nameRNG == 438) {GNamePart = "sny";}
+else if (nameRNG == 439) {GNamePart = "spa";}
+else if (nameRNG == 440) {GNamePart = "spe";}
+else if (nameRNG == 441) {GNamePart = "spi";}
+else if (nameRNG == 442) {GNamePart = "spo";}
+else if (nameRNG == 443) {GNamePart = "spu";}
+else if (nameRNG == 444) {GNamePart = "spy";}
+else if (nameRNG == 445) {GNamePart = "sta";}
+else if (nameRNG == 446) {GNamePart = "ste";}
+else if (nameRNG == 447) {GNamePart = "ste";}
+else if (nameRNG == 448) {GNamePart = "sto";}
+else if (nameRNG == 449) {GNamePart = "stu";}
+else if (nameRNG == 450) {GNamePart = "sty";}
+else if (nameRNG == 451) {GNamePart = "swa";}
+else if (nameRNG == 452) {GNamePart = "swe";}
+else if (nameRNG == 453) {GNamePart = "swi";}
+else if (nameRNG == 454) {GNamePart = "swo";}
+else if (nameRNG == 455) {GNamePart = "swu";}
+else if (nameRNG == 456) {GNamePart = "swy";}
+else if (nameRNG == 457) {GNamePart = "tha";}
+else if (nameRNG == 458) {GNamePart = "the";}
+else if (nameRNG == 459) {GNamePart = "thi";}
+else if (nameRNG == 460) {GNamePart = "tho";}
+else if (nameRNG == 461) {GNamePart = "thu";}
+else if (nameRNG == 462) {GNamePart = "thy";}
+else if (nameRNG == 463) {GNamePart = "tra";}
+else if (nameRNG == 464) {GNamePart = "tre";}
+else if (nameRNG == 465) {GNamePart = "tri";}
+else if (nameRNG == 466) {GNamePart = "tro";}
+else if (nameRNG == 467) {GNamePart = "tru";}
+else if (nameRNG == 468) {GNamePart = "try";}
+else if (nameRNG == 469) {GNamePart = "tsa";}
+else if (nameRNG == 470) {GNamePart = "tse";}
+else if (nameRNG == 471) {GNamePart = "tsi";}
+else if (nameRNG == 472) {GNamePart = "tso";}
+else if (nameRNG == 473) {GNamePart = "tsu";}
+else if (nameRNG == 474) {GNamePart = "tsy";}
+else if (nameRNG == 475) {GNamePart = "twa";}
+else if (nameRNG == 476) {GNamePart = "twe";}
+else if (nameRNG == 477) {GNamePart = "twi";}
+else if (nameRNG == 478) {GNamePart = "two";}
+else if (nameRNG == 479) {GNamePart = "twu";}
+else if (nameRNG == 480) {GNamePart = "twy";}
+else if (nameRNG == 481) {GNamePart = "vra";}
+else if (nameRNG == 482) {GNamePart = "vre";}
+else if (nameRNG == 483) {GNamePart = "vri";}
+else if (nameRNG == 484) {GNamePart = "vro";}
+else if (nameRNG == 485) {GNamePart = "vru";}
+else if (nameRNG == 486) {GNamePart = "vry";}
+else if (nameRNG == 487) {GNamePart = "wha";}
+else if (nameRNG == 488) {GNamePart = "whe";}
+else if (nameRNG == 489) {GNamePart = "whi";}
+else if (nameRNG == 490) {GNamePart = "who";}
+else if (nameRNG == 491) {GNamePart = "whu";}
+else if (nameRNG == 492) {GNamePart = "why";}
+else if (nameRNG == 493) {GNamePart = "wra";}
+else if (nameRNG == 494) {GNamePart = "wre";}
+else if (nameRNG == 495) {GNamePart = "wri";}
+else if (nameRNG == 496) {GNamePart = "wro";}
+else if (nameRNG == 497) {GNamePart = "wru";}
+else if (nameRNG == 498) {GNamePart = "wry";}
+else if (nameRNG == 499) {GNamePart = "zha";}
+else if (nameRNG == 500) {GNamePart = "zhe";}
+else if (nameRNG == 501) {GNamePart = "zhi";}
+else if (nameRNG == 502) {GNamePart = "zho";}
+else if (nameRNG == 503) {GNamePart = "zhu";}
+else if (nameRNG == 504) {GNamePart = "zhy";}
+else if (nameRNG == 505) {GNamePart = "zwa";}
+else if (nameRNG == 506) {GNamePart = "zwe";}
+else if (nameRNG == 507) {GNamePart = "zwi";}
+else if (nameRNG == 508) {GNamePart = "zwo";}
+else if (nameRNG == 509) {GNamePart = "zwu";}
+	}
+	if (xRNG > 9 && xRNG < 21) {
+		let nameRNG = Math.floor(Math.random() * 275) + 1;
+		if (nameRNG == 1) {GNamePart = "ba";}
+else if (nameRNG == 2) {GNamePart = "ca";}
+else if (nameRNG == 3) {GNamePart = "da";}
+else if (nameRNG == 4) {GNamePart = "fa";}
+else if (nameRNG == 5) {GNamePart = "ga";}
+else if (nameRNG == 6) {GNamePart = "ha";}
+else if (nameRNG == 7) {GNamePart = "ja";}
+else if (nameRNG == 8) {GNamePart = "ka";}
+else if (nameRNG == 9) {GNamePart = "la";}
+else if (nameRNG == 10) {GNamePart = "ma";}
+else if (nameRNG == 11) {GNamePart = "na";}
+else if (nameRNG == 12) {GNamePart = "pa";}
+else if (nameRNG == 13) {GNamePart = "qa";}
+else if (nameRNG == 14) {GNamePart = "ra";}
+else if (nameRNG == 15) {GNamePart = "sa";}
+else if (nameRNG == 16) {GNamePart = "ta";}
+else if (nameRNG == 17) {GNamePart = "va";}
+else if (nameRNG == 18) {GNamePart = "wa";}
+else if (nameRNG == 19) {GNamePart = "xa";}
+else if (nameRNG == 20) {GNamePart = "ya";}
+else if (nameRNG == 21) {GNamePart = "za";}
+else if (nameRNG == 22) {GNamePart = "be";}
+else if (nameRNG == 23) {GNamePart = "ce";}
+else if (nameRNG == 24) {GNamePart = "de";}
+else if (nameRNG == 25) {GNamePart = "fe";}
+else if (nameRNG == 26) {GNamePart = "ge";}
+else if (nameRNG == 27) {GNamePart = "he";}
+else if (nameRNG == 28) {GNamePart = "je";}
+else if (nameRNG == 29) {GNamePart = "ke";}
+else if (nameRNG == 30) {GNamePart = "le";}
+else if (nameRNG == 31) {GNamePart = "me";}
+else if (nameRNG == 32) {GNamePart = "ne";}
+else if (nameRNG == 33) {GNamePart = "pe";}
+else if (nameRNG == 34) {GNamePart = "qe";}
+else if (nameRNG == 35) {GNamePart = "re";}
+else if (nameRNG == 36) {GNamePart = "se";}
+else if (nameRNG == 37) {GNamePart = "te";}
+else if (nameRNG == 38) {GNamePart = "ve";}
+else if (nameRNG == 39) {GNamePart = "we";}
+else if (nameRNG == 40) {GNamePart = "xe";}
+else if (nameRNG == 41) {GNamePart = "ye";}
+else if (nameRNG == 42) {GNamePart = "ze";}
+else if (nameRNG == 43) {GNamePart = "bi";}
+else if (nameRNG == 44) {GNamePart = "ci";}
+else if (nameRNG == 45) {GNamePart = "di";}
+else if (nameRNG == 46) {GNamePart = "fi";}
+else if (nameRNG == 47) {GNamePart = "gi";}
+else if (nameRNG == 48) {GNamePart = "hi";}
+else if (nameRNG == 49) {GNamePart = "ji";}
+else if (nameRNG == 50) {GNamePart = "ki";}
+else if (nameRNG == 51) {GNamePart = "li";}
+else if (nameRNG == 52) {GNamePart = "mi";}
+else if (nameRNG == 53) {GNamePart = "ni";}
+else if (nameRNG == 54) {GNamePart = "pi";}
+else if (nameRNG == 55) {GNamePart = "qi";}
+else if (nameRNG == 56) {GNamePart = "ri";}
+else if (nameRNG == 57) {GNamePart = "si";}
+else if (nameRNG == 58) {GNamePart = "ti";}
+else if (nameRNG == 59) {GNamePart = "vi";}
+else if (nameRNG == 60) {GNamePart = "wi";}
+else if (nameRNG == 61) {GNamePart = "xi";}
+else if (nameRNG == 62) {GNamePart = "yi";}
+else if (nameRNG == 63) {GNamePart = "zi";}
+else if (nameRNG == 64) {GNamePart = "bo";}
+else if (nameRNG == 65) {GNamePart = "co";}
+else if (nameRNG == 66) {GNamePart = "do";}
+else if (nameRNG == 67) {GNamePart = "fo";}
+else if (nameRNG == 68) {GNamePart = "go";}
+else if (nameRNG == 69) {GNamePart = "ho";}
+else if (nameRNG == 70) {GNamePart = "jo";}
+else if (nameRNG == 71) {GNamePart = "ko";}
+else if (nameRNG == 72) {GNamePart = "lo";}
+else if (nameRNG == 73) {GNamePart = "mo";}
+else if (nameRNG == 74) {GNamePart = "no";}
+else if (nameRNG == 75) {GNamePart = "po";}
+else if (nameRNG == 76) {GNamePart = "qo";}
+else if (nameRNG == 77) {GNamePart = "ro";}
+else if (nameRNG == 78) {GNamePart = "so";}
+else if (nameRNG == 79) {GNamePart = "to";}
+else if (nameRNG == 80) {GNamePart = "vo";}
+else if (nameRNG == 81) {GNamePart = "wo";}
+else if (nameRNG == 82) {GNamePart = "xo";}
+else if (nameRNG == 83) {GNamePart = "yo";}
+else if (nameRNG == 84) {GNamePart = "zo";}
+else if (nameRNG == 85) {GNamePart = "bu";}
+else if (nameRNG == 86) {GNamePart = "cu";}
+else if (nameRNG == 87) {GNamePart = "du";}
+else if (nameRNG == 88) {GNamePart = "fu";}
+else if (nameRNG == 89) {GNamePart = "gu";}
+else if (nameRNG == 90) {GNamePart = "hu";}
+else if (nameRNG == 91) {GNamePart = "ju";}
+else if (nameRNG == 92) {GNamePart = "ku";}
+else if (nameRNG == 93) {GNamePart = "lu";}
+else if (nameRNG == 94) {GNamePart = "mu";}
+else if (nameRNG == 95) {GNamePart = "nu";}
+else if (nameRNG == 96) {GNamePart = "pu";}
+else if (nameRNG == 97) {GNamePart = "qu";}
+else if (nameRNG == 98) {GNamePart = "ru";}
+else if (nameRNG == 99) {GNamePart = "su";}
+else if (nameRNG == 100) {GNamePart = "tu";}
+else if (nameRNG == 101) {GNamePart = "vu";}
+else if (nameRNG == 102) {GNamePart = "wu";}
+else if (nameRNG == 103) {GNamePart = "xu";}
+else if (nameRNG == 104) {GNamePart = "yu";}
+else if (nameRNG == 105) {GNamePart = "zu";}
+else if (nameRNG == 106) {GNamePart = "by";}
+else if (nameRNG == 107) {GNamePart = "cy";}
+else if (nameRNG == 108) {GNamePart = "dy";}
+else if (nameRNG == 109) {GNamePart = "fy";}
+else if (nameRNG == 110) {GNamePart = "gy";}
+else if (nameRNG == 111) {GNamePart = "hy";}
+else if (nameRNG == 112) {GNamePart = "jy";}
+else if (nameRNG == 113) {GNamePart = "ky";}
+else if (nameRNG == 114) {GNamePart = "ly";}
+else if (nameRNG == 115) {GNamePart = "my";}
+else if (nameRNG == 116) {GNamePart = "ny";}
+else if (nameRNG == 117) {GNamePart = "py";}
+else if (nameRNG == 118) {GNamePart = "qy";}
+else if (nameRNG == 119) {GNamePart = "ry";}
+else if (nameRNG == 120) {GNamePart = "sy";}
+else if (nameRNG == 121) {GNamePart = "ty";}
+else if (nameRNG == 122) {GNamePart = "vy";}
+else if (nameRNG == 123) {GNamePart = "wy";}
+else if (nameRNG == 124) {GNamePart = "xy";}
+else if (nameRNG == 125) {GNamePart = "zy";}
+else if (nameRNG == 126) {GNamePart = "aa";}
+else if (nameRNG == 127) {GNamePart = "ab";}
+else if (nameRNG == 128) {GNamePart = "ac";}
+else if (nameRNG == 129) {GNamePart = "ad";}
+else if (nameRNG == 130) {GNamePart = "ae";}
+else if (nameRNG == 131) {GNamePart = "af";}
+else if (nameRNG == 132) {GNamePart = "ag";}
+else if (nameRNG == 133) {GNamePart = "ah";}
+else if (nameRNG == 134) {GNamePart = "ai";}
+else if (nameRNG == 135) {GNamePart = "aj";}
+else if (nameRNG == 136) {GNamePart = "ak";}
+else if (nameRNG == 137) {GNamePart = "al";}
+else if (nameRNG == 138) {GNamePart = "am";}
+else if (nameRNG == 139) {GNamePart = "an";}
+else if (nameRNG == 140) {GNamePart = "ao";}
+else if (nameRNG == 141) {GNamePart = "ap";}
+else if (nameRNG == 142) {GNamePart = "aq";}
+else if (nameRNG == 143) {GNamePart = "ar";}
+else if (nameRNG == 144) {GNamePart = "as";}
+else if (nameRNG == 145) {GNamePart = "at";}
+else if (nameRNG == 146) {GNamePart = "au";}
+else if (nameRNG == 147) {GNamePart = "av";}
+else if (nameRNG == 148) {GNamePart = "aw";}
+else if (nameRNG == 149) {GNamePart = "ax";}
+else if (nameRNG == 150) {GNamePart = "ay";}
+else if (nameRNG == 151) {GNamePart = "az";}
+else if (nameRNG == 152) {GNamePart = "ea";}
+else if (nameRNG == 153) {GNamePart = "eb";}
+else if (nameRNG == 154) {GNamePart = "ec";}
+else if (nameRNG == 155) {GNamePart = "ed";}
+else if (nameRNG == 156) {GNamePart = "ee";}
+else if (nameRNG == 157) {GNamePart = "ef";}
+else if (nameRNG == 158) {GNamePart = "eg";}
+else if (nameRNG == 159) {GNamePart = "eh";}
+else if (nameRNG == 160) {GNamePart = "ei";}
+else if (nameRNG == 161) {GNamePart = "ej";}
+else if (nameRNG == 162) {GNamePart = "ek";}
+else if (nameRNG == 163) {GNamePart = "el";}
+else if (nameRNG == 164) {GNamePart = "em";}
+else if (nameRNG == 165) {GNamePart = "en";}
+else if (nameRNG == 166) {GNamePart = "eo";}
+else if (nameRNG == 167) {GNamePart = "ep";}
+else if (nameRNG == 168) {GNamePart = "eq";}
+else if (nameRNG == 169) {GNamePart = "er";}
+else if (nameRNG == 170) {GNamePart = "es";}
+else if (nameRNG == 171) {GNamePart = "et";}
+else if (nameRNG == 172) {GNamePart = "eu";}
+else if (nameRNG == 173) {GNamePart = "ev";}
+else if (nameRNG == 174) {GNamePart = "ew";}
+else if (nameRNG == 175) {GNamePart = "ex";}
+else if (nameRNG == 176) {GNamePart = "ey";}
+else if (nameRNG == 177) {GNamePart = "ez";}
+else if (nameRNG == 178) {GNamePart = "ia";}
+else if (nameRNG == 179) {GNamePart = "ib";}
+else if (nameRNG == 180) {GNamePart = "ic";}
+else if (nameRNG == 181) {GNamePart = "id";}
+else if (nameRNG == 182) {GNamePart = "ie";}
+else if (nameRNG == 183) {GNamePart = "if";}
+else if (nameRNG == 184) {GNamePart = "ig";}
+else if (nameRNG == 185) {GNamePart = "ih";}
+else if (nameRNG == 186) {GNamePart = "ij";}
+else if (nameRNG == 187) {GNamePart = "ik";}
+else if (nameRNG == 188) {GNamePart = "il";}
+else if (nameRNG == 189) {GNamePart = "im";}
+else if (nameRNG == 190) {GNamePart = "in";}
+else if (nameRNG == 191) {GNamePart = "io";}
+else if (nameRNG == 192) {GNamePart = "ip";}
+else if (nameRNG == 193) {GNamePart = "iq";}
+else if (nameRNG == 194) {GNamePart = "ir";}
+else if (nameRNG == 195) {GNamePart = "is";}
+else if (nameRNG == 196) {GNamePart = "it";}
+else if (nameRNG == 197) {GNamePart = "iu";}
+else if (nameRNG == 198) {GNamePart = "iv";}
+else if (nameRNG == 199) {GNamePart = "iw";}
+else if (nameRNG == 200) {GNamePart = "ix";}
+else if (nameRNG == 201) {GNamePart = "iy";}
+else if (nameRNG == 202) {GNamePart = "iz";}
+else if (nameRNG == 203) {GNamePart = "oa";}
+else if (nameRNG == 204) {GNamePart = "ob";}
+else if (nameRNG == 205) {GNamePart = "oc";}
+else if (nameRNG == 206) {GNamePart = "od";}
+else if (nameRNG == 207) {GNamePart = "oe";}
+else if (nameRNG == 208) {GNamePart = "of";}
+else if (nameRNG == 209) {GNamePart = "og";}
+else if (nameRNG == 210) {GNamePart = "oh";}
+else if (nameRNG == 211) {GNamePart = "oi";}
+else if (nameRNG == 212) {GNamePart = "oj";}
+else if (nameRNG == 213) {GNamePart = "ok";}
+else if (nameRNG == 214) {GNamePart = "ol";}
+else if (nameRNG == 215) {GNamePart = "om";}
+else if (nameRNG == 216) {GNamePart = "on";}
+else if (nameRNG == 217) {GNamePart = "oo";}
+else if (nameRNG == 218) {GNamePart = "op";}
+else if (nameRNG == 219) {GNamePart = "oq";}
+else if (nameRNG == 220) {GNamePart = "or";}
+else if (nameRNG == 221) {GNamePart = "os";}
+else if (nameRNG == 222) {GNamePart = "ot";}
+else if (nameRNG == 223) {GNamePart = "ou";}
+else if (nameRNG == 224) {GNamePart = "ov";}
+else if (nameRNG == 225) {GNamePart = "ow";}
+else if (nameRNG == 226) {GNamePart = "ox";}
+else if (nameRNG == 227) {GNamePart = "oy";}
+else if (nameRNG == 228) {GNamePart = "oz";}
+else if (nameRNG == 229) {GNamePart = "ua";}
+else if (nameRNG == 230) {GNamePart = "ub";}
+else if (nameRNG == 231) {GNamePart = "uc";}
+else if (nameRNG == 232) {GNamePart = "ud";}
+else if (nameRNG == 233) {GNamePart = "ue";}
+else if (nameRNG == 234) {GNamePart = "uf";}
+else if (nameRNG == 235) {GNamePart = "ug";}
+else if (nameRNG == 236) {GNamePart = "uh";}
+else if (nameRNG == 237) {GNamePart = "ui";}
+else if (nameRNG == 238) {GNamePart = "uj";}
+else if (nameRNG == 239) {GNamePart = "uk";}
+else if (nameRNG == 240) {GNamePart = "ul";}
+else if (nameRNG == 241) {GNamePart = "um";}
+else if (nameRNG == 242) {GNamePart = "un";}
+else if (nameRNG == 243) {GNamePart = "uo";}
+else if (nameRNG == 244) {GNamePart = "up";}
+else if (nameRNG == 245) {GNamePart = "uq";}
+else if (nameRNG == 246) {GNamePart = "ur";}
+else if (nameRNG == 247) {GNamePart = "us";}
+else if (nameRNG == 248) {GNamePart = "ut";}
+else if (nameRNG == 249) {GNamePart = "uu";}
+else if (nameRNG == 250) {GNamePart = "uv";}
+else if (nameRNG == 251) {GNamePart = "uw";}
+else if (nameRNG == 252) {GNamePart = "ux";}
+else if (nameRNG == 253) {GNamePart = "uy";}
+else if (nameRNG == 254) {GNamePart = "uz";}
+else if (nameRNG == 255) {GNamePart = "ya";}
+else if (nameRNG == 256) {GNamePart = "yb";}
+else if (nameRNG == 257) {GNamePart = "yc";}
+else if (nameRNG == 258) {GNamePart = "yd";}
+else if (nameRNG == 259) {GNamePart = "ye";}
+else if (nameRNG == 260) {GNamePart = "yg";}
+else if (nameRNG == 261) {GNamePart = "yi";}
+else if (nameRNG == 262) {GNamePart = "yj";}
+else if (nameRNG == 263) {GNamePart = "yk";}
+else if (nameRNG == 264) {GNamePart = "yl";}
+else if (nameRNG == 265) {GNamePart = "ym";}
+else if (nameRNG == 266) {GNamePart = "yn";}
+else if (nameRNG == 267) {GNamePart = "yo";}
+else if (nameRNG == 268) {GNamePart = "yp";}
+else if (nameRNG == 269) {GNamePart = "yr";}
+else if (nameRNG == 270) {GNamePart = "ys";}
+else if (nameRNG == 271) {GNamePart = "yt";}
+else if (nameRNG == 272) {GNamePart = "yu";}
+else if (nameRNG == 273) {GNamePart = "yv";}
+else if (nameRNG == 274) {GNamePart = "yx";}
+else if (nameRNG == 275) {GNamePart = "yz";}
+	}
+	
+}
+
 // BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
 // BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
 // BIG BOY RANDOM ENEMY GENERATOR!!!!!!!!
@@ -5202,7 +6219,7 @@ STR: ${GStr} (${GStrMod}) &nbsp; DEX: ${GDex} (${GDexMod}) &nbsp; CON: ${GCon} (
 
 function EnemyHomebrew() {
 	document.getElementById("homebrewBox").innerHTML = "{{monster,frame,wide\n## Name: ??\n";
-	document.getElementById("homebrewBox").innerHTML += `*${GSize}, ${GCreature}*\n___\n**Armor Class** :: ${GAC}\n**Hit Points** :: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\n**Speed** :: ${GSpeedTotal}\n___
+	document.getElementById("homebrewBox").innerHTML += `*${GSize}, ${GCreature}*\n___\n**Armor Class** :: ${GAC}\n**Hit Points** :: ${GHPTotal} (${GHitDiceQty}d${GHitDiceSize} + ${GHP})\nSpeed :: ${GSpeedTotal}\n___
 |STR|DEX|CON|INT|WIS|CHA|\n|:-:|:-:|:-:|:-:|:-:|:-:|\n|${GStr} (${GStrMod})|${GDex} (${GDexMod})|${GCon} (${GConMod})|${GInt} (${GIntMod})|${GWis} (${GWisMod})|${GCha} (${GChaMod})|\n___
 **Proficiency Bonus** :: +${GPB}\n`;
 	if (GSaveTotal == "") {} else {document.getElementById("homebrewBox").innerHTML += `**Saving Throws** :: ${GSaveTotal}\n`}
@@ -6859,7 +7876,7 @@ function gemBag() {
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
 			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
-			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
 	}
 }
 
@@ -6940,7 +7957,7 @@ function gemBagSmall() {
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
 			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
-			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
 	}
 }
 
@@ -7021,8 +8038,50 @@ function gemBagLarge() {
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == false) {
 			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds`}
 		else if (bagTier == 5 && document.getElementById("eberCheck").checked == true) {
-			document.getElementById("itemBox").innerHTML = `${gemAmethyst} Amethysts\n${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
+			document.getElementById("itemBox").innerHTML = `${gemSapphire} Sapphires\n${gemRuby} Rubies\n${gemEmerald} Emeralds\n${gemDiamond} Diamonds\n${gemEberron} Eberron Gems\n${gemKhyber} Khyber Gems\n${gemSiberys} Siberys Gems`}
 	}
+}
+
+function NameBtn() {
+	GSyllMin = Number(document.getElementById("syllMin").value);
+	GSyllMax = Number(document.getElementById("syllMax").value);
+	nameCount = Number(document.getElementById("nameQty").value);
+	let PartX = ``;
+	if (document.getElementById("nameType").value == "nameJapan") {
+		while (nameCount > 0) {
+			GSyll = Math.floor(Math.random() * (GSyllMax + 1 - GSyllMin) + GSyllMin);
+			let SyllX = GSyll;
+			NameGenJapan(); GNamePart = GNamePart[0].toUpperCase() + GNamePart.slice(1); PartX += GNamePart; SyllX -= 1;
+			while (SyllX > 1) {NameGenJapan(); PartX += GNamePart; SyllX -= 1;}
+			while (SyllX == 1) {jpnRNG = Math.floor(Math.random() * 6) + 1;
+				if (jpnRNG == 6) {NameEndJapan(); PartX += `${GNamePart}\n`; SyllX -= 1;}
+				else if (jpnRNG < 6) {NameGenJapan(); PartX += `${GNamePart}\n`; SyllX -= 1;}
+				}
+			nameCount -= 1;
+		}
+		GNameResult += PartX;
+	}
+	else if (document.getElementById("nameType").value == "nameFantasy") {
+		while (nameCount > 0) {
+			GSyll = Math.floor(Math.random() * (GSyllMax + 1 - GSyllMin) + GSyllMin);
+			let SyllX = GSyll;
+			let preRNG = Math.floor(Math.random() * 4) + 1;
+			let postRNG = Math.floor(Math.random() * 10) + 1;
+			NameGen(); GNamePart = GNamePart[0].toUpperCase() + GNamePart.slice(1); PartX += GNamePart; SyllX -= 1;
+			if (preRNG == 4) {PartX += "'";} else {}
+			while (SyllX > 1) {NameGen(); PartX += GNamePart; SyllX -= 1;}
+			while (SyllX == 1) {if (postRNG == 10) {PartX += "'";} else {};	NameGen(); PartX += `${GNamePart}\n`; SyllX -= 1;}
+			nameCount -= 1;
+		}
+		GNameResult += PartX;
+	}
+	document.getElementById("itemBox").innerHTML = `---Random Names--- \n${PartX}`;
+	GSyllMin = ``
+	GSyllMax = ``
+	GSyll = ``
+	GNamePart = ``
+	GNameResult = ``
+	nameCount = ``
 }
 
 // INFO BUTTONS //

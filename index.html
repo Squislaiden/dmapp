@@ -23,7 +23,7 @@ p {font-size: 14px;}
 }
 
 input[type='number']{
-    width: 48px;
+    width: 30px;
 }
 
 /* Tooltip container */
@@ -73,10 +73,10 @@ input[type='number']{
 <div id="standardtab" class="tabcontent">
   	<div class="grid">
 		<div class="grid-item grid-item-double">
-			<label for="randomNum" style="font-size: 18px">Random Number: </label><button class="button-71" onclick="RandomNum();">Generate</button>
+			<label for="randomNum" style="font-size: 18px">Random Number: </label><button class="button-71" onclick="RandomNum();">Generate</button> <br>
 			<div style="float: right"><label for="distanceCalc" style="font-size: 18px; margin-left: 3.5em">Find Distance: </label><button class="button-71" onclick="DistanceCalc();">Calculate</button></div>
 			<br>
-			<label style="font-size: 14px">Min:</label><input type="number" id="rngMin" name="rngMin" min="1" value="1"><label style="font-size: 14px"> Max:</label><input type="number" id="rngMax" name="rngMax" min="1" value="100">
+			<label style="font-size: 14px">Min:</label><input type="number" id="rngMin" name="rngMin" min="1" value="1"><label style="font-size: 14px"> Max:</label><input type="number" style="width:48px" id="rngMax" name="rngMax" min="1" value="100">
 			<label style="font-size: 14px"> = </label><output id="rngResult" style="font-size: 16px">0</output>
 			<div style="float: right">
 			<div class="tooltip"><font color=green>ⓘ</font><span class="tooltiptext">Use this to find the distance between two creatures that are: at different heights or at a diagonal to each other.</span></div>
@@ -167,8 +167,65 @@ input[type='number']{
 			&nbsp;<button class="button-71" onclick="WeaponSimpleBtn();">Simple Weapon</button><br>
 			&nbsp;<button class="button-71" onclick="WeaponMartialBtn();">Martial Weapon</button><br>
 			&nbsp;<button class="button-71" onclick="WeaponRangedBtn();">Ranged Weapon</button><br>
-			
 			</div>
+			
+			<div style="float: right; text-align: center">
+			<font size=3><u>Draw a Random Card: (NYI)</u></font><br>
+			<select name="deckList" id="deckList">
+			<option value="deckStandard">Standard Deck</option>
+			<option value="deckJoker">Standard Deck with Jokers</option>
+			<option value="deckMajorArcana">Tarot: Major Arcana</option>
+			<option value="deckMinorArcana">Tarot: Minor Arcana</option>
+			<option value="deckFullArcana">Tarot: Major & Minor Arcana</option>
+			<option value="deckThings">Deck of Many Things (All Cards)</option>
+			<option value="deckThingsLess">Deck of Many Things (13 Cards)</option>
+			<option value="deckManyVaraint">Deck of Many Things: Variant</option>
+			<option value="deckManyBalanced">Deck of Many Things: Rebalanced</option>
+			<option value="deckNista">Deck of Many Things: Nista Variant</option>
+			<option value="deckFates">Deck of Many Fates</option>
+			<option value="deckFamiliar">Deck of Familiar Things</option>
+			<option value="deckMundane">Deck of Mundane Things</option>
+			<option value="deckFatesAlt">Deck of Many Fates (Alternate)</option>
+			<option value="deckMysterious">Deck of Mysterious Things</option>
+			<option value="deckNourish">Deck of Nourishment</option>
+			<option value="deckMorbid">Deck of Morbid Things</option>
+			<option value="deckBeasts">Deck of Beasts</option>
+			<option value="deckBeastsEx">Deck of Beasts: Expanded</option>
+			<option value="deckNothing">Deck of Nothing</option>
+			<option value="deckInverted">Deck of Inverted Things</option>
+			<option value="deckMinor">Deck of Minor Things</option>
+			<option value="deckFewer">Deck of Slightly Fewer Things</option>
+			<option value="deckIndeterminedFate">Deck of Indeterminable Fate</option>
+			<option value="deckThingsMinorArcana">Deck of Minor Things</option>
+			<option value="deckSardonTarot">Sardon's Tarot Cards</option>
+			<option value="deckBalance">Deck of Balance </option>
+			<option value="deckBalance">Deck of Balance (1 card draw)</option>
+			<option value="deckReasonable">Deck of Reasonable Number of Things</option>
+			<option value="deckTarotFates">Tarot of Fates</option>
+			<option value="deckHomebrew">Deck of Some Homebrew Things</option>
+			</select><br>
+				<button class="button-71" onclick="DeckBtn();">Draw from Deck</button><br>
+				<p style="color: white; font-size:10px">Card image created by: <a href="https://www.furaffinity.net/user/cometthemicroraptor/" target="_blank" rel="nofollow">Comet the Microraptor</a>.</p>
+				<p style="color: white; font-size:10px">The Homebrew Decks: <a href="https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/" target="_blank" rel="nofollow">Reddit Page</a>.</p>
+				<p style="color: white; font-size:10px">Expanded Deck of Beasts: <a href="https://docs.google.com/document/d/1rJFrWceCO6FJPaUScgR1DyyKC7M0omn2rHf6yB5TErs/edit?usp=sharing" target="_blank" rel="nofollow">by Squislaiden</a>.</p>
+			
+			<br>
+			<font size=3><u>Generate Random Names</u></font><br>
+			<div style="text-align: right">
+			<p style="font-size: 12px">Minimum Syllables:</label><input type="number" id="syllMin" name="syllMin" min="1" max="12" value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			<p style="font-size: 12px">Maximum Syllables:</label><input type="number" id="syllMax" name="syllMax" min="1" max="12" value="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			</div>
+			<label style="font-size: 12px">Names: </label>
+			<select name="nameType" id="nameType">
+			<option value="nameFantasy">Fantasy</option>
+			<option value="nameJapan">Japanese-Inspired</option>
+			</select>
+			<input type="number" id="nameQty" name="nameQty" min="1" max="20" value="1"><br>
+			<button class="button-71" onclick="NameBtn();">Generate Names</button>
+				
+				
+			</div>
+			
 			<br><br><br><br><br>
 			&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GearList();">Gear List</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-70" onclick="GemBagInfo();">Gem List</button><br>
 			<div style="float: left; text-align: center">
@@ -189,7 +246,7 @@ input[type='number']{
 			</select>
 			</div>
 			<div style="float: left; text-align: center">&nbsp;
-			<font size=2><u>Gem Bag - Tier:</u> <select name="gemBagTier" id="gemBagTier"></font><u/><br>
+			<font size=2><u>Gem Bag - Tier:</u> <select name="gemBagTier" id="gemBagTier"></font>
 			<option value="tier1">1</option>
 			<option value="tier2">2</option>
 			<option value="tier3">3</option>
@@ -201,9 +258,10 @@ input[type='number']{
 			<button class="button-71" onclick="gemBag();"> Gem Bag</button><br>
 			<button class="button-71" onclick="gemBagLarge();">Large Gem Bag</button><br>
 			</div>
-			<br><br><br><br>
+			<br><br><br><br><br>
 			<label style="font-size: 11px">Include Eberron Gems in Tier 5 Bags? </label><input type="checkbox" id="eberCheck" name="eberCheck">
 		</div>
+
 		<div class="grid-item grid-item-double">
 			<center><form>
 			<font size=4>Results:</font>
@@ -221,7 +279,7 @@ input[type='number']{
 			<div style="float: left">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-x" onclick="FullEnemyBtn();">Generate a<br>Completely<br>Random Enemy!</button><br>			
 			<center><label style="font-size: 16px; text-align: center; color: darkred"><u>Generic Options</u></label></center>
-			<label style="font-size: 14px">CR (max 50):</label><input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
+			&nbsp;&nbsp;&nbsp;<label style="font-size: 14px">CR (max 50):</label><input type="number" id="numCR" name="numCR" min="1" max="50" value="1">
 			<label style="font-size: 12px">&nbsp;&nbsp;x2 HP</label><input type="checkbox" id="hpCheck" name="hpCheck">
 			</select><br>
 			<label style="font-size: 14px">Creature Type:</label>
@@ -409,19 +467,19 @@ The script will generate HP, AC, Type, Skills, Saves, Attributes, Speeds, Resist
 <div id="glyphtab" class="tabcontent">
   	<div class="grid">
 	<div class="grid-item grid-item-double">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="button-glyph" style="height: 50px; width: 75px" onclick="WeaponAffixBtn();">Weapon</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-glyph" style="height: 50px; width: 75px" onclick="WeaponAffixBtn();">Weapon</button>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button class="button-70" style="font-size: 12px; height: 35px; padding: 4px" onclick="GenGlyphsBtn();">Generate<br>Glyphs</button>
 		<div style="float: right"><button class="button-taint" style="height: 50px; width: 75px;" onclick="TaintedWeaponAffixBtn();">Tainted<br>Weapon</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br> 
 		
-		<button class="button-glyph" style="height: 50px; width: 75px" onclick="ArmorAffixBtn();">Armor</button>&nbsp;<input type="number" id="affixNum" name="affixNum" min="1" max="3" value="1">
-		<button class="button-glyph" style="height: 50px; width: 75px" onclick="AccessoryAffixBtn();">Accessory</button>&nbsp;&nbsp;&nbsp; <input type="number" id="glyphNum" name="glyphNum" min="1" max="100" value="1">
+		<button class="button-glyph" style="height: 50px; width: 75px" onclick="ArmorAffixBtn();">Armor</button>&nbsp;&nbsp;<input type="number" id="affixNum" name="affixNum" min="1" max="3" value="1">&nbsp;
+		<button class="button-glyph" style="height: 50px; width: 75px" onclick="AccessoryAffixBtn();">Accessory</button>&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" id="glyphNum" name="glyphNum" min="1" max="100" value="1">
 		
 		<div style="float: right">
 		<button class="button-taint" style="height: 50px; width: 75px" onclick="TaintedArmorAffixBtn();">Tainted<br>Armor</button>&nbsp;&nbsp;&nbsp;
 		<button class="button-taint" style="height: 50px; width: 75px" onclick="TaintedAccessoryAffixBtn();">Tainted<br>Accessory</button>
 		</div><br>
 		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="tooltip"><font color=green size="4">ⓘ</font><span class="tooltiptext">Before generating a Class Affix via Expertise Glyph, make sure you select which classes the character is classed into.</span></div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="tooltip"><font color=green size="4">ⓘ</font><span class="tooltiptext">Before generating a Class Affix via Expertise Glyph, make sure you select which classes the character is classed into.</span></div>
 		<button class="button-purp" style="height: 50px;" onclick="ClassAffixBtn();">Exertise Glyph<br>(Class Affix)</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<button class="button-70" style="font-size: 14px; height: 56px; padding: 4px" onclick="GenAffixItem();">Generate<br>Random<br>Item</button>
 

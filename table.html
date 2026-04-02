@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spell Grid</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0f14;
+      --surface: #13161e;
+      --surface2: #1c2030;
+      --border: #252a3a;
+      --accent: #4f7cff;
+      --accent2: #ff6b6b;
+      --accent3: #36d9a0;
+      --gold: #c9a84c;
+      --text: #e8eaf0;
+      --text-muted: #606880;
+      --text-dim: #9aa0b8;
+      --header-bg: #181c28;
+      --row-hover: #1a1f2e;
+      --tag-bg: #1f2538;
+      /* Card exact size: 300×500px */
+      --card-w: 300px;
+      --card-h: 500px;
+    }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 32px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.35; pointer-events: none; z-index: 0;
+    }
+
+    .container { max-width: 1500px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── Header ── */
+    .page-header { margin-bottom: 36px; }
+    .page-header h1 { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: 6px; }
+    .page-header h1 span { color: var(--accent); }
+    .page-header p { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 11px 18px; border-radius: 8px; font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); transition: all 0.18s; white-space: nowrap; letter-spacing: 0.02em; }
+    .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.06); }
+    .btn.active { background: rgba(79,124,255,0.12); border-color: var(--accent); color: var(--accent); }
+    .btn-sm { padding: 6px 12px; font-size: 0.73rem; }
+    .btn-accent { background: var(--accent); color: #fff !important; border-color: var(--accent); }
+    .btn-accent:hover { background: #3a68e8; border-color: #3a68e8; }
+    .btn-danger { background: rgba(255,107,107,0.1); color: var(--accent2) !important; border-color: rgba(255,107,107,0.25); }
+    .btn-danger:hover { background: rgba(255,107,107,0.2); border-color: var(--accent2); }
+
+    /* ── Toolbar ── */
+    .toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; }
+    .search-wrap { position: relative; flex: 1; }
+    .search-wrap svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+    #searchInput { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.82rem; padding: 11px 14px 11px 40px; border-radius: 8px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    #searchInput::placeholder { color: var(--text-muted); }
+    #searchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,124,255,0.12); }
+
+    /* ── Filter Panel ── */
+    .filter-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; display: none; animation: slideDown 0.2s ease; }
+    .filter-panel.open { display: block; }
+    @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+    .filter-panel h3 { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .filter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 20px; }
+    .filter-group-label { display: block; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .checkbox-list { display: flex; flex-direction: column; gap: 6px; }
+    .checkbox-item { display: flex; align-items: center; gap: 9px; cursor: pointer; padding: 5px 8px; border-radius: 6px; border: 1px solid transparent; transition: background 0.15s, border-color 0.15s; }
+    .checkbox-item:hover { background: var(--surface2); border-color: var(--border); }
+    .checkbox-item input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 15px; height: 15px; min-width: 15px; border: 1.5px solid var(--border); border-radius: 4px; background: var(--surface2); cursor: pointer; position: relative; transition: background 0.15s, border-color 0.15s; }
+    .checkbox-item input[type="checkbox"]:checked { background: var(--accent); border-color: var(--accent); }
+    .checkbox-item input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: 1px; width: 5px; height: 8px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+    .checkbox-item span { font-size: 0.79rem; color: var(--text-dim); }
+    .checkbox-item:has(input:checked) span { color: var(--text); }
+    .checkbox-item:has(input:checked) { background: rgba(79,124,255,0.07); border-color: rgba(79,124,255,0.2); }
+    .filter-group input[type="number"] { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.8rem; padding: 8px 10px; border-radius: 6px; outline: none; transition: border-color 0.18s; }
+    .filter-group input[type="number"]:focus { border-color: var(--accent); }
+    .filter-range { display: flex; gap: 8px; align-items: center; }
+    .filter-range span { color: var(--text-muted); font-size: 0.75rem; }
+    .filter-actions { margin-top: 16px; display: flex; gap: 10px; }
+
+    /* ── Stats bar ── */
+    .stats-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 6px; }
+    .stats-bar strong { color: var(--text-dim); }
+    .active-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .filter-tag { background: var(--tag-bg); border: 1px solid var(--border); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px; }
+    .filter-tag button { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.8rem; padding: 0; line-height: 1; }
+    .filter-tag button:hover { color: var(--accent2); }
+
+    /* ── Main layout ── */
+    .main-layout { display: flex; gap: 24px; align-items: flex-start; }
+    .table-side { flex: 1; min-width: 0; overflow-x: auto; }
+
+    /* ── Table ── */
+    .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); min-width: 700px; }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: var(--header-bg); }
+    th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; user-select: none; cursor: pointer; transition: color 0.18s, background 0.18s; }
+    th:hover { color: var(--accent); background: rgba(79,124,255,0.04); }
+    th.sorted-asc, th.sorted-desc { color: var(--accent); }
+    .th-inner { display: flex; align-items: center; gap: 6px; }
+    .sort-icon { display: flex; flex-direction: column; gap: 2px; }
+    .sort-icon span { display: block; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; opacity: 0.25; transition: opacity 0.18s; }
+    .sort-icon .arrow-up { border-bottom: 4px solid currentColor; }
+    .sort-icon .arrow-down { border-top: 4px solid currentColor; }
+    th.sorted-asc .arrow-up { opacity: 1; }
+    th.sorted-desc .arrow-down { opacity: 1; }
+    th.sorted-asc .arrow-down { opacity: 0.15; }
+    th.sorted-desc .arrow-up { opacity: 0.15; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.14s; cursor: pointer; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--row-hover); }
+    tbody tr.selected { background: #161c2e; box-shadow: inset 3px 0 0 var(--accent); }
+    td { padding: 10px 14px; font-size: 0.78rem; color: var(--text-dim); vertical-align: middle; white-space: nowrap; }
+    td.name-cell { font-weight: 600; color: var(--text); font-size: 0.82rem; white-space: normal; }
+    .school-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; font-family: 'Syne', sans-serif; border: 1px solid; }
+    .school-Evocation    { background: rgba(255,107,107,0.1);  color: #ff8c8c; border-color: rgba(255,107,107,0.25); }
+    .school-Conjuration  { background: rgba(79,124,255,0.1);   color: #7ca0ff; border-color: rgba(79,124,255,0.25); }
+    .school-Illusion     { background: rgba(180,100,255,0.1);  color: #cc88ff; border-color: rgba(180,100,255,0.25); }
+    .school-Necromancy   { background: rgba(54,217,160,0.1);   color: #55d9a4; border-color: rgba(54,217,160,0.25); }
+    .school-Transmutation{ background: rgba(255,193,69,0.1);   color: #ffc145; border-color: rgba(255,193,69,0.25); }
+    .school-Divination   { background: rgba(100,200,255,0.1);  color: #80d8ff; border-color: rgba(100,200,255,0.25); }
+    .school-Enchantment  { background: rgba(255,150,180,0.1);  color: #ff99bb; border-color: rgba(255,150,180,0.25); }
+    .school-Abjuration   { background: rgba(140,200,80,0.1);   color: #a8d870; border-color: rgba(140,200,80,0.25); }
+    mark { background: rgba(79,124,255,0.25); color: #fff; border-radius: 2px; padding: 0 1px; }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+    .empty-state p { font-size: 0.85rem; margin-top: 12px; }
+
+    /* ════════════════════════════════════
+       SPELL CARD — exactly 300×500px
+    ════════════════════════════════════ */
+    .spell-card {
+      width: var(--card-w);
+      height: var(--card-h);
+      min-width: var(--card-w);
+      min-height: var(--card-h);
+      max-width: var(--card-w);
+      max-height: var(--card-h);
+      background: #0f1119;
+      border: 2px solid #2e3550;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Top stripe */
+    .card-stripe {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      flex-shrink: 0;
+    }
+
+    /* Card header band */
+    .card-header-band {
+      background: linear-gradient(180deg, #1a1f30 0%, #13161e 100%);
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid #252a3a;
+      flex-shrink: 0;
+    }
+
+    /* Card action buttons row */
+    .card-actions {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .card-actions::-webkit-scrollbar { display: none; }
+
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 9px; border-radius: 5px;
+      font-family: 'Syne', sans-serif; font-size: 0.63rem; font-weight: 700;
+      cursor: pointer; border: 1px solid var(--border); background: #1c2030;
+      color: var(--text-dim); transition: all 0.15s; white-space: nowrap; letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .card-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.08); }
+    .card-btn svg { flex-shrink: 0; }
+
+    .card-name-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    .card-spell-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      flex: 1;
+    }
+    .card-level-badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      background: #252a3a;
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-type-line {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    /* Card body */
+    .card-body {
+      flex: 1;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    /* Markdown description */
+    .card-desc {
+      font-size: 0.7rem;
+      color: #b0b8cc;
+      line-height: 1.55;
+      border: 1px solid #252a3a;
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #0d0f18;
+      flex: 1;
+      overflow: hidden;
+    }
+    .card-desc p { margin-bottom: 5px; }
+    .card-desc p:last-child { margin-bottom: 0; }
+    .card-desc strong { color: var(--text); }
+    .card-desc em { color: #a8b8d8; font-style: italic; }
+    .card-desc code { background: #1c2030; color: var(--accent3); padding: 1px 4px; border-radius: 3px; font-size: 0.65rem; }
+    .card-desc ul { padding-left: 14px; margin: 4px 0; }
+    .card-desc li { margin-bottom: 2px; }
+    .card-desc hr { border: none; border-top: 1px solid #252a3a; margin: 6px 0; }
+    .card-desc h3 { font-family: 'Cinzel', serif; font-size: 0.68rem; color: var(--gold); margin-bottom: 4px; font-weight: 600; }
+
+    /* Stat grid at bottom */
+    .card-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .card-stat {
+      background: #1a1f2e;
+      border: 1px solid #252a3a;
+      border-radius: 5px;
+      padding: 5px 4px;
+      text-align: center;
+    }
+    .card-stat-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.52rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+    .card-stat-value {
+      font-size: 0.68rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* School footer bar */
+    .card-footer {
+      background: linear-gradient(180deg, #13161e 0%, #1a1f2e 100%);
+      border-top: 1px solid #252a3a;
+      padding: 6px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .card-school-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+    .card-concentration {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .con-yes { color: var(--accent2); }
+    .con-no  { color: var(--text-muted); }
+
+    /* Components & Classes rows on card */
+    .card-components, .card-classes {
+      font-size: 0.62rem; color: #8898bb; margin-top: 5px;
+      padding: 4px 8px; background: #0d0f18;
+      border: 1px solid #252a3a; border-radius: 5px;
+      line-height: 1.4; flex-shrink: 0;
+      overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    }
+    .card-components-label, .card-classes-label {
+      font-family: 'Syne', sans-serif; font-size: 0.55rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-right: 4px;
+    }
+
+    /* ── Detail Panel ── */
+    .detail-panel {
+      width: var(--card-w);
+      min-width: var(--card-w);
+      display: none;
+      flex-direction: column;
+    }
+    .detail-panel.open { display: flex; animation: fadeInRight 0.22s ease; }
+    @keyframes fadeInRight { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
+
+    /* ── Bulk Section ── */
+    .bulk-section { margin-top: 44px; }
+    .bulk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+    .bulk-header-left { display: flex; align-items: center; gap: 12px; }
+    .bulk-title { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .bulk-count { background: var(--tag-bg); border: 1px solid var(--border); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-family: 'Syne', sans-serif; font-weight: 700; }
+    .bulk-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* 3×3 grid, each cell exactly card-sized */
+    .bulk-area {
+      display: grid;
+      grid-template-columns: repeat(3, var(--card-w));
+      gap: 16px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      min-height: calc(var(--card-h) + 40px);
+    }
+
+    .bulk-empty-msg {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 0.8rem;
+      pointer-events: none; flex-direction: column; gap: 10px; text-align: center;
+      grid-column: 1 / -1;
+    }
+    .bulk-empty-msg svg { opacity: 0.2; }
+
+    /* Each slot wraps card + controls overlay */
+    .bulk-slot {
+      position: relative;
+      width: var(--card-w);
+      height: var(--card-h);
+      flex-shrink: 0;
+      animation: popIn 0.2s ease;
+    }
+    @keyframes popIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
+
+    .bulk-slot .spell-card {
+      width: 100%; height: 100%;
+    }
+    /* Hide action buttons inside bulk cards */
+    .bulk-slot .card-actions { display: none !important; }
+
+    .bulk-controls {
+      position: absolute;
+      top: 8px; right: 8px;
+      display: flex;
+      gap: 5px;
+      z-index: 10;
+    }
+    .bulk-icon-btn {
+      width: 26px; height: 26px; border-radius: 5px;
+      border: 1px solid var(--border); background: rgba(13,15,20,0.85);
+      color: var(--text-muted); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s; backdrop-filter: blur(2px);
+    }
+    .bulk-icon-btn.trash:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(255,107,107,0.15); }
+    .bulk-icon-btn.copy:hover  { border-color: var(--accent3); color: var(--accent3); background: rgba(54,217,160,0.12); }
+
+    /* ── Confirm Modal ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+    .modal-overlay.open { display: flex; animation: fadeIn 0.15s ease; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 30px 28px; max-width: 380px; width: 90%; animation: slideUp 0.2s ease; }
+    @keyframes slideUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .modal h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+    .modal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; line-height: 1.6; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; padding: 0; color: #000; }
+      body::before { display: none; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="page-header no-print">
+    <h1>Spell <span>Grid</span></h1>
+    <p>// SORTABLE · SEARCHABLE · FILTERABLE</p>
+  </div>
+
+  <div class="toolbar no-print">
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search all columns…" autocomplete="off"/>
+    </div>
+    <button class="btn" id="filterBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      Filter
+    </button>
+  </div>
+
+  <div class="filter-panel no-print" id="filterPanel">
+    <h3>Filter Options</h3>
+    <div class="filter-grid">
+      <div class="filter-group">
+        <span class="filter-group-label">School</span>
+        <div class="checkbox-list" id="filterSchool">
+          <label class="checkbox-item"><input type="checkbox" value="Evocation"/><span>Evocation</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Conjuration"/><span>Conjuration</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Illusion"/><span>Illusion</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Necromancy"/><span>Necromancy</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Transmutation"/><span>Transmutation</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Divination"/><span>Divination</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Enchantment"/><span>Enchantment</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Abjuration"/><span>Abjuration</span></label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label">Type</span>
+        <div class="checkbox-list" id="filterType">
+          <label class="checkbox-item"><input type="checkbox" value="Spell"/><span>Spell</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Cantrip"/><span>Cantrip</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="Ritual"/><span>Ritual</span></label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label">Concentration</span>
+        <div class="checkbox-list" id="filterCon">
+          <label class="checkbox-item"><input type="checkbox" value="Yes"/><span>Yes</span></label>
+          <label class="checkbox-item"><input type="checkbox" value="No"/><span>No</span></label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label">Level Range</span>
+        <div class="filter-range">
+          <input type="number" id="filterLvMin" placeholder="Min" min="0" max="9"/>
+          <span>–</span>
+          <input type="number" id="filterLvMax" placeholder="Max" min="0" max="9"/>
+        </div>
+      </div>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-accent btn-sm" id="applyFilters">Apply Filters</button>
+      <button class="btn btn-sm" id="clearFilters">Clear All</button>
+    </div>
+  </div>
+
+  <div class="stats-bar no-print">
+    <div>Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> spells</div>
+    <div class="active-filters" id="activeTags"></div>
+  </div>
+
+  <!-- Main layout: table + card panel -->
+  <div class="main-layout">
+    <div class="table-side no-print">
+      <div class="table-wrap">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th data-col="0" class="sorted-asc"><div class="th-inner">Name <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="1"><div class="th-inner">Level <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="2"><div class="th-inner">Cost <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="3"><div class="th-inner">Cast Time <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="4"><div class="th-inner">Rit. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="5"><div class="th-inner">School <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="6"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="7"><div class="th-inner">Con. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+              <th data-col="8"><div class="th-inner">Range <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <p>No spells match your search or filters.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Card Panel -->
+    <div class="detail-panel no-print" id="detailPanel">
+      <div class="spell-card" id="detailCard">
+        <div class="card-stripe"></div>
+        <div class="card-header-band">
+          <div class="card-actions" id="cardActions">
+            <button class="card-btn" id="cardPrintBtn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print
+            </button>
+            <button class="card-btn" id="cardAddBtn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
+              Add to Grid
+            </button>
+            <button class="card-btn" id="cardExportBtn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Export JPG
+            </button>
+          </div>
+          <div class="card-name-row">
+            <div class="card-spell-name" id="cardName">—</div>
+            <div class="card-level-badge" id="cardLevel">Lv —</div>
+          </div>
+          <div class="card-type-line" id="cardTypeLine">—</div>
+        </div>
+        <div class="card-body">
+          <div class="card-desc" id="cardDesc"></div>
+          <div class="card-stats">
+            <div class="card-stat"><div class="card-stat-label">Cost</div><div class="card-stat-value" id="csCost">—</div></div>
+            <div class="card-stat"><div class="card-stat-label">Cast</div><div class="card-stat-value" id="csCast">—</div></div>
+            <div class="card-stat"><div class="card-stat-label">Range</div><div class="card-stat-value" id="csRange">—</div></div>
+            <div class="card-stat"><div class="card-stat-label">Ritual</div><div class="card-stat-value" id="csRitual">—</div></div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-school-tag" id="cardSchool">—</div>
+          <div class="card-concentration" id="cardCon">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bulk Grid -->
+  <div class="bulk-section" id="bulkSection">
+    <div class="bulk-header">
+      <div class="bulk-header-left">
+        <span class="bulk-title">Bulk Grid</span>
+        <span class="bulk-count" id="bulkCount">0 cards</span>
+      </div>
+      <div class="bulk-actions no-print">
+        <button class="btn btn-sm" id="bulkPrintBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print
+        </button>
+        <button class="btn btn-sm" id="bulkExportBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Export Image
+        </button>
+        <button class="btn btn-sm btn-danger" id="bulkClearBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
+          Clear All
+        </button>
+      </div>
+    </div>
+    <div class="bulk-area" id="bulkArea">
+      <div class="bulk-empty-msg" id="bulkEmpty">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
+        <span>Click "Add to Grid" on any card to populate this area</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Confirm Modal -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <h2>Clear Bulk Grid?</h2>
+    <p>This will remove all <strong id="modalCardCount">0</strong> cards from the bulk area. This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-sm" id="modalCancel">Cancel</button>
+      <button class="btn btn-sm btn-danger" id="modalConfirm">Yes, Clear All</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   DATA — loaded from spells.json
+   Fields: name, level, cost, cast time, rit.,
+           school, type, con., range,
+           components, duration, description, classes
+══════════════════════════════════════════ */
+let RAW = [];   // filled after fetch
+
+// Sort-column mapping: col index → object key
+const COL_KEYS = ['name','level','cost','cast time','rit.','school','type','con.','range'];
+
+/* ══════════════════════════════════════════
+   STATE
+══════════════════════════════════════════ */
+let sortCol=0, sortDir='asc';
+let searchQuery='';
+let appliedFilters={};
+let currentRow=null;
+let bulkCards=[], bulkId=0;
+
+/* ══════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════ */
+const esc = s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const escRx = s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function hi(text,q){ if(!q)return esc(text); return esc(text).replace(new RegExp(`(${escRx(q)})`,'gi'),'<mark>$1</mark>'); }
+function getChecked(id){ return [...document.querySelectorAll(`#${id} input:checked`)].map(c=>c.value); }
+function uncheckAll(id){ document.querySelectorAll(`#${id} input`).forEach(c=>c.checked=false); }
+const s = r => r['name']; // identity key
+
+/* Simple Markdown → HTML (subset) */
+function md(text){
+  if(!text) return '';
+  let t = esc(text);
+  t = t.replace(/^### (.+)$/gm,'<h3>$1</h3>');
+  t = t.replace(/^## (.+)$/gm,'<h2>$1</h2>');
+  t = t.replace(/^&gt; (.+)$/gm,'<blockquote style="border-left:2px solid #4f7cff;padding-left:8px;margin:4px 0;color:#a8b8d8;font-style:italic;">$1</blockquote>');
+  t = t.replace(/^---$/gm,'<hr/>');
+  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
+  t = t.replace(/((?:^- .+\n?)+)/gm, match => {
+    const items = match.trim().split('\n').map(l=>`<li>${l.replace(/^- /,'')}</li>`).join('');
+    return `<ul>${items}</ul>`;
+  });
+  t = t.split(/\n\n+/).map(para=>{
+    if(para.match(/^<(h[1-6]|ul|blockquote|hr)/)) return para;
+    return `<p>${para.replace(/\n/g,' ')}</p>`;
+  }).join('');
+  return t;
+}
+
+function schoolColor(school){
+  const map={Evocation:'#ff8c8c',Conjuration:'#7ca0ff',Illusion:'#cc88ff',Necromancy:'#55d9a4',Transmutation:'#ffc145',Divination:'#80d8ff',Enchantment:'#ff99bb',Abjuration:'#a8d870'};
+  return map[school]||'#9aa0b8';
+}
+function schoolBadge(school){
+  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
+}
+
+/* ══════════════════════════════════════════
+   CARD HTML BUILDER
+   Accepts a spell object; renders all fields
+   including components, duration, classes.
+══════════════════════════════════════════ */
+function buildCardInner(spell, showActions){
+  const name       = spell['name']        || '';
+  const level      = spell['level']       || '0';
+  const cost       = spell['cost']        || '';
+  const castTime   = spell['cast time']   || '';
+  const ritual     = spell['rit.']        || 'No';
+  const school     = spell['school']      || '';
+  const type       = spell['type']        || '';
+  const con        = spell['con.']        || 'No';
+  const range      = spell['range']       || '';
+  const components = spell['components']  || '';
+  const duration   = spell['duration']    || '';
+  const desc       = spell['description'] || '';
+  const classes    = spell['classes']     || '';
+
+  const lvNum      = parseInt(level, 10);
+  const levelStr   = lvNum === 0 ? 'Cantrip' : `Level ${lvNum}`;
+  const typeLine   = lvNum === 0 ? `${type} · ${school}` : `${levelStr} ${school} ${type}`;
+
+  const actionsHtml = showActions ? `
+    <div class="card-actions" id="cardActions">
+      <button class="card-btn" id="cardPrintBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print
+      </button>
+      <button class="card-btn" id="cardAddBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>Add to Grid
+      </button>
+      <button class="card-btn" id="cardExportBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG
+      </button>
+    </div>` : '';
+
+  return `
+    <div class="card-stripe"></div>
+    <div class="card-header-band">
+      ${actionsHtml}
+      <div class="card-name-row">
+        <div class="card-spell-name">${esc(name)}</div>
+        <div class="card-level-badge">${esc(levelStr)}</div>
+      </div>
+      <div class="card-type-line">${esc(typeLine)}</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">${md(desc)}</div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-label">Cast</div><div class="card-stat-value">${esc(castTime)}</div></div>
+        <div class="card-stat"><div class="card-stat-label">Range</div><div class="card-stat-value">${esc(range)}</div></div>
+        <div class="card-stat"><div class="card-stat-label">Duration</div><div class="card-stat-value">${esc(duration)}</div></div>
+        <div class="card-stat"><div class="card-stat-label">Ritual</div><div class="card-stat-value">${esc(ritual)}</div></div>
+      </div>
+      ${components ? `<div class="card-components"><span class="card-components-label">Components</span> ${esc(components)}</div>` : ''}
+      ${classes    ? `<div class="card-classes"><span class="card-classes-label">Classes</span> ${esc(classes)}</div>` : ''}
+    </div>
+    <div class="card-footer">
+      <div class="card-school-tag" style="color:${schoolColor(school)}">${esc(school)}</div>
+      <div class="card-concentration ${con==='Yes'?'con-yes':'con-no'}">${con==='Yes'?'◉ Concentration':'○ No Concentration'}</div>
+    </div>`;
+}
+
+/* ══════════════════════════════════════════
+   RENDER TABLE
+══════════════════════════════════════════ */
+const tbody=document.getElementById('tableBody');
+
+function render(){
+  let data=[...RAW];
+  if(searchQuery){
+    const q=searchQuery.toLowerCase();
+    data=data.filter(r=>COL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));
+  }
+  const f=appliedFilters;
+  if(f.school&&f.school.length) data=data.filter(r=>f.school.includes(r['school']));
+  if(f.type  &&f.type.length)   data=data.filter(r=>f.type.includes(r['type']));
+  if(f.con   &&f.con.length)    data=data.filter(r=>f.con.includes(r['con.']));
+  if(f.lvMin!==undefined) data=data.filter(r=>parseInt(r['level'],10)>=f.lvMin);
+  if(f.lvMax!==undefined) data=data.filter(r=>parseInt(r['level'],10)<=f.lvMax);
+
+  const key = COL_KEYS[sortCol];
+  data.sort((a,b)=>{
+    let va=a[key]||'', vb=b[key]||'';
+    // numeric sort for level
+    if(key==='level'){ va=parseInt(va,10)||0; vb=parseInt(vb,10)||0; }
+    else { va=String(va).toLowerCase(); vb=String(vb).toLowerCase(); }
+    return va<vb?(sortDir==='asc'?-1:1):va>vb?(sortDir==='asc'?1:-1):0;
+  });
+
+  const q=searchQuery;
+  tbody.innerHTML=data.map(row=>{
+    const lvNum=parseInt(row['level'],10);
+    const lvDisplay=lvNum===0?'Cantrip':String(lvNum);
+    return `
+    <tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
+      <td class="name-cell">${hi(row['name'],q)}</td>
+      <td>${hi(lvDisplay,q)}</td>
+      <td>${hi(row['cost'],q)}</td>
+      <td>${hi(row['cast time'],q)}</td>
+      <td>${hi(row['rit.'],q)}</td>
+      <td>${schoolBadge(row['school'])}</td>
+      <td>${hi(row['type'],q)}</td>
+      <td style="color:${row['con.']==='Yes'?'var(--accent2)':'var(--text-muted)'}">${hi(row['con.'],q)}</td>
+      <td>${hi(row['range'],q)}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('visibleCount').textContent=data.length;
+  document.getElementById('emptyState').style.display=data.length===0?'block':'none';
+  renderTags();
+
+  tbody.querySelectorAll('tr').forEach((tr,i)=>{
+    tr.addEventListener('click',()=>{
+      if(currentRow && currentRow['name']===data[i]['name']){
+        closeDetail();
+      } else {
+        openDetail(data[i]);
+      }
+    });
+  });
+}
+
+/* ══════════════════════════════════════════
+   DETAIL CARD
+══════════════════════════════════════════ */
+function openDetail(spell){
+  currentRow=spell;
+  const card=document.getElementById('detailCard');
+  card.innerHTML=buildCardInner(spell,true);
+  card.querySelector('#cardPrintBtn').addEventListener('click',()=>printCard(spell));
+  card.querySelector('#cardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
+  card.querySelector('#cardExportBtn').addEventListener('click',()=>exportCardJpg(spell));
+  document.getElementById('detailPanel').classList.add('open');
+  tbody.querySelectorAll('tr').forEach(tr=>tr.classList.remove('selected'));
+  tbody.querySelectorAll('tr').forEach(tr=>{ if(tr.dataset.name===spell['name']) tr.classList.add('selected'); });
+}
+
+function closeDetail(){
+  currentRow=null;
+  document.getElementById('detailPanel').classList.remove('open');
+  tbody.querySelectorAll('tr').forEach(tr=>tr.classList.remove('selected'));
+}
+
+/* ══════════════════════════════════════════
+   PRINT CARD (≈ 1/3 of letter paper width)
+   Letter = 8.5in; 1/3 ≈ 2.83in ≈ 272px at 96dpi
+   We use 2.8in × ~5in
+══════════════════════════════════════════ */
+const FONT_LINK=`<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>`;
+
+const BASE_CSS=`
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--text-dim:#9aa0b8;--surface2:#1c2030;--border:#252a3a;}
+body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
+.spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+.card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}
+.card-header-band{background:linear-gradient(180deg,#1a1f30 0%,#13161e 100%);padding:10px 12px 8px;border-bottom:1px solid #252a3a;flex-shrink:0;}
+.card-actions{display:none!important;}
+.card-name-row{display:flex;align-items:baseline;justify-content:space-between;gap:6px;}
+.card-spell-name{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.03em;line-height:1.2;flex:1;}
+.card-level-badge{font-family:'Syne',sans-serif;font-size:0.62rem;font-weight:800;color:var(--text-muted);background:#252a3a;padding:2px 6px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+.card-type-line{font-size:0.6rem;color:var(--text-muted);margin-top:3px;font-style:italic;}
+.card-body{flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:0;overflow:hidden;}
+.card-desc{font-size:0.63rem;color:#b0b8cc;line-height:1.5;border:1px solid #252a3a;border-radius:6px;padding:7px 9px;background:#0d0f18;flex:1;overflow:hidden;}
+.card-desc p{margin-bottom:4px;}.card-desc p:last-child{margin-bottom:0;}
+.card-desc strong{color:var(--text);}
+.card-desc em{color:#a8b8d8;font-style:italic;}
+.card-desc code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.6rem;}
+.card-desc ul{padding-left:12px;margin:3px 0;}.card-desc li{margin-bottom:2px;}
+.card-desc hr{border:none;border-top:1px solid #252a3a;margin:5px 0;}
+.card-desc h3{font-family:'Cinzel',serif;font-size:0.62rem;color:var(--gold);margin-bottom:3px;font-weight:600;}
+.card-desc blockquote{border-left:2px solid #4f7cff;padding-left:8px;margin:4px 0;color:#a8b8d8;font-style:italic;}
+.card-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px;flex-shrink:0;}
+.card-stat{background:#1a1f2e;border:1px solid #252a3a;border-radius:4px;padding:4px 3px;text-align:center;}
+.card-stat-label{font-family:'Syne',sans-serif;font-size:0.48rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1px;}
+.card-stat-value{font-size:0.6rem;color:var(--text);font-weight:500;}
+.card-footer{background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:5px 12px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.card-school-tag{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;}
+.card-concentration{font-family:'Syne',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+.con-yes{color:var(--accent2);}.con-no{color:var(--text-muted);}
+.card-components,.card-classes{font-size:0.58rem;color:#8898bb;margin-top:4px;padding:3px 7px;background:#0d0f18;border:1px solid #252a3a;border-radius:4px;line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.card-components-label,.card-classes-label{font-family:'Syne',sans-serif;font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-right:3px;}
+`;
+
+function printCard(spell){
+  const w=`2.83in`, h=`5in`;
+  const cardHtml=`<div class="spell-card" style="width:${w};height:${h};">${buildCardInner(spell,false)}</div>`;
+  const win=window.open('','_blank','width=400,height=650');
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
+    @page{size:letter;margin:0.5in;}
+    body{display:flex;justify-content:center;align-items:flex-start;padding:0.3in;}
+  </style></head><body>${cardHtml}</body></html>`);
+  win.document.close();
+  setTimeout(()=>{win.focus();win.print();},450);
+}
+
+/* ══════════════════════════════════════════
+   EXPORT CARD — exactly 300×500 JPEG, Save As
+══════════════════════════════════════════ */
+function exportCardJpg(spell){
+  const tmp=document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;width:300px;height:500px;';
+  tmp.innerHTML=`<div class="spell-card" style="width:300px;height:500px;">${buildCardInner(spell,false)}</div>`;
+  document.body.appendChild(tmp);
+  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:500,scale:1,useCORS:true}).then(canvas=>{
+    document.body.removeChild(tmp);
+    canvas.toBlob(blob=>{
+      const safeName=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
+      if(window.showSaveFilePicker){
+        window.showSaveFilePicker({suggestedName:safeName,types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
+          .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
+      } else {
+        const a=document.createElement('a'); a.download=safeName; a.href=URL.createObjectURL(blob); a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+      }
+    },'image/jpeg',0.92);
+  });
+}
+
+/* ══════════════════════════════════════════
+   BULK GRID
+══════════════════════════════════════════ */
+function addToBulk(spell){
+  const id=++bulkId;
+  bulkCards.push({id,spell});
+  appendBulkSlot(id,spell);
+  updateBulkMeta();
+}
+
+function appendBulkSlot(id,spell){
+  const area=document.getElementById('bulkArea');
+  const slot=document.createElement('div');
+  slot.className='bulk-slot';
+  slot.dataset.id=id;
+  const card=document.createElement('div');
+  card.className='spell-card';
+  card.innerHTML=buildCardInner(spell,false);
+  const controls=document.createElement('div');
+  controls.className='bulk-controls';
+  controls.innerHTML=`
+    <button class="bulk-icon-btn copy" title="Duplicate">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    </button>
+    <button class="bulk-icon-btn trash" title="Remove">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
+    </button>`;
+  controls.querySelector('.trash').addEventListener('click',()=>{
+    bulkCards=bulkCards.filter(c=>c.id!==id);
+    slot.remove();
+    updateBulkMeta();
+  });
+  controls.querySelector('.copy').addEventListener('click',()=>{
+    const src=bulkCards.find(c=>c.id===id);
+    if(src) addToBulk({...src.spell});
+  });
+  slot.appendChild(card);
+  slot.appendChild(controls);
+  area.appendChild(slot);
+}
+
+function updateBulkMeta(){
+  document.getElementById('bulkCount').textContent=bulkCards.length+(bulkCards.length===1?' card':' cards');
+  document.getElementById('bulkEmpty').style.display=bulkCards.length===0?'flex':'none';
+}
+
+/* Bulk Print — 3×3 grid, pages of 9 */
+document.getElementById('bulkPrintBtn').addEventListener('click',()=>{
+  if(!bulkCards.length){ alert('No cards in the bulk grid.'); return; }
+  const pages=[];
+  for(let i=0;i<bulkCards.length;i+=9) pages.push(bulkCards.slice(i,i+9));
+  const pagesHtml=pages.map(pg=>{
+    const cardsHtml=pg.map(({spell})=>`<div class="spell-card" style="width:2.83in;height:5in;">${buildCardInner(spell,false)}</div>`).join('');
+    return `<div class="page-grid">${cardsHtml}</div>`;
+  }).join('<div class="page-break"></div>');
+  const win=window.open('','_blank','width=900,height=700');
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
+    @page{size:letter;margin:0.4in;}
+    body{padding:0;}
+    .page-grid{display:grid;grid-template-columns:repeat(3,2.83in);gap:0.1in;page-break-after:always;}
+    .page-grid:last-child{page-break-after:auto;}
+    .page-break{page-break-before:always;}
+  </style></head><body>${pagesHtml}</body></html>`);
+  win.document.close();
+  setTimeout(()=>{win.focus();win.print();},450);
+});
+
+/* Bulk Export Image */
+document.getElementById('bulkExportBtn').addEventListener('click',()=>{
+  const area=document.getElementById('bulkArea');
+  const controls=area.querySelectorAll('.bulk-controls');
+  controls.forEach(el=>el.style.visibility='hidden');
+  const emptyMsg=document.getElementById('bulkEmpty');
+  emptyMsg.style.display='none';
+  html2canvas(area,{backgroundColor:'#13161e',scale:2}).then(canvas=>{
+    controls.forEach(el=>el.style.visibility='');
+    if(!bulkCards.length) emptyMsg.style.display='flex';
+    canvas.toBlob(blob=>{
+      if(window.showSaveFilePicker){
+        window.showSaveFilePicker({suggestedName:'bulk-grid.jpg',types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
+          .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
+      } else {
+        const a=document.createElement('a');
+        a.download='bulk-grid.jpg';
+        a.href=URL.createObjectURL(blob);
+        a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+      }
+    },'image/jpeg',0.92);
+  });
+});
+
+/* Bulk Clear */
+document.getElementById('bulkClearBtn').addEventListener('click',()=>{
+  document.getElementById('modalCardCount').textContent=bulkCards.length;
+  document.getElementById('confirmModal').classList.add('open');
+});
+document.getElementById('modalCancel').addEventListener('click',()=>document.getElementById('confirmModal').classList.remove('open'));
+document.getElementById('modalConfirm').addEventListener('click',()=>{
+  bulkCards=[];
+  document.getElementById('bulkArea').querySelectorAll('.bulk-slot').forEach(el=>el.remove());
+  updateBulkMeta();
+  document.getElementById('confirmModal').classList.remove('open');
+});
+document.getElementById('confirmModal').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('open');});
+
+/* ══════════════════════════════════════════
+   SORT
+══════════════════════════════════════════ */
+document.querySelectorAll('th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const col=+th.dataset.col;
+    sortDir=sortCol===col?(sortDir==='asc'?'desc':'asc'):'asc';
+    sortCol=col;
+    document.querySelectorAll('th').forEach(t=>t.classList.remove('sorted-asc','sorted-desc'));
+    th.classList.add(sortDir==='asc'?'sorted-asc':'sorted-desc');
+    render();
+  });
+});
+
+/* ══════════════════════════════════════════
+   SEARCH
+══════════════════════════════════════════ */
+document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value.trim();render();});
+
+/* ══════════════════════════════════════════
+   FILTER
+══════════════════════════════════════════ */
+const filterBtn=document.getElementById('filterBtn'),filterPanel=document.getElementById('filterPanel');
+filterBtn.addEventListener('click',()=>{filterPanel.classList.toggle('open');filterBtn.classList.toggle('active');});
+document.getElementById('applyFilters').addEventListener('click',()=>{
+  const school=getChecked('filterSchool'),type=getChecked('filterType'),con=getChecked('filterCon');
+  const minV=document.getElementById('filterLvMin').value,maxV=document.getElementById('filterLvMax').value;
+  appliedFilters={};
+  if(school.length) appliedFilters.school=school;
+  if(type.length)   appliedFilters.type=type;
+  if(con.length)    appliedFilters.con=con;
+  if(minV!=='') appliedFilters.lvMin=+minV;
+  if(maxV!=='') appliedFilters.lvMax=+maxV;
+  render();
+});
+document.getElementById('clearFilters').addEventListener('click',()=>{
+  uncheckAll('filterSchool');uncheckAll('filterType');uncheckAll('filterCon');
+  document.getElementById('filterLvMin').value='';
+  document.getElementById('filterLvMax').value='';
+  appliedFilters={};render();
+});
+
+function renderTags(){
+  const f=appliedFilters,tags=[];
+  if(f.school) f.school.forEach(v=>tags.push({label:`School: ${v}`,key:'school',value:v}));
+  if(f.type)   f.type.forEach(v=>tags.push({label:`Type: ${v}`,key:'type',value:v}));
+  if(f.con)    f.con.forEach(v=>tags.push({label:`Con: ${v}`,key:'con',value:v}));
+  if(f.lvMin!==undefined) tags.push({label:`Lv ≥ ${f.lvMin}`,key:'lvMin'});
+  if(f.lvMax!==undefined) tags.push({label:`Lv ≤ ${f.lvMax}`,key:'lvMax'});
+  const el=document.getElementById('activeTags');
+  el.innerHTML=tags.map((t,i)=>`<span class="filter-tag">${t.label}<button data-i="${i}">×</button></span>`).join('');
+  el.querySelectorAll('button').forEach((btn,i)=>{
+    btn.addEventListener('click',()=>{
+      const t=tags[i];
+      if(t.value!==undefined){
+        appliedFilters[t.key]=appliedFilters[t.key].filter(v=>v!==t.value);
+        if(!appliedFilters[t.key].length) delete appliedFilters[t.key];
+        const gm={school:'filterSchool',type:'filterType',con:'filterCon'};
+        const cb=document.querySelector(`#${gm[t.key]} input[value="${t.value}"]`);
+        if(cb) cb.checked=false;
+      } else {
+        delete appliedFilters[t.key];
+        const im={lvMin:'filterLvMin',lvMax:'filterLvMax'};
+        if(im[t.key]) document.getElementById(im[t.key]).value='';
+      }
+      render();
+    });
+  });
+}
+
+/* ══════════════════════════════════════════
+   INIT — fetch spells.json then boot
+══════════════════════════════════════════ */
+fetch('\spells.json')
+  .then(r=>{ if(!r.ok) throw new Error('Failed to load spells.json'); return r.json(); })
+  .then(data=>{
+    RAW=data;
+    document.getElementById('totalCount').textContent=RAW.length;
+    render();
+    updateBulkMeta();
+  })
+  .catch(err=>{
+    // Fallback: show error in table area
+    document.getElementById('tableBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--accent2);">
+      Could not loada spells.json — make sure the file is in the same folder as this HTML file.<br><small>${err.message}</small>
+    </td></tr>`;
+    document.getElementById('visibleCount').textContent='0';
+    updateBulkMeta();
+  });
+</script>
+</body>
+</html>

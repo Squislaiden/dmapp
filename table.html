@@ -24,29 +24,13 @@
       --header-bg: #181c28;
       --row-hover: #1a1f2e;
       --tag-bg: #1f2538;
-      /* Card exact size: 300×500px */
       --card-w: 300px;
       --card-h: 500px;
     }
 
-    body {
-      font-family: 'DM Mono', monospace;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 40px 32px;
-    }
-
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.35; pointer-events: none; z-index: 0;
-    }
-
-    .container { max-width: 1500px; margin: 0 auto; position: relative; z-index: 1; }
+    body { font-family: 'DM Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 32px; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.35; pointer-events: none; z-index: 0; }
+    .container { max-width: 1600px; margin: 0 auto; position: relative; z-index: 1; }
 
     /* ── Header ── */
     .page-header { margin-bottom: 36px; }
@@ -59,8 +43,8 @@
     .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.06); }
     .btn.active { background: rgba(79,124,255,0.12); border-color: var(--accent); color: var(--accent); }
     .btn-sm { padding: 6px 12px; font-size: 0.73rem; }
-    .btn-accent { background: var(--accent); color: #fff !important; border-color: var(--accent); }
-    .btn-accent:hover { background: #3a68e8; border-color: #3a68e8; }
+    .btn-accent { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; }
+    .btn-accent:hover { background: #3a68e8 !important; }
     .btn-danger { background: rgba(255,107,107,0.1); color: var(--accent2) !important; border-color: rgba(255,107,107,0.25); }
     .btn-danger:hover { background: rgba(255,107,107,0.2); border-color: var(--accent2); }
 
@@ -72,27 +56,36 @@
     #searchInput::placeholder { color: var(--text-muted); }
     #searchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,124,255,0.12); }
 
-    /* ── Filter Panel ── */
-    .filter-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; display: none; animation: slideDown 0.2s ease; }
+    /* ── Filter Panel — horizontal rows ── */
+    .filter-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 20px; display: none; animation: slideDown 0.2s ease; }
     .filter-panel.open { display: block; }
     @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
-    .filter-panel h3 { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
-    .filter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 20px; }
-    .filter-group-label { display: block; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-    .checkbox-list { display: flex; flex-direction: column; gap: 6px; }
-    .checkbox-item { display: flex; align-items: center; gap: 9px; cursor: pointer; padding: 5px 8px; border-radius: 6px; border: 1px solid transparent; transition: background 0.15s, border-color 0.15s; }
-    .checkbox-item:hover { background: var(--surface2); border-color: var(--border); }
-    .checkbox-item input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 15px; height: 15px; min-width: 15px; border: 1.5px solid var(--border); border-radius: 4px; background: var(--surface2); cursor: pointer; position: relative; transition: background 0.15s, border-color 0.15s; }
-    .checkbox-item input[type="checkbox"]:checked { background: var(--accent); border-color: var(--accent); }
-    .checkbox-item input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: 1px; width: 5px; height: 8px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
-    .checkbox-item span { font-size: 0.79rem; color: var(--text-dim); }
-    .checkbox-item:has(input:checked) span { color: var(--text); }
-    .checkbox-item:has(input:checked) { background: rgba(79,124,255,0.07); border-color: rgba(79,124,255,0.2); }
-    .filter-group input[type="number"] { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.8rem; padding: 8px 10px; border-radius: 6px; outline: none; transition: border-color 0.18s; }
-    .filter-group input[type="number"]:focus { border-color: var(--accent); }
-    .filter-range { display: flex; gap: 8px; align-items: center; }
-    .filter-range span { color: var(--text-muted); font-size: 0.75rem; }
-    .filter-actions { margin-top: 16px; display: flex; gap: 10px; }
+
+    .filter-row { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .filter-row:last-of-type { border-bottom: none; }
+    .filter-row-label {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+      color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;
+      min-width: 90px; padding-top: 6px; flex-shrink: 0;
+    }
+    .filter-row-checks { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+
+    .check-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 20px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--surface2);
+      transition: all 0.15s; user-select: none;
+    }
+    .check-pill input[type="checkbox"] { display: none; }
+    .check-pill span { font-size: 0.72rem; color: var(--text-dim); font-family: 'DM Mono', monospace; white-space: nowrap; }
+    .check-pill:hover { border-color: var(--accent); background: rgba(79,124,255,0.06); }
+    .check-pill:hover span { color: var(--accent); }
+    .check-pill.checked { background: rgba(79,124,255,0.12); border-color: var(--accent); }
+    .check-pill.checked span { color: var(--text); }
+    .check-pill .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: none; flex-shrink: 0; }
+    .check-pill.checked .pill-dot { display: block; }
+
+    .filter-actions { margin-top: 12px; display: flex; gap: 10px; padding-top: 12px; border-top: 1px solid var(--border); }
 
     /* ── Stats bar ── */
     .stats-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 6px; }
@@ -107,7 +100,7 @@
     .table-side { flex: 1; min-width: 0; overflow-x: auto; }
 
     /* ── Table ── */
-    .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); min-width: 700px; }
+    .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); min-width: 680px; }
     table { width: 100%; border-collapse: collapse; }
     thead tr { background: var(--header-bg); }
     th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; user-select: none; cursor: pointer; transition: color 0.18s, background 0.18s; }
@@ -137,6 +130,10 @@
     .school-Divination   { background: rgba(100,200,255,0.1);  color: #80d8ff; border-color: rgba(100,200,255,0.25); }
     .school-Enchantment  { background: rgba(255,150,180,0.1);  color: #ff99bb; border-color: rgba(255,150,180,0.25); }
     .school-Abjuration   { background: rgba(140,200,80,0.1);   color: #a8d870; border-color: rgba(140,200,80,0.25); }
+    .school-Biomancy     { background: rgba(180,255,100,0.1);  color: #b4ff64; border-color: rgba(180,255,100,0.25); }
+    .school-Psionic      { background: rgba(220,100,255,0.1);  color: #dc64ff; border-color: rgba(220,100,255,0.25); }
+    .school-Chronomancy  { background: rgba(255,220,80,0.1);   color: #ffd84f; border-color: rgba(255,220,80,0.25); }
+    .school-Sangromancy  { background: rgba(255,96,96,0.1);   color: #ff6060; border-color: rgba(255,96,96,0.25); }
     mark { background: rgba(79,124,255,0.25); color: #fff; border-radius: 2px; padding: 0 1px; }
     .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
     .empty-state p { font-size: 0.85rem; margin-top: 12px; }
@@ -145,212 +142,88 @@
        SPELL CARD — exactly 300×500px
     ════════════════════════════════════ */
     .spell-card {
-      width: var(--card-w);
-      height: var(--card-h);
-      min-width: var(--card-w);
-      min-height: var(--card-h);
-      max-width: var(--card-w);
-      max-height: var(--card-h);
-      background: #0f1119;
-      border: 2px solid #2e3550;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      position: relative;
+      width: var(--card-w); height: var(--card-h);
+      min-width: var(--card-w); min-height: var(--card-h);
+      max-width: var(--card-w); max-height: var(--card-h);
+      background: #0f1119; border: 2px solid #2e3550; border-radius: 10px;
+      display: flex; flex-direction: column; overflow: hidden; position: relative;
       font-family: 'DM Mono', monospace;
     }
+    .card-stripe { height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent3)); flex-shrink: 0; }
+    .card-header-band { background: linear-gradient(180deg, #1a1f30 0%, #13161e 100%); padding: 10px 12px 8px; border-bottom: 1px solid #252a3a; flex-shrink: 0; }
 
-    /* Top stripe */
-    .card-stripe {
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent3));
-      flex-shrink: 0;
-    }
-
-    /* Card header band */
-    .card-header-band {
-      background: linear-gradient(180deg, #1a1f30 0%, #13161e 100%);
-      padding: 12px 14px 10px;
-      border-bottom: 1px solid #252a3a;
-      flex-shrink: 0;
-    }
-
-    /* Card action buttons row */
-    .card-actions {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      margin-bottom: 10px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-    }
+    /* Action buttons */
+    .card-actions { display: flex; gap: 4px; align-items: center; margin-bottom: 8px; flex-wrap: nowrap; overflow-x: auto; }
     .card-actions::-webkit-scrollbar { display: none; }
-
-    .card-btn {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 4px 9px; border-radius: 5px;
-      font-family: 'Syne', sans-serif; font-size: 0.63rem; font-weight: 700;
-      cursor: pointer; border: 1px solid var(--border); background: #1c2030;
-      color: var(--text-dim); transition: all 0.15s; white-space: nowrap; letter-spacing: 0.04em;
-      flex-shrink: 0;
-    }
+    .card-btn { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 5px; font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; cursor: pointer; border: 1px solid var(--border); background: #1c2030; color: var(--text-dim); transition: all 0.15s; white-space: nowrap; letter-spacing: 0.04em; flex-shrink: 0; }
     .card-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.08); }
     .card-btn svg { flex-shrink: 0; }
 
-    .card-name-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-    .card-spell-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.03em;
-      line-height: 1.2;
-      flex: 1;
+    /* Card markdown body */
+    .card-md {
+      flex: 1; overflow: hidden;
+      padding: 8px 12px 6px;
+      font-size: 0.62rem; color: #b8c2d8; line-height: 1.5;
+      display: flex; flex-direction: column;
     }
-    .card-level-badge {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: var(--text-muted);
-      background: #252a3a;
-      padding: 2px 7px;
-      border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .card-type-line {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-style: italic;
-      letter-spacing: 0.02em;
-    }
+    .card-md-scroll { flex: 1; overflow: hidden; }
 
-    /* Card body */
-    .card-body {
-      flex: 1;
-      padding: 10px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      overflow: hidden;
-    }
-
-    /* Markdown description */
-    .card-desc {
-      font-size: 0.7rem;
-      color: #b0b8cc;
-      line-height: 1.55;
-      border: 1px solid #252a3a;
-      border-radius: 6px;
-      padding: 8px 10px;
-      background: #0d0f18;
-      flex: 1;
-      overflow: hidden;
-    }
-    .card-desc p { margin-bottom: 5px; }
-    .card-desc p:last-child { margin-bottom: 0; }
-    .card-desc strong { color: var(--text); }
-    .card-desc em { color: #a8b8d8; font-style: italic; }
-    .card-desc code { background: #1c2030; color: var(--accent3); padding: 1px 4px; border-radius: 3px; font-size: 0.65rem; }
-    .card-desc ul { padding-left: 14px; margin: 4px 0; }
-    .card-desc li { margin-bottom: 2px; }
-    .card-desc hr { border: none; border-top: 1px solid #252a3a; margin: 6px 0; }
-    .card-desc h3 { font-family: 'Cinzel', serif; font-size: 0.68rem; color: var(--gold); margin-bottom: 4px; font-weight: 600; }
-
-    /* Stat grid at bottom */
-    .card-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      margin-top: 8px;
-      flex-shrink: 0;
-    }
-    .card-stat {
-      background: #1a1f2e;
-      border: 1px solid #252a3a;
-      border-radius: 5px;
-      padding: 5px 4px;
-      text-align: center;
-    }
-    .card-stat-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.52rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 2px;
-    }
-    .card-stat-value {
-      font-size: 0.68rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* School footer bar */
-    .card-footer {
-      background: linear-gradient(180deg, #13161e 0%, #1a1f2e 100%);
-      border-top: 1px solid #252a3a;
-      padding: 6px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
-    }
-    .card-school-tag {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-    .card-concentration {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .con-yes { color: var(--accent2); }
-    .con-no  { color: var(--text-muted); }
-
-    /* Components & Classes rows on card */
-    .card-components, .card-classes {
-      font-size: 0.62rem; color: #8898bb; margin-top: 5px;
-      padding: 4px 8px; background: #0d0f18;
-      border: 1px solid #252a3a; border-radius: 5px;
-      line-height: 1.4; flex-shrink: 0;
-      overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
-    }
-    .card-components-label, .card-classes-label {
-      font-family: 'Syne', sans-serif; font-size: 0.55rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); margin-right: 4px;
-    }
+    /* Markdown rendering inside card */
+    .card-md h4 { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 2px; line-height: 1.2; }
+    .card-md h3 { height: 1px; background: #252a3a; margin: 6px 0; overflow: hidden; font-size: 0; border: none; }
+    .card-md p { margin-bottom: 3px; }
+    .card-md p:last-child { margin-bottom: 0; }
+    .card-md strong { color: #e8eaf0; font-weight: 600; }
+    .card-md em { color: #9aa0b8; font-style: italic; }
+    .card-md code { background: #1c2030; color: var(--accent3); padding: 1px 3px; border-radius: 3px; font-size: 0.58rem; }
+    .card-md ul { padding-left: 12px; margin: 2px 0; }
+    .card-md li { margin-bottom: 1px; }
+    .card-md hr { border: none; border-top: 1px solid #252a3a; margin: 5px 0; }
+    .card-md blockquote { border-left: 2px solid var(--accent); padding-left: 7px; margin: 3px 0; color: #8898bb; font-style: italic; }
+    .card-md br { display: block; margin: 2px 0; content: ''; }
 
     /* ── Detail Panel ── */
-    .detail-panel {
-      width: var(--card-w);
-      min-width: var(--card-w);
-      display: none;
-      flex-direction: column;
-    }
+    .detail-panel { width: var(--card-w); min-width: var(--card-w); display: none; flex-direction: column; }
     .detail-panel.open { display: flex; animation: fadeInRight 0.22s ease; }
     @keyframes fadeInRight { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
 
     /* ── Bulk Section ── */
     .bulk-section { margin-top: 44px; }
     .bulk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-    .bulk-header-left { display: flex; align-items: center; gap: 12px; }
+    .bulk-header-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .bulk-title { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
     .bulk-count { background: var(--tag-bg); border: 1px solid var(--border); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-family: 'Syne', sans-serif; font-weight: 700; }
-    .bulk-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
-    /* 3×3 grid, each cell exactly card-sized */
+    /* Column slider */
+    .col-slider-wrap { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; color: var(--text-muted); font-family: 'Syne', sans-serif; font-weight: 600; }
+    .col-slider-wrap label { white-space: nowrap; }
+    #colSlider { -webkit-appearance: none; appearance: none; width: 100px; height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer; }
+    #colSlider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; }
+    #colSlider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; }
+    #colSliderVal { color: var(--accent); font-weight: 700; min-width: 12px; text-align: center; }
+
+    .bulk-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    /* Sort controls */
+    .bulk-sort-wrap { display: flex; align-items: center; gap: 6px; }
+    .bulk-select {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
+      font-family: 'Syne', sans-serif; font-size: 0.73rem; font-weight: 600;
+      padding: 6px 10px; border-radius: 8px; outline: none; cursor: pointer;
+      transition: border-color 0.18s, color 0.18s;
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 8px center; padding-right: 26px;
+    }
+    .bulk-select:hover, .bulk-select:focus { border-color: var(--accent); color: var(--accent); }
+    .bulk-select option { background: var(--surface2); color: var(--text); }
+
+    .bulk-btn-divider { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
+
+    /* Bulk grid — width scales to column count, set by JS */
     .bulk-area {
       display: grid;
-      grid-template-columns: repeat(3, var(--card-w));
+      grid-template-columns: repeat(var(--bulk-cols, 3), var(--card-w));
       gap: 16px;
       background: var(--surface);
       border: 1px dashed var(--border);
@@ -358,47 +231,20 @@
       padding: 20px;
       position: relative;
       min-height: calc(var(--card-h) + 40px);
+      /* width fits exactly to content — no stretching */
+      width: fit-content;
+      max-width: 100%;
     }
-
-    .bulk-empty-msg {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: 0.8rem;
-      pointer-events: none; flex-direction: column; gap: 10px; text-align: center;
-      grid-column: 1 / -1;
-    }
+    .bulk-empty-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.8rem; pointer-events: none; flex-direction: column; gap: 10px; text-align: center; grid-column: 1 / -1; }
     .bulk-empty-msg svg { opacity: 0.2; }
 
-    /* Each slot wraps card + controls overlay */
-    .bulk-slot {
-      position: relative;
-      width: var(--card-w);
-      height: var(--card-h);
-      flex-shrink: 0;
-      animation: popIn 0.2s ease;
-    }
+    .bulk-slot { position: relative; width: var(--card-w); height: var(--card-h); flex-shrink: 0; animation: popIn 0.2s ease; }
     @keyframes popIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
-
-    .bulk-slot .spell-card {
-      width: 100%; height: 100%;
-    }
-    /* Hide action buttons inside bulk cards */
+    .bulk-slot .spell-card { width: 100%; height: 100%; }
     .bulk-slot .card-actions { display: none !important; }
 
-    .bulk-controls {
-      position: absolute;
-      top: 8px; right: 8px;
-      display: flex;
-      gap: 5px;
-      z-index: 10;
-    }
-    .bulk-icon-btn {
-      width: 26px; height: 26px; border-radius: 5px;
-      border: 1px solid var(--border); background: rgba(13,15,20,0.85);
-      color: var(--text-muted); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.15s; backdrop-filter: blur(2px);
-    }
+    .bulk-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 5px; z-index: 10; }
+    .bulk-icon-btn { width: 26px; height: 26px; border-radius: 5px; border: 1px solid var(--border); background: rgba(13,15,20,0.88); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; backdrop-filter: blur(2px); }
     .bulk-icon-btn.trash:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(255,107,107,0.15); }
     .bulk-icon-btn.copy:hover  { border-color: var(--accent3); color: var(--accent3); background: rgba(54,217,160,0.12); }
 
@@ -412,9 +258,8 @@
     .modal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; line-height: 1.6; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
-    /* ── Print ── */
     @media print {
-      body { background: #fff; padding: 0; color: #000; }
+      body { background: #fff; padding: 0; }
       body::before { display: none; }
       .no-print { display: none !important; }
     }
@@ -428,6 +273,7 @@
     <p>// SORTABLE · SEARCHABLE · FILTERABLE</p>
   </div>
 
+  <!-- Toolbar -->
   <div class="toolbar no-print">
     <div class="search-wrap">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -439,52 +285,107 @@
     </button>
   </div>
 
+  <!-- Filter Panel — horizontal pill rows -->
   <div class="filter-panel no-print" id="filterPanel">
-    <h3>Filter Options</h3>
-    <div class="filter-grid">
-      <div class="filter-group">
-        <span class="filter-group-label">School</span>
-        <div class="checkbox-list" id="filterSchool">
-          <label class="checkbox-item"><input type="checkbox" value="Evocation"/><span>Evocation</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Conjuration"/><span>Conjuration</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Illusion"/><span>Illusion</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Necromancy"/><span>Necromancy</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Transmutation"/><span>Transmutation</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Divination"/><span>Divination</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Enchantment"/><span>Enchantment</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Abjuration"/><span>Abjuration</span></label>
-        </div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-group-label">Type</span>
-        <div class="checkbox-list" id="filterType">
-          <label class="checkbox-item"><input type="checkbox" value="Spell"/><span>Spell</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Cantrip"/><span>Cantrip</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="Ritual"/><span>Ritual</span></label>
-        </div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-group-label">Concentration</span>
-        <div class="checkbox-list" id="filterCon">
-          <label class="checkbox-item"><input type="checkbox" value="Yes"/><span>Yes</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="No"/><span>No</span></label>
-        </div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-group-label">Level Range</span>
-        <div class="filter-range">
-          <input type="number" id="filterLvMin" placeholder="Min" min="0" max="9"/>
-          <span>–</span>
-          <input type="number" id="filterLvMax" placeholder="Max" min="0" max="9"/>
-        </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">Level</span>
+      <div class="filter-row-checks" id="filterLevel">
+        <label class="check-pill"><input type="checkbox" value="0"/><div class="pill-dot"></div><span>Cantrip</span></label>
+        <label class="check-pill"><input type="checkbox" value="1"/><div class="pill-dot"></div><span>1st</span></label>
+        <label class="check-pill"><input type="checkbox" value="2"/><div class="pill-dot"></div><span>2nd</span></label>
+        <label class="check-pill"><input type="checkbox" value="3"/><div class="pill-dot"></div><span>3rd</span></label>
+        <label class="check-pill"><input type="checkbox" value="4"/><div class="pill-dot"></div><span>4th</span></label>
+        <label class="check-pill"><input type="checkbox" value="5"/><div class="pill-dot"></div><span>5th</span></label>
+        <label class="check-pill"><input type="checkbox" value="6"/><div class="pill-dot"></div><span>6th</span></label>
+        <label class="check-pill"><input type="checkbox" value="7"/><div class="pill-dot"></div><span>7th</span></label>
+        <label class="check-pill"><input type="checkbox" value="8"/><div class="pill-dot"></div><span>8th</span></label>
+        <label class="check-pill"><input type="checkbox" value="9"/><div class="pill-dot"></div><span>9th</span></label>
       </div>
     </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">Classes</span>
+      <div class="filter-row-checks" id="filterClasses">
+        <label class="check-pill"><input type="checkbox" value="Artificer"/><div class="pill-dot"></div><span>Artificer</span></label>
+        <label class="check-pill"><input type="checkbox" value="Bard"/><div class="pill-dot"></div><span>Bard</span></label>
+        <label class="check-pill"><input type="checkbox" value="Cleric"/><div class="pill-dot"></div><span>Cleric</span></label>
+        <label class="check-pill"><input type="checkbox" value="Druid"/><div class="pill-dot"></div><span>Druid</span></label>
+        <label class="check-pill"><input type="checkbox" value="Monk"/><div class="pill-dot"></div><span>Monk</span></label>
+        <label class="check-pill"><input type="checkbox" value="Paladin"/><div class="pill-dot"></div><span>Paladin</span></label>
+        <label class="check-pill"><input type="checkbox" value="Ranger"/><div class="pill-dot"></div><span>Ranger</span></label>
+        <label class="check-pill"><input type="checkbox" value="Sorcerer"/><div class="pill-dot"></div><span>Sorcerer</span></label>
+        <label class="check-pill"><input type="checkbox" value="Warlock"/><div class="pill-dot"></div><span>Warlock</span></label>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">School</span>
+      <div class="filter-row-checks" id="filterSchool">
+        <label class="check-pill"><input type="checkbox" value="Abjuration"/><div class="pill-dot"></div><span>Abjuration</span></label>
+        <label class="check-pill"><input type="checkbox" value="Biomancy"/><div class="pill-dot"></div><span>Biomancy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Chronomancy"/><div class="pill-dot"></div><span>Chronomancy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Conjuration"/><div class="pill-dot"></div><span>Conjuration</span></label>
+        <label class="check-pill"><input type="checkbox" value="Divination"/><div class="pill-dot"></div><span>Divination</span></label>
+        <label class="check-pill"><input type="checkbox" value="Enchantment"/><div class="pill-dot"></div><span>Enchantment</span></label>
+        <label class="check-pill"><input type="checkbox" value="Evocation"/><div class="pill-dot"></div><span>Evocation</span></label>
+        <label class="check-pill"><input type="checkbox" value="Illusion"/><div class="pill-dot"></div><span>Illusion</span></label>
+        <label class="check-pill"><input type="checkbox" value="Necromancy"/><div class="pill-dot"></div><span>Necromancy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Psionic"/><div class="pill-dot"></div><span>Psionic</span></label>
+        <label class="check-pill"><input type="checkbox" value="Sangromancy"/><div class="pill-dot"></div><span>Sangromancy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Transmutation"/><div class="pill-dot"></div><span>Transmutation</span></label>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">Magic Type</span>
+      <div class="filter-row-checks" id="filterMagicType">
+        <label class="check-pill"><input type="checkbox" value="Arcane"/><div class="pill-dot"></div><span>Arcane</span></label>
+        <label class="check-pill"><input type="checkbox" value="Nature"/><div class="pill-dot"></div><span>Nature</span></label>
+        <label class="check-pill"><input type="checkbox" value="Divine"/><div class="pill-dot"></div><span>Divine</span></label>
+        <label class="check-pill"><input type="checkbox" value="Eldritch"/><div class="pill-dot"></div><span>Eldritch</span></label>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">Cast Time</span>
+      <div class="filter-row-checks" id="filterCastTime">
+        <label class="check-pill"><input type="checkbox" value="Action"/><div class="pill-dot"></div><span>Action</span></label>
+        <label class="check-pill"><input type="checkbox" value="Bonus Action"/><div class="pill-dot"></div><span>Bonus Action</span></label>
+        <label class="check-pill"><input type="checkbox" value="Reaction"/><div class="pill-dot"></div><span>Reaction</span></label>
+        <label class="check-pill"><input type="checkbox" value="Rounds"/><div class="pill-dot"></div><span>Rounds</span></label>
+        <label class="check-pill"><input type="checkbox" value="Minutes"/><div class="pill-dot"></div><span>Minutes</span></label>
+        <label class="check-pill"><input type="checkbox" value="Hours"/><div class="pill-dot"></div><span>Hours</span></label>
+        <label class="check-pill"><input type="checkbox" value="Special"/><div class="pill-dot"></div><span>Special</span></label>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-row-label">Range</span>
+      <div class="filter-row-checks" id="filterRange">
+        <label class="check-pill"><input type="checkbox" value="Self"/><div class="pill-dot"></div><span>Self</span></label>
+        <label class="check-pill"><input type="checkbox" value="Touch"/><div class="pill-dot"></div><span>Touch</span></label>
+        <label class="check-pill"><input type="checkbox" value="Point"/><div class="pill-dot"></div><span>Point</span></label>
+        <label class="check-pill"><input type="checkbox" value="Self (Area)"/><div class="pill-dot"></div><span>Self (Area)</span></label>
+        <label class="check-pill"><input type="checkbox" value="Special"/><div class="pill-dot"></div><span>Special</span></label>
+      </div>
+    </div>
+
+    <div class="filter-row" style="border-bottom:none;">
+      <span class="filter-row-label">Other</span>
+      <div class="filter-row-checks" id="filterOther">
+        <label class="check-pill"><input type="checkbox" value="Concentration"/><div class="pill-dot"></div><span>Concentration</span></label>
+        <label class="check-pill"><input type="checkbox" value="Ritual"/><div class="pill-dot"></div><span>Ritual</span></label>
+      </div>
+    </div>
+
     <div class="filter-actions">
       <button class="btn btn-accent btn-sm" id="applyFilters">Apply Filters</button>
       <button class="btn btn-sm" id="clearFilters">Clear All</button>
     </div>
   </div>
 
+  <!-- Stats bar -->
   <div class="stats-bar no-print">
     <div>Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> spells</div>
     <div class="active-filters" id="activeTags"></div>
@@ -519,43 +420,7 @@
 
     <!-- Detail Card Panel -->
     <div class="detail-panel no-print" id="detailPanel">
-      <div class="spell-card" id="detailCard">
-        <div class="card-stripe"></div>
-        <div class="card-header-band">
-          <div class="card-actions" id="cardActions">
-            <button class="card-btn" id="cardPrintBtn">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-              Print
-            </button>
-            <button class="card-btn" id="cardAddBtn">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
-              Add to Grid
-            </button>
-            <button class="card-btn" id="cardExportBtn">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Export JPG
-            </button>
-          </div>
-          <div class="card-name-row">
-            <div class="card-spell-name" id="cardName">—</div>
-            <div class="card-level-badge" id="cardLevel">Lv —</div>
-          </div>
-          <div class="card-type-line" id="cardTypeLine">—</div>
-        </div>
-        <div class="card-body">
-          <div class="card-desc" id="cardDesc"></div>
-          <div class="card-stats">
-            <div class="card-stat"><div class="card-stat-label">Cost</div><div class="card-stat-value" id="csCost">—</div></div>
-            <div class="card-stat"><div class="card-stat-label">Cast</div><div class="card-stat-value" id="csCast">—</div></div>
-            <div class="card-stat"><div class="card-stat-label">Range</div><div class="card-stat-value" id="csRange">—</div></div>
-            <div class="card-stat"><div class="card-stat-label">Ritual</div><div class="card-stat-value" id="csRitual">—</div></div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="card-school-tag" id="cardSchool">—</div>
-          <div class="card-concentration" id="cardCon">—</div>
-        </div>
-      </div>
+      <div class="spell-card" id="detailCard"></div>
     </div>
   </div>
 
@@ -565,8 +430,27 @@
       <div class="bulk-header-left">
         <span class="bulk-title">Bulk Grid</span>
         <span class="bulk-count" id="bulkCount">0 cards</span>
+        <div class="col-slider-wrap no-print">
+          <label for="colSlider">Columns:</label>
+          <input type="range" id="colSlider" min="1" max="6" value="3"/>
+          <span id="colSliderVal">3</span>
+        </div>
       </div>
       <div class="bulk-actions no-print">
+        <!-- Sort controls -->
+        <div class="bulk-sort-wrap">
+          <select class="bulk-select" id="bulkSortField">
+            <option value="">Sort by…</option>
+            <option value="name">Alphabetical</option>
+            <option value="cost">Mana Cost</option>
+            <option value="level">Spell Level</option>
+          </select>
+          <button class="btn btn-sm" id="bulkSortDir" title="Toggle sort direction">
+            <svg id="bulkSortIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+            <span id="bulkSortDirLabel">ASC</span>
+          </button>
+        </div>
+        <div class="bulk-btn-divider"></div>
         <button class="btn btn-sm" id="bulkPrintBtn">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
           Print
@@ -575,13 +459,24 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           Export Image
         </button>
+        <div class="bulk-btn-divider"></div>
+        <button class="btn btn-sm" id="bulkExportJsonBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export JSON
+        </button>
+        <button class="btn btn-sm" id="bulkImportJsonBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Import JSON
+        </button>
+        <input type="file" id="bulkImportFile" accept=".json" style="display:none"/>
+        <div class="bulk-btn-divider"></div>
         <button class="btn btn-sm btn-danger" id="bulkClearBtn">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
           Clear All
         </button>
       </div>
     </div>
-    <div class="bulk-area" id="bulkArea">
+    <div class="bulk-area" id="bulkArea" style="--bulk-cols:3;">
       <div class="bulk-empty-msg" id="bulkEmpty">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
         <span>Click "Add to Grid" on any card to populate this area</span>
@@ -605,24 +500,18 @@
 
 <script>
 /* ══════════════════════════════════════════
-   DATA — loaded from spells.json
-   Fields: name, level, cost, cast time, rit.,
-           school, type, con., range,
-           components, duration, description, classes
-══════════════════════════════════════════ */
-let RAW = [];   // filled after fetch
-
-// Sort-column mapping: col index → object key
-const COL_KEYS = ['name','level','cost','cast time','rit.','school','type','con.','range'];
-
-/* ══════════════════════════════════════════
    STATE
 ══════════════════════════════════════════ */
+let RAW = [];
+const COL_KEYS = ['name','level','cost','cast time','rit.','school','type','con.','range'];
 let sortCol=0, sortDir='asc';
 let searchQuery='';
 let appliedFilters={};
 let currentRow=null;
 let bulkCards=[], bulkId=0;
+let bulkCols=3;
+let bulkSortField='';   // 'name' | 'cost' | 'level' | ''
+let bulkSortAsc=true;
 
 /* ══════════════════════════════════════════
    HELPERS
@@ -630,46 +519,85 @@ let bulkCards=[], bulkId=0;
 const esc = s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const escRx = s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 function hi(text,q){ if(!q)return esc(text); return esc(text).replace(new RegExp(`(${escRx(q)})`,'gi'),'<mark>$1</mark>'); }
-function getChecked(id){ return [...document.querySelectorAll(`#${id} input:checked`)].map(c=>c.value); }
-function uncheckAll(id){ document.querySelectorAll(`#${id} input`).forEach(c=>c.checked=false); }
-const s = r => r['name']; // identity key
 
-/* Simple Markdown → HTML (subset) */
-function md(text){
-  if(!text) return '';
-  let t = esc(text);
-  t = t.replace(/^### (.+)$/gm,'<h3>$1</h3>');
-  t = t.replace(/^## (.+)$/gm,'<h2>$1</h2>');
-  t = t.replace(/^&gt; (.+)$/gm,'<blockquote style="border-left:2px solid #4f7cff;padding-left:8px;margin:4px 0;color:#a8b8d8;font-style:italic;">$1</blockquote>');
-  t = t.replace(/^---$/gm,'<hr/>');
-  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
-  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
-  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
-  t = t.replace(/((?:^- .+\n?)+)/gm, match => {
-    const items = match.trim().split('\n').map(l=>`<li>${l.replace(/^- /,'')}</li>`).join('');
-    return `<ul>${items}</ul>`;
+function getCheckedPills(groupId){
+  return [...document.querySelectorAll(`#${groupId} input:checked`)].map(c=>c.value);
+}
+function uncheckPills(groupId){
+  document.querySelectorAll(`#${groupId} input`).forEach(cb=>{
+    cb.checked=false;
+    cb.closest('.check-pill').classList.remove('checked');
   });
-  t = t.split(/\n\n+/).map(para=>{
-    if(para.match(/^<(h[1-6]|ul|blockquote|hr)/)) return para;
-    return `<p>${para.replace(/\n/g,' ')}</p>`;
-  }).join('');
-  return t;
 }
 
-function schoolColor(school){
-  const map={Evocation:'#ff8c8c',Conjuration:'#7ca0ff',Illusion:'#cc88ff',Necromancy:'#55d9a4',Transmutation:'#ffc145',Divination:'#80d8ff',Enchantment:'#ff99bb',Abjuration:'#a8d870'};
-  return map[school]||'#9aa0b8';
-}
-function schoolBadge(school){
-  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
+/* Sync pill visual state when cleared programmatically */
+function syncPills(){
+  document.querySelectorAll('.check-pill input').forEach(cb=>{
+    cb.closest('.check-pill').classList.toggle('checked', cb.checked);
+  });
 }
 
 /* ══════════════════════════════════════════
-   CARD HTML BUILDER
-   Accepts a spell object; renders all fields
-   including components, duration, classes.
+   MARKDOWN → HTML
+   Full renderer supporting the card template
 ══════════════════════════════════════════ */
-function buildCardInner(spell, showActions){
+function md(text){
+  if(!text) return '';
+  // Work line-by-line for block elements, then inline
+  const lines = text.split('\n');
+  const out = [];
+  let i = 0;
+  while(i < lines.length){
+    const line = lines[i];
+    // #### heading
+    if(/^#### /.test(line)){ out.push(`<h4>${mdInline(line.slice(5))}</h4>`); i++; continue; }
+    // ### becomes a horizontal rule / divider
+    if(/^###\s*$/.test(line.trim())){ out.push('<hr/>'); i++; continue; }
+    // Unordered list
+    if(/^- /.test(line)){
+      const items=[];
+      while(i<lines.length && /^- /.test(lines[i])){ items.push(`<li>${mdInline(lines[i].slice(2))}</li>`); i++; }
+      out.push(`<ul>${items.join('')}</ul>`);
+      continue;
+    }
+    // Blockquote
+    if(/^> /.test(line)){ out.push(`<blockquote>${mdInline(line.slice(2))}</blockquote>`); i++; continue; }
+    // <br> literal
+    if(/^<br>/.test(line.trim())){ out.push('<br/>'); i++; continue; }
+    // Bold line starting (***text.***)
+    if(/^\*\*\*/.test(line.trim())){ out.push(`<p>${mdInline(line)}</p>`); i++; continue; }
+    // Empty line
+    if(line.trim()==='') { i++; continue; }
+    // Paragraph
+    out.push(`<p>${mdInline(line)}</p>`);
+    i++;
+  }
+  return out.join('');
+}
+
+function mdInline(t){
+  t = esc(t);
+  // &nbsp;
+  t = t.replace(/&amp;nbsp;/g,'&nbsp;');
+  // bold-italic ***text***
+  t = t.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>');
+  // bold **text**
+  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  // italic *text*
+  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  // code `text`
+  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
+  // &nbsp; literal
+  t = t.replace(/\\&nbsp;/g,'&nbsp;');
+  return t;
+}
+
+/* ══════════════════════════════════════════
+   CARD MARKDOWN TEMPLATE BUILDER
+   Produces the markdown string for a spell,
+   then renders it through md().
+══════════════════════════════════════════ */
+function buildCardMarkdown(spell){
   const name       = spell['name']        || '';
   const level      = spell['level']       || '0';
   const cost       = spell['cost']        || '';
@@ -684,74 +612,109 @@ function buildCardInner(spell, showActions){
   const desc       = spell['description'] || '';
   const classes    = spell['classes']     || '';
 
-  const lvNum      = parseInt(level, 10);
-  const levelStr   = lvNum === 0 ? 'Cantrip' : `Level ${lvNum}`;
-  const typeLine   = lvNum === 0 ? `${type} · ${school}` : `${levelStr} ${school} ${type}`;
+  const lvNum    = parseInt(level, 10);
+  const lvLabel  = lvNum === 0 ? 'Cantrip' : `${lvNum}${['','st','nd','rd'][lvNum]||'th'} Level`;
+  const ritSuffix  = ritual === 'Yes' ? ' – *(Ritual)*' : '';
+  const conPrefix  = con === 'Yes'    ? '*Concentration, *' : '';
 
+  const template =
+`#### ${name}
+&nbsp;*Level: ${lvLabel} – ${school} — **(${type})***
+###
+**Casting Time:** ${castTime}
+<br>**Mana Cost:** ${cost} Mana${ritSuffix}
+<br>**Range:** ${range}
+<br>**Components:** ${components}
+<br>**Duration:** ${conPrefix}${duration}
+###
+${desc}
+<br>
+***Bolstering.***
+<br>**Weaken.** – - Mana – Less
+<br>**Amplify.** – x Mana – Damage
+<br>**Expand.** – + Mana – Size
+<br>**Elongate.** – + Mana – Range
+<br>**Propagate.** – x Mana – Targets
+<br>**Prolong.** – + Mana – Duration
+<br>
+<br>**Classes:** ${classes}`;
+
+  return md(template);
+}
+
+/* ══════════════════════════════════════════
+   CARD HTML BUILDER
+   Returns full innerHTML for a .spell-card
+══════════════════════════════════════════ */
+function schoolColor(school){
+  const map={Evocation:'#ff8c8c',Conjuration:'#7ca0ff',Illusion:'#cc88ff',Necromancy:'#55d9a4',Transmutation:'#ffc145',Divination:'#80d8ff',Enchantment:'#ff99bb',Abjuration:'#a8d870',Biomancy:'#b4ff64',Psionic:'#dc64ff',Chronomancy:'#ffd84f',Sangromancy:'#ff6060'};
+  return map[school]||'#9aa0b8';
+}
+function schoolBadge(school){
+  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
+}
+
+function buildCardInner(spell, showActions){
+  const school = spell['school']||'';
+  const con    = spell['con.']||'No';
   const actionsHtml = showActions ? `
     <div class="card-actions" id="cardActions">
       <button class="card-btn" id="cardPrintBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print
       </button>
       <button class="card-btn" id="cardAddBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>Add to Grid
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>Add to Grid
       </button>
       <button class="card-btn" id="cardExportBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG
       </button>
     </div>` : '';
 
   return `
     <div class="card-stripe"></div>
-    <div class="card-header-band">
-      ${actionsHtml}
-      <div class="card-name-row">
-        <div class="card-spell-name">${esc(name)}</div>
-        <div class="card-level-badge">${esc(levelStr)}</div>
-      </div>
-      <div class="card-type-line">${esc(typeLine)}</div>
+    <div class="card-header-band">${actionsHtml}</div>
+    <div class="card-md">
+      <div class="card-md-scroll">${buildCardMarkdown(spell)}</div>
     </div>
-    <div class="card-body">
-      <div class="card-desc">${md(desc)}</div>
-      <div class="card-stats">
-        <div class="card-stat"><div class="card-stat-label">Cast</div><div class="card-stat-value">${esc(castTime)}</div></div>
-        <div class="card-stat"><div class="card-stat-label">Range</div><div class="card-stat-value">${esc(range)}</div></div>
-        <div class="card-stat"><div class="card-stat-label">Duration</div><div class="card-stat-value">${esc(duration)}</div></div>
-        <div class="card-stat"><div class="card-stat-label">Ritual</div><div class="card-stat-value">${esc(ritual)}</div></div>
-      </div>
-      ${components ? `<div class="card-components"><span class="card-components-label">Components</span> ${esc(components)}</div>` : ''}
-      ${classes    ? `<div class="card-classes"><span class="card-classes-label">Classes</span> ${esc(classes)}</div>` : ''}
-    </div>
-    <div class="card-footer">
-      <div class="card-school-tag" style="color:${schoolColor(school)}">${esc(school)}</div>
-      <div class="card-concentration ${con==='Yes'?'con-yes':'con-no'}">${con==='Yes'?'◉ Concentration':'○ No Concentration'}</div>
+    <div style="background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:5px 12px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+      <div style="font-family:'Cinzel',serif;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;color:${schoolColor(school)}">${esc(school)}</div>
+      <div style="font-family:'Syne',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${con==='Yes'?'var(--accent2)':'var(--text-muted)'}">${con==='Yes'?'◉ Concentration':'○ No Conc.'}</div>
     </div>`;
 }
 
 /* ══════════════════════════════════════════
    RENDER TABLE
 ══════════════════════════════════════════ */
-const tbody=document.getElementById('tableBody');
+const tbody = document.getElementById('tableBody');
 
 function render(){
   let data=[...RAW];
   if(searchQuery){
     const q=searchQuery.toLowerCase();
-    data=data.filter(r=>COL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));
+    data=data.filter(r=>COL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q))
+      || (r['classes']||'').toLowerCase().includes(q)
+      || (r['description']||'').toLowerCase().includes(q));
   }
   const f=appliedFilters;
+  // Level filter — compare numeric
+  if(f.level&&f.level.length) data=data.filter(r=>f.level.includes(String(parseInt(r['level'],10))));
+  // Classes filter — any checked class appears in the spell's classes string
+  if(f.classes&&f.classes.length) data=data.filter(r=>f.classes.some(c=>(r['classes']||'').includes(c)));
   if(f.school&&f.school.length) data=data.filter(r=>f.school.includes(r['school']));
-  if(f.type  &&f.type.length)   data=data.filter(r=>f.type.includes(r['type']));
-  if(f.con   &&f.con.length)    data=data.filter(r=>f.con.includes(r['con.']));
-  if(f.lvMin!==undefined) data=data.filter(r=>parseInt(r['level'],10)>=f.lvMin);
-  if(f.lvMax!==undefined) data=data.filter(r=>parseInt(r['level'],10)<=f.lvMax);
+  if(f.magicType&&f.magicType.length) data=data.filter(r=>f.magicType.includes(r['type']));
+  // Cast time — fuzzy match (e.g. "Action" matches "1 action")
+  if(f.castTime&&f.castTime.length) data=data.filter(r=>f.castTime.some(ct=>(r['cast time']||'').toLowerCase().includes(ct.toLowerCase())));
+  // Range — fuzzy match
+  if(f.range&&f.range.length) data=data.filter(r=>f.range.some(rng=>{ const rv=(r['range']||'').toLowerCase(); if(rng==='Self') return rv==='self'; if(rng==='Touch') return rv==='touch'; if(rng==='Point') return !['self','touch','special'].includes(rv)&&!rv.includes('('); if(rng==='Self (Area)') return rv.includes('self')&&rv.includes('('); if(rng==='Special') return rv==='special'; return false; }));
+  // Other: Concentration / Ritual
+  if(f.other&&f.other.includes('Concentration')) data=data.filter(r=>r['con.']==='Yes');
+  if(f.other&&f.other.includes('Ritual'))        data=data.filter(r=>r['rit.']==='Yes');
 
-  const key = COL_KEYS[sortCol];
+  const key=COL_KEYS[sortCol];
   data.sort((a,b)=>{
-    let va=a[key]||'', vb=b[key]||'';
-    // numeric sort for level
-    if(key==='level'){ va=parseInt(va,10)||0; vb=parseInt(vb,10)||0; }
-    else { va=String(va).toLowerCase(); vb=String(vb).toLowerCase(); }
+    let va=a[key]||'',vb=b[key]||'';
+    if(key==='level'){va=parseInt(va,10)||0;vb=parseInt(vb,10)||0;}
+    else{va=String(va).toLowerCase();vb=String(vb).toLowerCase();}
     return va<vb?(sortDir==='asc'?-1:1):va>vb?(sortDir==='asc'?1:-1):0;
   });
 
@@ -759,8 +722,7 @@ function render(){
   tbody.innerHTML=data.map(row=>{
     const lvNum=parseInt(row['level'],10);
     const lvDisplay=lvNum===0?'Cantrip':String(lvNum);
-    return `
-    <tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
+    return `<tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
       <td class="name-cell">${hi(row['name'],q)}</td>
       <td>${hi(lvDisplay,q)}</td>
       <td>${hi(row['cost'],q)}</td>
@@ -779,11 +741,8 @@ function render(){
 
   tbody.querySelectorAll('tr').forEach((tr,i)=>{
     tr.addEventListener('click',()=>{
-      if(currentRow && currentRow['name']===data[i]['name']){
-        closeDetail();
-      } else {
-        openDetail(data[i]);
-      }
+      if(currentRow&&currentRow['name']===data[i]['name']){ closeDetail(); }
+      else { openDetail(data[i]); }
     });
   });
 }
@@ -799,10 +758,10 @@ function openDetail(spell){
   card.querySelector('#cardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
   card.querySelector('#cardExportBtn').addEventListener('click',()=>exportCardJpg(spell));
   document.getElementById('detailPanel').classList.add('open');
-  tbody.querySelectorAll('tr').forEach(tr=>tr.classList.remove('selected'));
-  tbody.querySelectorAll('tr').forEach(tr=>{ if(tr.dataset.name===spell['name']) tr.classList.add('selected'); });
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    tr.classList.toggle('selected', tr.dataset.name===spell['name']);
+  });
 }
-
 function closeDetail(){
   currentRow=null;
   document.getElementById('detailPanel').classList.remove('open');
@@ -810,75 +769,63 @@ function closeDetail(){
 }
 
 /* ══════════════════════════════════════════
-   PRINT CARD (≈ 1/3 of letter paper width)
-   Letter = 8.5in; 1/3 ≈ 2.83in ≈ 272px at 96dpi
-   We use 2.8in × ~5in
+   PRINT / EXPORT SHARED CSS
 ══════════════════════════════════════════ */
 const FONT_LINK=`<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>`;
-
 const BASE_CSS=`
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--text-dim:#9aa0b8;--surface2:#1c2030;--border:#252a3a;}
+:root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--text-dim:#9aa0b8;--border:#252a3a;}
 body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
 .spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
 .card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}
-.card-header-band{background:linear-gradient(180deg,#1a1f30 0%,#13161e 100%);padding:10px 12px 8px;border-bottom:1px solid #252a3a;flex-shrink:0;}
+.card-header-band{background:linear-gradient(180deg,#1a1f30 0%,#13161e 100%);padding:0 12px;border-bottom:1px solid #252a3a;flex-shrink:0;}
 .card-actions{display:none!important;}
-.card-name-row{display:flex;align-items:baseline;justify-content:space-between;gap:6px;}
-.card-spell-name{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.03em;line-height:1.2;flex:1;}
-.card-level-badge{font-family:'Syne',sans-serif;font-size:0.62rem;font-weight:800;color:var(--text-muted);background:#252a3a;padding:2px 6px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
-.card-type-line{font-size:0.6rem;color:var(--text-muted);margin-top:3px;font-style:italic;}
-.card-body{flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:0;overflow:hidden;}
-.card-desc{font-size:0.63rem;color:#b0b8cc;line-height:1.5;border:1px solid #252a3a;border-radius:6px;padding:7px 9px;background:#0d0f18;flex:1;overflow:hidden;}
-.card-desc p{margin-bottom:4px;}.card-desc p:last-child{margin-bottom:0;}
-.card-desc strong{color:var(--text);}
-.card-desc em{color:#a8b8d8;font-style:italic;}
-.card-desc code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.6rem;}
-.card-desc ul{padding-left:12px;margin:3px 0;}.card-desc li{margin-bottom:2px;}
-.card-desc hr{border:none;border-top:1px solid #252a3a;margin:5px 0;}
-.card-desc h3{font-family:'Cinzel',serif;font-size:0.62rem;color:var(--gold);margin-bottom:3px;font-weight:600;}
-.card-desc blockquote{border-left:2px solid #4f7cff;padding-left:8px;margin:4px 0;color:#a8b8d8;font-style:italic;}
-.card-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px;flex-shrink:0;}
-.card-stat{background:#1a1f2e;border:1px solid #252a3a;border-radius:4px;padding:4px 3px;text-align:center;}
-.card-stat-label{font-family:'Syne',sans-serif;font-size:0.48rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1px;}
-.card-stat-value{font-size:0.6rem;color:var(--text);font-weight:500;}
-.card-footer{background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:5px 12px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
-.card-school-tag{font-family:'Cinzel',serif;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;}
-.card-concentration{font-family:'Syne',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
-.con-yes{color:var(--accent2);}.con-no{color:var(--text-muted);}
-.card-components,.card-classes{font-size:0.58rem;color:#8898bb;margin-top:4px;padding:3px 7px;background:#0d0f18;border:1px solid #252a3a;border-radius:4px;line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.card-components-label,.card-classes-label{font-family:'Syne',sans-serif;font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-right:3px;}
+.card-md{flex:1;overflow:hidden;padding:8px 12px 6px;font-size:0.6rem;color:#b8c2d8;line-height:1.5;display:flex;flex-direction:column;}
+.card-md-scroll{flex:1;overflow:hidden;}
+.card-md h4{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:var(--gold);letter-spacing:0.03em;margin-bottom:2px;line-height:1.2;}
+.card-md h3,.card-md hr{height:1px;background:#252a3a;margin:4px 0;overflow:hidden;font-size:0;border:none;}
+.card-md p{margin-bottom:2px;}
+.card-md strong{color:#e8eaf0;font-weight:600;}
+.card-md em{color:#9aa0b8;font-style:italic;}
+.card-md code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.56rem;}
+.card-md ul{padding-left:12px;margin:2px 0;}.card-md li{margin-bottom:1px;}
+.card-md blockquote{border-left:2px solid var(--accent);padding-left:7px;margin:2px 0;color:#8898bb;font-style:italic;}
+.card-md br{display:block;margin:1px 0;content:'';}
 `;
 
+/* ══════════════════════════════════════════
+   PRINT CARD — 1/3 letter width, single card
+══════════════════════════════════════════ */
 function printCard(spell){
-  const w=`2.83in`, h=`5in`;
-  const cardHtml=`<div class="spell-card" style="width:${w};height:${h};">${buildCardInner(spell,false)}</div>`;
-  const win=window.open('','_blank','width=400,height=650');
+  const inner=buildCardInner(spell,false);
+  const win=window.open('','_blank','width=420,height=700');
   win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
-    @page{size:letter;margin:0.5in;}
-    body{display:flex;justify-content:center;align-items:flex-start;padding:0.3in;}
-  </style></head><body>${cardHtml}</body></html>`);
+    @page{size:letter portrait;margin:0.5in;}
+    body{display:flex;justify-content:center;align-items:flex-start;padding:0.25in;}
+    .spell-card{width:2.83in;height:5in;}
+  </style></head><body><div class="spell-card">${inner}</div></body></html>`);
   win.document.close();
   setTimeout(()=>{win.focus();win.print();},450);
 }
 
 /* ══════════════════════════════════════════
-   EXPORT CARD — exactly 300×500 JPEG, Save As
+   EXPORT CARD — 300×500 JPEG with Save As
 ══════════════════════════════════════════ */
 function exportCardJpg(spell){
   const tmp=document.createElement('div');
-  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;width:300px;height:500px;';
-  tmp.innerHTML=`<div class="spell-card" style="width:300px;height:500px;">${buildCardInner(spell,false)}</div>`;
+  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;';
+  const inner=buildCardInner(spell,false);
+  tmp.innerHTML=`<div class="spell-card" style="width:300px;height:500px;">${inner}</div>`;
   document.body.appendChild(tmp);
-  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:500,scale:1,useCORS:true}).then(canvas=>{
+  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:500,scale:1,useCORS:true,logging:false}).then(canvas=>{
     document.body.removeChild(tmp);
     canvas.toBlob(blob=>{
-      const safeName=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
+      const safe=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
       if(window.showSaveFilePicker){
-        window.showSaveFilePicker({suggestedName:safeName,types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
+        window.showSaveFilePicker({suggestedName:safe,types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
           .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
       } else {
-        const a=document.createElement('a'); a.download=safeName; a.href=URL.createObjectURL(blob); a.click();
+        const a=document.createElement('a');a.download=safe;a.href=URL.createObjectURL(blob);a.click();
         setTimeout(()=>URL.revokeObjectURL(a.href),1000);
       }
     },'image/jpeg',0.92);
@@ -891,15 +838,15 @@ function exportCardJpg(spell){
 function addToBulk(spell){
   const id=++bulkId;
   bulkCards.push({id,spell});
-  appendBulkSlot(id,spell);
+  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
+  else { appendBulkSlot(id,spell); }
   updateBulkMeta();
 }
 
 function appendBulkSlot(id,spell){
   const area=document.getElementById('bulkArea');
   const slot=document.createElement('div');
-  slot.className='bulk-slot';
-  slot.dataset.id=id;
+  slot.className='bulk-slot'; slot.dataset.id=id;
   const card=document.createElement('div');
   card.className='spell-card';
   card.innerHTML=buildCardInner(spell,false);
@@ -913,53 +860,185 @@ function appendBulkSlot(id,spell){
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
     </button>`;
   controls.querySelector('.trash').addEventListener('click',()=>{
-    bulkCards=bulkCards.filter(c=>c.id!==id);
-    slot.remove();
-    updateBulkMeta();
+    bulkCards=bulkCards.filter(c=>c.id!==id); slot.remove(); updateBulkMeta();
   });
   controls.querySelector('.copy').addEventListener('click',()=>{
-    const src=bulkCards.find(c=>c.id===id);
-    if(src) addToBulk({...src.spell});
+    const src=bulkCards.find(c=>c.id===id); if(src) addToBulk({...src.spell});
   });
-  slot.appendChild(card);
-  slot.appendChild(controls);
-  area.appendChild(slot);
+  slot.appendChild(card); slot.appendChild(controls); area.appendChild(slot);
+}
+
+/* ── Cookie helpers ── */
+const COOKIE_KEY = 'spellGridBulk';
+function saveBulkCookie(){
+  try {
+    const payload = JSON.stringify(bulkCards.map(c=>c.spell));
+    // Encode and cap at ~4 KB; cookies are limited to ~4096 bytes
+    const enc = encodeURIComponent(payload);
+    if(enc.length < 3900){
+      document.cookie = `${COOKIE_KEY}=${enc};path=/;max-age=2592000`; // 30 days
+    }
+  } catch(e){ /* quota exceeded — silently skip */ }
+}
+function loadBulkCookie(){
+  const match = document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(COOKIE_KEY+'='));
+  if(!match) return [];
+  try { return JSON.parse(decodeURIComponent(match.slice(COOKIE_KEY.length+1))); }
+  catch(e){ return []; }
+}
+function clearBulkCookie(){
+  document.cookie = `${COOKIE_KEY}=;path=/;max-age=0`;
+}
+
+/* ── Sort bulkCards array in place ── */
+function applyBulkSort(){
+  if(!bulkSortField) return;
+  bulkCards.sort((a,b)=>{
+    let va, vb;
+    if(bulkSortField==='name'){
+      va=(a.spell['name']||'').toLowerCase(); vb=(b.spell['name']||'').toLowerCase();
+    } else if(bulkSortField==='cost'){
+      // Sort by numeric prefix in cost string e.g. "3rd-level slot" → 3; "None" → 0
+      va = parseInt(a.spell['cost'])||0; vb = parseInt(b.spell['cost'])||0;
+    } else if(bulkSortField==='level'){
+      va = parseInt(a.spell['level'],10)||0; vb = parseInt(b.spell['level'],10)||0;
+    }
+    if(va < vb) return bulkSortAsc ? -1 : 1;
+    if(va > vb) return bulkSortAsc ?  1 : -1;
+    return 0;
+  });
+}
+
+/* ── Full re-render of the bulk area DOM ── */
+function rebuildBulkDOM(){
+  const area = document.getElementById('bulkArea');
+  area.querySelectorAll('.bulk-slot').forEach(el=>el.remove());
+  bulkCards.forEach(({id,spell})=>appendBulkSlot(id,spell));
 }
 
 function updateBulkMeta(){
-  document.getElementById('bulkCount').textContent=bulkCards.length+(bulkCards.length===1?' card':' cards');
-  document.getElementById('bulkEmpty').style.display=bulkCards.length===0?'flex':'none';
+  document.getElementById('bulkCount').textContent = bulkCards.length+(bulkCards.length===1?' card':' cards');
+  document.getElementById('bulkEmpty').style.display = bulkCards.length===0 ? 'flex' : 'none';
+  saveBulkCookie();
 }
 
-/* Bulk Print — 3×3 grid, pages of 9 */
+/* ── Column slider ── */
+const colSlider    = document.getElementById('colSlider');
+const colSliderVal = document.getElementById('colSliderVal');
+colSlider.addEventListener('input',()=>{
+  bulkCols = +colSlider.value;
+  colSliderVal.textContent = bulkCols;
+  document.getElementById('bulkArea').style.setProperty('--bulk-cols', bulkCols);
+});
+
+/* ── Sort dropdown + direction button ── */
+const bulkSortFieldEl = document.getElementById('bulkSortField');
+const bulkSortDirBtn  = document.getElementById('bulkSortDir');
+const bulkSortDirLbl  = document.getElementById('bulkSortDirLabel');
+const bulkSortIconEl  = document.getElementById('bulkSortIcon');
+
+function updateSortDirIcon(){
+  bulkSortDirLbl.textContent = bulkSortAsc ? 'ASC' : 'DESC';
+  bulkSortIconEl.innerHTML = bulkSortAsc
+    ? '<path d="M12 5v14M5 12l7-7 7 7"/>'                          // arrow up
+    : '<path d="M12 19V5M5 12l7 7 7-7"/>';                         // arrow down
+}
+
+bulkSortFieldEl.addEventListener('change',()=>{
+  bulkSortField = bulkSortFieldEl.value;
+  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); updateBulkMeta(); }
+});
+
+bulkSortDirBtn.addEventListener('click',()=>{
+  bulkSortAsc = !bulkSortAsc;
+  updateSortDirIcon();
+  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); updateBulkMeta(); }
+});
+
+/* ── Export grid as JSON file ── */
+document.getElementById('bulkExportJsonBtn').addEventListener('click',()=>{
+  const data = bulkCards.map(c=>c.spell);
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json],{type:'application/json'});
+  const safe = 'spell-grid-'+new Date().toISOString().slice(0,10)+'.json';
+  if(window.showSaveFilePicker){
+    window.showSaveFilePicker({suggestedName:safe,types:[{description:'JSON File',accept:{'application/json':['.json']}}]})
+      .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
+  } else {
+    const a=document.createElement('a'); a.download=safe; a.href=URL.createObjectURL(blob); a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  }
+});
+
+/* ── Import grid from JSON file ── */
+document.getElementById('bulkImportJsonBtn').addEventListener('click',()=>{
+  document.getElementById('bulkImportFile').value=''; // reset so same file can be re-imported
+  document.getElementById('bulkImportFile').click();
+});
+document.getElementById('bulkImportFile').addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = evt => {
+    try {
+      const spells = JSON.parse(evt.target.result);
+      if(!Array.isArray(spells)) throw new Error('Not an array');
+      // Append imported spells to existing grid
+      spells.forEach(spell=>{
+        if(spell && typeof spell === 'object' && spell['name']){
+          const id=++bulkId;
+          bulkCards.push({id,spell});
+          appendBulkSlot(id,spell);
+        }
+      });
+      if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
+      updateBulkMeta();
+    } catch(err){
+      alert('Could not import: invalid JSON format.\n'+err.message);
+    }
+  };
+  reader.readAsText(file);
+});
+
+/* Bulk Print — always 3×3 on letter paper */
 document.getElementById('bulkPrintBtn').addEventListener('click',()=>{
-  if(!bulkCards.length){ alert('No cards in the bulk grid.'); return; }
+  if(!bulkCards.length){alert('No cards in the bulk grid.');return;}
   const pages=[];
   for(let i=0;i<bulkCards.length;i+=9) pages.push(bulkCards.slice(i,i+9));
   const pagesHtml=pages.map(pg=>{
-    const cardsHtml=pg.map(({spell})=>`<div class="spell-card" style="width:2.83in;height:5in;">${buildCardInner(spell,false)}</div>`).join('');
+    const cardsHtml=pg.map(({spell})=>`<div class="spell-card">${buildCardInner(spell,false)}</div>`).join('');
     return `<div class="page-grid">${cardsHtml}</div>`;
-  }).join('<div class="page-break"></div>');
-  const win=window.open('','_blank','width=900,height=700');
+  }).join('');
+  const win=window.open('','_blank','width=950,height=750');
   win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
-    @page{size:letter;margin:0.4in;}
+    @page{size:letter portrait;margin:0.35in;}
     body{padding:0;}
-    .page-grid{display:grid;grid-template-columns:repeat(3,2.83in);gap:0.1in;page-break-after:always;}
-    .page-grid:last-child{page-break-after:auto;}
-    .page-break{page-break-before:always;}
+    .page-grid{display:grid;grid-template-columns:repeat(3,2.5in);grid-template-rows:repeat(3,4.6in);gap:0.1in;page-break-after:always;break-after:page;}
+    .page-grid:last-child{page-break-after:auto;break-after:auto;}
+    .spell-card{width:2.5in;height:4.6in;}
   </style></head><body>${pagesHtml}</body></html>`);
   win.document.close();
-  setTimeout(()=>{win.focus();win.print();},450);
+  setTimeout(()=>{win.focus();win.print();},500);
 });
 
-/* Bulk Export Image */
+/* Bulk Export Image — respects column slider */
 document.getElementById('bulkExportBtn').addEventListener('click',()=>{
   const area=document.getElementById('bulkArea');
+  // Snapshot current state
+  const savedCols=bulkCols;
   const controls=area.querySelectorAll('.bulk-controls');
   controls.forEach(el=>el.style.visibility='hidden');
   const emptyMsg=document.getElementById('bulkEmpty');
   emptyMsg.style.display='none';
-  html2canvas(area,{backgroundColor:'#13161e',scale:2}).then(canvas=>{
+
+  // Compute canvas size: cols * card width + gaps + padding
+  const cardW=300, cardH=500, gap=16, pad=20;
+  const cols=savedCols;
+  const rows=Math.max(1,Math.ceil(bulkCards.length/cols));
+  const canvasW=cols*cardW+(cols-1)*gap+pad*2;
+  const canvasH=rows*cardH+(rows-1)*gap+pad*2;
+
+  html2canvas(area,{backgroundColor:'#13161e',scale:2,width:canvasW,height:canvasH,useCORS:true,logging:false}).then(canvas=>{
     controls.forEach(el=>el.style.visibility='');
     if(!bulkCards.length) emptyMsg.style.display='flex';
     canvas.toBlob(blob=>{
@@ -967,10 +1046,7 @@ document.getElementById('bulkExportBtn').addEventListener('click',()=>{
         window.showSaveFilePicker({suggestedName:'bulk-grid.jpg',types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
           .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
       } else {
-        const a=document.createElement('a');
-        a.download='bulk-grid.jpg';
-        a.href=URL.createObjectURL(blob);
-        a.click();
+        const a=document.createElement('a');a.download='bulk-grid.jpg';a.href=URL.createObjectURL(blob);a.click();
         setTimeout(()=>URL.revokeObjectURL(a.href),1000);
       }
     },'image/jpeg',0.92);
@@ -986,6 +1062,7 @@ document.getElementById('modalCancel').addEventListener('click',()=>document.get
 document.getElementById('modalConfirm').addEventListener('click',()=>{
   bulkCards=[];
   document.getElementById('bulkArea').querySelectorAll('.bulk-slot').forEach(el=>el.remove());
+  clearBulkCookie();
   updateBulkMeta();
   document.getElementById('confirmModal').classList.remove('open');
 });
@@ -1011,50 +1088,75 @@ document.querySelectorAll('th').forEach(th=>{
 document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value.trim();render();});
 
 /* ══════════════════════════════════════════
-   FILTER
+   FILTER — pill toggle + apply/clear
 ══════════════════════════════════════════ */
-const filterBtn=document.getElementById('filterBtn'),filterPanel=document.getElementById('filterPanel');
+const filterBtn=document.getElementById('filterBtn');
+const filterPanel=document.getElementById('filterPanel');
 filterBtn.addEventListener('click',()=>{filterPanel.classList.toggle('open');filterBtn.classList.toggle('active');});
-document.getElementById('applyFilters').addEventListener('click',()=>{
-  const school=getChecked('filterSchool'),type=getChecked('filterType'),con=getChecked('filterCon');
-  const minV=document.getElementById('filterLvMin').value,maxV=document.getElementById('filterLvMax').value;
-  appliedFilters={};
-  if(school.length) appliedFilters.school=school;
-  if(type.length)   appliedFilters.type=type;
-  if(con.length)    appliedFilters.con=con;
-  if(minV!=='') appliedFilters.lvMin=+minV;
-  if(maxV!=='') appliedFilters.lvMax=+maxV;
-  render();
-});
-document.getElementById('clearFilters').addEventListener('click',()=>{
-  uncheckAll('filterSchool');uncheckAll('filterType');uncheckAll('filterCon');
-  document.getElementById('filterLvMin').value='';
-  document.getElementById('filterLvMax').value='';
-  appliedFilters={};render();
+
+/* Pill click → toggle checked state visually */
+document.querySelectorAll('.check-pill').forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    const cb=pill.querySelector('input');
+    cb.checked=!cb.checked;
+    pill.classList.toggle('checked',cb.checked);
+  });
 });
 
+document.getElementById('applyFilters').addEventListener('click',()=>{
+  appliedFilters={};
+  const level=getCheckedPills('filterLevel');
+  const classes=getCheckedPills('filterClasses');
+  const school=getCheckedPills('filterSchool');
+  const magicType=getCheckedPills('filterMagicType');
+  const castTime=getCheckedPills('filterCastTime');
+  const range=getCheckedPills('filterRange');
+  const other=getCheckedPills('filterOther');
+  if(level.length)    appliedFilters.level=level;
+  if(classes.length)  appliedFilters.classes=classes;
+  if(school.length)   appliedFilters.school=school;
+  if(magicType.length)appliedFilters.magicType=magicType;
+  if(castTime.length) appliedFilters.castTime=castTime;
+  if(range.length)    appliedFilters.range=range;
+  if(other.length)    appliedFilters.other=other;
+  render();
+});
+
+document.getElementById('clearFilters').addEventListener('click',()=>{
+  ['filterLevel','filterClasses','filterSchool','filterMagicType','filterCastTime','filterRange','filterOther']
+    .forEach(id=>uncheckPills(id));
+  appliedFilters={};
+  render();
+});
+
+/* ══════════════════════════════════════════
+   ACTIVE FILTER TAGS
+══════════════════════════════════════════ */
+const GROUP_LABELS={level:'Level',classes:'Class',school:'School',magicType:'Type',castTime:'Cast',range:'Range',other:''};
+const GROUP_IDS={level:'filterLevel',classes:'filterClasses',school:'filterSchool',magicType:'filterMagicType',castTime:'filterCastTime',range:'filterRange',other:'filterOther'};
+const LVL_LABELS={'0':'Cantrip','1':'1st','2':'2nd','3':'3rd','4':'4th','5':'5th','6':'6th','7':'7th','8':'8th','9':'9th'};
+
 function renderTags(){
-  const f=appliedFilters,tags=[];
-  if(f.school) f.school.forEach(v=>tags.push({label:`School: ${v}`,key:'school',value:v}));
-  if(f.type)   f.type.forEach(v=>tags.push({label:`Type: ${v}`,key:'type',value:v}));
-  if(f.con)    f.con.forEach(v=>tags.push({label:`Con: ${v}`,key:'con',value:v}));
-  if(f.lvMin!==undefined) tags.push({label:`Lv ≥ ${f.lvMin}`,key:'lvMin'});
-  if(f.lvMax!==undefined) tags.push({label:`Lv ≤ ${f.lvMax}`,key:'lvMax'});
+  const tags=[];
+  Object.entries(appliedFilters).forEach(([key,vals])=>{
+    (vals||[]).forEach(v=>{
+      const lbl=key==='level'?(LVL_LABELS[v]||v):v;
+      const prefix=GROUP_LABELS[key]?`${GROUP_LABELS[key]}: `:'';
+      tags.push({label:`${prefix}${lbl}`,key,value:v});
+    });
+  });
   const el=document.getElementById('activeTags');
-  el.innerHTML=tags.map((t,i)=>`<span class="filter-tag">${t.label}<button data-i="${i}">×</button></span>`).join('');
+  el.innerHTML=tags.map((t,i)=>`<span class="filter-tag">${esc(t.label)}<button data-i="${i}">×</button></span>`).join('');
   el.querySelectorAll('button').forEach((btn,i)=>{
     btn.addEventListener('click',()=>{
       const t=tags[i];
-      if(t.value!==undefined){
-        appliedFilters[t.key]=appliedFilters[t.key].filter(v=>v!==t.value);
-        if(!appliedFilters[t.key].length) delete appliedFilters[t.key];
-        const gm={school:'filterSchool',type:'filterType',con:'filterCon'};
-        const cb=document.querySelector(`#${gm[t.key]} input[value="${t.value}"]`);
-        if(cb) cb.checked=false;
-      } else {
-        delete appliedFilters[t.key];
-        const im={lvMin:'filterLvMin',lvMax:'filterLvMax'};
-        if(im[t.key]) document.getElementById(im[t.key]).value='';
+      appliedFilters[t.key]=appliedFilters[t.key].filter(v=>v!==t.value);
+      if(!appliedFilters[t.key].length) delete appliedFilters[t.key];
+      // Uncheck the corresponding pill
+      const groupId=GROUP_IDS[t.key];
+      if(groupId){
+        const cb=document.querySelector(`#${groupId} input[value="${t.value}"]`);
+        if(cb){ cb.checked=false; cb.closest('.check-pill').classList.remove('checked'); }
       }
       render();
     });
@@ -1062,22 +1164,41 @@ function renderTags(){
 }
 
 /* ══════════════════════════════════════════
-   INIT — fetch spells.json then boot
+   INIT — load from spells.json
+   Keep spells.json in the same folder as this
+   HTML file and open via a local server or
+   browser that allows local file fetches.
 ══════════════════════════════════════════ */
-fetch('\spells.json')
-  .then(r=>{ if(!r.ok) throw new Error('Failed to load spells.json'); return r.json(); })
-  .then(data=>{
-    RAW=data;
-    document.getElementById('totalCount').textContent=RAW.length;
+fetch('spells.json')
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(data => {
+    RAW = data;
+    document.getElementById('totalCount').textContent = RAW.length;
     render();
+    // Restore bulk grid from cookie
+    const saved = loadBulkCookie();
+    if(saved.length){
+      saved.forEach(spell=>{
+        const id=++bulkId;
+        bulkCards.push({id,spell});
+        appendBulkSlot(id,spell);
+      });
+    }
     updateBulkMeta();
   })
-  .catch(err=>{
-    // Fallback: show error in table area
-    document.getElementById('tableBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--accent2);">
-      Could not loada spells.json — make sure the file is in the same folder as this HTML file.<br><small>${err.message}</small>
-    </td></tr>`;
-    document.getElementById('visibleCount').textContent='0';
+  .catch(err => {
+    document.getElementById('tableBody').innerHTML = `
+      <tr><td colspan="9" style="text-align:center;padding:48px 20px;color:var(--accent2);line-height:1.8;">
+        <strong>Could not load spells.json</strong><br>
+        <span style="font-size:0.75rem;color:var(--text-muted);">
+          Make sure <code style="color:var(--accent3)">spells.json</code> is in the same folder as this file
+          and open it through a local web server (e.g. VS Code Live Server, Python's
+          <code style="color:var(--accent3)">http.server</code>, or any localhost).<br>
+          Browsers block <code style="color:var(--accent3)">fetch()</code> on <code style="color:var(--accent3)">file://</code> URLs for security reasons.
+        </span><br>
+        <span style="font-size:0.68rem;color:var(--text-muted);opacity:0.6;">${err.message}</span>
+      </td></tr>`;
+    document.getElementById('visibleCount').textContent = '0';
     updateBulkMeta();
   });
 </script>

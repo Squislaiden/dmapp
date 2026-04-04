@@ -145,42 +145,110 @@
       width: var(--card-w); height: var(--card-h);
       min-width: var(--card-w); min-height: var(--card-h);
       max-width: var(--card-w); max-height: var(--card-h);
-      background: #0f1119; border: 2px solid #2e3550; border-radius: 10px;
-      display: flex; flex-direction: column; overflow: hidden; position: relative;
+      background: #0f1119;
+      border: 2px solid #2e3550;
+      border-radius: 10px;
+      display: flex; flex-direction: column;
+      overflow: hidden; position: relative;
       font-family: 'DM Mono', monospace;
     }
-    .card-stripe { height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent3)); flex-shrink: 0; }
-    .card-header-band { background: linear-gradient(180deg, #1a1f30 0%, #13161e 100%); padding: 10px 12px 8px; border-bottom: 1px solid #252a3a; flex-shrink: 0; }
 
-    /* Action buttons */
-    .card-actions { display: flex; gap: 4px; align-items: center; margin-bottom: 8px; flex-wrap: nowrap; overflow-x: auto; }
-    .card-actions::-webkit-scrollbar { display: none; }
-    .card-btn { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 5px; font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; cursor: pointer; border: 1px solid var(--border); background: #1c2030; color: var(--text-dim); transition: all 0.15s; white-space: nowrap; letter-spacing: 0.04em; flex-shrink: 0; }
-    .card-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.08); }
+    /* Rainbow top stripe */
+    .card-stripe { height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent3)); flex-shrink: 0; }
+
+    /* Action buttons row at very top, outside the content */
+    .card-actions-bar {
+      background: #0d0f18;
+      border-bottom: 1px solid #252a3a;
+      padding: 5px 8px;
+      display: flex; gap: 4px; align-items: center;
+      flex-shrink: 0;
+    }
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 8px; border-radius: 5px;
+      font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700;
+      cursor: pointer; border: 1px solid var(--border); background: #1c2030;
+      color: var(--text-muted); transition: all 0.15s; white-space: nowrap;
+      letter-spacing: 0.04em; flex-shrink: 0;
+    }
+    .card-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.1); }
     .card-btn svg { flex-shrink: 0; }
 
-    /* Card markdown body */
-    .card-md {
-      flex: 1; overflow: hidden;
-      padding: 8px 12px 6px;
-      font-size: 0.62rem; color: #b8c2d8; line-height: 1.5;
-      display: flex; flex-direction: column;
+    /* Name block */
+    .card-name-block {
+      padding: 10px 12px 0;
+      flex-shrink: 0;
     }
-    .card-md-scroll { flex: 1; overflow: hidden; }
+    .card-spell-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--gold); letter-spacing: 0.02em;
+      line-height: 1.2; margin-bottom: 2px;
+    }
+    .card-type-line {
+      font-size: 0.6rem; color: #8090aa;
+      font-style: italic; margin-bottom: 0;
+    }
 
-    /* Markdown rendering inside card */
-    .card-md h4 { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 2px; line-height: 1.2; }
-    .card-md h3 { height: 1px; background: #252a3a; margin: 6px 0; overflow: hidden; font-size: 0; border: none; }
-    .card-md p { margin-bottom: 3px; }
-    .card-md p:last-child { margin-bottom: 0; }
-    .card-md strong { color: #e8eaf0; font-weight: 600; }
-    .card-md em { color: #9aa0b8; font-style: italic; }
-    .card-md code { background: #1c2030; color: var(--accent3); padding: 1px 3px; border-radius: 3px; font-size: 0.58rem; }
-    .card-md ul { padding-left: 12px; margin: 2px 0; }
-    .card-md li { margin-bottom: 1px; }
-    .card-md hr { border: none; border-top: 1px solid #252a3a; margin: 5px 0; }
-    .card-md blockquote { border-left: 2px solid var(--accent); padding-left: 7px; margin: 3px 0; color: #8898bb; font-style: italic; }
-    .card-md br { display: block; margin: 2px 0; content: ''; }
+    /* Divider rule */
+    .card-rule { height: 1px; background: #252a3a; margin: 7px 12px; flex-shrink: 0; }
+
+    /* Stats block */
+    .card-stats-block {
+      padding: 0 12px;
+      display: flex; flex-direction: column; gap: 2px;
+      flex-shrink: 0;
+    }
+    .card-stat-row {
+      font-size: 0.61rem; line-height: 1.45; color: #b0bbd4;
+      display: flex; gap: 4px; align-items: baseline;
+    }
+    .card-stat-row .stat-label { font-weight: 700; color: #d0d8ee; white-space: nowrap; flex-shrink: 0; }
+    .card-stat-row .stat-val   { color: #9aaac4; }
+    .card-stat-row em          { font-style: italic; color: #8898bb; }
+
+    /* Description block */
+    .card-desc-block {
+      padding: 0 12px;
+      flex: 1;
+      overflow: hidden;
+      font-size: 0.6rem;
+      color: #9aaac4;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .card-desc-block p  { margin-bottom: 3px; }
+    .card-desc-block p:last-child { margin-bottom: 0; }
+    .card-desc-block strong { color: #d8e0f0; font-weight: 600; }
+    .card-desc-block em     { color: #8898bb; font-style: italic; }
+    .card-desc-block code   { background: #1c2030; color: var(--accent3); padding: 1px 3px; border-radius: 3px; font-size: 0.56rem; }
+    .card-desc-block ul     { padding-left: 12px; margin: 2px 0; }
+    .card-desc-block li     { margin-bottom: 1px; }
+    .card-desc-block blockquote { border-left: 2px solid var(--accent); padding-left: 7px; margin: 3px 0; color: #7888a8; font-style: italic; }
+    .card-desc-block h3     { font-family: 'Cinzel', serif; font-size: 0.6rem; color: var(--gold); margin: 4px 0 2px; font-weight: 600; }
+
+    /* Classes line */
+    .card-classes-block {
+      padding: 4px 12px 6px;
+      font-size: 0.58rem;
+      color: #7888a8;
+      flex-shrink: 0;
+    }
+    .card-classes-block strong { color: #9aaac4; font-weight: 700; }
+
+    /* Footer */
+    .card-footer-bar {
+      background: linear-gradient(180deg, #13161e 0%, #1a1f2e 100%);
+      border-top: 1px solid #252a3a;
+      padding: 5px 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-shrink: 0;
+    }
+    .card-school-lbl { font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em; }
+    .card-conc-lbl   { font-family: 'Syne', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .card-conc-yes   { color: var(--accent2); }
+    .card-conc-no    { color: var(--text-muted); }
 
     /* ── Detail Panel ── */
     .detail-panel { width: var(--card-w); min-width: var(--card-w); display: none; flex-direction: column; }
@@ -241,7 +309,7 @@
     .bulk-slot { position: relative; width: var(--card-w); height: var(--card-h); flex-shrink: 0; animation: popIn 0.2s ease; }
     @keyframes popIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
     .bulk-slot .spell-card { width: 100%; height: 100%; }
-    .bulk-slot .card-actions { display: none !important; }
+    .bulk-slot .card-actions-bar { display: none !important; }
 
     .bulk-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 5px; z-index: 10; }
     .bulk-icon-btn { width: 26px; height: 26px; border-radius: 5px; border: 1px solid var(--border); background: rgba(13,15,20,0.88); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; backdrop-filter: blur(2px); }
@@ -538,66 +606,79 @@ function syncPills(){
 }
 
 /* ══════════════════════════════════════════
-   MARKDOWN → HTML
-   Full renderer supporting the card template
+   DESCRIPTION MARKDOWN → HTML
+   Only used for the spell description field.
+   Handles: **bold**, *italic*, `code`,
+   - lists, > blockquote, ### headings
 ══════════════════════════════════════════ */
-function md(text){
-  if(!text) return '';
-  // Work line-by-line for block elements, then inline
-  const lines = text.split('\n');
+function descMd(raw){
+  if(!raw) return '';
+  const lines = raw.split('\n');
   const out = [];
   let i = 0;
   while(i < lines.length){
     const line = lines[i];
-    // #### heading
-    if(/^#### /.test(line)){ out.push(`<h4>${mdInline(line.slice(5))}</h4>`); i++; continue; }
-    // ### becomes a horizontal rule / divider
-    if(/^###\s*$/.test(line.trim())){ out.push('<hr/>'); i++; continue; }
-    // Unordered list
+    // ### heading inside description
+    if(/^### /.test(line)){
+      out.push(`<h3>${inlineMd(line.slice(4))}</h3>`);
+      i++; continue;
+    }
+    // Blockquote
+    if(/^> /.test(line)){
+      out.push(`<blockquote>${inlineMd(line.slice(2))}</blockquote>`);
+      i++; continue;
+    }
+    // Unordered list — gather consecutive items
     if(/^- /.test(line)){
-      const items=[];
-      while(i<lines.length && /^- /.test(lines[i])){ items.push(`<li>${mdInline(lines[i].slice(2))}</li>`); i++; }
+      const items = [];
+      while(i < lines.length && /^- /.test(lines[i])){
+        items.push(`<li>${inlineMd(lines[i].slice(2))}</li>`);
+        i++;
+      }
       out.push(`<ul>${items.join('')}</ul>`);
       continue;
     }
-    // Blockquote
-    if(/^> /.test(line)){ out.push(`<blockquote>${mdInline(line.slice(2))}</blockquote>`); i++; continue; }
-    // <br> literal
-    if(/^<br>/.test(line.trim())){ out.push('<br/>'); i++; continue; }
-    // Bold line starting (***text.***)
-    if(/^\*\*\*/.test(line.trim())){ out.push(`<p>${mdInline(line)}</p>`); i++; continue; }
-    // Empty line
-    if(line.trim()==='') { i++; continue; }
-    // Paragraph
-    out.push(`<p>${mdInline(line)}</p>`);
+    // Blank line — skip
+    if(line.trim() === ''){ i++; continue; }
+    // Normal paragraph
+    out.push(`<p>${inlineMd(line)}</p>`);
     i++;
   }
   return out.join('');
 }
 
-function mdInline(t){
-  t = esc(t);
-  // &nbsp;
-  t = t.replace(/&amp;nbsp;/g,'&nbsp;');
-  // bold-italic ***text***
-  t = t.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>');
-  // bold **text**
-  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
-  // italic *text*
-  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
-  // code `text`
-  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
-  // &nbsp; literal
-  t = t.replace(/\\&nbsp;/g,'&nbsp;');
+function inlineMd(t){
+  // Escape HTML first, then apply markdown inline rules
+  t = String(t||'')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  t = t.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  t = t.replace(/\*\*(.+?)\*\*/g,     '<strong>$1</strong>');
+  t = t.replace(/\*(.+?)\*/g,         '<em>$1</em>');
+  t = t.replace(/`([^`]+)`/g,         '<code>$1</code>');
   return t;
 }
 
 /* ══════════════════════════════════════════
-   CARD MARKDOWN TEMPLATE BUILDER
-   Produces the markdown string for a spell,
-   then renders it through md().
+   CARD HTML BUILDER
+   Builds the card entirely in HTML — no
+   markdown-to-HTML pipeline for structured
+   fields, avoiding all escaping/parsing bugs.
 ══════════════════════════════════════════ */
-function buildCardMarkdown(spell){
+function schoolColor(school){
+  const map = {
+    Evocation:'#ff8c8c', Conjuration:'#7ca0ff', Illusion:'#cc88ff',
+    Necromancy:'#55d9a4', Transmutation:'#ffc145', Divination:'#80d8ff',
+    Enchantment:'#ff99bb', Abjuration:'#a8d870', Biomancy:'#b4ff64',
+    Psionic:'#dc64ff', Chronomancy:'#ffd84f', Sangromancy:'#ff6060'
+  };
+  return map[school] || '#9aa0b8';
+}
+function schoolBadge(school){
+  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
+}
+
+function buildCardInner(spell, showActions){
   const name       = spell['name']        || '';
   const level      = spell['level']       || '0';
   const cost       = spell['cost']        || '';
@@ -612,45 +693,16 @@ function buildCardMarkdown(spell){
   const desc       = spell['description'] || '';
   const classes    = spell['classes']     || '';
 
-  const lvNum    = parseInt(level, 10);
-  const lvLabel  = lvNum === 0 ? 'Cantrip' : `${lvNum}${['','st','nd','rd'][lvNum]||'th'} Level`;
-  const ritSuffix  = ritual === 'Yes' ? ' – *(Ritual)*' : '';
-  const conPrefix  = con === 'Yes'    ? '*Concentration, *' : '';
+  const lvNum     = parseInt(level, 10);
+  const lvLabel   = lvNum === 0 ? 'Cantrip' : `${lvNum}${['','st','nd','rd'][lvNum]||'th'} Level`;
+  const typeLine  = `${lvLabel} – ${school} — <strong>(${esc(type)})</strong>`;
+  const manaCost  = `${esc(cost)} Mana${ritual === 'Yes' ? ' – <em>(Ritual)</em>' : ''}`;
+  const durHtml   = con === 'Yes'
+    ? `<em>Concentration,</em> ${esc(duration)}`
+    : esc(duration);
 
-  const template =
-`#### ${name}
-&nbsp;*Level: ${lvLabel} – ${school} — **(${type})***
-###
-**Casting Time:** ${castTime}
-<br>**Mana Cost:** ${cost} Mana${ritSuffix}
-<br>**Range:** ${range}
-<br>**Components:** ${components}
-<br>**Duration:** ${conPrefix}${duration}
-###
-${desc}
-<br>
-<br>**Classes:** ${classes}`;
-
-  return md(template);
-}
-
-/* ══════════════════════════════════════════
-   CARD HTML BUILDER
-   Returns full innerHTML for a .spell-card
-══════════════════════════════════════════ */
-function schoolColor(school){
-  const map={Evocation:'#ff8c8c',Conjuration:'#7ca0ff',Illusion:'#cc88ff',Necromancy:'#55d9a4',Transmutation:'#ffc145',Divination:'#80d8ff',Enchantment:'#ff99bb',Abjuration:'#a8d870',Biomancy:'#b4ff64',Psionic:'#dc64ff',Chronomancy:'#ffd84f',Sangromancy:'#ff6060'};
-  return map[school]||'#9aa0b8';
-}
-function schoolBadge(school){
-  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
-}
-
-function buildCardInner(spell, showActions){
-  const school = spell['school']||'';
-  const con    = spell['con.']||'No';
-  const actionsHtml = showActions ? `
-    <div class="card-actions" id="cardActions">
+  const actionsBar = showActions ? `
+    <div class="card-actions-bar">
       <button class="card-btn" id="cardPrintBtn">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print
       </button>
@@ -664,13 +716,25 @@ function buildCardInner(spell, showActions){
 
   return `
     <div class="card-stripe"></div>
-    <div class="card-header-band">${actionsHtml}</div>
-    <div class="card-md">
-      <div class="card-md-scroll">${buildCardMarkdown(spell)}</div>
+    ${actionsBar}
+    <div class="card-name-block">
+      <div class="card-spell-name">${esc(name)}</div>
+      <div class="card-type-line">&nbsp;<em>${typeLine}</em></div>
     </div>
-    <div style="background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:5px 12px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
-      <div style="font-family:'Cinzel',serif;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;color:${schoolColor(school)}">${esc(school)}</div>
-      <div style="font-family:'Syne',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${con==='Yes'?'var(--accent2)':'var(--text-muted)'}">${con==='Yes'?'◉ Concentration':'○ No Conc.'}</div>
+    <div class="card-rule"></div>
+    <div class="card-stats-block">
+      <div class="card-stat-row"><span class="stat-label">Casting Time:</span><span class="stat-val">${esc(castTime)}</span></div>
+      <div class="card-stat-row"><span class="stat-label">Mana Cost:</span><span class="stat-val">${manaCost}</span></div>
+      <div class="card-stat-row"><span class="stat-label">Range:</span><span class="stat-val">${esc(range)}</span></div>
+      <div class="card-stat-row"><span class="stat-label">Components:</span><span class="stat-val">${esc(components)}</span></div>
+      <div class="card-stat-row"><span class="stat-label">Duration:</span><span class="stat-val">${durHtml}</span></div>
+    </div>
+    <div class="card-rule"></div>
+    <div class="card-desc-block">${descMd(desc)}</div>
+    <div class="card-classes-block"><strong>Classes:</strong> ${esc(classes)}</div>
+    <div class="card-footer-bar">
+      <div class="card-school-lbl" style="color:${schoolColor(school)}">${esc(school)}</div>
+      <div class="card-conc-lbl ${con==='Yes'?'card-conc-yes':'card-conc-no'}">${con==='Yes'?'◉ Concentration':'○ No Concentration'}</div>
     </div>`;
 }
 
@@ -770,19 +834,33 @@ const BASE_CSS=`
 body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
 .spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
 .card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}
-.card-header-band{background:linear-gradient(180deg,#1a1f30 0%,#13161e 100%);padding:0 12px;border-bottom:1px solid #252a3a;flex-shrink:0;}
-.card-actions{display:none!important;}
-.card-md{flex:1;overflow:hidden;padding:8px 12px 6px;font-size:0.6rem;color:#b8c2d8;line-height:1.5;display:flex;flex-direction:column;}
-.card-md-scroll{flex:1;overflow:hidden;}
-.card-md h4{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:var(--gold);letter-spacing:0.03em;margin-bottom:2px;line-height:1.2;}
-.card-md h3,.card-md hr{height:1px;background:#252a3a;margin:4px 0;overflow:hidden;font-size:0;border:none;}
-.card-md p{margin-bottom:2px;}
-.card-md strong{color:#e8eaf0;font-weight:600;}
-.card-md em{color:#9aa0b8;font-style:italic;}
-.card-md code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.56rem;}
-.card-md ul{padding-left:12px;margin:2px 0;}.card-md li{margin-bottom:1px;}
-.card-md blockquote{border-left:2px solid var(--accent);padding-left:7px;margin:2px 0;color:#8898bb;font-style:italic;}
-.card-md br{display:block;margin:1px 0;content:'';}
+.card-actions-bar{display:none!important;}
+.card-name-block{padding:8px 10px 0;flex-shrink:0;}
+.card-spell-name{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.02em;line-height:1.2;margin-bottom:2px;}
+.card-type-line{font-size:0.56rem;color:#8090aa;font-style:italic;}
+.card-type-line em{font-style:italic;}
+.card-type-line strong{font-style:normal;color:#aab0cc;}
+.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}
+.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}
+.card-stat-row{font-size:0.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}
+.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}
+.stat-val{color:#9aaac4;}
+.card-stat-row em{font-style:italic;color:#8898bb;}
+.card-stat-row strong{color:#d8e0f0;font-weight:600;}
+.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:0.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}
+.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}
+.card-desc-block strong{color:#d8e0f0;font-weight:600;}
+.card-desc-block em{color:#8898bb;font-style:italic;}
+.card-desc-block code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.52rem;}
+.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}
+.card-desc-block blockquote{border-left:2px solid var(--accent);padding-left:6px;margin:2px 0;color:#7888a8;font-style:italic;}
+.card-desc-block h3{font-family:'Cinzel',serif;font-size:0.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}
+.card-classes-block{padding:3px 10px 5px;font-size:0.54rem;color:#7888a8;flex-shrink:0;}
+.card-classes-block strong{color:#9aaac4;font-weight:700;}
+.card-footer-bar{background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.card-school-lbl{font-family:'Cinzel',serif;font-size:0.56rem;font-weight:600;letter-spacing:0.06em;}
+.card-conc-lbl{font-family:'Syne',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+.card-conc-yes{color:var(--accent2);}.card-conc-no{color:var(--text-muted);}
 `;
 
 /* ══════════════════════════════════════════

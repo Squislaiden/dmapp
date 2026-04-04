@@ -38,7 +38,7 @@
     "school": "Divination",
     "type": "Nature",
     "con.": "Yes",
-    "range": "Self",
+    "range": "Self (30-foot radius)",
     "components": "V, S",
     "duration": "Concentration, up to 10 minutes",
     "description": "For the duration, you sense the presence of magic within 30 feet of you.\n\n> If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object bearing magic.\n\nThe spell can penetrate most barriers, but 1 foot of stone blocks it.",

@@ -58,5 +58,5 @@
     "duration": "Instantaneous",
     "description": "This spell creates an undead servant.\r\nChoose a pile of bones or a corpse<br>within range.\n\n### Undead Stats\n- **Skeleton:** AC 13, HP 13\n- **Zombie:** AC 8, HP 22\n\nThe undead obeys your verbal commands for **24 hours**, after which it acts of its own free will.",
     "classes": "#### Cleric, Wizard"
-  },
+  }
 ]

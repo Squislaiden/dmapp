@@ -11,7 +11,7 @@
     "range": "150 ft",
     "components": "V, S, M (a tiny ball of bat guano and sulfur)",
     "duration": "Instantaneous",
-    "description": "A bright streak flashes from your pointing finger to a point you choose. Each creature in a 20-foot-radius sphere must make a **Dexterity saving throw**.\n\n- *Fail:* 8d6 fire damage\n- *Success:* half damage\n\nThe fire spreads around corners and ignites flammable objects.",
+    "description": "A bright streak flashes from your pointing finger to a point you choose. Each creature in a 20-foot-radius sphere must make a **Dexterity saving throw**.\n\n- *Fail:* 8d6 fire damage\n- *Success:* half damage\n\nThe fire spreads around corners and ignites flammable objects.<u>**Lunar Transfer**</u>\n***Grove or Circle:*** (1) Similar – (2-5) Off Target – (6-20) On Target\n***Memento:*** (1) Mishap – (2-5) Similar – (6-9) Off Target – (10-20) One Target\n",
     "classes": "Sorcerer, Wizard"
   },
   {

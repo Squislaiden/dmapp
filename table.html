@@ -370,7 +370,33 @@
     .bulk-icon-btn.trash:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(255,107,107,0.15); }
     .bulk-icon-btn.copy:hover  { border-color: var(--accent3); color: var(--accent3); background: rgba(54,217,160,0.12); }
 
-    /* ── Confirm Modal ── */
+    /* ── Source switcher ── */
+    .source-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .source-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 8px;
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text-muted);
+      transition: all 0.18s; white-space: nowrap; letter-spacing: 0.02em;
+    }
+    .source-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.06); }
+    .source-btn.active {
+      background: rgba(79,124,255,0.14);
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .source-label {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600;
+      color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+      margin-right: 4px;
+    }
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
     .modal-overlay.open { display: flex; animation: fadeIn 0.15s ease; }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -393,6 +419,23 @@
   <div class="page-header no-print">
     <h1>Spell <span>Grid</span></h1>
     <p>// SORTABLE · SEARCHABLE · FILTERABLE</p>
+  </div>
+
+  <!-- Source Switcher -->
+  <div class="source-switcher no-print">
+    <span class="source-label">Source:</span>
+    <button class="source-btn active" data-src="all-spells.json" id="srcAll">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      All
+    </button>
+    <button class="source-btn" data-src="5e-spells.json" id="src5e">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      5e &amp; Supplements
+    </button>
+    <button class="source-btn" data-src="overhaul-spells.json" id="srcOverhaul">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Overhaul Only
+    </button>
   </div>
 
   <!-- Toolbar -->
@@ -632,8 +675,9 @@ let appliedFilters={};
 let currentRow=null;
 let bulkCards=[], bulkId=0;
 let bulkCols=3;
-let bulkSortField='';   // 'name' | 'cost' | 'level' | ''
+let bulkSortField='';
 let bulkSortAsc=true;
+let currentSource='all-spells.json';
 
 /* ══════════════════════════════════════════
    HELPERS
@@ -1402,53 +1446,112 @@ function renderTags(){
 }
 
 /* ══════════════════════════════════════════
-   INIT — load from spells.json
-   Keep spells.json in the same folder as this
-   HTML file and open via a local server or
-   browser that allows local file fetches.
+   SOURCE LOADING
+   Fetches a JSON file, populates RAW, re-renders
+   the table, closes the card panel, and saves
+   the active source to the cookie.
 ══════════════════════════════════════════ */
-fetch('spells.json')
-  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then(data => {
-    RAW = data;
-    document.getElementById('totalCount').textContent = RAW.length;
-    render();
-    // Restore bulk grid from cookie
-    const saved = loadBulkCookie();
-    if(saved.length){
-      saved.forEach(entry=>{
-        // Cookie stores {spell, extended} objects
-        let spell, extended;
-        if(entry && entry.spell && entry.spell['name']){
-          spell    = entry.spell;
-          extended = entry.extended === true ? true : spellIsExtended(spell);
-        } else if(entry && entry['name']){
-          // Old cookie format — raw spell object
-          spell    = entry;
-          extended = spellIsExtended(spell);
-        } else { return; }
-        const id = ++bulkId;
-        bulkCards.push({id, spell, extended});
-        appendBulkSlot(id, spell, extended);
-      });
-    }
-    updateBulkMeta();
-  })
-  .catch(err => {
-    document.getElementById('tableBody').innerHTML = `
-      <tr><td colspan="9" style="text-align:center;padding:48px 20px;color:var(--accent2);line-height:1.8;">
-        <strong>Could not load spells.json</strong><br>
-        <span style="font-size:0.75rem;color:var(--text-muted);">
-          Make sure <code style="color:var(--accent3)">spells.json</code> is in the same folder as this file
-          and open it through a local web server (e.g. VS Code Live Server, Python's
-          <code style="color:var(--accent3)">http.server</code>, or any localhost).<br>
-          Browsers block <code style="color:var(--accent3)">fetch()</code> on <code style="color:var(--accent3)">file://</code> URLs for security reasons.
-        </span><br>
-        <span style="font-size:0.68rem;color:var(--text-muted);opacity:0.6;">${err.message}</span>
-      </td></tr>`;
-    document.getElementById('visibleCount').textContent = '0';
-    updateBulkMeta();
+const SOURCE_COOKIE = 'spellGridSource';
+
+function saveSourceCookie(src){
+  document.cookie = `${SOURCE_COOKIE}=${encodeURIComponent(src)};path=/;max-age=2592000`;
+}
+function loadSourceCookie(){
+  const match = document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(SOURCE_COOKIE+'='));
+  if(!match) return null;
+  try { return decodeURIComponent(match.slice(SOURCE_COOKIE.length+1)); }
+  catch(e){ return null; }
+}
+
+function setActiveSourceBtn(src){
+  document.querySelectorAll('.source-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.src === src);
   });
+}
+
+function loadSource(src, isInit){
+  currentSource = src;
+  saveSourceCookie(src);
+  setActiveSourceBtn(src);
+
+  // Close card view whenever source changes (skip on first init)
+  if(!isInit) closeDetail();
+
+  // Reset search, filters, sort on source switch (optional but clean)
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+
+  // Show loading state
+  document.getElementById('tableBody').innerHTML =
+    `<tr><td colspan="9" style="text-align:center;padding:32px;color:var(--text-muted);font-size:0.8rem;">Loading ${src}…</td></tr>`;
+  document.getElementById('visibleCount').textContent = '0';
+  document.getElementById('totalCount').textContent = '0';
+
+  fetch(src)
+    .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data => {
+      RAW = data;
+      document.getElementById('totalCount').textContent = RAW.length;
+      render();
+    })
+    .catch(err => {
+      document.getElementById('tableBody').innerHTML = `
+        <tr><td colspan="9" style="text-align:center;padding:48px 20px;color:var(--accent2);line-height:1.8;">
+          <strong>Could not load ${esc(src)}</strong><br>
+          <span style="font-size:0.75rem;color:var(--text-muted);">
+            Make sure <code style="color:var(--accent3)">${esc(src)}</code> is in the same folder as this file
+            and open it through a local web server.<br>
+            Browsers block <code style="color:var(--accent3)">fetch()</code> on <code style="color:var(--accent3)">file://</code> URLs for security reasons.
+          </span><br>
+          <span style="font-size:0.68rem;color:var(--text-muted);opacity:0.6;">${err.message}</span>
+        </td></tr>`;
+      document.getElementById('visibleCount').textContent = '0';
+    });
+}
+
+/* Wire up source buttons */
+document.querySelectorAll('.source-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(btn.dataset.src !== currentSource){
+      loadSource(btn.dataset.src, false);
+    }
+  });
+});
+
+/* ══════════════════════════════════════════
+   INIT — restore source + bulk grid from cookies
+══════════════════════════════════════════ */
+(function init(){
+  // Restore last active source (defaults to all-spells.json)
+  const savedSrc = loadSourceCookie();
+  const startSrc = ['all-spells.json','5e-spells.json','overhaul-spells.json'].includes(savedSrc)
+    ? savedSrc : 'all-spells.json';
+
+  currentSource = startSrc;
+  setActiveSourceBtn(startSrc);
+
+  // Restore bulk grid from cookie (independent of source)
+  const saved = loadBulkCookie();
+  if(saved.length){
+    saved.forEach(entry=>{
+      let spell, extended;
+      if(entry && entry.spell && entry.spell['name']){
+        spell    = entry.spell;
+        extended = entry.extended === true ? true : spellIsExtended(spell);
+      } else if(entry && entry['name']){
+        spell    = entry;
+        extended = spellIsExtended(spell);
+      } else { return; }
+      const id = ++bulkId;
+      bulkCards.push({id, spell, extended});
+      appendBulkSlot(id, spell, extended);
+    });
+  }
+  updateBulkMeta();
+
+  // Load the table data (isInit=true so card panel isn't closed)
+  loadSource(startSrc, true);
+})();
 </script>
 </body>
 </html>

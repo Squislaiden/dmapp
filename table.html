@@ -142,15 +142,30 @@
        SPELL CARD — exactly 300×500px
     ════════════════════════════════════ */
     .spell-card {
-      width: var(--card-w); height: var(--card-h);
-      min-width: var(--card-w); min-height: var(--card-h);
-      max-width: var(--card-w); max-height: var(--card-h);
+      width: var(--card-w);
+      min-width: var(--card-w);
+      max-width: var(--card-w);
+      /* Standard height — overridden to auto for extended cards */
+      height: var(--card-h);
+      min-height: var(--card-h);
       background: #0f1119;
       border: 2px solid #2e3550;
       border-radius: 10px;
       display: flex; flex-direction: column;
       overflow: hidden; position: relative;
       font-family: 'DM Mono', monospace;
+    }
+
+    /* Extended card: grow to fit content, no height cap */
+    .spell-card.extended {
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+    /* When extended, desc block no longer needs to flex-expand — content drives height */
+    .spell-card.extended .card-desc-block {
+      flex: none;
+      overflow: visible;
     }
 
     /* Rainbow top stripe */
@@ -276,8 +291,9 @@
     .type-other    { background: rgba(160,160,160,0.10); color: #888;    border-color: rgba(160,160,160,0.22); }
 
     /* ── Detail Panel ── */
-    .detail-panel { width: var(--card-w); min-width: var(--card-w); display: none; flex-direction: column; }
+    .detail-panel { width: var(--card-w); min-width: var(--card-w); display: none; flex-direction: column; align-items: flex-start; }
     .detail-panel.open { display: flex; animation: fadeInRight 0.22s ease; }
+    .detail-panel .spell-card { width: var(--card-w); }
     @keyframes fadeInRight { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
 
     /* ── Bulk Section ── */
@@ -317,6 +333,7 @@
     .bulk-area {
       display: grid;
       grid-template-columns: repeat(var(--bulk-cols, 3), var(--card-w));
+      grid-auto-rows: var(--card-h);
       gap: 16px;
       background: var(--surface);
       border: 1px dashed var(--border);
@@ -324,16 +341,28 @@
       padding: 20px;
       position: relative;
       min-height: calc(var(--card-h) + 40px);
-      /* width fits exactly to content — no stretching */
       width: fit-content;
       max-width: 100%;
     }
     .bulk-empty-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.8rem; pointer-events: none; flex-direction: column; gap: 10px; text-align: center; grid-column: 1 / -1; }
     .bulk-empty-msg svg { opacity: 0.2; }
 
-    .bulk-slot { position: relative; width: var(--card-w); height: var(--card-h); flex-shrink: 0; animation: popIn 0.2s ease; }
+    /* Standard slot — one grid cell */
+    .bulk-slot { position: relative; width: var(--card-w); animation: popIn 0.2s ease; }
+    /* Extended slot — spans two row cells including the gap between them */
+    .bulk-slot.extended { grid-row: span 2; }
+    .bulk-slot.extended .spell-card {
+      height: calc(var(--card-h) * 2 + 16px); /* 2 rows + 1 gap */
+      min-height: calc(var(--card-h) * 2 + 16px);
+      max-height: none;
+      overflow: visible;
+    }
+    .bulk-slot.extended .spell-card .card-desc-block {
+      flex: none;
+      overflow: visible;
+    }
     @keyframes popIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
-    .bulk-slot .spell-card { width: 100%; height: 100%; }
+    .bulk-slot .spell-card { width: 100%; }
     .bulk-slot .card-actions-bar { display: none !important; }
 
     .bulk-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 5px; z-index: 10; }
@@ -841,12 +870,39 @@ function render(){
 }
 
 /* ══════════════════════════════════════════
+   OVERFLOW DETECTION
+   Returns true if the card's content exceeds
+   the standard card height (500px).
+══════════════════════════════════════════ */
+function measureCardExtended(cardEl){
+  // Temporarily allow full height to measure natural scroll height
+  cardEl.style.height = 'auto';
+  cardEl.style.maxHeight = 'none';
+  cardEl.style.overflow = 'visible';
+  const natural = cardEl.scrollHeight;
+  // Restore — will be set properly by class below
+  cardEl.style.height = '';
+  cardEl.style.maxHeight = '';
+  cardEl.style.overflow = '';
+  return natural > 500;
+}
+
+/* ══════════════════════════════════════════
    DETAIL CARD
 ══════════════════════════════════════════ */
 function openDetail(spell){
   currentRow=spell;
   const card=document.getElementById('detailCard');
+  card.className='spell-card'; // reset
   card.innerHTML=buildCardInner(spell,true);
+
+  // Measure and apply extended if needed
+  requestAnimationFrame(()=>{
+    if(measureCardExtended(card)){
+      card.classList.add('extended');
+    }
+  });
+
   card.querySelector('#cardPrintBtn').addEventListener('click',()=>printCard(spell));
   card.querySelector('#cardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
   card.querySelector('#cardExportBtn').addEventListener('click',()=>exportCardJpg(spell));
@@ -870,6 +926,8 @@ const BASE_CSS=`
 :root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}
 body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
 .spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+.spell-card.extended{height:auto;max-height:none;overflow:visible;}
+.spell-card.extended .card-desc-block{flex:none;overflow:visible;}
 .card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}
 .card-actions-bar{display:none!important;}
 .card-name-block{padding:8px 10px 0;flex-shrink:0;}
@@ -918,30 +976,47 @@ body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
 `;
 
 /* ══════════════════════════════════════════
-   PRINT CARD — 1/3 letter width, single card
+   PRINT CARD — 1/3 letter width, auto height
 ══════════════════════════════════════════ */
 function printCard(spell){
+  // Check if detail card is currently extended
+  const detailCard = document.getElementById('detailCard');
+  const isExtended = detailCard && detailCard.classList.contains('extended');
+  const heightStyle = isExtended ? 'height:auto;max-height:none;overflow:visible;' : 'height:5in;';
   const inner=buildCardInner(spell,false);
   const win=window.open('','_blank','width=420,height=700');
   win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
     @page{size:letter portrait;margin:0.5in;}
     body{display:flex;justify-content:center;align-items:flex-start;padding:0.25in;}
-    .spell-card{width:2.83in;height:5in;}
-  </style></head><body><div class="spell-card">${inner}</div></body></html>`);
+    .spell-card{width:2.83in;${heightStyle}}
+    ${isExtended?'.spell-card.extended .card-desc-block{flex:none;overflow:visible;}':''}
+  </style></head><body><div class="spell-card${isExtended?' extended':''}">${inner}</div></body></html>`);
   win.document.close();
   setTimeout(()=>{win.focus();win.print();},450);
 }
 
 /* ══════════════════════════════════════════
-   EXPORT CARD — 300×500 JPEG with Save As
+   EXPORT CARD — JPEG with Save As
+   Height is 500px standard, or auto-measured
+   for extended cards.
 ══════════════════════════════════════════ */
 function exportCardJpg(spell){
-  const tmp=document.createElement('div');
-  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;';
+  const detailCard = document.getElementById('detailCard');
+  const isExtended = detailCard && detailCard.classList.contains('extended');
   const inner=buildCardInner(spell,false);
-  tmp.innerHTML=`<div class="spell-card" style="width:300px;height:500px;">${inner}</div>`;
+
+  const tmp=document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;width:300px;';
+  const cardCls = isExtended ? 'spell-card extended' : 'spell-card';
+  const heightStyle = isExtended ? 'width:300px;height:auto;max-height:none;overflow:visible;' : 'width:300px;height:500px;';
+  tmp.innerHTML=`<div class="${cardCls}" style="${heightStyle}">${inner}</div>`;
   document.body.appendChild(tmp);
-  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:500,scale:1,useCORS:true,logging:false}).then(canvas=>{
+
+  // Measure actual rendered height for extended cards
+  const cardEl = tmp.firstChild;
+  const measuredH = isExtended ? cardEl.scrollHeight : 500;
+
+  html2canvas(cardEl,{backgroundColor:'#0f1119',width:300,height:measuredH,scale:1,useCORS:true,logging:false}).then(canvas=>{
     document.body.removeChild(tmp);
     canvas.toBlob(blob=>{
       const safe=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
@@ -959,48 +1034,70 @@ function exportCardJpg(spell){
 /* ══════════════════════════════════════════
    BULK GRID
 ══════════════════════════════════════════ */
-function addToBulk(spell){
-  const id=++bulkId;
-  bulkCards.push({id,spell});
+
+/* Measure whether a spell card would overflow standard height.
+   We render it off-screen at full width, measure, then discard. */
+function spellIsExtended(spell){
+  const tmp = document.createElement('div');
+  tmp.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:300px;visibility:hidden;';
+  tmp.innerHTML = `<div class="spell-card" style="width:300px;height:auto;max-height:none;overflow:visible;">${buildCardInner(spell,false)}</div>`;
+  document.body.appendChild(tmp);
+  const h = tmp.firstChild.scrollHeight;
+  document.body.removeChild(tmp);
+  return h > 500;
+}
+
+function addToBulk(spell, forceExtended){
+  const id = ++bulkId;
+  const extended = forceExtended !== undefined ? forceExtended : spellIsExtended(spell);
+  bulkCards.push({id, spell, extended});
   if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
-  else { appendBulkSlot(id,spell); }
+  else { appendBulkSlot(id, spell, extended); }
   updateBulkMeta();
 }
 
-function appendBulkSlot(id,spell){
-  const area=document.getElementById('bulkArea');
-  const slot=document.createElement('div');
-  slot.className='bulk-slot'; slot.dataset.id=id;
-  const card=document.createElement('div');
-  card.className='spell-card';
-  card.innerHTML=buildCardInner(spell,false);
-  const controls=document.createElement('div');
-  controls.className='bulk-controls';
-  controls.innerHTML=`
+function appendBulkSlot(id, spell, extended){
+  const area = document.getElementById('bulkArea');
+  const slot = document.createElement('div');
+  slot.className = 'bulk-slot' + (extended ? ' extended' : '');
+  slot.dataset.id = id;
+  slot.dataset.extended = extended ? '1' : '0';
+
+  const card = document.createElement('div');
+  card.className = 'spell-card' + (extended ? ' extended' : '');
+  card.innerHTML = buildCardInner(spell, false);
+
+  const controls = document.createElement('div');
+  controls.className = 'bulk-controls';
+  controls.innerHTML = `
     <button class="bulk-icon-btn copy" title="Duplicate">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
     </button>
     <button class="bulk-icon-btn trash" title="Remove">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
     </button>`;
-  controls.querySelector('.trash').addEventListener('click',()=>{
-    bulkCards=bulkCards.filter(c=>c.id!==id); slot.remove(); updateBulkMeta();
+  controls.querySelector('.trash').addEventListener('click', ()=>{
+    bulkCards = bulkCards.filter(c=>c.id!==id);
+    slot.remove();
+    updateBulkMeta();
   });
-  controls.querySelector('.copy').addEventListener('click',()=>{
-    const src=bulkCards.find(c=>c.id===id); if(src) addToBulk({...src.spell});
+  controls.querySelector('.copy').addEventListener('click', ()=>{
+    const src = bulkCards.find(c=>c.id===id);
+    if(src) addToBulk({...src.spell}, src.extended);
   });
-  slot.appendChild(card); slot.appendChild(controls); area.appendChild(slot);
+  slot.appendChild(card);
+  slot.appendChild(controls);
+  area.appendChild(slot);
 }
 
 /* ── Cookie helpers ── */
 const COOKIE_KEY = 'spellGridBulk';
 function saveBulkCookie(){
   try {
-    const payload = JSON.stringify(bulkCards.map(c=>c.spell));
-    // Encode and cap at ~4 KB; cookies are limited to ~4096 bytes
+    const payload = JSON.stringify(bulkCards.map(c=>({spell:c.spell, extended:c.extended})));
     const enc = encodeURIComponent(payload);
     if(enc.length < 3900){
-      document.cookie = `${COOKIE_KEY}=${enc};path=/;max-age=2592000`; // 30 days
+      document.cookie = `${COOKIE_KEY}=${enc};path=/;max-age=2592000`;
     }
   } catch(e){ /* quota exceeded — silently skip */ }
 }
@@ -1037,7 +1134,7 @@ function applyBulkSort(){
 function rebuildBulkDOM(){
   const area = document.getElementById('bulkArea');
   area.querySelectorAll('.bulk-slot').forEach(el=>el.remove());
-  bulkCards.forEach(({id,spell})=>appendBulkSlot(id,spell));
+  bulkCards.forEach(({id,spell,extended})=>appendBulkSlot(id,spell,extended));
 }
 
 function updateBulkMeta(){
@@ -1081,7 +1178,7 @@ bulkSortDirBtn.addEventListener('click',()=>{
 
 /* ── Export grid as JSON file ── */
 document.getElementById('bulkExportJsonBtn').addEventListener('click',()=>{
-  const data = bulkCards.map(c=>c.spell);
+  const data = bulkCards.map(c=>({ spell: c.spell, extended: c.extended }));
   const json = JSON.stringify(data, null, 2);
   const blob = new Blob([json],{type:'application/json'});
   const safe = 'spell-grid-'+new Date().toISOString().slice(0,10)+'.json';
@@ -1096,7 +1193,7 @@ document.getElementById('bulkExportJsonBtn').addEventListener('click',()=>{
 
 /* ── Import grid from JSON file ── */
 document.getElementById('bulkImportJsonBtn').addEventListener('click',()=>{
-  document.getElementById('bulkImportFile').value=''; // reset so same file can be re-imported
+  document.getElementById('bulkImportFile').value='';
   document.getElementById('bulkImportFile').click();
 });
 document.getElementById('bulkImportFile').addEventListener('change', e=>{
@@ -1105,15 +1202,21 @@ document.getElementById('bulkImportFile').addEventListener('change', e=>{
   const reader = new FileReader();
   reader.onload = evt => {
     try {
-      const spells = JSON.parse(evt.target.result);
-      if(!Array.isArray(spells)) throw new Error('Not an array');
-      // Append imported spells to existing grid
-      spells.forEach(spell=>{
-        if(spell && typeof spell === 'object' && spell['name']){
-          const id=++bulkId;
-          bulkCards.push({id,spell});
-          appendBulkSlot(id,spell);
-        }
+      const parsed = JSON.parse(evt.target.result);
+      if(!Array.isArray(parsed)) throw new Error('Not an array');
+      parsed.forEach(entry=>{
+        // Support both old format (spell object directly) and new format ({spell, extended})
+        let spell, extended;
+        if(entry && typeof entry === 'object' && entry.spell && entry.spell['name']){
+          spell    = entry.spell;
+          extended = entry.extended === true ? true : spellIsExtended(spell);
+        } else if(entry && typeof entry === 'object' && entry['name']){
+          spell    = entry;
+          extended = spellIsExtended(spell);
+        } else { return; }
+        const id = ++bulkId;
+        bulkCards.push({id, spell, extended});
+        appendBulkSlot(id, spell, extended);
       });
       if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
       updateBulkMeta();
@@ -1124,56 +1227,67 @@ document.getElementById('bulkImportFile').addEventListener('change', e=>{
   reader.readAsText(file);
 });
 
-/* Bulk Print — always 3×3 on letter paper */
+/* Bulk Print — 3×3 grid on letter; extended cards span 2 rows */
 document.getElementById('bulkPrintBtn').addEventListener('click',()=>{
   if(!bulkCards.length){alert('No cards in the bulk grid.');return;}
-  const pages=[];
-  for(let i=0;i<bulkCards.length;i+=9) pages.push(bulkCards.slice(i,i+9));
-  const pagesHtml=pages.map(pg=>{
-    const cardsHtml=pg.map(({spell})=>`<div class="spell-card">${buildCardInner(spell,false)}</div>`).join('');
+  // Build pages of up to 9 "row-slots" (extended uses 2)
+  const pages = [];
+  let pg = [], slots = 0;
+  bulkCards.forEach(c=>{
+    const uses = c.extended ? 2 : 1;
+    if(slots + uses > 9 && pg.length){ pages.push(pg); pg=[]; slots=0; }
+    pg.push(c);
+    slots += uses;
+  });
+  if(pg.length) pages.push(pg);
+
+  const pagesHtml = pages.map(p=>{
+    const cardsHtml = p.map(({spell,extended})=>{
+      const rowSpan = extended ? 'grid-row:span 2;' : '';
+      const hStyle  = extended ? 'height:calc(4.6in*2 + 0.1in);max-height:none;overflow:visible;' : 'height:4.6in;';
+      return `<div class="spell-card${extended?' extended':''}" style="width:2.5in;${hStyle}${rowSpan}">${buildCardInner(spell,false)}</div>`;
+    }).join('');
     return `<div class="page-grid">${cardsHtml}</div>`;
   }).join('');
+
   const win=window.open('','_blank','width=950,height=750');
   win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
     @page{size:letter portrait;margin:0.35in;}
     body{padding:0;}
-    .page-grid{display:grid;grid-template-columns:repeat(3,2.5in);grid-template-rows:repeat(3,4.6in);gap:0.1in;page-break-after:always;break-after:page;}
+    .page-grid{display:grid;grid-template-columns:repeat(3,2.5in);grid-auto-rows:4.6in;gap:0.1in;page-break-after:always;break-after:page;}
     .page-grid:last-child{page-break-after:auto;break-after:auto;}
-    .spell-card{width:2.5in;height:4.6in;}
   </style></head><body>${pagesHtml}</body></html>`);
   win.document.close();
   setTimeout(()=>{win.focus();win.print();},500);
 });
 
-/* Bulk Export Image — respects column slider */
+/* Bulk Export Image — respects column slider, accounts for extended cards */
 document.getElementById('bulkExportBtn').addEventListener('click',()=>{
   const area=document.getElementById('bulkArea');
-  // Snapshot current state
-  const savedCols=bulkCols;
   const controls=area.querySelectorAll('.bulk-controls');
   controls.forEach(el=>el.style.visibility='hidden');
   const emptyMsg=document.getElementById('bulkEmpty');
   emptyMsg.style.display='none';
 
-  // Compute canvas size: cols * card width + gaps + padding
-  const cardW=300, cardH=500, gap=16, pad=20;
-  const cols=savedCols;
-  const rows=Math.max(1,Math.ceil(bulkCards.length/cols));
-  const canvasW=cols*cardW+(cols-1)*gap+pad*2;
-  const canvasH=rows*cardH+(rows-1)*gap+pad*2;
+  // Let the browser complete layout before measuring
+  requestAnimationFrame(()=>{
+    const areaRect = area.getBoundingClientRect();
+    const canvasW = areaRect.width;
+    const canvasH = areaRect.height;
 
-  html2canvas(area,{backgroundColor:'#13161e',scale:2,width:canvasW,height:canvasH,useCORS:true,logging:false}).then(canvas=>{
-    controls.forEach(el=>el.style.visibility='');
-    if(!bulkCards.length) emptyMsg.style.display='flex';
-    canvas.toBlob(blob=>{
-      if(window.showSaveFilePicker){
-        window.showSaveFilePicker({suggestedName:'bulk-grid.jpg',types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
-          .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
-      } else {
-        const a=document.createElement('a');a.download='bulk-grid.jpg';a.href=URL.createObjectURL(blob);a.click();
-        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-      }
-    },'image/jpeg',0.92);
+    html2canvas(area,{backgroundColor:'#13161e',scale:2,width:canvasW,height:canvasH,useCORS:true,logging:false}).then(canvas=>{
+      controls.forEach(el=>el.style.visibility='');
+      if(!bulkCards.length) emptyMsg.style.display='flex';
+      canvas.toBlob(blob=>{
+        if(window.showSaveFilePicker){
+          window.showSaveFilePicker({suggestedName:'bulk-grid.jpg',types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
+            .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
+        } else {
+          const a=document.createElement('a');a.download='bulk-grid.jpg';a.href=URL.createObjectURL(blob);a.click();
+          setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+        }
+      },'image/jpeg',0.92);
+    });
   });
 });
 
@@ -1302,10 +1416,20 @@ fetch('spells.json')
     // Restore bulk grid from cookie
     const saved = loadBulkCookie();
     if(saved.length){
-      saved.forEach(spell=>{
-        const id=++bulkId;
-        bulkCards.push({id,spell});
-        appendBulkSlot(id,spell);
+      saved.forEach(entry=>{
+        // Cookie stores {spell, extended} objects
+        let spell, extended;
+        if(entry && entry.spell && entry.spell['name']){
+          spell    = entry.spell;
+          extended = entry.extended === true ? true : spellIsExtended(spell);
+        } else if(entry && entry['name']){
+          // Old cookie format — raw spell object
+          spell    = entry;
+          extended = spellIsExtended(spell);
+        } else { return; }
+        const id = ++bulkId;
+        bulkCards.push({id, spell, extended});
+        appendBulkSlot(id, spell, extended);
       });
     }
     updateBulkMeta();

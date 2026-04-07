@@ -11,7 +11,7 @@
     "range": "150 ft",
     "components": "V, S, M (a tiny ball of bat guano and sulfur)",
     "duration": "Instantaneous",
-    "description": "<u>**Lunar Transfer**</u>\n***Grove or Circle:*** (1) Similar – (2-5) Off Target – (6-20) On Target\n***Grove or Circle:*** (1) Similar – (2-5) Off Target – (6-20) On Target\n***Memento:*** (1) Mishap – (2-5) Similar – (6-9) Off Target – (10-20) One Target\n***Memento:*** (1) Mishap – (2-5) Similar – (6-9) Off Target – (10-20) One Target\n",
+    "description": "**---Lunar Transfer---**\n***Grove/Circle:*** (1) Similar – (2-5) Off Target\n***Grove/Circle:*** (6-20) On Target\n***Memento:*** (1) Mishap – (2-5) Similar\n***Memento:*** (6-9) Off Target – (10-20) On Target\n***Familiar:*** (1) Mishap – (2-5) Similar\n***Familiar:*** (6-13) Off Target – (14-20) On Target\n***Seen Casually:*** (1) Mishap – (2-9) Similar\n***Seen Casually:*** (10-13) Off Target – (14-20) On Target\n***Viewed Once:*** (1-5) Mishap – (6-9) Similar\n***Viewed Once:*** (10-13) Off Target – (14-20) On Target\n***Description:*** (1-5) Mishap – (6-13) Similar\n***Description:*** (14-17) Off Target – (18-20) On Target\n***False Target:*** (1-9) Mishap – (10-20) Similar\n",
     "classes": "Sorcerer, Wizard"
   },
   {

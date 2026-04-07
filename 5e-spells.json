@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Fireball",
+    "level": "3",
+    "cost": "3rd-level slot",
+    "cast time": "1 action",
+    "rit.": "No",
+    "school": "Evocation",
+    "type": "Divine",
+    "con.": "No",
+    "range": "150 ft",
+    "components": "V, S, M (a tiny ball of bat guano and sulfur)",
+    "duration": "Instantaneous",
+    "description": "This spell instantly transports you and up to eight willing creatures that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be Large or smaller, and it can't be held or carried by an unwilling creature.\n\nThe destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether you arrive there successfully. The DM rolls 1d100 and consults the Teleportation Outcome table.\n\n**---Teleportion Outcome---**\n***Circle:*** (01-00) On Target\n***Linked Object:*** (01-00) On Target\n***Familiar:*** (1) Mishap – (2-5) Similar\n***Familiar:*** (6-13) Off Target – (14-20) On Target\n***Seen:*** (1) Mishap – (2-9) Similar\n***Seen:*** (10-13) Off Target – (14-20) On Target\n***Describe:*** (01-43) Mishap – (44-53) Similar\n***Describe:*** (54-73) Off Target – (74-00) Success\n***False Target:*** (01-50) Mishap – (51-00) Similar",
+    "classes": "Sorcerer, Wizard"
+  }
+]

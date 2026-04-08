@@ -8884,7 +8884,7 @@
      "level": "3",
      "cost": "x mana",
      "rit.": "No",
-     "cast time": "Action (Overgrowth) or 8 hours (Enrichment)",
+     "cast time": "Action or 8 hours",
      "school": "Transmutation",
      "type": "?",
      "con.": "No",
@@ -13759,7 +13759,7 @@
      "level": "4",
      "cost": "x mana",
      "rit.": "No",
-     "cast time": "Bonus action, which you take immediately after hitting a creature with a Melee weapon or an <a href=\"variantrules.html#unarmed%20strike_xphb\"  onmouseover=\"Renderer.hover.pHandleLinkMouseOver(event, this)\" onmouseleave=\"Renderer.hover.handleLinkMouseLeave(event, this)\" onmousemove=\"Renderer.hover.handleLinkMouseMove(event, this)\" onclick=\"Renderer.hover.handleLinkClick(event, this)\" onwheel=\"Renderer.hover.handleLinkWheel(event, this)\" ondragstart=\"Renderer.hover.handleLinkDragStart(event, this)\" data-vet-page=\"variantrules.html\" data-vet-source=\"XPHB\" data-vet-hash=\"unarmed%20strike_xphb\" ontouchstart=\"Renderer.hover.handleTouchStart(event, this)\" >Unarmed Strike</a>",
+     "cast time": "Bonus action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike.",
      "school": "Enchantment",
      "type": "?",
      "con.": "No",
@@ -13979,19 +13979,4 @@
      "description": "You invigorate up to three creatures within range with improved accuracy. Each target gains a +1 bonus to attack rolls it makes with Ranged weapons. Additionally, the normal and long range of Ranged weapons wielded by a target are doubled for the spell's duration.",
      "classes": "Bard, Cleric, Druid, Paladin, Ranger"
  },
- {
-     "name": "Black Hand",
-     "level": "4",
-     "cost": "x mana",
-     "rit.": "No",
-     "cast time": "Action",
-     "school": "Necromancy",
-     "type": "?",
-     "con.": "Yes",
-     "range": "30 feet",
-     "components": "V, S",
-     "duration": "Concentration, up to 1 minute",
-     "description": "You gather the powers of darkness into your fist and fling dark, paralyzing flame. Make a ranged spell attack against a target you can see within 30 feet of you. On a successful hit, you have advantage on attack rolls against the target and the target has disadvantage on attack rolls, Constitution-based ability checks, and Constitution saving throws for the duration of the spell. At the end of each of its turns, an affected target can make another Constitution saving throw. On a success, the spell ends on the target.",
-     "classes": ""
- }
 ]

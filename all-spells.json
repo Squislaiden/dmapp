@@ -13978,5 +13978,5 @@
      "duration": "1 minute",
      "description": "You invigorate up to three creatures within range with improved accuracy. Each target gains a +1 bonus to attack rolls it makes with Ranged weapons. Additionally, the normal and long range of Ranged weapons wielded by a target are doubled for the spell's duration.",
      "classes": "Bard, Cleric, Druid, Paladin, Ranger"
- },
+ }
 ]

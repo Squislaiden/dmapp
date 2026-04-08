@@ -26,6 +26,9 @@
       --tag-bg: #1f2538;
       --card-w: 300px;
       --card-h: 500px;
+      /* Theme tint — overridden by JS */
+      --tint-h: 224;
+      --tint-s: 70%;
     }
 
     body { font-family: 'DM Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 32px; }
@@ -134,7 +137,7 @@
     tbody tr:hover { background: var(--row-hover); }
     tbody tr.selected { background: #161c2e; box-shadow: inset 3px 0 0 var(--accent); }
     td { padding: 10px 14px; font-size: 0.78rem; color: var(--text-dim); vertical-align: middle; white-space: nowrap; }
-    td.name-cell { font-weight: 600; color: var(--text); font-size: 0.82rem; white-space: normal; }
+    td.name-cell { font-weight: 600; color: var(--text-dim); font-size: 0.8rem; white-space: normal; }
     .school-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; font-family: 'Syne', sans-serif; border: 1px solid; }
     .school-Evocation    { background: rgba(255,107,107,0.1);  color: #ff8c8c; border-color: rgba(255,107,107,0.25); }
     .school-Conjuration  { background: rgba(79,124,255,0.1);   color: #7ca0ff; border-color: rgba(79,124,255,0.25); }
@@ -144,10 +147,7 @@
     .school-Divination   { background: rgba(100,200,255,0.1);  color: #80d8ff; border-color: rgba(100,200,255,0.25); }
     .school-Enchantment  { background: rgba(255,150,180,0.1);  color: #ff99bb; border-color: rgba(255,150,180,0.25); }
     .school-Abjuration   { background: rgba(140,200,80,0.1);   color: #a8d870; border-color: rgba(140,200,80,0.25); }
-    .school-Biomancy     { background: rgba(180,255,100,0.1);  color: #b4ff64; border-color: rgba(180,255,100,0.25); }
     .school-Psionic      { background: rgba(220,100,255,0.1);  color: #dc64ff; border-color: rgba(220,100,255,0.25); }
-    .school-Chronomancy  { background: rgba(255,220,80,0.1);   color: #ffd84f; border-color: rgba(255,220,80,0.25); }
-    .school-Sangromancy  { background: rgba(255,96,96,0.1);   color: #ff6060; border-color: rgba(255,96,96,0.25); }
     mark { background: rgba(79,124,255,0.25); color: #fff; border-radius: 2px; padding: 0 1px; }
     .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
     .empty-state p { font-size: 0.85rem; margin-top: 12px; }
@@ -420,6 +420,59 @@
     .modal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; line-height: 1.6; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
+    /* ── Theme select ── */
+    .theme-select {
+      margin-left: auto;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
+      font-family: 'Syne', sans-serif; font-size: 0.73rem; font-weight: 600;
+      padding: 6px 26px 6px 10px; border-radius: 8px; outline: none; cursor: pointer;
+      transition: border-color 0.18s, color 0.18s;
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 8px center;
+      flex-shrink: 0;
+    }
+    .theme-select:hover, .theme-select:focus { border-color: var(--accent); color: var(--accent); }
+    .theme-select option { background: #1c2030; color: var(--text); }
+
+    /* ── Mobile / responsive ── */
+    @media (max-width: 900px) {
+      body { padding: 16px 12px; }
+      .container { max-width: 100%; }
+      /* Stack main layout vertically */
+      .main-layout { flex-direction: column; gap: 16px; }
+      /* Detail panel below table on mobile */
+      .detail-panel { width: 100%; min-width: unset; order: 2; }
+      .detail-panel .spell-card { width: 100%; max-width: 100%; min-width: unset; }
+      /* Table side full width */
+      .table-side { width: 100%; overflow-x: auto; }
+      /* Compact table for mobile */
+      .table-wrap { min-width: unset; }
+      table { font-size: 0.72rem; }
+      th { padding: 8px 8px; font-size: 0.62rem; }
+      td { padding: 7px 8px; font-size: 0.72rem; white-space: nowrap; }
+      td.name-cell { font-size: 0.75rem; white-space: normal; min-width: 90px; max-width: 140px; }
+      /* Hide lower-priority columns on small screens */
+      th[data-col="2"], td:nth-child(3),   /* Cost */
+      th[data-col="4"], td:nth-child(5)    /* Rit. */
+        { display: none; }
+      /* Source switcher wraps */
+      .source-switcher { flex-wrap: wrap; }
+      .source-btn { padding: 6px 10px; font-size: 0.7rem; }
+      .theme-select { width: 100%; margin-left: 0; margin-top: 4px; }
+      /* Bulk area scrolls horizontally on mobile */
+      .bulk-section { overflow-x: auto; }
+      /* Slider and sort controls stack */
+      .bulk-header { flex-direction: column; align-items: flex-start; }
+      .bulk-actions { flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      /* On very small screens also hide Type and Con */
+      th[data-col="6"], td:nth-child(7),   /* Type */
+      th[data-col="7"], td:nth-child(8)    /* Con. */
+        { display: none; }
+    }
+
     @media print {
       body { background: #fff; padding: 0; }
       body::before { display: none; }
@@ -435,7 +488,7 @@
     <p>// SORTABLE · SEARCHABLE · FILTERABLE</p>
   </div>
 
-  <!-- Source Switcher -->
+  <!-- Source Switcher + Theme -->
   <div class="source-switcher no-print">
     <span class="source-label">Source:</span>
     <button class="source-btn active" data-src="all-spells.json" id="srcAll">
@@ -450,6 +503,21 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Overhaul Only
     </button>
+    <select class="theme-select" id="themeSelect" title="Page theme">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+      <option value="gray">Gray</option>
+      <option value="blue">Blue</option>
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="orange">Orange</option>
+      <option value="green">Green</option>
+      <option value="violet">Violet</option>
+      <option value="teal">Teal</option>
+      <option value="rose">Rose</option>
+      <option value="indigo">Indigo</option>
+    </select>
   </div>
 
   <!-- Toolbar -->
@@ -502,8 +570,6 @@
       <span class="filter-row-label">School</span>
       <div class="filter-row-checks" id="filterSchool">
         <label class="check-pill"><input type="checkbox" value="Abjuration"/><div class="pill-dot"></div><span>Abjuration</span></label>
-        <label class="check-pill"><input type="checkbox" value="Biomancy"/><div class="pill-dot"></div><span>Biomancy</span></label>
-        <label class="check-pill"><input type="checkbox" value="Chronomancy"/><div class="pill-dot"></div><span>Chronomancy</span></label>
         <label class="check-pill"><input type="checkbox" value="Conjuration"/><div class="pill-dot"></div><span>Conjuration</span></label>
         <label class="check-pill"><input type="checkbox" value="Divination"/><div class="pill-dot"></div><span>Divination</span></label>
         <label class="check-pill"><input type="checkbox" value="Enchantment"/><div class="pill-dot"></div><span>Enchantment</span></label>
@@ -511,7 +577,6 @@
         <label class="check-pill"><input type="checkbox" value="Illusion"/><div class="pill-dot"></div><span>Illusion</span></label>
         <label class="check-pill"><input type="checkbox" value="Necromancy"/><div class="pill-dot"></div><span>Necromancy</span></label>
         <label class="check-pill"><input type="checkbox" value="Psionic"/><div class="pill-dot"></div><span>Psionic</span></label>
-        <label class="check-pill"><input type="checkbox" value="Sangromancy"/><div class="pill-dot"></div><span>Sangromancy</span></label>
         <label class="check-pill"><input type="checkbox" value="Transmutation"/><div class="pill-dot"></div><span>Transmutation</span></label>
       </div>
     </div>
@@ -902,9 +967,12 @@ function render(){
   tbody.innerHTML=data.map(row=>{
     const lvNum=parseInt(row['level'],10);
     const lvDisplay=lvNum===0?'Cantrip':String(lvNum);
-    // Truncate "Reaction, which you take when …" → "Reaction, …"
+    // Truncate verbose cast times in the table
     const rawCast = row['cast time'] || '';
-    const castDisplay = /^reaction,?\s+\S/i.test(rawCast) ? 'Reaction, …' : rawCast;
+    let castDisplay = rawCast;
+    if(/^reaction,?\s+\S/i.test(rawCast))          castDisplay = 'Reaction, …';
+    else if(/^1 bonus action,?\s+\S/i.test(rawCast)) castDisplay = 'Bonus Action, …';
+    else if(/^bonus action,?\s+\S/i.test(rawCast))   castDisplay = 'Bonus Action, …';
     return `<tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
       <td class="name-cell">${hi(row['name'],q)}</td>
       <td>${hi(lvDisplay,q)}</td>
@@ -1025,10 +1093,7 @@ body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
 .school-Divination{background:rgba(100,200,255,0.1);color:#80d8ff;border-color:rgba(100,200,255,0.25);}
 .school-Enchantment{background:rgba(255,150,180,0.1);color:#ff99bb;border-color:rgba(255,150,180,0.25);}
 .school-Abjuration{background:rgba(140,200,80,0.1);color:#a8d870;border-color:rgba(140,200,80,0.25);}
-.school-Biomancy{background:rgba(180,255,100,0.1);color:#b4ff64;border-color:rgba(180,255,100,0.25);}
 .school-Psionic{background:rgba(220,100,255,0.1);color:#dc64ff;border-color:rgba(220,100,255,0.25);}
-.school-Chronomancy{background:rgba(255,220,80,0.1);color:#ffd84f;border-color:rgba(255,220,80,0.25);}
-.school-Sangromancy{background:rgba(255,96,96,0.1);color:#ff6060;border-color:rgba(255,96,96,0.25);}
 .type-Arcane{background:rgba(30,144,255,0.12);color:#3eb5ff;border-color:rgba(30,144,255,0.28);}
 .type-Divine{background:rgba(201,168,76,0.12);color:#c9a84c;border-color:rgba(201,168,76,0.28);}
 .type-Nature{background:rgba(60,200,80,0.12);color:#50c858;border-color:rgba(60,200,80,0.28);}
@@ -1204,13 +1269,38 @@ function updateBulkMeta(){
   saveBulkCookie();
 }
 
-/* ── Column slider ── */
+/* ── Column slider — auto-detects width, saves to cookie ── */
+const COLS_COOKIE = 'spellGridCols';
+function saveColsCookie(n){ document.cookie=`${COLS_COOKIE}=${n};path=/;max-age=2592000`; }
+function loadColsCookie(){
+  const m=document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(COLS_COOKIE+'='));
+  if(!m) return null;
+  const v=parseInt(m.slice(COLS_COOKIE.length+1),10);
+  return (v>=1&&v<=6)?v:null;
+}
+function autoCalcCols(){
+  // Card width 300 + 16 gap; container padding ~40px each side
+  const avail = Math.max(300, window.innerWidth - 80);
+  return Math.max(1, Math.min(6, Math.floor((avail + 16) / (300 + 16))));
+}
+function applyBulkCols(n){
+  bulkCols = n;
+  colSlider.value = n;
+  colSliderVal.textContent = n;
+  document.getElementById('bulkArea').style.setProperty('--bulk-cols', n);
+  saveColsCookie(n);
+}
+
 const colSlider    = document.getElementById('colSlider');
 const colSliderVal = document.getElementById('colSliderVal');
-colSlider.addEventListener('input',()=>{
-  bulkCols = +colSlider.value;
-  colSliderVal.textContent = bulkCols;
-  document.getElementById('bulkArea').style.setProperty('--bulk-cols', bulkCols);
+colSlider.addEventListener('input',()=>{ applyBulkCols(+colSlider.value); });
+
+// Recompute on resize if not manually overridden by user
+let userSetCols = false;
+colSlider.addEventListener('mousedown',()=>{ userSetCols=true; });
+colSlider.addEventListener('touchstart',()=>{ userSetCols=true; });
+window.addEventListener('resize',()=>{
+  if(!userSetCols) applyBulkCols(autoCalcCols());
 });
 
 /* ── Sort dropdown + direction button ── */
@@ -1536,9 +1626,115 @@ document.querySelectorAll('.source-btn').forEach(btn=>{
 });
 
 /* ══════════════════════════════════════════
-   INIT — restore source + bulk grid from cookies
+   THEME ENGINE
+   Each theme overrides CSS custom properties
+   on :root via a <style> tag.
 ══════════════════════════════════════════ */
+const THEME_COOKIE = 'spellGridTheme';
+function saveThemeCookie(t){ document.cookie=`${THEME_COOKIE}=${t};path=/;max-age=2592000`; }
+function loadThemeCookie(){
+  const m=document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(THEME_COOKIE+'='));
+  return m?m.slice(THEME_COOKIE.length+1):null;
+}
+
+const THEMES = {
+  default: {},  // uses stylesheet defaults
+  dark: {
+    '--bg':'#060709','--surface':'#0d0f12','--surface2':'#141620',
+    '--border':'#1e2230','--header-bg':'#0f1118','--row-hover':'#111420',
+    '--text':'#d0d4e0','--text-muted':'#505566','--text-dim':'#7880a0','--tag-bg':'#171a28',
+    '--accent':'#4f7cff','--accent2':'#ff6b6b','--accent3':'#36d9a0'
+  },
+  light: {
+    '--bg':'#f4f6fb','--surface':'#ffffff','--surface2':'#edf0f7',
+    '--border':'#d0d6e8','--header-bg':'#e8edf8','--row-hover':'#f0f3fc',
+    '--text':'#1a1e2e','--text-muted':'#7880a0','--text-dim':'#4a5070','--tag-bg':'#e4e9f8',
+    '--accent':'#3a68e8','--accent2':'#e8404a','--accent3':'#22b87a','--gold':'#a07830'
+  },
+  gray: {
+    '--bg':'#1c1e22','--surface':'#26282e','--surface2':'#32343c',
+    '--border':'#3a3d46','--header-bg':'#202226','--row-hover':'#2e3038',
+    '--text':'#d8dae4','--text-muted':'#7a7d8c','--text-dim':'#a0a4b4','--tag-bg':'#2c2f38',
+    '--accent':'#8898c8','--accent2':'#d07070','--accent3':'#5ab89a'
+  },
+  blue: {
+    '--bg':'#050d1a','--surface':'#091527','--surface2':'#0e2040',
+    '--border':'#163060','--header-bg':'#071020','--row-hover':'#0c1c38',
+    '--text':'#cce0ff','--text-muted':'#3a6090','--text-dim':'#6090c0','--tag-bg':'#0c1e3a',
+    '--accent':'#4090ff','--accent2':'#ff7070','--accent3':'#40d8b0'
+  },
+  red: {
+    '--bg':'#140808','--surface':'#1e0c0c','--surface2':'#2e1010',
+    '--border':'#501818','--header-bg':'#180a0a','--row-hover':'#281010',
+    '--text':'#ffe0e0','--text-muted':'#904040','--text-dim':'#b07070','--tag-bg':'#281212',
+    '--accent':'#ff5050','--accent2':'#ffaa44','--accent3':'#40d8a0'
+  },
+  yellow: {
+    '--bg':'#13110a','--surface':'#1e1a0e','--surface2':'#2c2610',
+    '--border':'#463c12','--header-bg':'#181408','--row-hover':'#25200e',
+    '--text':'#ffeebb','--text-muted':'#806830','--text-dim':'#a08840','--tag-bg':'#221c0c',
+    '--accent':'#e0b030','--accent2':'#ff7070','--accent3':'#60d870','--gold':'#e8c048'
+  },
+  orange: {
+    '--bg':'#110d07','--surface':'#1c1408','--surface2':'#2a1e0c',
+    '--border':'#48300a','--header-bg':'#160e06','--row-hover':'#231808',
+    '--text':'#ffe8cc','--text-muted':'#885020','--text-dim':'#aa7040','--tag-bg':'#201408',
+    '--accent':'#e87820','--accent2':'#ff5858','--accent3':'#40d890'
+  },
+  green: {
+    '--bg':'#070f0a','--surface':'#0c1810','--surface2':'#102218',
+    '--border':'#183a20','--header-bg':'#081208','--row-hover':'#0e1e12',
+    '--text':'#c8f0d0','--text-muted':'#306040','--text-dim':'#508060','--tag-bg':'#0e1e12',
+    '--accent':'#40c860','--accent2':'#ff7070','--accent3':'#60e0c0'
+  },
+  violet: {
+    '--bg':'#0d0814','--surface':'#150c22','--surface2':'#1e1030',
+    '--border':'#32185a','--header-bg':'#100a1a','--row-hover':'#1a1030',
+    '--text':'#e8ccff','--text-muted':'#604890','--text-dim':'#9060c0','--tag-bg':'#180e28',
+    '--accent':'#9040e8','--accent2':'#ff6090','--accent3':'#40d8a0'
+  },
+  teal: {
+    '--bg':'#070e10','--surface':'#0c181c','--surface2':'#10222a',
+    '--border':'#143848','--header-bg':'#080e12','--row-hover':'#0e1e26',
+    '--text':'#c0eef8','--text-muted':'#285868','--text-dim':'#407888','--tag-bg':'#0c1e28',
+    '--accent':'#30b8d0','--accent2':'#ff7070','--accent3':'#60e090'
+  },
+  rose: {
+    '--bg':'#130810','--surface':'#1e0c1a','--surface2':'#2c1028',
+    '--border':'#4a1840','--header-bg':'#160a12','--row-hover':'#240e20',
+    '--text':'#ffd0f0','--text-muted':'#803060','--text-dim':'#b05080','--tag-bg':'#200e1c',
+    '--accent':'#e040a0','--accent2':'#ff8040','--accent3':'#40d8c0'
+  },
+  indigo: {
+    '--bg':'#080812','--surface':'#0e0e20','--surface2':'#14142e',
+    '--border':'#202050','--header-bg':'#0a0a18','--row-hover':'#121228',
+    '--text':'#d0d0ff','--text-muted':'#383880','--text-dim':'#5858a8','--tag-bg':'#121230',
+    '--accent':'#6868f0','--accent2':'#ff7070','--accent3':'#40d8c0'
+  }
+};
+
+let themeStyleEl = null;
+function applyTheme(name){
+  const vars = THEMES[name] || {};
+  if(!themeStyleEl){ themeStyleEl=document.createElement('style'); document.head.appendChild(themeStyleEl); }
+  const css = Object.entries(vars).map(([k,v])=>`${k}:${v};`).join('');
+  themeStyleEl.textContent = css ? `:root{${css}}` : '';
+  saveThemeCookie(name);
+  const sel=document.getElementById('themeSelect');
+  if(sel) sel.value=name;
+}
+
+document.getElementById('themeSelect').addEventListener('change',e=>applyTheme(e.target.value));
+
 (function init(){
+  // Restore theme
+  const savedTheme = loadThemeCookie();
+  if(savedTheme && THEMES[savedTheme]) applyTheme(savedTheme);
+
+  // Restore column count (saved cookie → autodetect fallback)
+  const savedCols = loadColsCookie();
+  applyBulkCols(savedCols !== null ? savedCols : autoCalcCols());
+
   // Restore last active source (defaults to all-spells.json)
   const savedSrc = loadSourceCookie();
   const startSrc = ['all-spells.json','5e-spells.json','overhaul-spells.json'].includes(savedSrc)

@@ -57,7 +57,7 @@
      "components": "V, S, M (a drop of acid)",
      "duration": "Concentration, up to 1 minute",
      "description": "With a gentle patter, corrosive raindrops build to an acidic deluge in a 20-foot-radius, 60-foot-tall cylinder, centred on a point within range When the rain begins, each creature in the area must make a Dexterity saving throw, taking 4d6 acid damage on failure or half as much damage on a success For the duration, A creature must also make this saving throw when it enters the spell's area for the first time on its turn or ends its turn there.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Acid Splash",
@@ -87,7 +87,7 @@
      "components": "V, S, M (a vial of stomach acid and a pinch of sulfate)",
      "duration": "Instantaneous",
      "description": "You create an orb of acid gel and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d6 acid damage. Whether the attack hits or misses, the orb explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 acid damage.",
-     "classes": "Ranger, Ranger, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Ranger, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Aganazzar's Scorcher",
@@ -117,7 +117,7 @@
      "components": "S",
      "duration": "24 hours",
      "description": "You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system).",
-     "classes": "Artificer, Artificer, Druid, Druid, Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Artificier, Druid, Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Alarm",
@@ -177,7 +177,7 @@
      "components": "S, M (a broken twig)",
      "duration": "1 hour",
      "description": "You channel primal predatory energies to perfectly conceal your presence in order to surprise your target. You become invisible for the spell's duration, granting advantage on all Dexterity (Stealth) checks to remain hidden. The invisibility will last for the duration of the spell, however, moving 5 feet or more from your position when you cast the spell will end the effect.\n\nAs long as you remain invisible, the first attack you make against any target who is unaware of your presence deals an additional 1d6 points of damage. This attack ends the spell.",
-     "classes": "Ranger, Ranger"
+     "classes": "Ranger"
  },
  {
      "name": "Ancestral Communion",
@@ -432,7 +432,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You emit waves of arcanomagnetic energy, distorting the trajectories of ferrous items. For the duration, attacks using ferrous weapons or ammunition made against you have disadvantage In addition, the area within 20 feet of you is difficult terrain for creatures that are made of ferrous metal or are wearing ferrous armour\n\n***Magnetic Pulse..*** When you cast this spell and as a bonus action on your subsequent turns, you can force one Huge or smaller creature that is experiencing this difficult terrain to make a Strength saving throw On a failure, it takes 1d6 force damage is knocked prone.",
-     "classes": "Cleric, Cleric, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Arcanomagnetic Storm",
@@ -447,7 +447,7 @@
      "components": "V, S, M (a piece of bismuth)",
      "duration": "Concentration, up to 1 minute",
      "description": "A storm made of crackling lightning and arcanomagnetic winds appears in a location you choose within range The area of the storm consists of up to ten 10foot cubes, which you can arrange as you wish, and which last until the spell ends Each cube must have at least one face adjacent to the face of another cube. As a bonus action at the start of each of your turns, you can remove one 10-foot cube, and place another 10-foot-cube adjacent to the face of another cube.\n\nEach creature that starts its turn in the area or enters the area for the first time on its turn must make a Dexterity saving throw, taking 4d8 lightning damage on a failure, or half as much damage on a success Each creature that ends its turn in the area must make a Strength saving throw, taking 4d8 force damage and being knocked prone on a failure, or taking half as much damage and not being knocked prone on a success A creature made of ferrous metal or wearing ferrous armour has disadvantage on this Strength saving throw\n\nThe area is difficult terrain for any creatures made of ferrous metal or wearing ferrous armour.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Armor of Agathys",
@@ -567,7 +567,7 @@
      "components": "V",
      "duration": "Concentration, up to 1 minute",
      "description": "Enervating energy radiates from you in an aura with a 30-foot radius Until the spell ends, the aura moves with you, centred on you Each creature of your choice that enters the aura for the first time on its turn or starts its turn there must succeed on a Charisma saving throw or become drained until the end of its next turn While drained, a creature must roll a d4 and subtract the number rolled from each ability check, attack roll, or saving throw it makes, and any hit points a creature regains are reduced by half\n.",
-     "classes": "Paladin, Paladin, Warlock, Warlock"
+     "classes": "Paladin, Warlock"
  },
  {
      "name": "Aura of Life",
@@ -657,7 +657,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You attack a creature in range with a quick spreading infection that takes advantage of existing conditions. Make a ranged spell attack against a target, on a hit the infection does 1d8 necrotic damage to the target. If the target is suffering from the poisoned condition or a disease, it instead takes 1d12 necrotic damage.\n\nThe spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12).",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Ballistic Smite",
@@ -867,7 +867,7 @@
      "components": "V, S, M (a withered root and a drop of vinegar)",
      "duration": "1 minute",
      "description": "You coat a 15-foot-wide cube with toxic sludge for the spell's duration. The area is difficult terrain and filled with dangerous fumes. A creature that enters the area or starts its turn there must make a Constitution saving throw. On a failed saving throw, the creature takes 1d8 poison damage and is poisoned until the start of its next turn. Creatures are affected even if they hold their breath or don't need to breathe.",
-     "classes": "Druid, Druid, Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Bitter Wind",
@@ -957,7 +957,7 @@
      "components": "V, S, M (a strip of magnesium)",
      "duration": "Concentration, up to 1 minute",
      "description": "Bright light erupts from your form and dazzles those around you For the duration, you emit bright light in a 50-foot radius and dim light for an additional 50 feet Each creature that moves within 10 feet of you for the first time on its turn or that starts its turn there must make a Constitution saving throw On a failure, a creature takes 3d10 radiant damage and is blinded until the start of its next turn On a success, a creature takes half as much damage and isn't blinded.",
-     "classes": "Cleric, Cleric, Paladin, Paladin, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Cleric, Paladin, Sorcerer, Warlock"
  },
  {
      "name": "Blinding Smite",
@@ -1040,7 +1040,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Enchantment (sangromancy)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Touch",
@@ -1055,7 +1055,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -1085,7 +1085,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Conjuration (sangromancy)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -1100,7 +1100,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -1122,7 +1122,7 @@
      "components": "V, S, M (a jar full of leeches)",
      "duration": "Concentration, up to 1 minute",
      "description": "You infect a creature you can see within range with a magical disease in the form of a malignant parasite. Once per turn when a creature hits the infected target with a weapon attack, that attack deals an additional 4d6 necrotic damage, and the attacker regains hit points equal to the necrotic damage dealt. Each time the infected target takes this necrotic damage, it makes a Constitution saving throw against the spell. If the saving throw succeeds, the spell ends.",
-     "classes": "Bard, Bard, Druid, Druid, Warlock, Warlock"
+     "classes": "Bard, Druid, Warlock"
  },
  {
      "name": "Bloodbane Rune",
@@ -1130,7 +1130,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
@@ -1190,7 +1190,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Touch",
@@ -1212,7 +1212,7 @@
      "components": "V, S, M (the bones of at least one non-animated corpse, which the spell consumes)",
      "duration": "1 minute",
      "description": "You draw the bones from all corpses within range, forming a carapace of ribcages and femurs. You gain temporary hit points for each Small or larger corpse wholly or partly within range, according to its size, that last for the duration:\n\n**---Size---**\n***Small:*** 1d6+1\n***Medium:*** 1d8+2\n***Large:*** 1d10+5\n***Huge:*** 1d12+12\n***Gargantuan:*** 1d20+25\n\nAs an action on a subsequent turn, you can cause your armour of bones to erupt, expending all remaining temporary hit points. Each other creature within range must make a Dexterity saving throw, taking piercing damage equal to your expended temporary hit points on a failure, or half as much damage on a success. Whatever the manner in which the temporary hit points are lost, the bones shatter and can't be used in this way again.",
-     "classes": "Cleric, Cleric, Druid, Druid, Paladin, Paladin, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Druid, Paladin, Warlock, Wizard"
  },
  {
      "name": "Bones of the Earth",
@@ -1227,7 +1227,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10-foot radius that lasts until the rubble is cleared. Each 5-foot-diameter portion of the area requires at least 1 minute to clear by hand.\n\nIf a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save.\n\nIf a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes 6d6 bludgeoning damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature's choice) against the spell's save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it.",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Borrowed Knowledge",
@@ -1242,7 +1242,7 @@
      "components": "V, S, M (a book worth at least 25 gp)",
      "duration": "1 hour",
      "description": "You draw on knowledge from spirits of the past. Choose one skill in which you lack proficiency. For the spell's duration, you have proficiency in the chosen skill. The spell ends early if you cast it again.",
-     "classes": "Bard, Bard, Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Cleric, Warlock, Wizard"
  },
  {
      "name": "Breath of Nightshade",
@@ -1257,7 +1257,7 @@
      "components": "V, S, M (A pair of deadly nightshade flowers)",
      "duration": "Instantaneous",
      "description": "You exhale a 60-foot-cone of lethal poison. Each creature in the area when you cast the spell must make a Constitution saving throw. On a failed save, the creature becomes poisoned for 1 hour. While poisoned by this spell, the creature is paralyzed.\n\nThe spell ends for an affected creature if it takes any damage.",
-     "classes": "Bard, Bard, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Warlock, Wizard"
  },
  {
      "name": "Breath of the Deep",
@@ -1340,7 +1340,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Conjuration (sangromancy)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "200 feet",
@@ -1482,7 +1482,7 @@
      "components": "V, S",
      "duration": "1 round",
      "description": "Choose a willing creature within range that you can see Until the end of your next turn, that creature is immune to the prone condition If it is already prone and is not restrained, this spell sets it on its feet\n\nThe number of creatures you can simultaneously target with this spell increases by 1 when you reach 5th level (2 creatures), 11th level (3 creatures), and 17th level (4 creatures).",
-     "classes": "Bard, Bard, Cleric, Cleric, Druid, Druid, Wizard, Wizard"
+     "classes": "Bard, Cleric, Druid, Wizard"
  },
  {
      "name": "Can'trip",
@@ -1497,7 +1497,7 @@
      "components": "V, S",
      "duration": "1 round",
      "description": "You temporarily tangle the Weave around a creature within range that you can see. Until the start of your next turn, each time the creature tries to cast a cantrip whilst this spell affects it, it must succeed on a spellcasting ability check against your spell save DC or waste its action. The spell ends if the target moves out of the spell's range.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Cannotrip",
@@ -1512,7 +1512,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "Choose a creature you can see within range Each time the target tries to cast a cantrip, it must succeed on a spellcasting ability check against your spell save DC or waste its action.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Captivate Undead",
@@ -1557,7 +1557,7 @@
      "components": "S",
      "duration": "Instantaneous",
      "description": "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Ceremony",
@@ -1625,14 +1625,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
      "components": "V, S, M (red, yellow, and blue pigment)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You imbue a creature you touch with pigment so that its skin, and anything it wears or carries, slowly shifts hues to match its surroundings For the duration, the target can take the Hide action as a bonus action on each of its turns, even when only lightly obscured\n\nIf the target did not move during its last turn, creatures have disadvantage on any Wisdom (Perception) checks made to see the target Creatures who do not rely on sight, such as those with tremorsense, are immune to this effect.",
-     "classes": "Bard, Bard, Druid, Druid, Ranger, Ranger, Wizard, Wizard"
+     "classes": "Bard, Druid, Ranger, Wizard"
  },
  {
      "name": "Chant of Thoth",
@@ -1760,7 +1760,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "120 feet",
@@ -2007,7 +2007,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "With a thdoom that can be heard 100 feet away, you cause a sudden increase in the air pressure surrounding a creature you can see within range The target must succeed on a Constitution saving throw or take 1d8 thunder damage and become deafened until the start of your next turn\n\nThis spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)\n.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Concussive Burst",
@@ -2097,7 +2097,7 @@
      "components": "V, S, M (an aberration component)",
      "duration": "Concentration, up to 1 hour",
      "description": "You call forth an aberration at random from the Anomalies, a distant and bizarre plane Choose an unoccupied space within range An aberration of challenge rating 5 or lower (GM's choice) appears in the space The aberration disappears when it drops to 0 hit points or when the spell ends\n\nThe aberration is friendly to you and your companions for the duration Roll initiative for the aberration, which has its own turns It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the aberration, it defends itself from hostile creatures, but otherwise takes no actions\n\nIf your concentration is broken, the aberration doesn't disappear Instead, you lose control of the aberration, it becomes hostile towards you and your companions, and it might attack An uncontrolled aberration can't be dismissed by you, and it disappears 1 hour after you summoned it.",
-     "classes": "Warlock, Warlock, Wizard, Wizard"
+     "classes": "Warlock, Wizard"
  },
  {
      "name": "Conjure Barrage",
@@ -2120,7 +2120,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Conjuration (Firearm)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "600 feet",
@@ -2315,7 +2315,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "Yes",
      "range": "60 feet",
@@ -2457,7 +2457,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You cause the triggering creature's body to explode in a violent shower of gore and infected flesh. Creatures within 10 feet of a point centered on the triggering creature's body take 4d8 necrotic damage and 4d8 acid damage, or half as much damage on a successful Dexterity saving throw.",
-     "classes": "Warlock, Warlock, Wizard, Wizard"
+     "classes": "Warlock, Wizard"
  },
  {
      "name": "Corrosive Blast",
@@ -2472,7 +2472,7 @@
      "components": "V, S, M (a vial of acid)",
      "duration": "Instantaneous",
      "description": "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes 10d4 acid damage on a failed save, or half as much damage on a successful one.\n\nThe acid destroys any objects made of organic materials in the spell's area. A creature killed by this spell has its flesh entirely dissolved, leaving behind only a corroded skeleton.",
-     "classes": "Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Sorcerer, Wizard"
  },
  {
      "name": "Corrupting Spores",
@@ -2487,7 +2487,7 @@
      "components": "V, S, M (a dried mushroom)",
      "duration": "Concentration, up to 1 minute",
      "description": "A small patch of three poison mushrooms magically sprout in a 5-foot square that you can see within range. The mushrooms emit toxic spores, and any creature that starts its turn within 10 feet of the mushroom patch must make a Constitution saving throw. On a failed save, the creature takes 1d8 poison damage for each mushroom in the patch and is poisoned until the start of its next turn.\n\nUntil the spell ends, you can use a bonus action on your turn to cause an additional mushroom to sprout within the patch.",
-     "classes": "Druid, Druid, Ranger, Ranger"
+     "classes": "Druid, Ranger"
  },
  {
      "name": "Counterspell",
@@ -2562,7 +2562,7 @@
      "components": "V, S, M (a vial of quicksilver worth 500 gp and a life-sized human doll, both of which the spell consumes, and an intricate crystal rod worth at least 1,500 gp that is not consumed)",
      "duration": "Instantaneous",
      "description": "While casting the spell, you place a vial of quicksilver in the chest of a life-sized human doll stuffed with ash or dust. You then stitch up the doll and drip your blood on it. At the end of the casting, you tap the doll with a crystal rod, transforming it into a magen clothed in whatever the doll was wearing. The type of magen is chosen by you during the casting of the spell. See *appendix C* for different kinds of magen and their statistics.\n\nWhen the magen appears, your hit point maximum decreases by an amount equal to the magen's challenge rating (minimum reduction of 1). Only a *wish* spell can undo this reduction to your hit point maximum.\n\nAny magen you create with this spell obeys your commands without question.",
-     "classes": "Wizard, Wizard"
+     "classes": "Wizard"
  },
  {
      "name": "Create Mist of R'lyeh",
@@ -2607,7 +2607,7 @@
      "components": "V, S, M (a crystal rod worth at least 5,000 gp, which the spell consumes)",
      "duration": "Instantaneous",
      "description": "Holding the rod used in the casting of the spell, you touch a Large or smaller chair that is unoccupied. The rod disappears, and the chair is transformed into a *spelljamming helm*.",
-     "classes": "Artificer, Artificer, Wizard, Wizard"
+     "classes": "Artificier, Wizard"
  },
  {
      "name": "Create Undead",
@@ -2660,7 +2660,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Necromancy (sangromancy)",
+     "school": "Necromancy",
      "type": "?",
      "con.": "Yes",
      "range": "60 feet",
@@ -2720,7 +2720,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Conjuration (sangromancy)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -2825,7 +2825,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2840,7 +2840,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2855,7 +2855,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Necromancy (shadowsteel curse)",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2870,7 +2870,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2885,7 +2885,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Necromancy (shadowsteel curse)",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2900,7 +2900,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Divination (shadowsteel curse)",
+     "school": "Divination",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2915,7 +2915,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2930,7 +2930,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2945,7 +2945,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -2975,7 +2975,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 hour",
-     "school": "Enchantment (shadowsteel curse)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "Special",
@@ -3087,7 +3087,7 @@
      "components": "V, S, M (a tiny, four-panelled window)",
      "duration": "Concentration, up to 1 minute",
      "description": "You float some mildly distracting thoughts into the mind of a humanoid you can see within range The target must succeed on a Wisdom saving throw or have disadvantage on Wisdom (Perception) checks (taking a -5 penalty to its passive Perception as a result of this disadvantage) until the spell ends. A creature immune to being charmed is unaffected by this spell.\n\nA creature that succeeds on the saving throw by 5 or more is aware that an attempt was made to influence it with magic Otherwise, the creature remains unaware of the magic that affected it.",
-     "classes": "Bard, Bard, Druid, Druid, Warlock, Warlock"
+     "classes": "Bard, Druid, Warlock"
  },
  {
      "name": "Daylight",
@@ -3185,7 +3185,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (Chronomancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "60 feet",
@@ -3222,7 +3222,7 @@
      "components": "V, S, M (some metamorphic rock)",
      "duration": "Instantaneous",
      "description": "With a boom that can be heard 300 feet away (or 1000 feet in a liquid), a pulse of thunder ripples out from a point you choose within range Each creature in a 20-foot-radius sphere centred on that point must make a Constitution saving throw A target takes 7d6 thunder damage on a failed save, or half as much damage on a successful one This damage increases to 9d6 if the affected creature is submerged in a liquid.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Deryan's Helpful Homunculi",
@@ -3342,7 +3342,7 @@
      "components": "V, S, M (a shark's tooth)",
      "duration": "1 minute",
      "description": "A great wave of salt water bursts from the ground beneath your feet. Each creature in a 30-foot cube originating from you must make a Strength saving throw. On a failed save, a creature takes 4d10 bludgeoning damage and is pushed 15 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\n\nAlong with the wave, you conjure the spirit of a great shark. Choose one creature that failed its saving throw as the shark spirit's prey. That target takes an extra 2d10 piercing damage and is restrained by the shark spirit's jaws. A target restrained in this way can use its action to make a Strength check against your spell save DC. On a success, it frees itself and the shark spirit disappears.",
-     "classes": "Cleric, Cleric, Druid, Druid, Sorcerer, Sorcerer"
+     "classes": "Cleric, Druid, Sorcerer"
  },
  {
      "name": "Dimension Door",
@@ -3365,7 +3365,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Divination (Chronomancy)",
+     "school": "Divination",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -3507,7 +3507,7 @@
      "components": "V",
      "duration": "8 hours",
      "description": "Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? Distort value has you covered.\n\nYou cast this spell on an object no more than 1 foot on a side, doubling the object's perceived value by adding illusory flourishes or polish to it, or reducing its perceived value by half with the help of illusory scratches, dents, and other unsightly features. Anyone examining the object can ascertain its true value with a successful Intelligence (Investigation) check against your spell save DC.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Divination",
@@ -3792,7 +3792,7 @@
      "components": "V, S, M (a tiny dreamcatcher)",
      "duration": "24 hours",
      "description": "Choose up to ten willing creatures you can see within range For the duration, they gain the ability to lucidly dream whenever they sleep While lucid dreaming, a creature always knows if the *dream* spell is being used to target it In addition, when you cast this spell, each creature affected by it can choose to instantly fall asleep, even if that creature has a trait that normally prevents it from being magically put to sleep (such as elves' Fey Ancestry)\n.",
-     "classes": "Bard, Bard, Druid, Druid, Ranger, Ranger, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Druid, Ranger, Warlock, Wizard"
  },
  {
      "name": "Drizzle",
@@ -3935,14 +3935,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
      "components": "V, S, M (some jellied eel)",
      "duration": "Concentration, up to 1 minute",
      "description": "You cause the skin of a willing creature you touch to produce a slimy, electrified mucous. The creature's unarmed strikes and natural weapon attacks become magical for the duration of the spell. The first time the creature hits with an unarmed strike or an attack using a natural weapon on its turn, it deals an additional 1d8 lightning damage as the stored lightning discharges\n\n***Slimy.*** For the duration, the creature has advantage on checks and saves made to avoid being grappled or restrained, and disadvantage on any attempts you make to grapple another creature.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Eldritch Blast",
@@ -4017,7 +4017,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You cast your eyes skyward, granting you sight from a higher vantage point. You project your vision to see through an invisible sensor which appears in a spot up to 120 feet above you. You can see through the sensor as if you were flying, granting a full 360 degree view from its location.\n\nThe sensor moves with you, retaining its height in relation to you. You can use a bonus action to adjust the sensor's height, but only to a maximum of 120 feet above you.\n\nWhile looking through this sensor you are blind, though you can switch between seeing through the sensor or through your own eyes at any time during your turn.",
-     "classes": "Cleric, Cleric, Druid, Druid, Ranger, Ranger, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Druid, Ranger, Warlock, Wizard"
  },
  {
      "name": "Elf Shot",
@@ -4115,14 +4115,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Touch",
      "components": "V, S, M (red, yellow, and blue pigment)",
      "duration": "Instantaneous",
      "description": "You touch a creature, absorbing the energy from its body and bolstering your metabolism Make a melee spell attack against a creature you can reach On a hit, the target takes 5d6 cold damage and can't take reactions until the end of its next turn In addition, until the end of its next turn, its speed is reduced by 15 feet and your speed is increased by 15 feet.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Endure",
@@ -4137,7 +4137,7 @@
      "components": "V, S, M (a gem-encrusted cockroach worth 250 gp, which the spell consumes)",
      "duration": "1 minute",
      "description": "Choose a willing creature you can see within range; it ceases to heed the pained calls of its body, needing neither food nor water to exist. An affected creature ignores the effects of exhaustion, the poisoned condition, and cannot be incapacitated, stunned, paralysed, or fall unconscious. Each time an affected creature takes damage that would reduce its hit points to 0, it makes a death saving throw instead If the creature fails 3 death saving throws, it dies\n\nWhen the spell ends, the creature gains a level of exhaustion for each death saving throw it failed If the creature is resurrected after dying from these failed death saving throws, it does not regain consciousness for a duration equal to the time for which this spell affected it When it wakes, it gains 3 levels of exhaustion\n\nIf the creature is still alive when the spell ends, it falls unconscious for a duration equal to the time for which this spell affected it. Whilst unconscious in this way, the creature can not be awakened by any means short of a *wish* spell.",
-     "classes": "Cleric, Cleric, Druid, Druid, Paladin, Paladin, Ranger, Ranger, Warlock, Warlock"
+     "classes": "Cleric, Druid, Paladin, Ranger, Warlock"
  },
  {
      "name": "Enemies Abound",
@@ -4197,7 +4197,7 @@
      "components": "V, S, M (a red handkerchief)",
      "duration": "Concentration, up to 1 minute",
      "description": "You attempt to create violent emotions in a group of people Each humanoid in a 20-foot-radius sphere centred on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes A creature that fails this saving throw becomes enraged for the duration\n\nWhile enraged, a target becomes hostile towards all creatures An enraged creature that is concentrating on a spell must succeed on a DC 10 Constitution saving throw at the start of each of its turns or lose concentration on the spell\n\nAs an action, you can force an enraged creature to use its reaction to make one melee weapon attack against one randomly determined creature within the enraged creature's reach If the enraged creature was friendly towards the target of its attack before this spell was cast, the enraged creature can repeat the saving throw immediately after making the attack, ending the effect on itself on a success.\n\nAn enraged creature can repeat the saving throw whenever it takes damage, ending the effect on itself on a success When the spell ends, the creature reverts to its previous disposition again, unless the GM rules otherwise.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Bard, Sorcerer, Warlock"
  },
  {
      "name": "Ensnaring Strike",
@@ -4272,7 +4272,7 @@
      "components": "V, S, M (a vial of basic poison)",
      "duration": "Concentration, up to 1 minute",
      "description": "Choose a creature you can see within range to inflict with a magical poison. The target takes 2d4 poison damage and must make a Constitution saving throw. On a failed saving throw, it becomes poisoned for the spell's duration.\n\nWhile poisoned in this way, the target must make a Constitution saving throw at the end of each of its turns. It takes 2d4 poison damage on a failed saving throw. On a success, the spell ends on that target.\n\nA *lesser restoration* spell cast on the target ends this spell early.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Erupting Earth",
@@ -4340,7 +4340,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 minute",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -4467,7 +4467,7 @@
      "components": "V",
      "duration": "Concentration, up to 1 hour",
      "description": "When you need to make sure something gets done, you can't rely on vague promises, sworn oaths, or binding contracts of employment. When you cast this spell, choose one humanoid within range that can see and hear you, and that can understand you. The creature must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed in this way, it undertakes to perform any services or activities you ask of it in a friendly manner, to the best of its ability.\n\nYou can set the creature new tasks when a previous task is completed, or if you decide to end its current task. If the service or activity might cause harm to the creature, or if it conflicts with the creature's normal activities and desires, the creature can make another Wisdom saving throw to try to end the effect. This save is made with advantage if you or your companions are fighting the creature. If the activity would result in certain death for the creature, the spell ends.\n\nWhen the spell ends, the creature knows it was charmed by you.",
-     "classes": "Bard, Bard, Cleric, Cleric, Wizard, Wizard"
+     "classes": "Bard, Cleric, Wizard"
  },
  {
      "name": "Fear",
@@ -4527,7 +4527,7 @@
      "components": "S, M (a small feather)",
      "duration": "1 minute",
      "description": "You transform your arms into powerful wings, and your fingers into long, graceful feathers. The effects of this spell last 1 minute, at which point the feathers gradually fall out, causing you to float gently to the ground as your arms return to their original form. This spell confers a number of benefits upon the caster:\n- As a bonus action, you can fly up to double your movement speed. You must land once you finish your movement, although you do not take fall damage while this spell is active, as your feathered arms bear you gently to the ground.\n- You can use your powerful feathered arms to propel yourself upward a distance equal to half your movement speed. You can do this once during your turn and may use it in conjunction with a regular jump.\n- When falling, you can use your reaction to stiffen your arms, and glide on the wind. You may fly up to your movement speed, in any direction, choosing where you land.\n- You gain advantage on all Athletics checks used to make a long or high jump. You do not need to move 10 feet before you jump to gain distance, and you triple the distance you would jump normally.\n\nIn order to benefit from this spell your hands must be free of shields and heavy weapons, and you cannot be encumbered.",
-     "classes": "Druid, Druid, Ranger, Ranger"
+     "classes": "Druid, Ranger"
  },
  {
      "name": "Feign Death",
@@ -4580,14 +4580,14 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "Self",
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "With a pulse of adrenaline, a tremendous ferocity comes upon you Make one weapon attack against a target within your reach or range If this attack hits, the target takes additional 1d4 damage of the weapon's damage type\n\nThis spell's damage increases by 1d4 when you reach 5th level (2d4) 11th level (3d4) and 17th level (4d4).",
-     "classes": "Bard, Bard, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Bard, Druid, Sorcerer, Warlock"
  },
  {
      "name": "Fetid Blade",
@@ -4602,7 +4602,7 @@
      "components": "V, S, M (a drop of acid and a pinch of iron dust)",
      "duration": "Concentration, up to 1 minute",
      "description": "You coat a weapon you touch in an acidic substance. Until the spell ends, weapon attacks made with it deal an extra 2d4 acid damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration.\n\nIn addition, a creature hit with a melee attack using the weapon must make a Constitution saving throw. On a failed save, it becomes poisoned until the end of the attacker's next turn.",
-     "classes": "Ranger, Ranger, Warlock, Warlock"
+     "classes": "Ranger, Warlock"
  },
  {
      "name": "Feverskin",
@@ -4610,14 +4610,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
-     "components": "V, S, M (a red hot chilli pepper, which the spell consumes)",
+     "components": "V, S, M (a red hot chili pepper, which the spell consumes)",
      "duration": "Concentration, up to 1 minute",
-     "description": "You eat a chilli pepper, your metabolism increases, and your skin begins to burn to the touch Make a melee spell attack against a creature within your reach On a hit, the target takes 6d6 fire damage. Until the spell ends, you can use an action on each of your subsequent turns to make this attack again\n\nFor the duration, your walking speed increases by 15 feet, and you gain 2d6 temporary hit points at the start of each of your turns.",
-     "classes": "Cleric, Cleric, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "description": "You eat a chili pepper, your metabolism increases, and your skin begins to burn to the touch. Make a melee spell attack against a creature within your reach On a hit, the target takes 6d6 fire damage. Until the spell ends, you can use an action on each of your subsequent turns to make this attack again\n\nFor the duration, your walking speed increases by 15 feet, and you gain 2d6 temporary hit points at the start of each of your turns.",
+     "classes": "Cleric, Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Field of Bones",
@@ -4632,7 +4632,7 @@
      "components": "V, S, M (a wishbone)",
      "duration": "Concentration, up to 1 minute",
      "description": "The ground in a 100-foot radius circle centred on a point you can see within range is punctured as bony claws, tails, and maws protrude from the ground, snapping, grasping, and raking at all within reach.\n\nThe ground becomes difficult terrain for creatures other than you. A creature that starts its turn in this area or enters this area for the first time on its turn must make a Strength saving throw. On a failure, it takes 6d6 slashing damage and is grappled by the bony protrusions (escape DC equals your spell save DC). On a success, a creature takes half as much damage and isn't grappled.\n\nFor the duration of the spell, at the start of each of your turns, you can cause 1d4 **skeleton** to burst from the ground at points you choose within the spell's area. On each of your turns, you can use a bonus action to mentally command all the creatures made by this spell if the creature is within 500 feet of you, issuing the same command to each one. You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete. When the spell ends, all creatures created by this spell crumble into dust.\n\nIf this spell is cast in an area with a lot of buried corpses (GM's discretion), like a graveyard or battlefield, the saving throw is made with disadvantage and you create 2d4 skeletons instead.",
-     "classes": "Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Warlock, Wizard"
  },
  {
      "name": "Field of Reaping",
@@ -4760,7 +4760,7 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Evocation (Firearm)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -4887,7 +4887,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You warp and distort the memories of a creature you can see within range, bringing forth hideous and disturbing mental images The creature must make an Intelligence saving throw On a failed save, the creature takes 4d10 psychic damage and you learn something about the creature (roll a d6 and consult the following list):\nOn a successful save, the creature takes half as much damage and you donâ€™t learn anything A creature with an Intelligence score of 4 or lower automatically succeeds on the saving throw.\n\nIf a creature fails the initial saving throw then, on each of your turns for the duration, you can use your action to force the creature to make an Intelligence saving throw On a failure, the creature takes 4d6 psychic damage and you learn something about the creature (roll a d6 and consult the table above). On a success, the creature takes half as much damage, you donâ€™t learn anything, and the spell ends The spell also ends if the target is ever outside the spellâ€™s range.\n\n***1.*** The creature's name\n\n***2.*** Something the creature fears\n\n***3.*** Something the creature desires\n\n***4.*** The creature's condition immunities\n\n***5.*** The creature's damage vulnerabilities, resistances, and immunities\n\n***6.*** The creature's skill and saving throw proficiencies.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Fist of Yog-Sothoth",
@@ -4917,7 +4917,7 @@
      "components": "V, S, M (adhesive tape with ducks drawn on it)",
      "duration": "10 minutes",
      "description": "You imbue a broken item no larger than 20 feet in any dimension with pure belief For the duration, the item is whole once more In addition, if you were familiar with the item's magical function (GM's discretion) and its rarity was no higher than common, the item regains its magical properties for the duration.",
-     "classes": "Bard, Bard, Cleric, Cleric, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Cleric, Sorcerer, Wizard"
  },
  {
      "name": "Fizban's Platinum Shield",
@@ -4992,7 +4992,7 @@
      "components": "V, S, M (a strip of magnesium)",
      "duration": "Instantaneous",
      "description": "You launch a pulse of radiant energy at a target within range Make a ranged spell attack against the target On a hit, the target takes 1d8 radiant damage On a critical hit, the target is covered in glittering mystical light, granting advantage on attack rolls against the target until the end of your next turn\n\nAlternatively, you can launch the pulse at a point in the air within range where it slowly falls towards the ground. Until the end of your next turn, the flare sheds bright light in a 20-foot radius and dim light for an additional 20 feet\n\nThis spell's damage increases by 1d8, and the radius of the bright and dim light increases by 10 feet, when you reach 5th level (2d8, 30 feet), 11th level (3d8, 40 feet), and 17th level (4d8, 50 feet).",
-     "classes": "Cleric, Cleric, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Cleric, Sorcerer, Wizard"
  },
  {
      "name": "Flash Fever",
@@ -5030,14 +5030,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (biomancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
      "components": "V, S, M (a pinch of bone marrow)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You attempt to turn the skin of a creature you touch into bony plates. If the target's body is made of flesh, it must make a Constitution saving throw. A willing creature can choose to fail this saving throw.\n\nOn a failure, a creature's skin turns into hardened, articulating plates of bone. For the duration, the creature's speed is halved, it has disadvantage on Dexterity saving throws, and it has resistance to piercing and slashing damage.",
-     "classes": "Druid, Druid, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Warlock, Wizard"
  },
  {
      "name": "Flesh to Stone",
@@ -5075,14 +5075,14 @@
      "cost": "x mana",
      "rit.": "Yes",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "30 feet",
      "components": "V, S, M (a fish's fin)",
      "duration": "1 hour",
      "description": "You change the morphology of a willing creature within range. It grows webbed fingers and gains a swimming speed equal to its walking speed.",
-     "classes": "Druid, Druid, Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Flowering",
@@ -5142,7 +5142,7 @@
      "components": "V, S, M (a turkey drumstick and a cranberry-coloured ruby worth at least 50 gp, both of which the spell consumes)",
      "duration": "1 hour",
      "description": "You crush a ruby into dust, sprinkling it over a turkey drumstick, which wafts with an alluring aroma. A willing creature that entirely consumes the meat of this drumstick falls asleep and is unconscious for 1 hour, drowning out the sound of relatives asking whether they have a boyfriend yet or when they expect to have babies\n\nYou can only be woken early by taking damage or by a *greater restoration* or *wish* spell At the end of the hour, you wake feeling refreshed and have all of your hit points restored If you are woken prematurely, the spell ends with no effect and you are grumpy.",
-     "classes": "Bard, Bard, Cleric, Cleric, Druid, Druid, Paladin, Paladin"
+     "classes": "Bard, Cleric, Druid, Paladin"
  },
  {
      "name": "Forbiddance",
@@ -5315,14 +5315,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
      "components": "V, S, M (some frogspawn)",
      "duration": "Concentration, up to 1 minute",
      "description": "You morph your skin and clothing into that of a slimy, poisonous frog Make a melee spell attack against a creature within your reach On a hit, the target takes 3d10 poison damage and is poisoned until the end of your next turn Until the spell ends, you can use an action on each of your subsequent turns to make this attack again.\n\n***Slimy.*** For the duration, you have advantage on checks and saves made to avoid being grappled or restrained, and disadvantage on any attempts you make to grapple a target Each creature grappling you, or that you are grappling, must make a Constitution saving throw at the start of each of its turns, taking 3d10 poison damage on a failure, or half as much damage on a success.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Frost Fingers",
@@ -5337,7 +5337,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "Freezing cold blasts from your fingertips in a 15-foot cone. Each creature in that area must make a Constitution saving throw, taking 2d8 cold damage on a failed save, or half as much damage on a successful one.\n\nThe cold freezes nonmagical liquids in the area that aren't being worn or carried.",
-     "classes": "Wizard, Wizard"
+     "classes": "Wizard"
  },
  {
      "name": "Frostbite",
@@ -5360,14 +5360,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "Yes",
      "range": "90 feet",
      "components": "V, S, M (a mushroom)",
      "duration": "Concentration, up to 1 minute",
      "description": "With an exhalation, fungal spores waft their way towards a point within range Each creature in a 15-foot-radius sphere centred on that point must succeed on a Constitution saving throw or become cursed until the spell ends\n\nAn affected creature can repeat the saving throw at the end of each of its turns (after the effects of this spell have triggered), ending the effect on itself on a success.\n\nWhen you cast the spell, choose one of the following fungi to grow on the cursed creatures:\n***Amanita Rotgut.*** The creature immediately takes 2d6 poison damage and becomes poisoned While poisoned in this way, the creature takes 2d6 poison damage at the end of each of its subsequent turns.\n\n***Necrotising Zygomycosis.*** The creature immediately takes 2d8 necrotic damage, and takes 2d8 necrotic damage at the start of each of its turns.\n\n***Psilocybin Quickitrippiae.*** The creature begins 'tripping' It must roll a d4 at the start of each of its turns On a 1 the creature doesn't move or take actions this turn.\n\n***Paralysing Mucorales.*** At the end of each of the creature's turns, it becomes stunned until the start of its next turn If the creature failed its previous saving throw against this spell by 5 or more, it is paralysed instead.\n\n***Raging Henbane.*** The creature becomes charmed by you and must use its reaction at the start of each of its turns to make one weapon attack against a randomly determined creature within its reach/range other than you.\n\n***Veiled Lady.*** The creature's vision darkens to a pinhole; the creature has disadvantage on Dexterity saving throws, and ranged attacks have advantage against the creature.",
-     "classes": "Druid, Druid, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Warlock, Wizard"
  },
  {
      "name": "Fury's Chorus",
@@ -5382,7 +5382,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You call a group of people to a heightened emotional state, driving them to anger and mistrust. Each Humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw. On a failed save, a creature must use its reaction (if available) to make an opportunity attack whenever another creature (including an ally) moves out of its reach. A creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. The *calm emotions* spell suppresses the effects of this spell.",
-     "classes": "Bard, Bard, Cleric, Cleric, Warlock, Warlock"
+     "classes": "Bard, Cleric, Warlock"
  },
  {
      "name": "Game of Fate",
@@ -5442,7 +5442,7 @@
      "components": "V, S, M (a broken portal key, which the spell consumes)",
      "duration": "24 hours",
      "description": "You fortify the fabric of the planes in a 30-foot cube you can see within range. Within that area, portals close and can't be opened for the duration. Spells and other effects that allow planar travel or open portals, such as *gate* or *plane shift*, fail if used to enter or leave the area. The cube is stationary.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Geas",
@@ -5532,7 +5532,7 @@
      "components": "V, S, R (2 gp)",
      "duration": "Instantaneous",
      "description": "*When I met Jim Darkmagic, I wondered how he got anything done in that outfit. I have since learned that most of his talents involve standing and talking. His outfit is perfect for that.*— MôrgænJim Darkmagic is said to have invented this spell, originally calling it *I said what?!* Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened—by ensuring that no one knows it happened.\n\nWhen you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell.",
-     "classes": "Bard, Bard, Wizard, Wizard"
+     "classes": "Bard, Wizard"
  },
  {
      "name": "Glibness",
@@ -5592,7 +5592,7 @@
      "components": "V, S, M (a dab of pitch and a bag of glittering sand)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You shroud the area surrounding you in a sphere of night sky, dotted with miniature stars. The twilight conceals your allies, but clearly illuminates your enemies.\n\nThe area affected by this spell is lightly obscured by magical shadow, within which small constellations softly twinkle. Aside from these stars, only light produced by a spell of 3rd level or higher can properly illuminate any area inside the sphere. Nonmagical light does not function inside the sphere, and all other forms of magical radiance can only produce dim light in a 5-foot space.\n\nWhen you cast this spell you may designate any number of creatures you can see to be concealed by the supernatural shadows while in the sphere. A concealed creature has advantage on Dexterity (Stealth) checks when inside the sphere and may attempt to hide at any time. Because the area of the spell is lightly obscured, creatures within the spell's area have disadvantage on Wisdom (Perception) checks made to see those outside of it.\n\nAll other creatures in the area are dazzled by the light of the miniature stars, causing them to have disadvantage on all perception checks inside the sphere. When such a creature enters the spell's area for the first time, or starts its turn there, it must make a Wisdom saving throw or be blinded until the end of its turn.",
-     "classes": "Druid, Druid, Ranger, Ranger, Warlock, Warlock"
+     "classes": "Druid, Ranger, Warlock"
  },
  {
      "name": "Glyph of Warding",
@@ -5637,7 +5637,7 @@
      "components": "S, M (a finger bone and a scrap of fabric)",
      "duration": "Instantaneous",
      "description": "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes 3d8 necrotic damage on a failed save, or half as much damage on a successful one.\n\nIn addition, on a failed saving throw the ghostly hands grapple the target until the end of your next turn, and immediately move the target up to 30 feet in a direction of your choice (but not upward). On its turn, the creature can use an action to attempt to escape the grapple by making a Strength or Dexterity check (its choice) against your spell save DC. If it succeeds, the grapple ends.",
-     "classes": "Bard, Bard, Cleric, Cleric, Warlock, Warlock"
+     "classes": "Bard, Cleric, Warlock"
  },
  {
      "name": "Grasping Vine",
@@ -5667,7 +5667,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You emit waves of gravitational energy, distorting the trajectories of incoming projectiles and making movement difficult. For the duration, ranged weapon attacks made against you have disadvantage In addition, the area within 20 feet of you is difficult terrain for creatures of your choice that you can see.\n\n***Gravity Pulse.*** When you cast this spell and as a bonus action on your subsequent turns, you can create a gravity pulse, forcing one Huge or smaller creature of your choice that you can see within 20 feet of you to make a Strength saving throw On a failure the creature is pushed 10 feet in a direction of your choice and falls prone taking 3d6 force damage.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Gravity Smash",
@@ -5682,7 +5682,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 round",
      "description": "You strike the ground, choosing a point you can see within range to begin accumulating gravity A 40-foot-radius, 100-foot-high cylinder centred on that point becomes difficult terrain until the start of your next turn When the spell ends, the gravity reaches a critical magnitude, smashing all creatures in the cylinder downwards; each creature in the area must make a Strength saving throw If the spell ends before the start of your next turn, then, on a failed saving throw, a creature takes 4d10 force damage and is knocked prone If the spell ends at the start of your next turn, this spell deals 8d10 force damage instead On a successful save, a creature takes half as much damage and isn't knocked prone.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Gray Gaze",
@@ -5697,7 +5697,7 @@
      "components": "V, S, M (a pebble with a hole in it)",
      "duration": "Instantaneous",
      "description": "You turn your gaze on one creature you can see within range. If the target can see your eyes, their body stiffens and cracks as if it were turning to stone. The target must succeed on a Constitution saving throw or take Necrotic damage equal to your Proficiency Bonus and have Disadvantage on the next Dexterity saving throw it makes before the end of its next turn.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Druid, Sorcerer, Warlock"
  },
  {
      "name": "Grease",
@@ -5772,7 +5772,7 @@
      "components": "S, M (a melee weapon worth at least 1 sp)",
      "duration": "Instantaneous",
      "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n\nThis spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8).",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Grievous Wounds",
@@ -5787,7 +5787,7 @@
      "components": "V, S, M (a needle and several stitches)",
      "duration": "Instantaneous",
      "description": "Choose a creature you can see within range. You momentarily strip the target's physiology of all resilience, enough that a mere scratch can become a terrible injury. Until the end of your next turn, the target loses any damage resistances or immunities, becomes vulnerable to all damage, and makes all its saving throws with disadvantage.",
-     "classes": "Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Warlock, Wizard"
  },
  {
      "name": "Grim Harvest",
@@ -5922,7 +5922,7 @@
      "components": "S",
      "duration": "1 round",
      "description": "You spread your arms wide, allowing yourself to become enveloped by the air around you. Until the end of your next turn, any ranged attack against you is made with disadvantage.\n\nMelee attackers who successfully hit you must make a Constitution saving throw against your spell save DC. On a failure, the attacker is flung away from you up to 10 feet and is knocked prone.",
-     "classes": "Bard, Bard, Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Druid, Sorcerer, Wizard"
  },
  {
      "name": "Gust of Wind",
@@ -6095,7 +6095,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "Yes",
      "range": "300 feet",
@@ -6297,7 +6297,7 @@
      "components": "V",
      "duration": "1 round",
      "description": "You utter a bestial, magically-augmented howl that can be heard for 1000 feet The howl can manifest as any animal call you've heard, such as the screech of a hawk or trumpet of an elephant Choose one creature with whom you are familiar as the recipient: if it can hear your howl, it understands your meaning and can respond in a likewise manner.\n\nCreatures other than your recipient that hear the howl and that are under the effects of the *comprehend languages* spell or similar magic, or that can understand beasts, can understand the howl's meaning Otherwise, the howl is unintelligible to creatures that can hear it\n.",
-     "classes": "Druid, Druid"
+     "classes": "Druid"
  },
  {
      "name": "Humperdink's Halitosis",
@@ -6312,7 +6312,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 round",
      "description": "You belch forward acidic fumes, afflicting those in a 15-foot cone before you The fumes spread around corners All creatures in the area must make a Constitution saving throw, taking 3d4 acid damage on a failure or half as much damage on a success.\n\nThe fumes linger until the end of your next turn or until dispersed by a moderate or stronger wind Any creature ending its turn in the area must make a Constitution saving throw, taking 3d4 acid damage, taking half as much damage on a success.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Bard, Sorcerer, Warlock"
  },
  {
      "name": "Hunger of Hadar",
@@ -6537,7 +6537,7 @@
      "components": "V, S, M (a gem worth at least 50 gp)",
      "duration": "Concentration, up to 1 minute",
      "description": "When you cast this spell, you present the gem used as the material component and choose any number of creatures within range that can see you. Each target must succeed on a Wisdom saving throw or be charmed by you until the spell ends, or until you or your companions do anything harmful to it. While charmed in this way, a creature can do nothing but use its movement to approach you in a safe manner. While an affected creature is within 5 feet of you, it cannot move, but simply stares greedily at the gem you present.\n\nAt the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target.",
-     "classes": "Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Warlock, Wizard"
  },
  {
      "name": "Incite Riot",
@@ -6567,7 +6567,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "You touch a willing creature, causing it, and everything it is wearing and carrying, to become translucent At the start of each of the target's turns for the duration, it can choose to become incorporeal (no action required). When it does so, it has advantage on Stealth checks; it gains resistance to nonmagical bludgeoning, piercing, and slashing damage; and it can move through other creatures and objects as if they were difficult terrain until the end of its turn. If the target ends its turn inside an object, it is shunted to the nearest unoccupied space, taking 1d10 force damage for every 5 feet it is shunted.",
-     "classes": "Bard, Bard, Cleric, Cleric, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Cleric, Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Inequality",
@@ -6582,7 +6582,7 @@
      "components": "V, S, M (drop of blood and water, mixed)",
      "duration": "Concentration, up to 1 minute",
      "description": "You twist the fates of two creatures you can see, both of whom must be within range Choose one target to favour and one to disfavour The disfavoured target must succeed on a Charisma saving throw or the following effects occur:\n- Whenever the favoured target makes an attack roll or saving throw before the spell ends, the favoured target can roll a d4 and add the number rolled to the attack or saving throw.\n- Whenever the disfavoured target makes an attack roll or saving throw before the spell ends, the disfavoured target must roll a d4 and subtract the number rolled from the attack or saving throw.\n- The disfavoured target's speed is halved, whilst the favoured target's speed increases by half.\n\nThese effects end for the pair if either of the target pair is knocked unconscious killed, or the spell ends While under the influence of this spell, a favoured target can't benefit from the *bless* spell, and a disfavoured target can't be afflicted by the *bane* spell.",
-     "classes": "Bard, Bard, Cleric, Cleric, Paladin, Paladin"
+     "classes": "Bard, Cleric, Paladin"
  },
  {
      "name": "Infect",
@@ -6597,7 +6597,7 @@
      "components": "V, S, M (a petri dish)",
      "duration": "Concentration, up to 1 minute",
      "description": "You inflict a creature you can see within range with a magical disease. At the start of each of the target's turns, it must make a Constitution saving throw. The creature takes 1d12 necrotic damage on a failed saving throw, or half as much on a successful one. If a target succeeds on three of these saves, the spell ends.\n\nA *lesser restoration* spell cast on the target ends this spell early.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Infernal Calling",
@@ -6620,14 +6620,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "Yes",
      "range": "Self (30-foot cone)",
      "components": "V, S, M (some pollen)",
      "duration": "Concentration, up to 1 mniute",
      "description": "With a mighty sneeze that can be heard up to 300 feet away, you blast forth a 30-foot cone of phlegm, bad breath, and viral pathogens Each creature in the area must make a Dexterity saving throw On a failed save, a creature takes 3d6 poison damage and is poisoned for the duration On a successful save, the creature takes half as much damage and isn't poisoned A poisoned creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.\n\nWhilst poisoned in this way, a creature must roll a d12 at the start of each of its turns On a 3 or lower, it is racked by a coughing fit and becomes incapacitated until the start of its next turn Each creature within 5 feet of a creature when it becomes incapacitated in this way must succeed on a Constitution saving throw or also become poisoned in this way for the spell's duration.",
-     "classes": "Cleric, Cleric, Druid, Druid, Warlock, Warlock"
+     "classes": "Cleric, Druid, Warlock"
  },
  {
      "name": "Initiative",
@@ -6642,7 +6642,7 @@
      "components": "V, S, M (a coffee bean)",
      "duration": "Instantaneous",
      "description": "As a reaction when initiative is rolled, choose a willing creature you can see within range; it begins to subtly jitter as its pupils dilate. If the target is surprised, it is no longer surprised, and takes its turn on the first round as normal If the target is not surprised, it gains advantage on the initiative roll that prompted this spell.",
-     "classes": "Bard, Bard, Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Insect Plague",
@@ -6687,7 +6687,7 @@
      "components": "V",
      "duration": "Concentration, up to 1 hour",
      "description": "For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as advantage on Intelligence, Wisdom, and Charisma saving throws.",
-     "classes": "Artificer, Artificer"
+     "classes": "Artificier"
  },
  {
      "name": "Intrusive Despair",
@@ -6792,7 +6792,7 @@
      "components": "S, M (a syringe and a blood sample)",
      "duration": "1 hour",
      "description": "Choose up to three creatures within range. Each target gains 10 temporary hit points.",
-     "classes": "Cleric, Cleric, Druid, Druid, Paladin, Paladin, Wizard, Wizard"
+     "classes": "Cleric, Druid, Paladin, Wizard"
  },
  {
      "name": "Invisibility",
@@ -6822,7 +6822,7 @@
      "components": "V, S, M (a holy symbol of the Amaranthine)",
      "duration": "24 hours",
      "description": "You call upon the power of an Amaranthine to grant yourself insight into the Great Rhythm that moves all things. When you cast this spell, roll two d20s, and record what you rolled. For each die, choose either attack roll, skill check, or saving throw. You can choose each option multiple times. For the next 24 hours, you may substitute any roll of an ally or enemy you can see within 60 feet with one of the recorded numbers that matches the type of roll you wish to replace (attack roll, skill check, or saving throw). The target still adds any relevant modifiers to this number, but otherwise treat the substituted number as the number they rolled.\n\nTo do this, you must spend a reaction to present your holy symbol and invoke the name of the Amaranthine whose energies you called upon. You can do this anytime after the skill check, saving throw or attack has been rolled, but before the outcome of the event has been determined. The spell ends after 24 hours have passed, or when both dice have been expended.",
-     "classes": "Cleric, Cleric, Paladin, Paladin"
+     "classes": "Cleric, Paladin"
  },
  {
      "name": "Invulnerability",
@@ -6912,7 +6912,7 @@
      "components": "S, M (a coin), R (2 gp)",
      "duration": "1 minute",
      "description": "Of the many tactics employed by master magician and renowned adventurer Jim Darkmagic, the old glowing coin trick is a time-honored classic. When you cast the spell, you hurl the coin that is the spell's material component to any spot within range. The coin lights up as if under the effect of a *light* spell. Each creature of your choice that you can see within 30 feet of the coin must succeed on a Wisdom saving throw or be distracted for the duration. While distracted, a creature has disadvantage on Wisdom (Perception) checks and initiative rolls.",
-     "classes": "Wizard, Wizard"
+     "classes": "Wizard"
  },
  {
      "name": "Jim's Magic Missile",
@@ -6927,7 +6927,7 @@
      "components": "V, S, R (1 gp)",
      "duration": "Instantaneous",
      "description": "*Jim's magic missile is an ancient and powerful spell, as well as being the name of my band in Wizard Academy.*— Jim DarkmagicAny apprentice wizard can cast a boring old magic missile. Sure, it always strikes its target. Yawn. Do away with the drudgery of your grandfather's magic with this improved version of the spell, as used by Jim Darkmagic!\n\nYou create three twisting, whistling, hypoallergenic, gluten-free darts of magical force. Each dart targets a creature of your choice that you can see within range. Make a ranged spell attack for each missile. On a hit, a missile deals 2d4 force damage to its target.\n\nIf the attack roll scores a critical hit, the target of that missile takes 5d4 force damage instead of you rolling damage twice for a critical hit. If the attack roll for any missile is a 1, all missiles miss their targets and blow up in your face, dealing 1 force damage per missile to you.",
-     "classes": "Wizard, Wizard"
+     "classes": "Wizard"
  },
  {
      "name": "Jump",
@@ -6957,7 +6957,7 @@
      "components": "V, M (an unlit lantern worth at least 10 gp)",
      "duration": "Concentration, up to 1 minute",
      "description": "You draw out a fragment of a living soul and bind it within the lantern used as a material component for this spell. Choose a creature you can see within 60 feet of you that isn't an Undead or Construct. For the duration, the lantern is ignited by the target's soul and sheds dim light in a 30-foot radius. At the start of each of the target's turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 2d6 necrotic damage. On a successful save, the target takes no damage, but its soul remains bound. If the target's saving throw succeeds by 5 or more, its soul becomes unbound and the spell ends.\n\nUntil the spell ends, as a bonus action, you can choose one creature you can see within 30 feet of you that isn't an Undead or Construct. That creature regains hit points equal to the total damage dealt by this spell, up to a maximum of 20 hit points, and the spell ends.",
-     "classes": "Artificer, Artificer, Bard, Bard, Cleric, Cleric, Warlock, Warlock"
+     "classes": "Artificier, Bard, Cleric, Warlock"
  },
  {
      "name": "Kinetic Jaunt",
@@ -6972,7 +6972,7 @@
      "components": "S",
      "duration": "Concentration, up to 1 minute",
      "description": "You magically empower your movement with dance-like steps, giving yourself the following benefits for the duration.\n\n- Your walking speed increases by 10 feet.\n- You don't provoke opportunity attacks.\n- You can move through the space of another creature, and it doesn't count as difficult terrain. If you end your turn in another creature's space, you are shunted to the last unoccupied space you occupied, and you take 1d8 force damage.",
-     "classes": "Artificer, Artificer, Bard, Bard, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Artificier, Bard, Sorcerer, Wizard"
  },
  {
      "name": "Knife of Fate",
@@ -7032,7 +7032,7 @@
      "components": "V, S, M (a small piece of brass, a rose petal, and a drop of holy water)",
      "duration": "Instantaneous",
      "description": "You target a creature you can see within range with a beam of holy light that shines down upon them. The target must make a Wisdom saving throw. The target takes 8d8 radiant damage on a failed save, or half as much damage on a successful one. This spell has no effect on celestials or constructs.\n\nIf you target an undead or fiend, it makes the saving throw with disadvantage, and the spell deals maximum damage to it.\n\nIf an undead or fiend is reduced to 0 hit points by this spell, it dies and its body is reduced to ash.",
-     "classes": "Cleric, Cleric, Paladin, Paladin"
+     "classes": "Cleric, Paladin"
  },
  {
      "name": "Legend Lore",
@@ -7242,7 +7242,7 @@
      "components": "V",
      "duration": "Instantaneous",
      "description": "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you.\n\nThis spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Little Death",
@@ -7363,21 +7363,6 @@
      "duration": "Instantaneous",
      "description": "This spell instantly summons a glittering moonbeam that transports one sleeping creature or object of your choice that you can see within range to a destination you select. If you target an unwilling creature, it gains a Wisdom saving throw. On a successful save, the spell fails, and the caster appears in the target location instead. A transferred creature wakes up as soon as it arrives at its destination. If you target an object, it must be able to fit entirely inside a 10-foot cube, and it can't be held or carried by an unwilling creature. The destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether the creature or object arrives there successfully.\n\nThe GM rolls d20 and consults the Lunar Transfer table below.\n\n**---Lunar Transfer---**\n***Grove/Circle:*** (1) Similar – (2-5) Off Target\n***Grove/Circle:*** (6-20) Success\n***Memento:*** (1) Mishap – (2-5) Similar\n***Memento:*** (6-9) Off Target – (10-20) Success\n***Familiar:*** (1) Mishap – (2-5) Similar\n***Familiar:*** (6-13) Off Target – (14-20) Success\n***Seen:*** (1) Mishap – (2-9) Similar\n***Seen:*** (10-13) Off Target – (14-20) Success\n***Seen Once:*** (1-5) Mishap – (6-9) Similar\n***Seen Once:*** (10-13) Off Target – (14-20) Success\n***Describe:*** (1-5) Mishap – (6-13) Similar\n***Describe:*** (14-17) Off Target – (18-20) Success\n***False Target:*** (1-9) Mishap – (10-20) Similar",
      "classes": ""
- },
- {
-     "name": "Lungburst",
-     "level": "6",
-     "cost": "x mana",
-     "rit.": "No",
-     "cast time": "Action",
-     "school": "Biomancy",
-     "type": "?",
-     "con.": "No",
-     "range": "90 feet",
-     "components": "V, S",
-     "duration": "Instantaneous",
-     "description": "You cause rapid and unpredictable changes in the internal air pressure of a creature you can see, rupturing its breathing apparatus The creature must make a Constitution saving throw A creature that is holding its breath makes this saving throw with disadvantage On a failure, a creature takes 7d6 thunder damage, 7d6 necrotic damage, and immediately begins suffocating. On a success, a creature takes half as much damage and does not begin suffocating. A creature suffocating in this way can repeat the saving throw at the end of each of its turns, stopping suffocating on a success.\n\nA creature that does not need to breathe is immune to the effects of this spell. A *greater restoration*, *heal*, or *wish* spell can restore a creature's ability to breathe, and end its suffocation.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
  },
  {
      "name": "Maddening Darkness",
@@ -7602,7 +7587,7 @@
      "components": "V, S, M (a piece of magnetite)",
      "duration": "Instantaneous",
      "description": "You fling a supercooled piece of magnetite at a point you can see within range, where it detonates in an explosion of icy, metallic shards Each creature in a 20-foot-radius sphere centred on that point must make a Dexterity saving throw, taking 4d6 cold damage and 3d6 piercing damage on a failure, or half as much damage on a success Creatures made of a ferrous material or wearing ferrous armour have disadvantage on this saving throw.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Magnetobolt",
@@ -7617,7 +7602,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "A near-invisible pulse of arcanomagnetic energy shoots towards a creature within range Make a ranged spell attack against the target On a hit, the target takes 1d6 force damage and must succeed on a Strength saving throw or be knocked prone A creature made of ferrous metal or wearing ferrous armour has disadvantage on this saving throw\n\nThis spell's damage increases by 1d6 when you reach 5th level 2d6 11th level 3d6 and 17th level 4d6\n.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Major Image",
@@ -7737,7 +7722,7 @@
      "components": "V, S, M (a live leech that has fed on humanoid blood in the past 24 hours)",
      "duration": "Instantaneous",
      "description": "You drain the life force of those around you, turning their limbs heavy and their bones cold Each creature of your choice within 20 feet of you must make a Constitution saving throw A target takes 2d8 necrotic damage on a failure, or half as much damage on a success The caster regains hit points equal to half the total amount of necrotic damage dealt to Small or larger creatures by this casting of this spell.",
-     "classes": "Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Warlock, Wizard"
  },
  {
      "name": "Mass Polymorph",
@@ -7812,7 +7797,7 @@
      "components": "V, S, M (adhesive tape with gorillas drawn on it)",
      "duration": "1 hour",
      "description": "You touch one item, instilling it with levels of belief worthy of a kobold and granting it one of the following properties, based on the item type, for the duration. The spell ends if you cast it again.\n\n- ***Armour.*** A creature wearing this armour gains 1d4 temporary hit points at the start of each of its turns.\n- ***Belt.*** A creature wearing this belt gains a flying speed of 30 feet\n- ***Boots.*** A creature wearing these boots has its walking speed increased by 10 feet and its jump distance tripled\n- ***Cloak.*** A creature wearing this cloak has advantage on Stealth checks it makes to hide and can hide while only lightly obscured\n- ***Gloves.*** A creature wearing these gloves gains a climbing speed equal to its walking speed and can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check Additionally, it has advantage on any ability checks it makes related to grappling\n- ***Headwear.*** A creature wearing this headwear doesn't need to breathe, has advantage on saving throws against being poisoned and has resistance to poison damage.",
-     "classes": "Bard, Bard, Wizard, Wizard"
+     "classes": "Bard, Wizard"
  },
  {
      "name": "Meld into Stone",
@@ -7887,7 +7872,7 @@
      "components": "V, S, M (a small twig and a loop of twine)",
      "duration": "Instantaneous",
      "description": "Drawing on primordial magic, you instill vitality in nearby plants to create one of the following effects within range:\n- You instantly repair a single break or tear in a living plant you touch, such as torn foliage, a scorched branch, a scar cut into bark, or two pieces of a plant that have been broken apart. As long as the damage is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former destruction.\n- You instantly cause a defoliated plant to grow foliage, cause a planted seed to sprout, or restore the ability to sprout to a dead seed pod.\n- You can cause a 5-foot cube of living plants to flourish with foliage such as leaves and grass. This area can become thick enough to conceal a Medium or smaller creature, or become overgrown enough to become difficult terrain (your choice when you cast the spell).\n- You can touch a living plant or plant creature to grant it 1d4 temporary hit points.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Mending",
@@ -7932,7 +7917,7 @@
      "components": "V, S, M (a vial of chlorine)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You douse a 20-foot radius area centered on a point you can see within range with acrid slime, which remains for the spell's duration. The area becomes difficult terrain, and any creature wholly within the area is blinded and can't take reactions.\n\nA creature who starts its turn in the area must succeed on a Constitution saving throw or take 2d8 poison damage and 2d8 acid damage and gain one level of exhaustion.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Druid, Sorcerer, Warlock"
  },
  {
      "name": "Message",
@@ -7977,7 +7962,7 @@
      "components": "V, S, M (a freshly harvested corpse lily)",
      "duration": "Concentration, up to 1 minute",
      "description": "You create a wall of sickly, yellowish green, toxic fumes on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.\n\nWhen the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage, or half as much damage on a successful save.\n\nOne side of the wall, selected by you when you cast this spell, emits toxic fumes. It deals 8d8 poison damage to each creature that ends its turn within 30 feet of that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn. The other side of the wall deals no damage.\n\nA creature who takes poison damage from the wall must make a Constitution saving throw or become poisoned for the duration of the spell.",
-     "classes": "Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Sorcerer, Wizard"
  },
  {
      "name": "Mighty Fortress",
@@ -8082,7 +8067,7 @@
      "components": "V, S, M (a tiny ball of guano and mud)",
      "duration": "1 minute",
      "description": "A blob of gloopy mud splunks from your pointed finger to a point you choose within range where it splooges with a wet burp into an explosion of sludge Each creature in a 15-foot-radius sphere centred on that point must make a Strength saving throw On a failed save a target takes 3d10 bludgeoning damage and is knocked prone On a successful one, it takes half as much damage and is not knocked prone\n\nIn addition, all surfaces within the area become covered in unpredictably slick and sticky patches of mud for the duration. The first time a creature moves through the muddy the area on its turn it must succeed on a Dexterity saving throw against your spell save DC or fall prone A creature moving through the area at half speed doesn't need to make the saving throw.",
-     "classes": "Bard, Bard, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Bard, Druid, Sorcerer, Warlock"
  },
  {
      "name": "Mirror Image",
@@ -8187,7 +8172,7 @@
      "components": "S, M (a piano wire)",
      "duration": "Concentration, up to 1 minute",
      "description": "You imbue yourself or one willing creature you touch with the duplicitous power of Dol Azur, laying a trap to ensnare a foe in spectral bindings. The next time the imbued creature is hit with an attack before the spell ends, the attacking creature must make a Wisdom saving throw. On a failed save, the attacking creature takes 3d8 necrotic damage and is restrained until the spell ends. On a successful save, it takes half as much damage, is not restrained, and the spell ends. While restrained by this spell, the restrained creature can repeat the saving throw at the end of each of its turns, ending the spell on a success.",
-     "classes": "Artificer, Artificer, Cleric, Cleric, Ranger, Ranger, Warlock, Warlock"
+     "classes": "Artificier, Cleric, Ranger, Warlock"
  },
  {
      "name": "Modify Memory",
@@ -8225,7 +8210,7 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Transmutation (Chronomancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -8330,7 +8315,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "120 feet",
@@ -8345,14 +8330,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Self (50-foot line)",
      "components": "V, S, M (a dead animal)",
      "duration": "Instantaneous",
-     "description": "You summon a bolt of negative energy to stimulate and transmit necrotic pathogens into those that stand before you, decaying their internal viscera Each creature in a 5-foot-wide, 50-foot-long line extending from you must make a Dexterity saving throw, taking 3d8 necrotic damage on a failed save, or half as much damage on a successful one.",
-     "classes": "Druid, Druid, Warlock, Warlock"
+     "description": "You summon a bolt of negative energy to stimulate and transmit necrotic pathogens into those that stand before you, decaying their internal viscera. Each creature in a 5-foot-wide, 50-foot-long line extending from you must make a Dexterity saving throw, taking 3d8 necrotic damage on a failed save, or half as much damage on a successful one.",
+     "classes": "Druid, Warlock"
  },
  {
      "name": "Mote of Hell",
@@ -8382,7 +8367,7 @@
      "components": "V",
      "duration": "1 hour",
      "description": "*I once heard a motivational speech by Jim and it was the worst ninety seconds of my life. What does Omin see in him, anyway?*— Walnut DankgrassYou address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature.",
-     "classes": "Bard, Bard, Cleric, Cleric"
+     "classes": "Bard, Cleric"
  },
  {
      "name": "Move Earth",
@@ -8487,7 +8472,7 @@
      "components": "V, S, M (samples of phosphate and chlorine mixed with a drop of pure alcohol)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You create a 10-foot-radius sphere of toxic fog centered on a point you choose within range. The fog spreads around corners.\n\nIt lasts for the duration or until strong wind disperses the fog, ending the spell. The fog's area is heavily obscured.\n\nWhen a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make an Intelligence saving throw. On a failed saving throw, the creature takes 3d6 psychic damage and becomes stunned until the start of its next turn. On a successful saving throw, the creature takes half as much damage and is not stunned. Creatures are affected even if they hold their breath or don't need to breathe.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Neutralize Aura",
@@ -8622,7 +8607,7 @@
      "components": "V, S, M (the fetid corpse of a plague rat)",
      "duration": "Instantaneous",
      "description": "You infect one creature you can see within range with a deadly and highly infectious disease which lasts until it is cured by greater restoration, heal or wish. Other spells and magical effects which remove diseases fail to cure the infection caused by this spell.\n\nWhile infected, a creature must make a Constitution saving throw at the start of each of its turns. On a failed saving throw, it takes 10d8 necrotic damage and becomes incapacitated until the start of its next turn. On a successful save, it takes half as much damage and is not incapacitated. An infected creature must make the saving throw at the start of each of its turns until it dies or is cured.\n\nA creature who starts its turn within 10 feet of a creature infected by this spell must make a Constitution saving throw.\n\nOn a failed saving throw, that creature contracts the infection.\n\nWhen you cast the spell, you can choose yourself and up to eight other creatures to be unaffected by the infection caused by this casting of the spell.",
-     "classes": "Druid, Druid, Wizard, Wizard"
+     "classes": "Druid, Wizard"
  },
  {
      "name": "Paradox",
@@ -8630,7 +8615,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Transmutation (Chronomancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "60 feet",
@@ -8682,7 +8667,7 @@
      "components": "V, S, M (well-chewed peppermint chewing gum)",
      "duration": "Concentration, up to 1 hour",
      "description": "A protective layer of hot, hard peppermint icing coats you For the duration, you gain a +1 bonus to AC and if a creature hits you with a melee attack, the creature takes 1d4 fire damage. This damage can trigger no more than once per turn.",
-     "classes": "Cleric, Cleric, Paladin, Paladin, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Paladin, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Perfection",
@@ -8727,7 +8712,7 @@
      "components": "V, S, M (a withered flower)",
      "duration": "Concentration, up to 1 minute",
      "description": "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target's turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes 3d6 necrotic damage and gains 1 level of exhaustion. If a target succeeds on three of these saves, the spell ends for that creature.\n\nA *lesser restoration* spell cast on a target ends this spell early for that creature.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Phantasmal Force",
@@ -8810,14 +8795,14 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "60 feet",
      "components": "V, S",
      "duration": "Instantaneous",
-     "description": "You momentarily shut down a small part of the nervous system of a creature you can see within range, before overstimulating it and causing crippling pain The creature must succeed on a Constitution saving throw or take 1d8 psychic damage If the target fails its saving throw by 5 or more, it has disadvantage on the next attack roll it makes before the end of its next turn as it temporarily loses full control of a part of its body.\n\nThis spell's damage increases by 1d8 when you reach 5th level 2d8 11th level 3d8 and 17th level 4d8\n.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "description": "You momentarily shut down a small part of the nervous system of a creature you can see within range, before overstimulating it and causing crippling pain. The creature must succeed on a Constitution saving throw or take 1d8 psychic damage. If the target fails its saving throw by 5 or more, it has disadvantage on the next attack roll it makes before the end of its next turn as it temporarily loses full control of a part of its body.\n\nThis spell's damage increases by 1d8 when you reach 5th level 2d8 11th level 3d8 and 17th level 4d8\n.",
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Plague Wind",
@@ -8832,7 +8817,7 @@
      "components": "V, S, M (mucus from a ghoul)",
      "duration": "Instantaneous",
      "description": "You summon a roiling wind of flesh devouring disease and excruciating blood boiling fumes that sweeps over the area emanating from you in a 120-foot cone. Creatures in the area must make a Constitution saving throw. On a failed saving throw a creature takes 5d8 poison damage and 5d8 necrotic damage or half as much damage on a success. After taking this damage, any affected creature with 25 hit points or fewer remaining immediately dies and is reduced to a weathered skeleton as their flesh and soft tissue blows off like ash.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Planar Ally",
@@ -8907,7 +8892,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You launch a conjured dart coated with lethal poison at a creature you can see within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 poison damage.\n\nIf the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.\n\nThis spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Poison Spray",
@@ -8937,7 +8922,7 @@
      "components": "V, S, M (a withered root and a drop of vinegar)",
      "duration": "Instantaneous",
      "description": "A wave of poisonous fumes emanates from you. Creatures within 30 feet of you must make a Constitution saving throw.\n\nOn a failed save, each creature takes 4d12 poison damage and is poisoned until the end of your next turn. On a successful saving throw, a creature takes half as much damage and does not become poisoned.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Polybrachia",
@@ -9057,7 +9042,7 @@
      "components": "V",
      "duration": "1 round",
      "description": "With a word, a translucent shield bubbles out from a creature you can see within range Until the end of its next turn, it is immune to all damage types except psychic, it has advantage on all saving throws, and all other power word spells have no effect on it. If the creature is poisoned that condition is removed, and if the creature is aflame, the fires are extinguished.",
-     "classes": "Bard, Bard, Cleric, Cleric, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Cleric, Sorcerer, Wizard"
  },
  {
      "name": "Power Word Stun",
@@ -9120,21 +9105,6 @@
      "classes": "Bard, Cleric, Druid, Sorcerer, Wizard"
  },
  {
-     "name": "Preserve",
-     "level": "2",
-     "cost": "x mana",
-     "rit.": "No",
-     "cast time": "Action",
-     "school": "Biomancy",
-     "type": "?",
-     "con.": "No",
-     "range": "60 feet",
-     "components": "V, S, M (some ether)",
-     "duration": "24 hours",
-     "description": "With a flare of brilliant octarine light, each creature within a 10-foot-radius sphere centred on a point you can see within range must succeed on a Charisma saving throw or become soulbound for the duration, its magical essence tied to its physical (or incorporeal) form If a creature dies while soulbound, its magic is bound to its components for 24 hours allowing harvesting to start at any time within this period (see page 87 for the rules on harvesting). Once harvesting starts on a corpse under the effect of this spell, the spell ends for that corpse Creatures possessing robust or more powerful essence (typically, those of CR 7 or higher) automatically succeed on this saving throw.",
-     "classes": "Cleric, Cleric, Druid, Druid, Paladin, Paladin, Ranger, Ranger, Wizard, Wizard"
- },
- {
      "name": "Prestidigitation",
      "level": "Cantrip",
      "cost": "0 mana",
@@ -9177,7 +9147,7 @@
      "components": "S",
      "duration": "Concentration, up to 1 minute",
      "description": "You inhale deeply, magically enhancing the scents that surround you You have advantage on the next ability check you make that relies on smell, and you can treat a roll of 4 or lower as a 5\n\nWhen you reach higher levels, this spell gives you an increasingly astute ability to identify the source of the scents around you When you reach 5th level, whenever you make an ability check that relies on smell, you can treat a d20 roll of 7 or lower as an 8 At 11th level, a roll of 10 or lower is treated as an 11, and at 17th level, a roll of 13 or lower is treated as a 14.",
-     "classes": "Druid, Druid"
+     "classes": "Druid"
  },
  {
      "name": "Primordial Power",
@@ -9297,7 +9267,7 @@
      "components": "V, S, M (a miniature silver shield worth 10 gp, which the spell consumes)",
      "duration": "Concentration, up to 1 hour",
      "description": "You trace a warding sigil in the air, sending it to slowly circle a willing creature you can see for the next hour Immediately before the target next takes damage, except psychic damage, the ward triggers Until the end of the target's next turn, it has resistance to all damage excluding psychic, including the triggering damage The warding sigil then disappears, and the spell ends on the target.",
-     "classes": "Bard, Bard, Cleric, Cleric, Druid, Druid, Paladin, Paladin, Ranger, Ranger"
+     "classes": "Bard, Cleric, Druid, Paladin, Ranger"
  },
  {
      "name": "Protection from Energy",
@@ -9500,7 +9470,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "Touch",
@@ -9515,7 +9485,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Conjuration (Chronomancy)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -9530,7 +9500,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "10 minutes",
-     "school": "Conjuration (sangromancy)",
+     "school": "Conjuration",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
@@ -9687,7 +9657,7 @@
      "components": "V, S, M (a delerium fragment worth 100 gp, which the spell consumes)",
      "duration": "Instantaneous",
      "description": "When you cast this spell, you gain one *level of contamination*. A stroke of eldritch lightning forming a line 60 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw. A creature takes 10d6 lightning damage on a failed save, or half as much damage on a successful one. You then teleport to an unoccupied space you can see within the line's area.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Rope Trick",
@@ -9815,7 +9785,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "60 feet",
@@ -9830,7 +9800,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "1 minute",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Touch",
@@ -9860,7 +9830,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Abjuration (sangromancy)",
+     "school": "Abjuration",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
@@ -10025,7 +9995,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action",
-     "school": "Divination (sangromancy)",
+     "school": "Divination",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
@@ -10047,7 +10017,7 @@
      "components": "V, S, M (a piece of a rotten liver)",
      "duration": "Instantaneous",
      "description": "Choose a creature you can see within range that doesn't have all its hit points. You infect the target's wounds with putrefying bacteria. The target must make a Constitution saving throw.\n\nIf it has less than half its maximum hit points remaining, it makes the saving throw with disadvantage. On a failed save, the target takes 10d8 necrotic damage and gains 1 level of exhaustion. On a successful save, it takes half as much damage and does not gain any exhaustion levels.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Sequester",
@@ -10092,7 +10062,7 @@
      "components": "V, S, M (a pair of manacles)",
      "duration": "Concentration, up to 1 minute",
      "description": "You link the vitality of a willing creature within range—the source—to the psyche of another creature within range—the target The target must succeed on a Charisma saving throw or become linked to the source for 1 minute Each time the source takes damage, the target takes psychic damage equal to half the damage the source took If you yourself are the source, the creature takes this damage immediately before you make a Constitution saving throw to maintain your concentration Whenever the target takes damage in this way, it can repeat the saving throw, ending the effect on a success\n.",
-     "classes": "Bard, Bard, Cleric, Cleric, Paladin, Paladin, Warlock, Warlock"
+     "classes": "Bard, Cleric, Paladin, Warlock"
  },
  {
      "name": "Shadow Adaptation",
@@ -10182,7 +10152,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "A freezing blast of shadow explodes out from you in a 10-foot cone. Any creature caught in the shadow takes 2d4 necrotic damage and is frightened until the end of its next turn; a successful Wisdom saving throw halves the damage and negates the frightened condition.",
-     "classes": "Bard, Bard, Cleric, Cleric, Warlock, Warlock"
+     "classes": "Bard, Cleric, Warlock"
  },
  {
      "name": "Shadowy Eruption",
@@ -10212,7 +10182,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You call upon gentle natural magics to alter the growth of plants. Any plant life you can see within range that fits within a 5-foot cube can take on whatever shape you desire. Additionally, if the plant is a bramble or capable of growing thorns, you may turn the affected area into difficult terrain, causing 2d4 points of piercing damage for every 5 feet moved through the area you shaped. You may also increase or decrease the number of flowers, vines, leaves, thorns, branches, or fruits produced by any plant you shape.\n\nAfter one hour, the magic of your spell fades, and the plant resumes its normal shape. If you can use *speak with plants* (or a similar ability) to communicate with the plant, you may persuade it to retain its new form. Different plants have different feelings and attitudes, and if the form is too different from its natural shape it is likely to decline. If the plant accepts, at the GM's discretion, it will retain the form you have sculpted it into, in which case the effect becomes permanent.",
-     "classes": "Bard, Bard, Cleric, Cleric, Druid, Druid"
+     "classes": "Bard, Cleric, Druid"
  },
  {
      "name": "Shape Water",
@@ -10317,7 +10287,7 @@
      "components": "V",
      "duration": "1 round",
      "description": "With a word, you coat a creature in a shimmering shield that absorbs the energy of incoming blows The creature gains 15 temporary hit points the instant before it takes the triggering damage These hit points last until the start of the creature's next turn.",
-     "classes": "Bard, Bard, Cleric, Cleric, Paladin, Paladin, Sorcerer, Sorcerer"
+     "classes": "Bard, Cleric, Paladin, Sorcerer"
  },
  {
      "name": "Shillelagh",
@@ -10370,7 +10340,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Illusion (sangromancy)",
+     "school": "Illusion",
      "type": "?",
      "con.": "Yes",
      "range": "30 feet",
@@ -10437,7 +10407,7 @@
      "components": "V",
      "duration": "Instantaneous",
      "description": "You magically distract the triggering creature and turn its momentary uncertainty into encouragement for another creature. The triggering creature must reroll the d20 and use the lower roll.\n\nYou can then choose a different creature you can see within range (you can choose yourself). The chosen creature has advantage on the next attack roll, ability check, or saving throw it makes within 1 minute. A creature can be empowered by only one use of this spell at a time.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Sorcerer, Wizard"
  },
  {
      "name": "Simbul's Synostodweomer",
@@ -10557,7 +10527,7 @@
      "components": "V, S, M (a puffball mushroom)",
      "duration": "Concentration, up to 1 round",
      "description": "You spew a thick cloud of dense black smoke that forms a 5-foot-diameter, 10-foot-high cylinder centred on you that lasts until the start of your next turn The smoke heavily obscures its area When you cast the spell, you can choose whether the cloud remains in the location where you cast it or moves with you, centred on you.\n\nWhen you reach higher levels, the size of the cloud you can create with this spell increases When you reach 5th level, the cloud has a maximum diameter of 15 feet and a height of 20 feet; at 11th level this increases to 25 feet and 30 feet; and at 17th level this increases to 35 feet and 40 feet You choose how big the cloud is in each dimension up to this maximum each time that you cast it.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Snare",
@@ -10662,7 +10632,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "A spark of bright light arcs from you to a creature within range Make a ranged spell attack against the target On a hit, the target takes 1d8 lightning damage On a critical hit, the target is also blinded until the end of its next turn\n\nThe spell creates more than one spark when you reach higher levels: two sparks at 5th level, three sparks at 11th level, and four sparks at 17th level You can direct the sparks at the same target or at different ones Make a separate attack roll for each spark.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Speak with Animals",
@@ -10797,7 +10767,7 @@
      "components": "V, S, M (a small quill)",
      "duration": "1 round",
      "description": "An ethereal barrier of spikes, made of magical force, interposes itself between you and an attacker. Until your next turn, when you are hit by a melee attack, the barrier reduces the damage you are dealt by 2d4, and deals the same amount of piercing damage to the attacker. The shield is ineffective against ranged attackers, but still provides a +2 bonus to AC (treat as half cover) against them for the duration.",
-     "classes": "Druid, Druid, Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Spirit Guardians",
@@ -10850,7 +10820,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Reaction (which you take when you hit a creature with a Melee weapon)",
-     "school": "Abjuration (sangromancy)",
+     "school": "Abjuration",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
@@ -10865,14 +10835,14 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Self (5-foot radius)",
      "components": "V, S, M (a toadstool)",
      "duration": "Instantaneous",
      "description": "You produce a cloud of virulent spores Each creature within 5 feet of you, other than you, must succeed on a Constitution saving throw or take 1d4 poison damage A creature that fails the saving throw by 5 or more is poisoned until the end of its next turn.\n\nThe spell's damage increases by 1d6 when you reach 5th level 2d4 11th level 3d4 and 17th level 4d4.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Druid, Sorcerer, Warlock"
  },
  {
      "name": "Spray of Cards",
@@ -10902,7 +10872,7 @@
      "components": "V, S, M (small magnifying lens)",
      "duration": "Concentration, up to 1 minute",
      "description": "A willing creature you touch gains a preternatural ability to perceive the weaknesses in a creature's defences. The first time the creature makes an attack while under the effect of this spell, it makes the attack with advantage. After it makes an attack, the spell ends.\n\nThis spell augments the creature's ability to strike at vital points when you reach certain levels When you reach 5th level, the augmented attack scores a critical hit on a roll of 19 or 20 At 11th level, this range is increased to 18 to 20, and at 17th level, this range becomes 17 to 20.",
-     "classes": "Bard, Bard, Druid, Druid"
+     "classes": "Bard, Druid"
  },
  {
      "name": "Starry Wisp",
@@ -10925,7 +10895,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Reaction, which you take when a Celestial, Elemental, Fey, Fiend, or Undead within range that you can see is reduced to 0 Hit Points",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "300 feet",
@@ -10962,7 +10932,7 @@
      "components": "V, S",
      "duration": "1 minute",
      "description": "You create two small stars that orbit you. They twinkle pleasantly, shedding dim light in a 10-foot radius centered on you. The stars protect you. If a creature within 5 feet of you hits you with a melee attack they must make a Wisdom saving throw or take 1d8 points of radiant damage for each star orbiting you.\n\nOnce per round, on your turn, you may use your action to cause a star to streak towards an enemy, expending it as it explodes in a blinding flash. Make a ranged spell attack against an enemy within 120 feet, dealing 4d8 points of radiant damage on a hit. The target must then make a Constitution saving throw or be blinded until the start of your next turn.\n\nThe spell ends when either its duration expires, you fall unconscious, or you have expended all of your stars.",
-     "classes": "Cleric, Cleric, Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Cleric, Druid, Sorcerer, Wizard"
  },
  {
      "name": "Stench",
@@ -10977,7 +10947,7 @@
      "components": "V, S, M (a skunk's tail)",
      "duration": "Concentration, up to 1 minute",
      "description": "Emanating from a point within range, a noxious, 20-foot-radius sphere of colourless fumes creates a choking, eye-watering miasma that penetrates through creatures' skin.\n\nWhen a creature enters the spell's area for the first time on its turn or starts its turn there, it must make a Constitution saving throw It takes 3d6 poison damage and becomes poisoned until the end of its next turn on a failure, or takes half as much damage and is not poisoned on a success Whilst poisoned in this way, a creature has disadvantage on saving throws made to maintain its concentration.",
-     "classes": "Bard, Bard, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Stinking Cloud",
@@ -11052,7 +11022,7 @@
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
      "description": "A 20-foot-radius sphere of whirling air springs into existence, centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain.\n\nUntil the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage.\n\nCreatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks made to listen.",
-     "classes": "Cleric, Cleric, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Warlock, Wizard"
  },
  {
      "name": "Suffocate",
@@ -11075,14 +11045,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Evocation",
      "type": "?",
      "con.": "Yes",
      "range": "30 feet",
      "components": "V, S, M (some candy)",
      "duration": "Concentration, up to 1 minute",
      "description": "Choose a willing creature that you can see within range Until the spell ends, the target's speed is increased by 15 feet, and it gains a +1 bonus to AC As a bonus action on each of its turns, it can take the Dash, Disengage, Hide, or Use an Object action.\n\nWhen the spell ends, or if an affected creature does not spend movement up to its walking speed by the end of its turn, it then develops a stomach ache and is poisoned until the end of its next turn.",
-     "classes": "Bard, Bard, Cleric, Cleric, Paladin, Paladin, Sorcerer, Sorcerer"
+     "classes": "Bard, Cleric, Paladin, Sorcerer"
  },
  {
      "name": "Suggestion",
@@ -11277,7 +11247,7 @@
      "components": "V, S, M (tears inside a gem worth at least 300 gp)",
      "duration": "Concentration, up to 1 hour",
      "description": "You call forth a shadowy spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the **Shadow Spirit** stat block. When you cast the spell, choose an emotion: Fury, Despair, or Fear. The creature resembles a misshapen biped marked by the chosen emotion, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n\nThe creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger.",
-     "classes": "Druid, Druid, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Warlock, Wizard"
  },
  {
      "name": "Summon Undead",
@@ -11345,14 +11315,14 @@
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Conjuration",
      "type": "?",
      "con.": "No",
      "range": "90 feet",
      "components": "V, S, M (a spider sac)",
      "duration": "1 round",
      "description": "Choose a target within range; a cloud of miniscule poisonous spiders floats on gossamer strands towards it The target must succeed on a Dexterity saving throw to avoid the spiders or become poisoned until the end of its next turn.\n\n\nThis spell deals poison damage on a failed saving throw when you reach certain levels When you reach 5th level, a creature takes 1d10 poison damage; at 11th level this increases to 2d10 and at 17th level this increases to 3d10\n.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock"
+     "classes": "Druid, Sorcerer, Warlock"
  },
  {
      "name": "Swift Quiver",
@@ -11382,7 +11352,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You attempt to switch places with a Large or smaller target within range that you can see The target must succeed on a Charisma saving throw or instantly teleport to your space whilst you teleport to the one it previously occupied.\n\nA creature automatically succeeds on this saving throw if there is not enough space to accommodate either of the teleporting creatures A willing creature may choose to fail the saving throw.",
-     "classes": "Bard, Bard, Cleric, Cleric, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Bard, Cleric, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Sword Burst",
@@ -11397,7 +11367,7 @@
      "components": "V",
      "duration": "Instantaneous",
      "description": "You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 force damage.\n\nThis spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Syluné's Viper",
@@ -11472,7 +11442,7 @@
      "components": "V, S, M (a bit of rotten food)",
      "duration": "Concentration, up to 1 minute",
      "description": "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns.",
-     "classes": "Artificer, Artificer"
+     "classes": "Artificier"
  },
  {
      "name": "Tasha's Hideous Laughter",
@@ -11600,14 +11570,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "Self",
      "components": "V, S, M (a miniature plunger)",
      "duration": "Concentration, up to 1 minute",
      "description": "One of your arms elongates into a long, wet, suckered tentacle When you cast this spell, and as an action on each of your turns, you can make a melee spell attack against a creature within 30 feet of you On a hit, the target takes 5d8 bludgeoning damage and it must make a Strength saving throw if it is Huge or smaller On a failure, you can choose one of the following effects:\n- The target is knocked prone.\n- The target is shoved 5 feet in a direction of your choice.\n- You disarm the target; you take one item the target is holding and return it to your person.\n\nThe tentacle also serves as an appendage that can be used like a grappling hook or rope (GM's discretion).",
-     "classes": "Druid, Druid, Ranger, Ranger, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Ranger, Warlock, Wizard"
  },
  {
      "name": "Thaumaturgy",
@@ -11630,14 +11600,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Biomancy",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "90 feet",
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You assault the internal chemistry of a creature you can see within range, causing bubbles of nitrogen to precipitate in its blood, forcing it to make a Constitution saving throw On a failed save, the target takes 5d8 poison damage and is poisoned for 1 minute On a successful save, the target takes half as much damage and isn't poisoned If the target is completely submerged in water, increase the damage dice from d8s to d10s.\n\nThe target can repeat the saving throw at the end of each of its turns, ending the effect on a success.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Theft of Vitae",
@@ -11645,7 +11615,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Reaction, which you take when a creature you can see within 30 feet of you takes damage",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -11817,7 +11787,7 @@
      "components": "V, S, M (a quiver containing at least one piece of ammunition)",
      "duration": "Concentration, up to 1 hour",
      "description": "You touch a quiver containing arrows or bolts, imbuing the ammunition currently in it with the spirit of a creature, plant, or fungus For the duration, any creature hit (or in the case of 'Hawk', targeted) by one of the pieces of ammunition is subject to the effect of the spirit currently imbuing the quiver (see below), in addition to the attack's normal effects. As a bonus action, you can change which spirit imbues the quiver.\n\n- ***Cat.*** The target takes an additional 1d6 slashing damage If the attack roll was made with advantage, the additional damage is increased to 2d6\n- ***Elk.*** The target takes an additional 1d6 bludgeoning damage and must succeed on a Strength saving throw or be knocked prone or shoved 5 feet in a direction of your choice (you choose when the target is hit)\n- ***Hawk.*** The attack ignores half and three-quarters cover\n- ***Hogweed.*** The target must succeed on a Constitution saving throw or become blinded until the end of its next turn\n- ***Psilocybin.*** The target must succeed on a Wisdom saving throw or begin 'tripping' for the spell's duration Whilst tripping, the creature must roll a d4 at the start of each of its turns On a 1, the target is incapacitated until the end of its turn and the effect ends. On a 2-4 the target behaves as normal, and the effect continues\n- ***Roc.*** The target must succeed on a Strength saving throw or its speed becomes 0 and it is lifted 20 feet into the air until the end of its next turn, when it begins falling If there isn't enough room to be lifted 20 feet, the creature is lifted to the maximum possible height\n- ***Snake.*** The target takes an additional 1d6 poison damage and must succeed on a Constitution saving throw or become poisoned for the spell's duration It can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success\n- ***Spider.*** The target must succeed on a Dexterity saving throw or become restrained until the end of its next turn The target can use its action to make a Strength (Athletics) or Dexterity (Acrobatics) check against your spell save DC, ending the effect on itself on a success.",
-     "classes": "Druid, Druid, Ranger, Ranger"
+     "classes": "Druid, Ranger"
  },
  {
      "name": "Touch of Death",
@@ -11832,7 +11802,7 @@
      "components": "V, S, M (the finger of a hag)",
      "duration": "Instantaneous",
      "description": "Make a melee spell attack against a target within 5 feet of you.\n\nOn a hit, the target takes 200 poison damage. This damage ignores any resistance or immunity the creature has to poison damage, and can't be reduced or prevented in any way.\n\nThe potent poison lingers in the targets body and pulls it towards death. A target reduced to zero hit points by this poison damage automatically fails death saving throws until it finishes a long rest. A heal or greater restoration spell cast on the target also ends this effect.",
-     "classes": "Cleric, Cleric, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Cleric, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Toxic Barrage",
@@ -11847,7 +11817,7 @@
      "components": "V, S, M (Four death cap mushrooms)",
      "duration": "Instantaneous",
      "description": "You create four rays of pure poison and hurl them at targets within range. You can hurl them at one target or several.\n\nMake a ranged spell attack for each ray. On a hit, the target takes 3d6 poison damage. If a target is hit by one or more of these rays, it must make a Constitution saving throw. On a failed save, the target is poisoned for 1 minute. While poisoned in this way, the target can repeat the saving throw at the end of each of its turns. On a success, it is no longer poisoned.",
-     "classes": "Ranger, Ranger, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Ranger, Sorcerer, Wizard"
  },
  {
      "name": "Toxic Shield",
@@ -11862,7 +11832,7 @@
      "components": "S, M (a drop of dwarven blood)",
      "duration": "Concentration, up to 1 minute",
      "description": "You gain resistance to poison damage and advantage on saves against being poisoned for the duration. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield sprays them with poison, dealing 1d8 poison damage to the attacker.",
-     "classes": "Bard, Bard, Paladin, Paladin, Warlock, Warlock"
+     "classes": "Bard, Paladin, Warlock"
  },
  {
      "name": "Tranquilizing Toxin",
@@ -11877,7 +11847,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "One target you choose within range must make a Constitution saving throw or take 8d6 poison damage and become poisoned until the end of your next turn. While poisoned in this way, the target is also stunned. On a successful saving throw, the target takes half damage and is not poisoned.",
-     "classes": "Wizard, Wizard"
+     "classes": "Wizard"
  },
  {
      "name": "Transmute Rock",
@@ -11922,7 +11892,7 @@
      "components": "S, M (a folded cloth)",
      "duration": "1 minute",
      "description": "A nonmagical object you touch is transformed into a random trinket (either from *the Trinkets table in the Player's Handbook* or a similar trinket of the DM's choice). The object you touch must weigh less than 10 pounds and be no more than 5 inches along any dimen-sion. The transformation lasts for 1 minute, until you dismiss the transformation as a bonus action, or until another creature touches the trinket.",
-     "classes": "Artificer, Artificer, Bard, Bard, Cleric, Cleric"
+     "classes": "Artificier, Bard, Cleric"
  },
  {
      "name": "Tree Stride",
@@ -12132,7 +12102,7 @@
      "components": "V, S, M (a pinch of soot)",
      "duration": "Concentration, up to 10 minutes",
      "description": "You incant towards a creature, cloaking them in a shadowy veil of darkness and silence. The target gains a +1 bonus to their armor class and makes Stealth checks with advantage for the duration of the spell.",
-     "classes": "Druid, Druid, Warlock, Warlock"
+     "classes": "Druid, Warlock"
  },
  {
      "name": "Veil of the Reaper",
@@ -12177,7 +12147,7 @@
      "components": "V, S, M (scales or fangs of a venomous snake)",
      "duration": "1 minute",
      "description": "You emit a baleful aura which disorients creatures who approach you. Any creatures that start their turn within 10 feet of you are poisoned until the start of their next turn.",
-     "classes": "Druid, Druid"
+     "classes": "Druid"
  },
  {
      "name": "Vibrating Humors",
@@ -12185,7 +12155,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "Yes",
      "range": "30 feet",
@@ -12222,7 +12192,7 @@
      "components": "V, S, M (a vial of coagulated blood)",
      "duration": "Instantaneous",
      "description": "You point your finger towards a creature within range, projecting a pale green beam of debilitating energy at them.\n\nMake a ranged spell attack against the target. On a hit, the target takes 12d6 necrotic damage, and it becomes weakened.\n\nWhile weakened by this spell, a target deals half damage with weapon attacks and spells.\n\nA weakened target can make a Constitution saving throw at the end of each of its turns. On a successful save, the weakness ends.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Viscous Sheath",
@@ -12230,7 +12200,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Necromancy (sangromancy)",
+     "school": "Necromancy",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -12252,7 +12222,7 @@
      "components": "V, S, M (a vial of nitric acid and a flask of water)",
      "duration": "Concentration, up to 1 minute",
      "description": "Choose a creature within range that has natural armor or is wearing armor. You magically cause the creature's natural or manufactured armor to become corroded and brittle for the spell's duration. While its armor is corroded, the creature's AC becomes 10 + the creature's Dexterity modifier.",
-     "classes": "Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Sorcerer, Wizard"
  },
  {
      "name": "Vitriolic Sphere",
@@ -12297,7 +12267,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "You magically twist space around another creature you can see within range. The target must succeed on a Constitution saving throw (the target can choose to fail), or the target is teleported to an unoccupied space of your choice that you can see within range. The chosen space must be on a surface or in a liquid that can support the target without the target having to squeeze.",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Wizard"
  },
  {
      "name": "Wall of Death",
@@ -12507,7 +12477,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "Choose a source of water that you can see within range that has a volume of at least 1 gallon Make a melee spell attack against a creature within 30 feet of the source of water On a hit, the target takes 1d6 slashing damage and, if the creature is Large or smaller, you can force it to make a Strength saving throw, pulling it up to 10 feet towards the body of water on a failure.\n\nThe spell's damage and distance it can pull a target increases when you reach 5th level 2d6 and 15 feet), 11th level 3d6 and 20 feet), and 17th level 4d6 and 25 feet).",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Watery Sphere",
@@ -12552,7 +12522,7 @@
      "components": "V, S, M (a piece of felt)",
      "duration": "Concentration, up to 1 minute",
      "description": "You imperceptibly tangle the threads of the Weave in a 20-foot-radius sphere centred on a point you can see within range Whenever a creature attempts to cast a spell of 1st level or higher in this area, it must make an ability check with its spellcasting ability against your spell save DC On a success, the spell is cast as normal On a failure, the spellcaster casts the spell and produces an additional effect. Roll a d10 and consult the following table to determine the additional effect.\n\n- ***1.*** The spellcaster casts *gravity smash*\n- ***2.*** The spellcaster casts *phantasmal killer*\n- ***3.*** The spellcaster casts *confusion*\n- ***4.*** The spellcaster casts *fireball*\n- ***5.*** The spellcaster casts *zippit!*\n- ***6.*** The spellcaster casts *web*\n- ***7.*** The spellcaster casts *darkness*\n- ***8.*** The spellcaster casts *silence*\n- ***9.*** The spellcaster regains 2d10 hit points.\n- ***10.*** The spellcaster doesn't expend mana to cast its spell.\n\nAny additional spell cast this way targets or is centred on the spellcaster, who has no control over the spell's effects. The DC for any saving throws equals the spellcaster's spell save DC In the case of concentration spells, no concentration is required At initiative count 20 of each round, roll a d20 for each ongoing additional effect. On a roll of 11 or higher, that effect ends.",
-     "classes": "Bard, Bard, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Bard, Sorcerer, Wizard"
  },
  {
      "name": "Weavebend",
@@ -12567,7 +12537,7 @@
      "components": "S",
      "duration": "Instantaneous",
      "description": "You attempt to redirect a spell cast by a creature you can see If the creature is casting a spell of 3rd level or lower, you can redirect the spell If the spell involves a ranged spell attack, you can cause the ranged spell attack to target a different target within 10 feet of its original target. If the spell has an area of effect, you can shift the area of effect up to 10 feet in any direction If the creature is casting a spell of 4th level or higher, make an ability check using your spellcasting ability The DC equals 10 + the spell's level On a success, the creature's spell is redirected as described.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Web",
@@ -12620,7 +12590,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Bonus action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike",
-     "school": "Transmutation (sangromancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -12717,7 +12687,7 @@
      "components": "V, S, M (a withered vine twisted into a loop)",
      "duration": "Instantaneous",
      "description": "You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers.\n\nIn addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Wizard"
  },
  {
      "name": "Word of Misfortune",
@@ -12845,14 +12815,14 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Reaction, which you take when a creature within range vocalises",
-     "school": "Biomancy",
+     "school": "Transmutation",
      "type": "?",
      "con.": "Yes",
      "range": "60 feet",
      "components": "V, S",
      "duration": "Concentration, up to 1 minute",
-     "description": "In response to a creature vocalizing, you make a sharp sound and hold a finger up in an attempt to interrupt them The target must succeed on a Constitution saving throw or become silenced as its mouth is fused shut for the duration If you silence a target that is casting a spell with verbal components, the target's mana isn't expended, but its action is wasted.\n\nAt the end of each of its turns, the target can make a Strength saving throw it tries to tear open its mouth On a success, the target takes 1d8 slashing damage and is no longer silenced Alternatively, as an action, the target can use a bladed implement to cut open its mouth, taking 1d8 slashing damage and ending the silence.",
-     "classes": "Bard, Bard, Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "description": "In response to a creature vocalizing, you make a sharp sound and hold a finger up in an attempt to interrupt them. The target must succeed on a Constitution saving throw or become silenced as its mouth is fused shut for the duration. If you silence a target that is casting a spell with verbal components, the target's mana isn't expended, but its action is wasted.\n\nAt the end of each of its turns, the target can make a Strength saving throw it tries to tear open its mouth On a success, the target takes 1d8 slashing damage and is no longer silenced Alternatively, as an action, the target can use a bladed implement to cut open its mouth, taking 1d8 slashing damage and ending the silence.",
+     "classes": "Bard, Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Zone of Truth",
@@ -12875,7 +12845,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Reaction, which you take when you see an attack roll hit a creature within 60 feet of yourself",
-     "school": "Transmutation (Chronomancy)",
+     "school": "Transmutation",
      "type": "?",
      "con.": "No",
      "range": "60 feet",
@@ -12987,7 +12957,7 @@
      "components": "S, M (a melee weapon worth at least 1 sp)",
      "duration": "1 round",
      "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n\nThis spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
-     "classes": "Artificer, Artificer, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Artificier, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Catnap",
@@ -13002,7 +12972,7 @@
      "components": "S, M (a pinch of sand)",
      "duration": "10 minutes",
      "description": "You make a calming gesture, and up to three willing creatures of your choice that you can see within range fall unconscious for the spell's duration. The spell ends on a target early if it takes damage or someone uses an action to shake or slap it awake. If a target remains unconscious for the full duration, that target gains the benefit of a short rest, and it can't be affected by this spell again until it finishes a long rest.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Charm Monster",
@@ -13137,7 +13107,7 @@
      "components": "S, M (some phlegm)",
      "duration": "Instantaneous",
      "description": "You spit a globule of phlegm at one creature within range Make a ranged spell attack against the target On a hit, the target takes 2d8 necrotic damage In addition, until it uses its action to wipe off the phlegm, it takes 1d4 necrotic damage at the start of each of its turns and any hit points regained are reduced by half",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Crusader's Mantle",
@@ -13190,7 +13160,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Evocation (sangromancy)",
+     "school": "Evocation",
      "type": "?",
      "con.": "No",
      "range": "Self",
@@ -13542,7 +13512,7 @@
      "components": "V, S",
      "duration": "Instantaneous",
      "description": "Make a ranged spell attack against a creature you can see in range. If you hit, you wrack the creature with a deadly toxin that causes their eyes to bleed. The creature takes 2d6 necrotic damage and is blinded until the end of your next turn.",
-     "classes": "Sorcerer, Sorcerer, Wizard, Wizard"
+     "classes": "Sorcerer, Wizard"
  },
  {
      "name": "Orien Step",
@@ -13647,7 +13617,7 @@
      "components": "S, M (a vial of meltwater)",
      "duration": "Instantaneous",
      "description": "A burst of cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its speed reduced to 0. On a successful save, a creature takes half as much damage and isn't hindered by ice.",
-     "classes": "Druid, Druid, Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Druid, Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Shadow Blindness",
@@ -13707,7 +13677,7 @@
      "components": "V, M (a silver door latch worth 50 gp, which the spell consumes)",
      "duration": "1 minute",
      "description": "You create a door in the nearest wall, cliff, tree, or similar structure. It is immediately bound to a similar door up to 200 feet away. The near door must be a place within 10 feet that you can see while the distant door can be one that you can visualize or that you can describe by stating distance and direction, such as 100 feet straight down or 50 feet to the northwest and upward at a 45-degree angle.\n\nOnce the door is conjured, you can take actions normally to open and pass through the near portal, which immediately teleports you to the distant portal. Other creatures may do the same while the spell remains. The spell ends after the duration or when someone closes the distant portal's door as a bonus action.",
-     "classes": "Bard, Bard, Cleric, Cleric, Warlock, Warlock"
+     "classes": "Bard, Cleric, Warlock"
  },
  {
      "name": "Slow",
@@ -13730,7 +13700,7 @@
      "cost": "x mana",
      "rit.": "No",
      "cast time": "Action",
-     "school": "Enchantment (sangromancy)",
+     "school": "Enchantment",
      "type": "?",
      "con.": "No",
      "range": "30 feet",
@@ -13962,7 +13932,7 @@
      "components": "V, S, M (a razorvine leaf)",
      "duration": "Concentration, up to 1 minute",
      "description": "For the duration, you sense the presence of portals, even inactive ones, within 30 feet of yourself.\n\nIf you detect a portal in this way, you can use your action to study it. Make a DC 15 ability check using your spellcasting ability. On a successful check, you learn the destination plane of the portal and what portal key it requires, then the spell ends. On a failed check, you learn nothing and can't study that portal again using this spell until you cast it again.\n\nThe spell can penetrate most barriers but is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
-     "classes": "Sorcerer, Sorcerer, Warlock, Warlock, Wizard, Wizard"
+     "classes": "Sorcerer, Warlock, Wizard"
  },
  {
      "name": "Assisted Aim",

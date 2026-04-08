@@ -100,9 +100,23 @@
     .table-side { flex: 1; min-width: 0; overflow-x: auto; }
 
     /* ── Table ── */
-    .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); min-width: 680px; }
+    .table-wrap {
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--surface); min-width: 680px;
+      /* 20 data rows × ~38px + thead ~42px */
+      max-height: calc(20 * 38px + 42px);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    /* Scrollbar styling */
+    .table-wrap::-webkit-scrollbar { width: 6px; }
+    .table-wrap::-webkit-scrollbar-track { background: transparent; }
+    .table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .table-wrap::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
     table { width: 100%; border-collapse: collapse; }
     thead tr { background: var(--header-bg); }
+    /* Sticky header stays visible while scrolling */
+    thead { position: sticky; top: 0; z-index: 2; }
     th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; user-select: none; cursor: pointer; transition: color 0.18s, background 0.18s; }
     th:hover { color: var(--accent); background: rgba(79,124,255,0.04); }
     th.sorted-asc, th.sorted-desc { color: var(--accent); }
@@ -888,11 +902,14 @@ function render(){
   tbody.innerHTML=data.map(row=>{
     const lvNum=parseInt(row['level'],10);
     const lvDisplay=lvNum===0?'Cantrip':String(lvNum);
+    // Truncate "Reaction, which you take when …" → "Reaction, …"
+    const rawCast = row['cast time'] || '';
+    const castDisplay = /^reaction,?\s+\S/i.test(rawCast) ? 'Reaction, …' : rawCast;
     return `<tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
       <td class="name-cell">${hi(row['name'],q)}</td>
       <td>${hi(lvDisplay,q)}</td>
       <td>${hi(row['cost'],q)}</td>
-      <td>${hi(row['cast time'],q)}</td>
+      <td>${hi(castDisplay,q)}</td>
       <td>${hi(row['rit.'],q)}</td>
       <td>${schoolBadge(row['school'])}</td>
       <td>${hi(row['type'],q)}</td>

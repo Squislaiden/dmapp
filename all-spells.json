@@ -31,7 +31,7 @@
  },
  {
      "name": "Acid Burn",
-     "level": "Cantrip",
+     "level": "0",
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",
@@ -61,7 +61,7 @@
  },
  {
      "name": "Acid Splash",
-     "level": "Cantrip",
+     "level": "0",
      "cost": "0 mana",
      "rit.": "No",
      "cast time": "Action",

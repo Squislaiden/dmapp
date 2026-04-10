@@ -1,0 +1,12 @@
+[
+  {
+    "item": "Longsword",
+    "prerequisites": "None",
+    "as": "2",
+    "defense": "—",
+    "damage_spell": "1d8 slashing",
+    "spell_types": "—",
+    "properties": "Versatile (1d10)",
+    "innate_affix": "—"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "feat": "Arcane Prodigy",
+    "prerequisites": "Intelligence 13 or higher",
+    "description": "You have a natural talent for arcane magic. You learn two cantrips of your choice from the Wizard spell list. Intelligence is your spellcasting ability for these cantrips. Additionally, you gain proficiency in the Arcana skill if you don't already have it."
+  }
+]

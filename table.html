@@ -1,540 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Spell Grid</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DM App – Spells</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #0d0f14;
-      --surface: #13161e;
-      --surface2: #1c2030;
-      --border: #252a3a;
-      --accent: #4f7cff;
-      --accent2: #ff6b6b;
-      --accent3: #36d9a0;
-      --gold: #c9a84c;
-      --text: #e8eaf0;
-      --text-muted: #606880;
-      --text-dim: #9aa0b8;
-      --header-bg: #181c28;
-      --row-hover: #1a1f2e;
-      --tag-bg: #1f2538;
-      --card-w: 300px;
-      --card-h: 500px;
-      /* Theme tint — overridden by JS */
-      --tint-h: 224;
-      --tint-s: 70%;
-    }
+:root {
+  --bg: #0d0f14; --surface: #13161e; --surface2: #1c2030; --border: #252a3a;
+  --accent: #4f7cff; --accent2: #ff6b6b; --accent3: #36d9a0; --gold: #c9a84c;
+  --text: #e8eaf0; --text-muted: #606880; --text-dim: #9aa0b8;
+  --header-bg: #181c28; --row-hover: #1a1f2e; --tag-bg: #1f2538;
+  --card-w: 300px; --card-h: 500px;
+}
 
-    body { font-family: 'DM Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 32px; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.35; pointer-events: none; z-index: 0; }
-    .container { max-width: 1600px; margin: 0 auto; position: relative; z-index: 1; }
+body { font-family:'DM Mono',monospace; background:var(--bg); color:var(--text); min-height:100vh; padding:20px 24px; }
+body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size:40px 40px; opacity:.35; pointer-events:none; z-index:0; }
+.container { max-width:1600px; margin:0 auto; position:relative; z-index:1; }
 
-    /* ── Header ── */
-    .page-header { margin-bottom: 36px; }
-    .page-header h1 { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: 6px; }
-    .page-header h1 span { color: var(--accent); }
-    .page-header p { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.05em; }
+/* ── App Bar ── */
+.app-bar {
+  display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;
+}
+.app-home-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 14px; border-radius:8px; border:1px solid var(--border);
+  background:var(--surface); color:var(--text-muted);
+  font-family:'Syne',sans-serif; font-size:0.75rem; font-weight:700;
+  text-decoration:none; letter-spacing:.03em; transition:all .18s; flex-shrink:0;
+}
+.app-home-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(79,124,255,.06); }
+.app-home-btn svg { flex-shrink:0; }
 
-    /* ── Buttons ── */
-    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 11px 18px; border-radius: 8px; font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); transition: all 0.18s; white-space: nowrap; letter-spacing: 0.02em; }
-    .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.06); }
-    .btn.active { background: rgba(79,124,255,0.12); border-color: var(--accent); color: var(--accent); }
-    .btn-sm { padding: 6px 12px; font-size: 0.73rem; }
-    .btn-accent { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; }
-    .btn-accent:hover { background: #3a68e8 !important; }
-    .btn-danger { background: rgba(255,107,107,0.1); color: var(--accent2) !important; border-color: rgba(255,107,107,0.25); }
-    .btn-danger:hover { background: rgba(255,107,107,0.2); border-color: var(--accent2); }
+/* ── Tabs ── */
+.tabs-row {
+  display:flex; align-items:center; border-bottom:2px solid var(--border);
+  margin-bottom:0; flex:1; gap:0;
+}
+.tab-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 20px; border:none; background:none; cursor:pointer;
+  font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700;
+  color:var(--text-muted); letter-spacing:.02em; border-bottom:2px solid transparent;
+  margin-bottom:-2px; transition:all .18s; white-space:nowrap;
+}
+.tab-btn:hover { color:var(--accent); }
+.tab-btn.active { color:var(--accent); border-bottom-color:var(--accent); }
 
-    /* ── Toolbar ── */
-    .toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; }
-    .search-wrap { position: relative; flex: 1; }
-    .search-wrap svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-    #searchInput { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.82rem; padding: 11px 14px 11px 40px; border-radius: 8px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-    #searchInput::placeholder { color: var(--text-muted); }
-    #searchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,124,255,0.12); }
+/* Theme select aligned with tabs */
+.theme-select {
+  margin-left:auto; flex-shrink:0;
+  background:var(--surface2); border:1px solid var(--border); color:var(--text-dim);
+  font-family:'Syne',sans-serif; font-size:.73rem; font-weight:600;
+  padding:6px 26px 6px 10px; border-radius:8px; outline:none; cursor:pointer;
+  -webkit-appearance:none; appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 8px center; transition:border-color .18s;
+}
+.theme-select:hover, .theme-select:focus { border-color:var(--accent); color:var(--accent); }
+.theme-select option { background:#1c2030; color:var(--text); }
 
-    /* ── Filter Panel — horizontal rows ── */
-    .filter-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 20px; display: none; animation: slideDown 0.2s ease; }
-    .filter-panel.open { display: block; }
-    @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+/* ── Tab Panels ── */
+.tab-panel { display:none; padding-top:20px; }
+.tab-panel.active { display:block; }
 
-    .filter-row { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
-    .filter-row:last-of-type { border-bottom: none; }
-    .filter-row-label {
-      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
-      color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;
-      min-width: 90px; padding-top: 6px; flex-shrink: 0;
-    }
-    .filter-row-checks { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+/* ── Buttons ── */
+.btn { display:inline-flex; align-items:center; gap:7px; padding:9px 16px; border-radius:8px; font-family:'Syne',sans-serif; font-size:.8rem; font-weight:600; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text-dim); transition:all .18s; white-space:nowrap; }
+.btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(79,124,255,.06); }
+.btn.active { background:rgba(79,124,255,.12); border-color:var(--accent); color:var(--accent); }
+.btn-sm { padding:6px 12px; font-size:.73rem; }
+.btn-accent { background:var(--accent)!important; color:#fff!important; border-color:var(--accent)!important; }
+.btn-accent:hover { background:#3a68e8!important; }
+.btn-danger { background:rgba(255,107,107,.1); color:var(--accent2)!important; border-color:rgba(255,107,107,.25); }
+.btn-danger:hover { background:rgba(255,107,107,.2); border-color:var(--accent2); }
 
-    .check-pill {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 4px 10px; border-radius: 20px; cursor: pointer;
-      border: 1px solid var(--border); background: var(--surface2);
-      transition: all 0.15s; user-select: none;
-    }
-    .check-pill input[type="checkbox"] { display: none; }
-    .check-pill span { font-size: 0.72rem; color: var(--text-dim); font-family: 'DM Mono', monospace; white-space: nowrap; }
-    .check-pill:hover { border-color: var(--accent); background: rgba(79,124,255,0.06); }
-    .check-pill:hover span { color: var(--accent); }
-    .check-pill.checked { background: rgba(79,124,255,0.12); border-color: var(--accent); }
-    .check-pill.checked span { color: var(--text); }
-    .check-pill .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: none; flex-shrink: 0; }
-    .check-pill.checked .pill-dot { display: block; }
+/* ── Source switcher (Spells tab) ── */
+.source-switcher { display:flex; gap:8px; margin-bottom:14px; align-items:center; flex-wrap:wrap; }
+.source-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-family:'Syne',sans-serif; font-size:.76rem; font-weight:700; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text-muted); transition:all .18s; white-space:nowrap; }
+.source-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(79,124,255,.06); }
+.source-btn.active { background:rgba(79,124,255,.14); border-color:var(--accent); color:var(--text); box-shadow:0 0 0 1px var(--accent); }
+.source-label { font-family:'Syne',sans-serif; font-size:.68rem; font-weight:600; color:var(--text-muted); letter-spacing:.06em; text-transform:uppercase; }
 
-    .filter-actions { margin-top: 12px; display: flex; gap: 10px; padding-top: 12px; border-top: 1px solid var(--border); }
+/* ── Toolbar row ── */
+.toolbar { display:flex; gap:10px; margin-bottom:16px; align-items:center; }
+.search-wrap { position:relative; flex:1; }
+.search-wrap svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none; }
+.search-input { width:100%; background:var(--surface); border:1px solid var(--border); color:var(--text); font-family:'DM Mono',monospace; font-size:.82rem; padding:10px 14px 10px 38px; border-radius:8px; outline:none; transition:border-color .2s,box-shadow .2s; }
+.search-input::placeholder { color:var(--text-muted); }
+.search-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,124,255,.12); }
 
-    /* ── Stats bar ── */
-    .stats-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 6px; }
-    .stats-bar strong { color: var(--text-dim); }
-    .active-filters { display: flex; gap: 6px; flex-wrap: wrap; }
-    .filter-tag { background: var(--tag-bg); border: 1px solid var(--border); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px; }
-    .filter-tag button { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.8rem; padding: 0; line-height: 1; }
-    .filter-tag button:hover { color: var(--accent2); }
+/* ── Filter Panel ── */
+.filter-panel { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:16px; display:none; animation:slideDown .2s ease; }
+.filter-panel.open { display:block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+.filter-row { display:flex; align-items:flex-start; gap:12px; padding:8px 0; border-bottom:1px solid var(--border); }
+.filter-row:last-of-type { border-bottom:none; }
+.filter-row-label { font-family:'Syne',sans-serif; font-size:.68rem; font-weight:700; color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase; min-width:90px; padding-top:6px; flex-shrink:0; }
+.filter-row-checks { display:flex; flex-wrap:wrap; gap:4px; flex:1; }
+.check-pill { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; border-radius:20px; cursor:pointer; border:1px solid var(--border); background:var(--surface2); transition:all .15s; user-select:none; }
+.check-pill input[type="checkbox"] { display:none; }
+.check-pill span { font-size:.72rem; color:var(--text-dim); font-family:'DM Mono',monospace; white-space:nowrap; }
+.check-pill:hover { border-color:var(--accent); background:rgba(79,124,255,.06); }
+.check-pill:hover span { color:var(--accent); }
+.check-pill.checked { background:rgba(79,124,255,.12); border-color:var(--accent); }
+.check-pill.checked span { color:var(--text); }
+.check-pill .pill-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); display:none; flex-shrink:0; }
+.check-pill.checked .pill-dot { display:block; }
+.filter-actions { margin-top:12px; display:flex; gap:10px; padding-top:12px; border-top:1px solid var(--border); }
+.filter-empty-note { font-size:.75rem; color:var(--text-muted); padding:8px 0; font-style:italic; }
 
-    /* ── Main layout ── */
-    .main-layout { display: flex; gap: 24px; align-items: flex-start; }
-    .table-side { flex: 1; min-width: 0; overflow-x: auto; }
+/* ── Stats bar ── */
+.stats-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:.75rem; color:var(--text-muted); flex-wrap:wrap; gap:6px; }
+.stats-bar strong { color:var(--text-dim); }
+.active-filters { display:flex; gap:6px; flex-wrap:wrap; }
+.filter-tag { background:var(--tag-bg); border:1px solid var(--border); color:var(--accent); font-size:.7rem; padding:2px 8px; border-radius:4px; display:flex; align-items:center; gap:5px; }
+.filter-tag button { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:.8rem; padding:0; line-height:1; }
+.filter-tag button:hover { color:var(--accent2); }
 
-    /* ── Table ── */
-    .table-wrap {
-      border: 1px solid var(--border); border-radius: 12px;
-      background: var(--surface); min-width: 680px;
-      /* 20 data rows × ~38px + thead ~42px */
-      max-height: calc(20 * 38px + 42px);
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-    /* Scrollbar styling */
-    .table-wrap::-webkit-scrollbar { width: 6px; }
-    .table-wrap::-webkit-scrollbar-track { background: transparent; }
-    .table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    .table-wrap::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-    table { width: 100%; border-collapse: collapse; }
-    thead tr { background: var(--header-bg); }
-    /* Sticky header stays visible while scrolling */
-    thead { position: sticky; top: 0; z-index: 2; }
-    th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; user-select: none; cursor: pointer; transition: color 0.18s, background 0.18s; }
-    th:hover { color: var(--accent); background: rgba(79,124,255,0.04); }
-    th.sorted-asc, th.sorted-desc { color: var(--accent); }
-    .th-inner { display: flex; align-items: center; gap: 6px; }
-    .sort-icon { display: flex; flex-direction: column; gap: 2px; }
-    .sort-icon span { display: block; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; opacity: 0.25; transition: opacity 0.18s; }
-    .sort-icon .arrow-up { border-bottom: 4px solid currentColor; }
-    .sort-icon .arrow-down { border-top: 4px solid currentColor; }
-    th.sorted-asc .arrow-up { opacity: 1; }
-    th.sorted-desc .arrow-down { opacity: 1; }
-    th.sorted-asc .arrow-down { opacity: 0.15; }
-    th.sorted-desc .arrow-up { opacity: 0.15; }
-    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.14s; cursor: pointer; }
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: var(--row-hover); }
-    tbody tr.selected { background: #161c2e; box-shadow: inset 3px 0 0 var(--accent); }
-    td { padding: 10px 14px; font-size: 0.78rem; color: var(--text-dim); vertical-align: middle; white-space: nowrap; }
-    td.name-cell { font-weight: 600; color: var(--text-dim); font-size: 0.8rem; white-space: normal; }
-    .school-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; font-family: 'Syne', sans-serif; border: 1px solid; }
-    .school-Evocation    { background: rgba(255,107,107,0.1);  color: #ff8c8c; border-color: rgba(255,107,107,0.25); }
-    .school-Conjuration  { background: rgba(79,124,255,0.1);   color: #7ca0ff; border-color: rgba(79,124,255,0.25); }
-    .school-Illusion     { background: rgba(180,100,255,0.1);  color: #cc88ff; border-color: rgba(180,100,255,0.25); }
-    .school-Necromancy   { background: rgba(54,217,160,0.1);   color: #55d9a4; border-color: rgba(54,217,160,0.25); }
-    .school-Transmutation{ background: rgba(255,193,69,0.1);   color: #ffc145; border-color: rgba(255,193,69,0.25); }
-    .school-Divination   { background: rgba(100,200,255,0.1);  color: #80d8ff; border-color: rgba(100,200,255,0.25); }
-    .school-Enchantment  { background: rgba(255,150,180,0.1);  color: #ff99bb; border-color: rgba(255,150,180,0.25); }
-    .school-Abjuration   { background: rgba(140,200,80,0.1);   color: #a8d870; border-color: rgba(140,200,80,0.25); }
-    .school-Psionic      { background: rgba(220,100,255,0.1);  color: #dc64ff; border-color: rgba(220,100,255,0.25); }
-    mark { background: rgba(79,124,255,0.25); color: #fff; border-radius: 2px; padding: 0 1px; }
-    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
-    .empty-state p { font-size: 0.85rem; margin-top: 12px; }
+/* ── Main layout (table + detail card side by side) ── */
+.main-layout { display:flex; gap:20px; align-items:flex-start; }
+.table-side { flex:1; min-width:0; overflow-x:auto; }
 
-    /* ════════════════════════════════════
-       SPELL CARD — exactly 300×500px
-    ════════════════════════════════════ */
-    .spell-card {
-      width: var(--card-w);
-      min-width: var(--card-w);
-      max-width: var(--card-w);
-      /* Standard height — overridden to auto for extended cards */
-      height: var(--card-h);
-      min-height: var(--card-h);
-      background: #0f1119;
-      border: 2px solid #2e3550;
-      border-radius: 10px;
-      display: flex; flex-direction: column;
-      overflow: hidden; position: relative;
-      font-family: 'DM Mono', monospace;
-    }
+/* ── Table ── */
+.table-wrap {
+  border:1px solid var(--border); border-radius:12px;
+  background:var(--surface); min-width:600px;
+  max-height:calc(20 * 38px + 42px);
+  overflow-y:auto; overflow-x:hidden;
+}
+.table-wrap::-webkit-scrollbar { width:6px; }
+.table-wrap::-webkit-scrollbar-track { background:transparent; }
+.table-wrap::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+.table-wrap::-webkit-scrollbar-thumb:hover { background:var(--text-muted); }
+table { width:100%; border-collapse:collapse; }
+thead { position:sticky; top:0; z-index:2; }
+thead tr { background:var(--header-bg); }
+th { padding:11px 14px; text-align:left; font-family:'Syne',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--text-muted); border-bottom:1px solid var(--border); white-space:nowrap; user-select:none; cursor:pointer; transition:color .18s,background .18s; }
+th:hover { color:var(--accent); background:rgba(79,124,255,.04); }
+th.sorted-asc, th.sorted-desc { color:var(--accent); }
+.th-inner { display:flex; align-items:center; gap:6px; }
+.sort-icon { display:flex; flex-direction:column; gap:2px; }
+.sort-icon span { display:block; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; opacity:.25; transition:opacity .18s; }
+.sort-icon .arrow-up { border-bottom:4px solid currentColor; }
+.sort-icon .arrow-down { border-top:4px solid currentColor; }
+th.sorted-asc .arrow-up { opacity:1; }
+th.sorted-desc .arrow-down { opacity:1; }
+th.sorted-asc .arrow-down { opacity:.15; }
+th.sorted-desc .arrow-up { opacity:.15; }
+tbody tr { border-bottom:1px solid var(--border); transition:background .14s; cursor:pointer; }
+tbody tr:last-child { border-bottom:none; }
+tbody tr:hover { background:var(--row-hover); }
+tbody tr.selected { background:#161c2e; box-shadow:inset 3px 0 0 var(--accent); }
+td { padding:10px 14px; font-size:.78rem; color:var(--text-dim); vertical-align:middle; white-space:nowrap; }
+td.name-cell { font-weight:600; color:var(--text-dim); font-size:.8rem; white-space:normal; }
+.school-badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:.65rem; font-weight:600; letter-spacing:.05em; font-family:'Syne',sans-serif; border:1px solid; }
+.school-Evocation    { background:rgba(255,107,107,.1); color:#ff8c8c; border-color:rgba(255,107,107,.25); }
+.school-Conjuration  { background:rgba(79,124,255,.1);  color:#7ca0ff; border-color:rgba(79,124,255,.25); }
+.school-Illusion     { background:rgba(180,100,255,.1); color:#cc88ff; border-color:rgba(180,100,255,.25); }
+.school-Necromancy   { background:rgba(54,217,160,.1);  color:#55d9a4; border-color:rgba(54,217,160,.25); }
+.school-Transmutation{ background:rgba(255,193,69,.1);  color:#ffc145; border-color:rgba(255,193,69,.25); }
+.school-Divination   { background:rgba(100,200,255,.1); color:#80d8ff; border-color:rgba(100,200,255,.25); }
+.school-Enchantment  { background:rgba(255,150,180,.1); color:#ff99bb; border-color:rgba(255,150,180,.25); }
+.school-Abjuration   { background:rgba(140,200,80,.1);  color:#a8d870; border-color:rgba(140,200,80,.25); }
+.school-Psionic      { background:rgba(220,100,255,.1); color:#dc64ff; border-color:rgba(220,100,255,.25); }
+mark { background:rgba(79,124,255,.25); color:#fff; border-radius:2px; padding:0 1px; }
+.empty-state { text-align:center; padding:50px 20px; color:var(--text-muted); }
+.empty-state p { font-size:.85rem; margin-top:10px; }
+/* Tooltip for abbreviated column headers */
+th[data-tip] { position:relative; }
+th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#252a3a; color:var(--text); font-size:.65rem; font-family:'DM Mono',monospace; padding:4px 8px; border-radius:5px; white-space:nowrap; z-index:100; margin-top:4px; pointer-events:none; border:1px solid var(--border); }
 
-    /* Extended card: grow to fit content, no height cap */
-    .spell-card.extended {
-      height: auto;
-      max-height: none;
-      overflow: visible;
-    }
-    /* When extended, desc block no longer needs to flex-expand — content drives height */
-    .spell-card.extended .card-desc-block {
-      flex: none;
-      overflow: visible;
-    }
+/* ── SPELL CARD ── */
+.spell-card {
+  width:var(--card-w); min-width:var(--card-w); max-width:var(--card-w);
+  height:var(--card-h); min-height:var(--card-h);
+  background:#0f1119; border:2px solid #2e3550; border-radius:10px;
+  display:flex; flex-direction:column; overflow:hidden; position:relative;
+  font-family:'DM Mono',monospace;
+}
+.spell-card.extended { height:auto; max-height:none; overflow:visible; }
+.spell-card.extended .card-desc-block { flex:none; overflow:visible; }
+.card-stripe { height:4px; background:linear-gradient(90deg,var(--accent),var(--accent3)); flex-shrink:0; }
+.card-actions-bar { background:#0d0f18; border-bottom:1px solid #252a3a; padding:5px 8px; display:flex; gap:4px; align-items:center; flex-shrink:0; }
+.card-btn { display:inline-flex; align-items:center; gap:4px; padding:3px 8px; border-radius:5px; font-family:'Syne',sans-serif; font-size:.58rem; font-weight:700; cursor:pointer; border:1px solid var(--border); background:#1c2030; color:var(--text-muted); transition:all .15s; white-space:nowrap; letter-spacing:.04em; flex-shrink:0; }
+.card-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(79,124,255,.1); }
+.card-btn svg { flex-shrink:0; }
+.card-name-block { padding:10px 12px 0; flex-shrink:0; }
+.card-spell-name { font-family:'Cinzel',serif; font-size:.95rem; font-weight:700; color:var(--gold); letter-spacing:.02em; line-height:1.2; margin-bottom:3px; }
+.card-type-line { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font-size:.58rem; font-style:italic; color:#8090aa; gap:4px; }
+.card-type-level { text-align:left; white-space:nowrap; }
+.card-type-school { text-align:center; white-space:nowrap; }
+.card-type-type { text-align:right; white-space:nowrap; }
+.card-rule { height:1px; background:#252a3a; margin:7px 12px; flex-shrink:0; }
+.card-stats-block { padding:0 12px; display:flex; flex-direction:column; gap:2px; flex-shrink:0; }
+.card-stat-row { font-size:.61rem; line-height:1.45; color:#b0bbd4; display:flex; gap:4px; align-items:baseline; }
+.card-stat-row .stat-label { font-weight:700; color:#d0d8ee; white-space:nowrap; flex-shrink:0; }
+.card-stat-row .stat-val { color:#9aaac4; }
+.card-stat-row em { font-style:italic; color:#8898bb; }
+.card-desc-block { padding:0 12px; flex:1; overflow:hidden; font-size:.6rem; color:#9aaac4; line-height:1.5; margin-top:4px; }
+.card-desc-block p { margin-bottom:3px; }
+.card-desc-block p:last-child { margin-bottom:0; }
+.card-desc-block strong { color:#d8e0f0; font-weight:600; }
+.card-desc-block em { color:#8898bb; font-style:italic; }
+.card-desc-block code { background:#1c2030; color:var(--accent3); padding:1px 3px; border-radius:3px; font-size:.56rem; }
+.card-desc-block ul { padding-left:12px; margin:2px 0; }
+.card-desc-block li { margin-bottom:1px; }
+.card-desc-block blockquote { border-left:2px solid var(--accent); padding-left:7px; margin:3px 0; color:#7888a8; font-style:italic; }
+.card-desc-block h3 { font-family:'Cinzel',serif; font-size:.6rem; color:var(--gold); margin:4px 0 2px; font-weight:600; }
+.card-classes-block { padding:4px 12px 5px; font-size:.58rem; color:#7888a8; flex-shrink:0; }
+.card-classes-block strong { color:#9aaac4; font-weight:700; }
+.card-footer-bar { background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%); border-top:1px solid #252a3a; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; gap:6px; }
+.card-school-badge { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.6rem; font-weight:600; letter-spacing:.04em; font-family:'Syne',sans-serif; border:1px solid; }
+.card-type-badge { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.6rem; font-weight:700; letter-spacing:.04em; font-family:'Syne',sans-serif; border:1px solid; }
+.type-Arcane   { background:rgba(30,144,255,.12); color:#3eb5ff; border-color:rgba(30,144,255,.28); }
+.type-Divine   { background:rgba(201,168,76,.12);  color:#c9a84c; border-color:rgba(201,168,76,.28); }
+.type-Nature   { background:rgba(60,200,80,.12);   color:#50c858; border-color:rgba(60,200,80,.28); }
+.type-Eldritch { background:rgba(80,20,120,.20);   color:#9955cc; border-color:rgba(100,40,160,.40); }
+.type-other    { background:rgba(160,160,160,.10); color:#888;    border-color:rgba(160,160,160,.22); }
 
-    /* Rainbow top stripe */
-    .card-stripe { height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent3)); flex-shrink: 0; }
+/* ── ITEM CARD ── */
+.item-card {
+  width:var(--card-w); min-width:var(--card-w); max-width:var(--card-w);
+  min-height:var(--card-h); background:#0f1119; border:2px solid #3a2e20;
+  border-radius:10px; display:flex; flex-direction:column; overflow:hidden;
+  position:relative; font-family:'DM Mono',monospace;
+}
+.item-card .card-stripe { background:linear-gradient(90deg,var(--gold),#e8943a); }
+.item-card .card-footer-bar { background:linear-gradient(180deg,#1a1710 0%,#221e14 100%); border-color:#3a3020; }
 
-    /* Action buttons row at very top, outside the content */
-    .card-actions-bar {
-      background: #0d0f18;
-      border-bottom: 1px solid #252a3a;
-      padding: 5px 8px;
-      display: flex; gap: 4px; align-items: center;
-      flex-shrink: 0;
-    }
-    .card-btn {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 3px 8px; border-radius: 5px;
-      font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700;
-      cursor: pointer; border: 1px solid var(--border); background: #1c2030;
-      color: var(--text-muted); transition: all 0.15s; white-space: nowrap;
-      letter-spacing: 0.04em; flex-shrink: 0;
-    }
-    .card-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.1); }
-    .card-btn svg { flex-shrink: 0; }
+/* ── FEAT CARD ── */
+.feat-card {
+  width:var(--card-w); min-width:var(--card-w); max-width:var(--card-w);
+  min-height:280px; background:#0f1119; border:2px solid #202e20;
+  border-radius:10px; display:flex; flex-direction:column; overflow:hidden;
+  position:relative; font-family:'DM Mono',monospace;
+}
+.feat-card .card-stripe { background:linear-gradient(90deg,var(--accent3),#2090a0); }
+.feat-card .card-footer-bar { background:linear-gradient(180deg,#13161e 0%,#151e16 100%); border-color:#20301e; }
 
-    /* Name block */
-    .card-name-block {
-      padding: 10px 12px 0;
-      flex-shrink: 0;
-    }
-    .card-spell-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem; font-weight: 700;
-      color: var(--gold); letter-spacing: 0.02em;
-      line-height: 1.2; margin-bottom: 3px;
-    }
-    /* Three-column type line: level left, school center, type right */
-    .card-type-line {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      font-size: 0.58rem;
-      font-style: italic;
-      color: #8090aa;
-      gap: 4px;
-      margin-bottom: 0;
-    }
-    .card-type-level { text-align: left; white-space: nowrap; }
-    .card-type-school { text-align: center; white-space: nowrap; }
-    .card-type-type  { text-align: right; white-space: nowrap; }
+/* ── Detail panel ── */
+.detail-panel { min-width:var(--card-w); width:var(--card-w); display:none; flex-direction:column; align-items:flex-start; }
+.detail-panel.open { display:flex; animation:fadeInRight .22s ease; }
+@keyframes fadeInRight { from{opacity:0;transform:translateX(12px)} to{opacity:1;transform:translateX(0)} }
 
-    /* Divider rule */
-    .card-rule { height: 1px; background: #252a3a; margin: 7px 12px; flex-shrink: 0; }
+/* ── Bulk Section (Spells only) ── */
+.bulk-section { margin-top:44px; }
+.bulk-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
+.bulk-header-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.bulk-title { font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700; color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase; }
+.bulk-count { background:var(--tag-bg); border:1px solid var(--border); color:var(--accent); font-size:.7rem; padding:2px 8px; border-radius:4px; font-family:'Syne',sans-serif; font-weight:700; }
+.col-slider-wrap { display:flex; align-items:center; gap:8px; font-size:.72rem; color:var(--text-muted); font-family:'Syne',sans-serif; font-weight:600; }
+.col-slider-wrap label { white-space:nowrap; }
+#colSlider { -webkit-appearance:none; appearance:none; width:100px; height:4px; border-radius:2px; background:var(--border); outline:none; cursor:pointer; }
+#colSlider::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+#colSlider::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+#colSliderVal { color:var(--accent); font-weight:700; min-width:12px; text-align:center; }
+.bulk-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.bulk-sort-wrap { display:flex; align-items:center; gap:6px; }
+.bulk-select { background:var(--surface2); border:1px solid var(--border); color:var(--text-dim); font-family:'Syne',sans-serif; font-size:.73rem; font-weight:600; padding:6px 26px 6px 10px; border-radius:8px; outline:none; cursor:pointer; -webkit-appearance:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 8px center; padding-right:26px; transition:border-color .18s; }
+.bulk-select:hover,.bulk-select:focus { border-color:var(--accent); color:var(--accent); }
+.bulk-select option { background:var(--surface2); color:var(--text); }
+.bulk-btn-divider { width:1px; height:22px; background:var(--border); flex-shrink:0; }
+.bulk-area { display:grid; grid-template-columns:repeat(var(--bulk-cols,3),var(--card-w)); grid-auto-rows:var(--card-h); gap:16px; background:var(--surface); border:1px dashed var(--border); border-radius:12px; padding:20px; position:relative; min-height:calc(var(--card-h) + 40px); width:fit-content; max-width:100%; }
+.bulk-empty-msg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:.8rem; pointer-events:none; flex-direction:column; gap:10px; text-align:center; grid-column:1/-1; }
+.bulk-empty-msg svg { opacity:.2; }
+.bulk-slot { position:relative; width:var(--card-w); animation:popIn .2s ease; }
+.bulk-slot.extended { grid-row:span 2; }
+.bulk-slot.extended .spell-card { height:calc(var(--card-h)*2 + 16px); min-height:calc(var(--card-h)*2 + 16px); max-height:none; overflow:visible; }
+.bulk-slot.extended .spell-card .card-desc-block { flex:none; overflow:visible; }
+@keyframes popIn { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
+.bulk-slot .spell-card { width:100%; }
+.bulk-slot .card-actions-bar { display:none!important; }
+.bulk-controls { position:absolute; top:8px; right:8px; display:flex; gap:5px; z-index:10; }
+.bulk-icon-btn { width:26px; height:26px; border-radius:5px; border:1px solid var(--border); background:rgba(13,15,20,.88); color:var(--text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; backdrop-filter:blur(2px); }
+.bulk-icon-btn.trash:hover { border-color:var(--accent2); color:var(--accent2); background:rgba(255,107,107,.15); }
+.bulk-icon-btn.copy:hover  { border-color:var(--accent3); color:var(--accent3); background:rgba(54,217,160,.12); }
 
-    /* Stats block */
-    .card-stats-block {
-      padding: 0 12px;
-      display: flex; flex-direction: column; gap: 2px;
-      flex-shrink: 0;
-    }
-    .card-stat-row {
-      font-size: 0.61rem; line-height: 1.45; color: #b0bbd4;
-      display: flex; gap: 4px; align-items: baseline;
-    }
-    .card-stat-row .stat-label { font-weight: 700; color: #d0d8ee; white-space: nowrap; flex-shrink: 0; }
-    .card-stat-row .stat-val   { color: #9aaac4; }
-    .card-stat-row em          { font-style: italic; color: #8898bb; }
+/* ── Modal ── */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:200; display:none; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+.modal-overlay.open { display:flex; animation:fadeIn .15s ease; }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.modal { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:30px 28px; max-width:380px; width:90%; animation:slideUp .2s ease; }
+@keyframes slideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.modal h2 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800; color:var(--text); margin-bottom:10px; }
+.modal p { font-size:.82rem; color:var(--text-muted); margin-bottom:22px; line-height:1.6; }
+.modal-actions { display:flex; gap:10px; justify-content:flex-end; }
 
-    /* Description block — flex:1 so it expands, overflow hidden */
-    .card-desc-block {
-      padding: 0 12px;
-      flex: 1;
-      overflow: hidden;
-      font-size: 0.6rem;
-      color: #9aaac4;
-      line-height: 1.5;
-      margin-top: 4px;
-    }
-    .card-desc-block p  { margin-bottom: 3px; }
-    .card-desc-block p:last-child { margin-bottom: 0; }
-    .card-desc-block strong { color: #d8e0f0; font-weight: 600; }
-    .card-desc-block em     { color: #8898bb; font-style: italic; }
-    .card-desc-block code   { background: #1c2030; color: var(--accent3); padding: 1px 3px; border-radius: 3px; font-size: 0.56rem; }
-    .card-desc-block ul     { padding-left: 12px; margin: 2px 0; }
-    .card-desc-block li     { margin-bottom: 1px; }
-    .card-desc-block blockquote { border-left: 2px solid var(--accent); padding-left: 7px; margin: 3px 0; color: #7888a8; font-style: italic; }
-    .card-desc-block h3     { font-family: 'Cinzel', serif; font-size: 0.6rem; color: var(--gold); margin: 4px 0 2px; font-weight: 600; }
+/* ── Mobile ── */
+@media (max-width:900px) {
+  body { padding:12px; }
+  .main-layout { flex-direction:column; gap:16px; }
+  .detail-panel { width:100%; min-width:unset; }
+  .detail-panel .spell-card,.detail-panel .item-card,.detail-panel .feat-card { width:100%; max-width:100%; min-width:unset; }
+  .table-side { width:100%; overflow-x:auto; }
+  .table-wrap { min-width:unset; }
+  th { padding:8px 8px; font-size:.62rem; }
+  td { padding:7px 8px; font-size:.72rem; }
+  td.name-cell { font-size:.75rem; white-space:normal; min-width:80px; max-width:130px; }
+  .app-bar { gap:8px; }
+  .tabs-row { overflow-x:auto; }
+  .theme-select { margin-left:auto; }
+  .bulk-header { flex-direction:column; align-items:flex-start; }
+  .bulk-actions { flex-wrap:wrap; }
+}
+@media (max-width:600px) {
+  th[data-col="1"],td:nth-child(2) { display:none; }
+}
 
-    /* Classes line — sits directly below desc rule, not pushed to bottom */
-    .card-classes-block {
-      padding: 4px 12px 5px;
-      font-size: 0.58rem;
-      color: #7888a8;
-      flex-shrink: 0;
-    }
-    .card-classes-block strong { color: #9aaac4; font-weight: 700; }
-
-    /* Footer — school badge (matching table) + magic type badge */
-    .card-footer-bar {
-      background: linear-gradient(180deg, #13161e 0%, #1a1f2e 100%);
-      border-top: 1px solid #252a3a;
-      padding: 5px 10px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-shrink: 0; gap: 6px;
-    }
-
-    /* School badge in footer — same style as table */
-    .card-school-badge {
-      display: inline-block; padding: 2px 7px; border-radius: 4px;
-      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.04em;
-      font-family: 'Syne', sans-serif; border: 1px solid;
-    }
-
-    /* Type badge in footer */
-    .card-type-badge {
-      display: inline-block; padding: 2px 7px; border-radius: 4px;
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
-      font-family: 'Syne', sans-serif; border: 1px solid;
-    }
-    .type-Arcane   { background: rgba(30,144,255,0.12); color: #3eb5ff; border-color: rgba(30,144,255,0.28); }
-    .type-Divine   { background: rgba(201,168,76,0.12);  color: #c9a84c; border-color: rgba(201,168,76,0.28); }
-    .type-Nature   { background: rgba(60,200,80,0.12);   color: #50c858; border-color: rgba(60,200,80,0.28); }
-    .type-Eldritch { background: rgba(80,20,120,0.20);   color: #9955cc; border-color: rgba(100,40,160,0.40); }
-    .type-other    { background: rgba(160,160,160,0.10); color: #888;    border-color: rgba(160,160,160,0.22); }
-
-    /* ── Detail Panel ── */
-    .detail-panel { width: var(--card-w); min-width: var(--card-w); display: none; flex-direction: column; align-items: flex-start; }
-    .detail-panel.open { display: flex; animation: fadeInRight 0.22s ease; }
-    .detail-panel .spell-card { width: var(--card-w); }
-    @keyframes fadeInRight { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
-
-    /* ── Bulk Section ── */
-    .bulk-section { margin-top: 44px; }
-    .bulk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-    .bulk-header-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .bulk-title { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
-    .bulk-count { background: var(--tag-bg); border: 1px solid var(--border); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-family: 'Syne', sans-serif; font-weight: 700; }
-
-    /* Column slider */
-    .col-slider-wrap { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; color: var(--text-muted); font-family: 'Syne', sans-serif; font-weight: 600; }
-    .col-slider-wrap label { white-space: nowrap; }
-    #colSlider { -webkit-appearance: none; appearance: none; width: 100px; height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer; }
-    #colSlider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; }
-    #colSlider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; }
-    #colSliderVal { color: var(--accent); font-weight: 700; min-width: 12px; text-align: center; }
-
-    .bulk-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-
-    /* Sort controls */
-    .bulk-sort-wrap { display: flex; align-items: center; gap: 6px; }
-    .bulk-select {
-      background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
-      font-family: 'Syne', sans-serif; font-size: 0.73rem; font-weight: 600;
-      padding: 6px 10px; border-radius: 8px; outline: none; cursor: pointer;
-      transition: border-color 0.18s, color 0.18s;
-      -webkit-appearance: none; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 8px center; padding-right: 26px;
-    }
-    .bulk-select:hover, .bulk-select:focus { border-color: var(--accent); color: var(--accent); }
-    .bulk-select option { background: var(--surface2); color: var(--text); }
-
-    .bulk-btn-divider { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
-
-    /* Bulk grid — width scales to column count, set by JS */
-    .bulk-area {
-      display: grid;
-      grid-template-columns: repeat(var(--bulk-cols, 3), var(--card-w));
-      grid-auto-rows: var(--card-h);
-      gap: 16px;
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      min-height: calc(var(--card-h) + 40px);
-      width: fit-content;
-      max-width: 100%;
-    }
-    .bulk-empty-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.8rem; pointer-events: none; flex-direction: column; gap: 10px; text-align: center; grid-column: 1 / -1; }
-    .bulk-empty-msg svg { opacity: 0.2; }
-
-    /* Standard slot — one grid cell */
-    .bulk-slot { position: relative; width: var(--card-w); animation: popIn 0.2s ease; }
-    /* Extended slot — spans two row cells including the gap between them */
-    .bulk-slot.extended { grid-row: span 2; }
-    .bulk-slot.extended .spell-card {
-      height: calc(var(--card-h) * 2 + 16px); /* 2 rows + 1 gap */
-      min-height: calc(var(--card-h) * 2 + 16px);
-      max-height: none;
-      overflow: visible;
-    }
-    .bulk-slot.extended .spell-card .card-desc-block {
-      flex: none;
-      overflow: visible;
-    }
-    @keyframes popIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
-    .bulk-slot .spell-card { width: 100%; }
-    .bulk-slot .card-actions-bar { display: none !important; }
-
-    .bulk-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 5px; z-index: 10; }
-    .bulk-icon-btn { width: 26px; height: 26px; border-radius: 5px; border: 1px solid var(--border); background: rgba(13,15,20,0.88); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; backdrop-filter: blur(2px); }
-    .bulk-icon-btn.trash:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(255,107,107,0.15); }
-    .bulk-icon-btn.copy:hover  { border-color: var(--accent3); color: var(--accent3); background: rgba(54,217,160,0.12); }
-
-    /* ── Source switcher ── */
-    .source-switcher {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      align-items: center;
-    }
-    .source-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px; border-radius: 8px;
-      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
-      cursor: pointer; border: 1px solid var(--border);
-      background: var(--surface); color: var(--text-muted);
-      transition: all 0.18s; white-space: nowrap; letter-spacing: 0.02em;
-    }
-    .source-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,124,255,0.06); }
-    .source-btn.active {
-      background: rgba(79,124,255,0.14);
-      border-color: var(--accent);
-      color: var(--text);
-      box-shadow: 0 0 0 1px var(--accent);
-    }
-    .source-label {
-      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600;
-      color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
-      margin-right: 4px;
-    }
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-    .modal-overlay.open { display: flex; animation: fadeIn 0.15s ease; }
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 30px 28px; max-width: 380px; width: 90%; animation: slideUp 0.2s ease; }
-    @keyframes slideUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-    .modal h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 10px; }
-    .modal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; line-height: 1.6; }
-    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
-
-    /* ── Theme select ── */
-    .theme-select {
-      margin-left: auto;
-      background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
-      font-family: 'Syne', sans-serif; font-size: 0.73rem; font-weight: 600;
-      padding: 6px 26px 6px 10px; border-radius: 8px; outline: none; cursor: pointer;
-      transition: border-color 0.18s, color 0.18s;
-      -webkit-appearance: none; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 8px center;
-      flex-shrink: 0;
-    }
-    .theme-select:hover, .theme-select:focus { border-color: var(--accent); color: var(--accent); }
-    .theme-select option { background: #1c2030; color: var(--text); }
-
-    /* ── Mobile / responsive ── */
-    @media (max-width: 900px) {
-      body { padding: 16px 12px; }
-      .container { max-width: 100%; }
-      /* Stack main layout vertically */
-      .main-layout { flex-direction: column; gap: 16px; }
-      /* Detail panel below table on mobile */
-      .detail-panel { width: 100%; min-width: unset; order: 2; }
-      .detail-panel .spell-card { width: 100%; max-width: 100%; min-width: unset; }
-      /* Table side full width */
-      .table-side { width: 100%; overflow-x: auto; }
-      /* Compact table for mobile */
-      .table-wrap { min-width: unset; }
-      table { font-size: 0.72rem; }
-      th { padding: 8px 8px; font-size: 0.62rem; }
-      td { padding: 7px 8px; font-size: 0.72rem; white-space: nowrap; }
-      td.name-cell { font-size: 0.75rem; white-space: normal; min-width: 90px; max-width: 140px; }
-      /* Hide lower-priority columns on small screens */
-      th[data-col="2"], td:nth-child(3),   /* Cost */
-      th[data-col="4"], td:nth-child(5)    /* Rit. */
-        { display: none; }
-      /* Source switcher wraps */
-      .source-switcher { flex-wrap: wrap; }
-      .source-btn { padding: 6px 10px; font-size: 0.7rem; }
-      .theme-select { width: 100%; margin-left: 0; margin-top: 4px; }
-      /* Bulk area scrolls horizontally on mobile */
-      .bulk-section { overflow-x: auto; }
-      /* Slider and sort controls stack */
-      .bulk-header { flex-direction: column; align-items: flex-start; }
-      .bulk-actions { flex-wrap: wrap; }
-    }
-    @media (max-width: 600px) {
-      /* On very small screens also hide Type and Con */
-      th[data-col="6"], td:nth-child(7),   /* Type */
-      th[data-col="7"], td:nth-child(8)    /* Con. */
-        { display: none; }
-    }
-
-    @media print {
-      body { background: #fff; padding: 0; }
-      body::before { display: none; }
-      .no-print { display: none !important; }
-    }
-  </style>
+@media print {
+  body { background:#fff; padding:0; }
+  body::before { display:none; }
+  .no-print { display:none!important; }
+}
+</style>
 </head>
 <body>
 <div class="container">
 
-  <div class="page-header no-print">
-    <h1>Spell <span>Grid</span></h1>
-    <p>// SORTABLE · SEARCHABLE · FILTERABLE</p>
+<!-- App Bar: Home + Tabs + Theme -->
+<div class="app-bar no-print">
+  <a href="https://squislaiden.github.io/dmapp/" class="app-home-btn">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    App Home
+  </a>
+  <div class="tabs-row">
+    <button class="tab-btn active" data-tab="spells">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Spells
+    </button>
+    <button class="tab-btn" data-tab="items">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Items
+    </button>
+    <button class="tab-btn" data-tab="feats">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+      Feats
+    </button>
   </div>
+  <select class="theme-select" id="themeSelect" title="Page theme">
+    <option value="default">Default</option>
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+    <option value="gray">Gray</option>
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="yellow">Yellow</option>
+    <option value="orange">Orange</option>
+    <option value="green">Green</option>
+    <option value="violet">Violet</option>
+    <option value="teal">Teal</option>
+    <option value="rose">Rose</option>
+    <option value="indigo">Indigo</option>
+  </select>
+</div>
 
-  <!-- Source Switcher + Theme -->
+<!-- ══════════════════ SPELLS TAB ══════════════════ -->
+<div class="tab-panel active" id="tab-spells">
+
   <div class="source-switcher no-print">
     <span class="source-label">Source:</span>
     <button class="source-btn active" data-src="all-spells.json" id="srcAll">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
       All
     </button>
-    <button class="source-btn" data-src="5e-spells.json" id="src5e">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      5e &amp; Supplements
-    </button>
     <button class="source-btn" data-src="overhaul-spells.json" id="srcOverhaul">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Overhaul Only
     </button>
-    <select class="theme-select" id="themeSelect" title="Page theme">
-      <option value="default">Default</option>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-      <option value="gray">Gray</option>
-      <option value="blue">Blue</option>
-      <option value="red">Red</option>
-      <option value="yellow">Yellow</option>
-      <option value="orange">Orange</option>
-      <option value="green">Green</option>
-      <option value="violet">Violet</option>
-      <option value="teal">Teal</option>
-      <option value="rose">Rose</option>
-      <option value="indigo">Indigo</option>
-    </select>
   </div>
 
-  <!-- Toolbar -->
   <div class="toolbar no-print">
     <div class="search-wrap">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="searchInput" placeholder="Search all columns…" autocomplete="off"/>
+      <input type="text" id="spellSearch" class="search-input" placeholder="Search spells…" autocomplete="off"/>
     </div>
-    <button class="btn" id="filterBtn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+    <button class="btn" id="spellFilterBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
       Filter
     </button>
   </div>
 
-  <!-- Filter Panel — horizontal pill rows -->
-  <div class="filter-panel no-print" id="filterPanel">
-
+  <div class="filter-panel no-print" id="spellFilterPanel">
     <div class="filter-row">
       <span class="filter-row-label">Level</span>
       <div class="filter-row-checks" id="filterLevel">
@@ -550,7 +399,6 @@
         <label class="check-pill"><input type="checkbox" value="9"/><div class="pill-dot"></div><span>9th</span></label>
       </div>
     </div>
-
     <div class="filter-row">
       <span class="filter-row-label">Classes</span>
       <div class="filter-row-checks" id="filterClasses">
@@ -565,7 +413,6 @@
         <label class="check-pill"><input type="checkbox" value="Warlock"/><div class="pill-dot"></div><span>Warlock</span></label>
       </div>
     </div>
-
     <div class="filter-row">
       <span class="filter-row-label">School</span>
       <div class="filter-row-checks" id="filterSchool">
@@ -580,7 +427,6 @@
         <label class="check-pill"><input type="checkbox" value="Transmutation"/><div class="pill-dot"></div><span>Transmutation</span></label>
       </div>
     </div>
-
     <div class="filter-row">
       <span class="filter-row-label">Magic Type</span>
       <div class="filter-row-checks" id="filterMagicType">
@@ -590,7 +436,6 @@
         <label class="check-pill"><input type="checkbox" value="Eldritch"/><div class="pill-dot"></div><span>Eldritch</span></label>
       </div>
     </div>
-
     <div class="filter-row">
       <span class="filter-row-label">Cast Time</span>
       <div class="filter-row-checks" id="filterCastTime">
@@ -603,7 +448,6 @@
         <label class="check-pill"><input type="checkbox" value="Special"/><div class="pill-dot"></div><span>Special</span></label>
       </div>
     </div>
-
     <div class="filter-row">
       <span class="filter-row-label">Range</span>
       <div class="filter-row-checks" id="filterRange">
@@ -614,57 +458,46 @@
         <label class="check-pill"><input type="checkbox" value="Special"/><div class="pill-dot"></div><span>Special</span></label>
       </div>
     </div>
-
-    <div class="filter-row" style="border-bottom:none;">
+    <div class="filter-row" style="border-bottom:none">
       <span class="filter-row-label">Other</span>
       <div class="filter-row-checks" id="filterOther">
         <label class="check-pill"><input type="checkbox" value="Concentration"/><div class="pill-dot"></div><span>Concentration</span></label>
         <label class="check-pill"><input type="checkbox" value="Ritual"/><div class="pill-dot"></div><span>Ritual</span></label>
       </div>
     </div>
-
     <div class="filter-actions">
-      <button class="btn btn-accent btn-sm" id="applyFilters">Apply Filters</button>
-      <button class="btn btn-sm" id="clearFilters">Clear All</button>
+      <button class="btn btn-accent btn-sm" id="applySpellFilters">Apply</button>
+      <button class="btn btn-sm" id="clearSpellFilters">Clear All</button>
     </div>
   </div>
 
-  <!-- Stats bar -->
   <div class="stats-bar no-print">
-    <div>Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> spells</div>
-    <div class="active-filters" id="activeTags"></div>
+    <div>Showing <strong id="spellVisCount">0</strong> of <strong id="spellTotCount">0</strong> spells</div>
+    <div class="active-filters" id="spellActiveTags"></div>
   </div>
 
-  <!-- Main layout: table + card panel -->
   <div class="main-layout">
     <div class="table-side no-print">
       <div class="table-wrap">
-        <table id="dataTable">
-          <thead>
-            <tr>
-              <th data-col="0" class="sorted-asc"><div class="th-inner">Name <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="1"><div class="th-inner">Level <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="2"><div class="th-inner">Cost <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="3"><div class="th-inner">Cast Time <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="4"><div class="th-inner">Rit. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="5"><div class="th-inner">School <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="6"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="7"><div class="th-inner">Con. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-              <th data-col="8"><div class="th-inner">Range <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
+        <table id="spellTable">
+          <thead><tr>
+            <th data-col="0" class="sorted-asc"><div class="th-inner">Name <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="1"><div class="th-inner">Level <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="2"><div class="th-inner">Cost <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="3"><div class="th-inner">Cast Time <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="4"><div class="th-inner">Rit. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="5"><div class="th-inner">School <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="6"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="7"><div class="th-inner">Con. <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="8"><div class="th-inner">Range <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+          </tr></thead>
+          <tbody id="spellBody"></tbody>
         </table>
-        <div class="empty-state" id="emptyState" style="display:none;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <p>No spells match your search or filters.</p>
-        </div>
+        <div class="empty-state" id="spellEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No spells match.</p></div>
       </div>
     </div>
-
-    <!-- Detail Card Panel -->
-    <div class="detail-panel no-print" id="detailPanel">
-      <div class="spell-card" id="detailCard"></div>
+    <div class="detail-panel no-print" id="spellDetailPanel">
+      <div class="spell-card" id="spellDetailCard"></div>
     </div>
   </div>
 
@@ -681,60 +514,121 @@
         </div>
       </div>
       <div class="bulk-actions no-print">
-        <!-- Sort controls -->
         <div class="bulk-sort-wrap">
-          <select class="bulk-select" id="bulkSortField">
-            <option value="">Sort by…</option>
-            <option value="name">Alphabetical</option>
-            <option value="cost">Mana Cost</option>
-            <option value="level">Spell Level</option>
-          </select>
-          <button class="btn btn-sm" id="bulkSortDir" title="Toggle sort direction">
-            <svg id="bulkSortIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
-            <span id="bulkSortDirLabel">ASC</span>
-          </button>
+          <select class="bulk-select" id="bulkSortField"><option value="">Sort by…</option><option value="name">Alphabetical</option><option value="cost">Mana Cost</option><option value="level">Spell Level</option></select>
+          <button class="btn btn-sm" id="bulkSortDir"><svg id="bulkSortIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12l7-7 7 7"/></svg><span id="bulkSortDirLabel">ASC</span></button>
         </div>
         <div class="bulk-btn-divider"></div>
-        <button class="btn btn-sm" id="bulkPrintBtn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Print
-        </button>
-        <button class="btn btn-sm" id="bulkExportBtn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Export Image
-        </button>
+        <button class="btn btn-sm" id="bulkPrintBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button>
+        <button class="btn btn-sm" id="bulkExportBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export Image</button>
         <div class="bulk-btn-divider"></div>
-        <button class="btn btn-sm" id="bulkExportJsonBtn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export JSON
-        </button>
-        <button class="btn btn-sm" id="bulkImportJsonBtn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Import JSON
-        </button>
+        <button class="btn btn-sm" id="bulkExportJsonBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export JSON</button>
+        <button class="btn btn-sm" id="bulkImportJsonBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import JSON</button>
         <input type="file" id="bulkImportFile" accept=".json" style="display:none"/>
         <div class="bulk-btn-divider"></div>
-        <button class="btn btn-sm btn-danger" id="bulkClearBtn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
-          Clear All
-        </button>
+        <button class="btn btn-sm btn-danger" id="bulkClearBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>Clear All</button>
       </div>
     </div>
-    <div class="bulk-area" id="bulkArea" style="--bulk-cols:3;">
-      <div class="bulk-empty-msg" id="bulkEmpty">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
-        <span>Click "Add to Grid" on any card to populate this area</span>
-      </div>
+    <div class="bulk-area" id="bulkArea" style="--bulk-cols:3">
+      <div class="bulk-empty-msg" id="bulkEmpty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg><span>Add cards via "Add to Grid"</span></div>
     </div>
   </div>
+</div><!-- /tab-spells -->
 
-</div>
+<!-- ══════════════════ ITEMS TAB ══════════════════ -->
+<div class="tab-panel" id="tab-items">
+  <div class="source-switcher no-print" style="margin-bottom:14px">
+    <button class="source-btn active" data-item-src="overhaul-items.json" id="itemSrcBasic">Basic Items</button>
+    <button class="source-btn" data-item-src="overhaul-magic-items.json" id="itemSrcMagic">Magic Items</button>
+  </div>
+  <div class="toolbar no-print">
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="itemSearch" class="search-input" placeholder="Search items…" autocomplete="off"/>
+    </div>
+    <button class="btn" id="itemFilterBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      Filter
+    </button>
+  </div>
+  <div class="filter-panel no-print" id="itemFilterPanel">
+    <p class="filter-empty-note">Filter options coming soon.</p>
+    <div class="filter-actions"><button class="btn btn-sm" id="clearItemFilters">Clear All</button></div>
+  </div>
+  <div class="stats-bar no-print">
+    <div>Showing <strong id="itemVisCount">0</strong> of <strong id="itemTotCount">0</strong> items</div>
+  </div>
+  <div class="main-layout">
+    <div class="table-side no-print">
+      <div class="table-wrap">
+        <table id="itemTable">
+          <thead><tr>
+            <th data-col="0" class="sorted-asc"><div class="th-inner">Item <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="1"><div class="th-inner">Prerequisites <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="2" data-tip="Attack Speed"><div class="th-inner">AS <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="3"><div class="th-inner">Defense <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="4"><div class="th-inner">Damage/Spell <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="5"><div class="th-inner">Spell Types <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="6"><div class="th-inner">Properties <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="7"><div class="th-inner">Innate Affix <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+          </tr></thead>
+          <tbody id="itemBody"></tbody>
+        </table>
+        <div class="empty-state" id="itemEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No items match.</p></div>
+      </div>
+    </div>
+    <div class="detail-panel no-print" id="itemDetailPanel">
+      <div class="item-card" id="itemDetailCard"></div>
+    </div>
+  </div>
+</div><!-- /tab-items -->
+
+<!-- ══════════════════ FEATS TAB ══════════════════ -->
+<div class="tab-panel" id="tab-feats">
+  <div class="toolbar no-print">
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="featSearch" class="search-input" placeholder="Search feats…" autocomplete="off"/>
+    </div>
+    <button class="btn" id="featFilterBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      Filter
+    </button>
+  </div>
+  <div class="filter-panel no-print" id="featFilterPanel">
+    <p class="filter-empty-note">Filter options coming soon.</p>
+    <div class="filter-actions"><button class="btn btn-sm" id="clearFeatFilters">Clear All</button></div>
+  </div>
+  <div class="stats-bar no-print">
+    <div>Showing <strong id="featVisCount">0</strong> of <strong id="featTotCount">0</strong> feats</div>
+  </div>
+  <div class="main-layout">
+    <div class="table-side no-print">
+      <div class="table-wrap">
+        <table id="featTable">
+          <thead><tr>
+            <th data-col="0" class="sorted-asc"><div class="th-inner">Feat <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="1"><div class="th-inner">Prerequisites <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="2"><div class="th-inner">Description <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+          </tr></thead>
+          <tbody id="featBody"></tbody>
+        </table>
+        <div class="empty-state" id="featEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No feats match.</p></div>
+      </div>
+    </div>
+    <div class="detail-panel no-print" id="featDetailPanel">
+      <div class="feat-card" id="featDetailCard"></div>
+    </div>
+  </div>
+</div><!-- /tab-feats -->
+
+</div><!-- /container -->
 
 <!-- Confirm Modal -->
 <div class="modal-overlay" id="confirmModal">
   <div class="modal">
     <h2>Clear Bulk Grid?</h2>
-    <p>This will remove all <strong id="modalCardCount">0</strong> cards from the bulk area. This cannot be undone.</p>
+    <p>This will remove all <strong id="modalCardCount">0</strong> cards. This cannot be undone.</p>
     <div class="modal-actions">
       <button class="btn btn-sm" id="modalCancel">Cancel</button>
       <button class="btn btn-sm btn-danger" id="modalConfirm">Yes, Clear All</button>
@@ -743,1027 +637,510 @@
 </div>
 
 <script>
-/* ══════════════════════════════════════════
-   STATE
-══════════════════════════════════════════ */
-let RAW = [];
-const COL_KEYS = ['name','level','cost','cast time','rit.','school','type','con.','range'];
-let sortCol=0, sortDir='asc';
-let searchQuery='';
-let appliedFilters={};
-let currentRow=null;
-let bulkCards=[], bulkId=0;
-let bulkCols=3;
-let bulkSortField='';
-let bulkSortAsc=true;
-let currentSource='all-spells.json';
+/* ══════════════════════════════════════════════
+   SHARED HELPERS
+══════════════════════════════════════════════ */
+const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const escRx=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function hi(t,q){if(!q)return esc(t);return esc(t).replace(new RegExp(`(${escRx(q)})`,'gi'),'<mark>$1</mark>');}
+function getCheckedPills(id){return[...document.querySelectorAll(`#${id} input:checked`)].map(c=>c.value);}
+function uncheckPills(id){document.querySelectorAll(`#${id} input`).forEach(cb=>{cb.checked=false;cb.closest('.check-pill').classList.remove('checked');});}
+function getCookie(k){const m=document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(k+'='));return m?decodeURIComponent(m.slice(k.length+1)):null;}
+function setCookie(k,v,days=30){document.cookie=`${k}=${encodeURIComponent(v)};path=/;max-age=${days*86400}`;}
 
-/* ══════════════════════════════════════════
-   HELPERS
-══════════════════════════════════════════ */
-const esc = s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const escRx = s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-function hi(text,q){ if(!q)return esc(text); return esc(text).replace(new RegExp(`(${escRx(q)})`,'gi'),'<mark>$1</mark>'); }
-
-function getCheckedPills(groupId){
-  return [...document.querySelectorAll(`#${groupId} input:checked`)].map(c=>c.value);
-}
-function uncheckPills(groupId){
-  document.querySelectorAll(`#${groupId} input`).forEach(cb=>{
-    cb.checked=false;
-    cb.closest('.check-pill').classList.remove('checked');
+/* ── Tab system ── */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const t=btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+t));
+    setCookie('activeTab',t);
   });
-}
+});
 
-/* Sync pill visual state when cleared programmatically */
-function syncPills(){
-  document.querySelectorAll('.check-pill input').forEach(cb=>{
-    cb.closest('.check-pill').classList.toggle('checked', cb.checked);
-  });
-}
-
-/* ══════════════════════════════════════════
-   DESCRIPTION MARKDOWN → HTML
-   Only used for the spell description field.
-   Handles: **bold**, *italic*, `code`,
-   - lists, > blockquote, ### headings
-══════════════════════════════════════════ */
+/* ── Description markdown renderer (for spell desc only) ── */
 function descMd(raw){
-  if(!raw) return '';
-  const lines = raw.split('\n');
-  const out = [];
-  let i = 0;
-  while(i < lines.length){
-    const line = lines[i];
-    // ### heading inside description
-    if(/^### /.test(line)){
-      out.push(`<h3>${inlineMd(line.slice(4))}</h3>`);
-      i++; continue;
-    }
-    // Blockquote
-    if(/^> /.test(line)){
-      out.push(`<blockquote>${inlineMd(line.slice(2))}</blockquote>`);
-      i++; continue;
-    }
-    // Unordered list — gather consecutive items
-    if(/^- /.test(line)){
-      const items = [];
-      while(i < lines.length && /^- /.test(lines[i])){
-        items.push(`<li>${inlineMd(lines[i].slice(2))}</li>`);
-        i++;
-      }
-      out.push(`<ul>${items.join('')}</ul>`);
-      continue;
-    }
-    // Blank line — skip
-    if(line.trim() === ''){ i++; continue; }
-    // Normal paragraph
-    out.push(`<p>${inlineMd(line)}</p>`);
-    i++;
+  if(!raw)return'';
+  const lines=raw.split('\n');const out=[];let i=0;
+  while(i<lines.length){
+    const line=lines[i];
+    if(/^### /.test(line)){out.push(`<h3>${imd(line.slice(4))}</h3>`);i++;continue;}
+    if(/^> /.test(line)){out.push(`<blockquote>${imd(line.slice(2))}</blockquote>`);i++;continue;}
+    if(/^- /.test(line)){const items=[];while(i<lines.length&&/^- /.test(lines[i])){items.push(`<li>${imd(lines[i].slice(2))}</li>`);i++;}out.push(`<ul>${items.join('')}</ul>`);continue;}
+    if(line.trim()===''){i++;continue;}
+    out.push(`<p>${imd(line)}</p>`);i++;
   }
   return out.join('');
 }
-
-function inlineMd(t){
-  // Escape HTML first, then apply markdown inline rules
-  t = String(t||'')
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  t = t.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  t = t.replace(/\*\*(.+?)\*\*/g,     '<strong>$1</strong>');
-  t = t.replace(/\*(.+?)\*/g,         '<em>$1</em>');
-  t = t.replace(/`([^`]+)`/g,         '<code>$1</code>');
+function imd(t){
+  t=esc(t);
+  t=t.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>');
+  t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t=t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t=t.replace(/`([^`]+)`/g,'<code>$1</code>');
   return t;
 }
 
-/* ══════════════════════════════════════════
-   CARD HTML BUILDER
-   Builds the card entirely in HTML — no
-   markdown-to-HTML pipeline for structured
-   fields, avoiding all escaping/parsing bugs.
-══════════════════════════════════════════ */
-function schoolBadge(school){
-  return `<span class="school-badge school-${esc(school)}">${esc(school)}</span>`;
+/* ── Generic sort header wiring ── */
+function wireTableSort(tableId, sortState, renderFn){
+  document.querySelectorAll(`#${tableId} th`).forEach(th=>{
+    th.addEventListener('click',()=>{
+      const col=+th.dataset.col;
+      sortState.dir=sortState.col===col?(sortState.dir==='asc'?'desc':'asc'):'asc';
+      sortState.col=col;
+      document.querySelectorAll(`#${tableId} th`).forEach(t=>t.classList.remove('sorted-asc','sorted-desc'));
+      th.classList.add(sortState.dir==='asc'?'sorted-asc':'sorted-desc');
+      renderFn();
+    });
+  });
 }
 
-function buildCardInner(spell, showActions){
-  const name       = spell['name']        || '';
-  const level      = spell['level']       || '0';
-  const cost       = spell['cost']        || '';
-  const castTime   = spell['cast time']   || '';
-  const ritual     = spell['rit.']        || 'No';
-  const school     = spell['school']      || '';
-  const type       = spell['type']        || '';
-  const con        = spell['con.']        || 'No';
-  const range      = spell['range']       || '';
-  const components = spell['components']  || '';
-  const duration   = spell['duration']    || '';
-  const desc       = spell['description'] || '';
-  const classes    = spell['classes']     || '';
-
-  const lvNum    = parseInt(level, 10);
-  const lvLabel  = lvNum === 0 ? 'Cantrip' : `${lvNum}${['','st','nd','rd'][lvNum]||'th'} Level`;
-  const manaCost = `${esc(cost)} Mana${ritual === 'Yes' ? ' – <em>(Ritual)</em>' : ''}`;
-  const durHtml  = con === 'Yes' ? `<em>Concentration,</em> ${esc(duration)}` : esc(duration);
-
-  // School badge — same colors as table
-  const schoolCls = `school-${esc(school)}`;
-  const schoolBadgeHtml = `<span class="card-school-badge ${schoolCls}">${esc(school)}</span>`;
-
-  // Type badge with color class
-  const typeCls = ['Arcane','Divine','Nature','Eldritch'].includes(type)
-    ? `type-${type}` : 'type-other';
-  const typeBadgeHtml = `<span class="card-type-badge ${typeCls}">${esc(type)}</span>`;
-
-  const actionsBar = showActions ? `
-    <div class="card-actions-bar">
-      <button class="card-btn" id="cardPrintBtn">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print
-      </button>
-      <button class="card-btn" id="cardAddBtn">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>Add to Grid
-      </button>
-      <button class="card-btn" id="cardExportBtn">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG
-      </button>
-    </div>` : '';
-
-  return `
-    <div class="card-stripe"></div>
-    ${actionsBar}
-    <div class="card-name-block">
-      <div class="card-spell-name">${esc(name)}</div>
-      <div class="card-type-line">
-        <span class="card-type-level"><em>${esc(lvLabel)}</em></span>
-        <span class="card-type-school"><em>${esc(school)}</em></span>
-        <span class="card-type-type"><em><strong>(${esc(type)})</strong></em></span>
-      </div>
-    </div>
-    <div class="card-rule"></div>
-    <div class="card-stats-block">
-      <div class="card-stat-row"><span class="stat-label">Casting Time:</span><span class="stat-val">${esc(castTime)}</span></div>
-      <div class="card-stat-row"><span class="stat-label">Mana Cost:</span><span class="stat-val">${manaCost}</span></div>
-      <div class="card-stat-row"><span class="stat-label">Range:</span><span class="stat-val">${esc(range)}</span></div>
-      <div class="card-stat-row"><span class="stat-label">Components:</span><span class="stat-val">${esc(components)}</span></div>
-      <div class="card-stat-row"><span class="stat-label">Duration:</span><span class="stat-val">${durHtml}</span></div>
-    </div>
-    <div class="card-rule"></div>
-    <div class="card-desc-block">${descMd(desc)}</div>
-    <div class="card-rule"></div>
-    <div class="card-classes-block"><strong>Classes:</strong> ${esc(classes)}</div>
-    <div class="card-footer-bar">
-      ${schoolBadgeHtml}
-      ${typeBadgeHtml}
-    </div>`;
+/* ── Generic pill click wiring ── */
+function wirePills(panelId){
+  document.querySelectorAll(`#${panelId} .check-pill`).forEach(pill=>{
+    pill.addEventListener('click',()=>{
+      const cb=pill.querySelector('input');cb.checked=!cb.checked;
+      pill.classList.toggle('checked',cb.checked);
+    });
+  });
 }
 
-/* ══════════════════════════════════════════
-   RENDER TABLE
-══════════════════════════════════════════ */
-const tbody = document.getElementById('tableBody');
+/* ══════════════════════════════════════════════
+   THEME ENGINE
+══════════════════════════════════════════════ */
+const THEMES={
+  default:{},
+  dark:{'--bg':'#060709','--surface':'#0d0f12','--surface2':'#141620','--border':'#1e2230','--header-bg':'#0f1118','--row-hover':'#111420','--text':'#d0d4e0','--text-muted':'#505566','--text-dim':'#7880a0','--tag-bg':'#171a28'},
+  light:{'--bg':'#f4f6fb','--surface':'#ffffff','--surface2':'#edf0f7','--border':'#d0d6e8','--header-bg':'#e8edf8','--row-hover':'#f0f3fc','--text':'#1a1e2e','--text-muted':'#7880a0','--text-dim':'#4a5070','--tag-bg':'#e4e9f8','--accent':'#3a68e8','--accent2':'#e8404a','--accent3':'#22b87a','--gold':'#a07830'},
+  gray:{'--bg':'#1c1e22','--surface':'#26282e','--surface2':'#32343c','--border':'#3a3d46','--header-bg':'#202226','--row-hover':'#2e3038','--text':'#d8dae4','--text-muted':'#7a7d8c','--text-dim':'#a0a4b4','--tag-bg':'#2c2f38','--accent':'#8898c8','--accent2':'#d07070','--accent3':'#5ab89a'},
+  blue:{'--bg':'#050d1a','--surface':'#091527','--surface2':'#0e2040','--border':'#163060','--header-bg':'#071020','--row-hover':'#0c1c38','--text':'#cce0ff','--text-muted':'#3a6090','--text-dim':'#6090c0','--tag-bg':'#0c1e3a','--accent':'#4090ff','--accent2':'#ff7070','--accent3':'#40d8b0'},
+  red:{'--bg':'#140808','--surface':'#1e0c0c','--surface2':'#2e1010','--border':'#501818','--header-bg':'#180a0a','--row-hover':'#281010','--text':'#ffe0e0','--text-muted':'#904040','--text-dim':'#b07070','--tag-bg':'#281212','--accent':'#ff5050','--accent2':'#ffaa44','--accent3':'#40d8a0'},
+  yellow:{'--bg':'#13110a','--surface':'#1e1a0e','--surface2':'#2c2610','--border':'#463c12','--header-bg':'#181408','--row-hover':'#25200e','--text':'#ffeebb','--text-muted':'#806830','--text-dim':'#a08840','--tag-bg':'#221c0c','--accent':'#e0b030','--accent2':'#ff7070','--accent3':'#60d870','--gold':'#e8c048'},
+  orange:{'--bg':'#110d07','--surface':'#1c1408','--surface2':'#2a1e0c','--border':'#48300a','--header-bg':'#160e06','--row-hover':'#231808','--text':'#ffe8cc','--text-muted':'#885020','--text-dim':'#aa7040','--tag-bg':'#201408','--accent':'#e87820','--accent2':'#ff5858','--accent3':'#40d890'},
+  green:{'--bg':'#070f0a','--surface':'#0c1810','--surface2':'#102218','--border':'#183a20','--header-bg':'#081208','--row-hover':'#0e1e12','--text':'#c8f0d0','--text-muted':'#306040','--text-dim':'#508060','--tag-bg':'#0e1e12','--accent':'#40c860','--accent2':'#ff7070','--accent3':'#60e0c0'},
+  violet:{'--bg':'#0d0814','--surface':'#150c22','--surface2':'#1e1030','--border':'#32185a','--header-bg':'#100a1a','--row-hover':'#1a1030','--text':'#e8ccff','--text-muted':'#604890','--text-dim':'#9060c0','--tag-bg':'#180e28','--accent':'#9040e8','--accent2':'#ff6090','--accent3':'#40d8a0'},
+  teal:{'--bg':'#070e10','--surface':'#0c181c','--surface2':'#10222a','--border':'#143848','--header-bg':'#080e12','--row-hover':'#0e1e26','--text':'#c0eef8','--text-muted':'#285868','--text-dim':'#407888','--tag-bg':'#0c1e28','--accent':'#30b8d0','--accent2':'#ff7070','--accent3':'#60e090'},
+  rose:{'--bg':'#130810','--surface':'#1e0c1a','--surface2':'#2c1028','--border':'#4a1840','--header-bg':'#160a12','--row-hover':'#240e20','--text':'#ffd0f0','--text-muted':'#803060','--text-dim':'#b05080','--tag-bg':'#200e1c','--accent':'#e040a0','--accent2':'#ff8040','--accent3':'#40d8c0'},
+  indigo:{'--bg':'#080812','--surface':'#0e0e20','--surface2':'#14142e','--border':'#202050','--header-bg':'#0a0a18','--row-hover':'#121228','--text':'#d0d0ff','--text-muted':'#383880','--text-dim':'#5858a8','--tag-bg':'#121230','--accent':'#6868f0','--accent2':'#ff7070','--accent3':'#40d8c0'}
+};
+let themeEl=null;
+function applyTheme(name){
+  const v=THEMES[name]||{};
+  if(!themeEl){themeEl=document.createElement('style');document.head.appendChild(themeEl);}
+  themeEl.textContent=Object.keys(v).length?`:root{${Object.entries(v).map(([k,val])=>`${k}:${val}`).join(';')}}`:'';
+  setCookie('spellGridTheme',name);
+  const s=document.getElementById('themeSelect');if(s)s.value=name;
+}
+document.getElementById('themeSelect').addEventListener('change',e=>applyTheme(e.target.value));
 
-function render(){
-  let data=[...RAW];
-  if(searchQuery){
-    const q=searchQuery.toLowerCase();
-    data=data.filter(r=>COL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q))
-      || (r['classes']||'').toLowerCase().includes(q)
-      || (r['description']||'').toLowerCase().includes(q));
-  }
-  const f=appliedFilters;
-  // Level filter — compare numeric
+/* ══════════════════════════════════════════════
+   SPELLS
+══════════════════════════════════════════════ */
+let SPELLS=[], spellCurrentRow=null, spellSortState={col:0,dir:'asc'};
+let spellQuery='', spellFilters={}, spellSource='all-spells.json';
+const SPELL_KEYS=['name','level','cost','cast time','rit.','school','type','con.','range'];
+const LVL_LABELS={'0':'Cantrip','1':'1st','2':'2nd','3':'3rd','4':'4th','5':'5th','6':'6th','7':'7th','8':'8th','9':'9th'};
+const SPELL_GROUP_LABELS={level:'Level',classes:'Class',school:'School',magicType:'Type',castTime:'Cast',range:'Range',other:''};
+const SPELL_GROUP_IDS={level:'filterLevel',classes:'filterClasses',school:'filterSchool',magicType:'filterMagicType',castTime:'filterCastTime',range:'filterRange',other:'filterOther'};
+
+function schoolColor(s){return{Evocation:'#ff8c8c',Conjuration:'#7ca0ff',Illusion:'#cc88ff',Necromancy:'#55d9a4',Transmutation:'#ffc145',Divination:'#80d8ff',Enchantment:'#ff99bb',Abjuration:'#a8d870',Psionic:'#dc64ff'}[s]||'#9aa0b8';}
+function schoolBadge(s){return`<span class="school-badge school-${esc(s)}">${esc(s)}</span>`;}
+
+function buildSpellCard(spell, showActions){
+  const name=spell['name']||'', level=spell['level']||'0', cost=spell['cost']||'', castTime=spell['cast time']||'', ritual=spell['rit.']||'No', school=spell['school']||'', type=spell['type']||'', con=spell['con.']||'No', range=spell['range']||'', components=spell['components']||'', duration=spell['duration']||'', desc=spell['description']||'', classes=spell['classes']||'';
+  const lvNum=parseInt(level,10), lvLabel=lvNum===0?'Cantrip':`${lvNum}${['','st','nd','rd'][lvNum]||'th'} Level`;
+  const manaCost=`${esc(cost)} Mana${ritual==='Yes'?' – <em>(Ritual)</em>':''}`;
+  const durHtml=con==='Yes'?`<em>Concentration,</em> ${esc(duration)}`:esc(duration);
+  const schoolCls=`school-${esc(school)}`;
+  const schoolBadgeHtml=`<span class="card-school-badge ${schoolCls}">${esc(school)}</span>`;
+  const typeCls=['Arcane','Divine','Nature','Eldritch'].includes(type)?`type-${type}`:'type-other';
+  const typeBadgeHtml=`<span class="card-type-badge ${typeCls}">${esc(type)}</span>`;
+  const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="spellCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button><button class="card-btn" id="spellCardAddBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>Add to Grid</button><button class="card-btn" id="spellCardExportBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG</button></div>`:'';
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name">${esc(name)}</div><div class="card-type-line"><span class="card-type-level"><em>${esc(lvLabel)}</em></span><span class="card-type-school"><em>${esc(school)}</em></span><span class="card-type-type"><em><strong>(${esc(type)})</strong></em></span></div></div><div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Casting Time:</span><span class="stat-val">${esc(castTime)}</span></div><div class="card-stat-row"><span class="stat-label">Mana Cost:</span><span class="stat-val">${manaCost}</span></div><div class="card-stat-row"><span class="stat-label">Range:</span><span class="stat-val">${esc(range)}</span></div><div class="card-stat-row"><span class="stat-label">Components:</span><span class="stat-val">${esc(components)}</span></div><div class="card-stat-row"><span class="stat-label">Duration:</span><span class="stat-val">${durHtml}</span></div></div><div class="card-rule"></div><div class="card-desc-block">${descMd(desc)}</div><div class="card-rule"></div><div class="card-classes-block"><strong>Classes:</strong> ${esc(classes)}</div><div class="card-footer-bar">${schoolBadgeHtml}${typeBadgeHtml}</div>`;
+}
+
+function renderSpells(){
+  let data=[...SPELLS];
+  if(spellQuery){const q=spellQuery.toLowerCase();data=data.filter(r=>SPELL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q))||(r['classes']||'').toLowerCase().includes(q)||(r['description']||'').toLowerCase().includes(q));}
+  const f=spellFilters;
   if(f.level&&f.level.length) data=data.filter(r=>f.level.includes(String(parseInt(r['level'],10))));
-  // Classes filter — any checked class appears in the spell's classes string
   if(f.classes&&f.classes.length) data=data.filter(r=>f.classes.some(c=>(r['classes']||'').includes(c)));
   if(f.school&&f.school.length) data=data.filter(r=>f.school.includes(r['school']));
   if(f.magicType&&f.magicType.length) data=data.filter(r=>f.magicType.includes(r['type']));
-  // Cast time — fuzzy match (e.g. "Action" matches "1 action")
   if(f.castTime&&f.castTime.length) data=data.filter(r=>f.castTime.some(ct=>(r['cast time']||'').toLowerCase().includes(ct.toLowerCase())));
-  // Range filter
-  if(f.range&&f.range.length) data=data.filter(r=>f.range.some(rng=>{
-    const rv=(r['range']||'').trim();
-    const rvl=rv.toLowerCase();
-    if(rng==='Self')       return rvl==='self';
-    if(rng==='Touch')      return rvl==='touch';
-    if(rng==='Self (Area)') return rvl.startsWith('self') && rvl.includes('(');
-    if(rng==='Special')    return rvl==='special';
-    // Point = anything that is NOT Self, Touch, Self(Area), or Special
-    if(rng==='Point')      return rvl!=='self' && rvl!=='touch' && rvl!=='special' && !(rvl.startsWith('self')&&rvl.includes('('));
-    return false;
-  }));
-  // Other: Concentration / Ritual
+  if(f.range&&f.range.length) data=data.filter(r=>f.range.some(rng=>{const rv=(r['range']||'').trim().toLowerCase();if(rng==='Self')return rv==='self';if(rng==='Touch')return rv==='touch';if(rng==='Self (Area)')return rv.startsWith('self')&&rv.includes('(');if(rng==='Special')return rv==='special';if(rng==='Point')return rv!=='self'&&rv!=='touch'&&rv!=='special'&&!(rv.startsWith('self')&&rv.includes('('));return false;}));
   if(f.other&&f.other.includes('Concentration')) data=data.filter(r=>r['con.']==='Yes');
-  if(f.other&&f.other.includes('Ritual'))        data=data.filter(r=>r['rit.']==='Yes');
-
-  const key=COL_KEYS[sortCol];
-  data.sort((a,b)=>{
-    let va=a[key]||'',vb=b[key]||'';
-    if(key==='level'){va=parseInt(va,10)||0;vb=parseInt(vb,10)||0;}
-    else{va=String(va).toLowerCase();vb=String(vb).toLowerCase();}
-    return va<vb?(sortDir==='asc'?-1:1):va>vb?(sortDir==='asc'?1:-1):0;
-  });
-
-  const q=searchQuery;
+  if(f.other&&f.other.includes('Ritual')) data=data.filter(r=>r['rit.']==='Yes');
+  const k=SPELL_KEYS[spellSortState.col];
+  data.sort((a,b)=>{let va=a[k]||'',vb=b[k]||'';if(k==='level'){va=parseInt(va,10)||0;vb=parseInt(vb,10)||0;}else{va=String(va).toLowerCase();vb=String(vb).toLowerCase();}return va<vb?(spellSortState.dir==='asc'?-1:1):va>vb?(spellSortState.dir==='asc'?1:-1):0;});
+  const q=spellQuery;
+  const tbody=document.getElementById('spellBody');
   tbody.innerHTML=data.map(row=>{
     const lvNum=parseInt(row['level'],10);
     const lvDisplay=lvNum===0?'Cantrip':String(lvNum);
-    // Truncate verbose cast times in the table
-    const rawCast = row['cast time'] || '';
-    let castDisplay = rawCast;
-    if(/^reaction,?\s+\S/i.test(rawCast))          castDisplay = 'Reaction, …';
-    else if(/^1 bonus action,?\s+\S/i.test(rawCast)) castDisplay = 'Bonus Action, …';
-    else if(/^bonus action,?\s+\S/i.test(rawCast))   castDisplay = 'Bonus Action, …';
-    return `<tr data-name="${esc(row['name'])}" class="${currentRow&&currentRow['name']===row['name']?'selected':''}">
-      <td class="name-cell">${hi(row['name'],q)}</td>
-      <td>${hi(lvDisplay,q)}</td>
-      <td>${hi(row['cost'],q)}</td>
-      <td>${hi(castDisplay,q)}</td>
-      <td>${hi(row['rit.'],q)}</td>
-      <td>${schoolBadge(row['school'])}</td>
-      <td>${hi(row['type'],q)}</td>
-      <td style="color:${row['con.']==='Yes'?'var(--accent2)':'var(--text-muted)'}">${hi(row['con.'],q)}</td>
-      <td>${hi(row['range'],q)}</td>
-    </tr>`;
+    const rawCast=row['cast time']||'';
+    let castDisplay=rawCast;
+    if(/^reaction,?\s+\S/i.test(rawCast))castDisplay='Reaction, …';
+    else if(/^(1 )?bonus action,?\s+\S/i.test(rawCast))castDisplay='Bonus Action, …';
+    return`<tr data-name="${esc(row['name'])}" class="${spellCurrentRow&&spellCurrentRow['name']===row['name']?'selected':''}"><td class="name-cell">${hi(row['name'],q)}</td><td>${hi(lvDisplay,q)}</td><td>${hi(row['cost'],q)}</td><td>${hi(castDisplay,q)}</td><td>${hi(row['rit.'],q)}</td><td>${schoolBadge(row['school'])}</td><td>${hi(row['type'],q)}</td><td style="color:${row['con.']==='Yes'?'var(--accent2)':'var(--text-muted)'}">${hi(row['con.'],q)}</td><td>${hi(row['range'],q)}</td></tr>`;
   }).join('');
-
-  document.getElementById('visibleCount').textContent=data.length;
-  document.getElementById('emptyState').style.display=data.length===0?'block':'none';
-  renderTags();
-
+  document.getElementById('spellVisCount').textContent=data.length;
+  document.getElementById('spellEmpty').style.display=data.length===0?'block':'none';
+  renderSpellTags();
   tbody.querySelectorAll('tr').forEach((tr,i)=>{
     tr.addEventListener('click',()=>{
-      if(currentRow&&currentRow['name']===data[i]['name']){ closeDetail(); }
-      else { openDetail(data[i]); }
+      if(spellCurrentRow&&spellCurrentRow['name']===data[i]['name'])closeSpellDetail();
+      else openSpellDetail(data[i]);
     });
   });
 }
 
-/* ══════════════════════════════════════════
-   OVERFLOW DETECTION
-   Returns true if the card's content exceeds
-   the standard card height (500px).
-══════════════════════════════════════════ */
-function measureCardExtended(cardEl){
-  // Temporarily allow full height to measure natural scroll height
-  cardEl.style.height = 'auto';
-  cardEl.style.maxHeight = 'none';
-  cardEl.style.overflow = 'visible';
-  const natural = cardEl.scrollHeight;
-  // Restore — will be set properly by class below
-  cardEl.style.height = '';
-  cardEl.style.maxHeight = '';
-  cardEl.style.overflow = '';
-  return natural > 500;
+function openSpellDetail(spell){
+  spellCurrentRow=spell;
+  const card=document.getElementById('spellDetailCard');
+  card.className='spell-card';
+  card.innerHTML=buildSpellCard(spell,true);
+  requestAnimationFrame(()=>{if(card.scrollHeight>500)card.classList.add('extended');});
+  card.querySelector('#spellCardPrintBtn').addEventListener('click',()=>printSpellCard(spell));
+  card.querySelector('#spellCardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
+  card.querySelector('#spellCardExportBtn').addEventListener('click',()=>exportSpellCardJpg(spell));
+  document.getElementById('spellDetailPanel').classList.add('open');
+  document.querySelectorAll('#spellBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.name===spell['name']));
+}
+function closeSpellDetail(){
+  spellCurrentRow=null;
+  document.getElementById('spellDetailPanel').classList.remove('open');
+  document.querySelectorAll('#spellBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 
-/* ══════════════════════════════════════════
-   DETAIL CARD
-══════════════════════════════════════════ */
-function openDetail(spell){
-  currentRow=spell;
-  const card=document.getElementById('detailCard');
-  card.className='spell-card'; // reset
-  card.innerHTML=buildCardInner(spell,true);
-
-  // Measure and apply extended if needed
-  requestAnimationFrame(()=>{
-    if(measureCardExtended(card)){
-      card.classList.add('extended');
-    }
-  });
-
-  card.querySelector('#cardPrintBtn').addEventListener('click',()=>printCard(spell));
-  card.querySelector('#cardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
-  card.querySelector('#cardExportBtn').addEventListener('click',()=>exportCardJpg(spell));
-  document.getElementById('detailPanel').classList.add('open');
-  tbody.querySelectorAll('tr').forEach(tr=>{
-    tr.classList.toggle('selected', tr.dataset.name===spell['name']);
-  });
-}
-function closeDetail(){
-  currentRow=null;
-  document.getElementById('detailPanel').classList.remove('open');
-  tbody.querySelectorAll('tr').forEach(tr=>tr.classList.remove('selected'));
-}
-
-/* ══════════════════════════════════════════
-   PRINT / EXPORT SHARED CSS
-══════════════════════════════════════════ */
 const FONT_LINK=`<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>`;
-const BASE_CSS=`
-*{box-sizing:border-box;margin:0;padding:0;}
-:root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}
-body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}
-.spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
-.spell-card.extended{height:auto;max-height:none;overflow:visible;}
-.spell-card.extended .card-desc-block{flex:none;overflow:visible;}
-.card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}
-.card-actions-bar{display:none!important;}
-.card-name-block{padding:8px 10px 0;flex-shrink:0;}
-.card-spell-name{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.02em;line-height:1.2;margin-bottom:3px;}
-.card-type-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:0.56rem;font-style:italic;color:#8090aa;gap:4px;}
-.card-type-level{text-align:left;white-space:nowrap;}
-.card-type-school{text-align:center;white-space:nowrap;}
-.card-type-type{text-align:right;white-space:nowrap;}
-.card-type-line em{font-style:italic;}.card-type-line strong{font-style:normal;color:#aab0cc;}
-.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}
-.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}
-.card-stat-row{font-size:0.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}
-.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}
-.stat-val{color:#9aaac4;}
-.card-stat-row em{font-style:italic;color:#8898bb;}
-.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:0.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}
-.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}
-.card-desc-block strong{color:#d8e0f0;font-weight:600;}
-.card-desc-block em{color:#8898bb;font-style:italic;}
-.card-desc-block code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:0.52rem;}
-.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}
-.card-desc-block blockquote{border-left:2px solid var(--accent);padding-left:6px;margin:2px 0;color:#7888a8;font-style:italic;}
-.card-desc-block h3{font-family:'Cinzel',serif;font-size:0.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}
-.card-classes-block{padding:3px 10px 4px;font-size:0.54rem;color:#7888a8;flex-shrink:0;}
-.card-classes-block strong{color:#9aaac4;font-weight:700;}
-.card-footer-bar{background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px;}
-.card-school-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:0.56rem;font-weight:600;letter-spacing:0.04em;font-family:'Syne',sans-serif;border:1px solid;}
-.card-type-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:0.56rem;font-weight:700;letter-spacing:0.04em;font-family:'Syne',sans-serif;border:1px solid;}
-.school-Evocation{background:rgba(255,107,107,0.1);color:#ff8c8c;border-color:rgba(255,107,107,0.25);}
-.school-Conjuration{background:rgba(79,124,255,0.1);color:#7ca0ff;border-color:rgba(79,124,255,0.25);}
-.school-Illusion{background:rgba(180,100,255,0.1);color:#cc88ff;border-color:rgba(180,100,255,0.25);}
-.school-Necromancy{background:rgba(54,217,160,0.1);color:#55d9a4;border-color:rgba(54,217,160,0.25);}
-.school-Transmutation{background:rgba(255,193,69,0.1);color:#ffc145;border-color:rgba(255,193,69,0.25);}
-.school-Divination{background:rgba(100,200,255,0.1);color:#80d8ff;border-color:rgba(100,200,255,0.25);}
-.school-Enchantment{background:rgba(255,150,180,0.1);color:#ff99bb;border-color:rgba(255,150,180,0.25);}
-.school-Abjuration{background:rgba(140,200,80,0.1);color:#a8d870;border-color:rgba(140,200,80,0.25);}
-.school-Psionic{background:rgba(220,100,255,0.1);color:#dc64ff;border-color:rgba(220,100,255,0.25);}
-.type-Arcane{background:rgba(30,144,255,0.12);color:#3eb5ff;border-color:rgba(30,144,255,0.28);}
-.type-Divine{background:rgba(201,168,76,0.12);color:#c9a84c;border-color:rgba(201,168,76,0.28);}
-.type-Nature{background:rgba(60,200,80,0.12);color:#50c858;border-color:rgba(60,200,80,0.28);}
-.type-Eldritch{background:rgba(80,20,120,0.20);color:#9955cc;border-color:rgba(100,40,160,0.40);}
-.type-other{background:rgba(160,160,160,0.10);color:#888;border-color:rgba(160,160,160,0.22);}
-`;
+const BASE_CSS=`*{box-sizing:border-box;margin:0;padding:0;}:root{--accent:#4f7cff;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}.spell-card{background:#0f1119;border:2px solid #2e3550;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}.spell-card.extended{height:auto;max-height:none;overflow:visible;}.spell-card.extended .card-desc-block{flex:none;overflow:visible;}.card-stripe{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));flex-shrink:0;}.card-actions-bar{display:none!important;}.card-name-block{padding:8px 10px 0;flex-shrink:0;}.card-spell-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.2;margin-bottom:3px;}.card-type-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:.56rem;font-style:italic;color:#8090aa;gap:4px;}.card-type-level{text-align:left;white-space:nowrap;}.card-type-school{text-align:center;white-space:nowrap;}.card-type-type{text-align:right;white-space:nowrap;}.card-type-line em{font-style:italic;}.card-type-line strong{font-style:normal;color:#aab0cc;}.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}.card-stat-row{font-size:.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}.stat-val{color:#9aaac4;}.card-stat-row em{font-style:italic;color:#8898bb;}.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}.card-desc-block strong{color:#d8e0f0;font-weight:600;}.card-desc-block em{color:#8898bb;font-style:italic;}.card-desc-block code{background:#1c2030;color:var(--accent3);padding:1px 3px;border-radius:3px;font-size:.52rem;}.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}.card-desc-block blockquote{border-left:2px solid var(--accent);padding-left:6px;margin:2px 0;color:#7888a8;font-style:italic;}.card-desc-block h3{font-family:'Cinzel',serif;font-size:.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}.card-classes-block{padding:3px 10px 4px;font-size:.54rem;color:#7888a8;flex-shrink:0;}.card-classes-block strong{color:#9aaac4;font-weight:700;}.card-footer-bar{background:linear-gradient(180deg,#13161e 0%,#1a1f2e 100%);border-top:1px solid #252a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px;}.card-school-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:600;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.card-type-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:700;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.school-Evocation{background:rgba(255,107,107,.1);color:#ff8c8c;border-color:rgba(255,107,107,.25);}.school-Conjuration{background:rgba(79,124,255,.1);color:#7ca0ff;border-color:rgba(79,124,255,.25);}.school-Illusion{background:rgba(180,100,255,.1);color:#cc88ff;border-color:rgba(180,100,255,.25);}.school-Necromancy{background:rgba(54,217,160,.1);color:#55d9a4;border-color:rgba(54,217,160,.25);}.school-Transmutation{background:rgba(255,193,69,.1);color:#ffc145;border-color:rgba(255,193,69,.25);}.school-Divination{background:rgba(100,200,255,.1);color:#80d8ff;border-color:rgba(100,200,255,.25);}.school-Enchantment{background:rgba(255,150,180,.1);color:#ff99bb;border-color:rgba(255,150,180,.25);}.school-Abjuration{background:rgba(140,200,80,.1);color:#a8d870;border-color:rgba(140,200,80,.25);}.school-Psionic{background:rgba(220,100,255,.1);color:#dc64ff;border-color:rgba(220,100,255,.25);}.type-Arcane{background:rgba(30,144,255,.12);color:#3eb5ff;border-color:rgba(30,144,255,.28);}.type-Divine{background:rgba(201,168,76,.12);color:#c9a84c;border-color:rgba(201,168,76,.28);}.type-Nature{background:rgba(60,200,80,.12);color:#50c858;border-color:rgba(60,200,80,.28);}.type-Eldritch{background:rgba(80,20,120,.20);color:#9955cc;border-color:rgba(100,40,160,.40);}.type-other{background:rgba(160,160,160,.10);color:#888;border-color:rgba(160,160,160,.22);}`;
 
-/* ══════════════════════════════════════════
-   PRINT CARD — 1/3 letter width, auto height
-══════════════════════════════════════════ */
-function printCard(spell){
-  // Check if detail card is currently extended
-  const detailCard = document.getElementById('detailCard');
-  const isExtended = detailCard && detailCard.classList.contains('extended');
-  const heightStyle = isExtended ? 'height:auto;max-height:none;overflow:visible;' : 'height:5in;';
-  const inner=buildCardInner(spell,false);
+function printSpellCard(spell){
+  const dc=document.getElementById('spellDetailCard');
+  const ext=dc&&dc.classList.contains('extended');
   const win=window.open('','_blank','width=420,height=700');
-  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
-    @page{size:letter portrait;margin:0.5in;}
-    body{display:flex;justify-content:center;align-items:flex-start;padding:0.25in;}
-    .spell-card{width:2.83in;${heightStyle}}
-    ${isExtended?'.spell-card.extended .card-desc-block{flex:none;overflow:visible;}':''}
-  </style></head><body><div class="spell-card${isExtended?' extended':''}">${inner}</div></body></html>`);
-  win.document.close();
-  setTimeout(()=>{win.focus();win.print();},450);
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;align-items:flex-start;padding:.25in;}.spell-card{width:2.83in;${ext?'height:auto;max-height:none;overflow:visible;':'height:5in;'}}</style></head><body><div class="spell-card${ext?' extended':''}">${buildSpellCard(spell,false)}</div></body></html>`);
+  win.document.close();setTimeout(()=>{win.focus();win.print();},450);
 }
-
-/* ══════════════════════════════════════════
-   EXPORT CARD — JPEG with Save As
-   Height is 500px standard, or auto-measured
-   for extended cards.
-══════════════════════════════════════════ */
-function exportCardJpg(spell){
-  const detailCard = document.getElementById('detailCard');
-  const isExtended = detailCard && detailCard.classList.contains('extended');
-  const inner=buildCardInner(spell,false);
-
+function exportSpellCardJpg(spell){
+  const dc=document.getElementById('spellDetailCard');
+  const ext=dc&&dc.classList.contains('extended');
   const tmp=document.createElement('div');
   tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;width:300px;';
-  const cardCls = isExtended ? 'spell-card extended' : 'spell-card';
-  const heightStyle = isExtended ? 'width:300px;height:auto;max-height:none;overflow:visible;' : 'width:300px;height:500px;';
-  tmp.innerHTML=`<div class="${cardCls}" style="${heightStyle}">${inner}</div>`;
+  tmp.innerHTML=`<div class="spell-card${ext?' extended':''}" style="width:300px;${ext?'height:auto;max-height:none;overflow:visible;':'height:500px;'}">${buildSpellCard(spell,false)}</div>`;
   document.body.appendChild(tmp);
-
-  // Measure actual rendered height for extended cards
-  const cardEl = tmp.firstChild;
-  const measuredH = isExtended ? cardEl.scrollHeight : 500;
-
-  html2canvas(cardEl,{backgroundColor:'#0f1119',width:300,height:measuredH,scale:1,useCORS:true,logging:false}).then(canvas=>{
+  const h=ext?tmp.firstChild.scrollHeight:500;
+  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:h,scale:1,useCORS:true,logging:false}).then(canvas=>{
     document.body.removeChild(tmp);
-    canvas.toBlob(blob=>{
-      const safe=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
-      if(window.showSaveFilePicker){
-        window.showSaveFilePicker({suggestedName:safe,types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
-          .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
-      } else {
-        const a=document.createElement('a');a.download=safe;a.href=URL.createObjectURL(blob);a.click();
-        setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-      }
-    },'image/jpeg',0.92);
+    const safe=(spell['name']||'spell').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
+    canvas.toBlob(blob=>{saveBlobAs(blob,safe);});
   });
 }
-
-/* ══════════════════════════════════════════
-   BULK GRID
-══════════════════════════════════════════ */
-
-/* Measure whether a spell card would overflow standard height.
-   We render it off-screen at full width, measure, then discard. */
-function spellIsExtended(spell){
-  const tmp = document.createElement('div');
-  tmp.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:300px;visibility:hidden;';
-  tmp.innerHTML = `<div class="spell-card" style="width:300px;height:auto;max-height:none;overflow:visible;">${buildCardInner(spell,false)}</div>`;
-  document.body.appendChild(tmp);
-  const h = tmp.firstChild.scrollHeight;
-  document.body.removeChild(tmp);
-  return h > 500;
+function saveBlobAs(blob,name){
+  if(window.showSaveFilePicker){window.showSaveFilePicker({suggestedName:name,types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]}).then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});}
+  else{const a=document.createElement('a');a.download=name;a.href=URL.createObjectURL(blob);a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
 }
 
-function addToBulk(spell, forceExtended){
-  const id = ++bulkId;
-  const extended = forceExtended !== undefined ? forceExtended : spellIsExtended(spell);
-  bulkCards.push({id, spell, extended});
-  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
-  else { appendBulkSlot(id, spell, extended); }
+/* Spell filter wiring */
+wirePills('spellFilterPanel');
+document.getElementById('spellFilterBtn').addEventListener('click',()=>{
+  document.getElementById('spellFilterPanel').classList.toggle('open');
+  document.getElementById('spellFilterBtn').classList.toggle('active');
+});
+document.getElementById('applySpellFilters').addEventListener('click',()=>{
+  spellFilters={};
+  const level=getCheckedPills('filterLevel'),classes=getCheckedPills('filterClasses'),school=getCheckedPills('filterSchool'),magicType=getCheckedPills('filterMagicType'),castTime=getCheckedPills('filterCastTime'),range=getCheckedPills('filterRange'),other=getCheckedPills('filterOther');
+  if(level.length)spellFilters.level=level;if(classes.length)spellFilters.classes=classes;if(school.length)spellFilters.school=school;if(magicType.length)spellFilters.magicType=magicType;if(castTime.length)spellFilters.castTime=castTime;if(range.length)spellFilters.range=range;if(other.length)spellFilters.other=other;
+  renderSpells();
+});
+document.getElementById('clearSpellFilters').addEventListener('click',()=>{
+  ['filterLevel','filterClasses','filterSchool','filterMagicType','filterCastTime','filterRange','filterOther'].forEach(id=>uncheckPills(id));
+  spellFilters={};renderSpells();
+});
+document.getElementById('spellSearch').addEventListener('input',e=>{spellQuery=e.target.value.trim();renderSpells();});
+wireTableSort('spellTable',spellSortState,renderSpells);
+
+function renderSpellTags(){
+  const tags=[];
+  Object.entries(spellFilters).forEach(([k,vals])=>(vals||[]).forEach(v=>{const lbl=k==='level'?(LVL_LABELS[v]||v):v;const p=SPELL_GROUP_LABELS[k]?`${SPELL_GROUP_LABELS[k]}: `:'';tags.push({label:`${p}${lbl}`,key:k,value:v});}));
+  const el=document.getElementById('spellActiveTags');
+  el.innerHTML=tags.map((t,i)=>`<span class="filter-tag">${esc(t.label)}<button data-i="${i}">×</button></span>`).join('');
+  el.querySelectorAll('button').forEach((btn,i)=>{btn.addEventListener('click',()=>{const t=tags[i];spellFilters[t.key]=spellFilters[t.key].filter(v=>v!==t.value);if(!spellFilters[t.key].length)delete spellFilters[t.key];const g=SPELL_GROUP_IDS[t.key];if(g){const cb=document.querySelector(`#${g} input[value="${t.value}"]`);if(cb){cb.checked=false;cb.closest('.check-pill').classList.remove('checked');}}renderSpells();});});
+}
+
+/* Spell source buttons */
+document.querySelectorAll('[data-src]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const src=btn.dataset.src;
+    if(src===spellSource)return;
+    spellSource=src;
+    setCookie('spellGridSource',src);
+    document.querySelectorAll('[data-src]').forEach(b=>b.classList.toggle('active',b.dataset.src===src));
+    closeSpellDetail();
+    spellQuery=''; document.getElementById('spellSearch').value='';
+    loadSpells(src);
+  });
+});
+
+function loadSpells(src){
+  document.getElementById('spellBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;
+  document.getElementById('spellVisCount').textContent='0';document.getElementById('spellTotCount').textContent='0';
+  fetch(src).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{SPELLS=data;document.getElementById('spellTotCount').textContent=SPELLS.length;renderSpells();}).catch(err=>{document.getElementById('spellBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--accent2);line-height:1.8"><strong>Could not load ${esc(src)}</strong><br><span style="font-size:.72rem;color:var(--text-muted)">Serve files via localhost. ${err.message}</span></td></tr>`;});
+}
+
+/* ══════════════════════════════════════════════
+   BULK GRID
+══════════════════════════════════════════════ */
+let bulkCards=[], bulkId=0, bulkCols=3, bulkSortField='', bulkSortAsc=true;
+
+function spellIsExtended(spell){
+  const tmp=document.createElement('div');tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;width:300px;visibility:hidden;';
+  tmp.innerHTML=`<div class="spell-card" style="width:300px;height:auto;max-height:none;overflow:visible;">${buildSpellCard(spell,false)}</div>`;
+  document.body.appendChild(tmp);const h=tmp.firstChild.scrollHeight;document.body.removeChild(tmp);return h>500;
+}
+
+function saveBulkCookie(){try{const p=JSON.stringify(bulkCards.map(c=>({spell:c.spell,extended:c.extended})));const e=encodeURIComponent(p);if(e.length<3900)setCookie('spellGridBulk',p);}catch(x){}}
+function loadBulkCookie(){const v=getCookie('spellGridBulk');if(!v)return[];try{return JSON.parse(v);}catch(x){return[];}}
+function clearBulkCookie(){document.cookie='spellGridBulk=;path=/;max-age=0';}
+function updateBulkMeta(){document.getElementById('bulkCount').textContent=bulkCards.length+(bulkCards.length===1?' card':' cards');document.getElementById('bulkEmpty').style.display=bulkCards.length===0?'flex':'none';saveBulkCookie();}
+
+function appendBulkSlot(id,spell,extended){
+  const area=document.getElementById('bulkArea');
+  const slot=document.createElement('div');slot.className='bulk-slot'+(extended?' extended':'');slot.dataset.id=id;slot.dataset.extended=extended?'1':'0';
+  const card=document.createElement('div');card.className='spell-card'+(extended?' extended':'');card.innerHTML=buildSpellCard(spell,false);
+  const ctrl=document.createElement('div');ctrl.className='bulk-controls';
+  ctrl.innerHTML=`<button class="bulk-icon-btn copy" title="Duplicate"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><button class="bulk-icon-btn trash" title="Remove"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg></button>`;
+  ctrl.querySelector('.trash').addEventListener('click',()=>{bulkCards=bulkCards.filter(c=>c.id!==id);slot.remove();updateBulkMeta();});
+  ctrl.querySelector('.copy').addEventListener('click',()=>{const s=bulkCards.find(c=>c.id===id);if(s)addToBulk({...s.spell},s.extended);});
+  slot.appendChild(card);slot.appendChild(ctrl);area.appendChild(slot);
+}
+
+function addToBulk(spell,forceExtended){
+  const id=++bulkId;
+  const extended=forceExtended!==undefined?forceExtended:spellIsExtended(spell);
+  bulkCards.push({id,spell,extended});
+  if(bulkSortField){applyBulkSort();rebuildBulkDOM();}else{appendBulkSlot(id,spell,extended);}
   updateBulkMeta();
 }
+function applyBulkSort(){if(!bulkSortField)return;bulkCards.sort((a,b)=>{let va,vb;if(bulkSortField==='name'){va=(a.spell['name']||'').toLowerCase();vb=(b.spell['name']||'').toLowerCase();}else if(bulkSortField==='cost'){va=parseInt(a.spell['cost'])||0;vb=parseInt(b.spell['cost'])||0;}else{va=parseInt(a.spell['level'],10)||0;vb=parseInt(b.spell['level'],10)||0;}return(va<vb?-1:va>vb?1:0)*(bulkSortAsc?1:-1);});}
+function rebuildBulkDOM(){const area=document.getElementById('bulkArea');area.querySelectorAll('.bulk-slot').forEach(el=>el.remove());bulkCards.forEach(({id,spell,extended})=>appendBulkSlot(id,spell,extended));}
 
-function appendBulkSlot(id, spell, extended){
-  const area = document.getElementById('bulkArea');
-  const slot = document.createElement('div');
-  slot.className = 'bulk-slot' + (extended ? ' extended' : '');
-  slot.dataset.id = id;
-  slot.dataset.extended = extended ? '1' : '0';
+/* Column slider */
+const COLS_COOKIE='spellGridCols';
+function autoCalcCols(){return Math.max(1,Math.min(6,Math.floor((Math.max(300,window.innerWidth-80)+16)/316)));}
+function applyBulkCols(n){bulkCols=n;const s=document.getElementById('colSlider');const sv=document.getElementById('colSliderVal');if(s)s.value=n;if(sv)sv.textContent=n;document.getElementById('bulkArea').style.setProperty('--bulk-cols',n);setCookie(COLS_COOKIE,n);}
+let userSetCols=false;
+document.getElementById('colSlider').addEventListener('input',()=>{userSetCols=true;applyBulkCols(+document.getElementById('colSlider').value);});
+document.getElementById('colSlider').addEventListener('mousedown',()=>{userSetCols=true;});
+window.addEventListener('resize',()=>{if(!userSetCols)applyBulkCols(autoCalcCols());});
 
-  const card = document.createElement('div');
-  card.className = 'spell-card' + (extended ? ' extended' : '');
-  card.innerHTML = buildCardInner(spell, false);
+/* Sort */
+const bulkSortFieldEl=document.getElementById('bulkSortField');
+const bulkSortDirBtn=document.getElementById('bulkSortDir');
+const bulkSortIconEl=document.getElementById('bulkSortIcon');
+const bulkSortDirLbl=document.getElementById('bulkSortDirLabel');
+function updateSortIcon(){bulkSortDirLbl.textContent=bulkSortAsc?'ASC':'DESC';bulkSortIconEl.innerHTML=bulkSortAsc?'<path d="M12 5v14M5 12l7-7 7 7"/>':'<path d="M12 19V5M5 12l7 7 7-7"/>';}
+bulkSortFieldEl.addEventListener('change',()=>{bulkSortField=bulkSortFieldEl.value;if(bulkSortField){applyBulkSort();rebuildBulkDOM();updateBulkMeta();}});
+bulkSortDirBtn.addEventListener('click',()=>{bulkSortAsc=!bulkSortAsc;updateSortIcon();if(bulkSortField){applyBulkSort();rebuildBulkDOM();updateBulkMeta();}});
 
-  const controls = document.createElement('div');
-  controls.className = 'bulk-controls';
-  controls.innerHTML = `
-    <button class="bulk-icon-btn copy" title="Duplicate">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-    </button>
-    <button class="bulk-icon-btn trash" title="Remove">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
-    </button>`;
-  controls.querySelector('.trash').addEventListener('click', ()=>{
-    bulkCards = bulkCards.filter(c=>c.id!==id);
-    slot.remove();
-    updateBulkMeta();
-  });
-  controls.querySelector('.copy').addEventListener('click', ()=>{
-    const src = bulkCards.find(c=>c.id===id);
-    if(src) addToBulk({...src.spell}, src.extended);
-  });
-  slot.appendChild(card);
-  slot.appendChild(controls);
-  area.appendChild(slot);
-}
-
-/* ── Cookie helpers ── */
-const COOKIE_KEY = 'spellGridBulk';
-function saveBulkCookie(){
-  try {
-    const payload = JSON.stringify(bulkCards.map(c=>({spell:c.spell, extended:c.extended})));
-    const enc = encodeURIComponent(payload);
-    if(enc.length < 3900){
-      document.cookie = `${COOKIE_KEY}=${enc};path=/;max-age=2592000`;
-    }
-  } catch(e){ /* quota exceeded — silently skip */ }
-}
-function loadBulkCookie(){
-  const match = document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(COOKIE_KEY+'='));
-  if(!match) return [];
-  try { return JSON.parse(decodeURIComponent(match.slice(COOKIE_KEY.length+1))); }
-  catch(e){ return []; }
-}
-function clearBulkCookie(){
-  document.cookie = `${COOKIE_KEY}=;path=/;max-age=0`;
-}
-
-/* ── Sort bulkCards array in place ── */
-function applyBulkSort(){
-  if(!bulkSortField) return;
-  bulkCards.sort((a,b)=>{
-    let va, vb;
-    if(bulkSortField==='name'){
-      va=(a.spell['name']||'').toLowerCase(); vb=(b.spell['name']||'').toLowerCase();
-    } else if(bulkSortField==='cost'){
-      // Sort by numeric prefix in cost string e.g. "3rd-level slot" → 3; "None" → 0
-      va = parseInt(a.spell['cost'])||0; vb = parseInt(b.spell['cost'])||0;
-    } else if(bulkSortField==='level'){
-      va = parseInt(a.spell['level'],10)||0; vb = parseInt(b.spell['level'],10)||0;
-    }
-    if(va < vb) return bulkSortAsc ? -1 : 1;
-    if(va > vb) return bulkSortAsc ?  1 : -1;
-    return 0;
-  });
-}
-
-/* ── Full re-render of the bulk area DOM ── */
-function rebuildBulkDOM(){
-  const area = document.getElementById('bulkArea');
-  area.querySelectorAll('.bulk-slot').forEach(el=>el.remove());
-  bulkCards.forEach(({id,spell,extended})=>appendBulkSlot(id,spell,extended));
-}
-
-function updateBulkMeta(){
-  document.getElementById('bulkCount').textContent = bulkCards.length+(bulkCards.length===1?' card':' cards');
-  document.getElementById('bulkEmpty').style.display = bulkCards.length===0 ? 'flex' : 'none';
-  saveBulkCookie();
-}
-
-/* ── Column slider — auto-detects width, saves to cookie ── */
-const COLS_COOKIE = 'spellGridCols';
-function saveColsCookie(n){ document.cookie=`${COLS_COOKIE}=${n};path=/;max-age=2592000`; }
-function loadColsCookie(){
-  const m=document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(COLS_COOKIE+'='));
-  if(!m) return null;
-  const v=parseInt(m.slice(COLS_COOKIE.length+1),10);
-  return (v>=1&&v<=6)?v:null;
-}
-function autoCalcCols(){
-  // Card width 300 + 16 gap; container padding ~40px each side
-  const avail = Math.max(300, window.innerWidth - 80);
-  return Math.max(1, Math.min(6, Math.floor((avail + 16) / (300 + 16))));
-}
-function applyBulkCols(n){
-  bulkCols = n;
-  colSlider.value = n;
-  colSliderVal.textContent = n;
-  document.getElementById('bulkArea').style.setProperty('--bulk-cols', n);
-  saveColsCookie(n);
-}
-
-const colSlider    = document.getElementById('colSlider');
-const colSliderVal = document.getElementById('colSliderVal');
-colSlider.addEventListener('input',()=>{ applyBulkCols(+colSlider.value); });
-
-// Recompute on resize if not manually overridden by user
-let userSetCols = false;
-colSlider.addEventListener('mousedown',()=>{ userSetCols=true; });
-colSlider.addEventListener('touchstart',()=>{ userSetCols=true; });
-window.addEventListener('resize',()=>{
-  if(!userSetCols) applyBulkCols(autoCalcCols());
-});
-
-/* ── Sort dropdown + direction button ── */
-const bulkSortFieldEl = document.getElementById('bulkSortField');
-const bulkSortDirBtn  = document.getElementById('bulkSortDir');
-const bulkSortDirLbl  = document.getElementById('bulkSortDirLabel');
-const bulkSortIconEl  = document.getElementById('bulkSortIcon');
-
-function updateSortDirIcon(){
-  bulkSortDirLbl.textContent = bulkSortAsc ? 'ASC' : 'DESC';
-  bulkSortIconEl.innerHTML = bulkSortAsc
-    ? '<path d="M12 5v14M5 12l7-7 7 7"/>'                          // arrow up
-    : '<path d="M12 19V5M5 12l7 7 7-7"/>';                         // arrow down
-}
-
-bulkSortFieldEl.addEventListener('change',()=>{
-  bulkSortField = bulkSortFieldEl.value;
-  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); updateBulkMeta(); }
-});
-
-bulkSortDirBtn.addEventListener('click',()=>{
-  bulkSortAsc = !bulkSortAsc;
-  updateSortDirIcon();
-  if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); updateBulkMeta(); }
-});
-
-/* ── Export grid as JSON file ── */
-document.getElementById('bulkExportJsonBtn').addEventListener('click',()=>{
-  const data = bulkCards.map(c=>({ spell: c.spell, extended: c.extended }));
-  const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json],{type:'application/json'});
-  const safe = 'spell-grid-'+new Date().toISOString().slice(0,10)+'.json';
-  if(window.showSaveFilePicker){
-    window.showSaveFilePicker({suggestedName:safe,types:[{description:'JSON File',accept:{'application/json':['.json']}}]})
-      .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
-  } else {
-    const a=document.createElement('a'); a.download=safe; a.href=URL.createObjectURL(blob); a.click();
-    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-  }
-});
-
-/* ── Import grid from JSON file ── */
-document.getElementById('bulkImportJsonBtn').addEventListener('click',()=>{
-  document.getElementById('bulkImportFile').value='';
-  document.getElementById('bulkImportFile').click();
-});
-document.getElementById('bulkImportFile').addEventListener('change', e=>{
-  const file = e.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = evt => {
-    try {
-      const parsed = JSON.parse(evt.target.result);
-      if(!Array.isArray(parsed)) throw new Error('Not an array');
-      parsed.forEach(entry=>{
-        // Support both old format (spell object directly) and new format ({spell, extended})
-        let spell, extended;
-        if(entry && typeof entry === 'object' && entry.spell && entry.spell['name']){
-          spell    = entry.spell;
-          extended = entry.extended === true ? true : spellIsExtended(spell);
-        } else if(entry && typeof entry === 'object' && entry['name']){
-          spell    = entry;
-          extended = spellIsExtended(spell);
-        } else { return; }
-        const id = ++bulkId;
-        bulkCards.push({id, spell, extended});
-        appendBulkSlot(id, spell, extended);
-      });
-      if(bulkSortField){ applyBulkSort(); rebuildBulkDOM(); }
-      updateBulkMeta();
-    } catch(err){
-      alert('Could not import: invalid JSON format.\n'+err.message);
-    }
-  };
-  reader.readAsText(file);
-});
-
-/* Bulk Print — 3×3 grid on letter; extended cards span 2 rows */
+/* Bulk Print */
 document.getElementById('bulkPrintBtn').addEventListener('click',()=>{
-  if(!bulkCards.length){alert('No cards in the bulk grid.');return;}
-  // Build pages of up to 9 "row-slots" (extended uses 2)
-  const pages = [];
-  let pg = [], slots = 0;
-  bulkCards.forEach(c=>{
-    const uses = c.extended ? 2 : 1;
-    if(slots + uses > 9 && pg.length){ pages.push(pg); pg=[]; slots=0; }
-    pg.push(c);
-    slots += uses;
-  });
-  if(pg.length) pages.push(pg);
-
-  const pagesHtml = pages.map(p=>{
-    const cardsHtml = p.map(({spell,extended})=>{
-      const rowSpan = extended ? 'grid-row:span 2;' : '';
-      const hStyle  = extended ? 'height:calc(4.6in*2 + 0.1in);max-height:none;overflow:visible;' : 'height:4.6in;';
-      return `<div class="spell-card${extended?' extended':''}" style="width:2.5in;${hStyle}${rowSpan}">${buildCardInner(spell,false)}</div>`;
-    }).join('');
-    return `<div class="page-grid">${cardsHtml}</div>`;
-  }).join('');
-
+  if(!bulkCards.length){alert('No cards.');return;}
+  const pages=[];let pg=[],slots=0;
+  bulkCards.forEach(c=>{const u=c.extended?2:1;if(slots+u>9&&pg.length){pages.push(pg);pg=[];slots=0;}pg.push(c);slots+=u;});
+  if(pg.length)pages.push(pg);
+  const html=pages.map(p=>{const ch=p.map(({spell,extended})=>`<div class="spell-card${extended?' extended':''}" style="width:2.5in;${extended?'height:calc(4.6in*2 + .1in);max-height:none;overflow:visible;':'height:4.6in;'}${extended?'grid-row:span 2;':''}">${buildSpellCard(spell,false)}</div>`).join('');return`<div class="pg">${ch}</div>`;}).join('');
   const win=window.open('','_blank','width=950,height=750');
-  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}
-    @page{size:letter portrait;margin:0.35in;}
-    body{padding:0;}
-    .page-grid{display:grid;grid-template-columns:repeat(3,2.5in);grid-auto-rows:4.6in;gap:0.1in;page-break-after:always;break-after:page;}
-    .page-grid:last-child{page-break-after:auto;break-after:auto;}
-  </style></head><body>${pagesHtml}</body></html>`);
-  win.document.close();
-  setTimeout(()=>{win.focus();win.print();},500);
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}@page{size:letter portrait;margin:.35in;}body{padding:0;}.pg{display:grid;grid-template-columns:repeat(3,2.5in);grid-auto-rows:4.6in;gap:.1in;page-break-after:always;break-after:page;}.pg:last-child{page-break-after:auto;break-after:auto;}</style></head><body>${html}</body></html>`);
+  win.document.close();setTimeout(()=>{win.focus();win.print();},500);
 });
 
-/* Bulk Export Image — respects column slider, accounts for extended cards */
+/* Bulk Export Image */
 document.getElementById('bulkExportBtn').addEventListener('click',()=>{
   const area=document.getElementById('bulkArea');
-  const controls=area.querySelectorAll('.bulk-controls');
-  controls.forEach(el=>el.style.visibility='hidden');
-  const emptyMsg=document.getElementById('bulkEmpty');
-  emptyMsg.style.display='none';
-
-  // Let the browser complete layout before measuring
+  const ctrls=area.querySelectorAll('.bulk-controls');ctrls.forEach(el=>el.style.visibility='hidden');
+  document.getElementById('bulkEmpty').style.display='none';
   requestAnimationFrame(()=>{
-    const areaRect = area.getBoundingClientRect();
-    const canvasW = areaRect.width;
-    const canvasH = areaRect.height;
-
-    html2canvas(area,{backgroundColor:'#13161e',scale:2,width:canvasW,height:canvasH,useCORS:true,logging:false}).then(canvas=>{
-      controls.forEach(el=>el.style.visibility='');
-      if(!bulkCards.length) emptyMsg.style.display='flex';
-      canvas.toBlob(blob=>{
-        if(window.showSaveFilePicker){
-          window.showSaveFilePicker({suggestedName:'bulk-grid.jpg',types:[{description:'JPEG Image',accept:{'image/jpeg':['.jpg','.jpeg']}}]})
-            .then(fh=>fh.createWritable()).then(w=>{w.write(blob);return w;}).then(w=>w.close()).catch(()=>{});
-        } else {
-          const a=document.createElement('a');a.download='bulk-grid.jpg';a.href=URL.createObjectURL(blob);a.click();
-          setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-        }
-      },'image/jpeg',0.92);
+    const r=area.getBoundingClientRect();
+    html2canvas(area,{backgroundColor:'#13161e',scale:2,width:r.width,height:r.height,useCORS:true,logging:false}).then(canvas=>{
+      ctrls.forEach(el=>el.style.visibility='');
+      if(!bulkCards.length)document.getElementById('bulkEmpty').style.display='flex';
+      canvas.toBlob(blob=>saveBlobAs(blob,'bulk-grid.jpg'));
     });
   });
+});
+
+/* JSON Export/Import */
+document.getElementById('bulkExportJsonBtn').addEventListener('click',()=>{
+  const data=bulkCards.map(c=>({spell:c.spell,extended:c.extended}));
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  saveBlobAs(blob,'spell-grid-'+new Date().toISOString().slice(0,10)+'.json');
+});
+document.getElementById('bulkImportJsonBtn').addEventListener('click',()=>{document.getElementById('bulkImportFile').value='';document.getElementById('bulkImportFile').click();});
+document.getElementById('bulkImportFile').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();r.onload=evt=>{try{const p=JSON.parse(evt.target.result);if(!Array.isArray(p))throw new Error('Not an array');p.forEach(entry=>{let spell,extended;if(entry&&entry.spell&&entry.spell['name']){spell=entry.spell;extended=entry.extended===true?true:spellIsExtended(spell);}else if(entry&&entry['name']){spell=entry;extended=spellIsExtended(spell);}else return;const id=++bulkId;bulkCards.push({id,spell,extended});appendBulkSlot(id,spell,extended);});if(bulkSortField){applyBulkSort();rebuildBulkDOM();}updateBulkMeta();}catch(err){alert('Import error: '+err.message);}};r.readAsText(f);
 });
 
 /* Bulk Clear */
-document.getElementById('bulkClearBtn').addEventListener('click',()=>{
-  document.getElementById('modalCardCount').textContent=bulkCards.length;
-  document.getElementById('confirmModal').classList.add('open');
-});
+document.getElementById('bulkClearBtn').addEventListener('click',()=>{document.getElementById('modalCardCount').textContent=bulkCards.length;document.getElementById('confirmModal').classList.add('open');});
 document.getElementById('modalCancel').addEventListener('click',()=>document.getElementById('confirmModal').classList.remove('open'));
-document.getElementById('modalConfirm').addEventListener('click',()=>{
-  bulkCards=[];
-  document.getElementById('bulkArea').querySelectorAll('.bulk-slot').forEach(el=>el.remove());
-  clearBulkCookie();
-  updateBulkMeta();
-  document.getElementById('confirmModal').classList.remove('open');
-});
+document.getElementById('modalConfirm').addEventListener('click',()=>{bulkCards=[];document.getElementById('bulkArea').querySelectorAll('.bulk-slot').forEach(el=>el.remove());clearBulkCookie();updateBulkMeta();document.getElementById('confirmModal').classList.remove('open');});
 document.getElementById('confirmModal').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('open');});
 
-/* ══════════════════════════════════════════
-   SORT
-══════════════════════════════════════════ */
-document.querySelectorAll('th').forEach(th=>{
-  th.addEventListener('click',()=>{
-    const col=+th.dataset.col;
-    sortDir=sortCol===col?(sortDir==='asc'?'desc':'asc'):'asc';
-    sortCol=col;
-    document.querySelectorAll('th').forEach(t=>t.classList.remove('sorted-asc','sorted-desc'));
-    th.classList.add(sortDir==='asc'?'sorted-asc':'sorted-desc');
-    render();
+/* ══════════════════════════════════════════════
+   ITEMS TAB
+══════════════════════════════════════════════ */
+let ITEMS=[], itemCurrentRow=null, itemSortState={col:0,dir:'asc'}, itemQuery='', itemSource='overhaul-items.json';
+const ITEM_KEYS=['item','prerequisites','as','defense','damage_spell','spell_types','properties','innate_affix'];
+
+function buildItemCard(item, showActions){
+  const name=item['item']||'', prereq=item['prerequisites']||'', as=item['as']||'', defense=item['defense']||'', dmg=item['damage_spell']||'', spTypes=item['spell_types']||'', props=item['properties']||'', affix=item['innate_affix']||'';
+  const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="itemCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button></div>`:'';
+  const row=(lbl,val)=>val?`<div class="card-stat-row"><span class="stat-label">${lbl}</span><span class="stat-val">${esc(val)}</span></div>`:'';
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${prereq?`<div class="card-type-line" style="font-style:normal;font-size:.56rem;color:#8090aa;margin-top:3px">Requires: ${esc(prereq)}</div>`:''}</div><div class="card-rule"></div><div class="card-stats-block">${row('Attack Speed',as)}${row('Defense',defense)}${row('Damage / Spell',dmg)}${row('Spell Types',spTypes)}${row('Properties',props)}</div>${affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Innate Affix:</span><span class="stat-val">${esc(affix)}</span></div></div>`:''}<div class="card-footer-bar"><div style="font-family:'Cinzel',serif;font-size:.6rem;color:var(--gold);font-weight:600">${itemSource.includes('magic')?'Magic Item':'Basic Item'}</div></div>`;
+}
+
+function renderItems(){
+  let data=[...ITEMS];
+  if(itemQuery){const q=itemQuery.toLowerCase();data=data.filter(r=>ITEM_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));}
+  const k=ITEM_KEYS[itemSortState.col];
+  data.sort((a,b)=>{let va=String(a[k]||'').toLowerCase(),vb=String(b[k]||'').toLowerCase();return(va<vb?-1:va>vb?1:0)*(itemSortState.dir==='asc'?1:-1);});
+  const q=itemQuery;
+  document.getElementById('itemBody').innerHTML=data.map(row=>`<tr data-name="${esc(row['item'])}" class="${itemCurrentRow&&itemCurrentRow['item']===row['item']?'selected':''}"><td class="name-cell">${hi(row['item'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td>${hi(row['as'],q)}</td><td>${hi(row['defense'],q)}</td><td>${hi(row['damage_spell'],q)}</td><td>${hi(row['spell_types'],q)}</td><td>${hi(row['properties'],q)}</td><td>${hi(row['innate_affix'],q)}</td></tr>`).join('');
+  document.getElementById('itemVisCount').textContent=data.length;
+  document.getElementById('itemEmpty').style.display=data.length===0?'block':'none';
+  document.querySelectorAll('#itemBody tr').forEach((tr,i)=>{tr.addEventListener('click',()=>{if(itemCurrentRow&&itemCurrentRow['item']===data[i]['item'])closeItemDetail();else openItemDetail(data[i]);});});
+}
+
+function openItemDetail(item){
+  itemCurrentRow=item;
+  const card=document.getElementById('itemDetailCard');
+  card.innerHTML=buildItemCard(item,true);
+  card.querySelector('#itemCardPrintBtn').addEventListener('click',()=>printItemCard(item));
+  document.getElementById('itemDetailPanel').classList.add('open');
+  document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.name===item['item']));
+}
+function closeItemDetail(){
+  itemCurrentRow=null;
+  document.getElementById('itemDetailPanel').classList.remove('open');
+  document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
+}
+function printItemCard(item){
+  const inner=buildItemCard(item,false);
+  const win=window.open('','_blank','width=420,height=600');
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}.item-card{background:#0f1119;border:2px solid #3a2e20;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;width:2.83in;}.item-card .card-stripe{background:linear-gradient(90deg,#c9a84c,#e8943a);}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;padding:.25in;}</style></head><body><div class="item-card spell-card">${inner}</div></body></html>`);
+  win.document.close();setTimeout(()=>{win.focus();win.print();},450);
+}
+
+wireTableSort('itemTable',itemSortState,renderItems);
+document.getElementById('itemSearch').addEventListener('input',e=>{itemQuery=e.target.value.trim();renderItems();});
+document.getElementById('itemFilterBtn').addEventListener('click',()=>{document.getElementById('itemFilterPanel').classList.toggle('open');document.getElementById('itemFilterBtn').classList.toggle('active');});
+document.getElementById('clearItemFilters').addEventListener('click',()=>{document.getElementById('itemFilterPanel').classList.remove('open');document.getElementById('itemFilterBtn').classList.remove('active');});
+
+document.querySelectorAll('[data-item-src]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const src=btn.dataset.itemSrc;if(src===itemSource)return;
+    itemSource=src;closeItemDetail();itemQuery='';document.getElementById('itemSearch').value='';
+    document.querySelectorAll('[data-item-src]').forEach(b=>b.classList.toggle('active',b.dataset.itemSrc===src));
+    loadItems(src);
   });
 });
 
-/* ══════════════════════════════════════════
-   SEARCH
-══════════════════════════════════════════ */
-document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value.trim();render();});
-
-/* ══════════════════════════════════════════
-   FILTER — pill toggle + apply/clear
-══════════════════════════════════════════ */
-const filterBtn=document.getElementById('filterBtn');
-const filterPanel=document.getElementById('filterPanel');
-filterBtn.addEventListener('click',()=>{filterPanel.classList.toggle('open');filterBtn.classList.toggle('active');});
-
-/* Pill click → toggle checked state visually */
-document.querySelectorAll('.check-pill').forEach(pill=>{
-  pill.addEventListener('click',()=>{
-    const cb=pill.querySelector('input');
-    cb.checked=!cb.checked;
-    pill.classList.toggle('checked',cb.checked);
-  });
-});
-
-document.getElementById('applyFilters').addEventListener('click',()=>{
-  appliedFilters={};
-  const level=getCheckedPills('filterLevel');
-  const classes=getCheckedPills('filterClasses');
-  const school=getCheckedPills('filterSchool');
-  const magicType=getCheckedPills('filterMagicType');
-  const castTime=getCheckedPills('filterCastTime');
-  const range=getCheckedPills('filterRange');
-  const other=getCheckedPills('filterOther');
-  if(level.length)    appliedFilters.level=level;
-  if(classes.length)  appliedFilters.classes=classes;
-  if(school.length)   appliedFilters.school=school;
-  if(magicType.length)appliedFilters.magicType=magicType;
-  if(castTime.length) appliedFilters.castTime=castTime;
-  if(range.length)    appliedFilters.range=range;
-  if(other.length)    appliedFilters.other=other;
-  render();
-});
-
-document.getElementById('clearFilters').addEventListener('click',()=>{
-  ['filterLevel','filterClasses','filterSchool','filterMagicType','filterCastTime','filterRange','filterOther']
-    .forEach(id=>uncheckPills(id));
-  appliedFilters={};
-  render();
-});
-
-/* ══════════════════════════════════════════
-   ACTIVE FILTER TAGS
-══════════════════════════════════════════ */
-const GROUP_LABELS={level:'Level',classes:'Class',school:'School',magicType:'Type',castTime:'Cast',range:'Range',other:''};
-const GROUP_IDS={level:'filterLevel',classes:'filterClasses',school:'filterSchool',magicType:'filterMagicType',castTime:'filterCastTime',range:'filterRange',other:'filterOther'};
-const LVL_LABELS={'0':'Cantrip','1':'1st','2':'2nd','3':'3rd','4':'4th','5':'5th','6':'6th','7':'7th','8':'8th','9':'9th'};
-
-function renderTags(){
-  const tags=[];
-  Object.entries(appliedFilters).forEach(([key,vals])=>{
-    (vals||[]).forEach(v=>{
-      const lbl=key==='level'?(LVL_LABELS[v]||v):v;
-      const prefix=GROUP_LABELS[key]?`${GROUP_LABELS[key]}: `:'';
-      tags.push({label:`${prefix}${lbl}`,key,value:v});
-    });
-  });
-  const el=document.getElementById('activeTags');
-  el.innerHTML=tags.map((t,i)=>`<span class="filter-tag">${esc(t.label)}<button data-i="${i}">×</button></span>`).join('');
-  el.querySelectorAll('button').forEach((btn,i)=>{
-    btn.addEventListener('click',()=>{
-      const t=tags[i];
-      appliedFilters[t.key]=appliedFilters[t.key].filter(v=>v!==t.value);
-      if(!appliedFilters[t.key].length) delete appliedFilters[t.key];
-      // Uncheck the corresponding pill
-      const groupId=GROUP_IDS[t.key];
-      if(groupId){
-        const cb=document.querySelector(`#${groupId} input[value="${t.value}"]`);
-        if(cb){ cb.checked=false; cb.closest('.check-pill').classList.remove('checked'); }
-      }
-      render();
-    });
-  });
+function loadItems(src){
+  document.getElementById('itemBody').innerHTML=`<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;
+  document.getElementById('itemVisCount').textContent='0';document.getElementById('itemTotCount').textContent='0';
+  fetch(src).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{ITEMS=data;document.getElementById('itemTotCount').textContent=ITEMS.length;renderItems();}).catch(err=>{document.getElementById('itemBody').innerHTML=`<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--accent2);line-height:1.8"><strong>Could not load ${esc(src)}</strong><br><span style="font-size:.72rem;color:var(--text-muted)">${err.message}</span></td></tr>`;});
 }
 
-/* ══════════════════════════════════════════
-   SOURCE LOADING
-   Fetches a JSON file, populates RAW, re-renders
-   the table, closes the card panel, and saves
-   the active source to the cookie.
-══════════════════════════════════════════ */
-const SOURCE_COOKIE = 'spellGridSource';
+/* ══════════════════════════════════════════════
+   FEATS TAB
+══════════════════════════════════════════════ */
+let FEATS=[], featCurrentRow=null, featSortState={col:0,dir:'asc'}, featQuery='';
+const FEAT_KEYS=['feat','prerequisites','description'];
 
-function saveSourceCookie(src){
-  document.cookie = `${SOURCE_COOKIE}=${encodeURIComponent(src)};path=/;max-age=2592000`;
-}
-function loadSourceCookie(){
-  const match = document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(SOURCE_COOKIE+'='));
-  if(!match) return null;
-  try { return decodeURIComponent(match.slice(SOURCE_COOKIE.length+1)); }
-  catch(e){ return null; }
+function buildFeatCard(feat, showActions){
+  const name=feat['feat']||'', prereq=feat['prerequisites']||'', desc=feat['description']||'';
+  const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="featCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button></div>`:'';
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${prereq?`<div style="font-size:.56rem;color:#8090aa;margin-top:3px;font-style:italic">Requires: ${esc(prereq)}</div>`:''}</div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible">${descMd(desc)}</div><div class="card-footer-bar"><div style="font-family:'Cinzel',serif;font-size:.6rem;color:var(--accent3);font-weight:600">Feat</div></div>`;
 }
 
-function setActiveSourceBtn(src){
-  document.querySelectorAll('.source-btn').forEach(btn=>{
-    btn.classList.toggle('active', btn.dataset.src === src);
-  });
+function renderFeats(){
+  let data=[...FEATS];
+  if(featQuery){const q=featQuery.toLowerCase();data=data.filter(r=>FEAT_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));}
+  const k=FEAT_KEYS[featSortState.col];
+  data.sort((a,b)=>{let va=String(a[k]||'').toLowerCase(),vb=String(b[k]||'').toLowerCase();return(va<vb?-1:va>vb?1:0)*(featSortState.dir==='asc'?1:-1);});
+  const q=featQuery;
+  const MAX_DESC=60;
+  document.getElementById('featBody').innerHTML=data.map(row=>{const d=row['description']||'';const dDisp=d.length>MAX_DESC?d.slice(0,MAX_DESC)+'…':d;return`<tr data-feat="${esc(row['feat'])}" class="${featCurrentRow&&featCurrentRow['feat']===row['feat']?'selected':''}"><td class="name-cell">${hi(row['feat'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td style="white-space:normal;max-width:280px">${hi(dDisp,q)}</td></tr>`;}).join('');
+  document.getElementById('featVisCount').textContent=data.length;
+  document.getElementById('featEmpty').style.display=data.length===0?'block':'none';
+  document.querySelectorAll('#featBody tr').forEach((tr,i)=>{tr.addEventListener('click',()=>{if(featCurrentRow&&featCurrentRow['feat']===data[i]['feat'])closeFeatDetail();else openFeatDetail(data[i]);});});
 }
 
-function loadSource(src, isInit){
-  currentSource = src;
-  saveSourceCookie(src);
-  setActiveSourceBtn(src);
-
-  // Close card view whenever source changes (skip on first init)
-  if(!isInit) closeDetail();
-
-  // Reset search, filters, sort on source switch (optional but clean)
-  searchQuery = '';
-  document.getElementById('searchInput').value = '';
-
-  // Show loading state
-  document.getElementById('tableBody').innerHTML =
-    `<tr><td colspan="9" style="text-align:center;padding:32px;color:var(--text-muted);font-size:0.8rem;">Loading ${src}…</td></tr>`;
-  document.getElementById('visibleCount').textContent = '0';
-  document.getElementById('totalCount').textContent = '0';
-
-  fetch(src)
-    .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data => {
-      RAW = data;
-      document.getElementById('totalCount').textContent = RAW.length;
-      render();
-    })
-    .catch(err => {
-      document.getElementById('tableBody').innerHTML = `
-        <tr><td colspan="9" style="text-align:center;padding:48px 20px;color:var(--accent2);line-height:1.8;">
-          <strong>Could not load ${esc(src)}</strong><br>
-          <span style="font-size:0.75rem;color:var(--text-muted);">
-            Make sure <code style="color:var(--accent3)">${esc(src)}</code> is in the same folder as this file
-            and open it through a local web server.<br>
-            Browsers block <code style="color:var(--accent3)">fetch()</code> on <code style="color:var(--accent3)">file://</code> URLs for security reasons.
-          </span><br>
-          <span style="font-size:0.68rem;color:var(--text-muted);opacity:0.6;">${err.message}</span>
-        </td></tr>`;
-      document.getElementById('visibleCount').textContent = '0';
-    });
+function openFeatDetail(feat){
+  featCurrentRow=feat;
+  const card=document.getElementById('featDetailCard');
+  card.innerHTML=buildFeatCard(feat,true);
+  card.querySelector('#featCardPrintBtn').addEventListener('click',()=>printFeatCard(feat));
+  document.getElementById('featDetailPanel').classList.add('open');
+  document.querySelectorAll('#featBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.feat===feat['feat']));
+}
+function closeFeatDetail(){
+  featCurrentRow=null;
+  document.getElementById('featDetailPanel').classList.remove('open');
+  document.querySelectorAll('#featBody tr').forEach(tr=>tr.classList.remove('selected'));
+}
+function printFeatCard(feat){
+  const inner=buildFeatCard(feat,false);
+  const win=window.open('','_blank','width=420,height=500');
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}.feat-card{background:#0f1119;border:2px solid #202e20;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;width:2.83in;}.feat-card .card-stripe{background:linear-gradient(90deg,#36d9a0,#2090a0);}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;padding:.25in;}</style></head><body><div class="feat-card spell-card">${inner}</div></body></html>`);
+  win.document.close();setTimeout(()=>{win.focus();win.print();},450);
 }
 
-/* Wire up source buttons */
-document.querySelectorAll('.source-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    if(btn.dataset.src !== currentSource){
-      loadSource(btn.dataset.src, false);
-    }
-  });
-});
+wireTableSort('featTable',featSortState,renderFeats);
+document.getElementById('featSearch').addEventListener('input',e=>{featQuery=e.target.value.trim();renderFeats();});
+document.getElementById('featFilterBtn').addEventListener('click',()=>{document.getElementById('featFilterPanel').classList.toggle('open');document.getElementById('featFilterBtn').classList.toggle('active');});
+document.getElementById('clearFeatFilters').addEventListener('click',()=>{document.getElementById('featFilterPanel').classList.remove('open');document.getElementById('featFilterBtn').classList.remove('active');});
 
-/* ══════════════════════════════════════════
-   THEME ENGINE
-   Each theme overrides CSS custom properties
-   on :root via a <style> tag.
-══════════════════════════════════════════ */
-const THEME_COOKIE = 'spellGridTheme';
-function saveThemeCookie(t){ document.cookie=`${THEME_COOKIE}=${t};path=/;max-age=2592000`; }
-function loadThemeCookie(){
-  const m=document.cookie.split(';').map(s=>s.trim()).find(s=>s.startsWith(THEME_COOKIE+'='));
-  return m?m.slice(THEME_COOKIE.length+1):null;
+function loadFeats(){
+  document.getElementById('featBody').innerHTML=`<tr><td colspan="3" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;
+  fetch('overhaul-feats.json').then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{FEATS=data;document.getElementById('featTotCount').textContent=FEATS.length;renderFeats();}).catch(err=>{document.getElementById('featBody').innerHTML=`<tr><td colspan="3" style="text-align:center;padding:40px;color:var(--accent2)"><strong>Could not load overhaul-feats.json</strong><br><span style="font-size:.72rem;color:var(--text-muted)">${err.message}</span></td></tr>`;});
 }
 
-const THEMES = {
-  default: {},  // uses stylesheet defaults
-  dark: {
-    '--bg':'#060709','--surface':'#0d0f12','--surface2':'#141620',
-    '--border':'#1e2230','--header-bg':'#0f1118','--row-hover':'#111420',
-    '--text':'#d0d4e0','--text-muted':'#505566','--text-dim':'#7880a0','--tag-bg':'#171a28',
-    '--accent':'#4f7cff','--accent2':'#ff6b6b','--accent3':'#36d9a0'
-  },
-  light: {
-    '--bg':'#f4f6fb','--surface':'#ffffff','--surface2':'#edf0f7',
-    '--border':'#d0d6e8','--header-bg':'#e8edf8','--row-hover':'#f0f3fc',
-    '--text':'#1a1e2e','--text-muted':'#7880a0','--text-dim':'#4a5070','--tag-bg':'#e4e9f8',
-    '--accent':'#3a68e8','--accent2':'#e8404a','--accent3':'#22b87a','--gold':'#a07830'
-  },
-  gray: {
-    '--bg':'#1c1e22','--surface':'#26282e','--surface2':'#32343c',
-    '--border':'#3a3d46','--header-bg':'#202226','--row-hover':'#2e3038',
-    '--text':'#d8dae4','--text-muted':'#7a7d8c','--text-dim':'#a0a4b4','--tag-bg':'#2c2f38',
-    '--accent':'#8898c8','--accent2':'#d07070','--accent3':'#5ab89a'
-  },
-  blue: {
-    '--bg':'#050d1a','--surface':'#091527','--surface2':'#0e2040',
-    '--border':'#163060','--header-bg':'#071020','--row-hover':'#0c1c38',
-    '--text':'#cce0ff','--text-muted':'#3a6090','--text-dim':'#6090c0','--tag-bg':'#0c1e3a',
-    '--accent':'#4090ff','--accent2':'#ff7070','--accent3':'#40d8b0'
-  },
-  red: {
-    '--bg':'#140808','--surface':'#1e0c0c','--surface2':'#2e1010',
-    '--border':'#501818','--header-bg':'#180a0a','--row-hover':'#281010',
-    '--text':'#ffe0e0','--text-muted':'#904040','--text-dim':'#b07070','--tag-bg':'#281212',
-    '--accent':'#ff5050','--accent2':'#ffaa44','--accent3':'#40d8a0'
-  },
-  yellow: {
-    '--bg':'#13110a','--surface':'#1e1a0e','--surface2':'#2c2610',
-    '--border':'#463c12','--header-bg':'#181408','--row-hover':'#25200e',
-    '--text':'#ffeebb','--text-muted':'#806830','--text-dim':'#a08840','--tag-bg':'#221c0c',
-    '--accent':'#e0b030','--accent2':'#ff7070','--accent3':'#60d870','--gold':'#e8c048'
-  },
-  orange: {
-    '--bg':'#110d07','--surface':'#1c1408','--surface2':'#2a1e0c',
-    '--border':'#48300a','--header-bg':'#160e06','--row-hover':'#231808',
-    '--text':'#ffe8cc','--text-muted':'#885020','--text-dim':'#aa7040','--tag-bg':'#201408',
-    '--accent':'#e87820','--accent2':'#ff5858','--accent3':'#40d890'
-  },
-  green: {
-    '--bg':'#070f0a','--surface':'#0c1810','--surface2':'#102218',
-    '--border':'#183a20','--header-bg':'#081208','--row-hover':'#0e1e12',
-    '--text':'#c8f0d0','--text-muted':'#306040','--text-dim':'#508060','--tag-bg':'#0e1e12',
-    '--accent':'#40c860','--accent2':'#ff7070','--accent3':'#60e0c0'
-  },
-  violet: {
-    '--bg':'#0d0814','--surface':'#150c22','--surface2':'#1e1030',
-    '--border':'#32185a','--header-bg':'#100a1a','--row-hover':'#1a1030',
-    '--text':'#e8ccff','--text-muted':'#604890','--text-dim':'#9060c0','--tag-bg':'#180e28',
-    '--accent':'#9040e8','--accent2':'#ff6090','--accent3':'#40d8a0'
-  },
-  teal: {
-    '--bg':'#070e10','--surface':'#0c181c','--surface2':'#10222a',
-    '--border':'#143848','--header-bg':'#080e12','--row-hover':'#0e1e26',
-    '--text':'#c0eef8','--text-muted':'#285868','--text-dim':'#407888','--tag-bg':'#0c1e28',
-    '--accent':'#30b8d0','--accent2':'#ff7070','--accent3':'#60e090'
-  },
-  rose: {
-    '--bg':'#130810','--surface':'#1e0c1a','--surface2':'#2c1028',
-    '--border':'#4a1840','--header-bg':'#160a12','--row-hover':'#240e20',
-    '--text':'#ffd0f0','--text-muted':'#803060','--text-dim':'#b05080','--tag-bg':'#200e1c',
-    '--accent':'#e040a0','--accent2':'#ff8040','--accent3':'#40d8c0'
-  },
-  indigo: {
-    '--bg':'#080812','--surface':'#0e0e20','--surface2':'#14142e',
-    '--border':'#202050','--header-bg':'#0a0a18','--row-hover':'#121228',
-    '--text':'#d0d0ff','--text-muted':'#383880','--text-dim':'#5858a8','--tag-bg':'#121230',
-    '--accent':'#6868f0','--accent2':'#ff7070','--accent3':'#40d8c0'
-  }
-};
-
-let themeStyleEl = null;
-function applyTheme(name){
-  const vars = THEMES[name] || {};
-  if(!themeStyleEl){ themeStyleEl=document.createElement('style'); document.head.appendChild(themeStyleEl); }
-  const css = Object.entries(vars).map(([k,v])=>`${k}:${v};`).join('');
-  themeStyleEl.textContent = css ? `:root{${css}}` : '';
-  saveThemeCookie(name);
-  const sel=document.getElementById('themeSelect');
-  if(sel) sel.value=name;
-}
-
-document.getElementById('themeSelect').addEventListener('change',e=>applyTheme(e.target.value));
-
+/* ══════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════ */
 (function init(){
   // Restore theme
-  const savedTheme = loadThemeCookie();
-  if(savedTheme && THEMES[savedTheme]) applyTheme(savedTheme);
+  const t=getCookie('spellGridTheme');if(t&&THEMES[t])applyTheme(t);
 
-  // Restore column count (saved cookie → autodetect fallback)
-  const savedCols = loadColsCookie();
-  applyBulkCols(savedCols !== null ? savedCols : autoCalcCols());
+  // Restore columns
+  const sc=getCookie(COLS_COOKIE);const n=sc?parseInt(sc,10):null;
+  applyBulkCols(n&&n>=1&&n<=6?n:autoCalcCols());
 
-  // Restore last active source (defaults to all-spells.json)
-  const savedSrc = loadSourceCookie();
-  const startSrc = ['all-spells.json','5e-spells.json','overhaul-spells.json'].includes(savedSrc)
-    ? savedSrc : 'all-spells.json';
-
-  currentSource = startSrc;
-  setActiveSourceBtn(startSrc);
-
-  // Restore bulk grid from cookie (independent of source)
-  const saved = loadBulkCookie();
-  if(saved.length){
-    saved.forEach(entry=>{
-      let spell, extended;
-      if(entry && entry.spell && entry.spell['name']){
-        spell    = entry.spell;
-        extended = entry.extended === true ? true : spellIsExtended(spell);
-      } else if(entry && entry['name']){
-        spell    = entry;
-        extended = spellIsExtended(spell);
-      } else { return; }
-      const id = ++bulkId;
-      bulkCards.push({id, spell, extended});
-      appendBulkSlot(id, spell, extended);
-    });
+  // Restore active tab
+  const at=getCookie('activeTab');
+  if(at&&['spells','items','feats'].includes(at)){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===at));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+at));
   }
-  updateBulkMeta();
 
-  // Load the table data (isInit=true so card panel isn't closed)
-  loadSource(startSrc, true);
+  // Restore bulk grid
+  const saved=loadBulkCookie();
+  if(saved.length){saved.forEach(entry=>{let spell,extended;if(entry&&entry.spell&&entry.spell['name']){spell=entry.spell;extended=entry.extended===true?true:spellIsExtended(spell);}else if(entry&&entry['name']){spell=entry;extended=spellIsExtended(spell);}else return;const id=++bulkId;bulkCards.push({id,spell,extended});appendBulkSlot(id,spell,extended);});updateBulkMeta();}else{updateBulkMeta();}
+
+  // Restore spell source
+  const ss=getCookie('spellGridSource');
+  const src=['all-spells.json','overhaul-spells.json'].includes(ss)?ss:'all-spells.json';
+  spellSource=src;
+  document.querySelectorAll('[data-src]').forEach(b=>b.classList.toggle('active',b.dataset.src===src));
+  loadSpells(src);
+
+  // Load items and feats
+  loadItems('overhaul-items.json');
+  loadFeats();
 })();
 </script>
 </body>

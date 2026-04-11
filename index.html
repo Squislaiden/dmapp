@@ -53,7 +53,7 @@ input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent)}
 select{padding:2px 3px;cursor:pointer}
 input[type="checkbox"],input[type="radio"]{accent-color:var(--accent);cursor:pointer;margin-right:2px}
 label{font-size:.74rem;color:var(--text-dim);cursor:pointer}
-.result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.62rem;padding:6px;resize:vertical;line-height:1.5}
+.result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
 .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
 .toggle-label{font-family:var(--font-display);font-size:.74rem;color:var(--text-dim);transition:color .3s}
@@ -239,12 +239,12 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="btn-grid mt-xs"><button class="btn btn-list" onclick="enemyListInfo('traits')">Trait List</button><button class="btn btn-list" onclick="enemyListInfo('actions')">Action List</button><button class="btn btn-list" onclick="enemyListInfo('bonus_actions')">Bonus Action List</button><button class="btn btn-list" onclick="enemyListInfo('reactions')">Reaction List</button><button class="btn btn-list" onclick="enemyListInfo('recharge')">Recharge List</button><button class="btn btn-list" onclick="enemyListInfo('legendary')">Legendary List</button><button class="btn btn-list" onclick="enemyListInfo('lair_active')">Lair Trait List</button><button class="btn btn-list" onclick="enemyListInfo('modifiers')">Modifier List</button><button class="btn btn-list" onclick="enemyListInfo('type_specific')">Type-Specific List</button></div>
 <hr class="sep">
 <div class="inline-row"><span class="section-title" style="margin:0">Results</span><button class="btn btn-list" onclick="copyOutput()">Copy</button></div>
-<textarea class="result-box" id="charBox" rows="18" readonly style="font-size:.58rem"></textarea>
+<textarea class="result-box" id="charBox" rows="18" readonly></textarea>
 <hr class="sep">
 <div class="inline-row"><a href="https://www.naturalcrit.com/" target="_blank">🔗</a><span style="font-size:.64rem;color:var(--text-dim)">Homebrewery V3</span><button class="btn btn-list" onclick="copyHomebrew()">Copy</button></div>
-<textarea class="result-box" id="homebrewBox" rows="5" readonly style="font-size:.52rem"></textarea>
+<textarea class="result-box" id="homebrewBox" rows="5" readonly></textarea>
 <div class="inline-row mt-xs"><a href="https://www.improvedinitiative.app/" target="_blank">🔗</a><span style="font-size:.64rem;color:var(--text-dim)">Improved-Initiative JSON</span><button class="btn btn-list" onclick="copyImproved()">Copy</button></div>
-<textarea class="result-box" id="improvedBox" rows="5" readonly style="font-size:.52rem"></textarea>
+<textarea class="result-box" id="improvedBox" rows="5" readonly></textarea>
 </div>
 </div>
 

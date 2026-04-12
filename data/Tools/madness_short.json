@@ -1,1 +1,12 @@
-[]
+[
+  {"result":"The character becomes Incapacitated and spends the duration screaming, laughing, or weeping."},
+  {"result":"The character becomes Frightened and must use his or her action and Movement each round to flee from the source of the fear."},
+  {"result":"The character begins babbling and is incapable of normal Speech or Spellcasting."},
+  {"result":"The character must use his or her action each round to Attack the nearest creature."},
+  {"result":"The character experiences vivid hallucinations and has disadvantage on Ability Checks."},
+  {"result":"The character does whatever anyone tells him or her to do that isn't obviously self-destructive."},
+  {"result":"The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."},
+  {"result":"The character is Stunned."},
+  {"result":"The character falls Unconscious."},
+  {"result":"The character retreats into his or her mind and becomes Paralyzed. The Effect ends if the character takes any damage."}
+]

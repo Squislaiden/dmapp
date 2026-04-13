@@ -1,1 +1,12 @@
-[]
+[
+  {"result":"Head","weight":1},
+  {"result":"Upper Left Arm","weight":2},
+  {"result":"Upper Right Arm","weight":2},
+  {"result":"Left Forearm","weight":2},
+  {"result":"Right Forearm","weight":2},
+  {"result":"Torso","weight":2},
+  {"result":"Left Thigh","weight":2},
+  {"result":"Right Thigh","weight":2},
+  {"result":"Left Calf","weight":2},
+  {"result":"Right Calf","weight":2}
+]

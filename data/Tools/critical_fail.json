@@ -1,1 +1,10 @@
-[]
+[
+  {"result":"Nothing Happens","weight":2},
+  {"result":"Drop Weapon","weight":2},
+  {"result":"Hit Adjacent Creature","weight":2},
+  {"result":"Target gets an Opportunity Attack","weight":2},
+  {"result":"Next Attack against You has Advantage","weight":2},
+  {"result":"Fall Prone","weight":2},
+  {"result":"You have Disadvantage on Next Attack","weight":2},
+  {"result":"Self Injury (Weapon Dice Only)","weight":1}
+]

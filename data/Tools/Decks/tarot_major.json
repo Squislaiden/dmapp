@@ -1,1 +1,24 @@
-[]
+[
+    { "result": "0 - The Fool" },
+    { "result": "I - The Magician" },
+    { "result": "II - The High Priestess" },
+    { "result": "III - The Empress" },
+    { "result": "IV - The Emperor" },
+    { "result": "V - The Hierophant" },
+    { "result": "VI - The Lovers" },
+    { "result": "VII - The Chariot" },
+    { "result": "VIII - Strength" },
+    { "result": "IX - The Hermit" },
+    { "result": "X - Wheel of Fortune" },
+    { "result": "XI - Justice" },
+    { "result": "XII - The Hanged Man" },
+    { "result": "XIII - Death" },
+    { "result": "XIV - Temperance" },
+    { "result": "XV - The Devil" },
+    { "result": "XVI - The Tower" },
+    { "result": "XVII - The Star" },
+    { "result": "XVIII - The Moon" },
+    { "result": "XIX - The Sun" },
+    { "result": "XX - Judgement" },
+    { "result": "XXI - The World" }
+]

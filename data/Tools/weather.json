@@ -1,1 +1,14 @@
-[]
+[
+  {"result":"Thunderstorm","min":1,"max":3},
+  {"result":"Hailstorm or Wildfire","min":4,"max":5},
+  {"result":"Snow or Heavy Downpour","min":6,"max":8},
+  {"result":"Rain","min":9,"max":13},
+  {"result":"Overcast","min":14,"max":18},
+  {"result":"Sunny","min":19,"max":23},
+  {"result":"Light Drizzle","min":24,"max":27},
+  {"result":"Very Windy","min":28,"max":30},
+  {"result":"Heavy Fog","min":31,"max":33},
+  {"result":"Acid Rain","min":34,"max":35},
+  {"result":"Heatwave, Duststorm, Blizzard, or Flood","min":36,"max":36},
+  {"result":"Partially Cloudy","special":"cloud_check"}
+]

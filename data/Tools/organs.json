@@ -1,1 +1,16 @@
-[]
+[
+  {"result":"Brain","weight":1},
+  {"result":"Heart","weight":1},
+  {"result":"Skin","weight":2},
+  {"result":"Lung","weight":3},
+  {"result":"Kidney","weight":3},
+  {"result":"Stomach","weight":2},
+  {"result":"Liver","weight":3},
+  {"result":"Eye","weight":9},
+  {"result":"Eardrum","weight":9},
+  {"result":"Genitals","weight":6},
+  {"result":"Teeth","weight":7},
+  {"result":"Hair","weight":7},
+  {"result":"Muscle","weight":4,"bodypart":true},
+  {"result":"Bone","weight":3,"bodypart":true,"spine_chance":true}
+]

@@ -29,7 +29,7 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-primary{background:linear-gradient(180deg,#3e6ab5 0%,#1e3a6e 100%);box-shadow:0 3px 0 #132548,0 4px 8px rgba(0,0,0,.3);text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .btn-primary:hover{background:linear-gradient(180deg,#4a7acc 0%,#264a80 100%)}
 .btn-primary:active{box-shadow:0 1px 0 #132548,0 2px 4px rgba(0,0,0,.3)}
-.btn-accent{background:linear-gradient(180deg,#d4b55a 0%,#8a7030 100%);box-shadow:0 3px 0 #5a4a1a,0 4px 8px rgba(0,0,0,.3);color:var(--bg-dark);text-shadow:0 1px 0 rgba(255,255,255,.2)}
+.btn-accent{background:linear-gradient(180deg,#d4b55a 0%,#8a7030 100%);box-shadow:0 3px 0 #5a4a1a,0 4px 8px rgba(0,0,0,.3);color:var(--bg-dark);text-shadow:0 1px 0 rgba(255,255,255,.2);font-weight:700}
 .btn-accent:hover{background:linear-gradient(180deg,#e0c26a 0%,#a08040 100%)}
 .btn-accent:active{box-shadow:0 1px 0 #5a4a1a}
 .btn-glyph{background:linear-gradient(180deg,#2a8a9a 0%,#0e4a58 100%);box-shadow:0 3px 0 #08303a,0 4px 8px rgba(0,0,0,.3)}
@@ -52,7 +52,7 @@ input[type="number"]{width:36px;text-align:center}
 input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent)}
 select{padding:2px 3px;cursor:pointer}
 input[type="checkbox"],input[type="radio"]{accent-color:var(--accent);cursor:pointer;margin-right:2px}
-label{font-size:.74rem;color:var(--text-dim);cursor:pointer}
+label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
 .result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
 .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
@@ -72,7 +72,7 @@ label{font-size:.74rem;color:var(--text-dim);cursor:pointer}
 .inline-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:2px 0}
 .split{display:flex;gap:0}.split-left,.split-right{flex:1;padding:6px}.split-divider{width:1px;background:var(--border);margin:0 2px;flex-shrink:0}
 .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px 10px}
-.check-grid label{font-size:.74rem;display:flex;align-items:center;gap:2px}
+.check-grid label{font-size:.80rem;display:flex;align-items:center;gap:2px}
 .gem-row{display:flex;align-items:center;gap:3px;margin-bottom:1px}
 .gem-row label{min-width:64px;text-align:right;font-size:.74rem}
 .gem-row input{width:40px}
@@ -152,7 +152,11 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 <hr class="sep">
 <div class="section-title">Draw a Random Card</div>
-<div class="inline-row"><select id="deckList" style="font-size:.58rem;max-width:200px"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard + Jokers</option><option value="tarot_major">Tarot: Major Arcana</option><option value="tarot_minor">Tarot: Minor Arcana</option><option value="tarot_full">Tarot: Full</option><option value="deck_of_many_things">Many Things (All)</option><option value="deck_of_many_things_13">Many Things (13)</option><option value="deck_many_variant">Many Things: Variant</option><option value="deck_many_balanced">Many Things: Rebalanced</option><option value="deck_nista">Many Things: Nista</option><option value="deck_of_many_fates">Many Fates</option><option value="deck_many_fates_tashas">Many Fates (Tasha's)</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_familiar">Familiar Things</option><option value="deck_mundane">Mundane Things</option><option value="deck_fates_alt">Many Fates (Alt)</option><option value="deck_mysterious">Mysterious Things</option><option value="deck_nourishment">Nourishment</option><option value="deck_morbid">Morbid Things</option><option value="deck_beasts">Beasts</option><option value="deck_beasts_expanded">Beasts: Expanded</option><option value="deck_nothing">Nothing</option><option value="deck_inverted">Inverted Things</option><option value="deck_minor">Minor Things</option><option value="deck_fewer">Fewer Things</option><option value="deck_indeterminate_fate">Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot</option><option value="deck_balance">Balance</option><option value="deck_reasonable">Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Homebrew Things</option></select><button class="btn btn-primary" onclick="drawCard()">Draw</button><button class="btn btn-list" onclick="showCardHistory()">History</button></div>
+<div class="inline-row"><select id="deckList" style="font-size:.58rem;max-width:200px" onchange="toggleChaosOptions()"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard + Jokers</option><option value="tarot_major">Tarot: Major Arcana</option><option value="tarot_minor">Tarot: Minor Arcana</option><option value="tarot_full">Tarot: Full</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_of_many_things">Many Things (All)</option><option value="deck_of_many_things_13">Many Things (13)</option><option value="deck_many_variant">Many Things: Variant</option><option value="deck_many_balanced">Many Things: Rebalanced</option><option value="deck_nista">Many Things: Nista</option><option value="deck_of_many_fates">Many Fates</option><option value="deck_many_fates_tashas">Many Fates (Tasha's)</option><option value="deck_familiar">Familiar Things</option><option value="deck_mundane">Mundane Things</option><option value="deck_fates_alt">Many Fates (Alt)</option><option value="deck_mysterious">Mysterious Things</option><option value="deck_nourishment">Nourishment</option><option value="deck_morbid">Morbid Things</option><option value="deck_beasts">Beasts</option><option value="deck_beasts_expanded">Beasts: Expanded</option><option value="deck_nothing">Nothing</option><option value="deck_inverted">Inverted Things</option><option value="deck_minor">Minor Things</option><option value="deck_fewer">Fewer Things</option><option value="deck_indeterminate_fate">Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot</option><option value="deck_balance">Balance</option><option value="deck_reasonable">Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Homebrew Things</option></select><button class="btn btn-primary" onclick="drawCard()">Draw</button><button class="btn btn-list" onclick="showCardHistory()">History</button></div>
+<div id="chaosOptions" style="display:none">
+<div class="inline-row"><label>Character Alignment:</label><select id="chaosAlignment"><option value="Chaotic">Chaotic</option><option value="Neutral" selected>Neutral</option><option value="Lawful">Lawful</option></select></div>
+<div class="inline-row"><label>Deck Information <a href="https://homebrewery.naturalcrit.com/share/hGAv2gcVVz5n" target="_blank">Here</a></label></div>
+</div>
 <hr class="sep">
 <div class="section-title">Results</div>
 <textarea class="result-box" id="toolsBox" rows="14" readonly></textarea>
@@ -178,7 +182,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 </div>
 <div id="equipmentOH" style="display:none">
-<button class="btn btn-accent mb-xs" onclick="overhaulRandom()">Random Equipment</button>
+<div class="text-center"><button class="btn btn-accent mb-xs" onclick="overhaulRandom()">Random Equipment</button></div>
 <div class="split">
 <div style="flex:1;padding:4px">
 <div class="inline-row"><label>Armor:</label></div>
@@ -223,19 +227,101 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="charTab" class="tab-content">
 <div class="section">
 <div class="section-title">Character Generator</div>
-<div class="btn-grid"><button class="btn btn-accent" onclick="charGenBtn()">Generate Character</button><button class="btn btn-primary" onclick="rollStatsBtn()">Roll Attributes</button><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button></div>
-<div class="inline-row mt-xs"><label><input type="checkbox" id="reincarnateCheck"> Official Table</label><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
-<hr class="sep">
-<div class="inline-row"><label>Generate Random Names</label><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:28px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:28px"><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select><label>Quantity:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:28px"><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
+<div class="split">
+<div class="split-left">
+<div class="btn-grid"><button class="btn btn-accent" onclick="charGenBtn()">Generate Character</button><button class="btn btn-primary" onclick="rollStatsBtn()">Roll Attributes</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
 <div class="mt-xs"><button class="btn btn-list" onclick="charInfoBtn()">All Character Information</button></div>
+</div>
+<div class="split-divider"></div>
+<div class="split-right">
+<div class="section-title" style="font-size:.88rem">Generate Random Names</div>
+<div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:28px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:28px"></div>
+<div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
+<div class="inline-row"><label>Quantity:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:28px"></div>
+<div class="mt-xs"><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
+</div>
+</div>
 <hr class="sep">
 <div class="section-title">Random Enemy Generator</div>
-<div class="text-center mb-xs"><button class="btn btn-accent" onclick="fullEnemyBtn()">Generate Completely Random Enemy!</button></div>
-<div class="inline-row"><label>CR:</label><input type="number" id="numCR" value="1" min="1" max="50"><label><input type="checkbox" id="hpCheck"> ×2 HP</label><label>Type:</label><select id="dropType" style="font-size:.68rem"><option value="Random">[Random]</option><option>Aberration</option><option>Beast</option><option>Celestial</option><option>Construct</option><option>Dragon</option><option>Elemental</option><option>Fey</option><option>Fiend</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Plant</option><option>Ooze</option><option>Undead</option></select></div>
-<div class="inline-row"><label><input type="checkbox" id="bossCheck"> Boss</label><label><input type="checkbox" id="lairCheck"> Lair</label><label><input type="checkbox" id="enemyModCheck"> Modifier</label><label><input type="radio" name="magicType" value="Martial"> Martial</label><label><input type="radio" name="magicType" value="HalfCaster"> Half-Caster</label><label><input type="radio" name="magicType" value="Caster"> Caster</label><label><input type="radio" name="magicType" value="Random" checked> Random</label></div>
-<div class="inline-row"><label><input type="checkbox" id="climbCheck"> Climb</label><label><input type="checkbox" id="swimCheck"> Swim</label><label><input type="checkbox" id="burrowCheck"> Burrow</label><label><input type="checkbox" id="flyCheck"> Fly</label><label><input type="checkbox" id="blindsightCheck"> Blindsight</label><label><input type="checkbox" id="tremorsenseCheck"> Tremorsense</label><label><input type="checkbox" id="darkvisionCheck"> Darkvision</label><label><input type="checkbox" id="truesightCheck"> Truesight</label></div>
-<div class="inline-row"><label><input type="checkbox" id="breathCheck"> Breath Attack</label><label><input type="checkbox" id="rechargeCheck"> +1 Recharge</label><label><input type="checkbox" id="bonusCheck"> +1 Bonus Action</label><label><input type="checkbox" id="reactionCheck"> +1 Reaction</label><label><input type="checkbox" id="modEliteCheck"> Force Elite</label><span class="tip" data-tip="10% Elite chance; checkbox=100%."><span class="tip-icon">ⓘ</span></span></div>
-<div class="btn-grid mt-xs"><button class="btn btn-primary" onclick="randomBreathBtn()">Random Breath</button><button class="btn btn-primary" onclick="enemyTraitBtn()">Random Trait</button><button class="btn btn-primary" onclick="enemyActionBtn()">Random Action</button><button class="btn btn-primary" onclick="enemyBonusBtn()">Random Bonus Action</button><button class="btn btn-primary" onclick="enemyReactionBtn()">Random Reaction</button><button class="btn btn-primary" onclick="enemyRechargeBtn()">Random Recharge</button><button class="btn btn-primary" onclick="enemyLegendaryBtn()">Random Legendary</button><button class="btn btn-primary" onclick="enemyLairBtn()">Random Lair Trait</button><button class="btn btn-primary" onclick="enemyModBtn()">Random Modifier</button></div>
+
+<!-- Enemy generator: left options, right random buttons -->
+<div class="flex gap-sm" style="align-items:flex-start">
+
+<!-- Left column: button, options, radios, checkboxes -->
+<div style="flex:1">
+<!-- Top area: Button left, options right -->
+<div class="flex gap-sm">
+<div>
+<button class="btn btn-accent" style="padding:10px 10px;line-height:1.3;font-size:.72rem" onclick="fullEnemyBtn()">Generate Completely<br>Random Enemy!</button>
+</div>
+<div style="flex:1">
+<div class="inline-row"><label>CR:</label><input type="number" id="numCR" value="1" min="1" max="50"><label><input type="checkbox" id="hpCheck"> ×2 HP</label></div>
+<div class="inline-row"><label>Creature Type:</label><select id="dropType" style="font-size:.68rem"><option value="Random">[Random]</option><option>Aberration</option><option>Beast</option><option>Celestial</option><option>Construct</option><option>Dragon</option><option>Elemental</option><option>Fey</option><option>Fiend</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Plant</option><option>Ooze</option><option>Undead</option></select></div>
+<div class="inline-row"><label><input type="checkbox" id="bossCheck"> Boss</label><label><input type="checkbox" id="lairCheck"> Lair</label><label><input type="checkbox" id="enemyModCheck"> Modifier</label></div>
+</div>
+</div>
+
+<!-- Martial or Caster 2x2 -->
+<div style="margin:6px 0">
+<div style="font-family:var(--font-display);font-size:.86rem;color:var(--text-dim);margin-bottom:3px">Martial or Caster</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:2px 18px;width:fit-content">
+<label><input type="radio" name="magicType" value="Martial"> Martial</label>
+<label><input type="radio" name="magicType" value="Caster"> Caster</label>
+<label><input type="radio" name="magicType" value="HalfCaster"> Half-Caster</label>
+<label><input type="radio" name="magicType" value="Random" checked> Random</label>
+</div>
+</div>
+
+<!-- Checkboxes: Movement | Senses | Specifics in 3 columns -->
+<div class="flex mt-xs" style="gap:2px">
+<div style="flex:1">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Movement</div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<label><input type="checkbox" id="climbCheck"> Climb</label>
+<label><input type="checkbox" id="swimCheck"> Swim</label>
+<label><input type="checkbox" id="burrowCheck"> Burrow</label>
+<label><input type="checkbox" id="flyCheck"> Fly</label>
+</div>
+</div>
+<div style="flex:1">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Senses</div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<label><input type="checkbox" id="blindsightCheck"> Blindsight</label>
+<label><input type="checkbox" id="tremorsenseCheck"> Tremorsense</label>
+<label><input type="checkbox" id="darkvisionCheck"> Darkvision</label>
+<label><input type="checkbox" id="truesightCheck"> Truesight</label>
+</div>
+</div>
+<div style="flex:1">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Specifics</div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<label><input type="checkbox" id="breathCheck"> Breath Attack</label>
+<label><input type="checkbox" id="rechargeCheck"> +1 Recharge</label>
+<label><input type="checkbox" id="bonusCheck"> +1 Bonus Action</label>
+<label><input type="checkbox" id="reactionCheck"> +1 Reaction</label>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Right column: Random buttons, right-aligned, starts at top -->
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
+<button class="btn btn-primary" onclick="randomBreathBtn()">Random Breath</button>
+<button class="btn btn-primary" onclick="enemyTraitBtn()">Random Trait</button>
+<button class="btn btn-primary" onclick="enemyActionBtn()">Random Action</button>
+<button class="btn btn-primary" onclick="enemyBonusBtn()">Random Bonus Action</button>
+<button class="btn btn-primary" onclick="enemyReactionBtn()">Random Reaction</button>
+<button class="btn btn-primary" onclick="enemyRechargeBtn()">Random Recharge</button>
+<button class="btn btn-primary" onclick="enemyLegendaryBtn()">Random Legendary</button>
+<button class="btn btn-primary" onclick="enemyLairBtn()">Random Lair Trait</button>
+<button class="btn btn-primary" onclick="enemyModBtn()">Random Modifier</button>
+<div class="inline-row" style="justify-content:flex-end"><label><input type="checkbox" id="modEliteCheck"> Force Elite</label><span class="tip" data-tip="10% Elite chance; checkbox=100%."><span class="tip-icon">ⓘ</span></span></div>
+</div>
+
+</div>
+
 <div class="btn-grid mt-xs"><button class="btn btn-list" onclick="enemyListInfo('traits')">Trait List</button><button class="btn btn-list" onclick="enemyListInfo('actions')">Action List</button><button class="btn btn-list" onclick="enemyListInfo('bonus_actions')">Bonus Action List</button><button class="btn btn-list" onclick="enemyListInfo('reactions')">Reaction List</button><button class="btn btn-list" onclick="enemyListInfo('recharge')">Recharge List</button><button class="btn btn-list" onclick="enemyListInfo('legendary')">Legendary List</button><button class="btn btn-list" onclick="enemyListInfo('lair_active')">Lair Trait List</button><button class="btn btn-list" onclick="enemyListInfo('modifiers')">Modifier List</button><button class="btn btn-list" onclick="enemyListInfo('type_specific')">Type-Specific List</button></div>
 <hr class="sep">
 <div class="inline-row"><span class="section-title" style="margin:0">Results</span><button class="btn btn-list" onclick="copyOutput()">Copy</button></div>
@@ -303,15 +389,16 @@ async function weatherGen(){const d=await loadJSON('data/Tools/weather.json');if
 function jumpCalc(){const s=Number(document.getElementById('jumpStr').value),st=document.getElementById('jumpStand').checked,m=(s-10)/2;let lJ,hJ;if(!st){lJ=s;hJ=m+3;}else{lJ=s/2;hJ=(m+3)/2;}if(hJ<1)hJ='½';out('toolsBox',lJ+' ft Long Jump\n'+hJ+' ft High Jump\n(+1½ height for reach)');}
 async function externalPart(){const d=await loadJSON('data/Tools/external_parts.json');if(!d.length){out('toolsBox','[Populate data/Tools/external_parts.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Body Part: '+d[i].result);}
 async function internalPart(){const d=await loadJSON('data/Tools/organs.json');if(!d.length){out('toolsBox','[Populate data/Tools/organs.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}let r=d[i].result;if(d[i].bodypart){const bp=["Back","Upper Left Arm","Upper Right Arm","Left Forearm","Right Forearm","Chest","Left Thigh","Right Thigh","Left Calf","Right Calf","Right Hand","Left Hand","Right Foot","Left Foot"];if(d[i].spine_chance&&rng(1,14)===1)r="Spine";else r=pick(bp)+' '+r;}out('toolsBox','Organ: '+r);}
-function conjureCR(){out('toolsBox','Conjure CR: '+pick(["Half the Max CR","1 CR Under Max","Max CR; Poor Pick","Max CR; Good Pick"]));}
+async function conjureCR(){const d=await loadJSON('data/Tools/conjure_cr.json');if(d.length){out('toolsBox','Conjure CR: '+pick(d).result);}else{out('toolsBox','Conjure CR: '+pick(["Half the Max CR","1 CR Under Max","Max CR; Poor Pick","Max CR; Good Pick"]));}}
 async function criticalFail(){const d=await loadJSON('data/Tools/critical_fail.json');if(!d.length){out('toolsBox','[Populate data/Tools/critical_fail.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Critical Fail: '+d[i].result);}async function madnessGen(type){let dur,res,file;if(type==='short'){dur=rng(1,10)+' min';file='madness_short';}else if(type==='long'){const h=rng(1,10)*10;dur=h+' hrs ('+(h/24).toFixed(1)+' days)';file='madness_long';}else if(type==='indefinite'){dur='Indefinite';file='madness_indefinite';}else{dur='Insanity';file='madness_insanity';}const d=await loadJSON('data/Tools/'+file+'.json');const label=type[0].toUpperCase()+type.slice(1);res=d.length?'('+label+') '+pick(d).result:'('+label+') [Populate data/Tools/'+file+'.json]';out('toolsBox','['+dur+']\n'+res);}
 function getDiceHistory(){try{const c=document.cookie.split(';').find(c=>c.trim().startsWith('diceHistory='));return c?JSON.parse(decodeURIComponent(c.split('=')[1])):[]}catch(e){return[]}}
 function saveDiceHistory(h){while(h.length>50)h.shift();document.cookie='diceHistory='+encodeURIComponent(JSON.stringify(h))+';path=/;max-age=31536000';}
 function rollDice(){const dice=[{s:4,id:'d4Num'},{s:6,id:'d6Num'},{s:8,id:'d8Num'},{s:10,id:'d10Num'},{s:12,id:'d12Num'},{s:20,id:'d20Num'}];let txt='',gt=0,summary='';const mod=Number(document.getElementById('diceMod').value);dice.forEach(d=>{let q=Number(document.getElementById(d.id).value);if(q>0){let r=[],t=0;for(let i=0;i<q;i++){const v=rng(1,d.s);r.push(v);t+=v;}txt+='d'+d.s+'('+r.join('+')+')='+t+'\n';summary+=(summary?'+':'')+q+'d'+d.s;gt+=t;}});gt+=mod;if(mod!==0)summary+=(mod>=0?'+':'')+mod;txt+='Mod:'+(mod>=0?'+':'')+mod+' Total:'+gt;out('toolsBox',txt);if(summary){const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+summary+']='+gt;const h=getDiceHistory();h.push(entry);saveDiceHistory(h);}}
 function showDiceHistory(){const h=getDiceHistory();out('toolsBox',h.length?'--- Last '+h.length+' Dice Rolls ---\n'+h.map((v,i)=>(i+1)+'. '+v).join('\n'):'No dice rolls yet.');}
+function toggleChaosOptions(){document.getElementById('chaosOptions').style.display=document.getElementById('deckList').value==='cards_of_chaos'?'block':'none';}
 function getCardHistory(){try{const c=document.cookie.split(';').find(c=>c.trim().startsWith('cardHistory='));return c?JSON.parse(decodeURIComponent(c.split('=')[1])):[]}catch(e){return[]}}
 function saveCardHistory(h){while(h.length>50)h.shift();document.cookie='cardHistory='+encodeURIComponent(JSON.stringify(h))+';path=/;max-age=31536000';}
-function drawCard(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-Card';const h=getCardHistory();h.push(entry);saveCardHistory(h);out('toolsBox','Drew from '+lb+':\n[Card data from data/Tools/Decks/'+dk+'.json]\nPopulate JSON to enable.');}
+async function drawCard(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const d=await loadJSON('data/Tools/Decks/'+dk+'.json');const now=new Date();let cardName='[Empty deck - populate JSON]';if(d.length){const card=pick(d);cardName=card.result||card.name||JSON.stringify(card);}const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+cardName;const h=getCardHistory();h.push(entry);saveCardHistory(h);out('toolsBox','Drew from '+lb+':\n'+cardName);}
 function showCardHistory(){const h=getCardHistory();out('toolsBox',h.length?'--- Last '+h.length+' Draws ---\n'+h.map((v,i)=>(i+1)+'. '+v).join('\n'):'No draws yet.');}
 
 // ITEMS
@@ -324,10 +411,10 @@ const wpnR=["Blowgun","Hand Crossbow","Heavy Crossbow","Light Crossbow","Longbow
 function weaponGen(t){let p;if(t==='all')p=[...wpnS,...wpnM,...wpnR];else if(t==='simple')p=wpnS;else if(t==='martial')p=wpnM;else p=wpnR;out('itemBox',pick(p));}
 async function ohGen(t){const allArmor=['head_armor','torso_armor','arm_armor','leg_armor','shield'];const allWpn=['dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other'];let f=t;if(t==='all_armor')f=pick(allArmor);if(t==='all_weapons')f=pick(allWpn);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
 async function overhaulRandom(){const p=['head_armor','torso_armor','arm_armor','leg_armor','shield','accessory','dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other','spell_focus'];const f=pick(p);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
-const accessories=["Amulet","Belt","Boots","Bracers","Brooch","Cape","Circlet","Cloak","Earring","Gauntlets","Gloves","Goggles","Hat","Headband","Helm","Mantle","Mask","Necklace","Pauldrons","Periapt","Ring","Robe","Rod","Scarf","Shield","Slippers","Staff","Tiara","Vestments","Wand"];
-function accessoryGen(){out('itemBox',pick(accessories));}
-const artTools=["Alchemist's Supplies","Brewer's Supplies","Calligrapher's Supplies","Carpenter's Tools","Cartographer's Tools","Cobbler's Tools","Cook's Utensils","Glassblower's Tools","Jeweler's Tools","Leatherworker's Tools","Mason's Tools","Painter's Supplies","Potter's Tools","Smith's Tools","Tinker's Tools","Weaver's Tools","Woodcarver's Tools","Disguise Kit","Forgery Kit","Herbalism Kit","Navigator's Tools","Poisoner's Kit","Thieves' Tools"];
-function artisanToolGen(){out('itemBox',pick(artTools));}
+const accessoriesFallback=["Amulet","Belt","Boots","Bracers","Brooch","Cape","Circlet","Cloak","Earring","Gauntlets","Gloves","Goggles","Hat","Headband","Helm","Mantle","Mask","Necklace","Pauldrons","Periapt","Ring","Robe","Rod","Scarf","Shield","Slippers","Staff","Tiara","Vestments","Wand"];
+async function accessoryGen(){const d=await loadJSON('data/Items/Equipment/accessories.json');if(d.length)out('itemBox',pick(d).result||pick(d).name||JSON.stringify(pick(d)));else out('itemBox',pick(accessoriesFallback));}
+const artToolsFallback=["Alchemist's Supplies","Brewer's Supplies","Calligrapher's Supplies","Carpenter's Tools","Cartographer's Tools","Cobbler's Tools","Cook's Utensils","Glassblower's Tools","Jeweler's Tools","Leatherworker's Tools","Mason's Tools","Painter's Supplies","Potter's Tools","Smith's Tools","Tinker's Tools","Weaver's Tools","Woodcarver's Tools","Disguise Kit","Forgery Kit","Herbalism Kit","Navigator's Tools","Poisoner's Kit","Thieves' Tools"];
+async function artisanToolGen(){const d=await loadJSON('data/Items/Equipment/artisan_tools.json');if(d.length)out('itemBox',pick(d).result||pick(d).name||JSON.stringify(pick(d)));else out('itemBox',pick(artToolsFallback));}
 
 const scrollDC={0:{dc:13,atk:5},1:{dc:13,atk:5},2:{dc:14,atk:6},3:{dc:15,atk:7},4:{dc:16,atk:8},5:{dc:17,atk:9},6:{dc:18,atk:10},7:{dc:18,atk:10},8:{dc:19,atk:11},9:{dc:19,atk:11}};
 let allSpells=null;
@@ -335,7 +422,7 @@ async function loadSpells(){if(!allSpells)allSpells=await loadJSON('all-spells.j
 async function spellScrollGen(){const lvl=document.getElementById('spellLevel').value;const spells=await loadSpells();const pool=spells.filter(s=>String(s.level)===lvl);const stats=scrollDC[Number(lvl)];if(pool.length){const spell=pick(pool);const lbl=lvl==='0'?'Cantrip':'Level '+lvl;out('itemBox',spell.name+'\nSpell Level: '+lbl+'\n(DC '+stats.dc+' and +'+stats.atk+' Attack Bonus)');}else out('itemBox','[No spells found for level '+lvl+' in all-spells.json]');}
 
 function gemBagGen(size){const tier=Number(document.getElementById('gemBagTier').value),eb=document.getElementById('eberCheck').checked;let rolls;if(size==='small')rolls=rng(2,5);else if(size==='medium')rolls=rng(4,10);else rolls=rng(8,18);const tiers={1:["Pearl","Azurite","Lapis Lazuli","Tiger Eye"],2:["Citrine","Peridot","Rose Quartz","Bloodstone","Onyx"],3:["Jade","Gold Pearl","Moonstone","Garnet","Spinel"],4:["Aquamarine","Black Pearl","Topaz","Amethyst"],5:["Sapphire","Ruby","Emerald","Diamond"]};if(tier===5&&eb)tiers[5].push("Eberron","Khyber","Siberys");const gems={};for(let i=0;i<rolls;i++){const g=pick(tiers[tier]);gems[g]=(gems[g]||0)+1;}let txt='--- '+(size[0].toUpperCase()+size.slice(1))+' Gem Bag (Tier '+tier+') ---\n';for(const[g,c]of Object.entries(gems))txt+=g+': '+c+'\n';out('itemBox',txt);}
-function gearListInfo(){out('itemBox','[Gear List: Load from file]');}
+async function gearListInfo(){const d=await loadJSON('data/Items/Equipment/gear.json');if(d.length)out('itemBox',d.map(e=>e.result||e.name||JSON.stringify(e)).join('\n'));else out('itemBox','[Populate data/Items/Equipment/gear.json]');}
 function gemBagListInfo(){out('itemBox',"T1: Pearl, Azurite, Lapis Lazuli, Tiger Eye\nT2: Citrine, Peridot, Rose Quartz, Bloodstone, Onyx\nT3: Jade, Gold Pearl, Moonstone, Garnet, Spinel\nT4: Aquamarine, Black Pearl, Topaz, Amethyst\nT5: Sapphire, Ruby, Emerald, Diamond\nEberron: Eberron, Khyber, Siberys");}
 
 // JEWELRY
@@ -352,43 +439,43 @@ function rollAttr(){let r=[rng(1,6),rng(1,6),rng(1,6),rng(1,6)];r.sort((a,b)=>b-
 function charGenBtn(){const c=pick(classes5e),s=pick(c.s),r=pick(racesAll),b=pick(backgrounds),a=pick(aligns);let t=r+'\n'+s+' '+c.n+'\n'+a+'\nBackground: '+b;if(rng(1,4)===4){const mc=pick(classes5e);t+='\nMULTICLASS: '+pick(mc.s)+' '+mc.n;}t+='\n--Stat Rolls--';for(let i=0;i<6;i++)t+='\n'+rollAttr();t+='\n(Racial Bonuses not Added)';out('charBox',t);}
 function rollStatsBtn(){let t='--Stat Rolls--';for(let i=0;i<6;i++)t+='\n'+rollAttr();out('charBox',t);}
 function reincarnateBtn(){const off=document.getElementById('reincarnateCheck').checked;if(off){const tb=[{w:4,r:"Dragonborn"},{w:9,r:"Hill Dwarf"},{w:8,r:"Mountain Dwarf"},{w:4,r:"Dark Elf"},{w:9,r:"High Elf"},{w:8,r:"Wood Elf"},{w:4,r:"Forest Gnome"},{w:6,r:"Rock Gnome"},{w:4,r:"Half-Elf"},{w:4,r:"Half-Orc"},{w:8,r:"Lightfoot Halfling"},{w:8,r:"Stout Halfling"},{w:20,r:"Human"},{w:4,r:"Tiefling"}];const tot=tb.reduce((a,b)=>a+b.w,0);let roll=rng(1,tot),i=0;for(;i<tb.length;i++){roll-=tb[i].w;if(roll<=0)break;}out('charBox',tb[i].r);}else out('charBox',pick(racesAll));}
-function transformationBtn(){out('charBox','[Transformation: Load data/Character/transformation.json]');}
+async function transformationBtn(){const d=await loadJSON('data/Character/transformation.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate data/Character/transformation.json]');}
 function classBtn(){out('charBox',pick(classes5e).n);}
 function subclassBtn(){const c=pick(classes5e);out('charBox',pick(c.s)+' '+c.n);}
 function alignmentBtn(){out('charBox',pick(aligns));}
 function nameGen(){const sMin=Number(document.getElementById('syllMin').value),sMax=Number(document.getElementById('syllMax').value),qty=Number(document.getElementById('nameQty').value),type=document.getElementById('nameType').value;const con='bcdfghjklmnpqrstvwxyz',vow='aeiou';let names=[];for(let n=0;n<qty;n++){const sy=rng(sMin,sMax);let nm='';for(let s=0;s<sy;s++){if(type==='japanese'){const jc='ksthmrngbpd',jv='aiueo';if(rng(1,3)!==1)nm+=jc[rng(0,jc.length-1)];nm+=jv[rng(0,jv.length-1)];}else{if(rng(1,3)!==1)nm+=con[rng(0,con.length-1)];nm+=vow[rng(0,vow.length-1)];if(rng(1,3)===1)nm+=con[rng(0,con.length-1)];}}nm=nm[0].toUpperCase()+nm.slice(1);if(type==='fantasy'&&rng(1,4)===4){const p=rng(1,nm.length-2);nm=nm.slice(0,p)+"'"+nm.slice(p);}names.push(nm);}out('charBox','---Names---\n'+names.join('\n'));}
-async function charInfoBtn(){try{const r=await fetch('/dmapp/lists/charinfo.txt');out('charBox',await r.text());}catch(e){out('charBox','[Load charinfo.txt]');}}
+async function charInfoBtn(){try{const r=await fetch('data/Character/charinfo.txt');if(r.ok)out('charBox',await r.text());else out('charBox','[Populate data/Character/charinfo.txt]');}catch(e){out('charBox','[Populate data/Character/charinfo.txt]');}}
 function fullEnemyBtn(){out('charBox','[Full enemy gen requires complete logic from script.js]');}
 function randomBreathBtn(){out('charBox','Breath: '+pick(['Fire','Cold','Lightning','Acid','Poison','Necrotic','Radiant','Thunder','Force','Psychic'])+' in a '+(rng(1,2)===1?rng(15,60)+' ft cone':rng(30,90)+' ft line'));}
-function enemyTraitBtn(){out('charBox','[Trait: Load data/Character/Enemy/traits.json]');}
-function enemyActionBtn(){out('charBox','[Action: Load data/Character/Enemy/actions.json]');}
-function enemyBonusBtn(){out('charBox','[Bonus: Load data/Character/Enemy/bonus_actions.json]');}
-function enemyReactionBtn(){out('charBox','[Reaction: Load data/Character/Enemy/reactions.json]');}
-function enemyRechargeBtn(){out('charBox','[Recharge: Load data/Character/Enemy/recharge.json]');}
-function enemyLegendaryBtn(){out('charBox','[Legendary: Load data/Character/Enemy/legendary.json]');}
-function enemyLairBtn(){out('charBox','[Lair: Load data/Character/Enemy/lair_active.json]');}
-function enemyModBtn(){out('charBox','[Modifier (Elite:'+document.getElementById('modEliteCheck').checked+'): Load data/Character/Enemy/modifiers.json]');}
+async function enemyTraitBtn(){const d=await loadJSON('data/Character/Enemy/traits.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/traits.json]');}
+async function enemyActionBtn(){const d=await loadJSON('data/Character/Enemy/actions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/actions.json]');}
+async function enemyBonusBtn(){const d=await loadJSON('data/Character/Enemy/bonus_actions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/bonus_actions.json]');}
+async function enemyReactionBtn(){const d=await loadJSON('data/Character/Enemy/reactions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/reactions.json]');}
+async function enemyRechargeBtn(){const d=await loadJSON('data/Character/Enemy/recharge.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/recharge.json]');}
+async function enemyLegendaryBtn(){const d=await loadJSON('data/Character/Enemy/legendary.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/legendary.json]');}
+async function enemyLairBtn(){const d=await loadJSON('data/Character/Enemy/lair_active.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/lair_active.json]');}
+async function enemyModBtn(){const d=await loadJSON('data/Character/Enemy/modifiers.json');const elite=document.getElementById('modEliteCheck').checked;if(d.length){const item=pick(d);let txt=item.result||item.name||JSON.stringify(item);if(elite)txt='[ELITE] '+txt;else if(rng(1,10)===10)txt='[ELITE] '+txt;out('charBox',txt);}else out('charBox','[Populate data/Character/Enemy/modifiers.json]');}
 async function enemyListInfo(t){const d=await loadJSON('data/Character/Enemy/'+t+'.json');out('charBox',d.length?JSON.stringify(d,null,2):'[Populate data/Character/Enemy/'+t+'.json]');}
 function copyOutput(){navigator.clipboard.writeText(document.getElementById('charBox').value);}
 function copyHomebrew(){navigator.clipboard.writeText(document.getElementById('homebrewBox').value);}
 function copyImproved(){navigator.clipboard.writeText(document.getElementById('improvedBox').value);}
 
 // GLYPHS
-function weaponAffixBtn(){out('glyphBox','[Weapon Affix: requires glyph logic]');}
-function armorAffixBtn(){out('glyphBox','[Armor Affix]');}
-function accessoryAffixBtn(){out('glyphBox','[Accessory Affix]');}
-function taintedWeaponAffixBtn(){out('glyphBox','[Tainted Weapon]');}
-function taintedArmorAffixBtn(){out('glyphBox','[Tainted Armor]');}
-function taintedAccessoryAffixBtn(){out('glyphBox','[Tainted Accessory]');}
-function chaoticWeaponBtn(){out('glyphBox','[Chaotic Weapon]');}
-function chaoticArmorBtn(){out('glyphBox','[Chaotic Armor]');}
-function chaoticAccessoryBtn(){out('glyphBox','[Chaotic Accessory]');}
-function classAffixBtn(){out('glyphBox','[Class Affix - Expertise]');}
-function genAffixItem(){out('glyphBox','[Random Affix Item]');}
-function genGlyphsBtn(){out('glyphBox','[Generate Glyphs]');}
+async function weaponAffixBtn(){const d=await loadJSON('data/Glyphs/weapon_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/weapon_affix.json]');}
+async function armorAffixBtn(){const d=await loadJSON('data/Glyphs/armor_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/armor_affix.json]');}
+async function accessoryAffixBtn(){const d=await loadJSON('data/Glyphs/accessory_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/accessory_affix.json]');}
+async function taintedWeaponAffixBtn(){const d=await loadJSON('data/Glyphs/tainted_weapon_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/tainted_weapon_affix.json]');}
+async function taintedArmorAffixBtn(){const d=await loadJSON('data/Glyphs/tainted_armor_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/tainted_armor_affix.json]');}
+async function taintedAccessoryAffixBtn(){const d=await loadJSON('data/Glyphs/tainted_accessory_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/tainted_accessory_affix.json]');}
+async function chaoticWeaponBtn(){const d=await loadJSON('data/Glyphs/chaotic_weapon_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/chaotic_weapon_affix.json]');}
+async function chaoticArmorBtn(){const d=await loadJSON('data/Glyphs/chaotic_armor_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/chaotic_armor_affix.json]');}
+async function chaoticAccessoryBtn(){const d=await loadJSON('data/Glyphs/chaotic_accessory_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/chaotic_accessory_affix.json]');}
+async function classAffixBtn(){const d=await loadJSON('data/Glyphs/class_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/class_affix.json]');}
+async function genAffixItem(){const d=await loadJSON('data/Glyphs/random_affix_item.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/random_affix_item.json]');}
+async function genGlyphsBtn(){const d=await loadJSON('data/Glyphs/glyphs.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/glyphs.json]');}
 function glyphHelp(){out('glyphBox','Glyphs of Pandemonium Help:\nhttps://homebrewery.naturalcrit.com/share/o0dKpn67XqvI');}
 function subtypeBtn(type){const st={Attribute:["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"],Skill:["Acrobatics","Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival"],Physical:["Bludgeoning","Piercing","Slashing"],Element:["Acid","Cold","Fire","Force","Lightning","Necrotic","Poison","Psychic","Radiant","Thunder"],Condition:["Blinded","Charmed","Deafened","Exhaustion","Frightened","Grappled","Incapacitated","Invisible","Paralyzed","Petrified","Poisoned","Prone","Restrained","Stunned","Unconscious"],Action:["Dash","Disengage","Dodge","Help","Hide","Ready","Search","Use an Object"],Terrain:["Arctic","Coast","Desert","Forest","Grassland","Mountain","Swamp","Underdark","Underwater","Urban"],Creature:["Aberration","Beast","Celestial","Construct","Dragon","Elemental","Fey","Fiend","Giant","Humanoid","Monstrosity","Ooze","Plant","Undead"],FightingStyle:["Archery","Blind Fighting","Defense","Dueling","Great Weapon Fighting","Interception","Protection","Superior Technique","Thrown Weapon","Two-Weapon","Unarmed"],Infusion:["Arcane Propulsion Armor","Armor of Magical Strength","Boots of the Winding Path","Enhanced Arcane Focus","Enhanced Defense","Enhanced Weapon","Helm of Awareness","Homunculus Servant","Mind Sharpener","Radiant Weapon","Repeating Shot","Replicate Magic Item","Repulsion Shield","Resistant Armor","Returning Weapon","Spell-Refueling Ring"],Maneuver:["Ambush","Bait and Switch","Brace","Commander's Strike","Disarming Attack","Distracting Strike","Evasive Footwork","Feinting Attack","Goading Attack","Lunging Attack","Maneuvering Attack","Menacing Attack","Parry","Precision Attack","Pushing Attack","Rally","Riposte","Sweeping Attack","Trip Attack"],Wizard:["Abjuration","Bladesinging","Chronurgy","Conjuration","Divination","Enchantment","Evocation","Graviturgy","Illusion","Necromancy","Order of Scribes","Transmutation","War Magic"],Invocation:["Agonizing Blast","Armor of Shadows","Devil's Sight","Eldritch Smite","Grasp of Hadar","Improved Pact Weapon","Lifedrinker","Mask of Many Faces","Misty Visions","Repelling Blast","Thirsting Blade","Tomb of Levistus"],MetaMagic:["Careful Spell","Distant Spell","Empowered Spell","Extended Spell","Heightened Spell","Quickened Spell","Seeking Spell","Subtle Spell","Transmuted Spell","Twinned Spell"],Warlock:["Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undead","Undying"],Weather:["Thunderstorm","Hailstorm","Snow","Rain","Overcast","Sunny","Drizzle","Windy","Fog","Acid Rain","Blizzard","Flood"]};out('glyphBox',type+': '+pick(st[type]||['?']));}
-async function affixListInfo(t){try{const r=await fetch('/dmapp/lists/glyph/'+t+'.txt');out('glyphBox',await r.text());}catch(e){out('glyphBox','['+t+' list: load from file]');}}
+async function affixListInfo(t){const map={weapon:'weapon_affix',armor:'armor_affix',accessory:'accessory_affix',tainted_weapon:'tainted_weapon_affix',tainted_armor:'tainted_armor_affix',tainted_accessory:'tainted_accessory_affix',class:'class_affix'};const f=map[t]||t;const d=await loadJSON('data/Glyphs/'+f+'.json');if(d.length)out('glyphBox',d.map(e=>e.result||e.name||JSON.stringify(e)).join('\n'));else out('glyphBox','[Populate data/Glyphs/'+f+'.json]');}
 
 // INFO
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}

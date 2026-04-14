@@ -77,6 +77,14 @@ Tinker's Tools
 Weaver's Tools
 Woodcarver's Tools
 Thieves' Tools"
-------x------
-
-------x------
+------Spell Scrolls------
+Cantrips: (DC 13 and +5 Attack Bonus)
+1st Level: (DC 13 and +5 Attack Bonus)
+2nd Level: (DC 14 and +6 Attack Bonus)
+3rd Level: (DC 15 and +7 Attack Bonus)
+4th Level: (DC 16 and +8 Attack Bonus)
+5th Level: (DC 17 and +9 Attack Bonus)
+6th Level: (DC 18 and +10 Attack Bonus)
+7th Level: (DC 18 and +10 Attack Bonus)
+8th Level: (DC 19 and +11 Attack Bonus)
+9th Level: (DC 19 and +11 Attack Bonus)

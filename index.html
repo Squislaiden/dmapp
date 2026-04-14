@@ -101,54 +101,71 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="toolsTab" class="tab-content active">
 <div class="section">
 <div class="split">
-<div class="split-left">
+<div style="flex:0 0 185px;padding:6px">
 <div class="section-title">Random Number</div>
 <div class="inline-row"><label>Min:</label><input type="number" id="rngMin" value="1" min="1"><label>Max:</label><input type="number" id="rngMax" value="100" min="1" style="width:46px"></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="randomNum()">Generate</button></div>
+<div class="inline-row mt-xs"><label style="font-size:.88rem;text-decoration:underline">Critical Failure:</label><button class="btn btn-primary" onclick="criticalFail()">Failure!</button></div>
 </div>
 <div class="split-divider"></div>
-<div class="split-right">
+<div style="flex:1;padding:6px">
 <div class="section-title">Dice Roller</div>
-<div class="flex flex-wrap gap-xs items-center"><label>d4:</label><input type="number" id="d4Num" value="0" min="0" max="20"><label>d6:</label><input type="number" id="d6Num" value="0" min="0" max="20"><label>d8:</label><input type="number" id="d8Num" value="0" min="0" max="20"></div>
-<div class="flex flex-wrap gap-xs items-center mt-xs"><label>d10:</label><input type="number" id="d10Num" value="0" min="0" max="20"><label>d12:</label><input type="number" id="d12Num" value="0" min="0" max="20"><label>d20:</label><input type="number" id="d20Num" value="0" min="0" max="20"></div>
-<div class="inline-row mt-xs"><label style="color:var(--accent)">Mod:</label><input type="number" id="diceMod" value="0" min="-20" max="20"><button class="btn btn-primary" onclick="rollDice()">Roll</button><button class="btn btn-list" onclick="showDiceHistory()">History</button></div>
+<div style="display:grid;grid-template-columns:auto auto 1px auto auto 1px auto auto 1fr auto auto;gap:2px 2px;align-items:center">
+<label>d4:</label><input type="number" id="d4Num" value="0" min="0" max="20">
+<div></div>
+<label>d6:</label><input type="number" id="d6Num" value="0" min="0" max="20">
+<div></div>
+<label>d8:</label><input type="number" id="d8Num" value="0" min="0" max="20">
+<div></div>
+<label style="text-align:right">d2:</label><input type="number" id="d2Num" value="0" min="0" max="20">
+<label>d10:</label><input type="number" id="d10Num" value="0" min="0" max="20">
+<div></div>
+<label>d12:</label><input type="number" id="d12Num" value="0" min="0" max="20">
+<div></div>
+<label>d20:</label><input type="number" id="d20Num" value="0" min="0" max="20">
+<div></div>
+<label style="text-align:right">d100:</label><input type="number" id="d100Num" value="0" min="0" max="20">
+</div>
+<div class="flex items-center mt-xs" style="gap:4px">
+<label style="color:var(--accent)">Mod:</label><input type="number" id="diceMod" value="0" min="-20" max="20">
+<button class="btn btn-primary" onclick="rollDice()">Roll</button>
+<div style="flex:1"></div>
+<button class="btn btn-list" onclick="showDiceHistory()">History</button>
+</div>
 </div>
 </div>
 <hr class="sep">
 <div class="section-title">Utilities</div>
-<div class="flex flex-wrap gap-sm">
-<div style="flex:1;min-width:120px">
-<div class="inline-row"><label>Random Weather:</label></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="weatherGen()">Generate</button></div>
-</div>
-<div style="flex:1;min-width:180px">
-<div class="inline-row"><label>Find Distance</label><span class="tip" data-tip="Find distance between creatures at different heights or diagonally."><span class="tip-icon">ⓘ</span></span></div>
+<div class="flex" style="gap:16px">
+<div style="flex:1">
+<div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Find Distance</label><span class="tip" data-tip="Find distance between creatures at different heights or diagonally."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><label>A:</label><input type="number" id="sideA" value="30" min="1"><label>B:</label><input type="number" id="sideB" value="30" min="1"><button class="btn btn-primary" onclick="distanceCalc()">Calculate</button></div>
 </div>
-</div>
-<div class="flex flex-wrap gap-sm mt-xs">
-<div style="flex:1;min-width:200px">
-<div class="inline-row"><label>Jump Calculator</label></div>
+<div class="mt-xs">
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Jump Calculator</label></div>
 <div class="inline-row"><label>STR:</label><input type="number" id="jumpStr" value="10" min="1" max="30"><label><input type="checkbox" id="jumpStand"> Standing</label><button class="btn btn-primary" onclick="jumpCalc()">Jump!</button></div>
 </div>
-<div style="flex:1;min-width:130px">
-<div class="inline-row"><label>Conjure CR</label><span class="tip" data-tip="For 'CR or lower' spells. Generates CR quality."><span class="tip-icon">ⓘ</span></span></div>
+<div class="mt-xs">
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Madness:</label></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
+</div>
+</div>
+<div style="flex:0 0 auto">
+<div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Weather:</label></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="weatherGen()">Generate</button></div>
+</div>
+<div class="mt-xs">
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Body Part:</label></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="externalPart()">External</button><button class="btn btn-primary" onclick="internalPart()">Organ</button></div>
+</div>
+<div class="mt-xs">
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Conjure CR</label><span class="tip" data-tip="For 'CR or lower' spells. Generates CR quality."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="conjureCR()">Conjure</button></div>
 </div>
 </div>
-<div class="flex flex-wrap gap-sm mt-xs">
-<div style="flex:1;min-width:140px">
-<div class="inline-row"><label>Random Body Part:</label></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="externalPart()">External</button><button class="btn btn-primary" onclick="internalPart()">Organ</button></div>
-</div>
-<div style="flex:1;min-width:130px">
-<div class="inline-row"><label>Critical Fail:</label></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="criticalFail()">Failure!</button></div>
-</div>
-</div>
-<div class="mt-xs">
-<div class="inline-row"><label>Random Madness:</label></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
 </div>
 <hr class="sep">
 <div class="section-title">Draw a Random Card</div>
@@ -215,10 +232,27 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 <hr class="sep">
 <div class="section-title">Items</div>
-<div class="inline-row"><button class="btn btn-primary" onclick="accessoryGen()">Accessory</button><button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button><button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button><button class="btn btn-list" onclick="gearListInfo()">Gear List</button><button class="btn btn-list" onclick="gemBagListInfo()">Gem List</button></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="accessoryGen()">Accessory</button><button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button><button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button><button class="btn btn-list" onclick="gearListInfo()">Gear List</button></div>
 <div class="inline-row"><label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select></div>
 <hr class="sep">
-<div class="inline-row"><label>Gem Bag Tier:</label><select id="gemBagTier"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><label><input type="checkbox" id="eberCheck"> Eberron Gems</label><button class="btn btn-primary" onclick="gemBagGen('small')">Small Bag</button><button class="btn btn-primary" onclick="gemBagGen('medium')">Gem Bag</button><button class="btn btn-primary" onclick="gemBagGen('large')">Large Bag</button></div>
+<div class="section-title">Gems &amp; Gembags</div>
+<div class="flex" style="gap:16px">
+<div style="flex:1">
+<div class="inline-row"><label>Gem Bag Tier:</label><select id="gemBagTier"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+<div class="inline-row"><label><input type="checkbox" id="eberCheck"> Include Eberron Gems in T5?</label></div>
+<div class="btn-grid mt-xs"><button class="btn btn-primary" onclick="gemBagGen('small')">Small Bag</button><button class="btn btn-primary" onclick="gemBagGen('medium')">Gem Bag</button><button class="btn btn-primary" onclick="gemBagGen('large')">Large Bag</button></div>
+<div class="mt-xs" style="text-align:right"><button class="btn btn-list" onclick="gemListInfo()">Gem List</button></div>
+</div>
+<div style="flex:0 0 auto">
+<div style="display:grid;grid-template-columns:auto auto auto;gap:4px">
+<button class="btn btn-primary" onclick="tierGem(1)">T1 Gem</button><button class="btn btn-primary" onclick="tierGem(2)">T2 Gem</button><button class="btn btn-primary" onclick="tierGem(3)">T3 Gem</button>
+<button class="btn btn-primary" onclick="tierGem(4)">T4 Gem</button><button class="btn btn-primary" onclick="tierGem(5)">T5 Gem</button><button class="btn btn-primary" onclick="tierGem(6)">T6 Gem</button>
+<button class="btn btn-primary" onclick="tierGem(7)">T7 Gem</button><button class="btn btn-primary" onclick="t5PlusGem()">T5+ Gem</button><button class="btn btn-primary" onclick="randomGem()">Random Gem</button>
+</div>
+<div class="inline-row mt-xs"><label><input type="checkbox" id="dragonshardCheck"> Include Dragonshard Gems?</label></div>
+<div class="mt-xs"><button class="btn btn-primary" onclick="randomGemEqual()">Random Gem (Equal Chance)</button></div>
+</div>
+</div>
 <hr class="sep">
 <textarea class="result-box" id="itemBox" rows="12" readonly></textarea>
 </div>
@@ -406,8 +440,8 @@ async function conjureCR(){const d=await loadJSON('data/Tools/conjure_cr.json');
 async function criticalFail(){const d=await loadJSON('data/Tools/critical_fail.json');if(!d.length){out('toolsBox','[Populate data/Tools/critical_fail.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Critical Fail: '+d[i].result);}async function madnessGen(type){let dur,res,file;if(type==='short'){dur=rng(1,10)+' min';file='madness_short';}else if(type==='long'){const h=rng(1,10)*10;dur=h+' hrs ('+(h/24).toFixed(1)+' days)';file='madness_long';}else if(type==='indefinite'){dur='Indefinite';file='madness_indefinite';}else{dur='Insanity';file='madness_insanity';}const d=await loadJSON('data/Tools/'+file+'.json');const label=type[0].toUpperCase()+type.slice(1);res=d.length?'('+label+') '+pick(d).result:'('+label+') [Populate data/Tools/'+file+'.json]';out('toolsBox','['+dur+']\n'+res);}
 function getDiceHistory(){try{return JSON.parse(localStorage.getItem('diceHistory'))||[];}catch(e){return[];}}
 function saveDiceHistory(h){while(h.length>50)h.shift();localStorage.setItem('diceHistory',JSON.stringify(h));}
-function rollDice(){const dice=[{s:4,id:'d4Num'},{s:6,id:'d6Num'},{s:8,id:'d8Num'},{s:10,id:'d10Num'},{s:12,id:'d12Num'},{s:20,id:'d20Num'}];let txt='',gt=0,summary='';const mod=Number(document.getElementById('diceMod').value);dice.forEach(d=>{let q=Number(document.getElementById(d.id).value);if(q>0){let r=[],t=0;for(let i=0;i<q;i++){const v=rng(1,d.s);r.push(v);t+=v;}txt+='d'+d.s+'('+r.join('+')+')='+t+'\n';summary+=(summary?'+':'')+q+'d'+d.s;gt+=t;}});gt+=mod;if(mod!==0)summary+=(mod>=0?'+':'')+mod;txt+='Mod:'+(mod>=0?'+':'')+mod+' Total:'+gt;out('toolsBox',txt);if(summary){const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+summary+']='+gt;const h=getDiceHistory();h.push(entry);saveDiceHistory(h);}}
-function showDiceHistory(){const h=getDiceHistory();out('toolsBox',h.length?'--- Last '+h.length+' Dice Rolls ---\n'+h.map((v,i)=>(i+1)+'. '+v).join('\n'):'No dice rolls yet.');}
+function rollDice(){const dice=[{s:2,id:'d2Num'},{s:4,id:'d4Num'},{s:6,id:'d6Num'},{s:8,id:'d8Num'},{s:10,id:'d10Num'},{s:12,id:'d12Num'},{s:20,id:'d20Num'},{s:100,id:'d100Num'}];let txt='',gt=0,summary='';const mod=Number(document.getElementById('diceMod').value);dice.forEach(d=>{let q=Number(document.getElementById(d.id).value);if(q>0){let r=[],t=0;for(let i=0;i<q;i++){const v=rng(1,d.s);r.push(v);t+=v;}txt+='d'+d.s+'('+r.join('+')+')='+t+'\n';summary+=(summary?'+':'')+q+'d'+d.s;gt+=t;}});gt+=mod;if(mod!==0)summary+=(mod>=0?'+':'')+mod;txt+='Mod:'+(mod>=0?'+':'')+mod+' Total:'+gt;out('toolsBox',txt);if(summary){const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+summary+']='+gt;const h=getDiceHistory();h.push(entry);saveDiceHistory(h);}}
+function showDiceHistory(){const h=getDiceHistory();out('toolsBox',h.length?'--- Last '+h.length+' Dice Rolls ---\n'+h.slice().reverse().map((v,i)=>(i+1)+'. '+v).join('\n'):'No dice rolls yet.');}
 function toggleChaosOptions(){document.getElementById('chaosOptions').style.display=document.getElementById('deckList').value==='cards_of_chaos'?'block':'none';}
 function onDeckChange(){toggleChaosOptions();updateDeckButtons();}
 function getDeckDrawn(dk){try{return JSON.parse(localStorage.getItem('deck_drawn_'+dk))||[];}catch(e){return[];}}
@@ -415,10 +449,10 @@ function saveDeckDrawn(dk,arr){localStorage.setItem('deck_drawn_'+dk,JSON.string
 function updateDeckButtons(){const dk=document.getElementById('deckList').value;const drawn=getDeckDrawn(dk);const hasDrawn=drawn.length>0;document.getElementById('resetDeckBtn').disabled=!hasDrawn;document.getElementById('resetDeckBtn').style.opacity=hasDrawn?'1':'.4';document.getElementById('deckStatusBtn').disabled=!hasDrawn;document.getElementById('deckStatusBtn').style.opacity=hasDrawn?'1':'.4';}
 function getCardHistory(){try{return JSON.parse(localStorage.getItem('cardHistory'))||[];}catch(e){return[];}}
 function saveCardHistory(h){while(h.length>50)h.shift();localStorage.setItem('cardHistory',JSON.stringify(h));}
-async function drawCard(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const d=await loadJSON('data/Tools/Decks/'+dk+'.json');if(!d.length){out('toolsBox','[Empty deck - populate data/Tools/Decks/'+dk+'.json]');return;}const drawn=getDeckDrawn(dk);const getCardName=c=>c.result||c.name||JSON.stringify(c);const remaining=d.filter(c=>!drawn.includes(getCardName(c)));if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}const card=pick(remaining);const cardName=getCardName(card);drawn.push(cardName);saveDeckDrawn(dk,drawn);const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+cardName;const h=getCardHistory();h.push(entry);saveCardHistory(h);out('toolsBox','Drew from '+lb+':\n'+cardName+'\n\n('+remaining.length+' cards were in deck, '+(remaining.length-1)+' remaining)');updateDeckButtons();}
+async function drawCard(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const d=await loadJSON('data/Tools/Decks/'+dk+'.json');if(!d.length){out('toolsBox','[Empty deck - populate data/Tools/Decks/'+dk+'.json]');return;}const drawn=getDeckDrawn(dk);const cardId=c=>c.number?c.number+'. '+c.name:(c.result||c.name||JSON.stringify(c));const remaining=d.filter(c=>!drawn.includes(cardId(c)));if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}const card=pick(remaining);const id=cardId(card);drawn.push(card.number?id+'\n'+card.flavor+'\n'+card.effect:id);saveDeckDrawn(dk,drawn);const now=new Date();let display;if(card.number){display=card.number+'. '+card.name+' - '+card.flavor+'\n'+card.effect;}else{display=card.result||card.name||JSON.stringify(card);}const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+(card.number?card.number+'. '+card.name:display);const h=getCardHistory();h.push(histEntry);saveCardHistory(h);out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n('+remaining.length+' cards were in deck, '+(remaining.length-1)+' remaining)');updateDeckButtons();}
 function resetDeck(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawn=getDeckDrawn(dk);if(!drawn.length)return;if(!confirm('Reset '+lb+'? This will clear all '+drawn.length+' drawn cards and reshuffle the deck.'))return;localStorage.removeItem('deck_drawn_'+dk);out('toolsBox',lb+' has been reset.');updateDeckButtons();}
-async function showDeckStatus(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawn=getDeckDrawn(dk);if(!drawn.length){out('toolsBox','No cards drawn from '+lb+' yet.');return;}const d=await loadJSON('data/Tools/Decks/'+dk+'.json');const getCardName=c=>c.result||c.name||JSON.stringify(c);const remaining=d.filter(c=>!drawn.includes(getCardName(c)));let txt='=== '+lb+' Status ===\n\n--- Drawn Cards ('+drawn.length+') ---\n';txt+=drawn.map((c,i)=>(i+1)+'. '+c).join('\n');txt+='\n\n--- Cards in Deck ('+remaining.length+') ---\n';txt+=remaining.map((c,i)=>(i+1)+'. '+getCardName(c)).join('\n');out('toolsBox',txt);}
-function showCardHistory(){const h=getCardHistory();out('toolsBox',h.length?'--- Last '+h.length+' Draws ---\n'+h.map((v,i)=>(i+1)+'. '+v).join('\n'):'No draws yet.');}
+async function showDeckStatus(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawn=getDeckDrawn(dk);if(!drawn.length){out('toolsBox','No cards drawn from '+lb+' yet.');return;}const d=await loadJSON('data/Tools/Decks/'+dk+'.json');const cardId=c=>c.number?c.number+'. '+c.name:(c.result||c.name||JSON.stringify(c));const drawnIds=drawn.map(e=>e.split('\n')[0]);const remaining=d.filter(c=>!drawnIds.includes(cardId(c)));let txt='=== '+lb+' Status ===\n\n--- Drawn Cards ('+drawn.length+') ---\n';txt+=drawn.map((c,i)=>(i+1)+'. '+c).join('\n\n');txt+='\n\n--- Cards in Deck ('+remaining.length+') ---\n';txt+=remaining.map((c,i)=>(i+1)+'. '+cardId(c)).join('\n');out('toolsBox',txt);}
+function showCardHistory(){const h=getCardHistory();out('toolsBox',h.length?'--- Last '+h.length+' Draws ---\n'+h.slice().reverse().map((v,i)=>(i+1)+'. '+v).join('\n'):'No draws yet.');}
 
 // ITEMS
 function toggleEquipment(){const oh=document.getElementById('equipToggle').checked;document.getElementById('equipment5e').style.display=oh?'none':'block';document.getElementById('equipmentOH').style.display=oh?'block':'none';document.getElementById('toggleLabel5e').classList.toggle('active',!oh);document.getElementById('toggleLabelOH').classList.toggle('active',oh);}
@@ -440,9 +474,16 @@ let allSpells=null;
 async function loadSpells(){if(!allSpells)allSpells=await loadJSON('all-spells.json');return allSpells||[];}
 async function spellScrollGen(){const lvl=document.getElementById('spellLevel').value;const spells=await loadSpells();const pool=spells.filter(s=>String(s.level)===lvl);const stats=scrollDC[Number(lvl)];if(pool.length){const spell=pick(pool);const lbl=lvl==='0'?'Cantrip':'Level '+lvl;out('itemBox',spell.name+'\nSpell Level: '+lbl+'\n(DC '+stats.dc+' and +'+stats.atk+' Attack Bonus)');}else out('itemBox','[No spells found for level '+lvl+' in all-spells.json]');}
 
-function gemBagGen(size){const tier=Number(document.getElementById('gemBagTier').value),eb=document.getElementById('eberCheck').checked;let rolls;if(size==='small')rolls=rng(2,5);else if(size==='medium')rolls=rng(4,10);else rolls=rng(8,18);const tiers={1:["Pearl","Azurite","Lapis Lazuli","Tiger Eye"],2:["Citrine","Peridot","Rose Quartz","Bloodstone","Onyx"],3:["Jade","Gold Pearl","Moonstone","Garnet","Spinel"],4:["Aquamarine","Black Pearl","Topaz","Amethyst"],5:["Sapphire","Ruby","Emerald","Diamond"]};if(tier===5&&eb)tiers[5].push("Eberron","Khyber","Siberys");const gems={};for(let i=0;i<rolls;i++){const g=pick(tiers[tier]);gems[g]=(gems[g]||0)+1;}let txt='--- '+(size[0].toUpperCase()+size.slice(1))+' Gem Bag (Tier '+tier+') ---\n';for(const[g,c]of Object.entries(gems))txt+=g+': '+c+'\n';out('itemBox',txt);}
-async function gearListInfo(){const d=await loadJSON('data/Items/Equipment/gear.json');if(d.length)out('itemBox',d.map(e=>e.result||e.name||JSON.stringify(e)).join('\n'));else out('itemBox','[Populate data/Items/Equipment/gear.json]');}
-function gemBagListInfo(){out('itemBox',"T1: Pearl, Azurite, Lapis Lazuli, Tiger Eye\nT2: Citrine, Peridot, Rose Quartz, Bloodstone, Onyx\nT3: Jade, Gold Pearl, Moonstone, Garnet, Spinel\nT4: Aquamarine, Black Pearl, Topaz, Amethyst\nT5: Sapphire, Ruby, Emerald, Diamond\nEberron: Eberron, Khyber, Siberys");}
+let gemBagData=null;
+async function loadGemBag(){if(!gemBagData)gemBagData=await loadJSON('data/Items/gembag.json');return gemBagData||[];}
+function pickWeighted(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<arr.length;i++){roll-=(arr[i].weight||1);if(roll<=0)break;}return arr[i];}
+async function gemBagGen(size){const d=await loadGemBag();if(!d.length){out('itemBox','[Populate data/Items/gembag.json]');return;}const tier=Number(document.getElementById('gemBagTier').value);const eb=document.getElementById('eberCheck').checked;let tiers=[tier];if(tier===5){tiers=[5,6];if(eb)tiers.push(7);}const pool=d.filter(g=>tiers.includes(g.tier));if(!pool.length){out('itemBox','No gems found for Tier '+tier);return;}let rolls;if(size==='small')rolls=rng(2,5);else if(size==='medium')rolls=rng(5,8);else rolls=rng(9,14);const gems={};for(let i=0;i<rolls;i++){const g=pickWeighted(pool);gems[g.gem]=(gems[g.gem]||0)+1;}let txt='--- '+(size[0].toUpperCase()+size.slice(1))+' Gem Bag (Tier '+tier+') ---\n';for(const[g,c]of Object.entries(gems))txt+=g+': '+c+'\n';out('itemBox',txt);}
+async function tierGem(t){const d=await loadGemBag();const pool=d.filter(g=>g.tier===t);if(!pool.length){out('itemBox','No gems for Tier '+t);return;}out('itemBox','Tier '+t+' Gem: '+pickWeighted(pool).gem);}
+async function t5PlusGem(){const d=await loadGemBag();const ds=document.getElementById('dragonshardCheck').checked;let tiers=[5,6];if(ds)tiers.push(7);const pool=d.filter(g=>tiers.includes(g.tier));if(!pool.length){out('itemBox','No T5+ gems found');return;}out('itemBox','T5+ Gem: '+pickWeighted(pool).gem);}
+async function randomGem(){const d=await loadGemBag();const ds=document.getElementById('dragonshardCheck').checked;let pool=d.filter(g=>g.tier<=6);if(ds)pool=d.slice();else pool=d.filter(g=>g.tier<=6);if(!pool.length){out('itemBox','No gems found');return;}out('itemBox','Random Gem: '+pickWeighted(pool).gem);}
+async function randomGemEqual(){const d=await loadGemBag();const ds=document.getElementById('dragonshardCheck').checked;let pool=ds?d.slice():d.filter(g=>g.tier<=6);if(!pool.length){out('itemBox','No gems found');return;}out('itemBox','Random Gem (Equal): '+pick(pool).gem);}
+async function gearListInfo(){try{const r=await fetch('data/gearlist.txt');if(r.ok)out('itemBox',await r.text());else out('itemBox','[Populate data/gearlist.txt]');}catch(e){out('itemBox','[Populate data/gearlist.txt]');}}
+async function gemListInfo(){try{const r=await fetch('data/gemlist.txt');if(r.ok)out('itemBox',await r.text());else out('itemBox','[Populate data/gemlist.txt]');}catch(e){out('itemBox','[Populate data/gemlist.txt]');}}
 
 // JEWELRY
 let jewItemTypes=[],jewMaterials=[],jewGems=[];

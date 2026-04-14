@@ -56,7 +56,7 @@ label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
 .result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
 .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
-.toggle-label{font-family:var(--font-display);font-size:.74rem;color:var(--text-dim);transition:color .3s}
+.toggle-label{font-family:var(--font-display);font-size:.78rem;color:var(--text-dim);transition:color .3s}
 .toggle-label.active{color:var(--accent)}
 .toggle-switch{position:relative;width:34px;height:17px}
 .toggle-switch input{opacity:0;width:0;height:0}
@@ -64,7 +64,7 @@ label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
 .toggle-slider::before{content:'';position:absolute;width:11px;height:11px;left:2px;bottom:2px;background:var(--accent);border-radius:50%;transition:.3s}
 .toggle-switch input:checked + .toggle-slider::before{transform:translateX(17px)}
 .tip{position:relative;display:inline-block;cursor:help}
-.tip::after{content:attr(data-tip);position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text);border:1px solid var(--accent-dim);border-radius:var(--radius);padding:4px 7px;font-size:.58rem;width:170px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;font-family:var(--font-body);line-height:1.3}
+.tip::after{content:attr(data-tip);position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text);border:1px solid var(--accent-dim);border-radius:var(--radius);padding:4px 7px;font-size:.88rem;width:200px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;font-family:var(--font-body);line-height:1.3}
 .tip:hover::after{opacity:1}
 .tip-icon{color:var(--green);font-size:.72rem}
 .flex{display:flex}.flex-wrap{flex-wrap:wrap}.gap-xs{gap:3px}.gap-sm{gap:5px}.items-center{align-items:center}.text-center{text-align:center}.mt-xs{margin-top:3px}.mb-xs{margin-bottom:3px}
@@ -96,6 +96,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </nav>
 </header>
 <main class="app-body">
+<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6">To access: Jewelry Tab, Glyph Tab, and Random Enemy Generator<br>Please use the old DM Assistant Page <a href="https://squislaiden.github.io/dmapp/index-OLD.html" target="_blank" style="color:#d4708a;text-decoration:underline">HERE</a></div>
 
 <!-- TOOLS TAB -->
 <div id="toolsTab" class="tab-content active">
@@ -105,7 +106,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title">Random Number</div>
 <div class="inline-row"><label>Min:</label><input type="number" id="rngMin" value="1" min="1"><label>Max:</label><input type="number" id="rngMax" value="100" min="1" style="width:46px"></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="randomNum()">Generate</button></div>
-<div class="inline-row mt-xs"><label style="font-size:.88rem;text-decoration:underline">Critical Failure:</label><button class="btn btn-primary" onclick="criticalFail()">Failure!</button></div>
+<div class="inline-row mt-xs"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Critical Failure:</label><button class="btn btn-primary" onclick="criticalFail()">Failure!</button></div>
 </div>
 <div class="split-divider"></div>
 <div style="flex:1;padding:6px">
@@ -139,30 +140,30 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="flex" style="gap:16px">
 <div style="flex:1">
 <div>
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Find Distance</label><span class="tip" data-tip="Find distance between creatures at different heights or diagonally."><span class="tip-icon">ⓘ</span></span></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Find Distance</label><span class="tip" data-tip="Find distance between two creatures or locations diagonally or at different heights."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><label>A:</label><input type="number" id="sideA" value="30" min="1"><label>B:</label><input type="number" id="sideB" value="30" min="1"><button class="btn btn-primary" onclick="distanceCalc()">Calculate</button></div>
 </div>
 <div class="mt-xs">
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Jump Calculator</label></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Jump Calculator</label></div>
 <div class="inline-row"><label>STR:</label><input type="number" id="jumpStr" value="10" min="1" max="30"><label><input type="checkbox" id="jumpStand"> Standing</label><button class="btn btn-primary" onclick="jumpCalc()">Jump!</button></div>
 </div>
 <div class="mt-xs">
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Madness:</label></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Madness:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
 </div>
 </div>
-<div style="flex:0 0 auto">
+<div style="flex:0 0 auto;margin-left:-80px">
 <div>
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Weather:</label></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Weather:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="weatherGen()">Generate</button></div>
 </div>
 <div class="mt-xs">
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Random Body Part:</label></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Body Part:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="externalPart()">External</button><button class="btn btn-primary" onclick="internalPart()">Organ</button></div>
 </div>
 <div class="mt-xs">
-<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline">Conjure CR</label><span class="tip" data-tip="For 'CR or lower' spells. Generates CR quality."><span class="tip-icon">ⓘ</span></span></div>
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Conjure CR</label><span class="tip" data-tip="For 'CR or Lower' spells or effects to determine how good of a result the DM should select."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="conjureCR()">Conjure</button></div>
 </div>
 </div>
@@ -232,7 +233,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 <hr class="sep">
 <div class="section-title">Items</div>
-<div class="inline-row"><button class="btn btn-primary" onclick="accessoryGen()">Accessory</button><button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button><button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button><button class="btn btn-list" onclick="gearListInfo()">Gear List</button></div>
+<div class="inline-row" style="margin-bottom:6px"><button class="btn btn-primary" onclick="accessoryGen()">Accessory</button><button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button><button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button><button class="btn btn-list" onclick="gearListInfo()">Gear List</button></div>
 <div class="inline-row"><label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select></div>
 <hr class="sep">
 <div class="section-title">Gems &amp; Gembags</div>
@@ -275,14 +276,15 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section">
 <div class="section-title">Character Generator</div>
 <div class="split">
-<div class="split-left">
+<div style="flex:0 0 52%;padding:6px">
 <div class="btn-grid"><button class="btn btn-accent" onclick="charGenBtn()">Generate Character</button><button class="btn btn-primary" onclick="rollStatsBtn()">Roll Attributes</button></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
 <div class="mt-xs"><button class="btn btn-list" onclick="charInfoBtn()">All Character Information</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button></div>
 </div>
 <div class="split-divider"></div>
-<div class="split-right">
+<div style="flex:1;padding:6px">
 <div class="section-title" style="font-size:.88rem">Generate Random Names</div>
 <div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:28px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:28px"></div>
 <div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
@@ -293,11 +295,11 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <hr class="sep">
 <div class="section-title">Random Enemy Generator</div>
 
-<!-- Enemy generator: left options, right random buttons -->
-<div class="flex gap-sm" style="align-items:flex-start">
+<!-- Enemy generator: left options with floating random buttons on right -->
+<div style="position:relative">
 
-<!-- Left column: button, options, radios, checkboxes -->
-<div style="flex:1">
+<!-- Main content: button, options, radios, checkboxes constrained to 330px -->
+<div style="max-width:330px">
 <!-- Top area: Button left, options right -->
 <div class="flex gap-sm">
 <div>
@@ -310,9 +312,10 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 </div>
 
-<!-- Martial or Caster 2x2 -->
-<div style="margin:6px 0">
-<div style="font-family:var(--font-display);font-size:.86rem;color:var(--text-dim);margin-bottom:3px">Martial or Caster</div>
+<!-- Martial or Caster with Movement to its right -->
+<div class="flex" style="margin:6px 0;gap:20px">
+<div>
+<div style="font-family:var(--font-display);font-size:.86rem;color:var(--text-dim);margin-bottom:3px;text-decoration:underline;font-weight:bold">Martial or Caster</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:2px 18px;width:fit-content">
 <label><input type="radio" name="magicType" value="Martial"> Martial</label>
 <label><input type="radio" name="magicType" value="Caster"> Caster</label>
@@ -320,41 +323,58 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <label><input type="radio" name="magicType" value="Random" checked> Random</label>
 </div>
 </div>
-
-<!-- Checkboxes: Movement | Senses | Specifics in 3 columns -->
-<div class="flex mt-xs" style="gap:2px">
-<div style="flex:1">
-<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Movement</div>
-<div style="display:flex;flex-direction:column;gap:1px">
+<div style="margin-left:12px">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Movement</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
 <label><input type="checkbox" id="climbCheck"> Climb</label>
 <label><input type="checkbox" id="swimCheck"> Swim</label>
 <label><input type="checkbox" id="burrowCheck"> Burrow</label>
 <label><input type="checkbox" id="flyCheck"> Fly</label>
 </div>
 </div>
-<div style="flex:1">
-<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Senses</div>
-<div style="display:flex;flex-direction:column;gap:1px">
-<label><input type="checkbox" id="blindsightCheck"> Blindsight</label>
-<label><input type="checkbox" id="tremorsenseCheck"> Tremorsense</label>
-<label><input type="checkbox" id="darkvisionCheck"> Darkvision</label>
-<label><input type="checkbox" id="truesightCheck"> Truesight</label>
+</div>
+
+<!-- Senses and Specifics as 2x2 grids -->
+<div class="flex mt-xs" style="gap:15px">
+<div>
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Senses</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
+<label style="white-space:nowrap"><input type="checkbox" id="blindsightCheck"> Blindsight</label>
+<label style="white-space:nowrap"><input type="checkbox" id="tremorsenseCheck"> Tremorsense</label>
+<label style="white-space:nowrap"><input type="checkbox" id="darkvisionCheck"> Darkvision</label>
+<label style="white-space:nowrap"><input type="checkbox" id="truesightCheck"> Truesight</label>
 </div>
 </div>
-<div style="flex:1">
-<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px">Specifics</div>
-<div style="display:flex;flex-direction:column;gap:1px">
-<label><input type="checkbox" id="breathCheck"> Breath Attack</label>
-<label><input type="checkbox" id="rechargeCheck"> +1 Recharge</label>
-<label><input type="checkbox" id="bonusCheck"> +1 Bonus Action</label>
-<label><input type="checkbox" id="reactionCheck"> +1 Reaction</label>
-</div>
+<div style="margin-left:5px">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Specifics</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
+<label style="white-space:nowrap"><input type="checkbox" id="breathCheck"> Breath Attack</label>
+<label style="white-space:nowrap"><input type="checkbox" id="rechargeCheck"> Recharge</label>
+<label style="white-space:nowrap"><input type="checkbox" id="bonusCheck"> Bonus Action</label>
+<label style="white-space:nowrap"><input type="checkbox" id="reactionCheck"> Reaction</label>
 </div>
 </div>
 </div>
 
-<!-- Right column: Random buttons, right-aligned, starts at top -->
-<div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
+<!-- Lists section -->
+<div style="margin-top:4px">
+<div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:3px;text-decoration:underline;font-weight:bold">Lists</div>
+<div style="display:grid;grid-template-columns:auto auto auto;gap:3px">
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('traits')">Trait List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('actions')">Action List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('bonus_actions')">Bonus List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('reactions')">Reaction List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('recharge')">Recharge List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('modifiers')">Modifier List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('lair_active')">Lair List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('legendary')">Legendary List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('type_specific')">Creature Types</button>
+</div>
+</div>
+</div>
+
+<!-- Floating Random buttons, absolutely positioned top-right, 11px down -->
+<div style="position:absolute;top:7px;right:0;display:flex;flex-direction:column;align-items:flex-end;gap:3px">
 <button class="btn btn-primary" onclick="randomBreathBtn()">Random Breath</button>
 <button class="btn btn-primary" onclick="enemyTraitBtn()">Random Trait</button>
 <button class="btn btn-primary" onclick="enemyActionBtn()">Random Action</button>
@@ -369,7 +389,6 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 
 </div>
 
-<div class="btn-grid mt-xs"><button class="btn btn-list" onclick="enemyListInfo('traits')">Trait List</button><button class="btn btn-list" onclick="enemyListInfo('actions')">Action List</button><button class="btn btn-list" onclick="enemyListInfo('bonus_actions')">Bonus Action List</button><button class="btn btn-list" onclick="enemyListInfo('reactions')">Reaction List</button><button class="btn btn-list" onclick="enemyListInfo('recharge')">Recharge List</button><button class="btn btn-list" onclick="enemyListInfo('legendary')">Legendary List</button><button class="btn btn-list" onclick="enemyListInfo('lair_active')">Lair Trait List</button><button class="btn btn-list" onclick="enemyListInfo('modifiers')">Modifier List</button><button class="btn btn-list" onclick="enemyListInfo('type_specific')">Type-Specific List</button></div>
 <hr class="sep">
 <div class="inline-row"><span class="section-title" style="margin:0">Results</span><button class="btn btn-list" onclick="copyOutput()">Copy</button></div>
 <textarea class="result-box" id="charBox" rows="18" readonly></textarea>
@@ -411,7 +430,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="infoTab" class="tab-content">
 <div class="section">
 <div class="text-center" style="font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:4px">Two Orcs and a Cat</div>
-<div class="text-center"><img src="https://raw.githubusercontent.com/Squislaiden/dmapp/main/2OandC.png" width="180" style="border-radius:var(--radius-lg);max-width:100%"></div>
+<div class="text-center"><img src="TwoOrcplusCat.png" width="180" style="border-radius:var(--radius-lg);max-width:100%"></div>
 <hr class="sep">
 <div class="btn-grid"><button class="btn btn-list" onclick="infoList('weather')">Weather</button><button class="btn btn-list" onclick="infoList('parts')">Parts</button><button class="btn btn-list" onclick="infoList('organs')">Organs</button><button class="btn btn-list" onclick="infoList('critfail')">Crit Fail</button><button class="btn btn-list" onclick="infoList('conjure')">Conjure</button><button class="btn btn-list" onclick="infoList('madness')">Madness</button></div>
 <hr class="sep">

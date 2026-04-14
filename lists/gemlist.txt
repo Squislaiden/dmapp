@@ -1,0 +1,8 @@
+T1: Pearl, Azurite, Lapis Lazuli, Tiger Eye
+T2: Citrine, Peridot, Rose Quartz, Bloodstone, Onyx
+T3: Jade, Gold Pearl, Moonstone, Garnet, Spinel
+T4: Aquamarine, Black Pearl, Topaz, Amethyst
+T5: Sapphire, Ruby, Emerald, Diamond
+Eberron (T5): Eberron Gem, Khyber Gem, Siberys Gem
+---
+The Eberron Gems are a refined piece of a Dragonshard.

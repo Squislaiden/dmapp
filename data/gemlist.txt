@@ -7,3 +7,5 @@ T6: (T5 Bag: less chance) Emerald, Diamond
 ---T5 Bags include T5 and T6 gems.---
 ---The Eberron Gems are a refined piece of a Dragonshard---
 T7: (T5 Bag: less chance) - Eberron Gem, Khyber Gem, Siberys Gem
+---Terramet Dragonshard Equivalents---
+T7: (T5 Bag: less chance) - Searagos Gem, C'thaneg Gem, Bameth Gem

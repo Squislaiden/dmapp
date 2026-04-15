@@ -1,9 +1,9 @@
 T1: Pearl, Azurite, Lapis Lazuli, Tiger Eye
 T2: Citrine, Peridot, Rose Quartz, Bloodstone, Onyx
-T3: Jade, Gold Pearl, Moonstone, Garnet
+T3: Jade, Gold Pearl, Moonstone, Tanzanite, Garnet
 T4: Spinel, Aquamarine, Black Pearl, Topaz
 T5: Amethyst, Sapphire, Ruby
-T6: (T5 Bag: less chance) Emerald, Diamond
+T6: Emerald, Diamond
 ---T5 Bags include T5 and T6 gems.---
 ---The Eberron Gems are a refined piece of a Dragonshard---
 T7: (T5 Bag: less chance) - Eberron Gem, Khyber Gem, Siberys Gem

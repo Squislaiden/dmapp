@@ -1,1 +1,602 @@
-[]
+[
+  {
+    "number": 1,
+    "name": "Seal/Walrus",
+    "effect": "Your body undergoes permanent changes. You gain a thick layer of blubber that gives you +1 AC and tusks as natural weapons. You lose 2 Dex and gain the language: Aquan.",
+    "flavor": "You bloat outwards as if you've done nothing but feast for the past month. The extra weight seems protective enough, but slows you down."
+  },
+  {
+    "number": 2,
+    "name": "Platypus",
+    "effect": "+2 to checks involving crafting, identifying, or nullifying poisons.",
+    "flavor": "You gain a sudden insight into the brewing of poisons."
+  },
+  {
+    "number": 3,
+    "name": "Sphinx",
+    "effect": "You gain a +4 bonus on persuasion, deception, and insight checks if you've used a riddle in a conversation involving the person you're attempting to converse with.",
+    "flavor": "You're hit with the sudden realization that riddles and rhymes contain more knowledge than an average sentence, and your mind begins to think in riddles, affecting your speech as well."
+  },
+  {
+    "number": 4,
+    "name": "Dolphin",
+    "effect": "Your charisma is given a +2 modifier whenever speaking with aquatic creatures and you gain the language Aquan.",
+    "flavor": "You're granted an understanding of aquatic environments and their inhabitants."
+  },
+  {
+    "number": 5,
+    "name": "Minotaur",
+    "effect": "Your race is suddenly morphed into a Minotaur! This changes your ability scores accordingly if they were physical. Mental stats stay the same. If you were already a Minotaur, you draw one new card.",
+    "flavor": "Without warning, you begin to morph. Sprouting a tail, growing larger, getting hoofs and horns. Within a few seconds, you've transformed into a Minotaur."
+  },
+  {
+    "number": 6,
+    "name": "Dog",
+    "effect": "You swear allegiance to whichever party member has treated you best in the past and gain +1 to all assists with or for that character. Lose 100xp per character level on the death of the one you've sworn yourself to, this loss cannot make you lose a level. Lose 50 per level instead if you succeed a DC 15+Character level wisdom save.",
+    "flavor": "A voice in your head speaks to you. \"Loyalty,\" it says \"Is the key to everything.\""
+  },
+  {
+    "number": 7,
+    "name": "Squirrel",
+    "effect": "-2 Str and Expertise in Acrobatics.",
+    "flavor": "You grow weak, and frail, with a sudden passion for nuts."
+  },
+  {
+    "number": 8,
+    "name": "Anteater",
+    "effect": "Gain +2 to hit, damage, and Save DC against Diminutive and Fine creatures.",
+    "flavor": "Glimpses of small animals appear in your mind. Their erratic and spontaneous movements appear confusing and difficult to predict, but only for a second. Suddenly, you see into their minds, and thus their next moves."
+  },
+  {
+    "number": 9,
+    "name": "Rabbit/Hare",
+    "effect": "+10ft. Movement Speed, and x2 damage to all kicks.",
+    "flavor": "You feel lighter on your feet, as if they've grown stronger."
+  },
+  {
+    "number": 10,
+    "name": "Lion",
+    "effect": "Your next Intimidate check results in an ear-shattering roar, granting you a +10, but dealing 2d6 Sonic damage to everyone within 60ft (Including you!).",
+    "flavor": "You feel a certain power reside in your chest, waiting to be released."
+  },
+  {
+    "number": 11,
+    "name": "Raccoon",
+    "effect": "A random item from your inventory disappears. This happens in 1d3 days during the night, stolen by a specter.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 12,
+    "name": "Rodent",
+    "effect": "You're infected with a random disease.",
+    "flavor": "You suddenly feel horribly ill."
+  },
+  {
+    "number": 13,
+    "name": "Fish",
+    "effect": "You reek of fish, -2 Cha, and you can speak with fish.",
+    "flavor": "A stench begins to surround you."
+  },
+  {
+    "number": 14,
+    "name": "Sea Horse",
+    "effect": "The next creature you meet is compelled to do whatever you wish, as if under a Charm spell.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 15,
+    "name": "Dragonfly",
+    "effect": "+10ft. Movement Speed, -1 Con, -1 Wis",
+    "flavor": "Your movements become fast, but your mind and heart become slow."
+  },
+  {
+    "number": 16,
+    "name": "Turtle",
+    "effect": "-10ft. Movement Speed and +2 AC.",
+    "flavor": "You feel sluggish, dragged down by some invisible weight."
+  },
+  {
+    "number": 17,
+    "name": "Bee",
+    "effect": "-2 Wisdom and proficiency with any checks relating to flowers or pollination.",
+    "flavor": "You're head is filled with the buzzing of bees, drowning out the outside world. You can practically feel them crawling around in your skull."
+  },
+  {
+    "number": 18,
+    "name": "Centaur",
+    "effect": "The last weapon you used is granted a +1 magical bonus to a neutral alignment of your choice.",
+    "flavor": "An animalistic voice speaks to you: \"Choose your enemies before they choose you.\""
+  },
+  {
+    "number": 19,
+    "name": "Owl",
+    "effect": "+2 to Wisdom, and rats taste amazing and do not transfer disease to you when eaten.",
+    "flavor": "You seem to have gained a better understanding of the surrounding world, and an urge to feed on rodents."
+  },
+  {
+    "number": 20,
+    "name": "Phoenix",
+    "effect": "On death, explode as a 5th level fireball with a 40-foot radius, and be affected by true resurrection, all gear, including magical (except for artifacts), is destroyed. Until this happens, your eyes glow with weak embers. Only works once.",
+    "flavor": "Your eyes glow like the embers of a dying fire."
+  },
+  {
+    "number": 21,
+    "name": "Deer",
+    "effect": "-2 Wisdom and cannot be surprised.",
+    "flavor": "Each sound, each movement around you seems so sudden and loud. You startle easily. Even growing slightly paranoid."
+  },
+  {
+    "number": 22,
+    "name": "Crow",
+    "effect": "+4 on Perception checks if the object is shiny (metal, gems, etc.).",
+    "flavor": "You gain a newfound love for gleaming, shiny objects."
+  },
+  {
+    "number": 23,
+    "name": "Skunk",
+    "effect": "A random item in your inventory begins to smell horrible.",
+    "flavor": "The stench is gruesome."
+  },
+  {
+    "number": 24,
+    "name": "Ferret",
+    "effect": "Eyes and hair randomly change color. (Hair: 1d6, 1=Red, 2=Brown, 3=Black, 4=White, 5=Blond, 6=Grey) (Eyes: 1d4, 1=Brown, 2=Green, 3=Blue, 4=Black). Permanent.",
+    "flavor": "You get a slight tingling sensation."
+  },
+  {
+    "number": 25,
+    "name": "Boar",
+    "effect": "Grow tusks, speak in growls. -4 Cha, +2 Con, and roll a 1d6 when trying to speak. On a one, it's just growls and snarls.",
+    "flavor": "Out from your mouth sprouts tusks, distorting your appearance and speech."
+  },
+  {
+    "number": 26,
+    "name": "Horse",
+    "effect": "You gain 20 ft. to your base movement speed, and can replace rations with grass in a grassy region, so long as you spend at least 2 hours per day grazing.",
+    "flavor": "You seem to have gained stronger legs and a more robust stomach."
+  },
+  {
+    "number": 27,
+    "name": "Wild Dog",
+    "effect": "Gain +2 to checks to track something and gain proficiency with Survival checks.",
+    "flavor": "Your sense of smell is heightened."
+  },
+  {
+    "number": 28,
+    "name": "Hippo",
+    "effect": "In combat, you're considered to always be flanked, if you are actually flanked, the effects stack. +3 str.",
+    "flavor": "You feel slow, aggressive and highly unsuited for battle."
+  },
+  {
+    "number": 29,
+    "name": "Quagga",
+    "effect": "Gain immunity to one non-physical damage type of your choice, but DM decides another that you are weak to.",
+    "flavor": "You hear a voice in your head: \"Choose your strong side, and the gods will choose your weak one.\""
+  },
+  {
+    "number": 30,
+    "name": "Wolf",
+    "effect": "1d6 Wolves are summoned around you to aid you per day. Wolves turn to dust at midnight, with a new 1d6 spawning out of the dust.",
+    "flavor": "You feel a sense of responsibility as a leader as wolves are summoned around you, waiting for their leader's orders."
+  },
+  {
+    "number": 31,
+    "name": "Snake",
+    "effect": "Your legs merge into a 10ft long tail. You gain +10 to climb checks on cylindrical objects such as columns and trees. But you require specially made armor and clothing for your lower half, or you suffer -5 to saves vs cold weather, and AC from armor is halved. Humanoids consider you monstrous.",
+    "flavor": "You feel your body changing."
+  },
+  {
+    "number": 32,
+    "name": "Werewolf",
+    "effect": "The next person you converse with contracts lycanthropy. This effect is kept secret until it resolves.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 33,
+    "name": "Cockroach",
+    "effect": "On death, you have a 75% chance to stabilize at 0hp instead of dying. Unless subject to a disintegration effect or coup de grace. This effect can work multiple times.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 34,
+    "name": "Parrot",
+    "effect": "+8 to deception checks to imitate a language.",
+    "flavor": "You feel confident in your speech."
+  },
+  {
+    "number": 35,
+    "name": "Shark",
+    "effect": "You can cast Locate Creature once per day. This is succeeded by a combination of smell and magic. If you lose the ability to smell, you have a 50% chance of the spell failing.",
+    "flavor": "You seem to have received an ability from the gods."
+  },
+  {
+    "number": 36,
+    "name": "Vulture",
+    "effect": "If anything dies within 60 feet of you, you are instantly aware of it. You can detect carrion and recently deceased creatures of size Diminutive or larger in a 60ft radius centered on your character at will.",
+    "flavor": "You become sensitive to the event of death."
+  },
+  {
+    "number": 37,
+    "name": "Eagle",
+    "effect": "+3 Perception.",
+    "flavor": "Your eyesight sharpens and improves."
+  },
+  {
+    "number": 38,
+    "name": "Hummingbird",
+    "effect": "Put this card back, draw two, and choose one.",
+    "flavor": "The card flies out of your hand, hovers in midair for a second, and dives back into the deck. Two more cards fly off from the top."
+  },
+  {
+    "number": 39,
+    "name": "Koala",
+    "effect": "Nothing happens.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 40,
+    "name": "Lynx",
+    "effect": "The card effect of a random nearby person is negated. You draw a new card.",
+    "flavor": "The card flies out of your hand and floats in midair, suddenly another card appears next to it and they both fly back into the deck. A new card flies out to your hand."
+  },
+  {
+    "number": 41,
+    "name": "Penguin",
+    "effect": "Every hostile creature within 50ft. is turned to ice.",
+    "flavor": "As you draw the card, it creates an explosion of cold mist!"
+  },
+  {
+    "number": 42,
+    "name": "Whale",
+    "effect": "Instantly age 3d8 years.",
+    "flavor": "You feel as if time has caught up with you."
+  },
+  {
+    "number": 43,
+    "name": "Fox",
+    "effect": "+2 Cha and proficiency in Deception.",
+    "flavor": "You feel more confident in yourself, you just in your ability to convince others you're confident."
+  },
+  {
+    "number": 44,
+    "name": "Elephant",
+    "effect": "Put this card back in the deck. Draw three new cards, you get the effect of all of them.",
+    "flavor": "The card flies back into the deck, and three new fly out."
+  },
+  {
+    "number": 45,
+    "name": "Alligator",
+    "effect": "+2 Str.",
+    "flavor": "You feel your muscles growing in strength."
+  },
+  {
+    "number": 46,
+    "name": "Ant",
+    "effect": "You go down a size category, but gain +4 Str.",
+    "flavor": "You shrink in size, yet your muscles seem even more powerful."
+  },
+  {
+    "number": 47,
+    "name": "Crane",
+    "effect": "Instantly change gender.",
+    "flavor": "Your body changes..."
+  },
+  {
+    "number": 48,
+    "name": "Cheetah",
+    "effect": "You gain advantage on Initiative rolls.",
+    "flavor": "You feel as if the surrounding world is horribly slow to react."
+  },
+  {
+    "number": 49,
+    "name": "Cat",
+    "effect": "+2 Acrobatics -5ft Swim speed.",
+    "flavor": "You feel agile and fast, but for some reason uneasy about the thought of water."
+  },
+  {
+    "number": 50,
+    "name": "Lemur",
+    "effect": "You gain dark vision, but also become nocturnal (Can not sleep if it is nighttime).",
+    "flavor": "Your eyes tune themselves to the darkness, but so does your mind."
+  },
+  {
+    "number": 51,
+    "name": "Unicorn",
+    "effect": "If you are a spell-caster, you can pick one new spell to add to your spell list, otherwise draw one new card.",
+    "flavor": "You suddenly receive the knowledge you didn't know you had."
+  },
+  {
+    "number": 52,
+    "name": "Gazelle",
+    "effect": "All predators and monsters are hostile to you.",
+    "flavor": "You feel watched."
+  },
+  {
+    "number": 53,
+    "name": "Butterfly",
+    "effect": "You gain extremely frail wings, and a single attack will completely destroy them, but you can negate fall damage as if by a Featherfall Potion until the time that they are destroyed.",
+    "flavor": "Large, beautiful wings sprout from your back. They look thin and fragile, yet durable enough to carry you."
+  },
+  {
+    "number": 54,
+    "name": "Cougar",
+    "effect": "+10 Movement Speed, +2 Stealth in rocky, mountainous biomes, else you get -5 Movement Speed and -5 Stealth.",
+    "flavor": "You feel a sudden longing for the mountains."
+  },
+  {
+    "number": 55,
+    "name": "Tiger",
+    "effect": "All attacks you make have advantage, but all attacks against you also have advantage.",
+    "flavor": "You feel lucky and unlucky at the same time."
+  },
+  {
+    "number": 56,
+    "name": "Duck",
+    "effect": "You fight from a crouched position with no penalty to you, and no benefit to your enemies. This is a compulsion and can be resisted for an encounter with a DC15 wisdom save.",
+    "flavor": "You crouch. Why? Because."
+  },
+  {
+    "number": 57,
+    "name": "Swan",
+    "effect": "Gain 1d4 charisma from your true beauty finally showing.",
+    "flavor": "You gained a divine blessing of beauty."
+  },
+  {
+    "number": 58,
+    "name": "Primate",
+    "effect": "-4 Cha and you gain a climb speed.",
+    "flavor": "You gained knowledge and strength about the arts of climbing, but your face morphed into a hairy mess with a large nose."
+  },
+  {
+    "number": 59,
+    "name": "Hyena",
+    "effect": "+5 to demoralize your enemies with an intimidation check.",
+    "flavor": "You feel frightful. Terrifying. Fantastic."
+  },
+  {
+    "number": 60,
+    "name": "Kitsune",
+    "effect": "Your race is suddenly morphed into a Kitsune! This changes your ability scores accordingly if they were physical. Mental stats stay the same. If you were already a Kitsune, you draw one new card.",
+    "flavor": "You feel your body changing!"
+  },
+  {
+    "number": 61,
+    "name": "Puffin",
+    "effect": "You shrink a size category but gain +2 Cha. Gear does not scale.",
+    "flavor": "You shrink in size, but feel more attractive."
+  },
+  {
+    "number": 62,
+    "name": "Dragon",
+    "effect": "Grow one size category and gain +2 to strength. Gear does not scale.",
+    "flavor": "You grow in size, as does your strength!"
+  },
+  {
+    "number": 63,
+    "name": "Opossum",
+    "effect": "You have one extra Death Save fail before death.",
+    "flavor": "You feel a bit more durable."
+  },
+  {
+    "number": 64,
+    "name": "Gryphon",
+    "effect": "Two magic items in your inventory swap effects.",
+    "flavor": "Two of your items shimmer and shift with arcane energy."
+  },
+  {
+    "number": 65,
+    "name": "Hawk",
+    "effect": "A random item on your person becomes sentient.",
+    "flavor": "One of your possessions stirs with newfound awareness."
+  },
+  {
+    "number": 66,
+    "name": "Kangaroo",
+    "effect": "You can jump your full distance without needing a running start, but you require specially made footwear for your enlarged feet.",
+    "flavor": "Your feet grow in size, as does their strength."
+  },
+  {
+    "number": 67,
+    "name": "Dingo/Dhole",
+    "effect": "Every time you take the Help action or someone takes the Help action to assist you, add +4 to the roll.",
+    "flavor": "You understand now that allies are the key to success, to victory."
+  },
+  {
+    "number": 68,
+    "name": "Bat",
+    "effect": "You go permanently blind but gain the ability to echo-locate. You gain 60 ft of blindsight that only functions if you're not deafened. You are vulnerable to sonic based attacks.",
+    "flavor": "Your sight grows dark, your vision slips. Soon enough, you're entirely blind. Suddenly, a nearby sound lights up the room, giving you vision again, as if the sound is light."
+  },
+  {
+    "number": 69,
+    "name": "Frog",
+    "effect": "You can jump your full distance without needing a running start, use Dexterity for jumping, and can travel 2 ft higher and 5 feet further if you jump from crouching.",
+    "flavor": "You feel a sudden surge of power in your legs."
+  },
+  {
+    "number": 70,
+    "name": "Giraffe",
+    "effect": "You gain a +4 to Survival if looking for food.",
+    "flavor": "You seem to have received some previously unknown knowledge."
+  },
+  {
+    "number": 71,
+    "name": "Zebra",
+    "effect": "Your alignment shifts permanently to the opposite end of the spectrum (Good/Evil and Lawful/Chaotic). If you're true neutral, draw again.",
+    "flavor": "Your mind changes, as do your morals."
+  },
+  {
+    "number": 72,
+    "name": "Jaguar",
+    "effect": "An outsider sets his mind on destroying you.",
+    "flavor": "You hear thunder, then, nothing."
+  },
+  {
+    "number": 73,
+    "name": "Porcupine",
+    "effect": "You spontaneously grow large spikes over your whole body. They effectively increase your size by 1 category. Destroys all armor and clothing. You can no longer wear armor, but have a natural armor of 12 + Con Modifier. Melee attacks against you from behind deal half the damage back to the attacker.",
+    "flavor": "Giant spikes begin to sprout from your body, painfully and quickly. They continue growing for a few seconds, almost doubling your size. Your armor and clothing is ruined."
+  },
+  {
+    "number": 74,
+    "name": "Panda",
+    "effect": "Gain +2 to wisdom, but -2 dex, and you require double the amount of food.",
+    "flavor": "You see the world in a new light, your mind has improved. Your body on the other hand feels sluggish...and hungry."
+  },
+  {
+    "number": 75,
+    "name": "Rhino",
+    "effect": "Opportunity attacks against you have disadvantage if you are running to hit a different creature. +2 to hit and +2 to damage after moving at least 10 feet before attack.",
+    "flavor": "You feel as if you've gained an invisible strength."
+  },
+  {
+    "number": 76,
+    "name": "Satyr",
+    "effect": "This card does nothing immediately, but next combat, failing a DC 15 wisdom save results in a compulsion to dance during combat.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 77,
+    "name": "Scarab",
+    "effect": "You gain a +2 bonus to saving throws against extreme heat, but a -4 against extreme cold.",
+    "flavor": "You long for the warmth of the sun...and begin to fear the cold."
+  },
+  {
+    "number": 78,
+    "name": "Thylacine",
+    "effect": "You gain access to the Whirlwind Attack once per day: When you use the attack action, you can make one melee attack against each opponent within reach, forfeiting any bonus or extra attacks granted by other feats, spells, or abilities (not including Action Surge).",
+    "flavor": "You've received a newfound knowledge of battle."
+  },
+  {
+    "number": 79,
+    "name": "Spider",
+    "effect": "You gain the Spider Climb trait.",
+    "flavor": "Your hands become sticky and your mind is filled with images of spiders."
+  },
+  {
+    "number": 80,
+    "name": "Leopard",
+    "effect": "Unarmed attacks deal an extra 1d6 piercing damage.",
+    "flavor": "Your hands grow in strength and claws grow out from your fingers."
+  },
+  {
+    "number": 81,
+    "name": "Okapi",
+    "effect": "You receive two visions, one true, one false.",
+    "flavor": "Your mind fills with conflicting visions of the future."
+  },
+  {
+    "number": 82,
+    "name": "Wolverine/Badger",
+    "effect": "When you roll a critical hit, roll a d20 and add your attack bonus. If this new d20 roll would hit, your critical hit deals an extra roll of the dice. You take damage equal to the roll of the weapon's dice from this bonus roll.",
+    "flavor": "You feel more powerful in combat, as if being watched by the gods of battle...but at the same time, you feel vulnerable, as if you're being tested."
+  },
+  {
+    "number": 83,
+    "name": "Sabertooth Cat",
+    "effect": "1d6 copies of you are created within a mile. All have the polar opposite alignment from you, and oppose your goals.",
+    "flavor": "Nothing happens."
+  },
+  {
+    "number": 84,
+    "name": "Raptor",
+    "effect": "Gain 5 movement speed. If you move at least 10 feet before hitting a creature, they must make a Strength Save (DC 9 + half your level) or be knocked prone.",
+    "flavor": "Your legs feel stronger and a strange desire to leap upon your prey."
+  },
+  {
+    "number": 85,
+    "name": "Tyrannosaurus Rex",
+    "effect": "Gain Expertise (or +3 if you have expertise) in Intimidation and advantage against frighten effects. Your arms shrink by 25% and up to 5 ft of reach no longer benefit you.",
+    "flavor": "You feel like you are the apex predator, nothing scares you and everything should be scared of you, you release a ferocious roar."
+  },
+  {
+    "number": 86,
+    "name": "Anklyosaurus",
+    "effect": "Your skin hardens and forms small ridges. While not wearing armor, your natural defense grants you an AC equal to the higher of Strength, Dexterity, or Constitution Scores. You gain the ability to use your tail as an unarmed attack as a bonus action for 1d6 + Str bludgeoning.",
+    "flavor": "You feel your skin tighten and deform slightly, especially upon your back, and a pain at the base of your spine begets a ball-ended tail sprouting through your pants."
+  },
+  {
+    "number": 87,
+    "name": "Couatl",
+    "effect": "Your alignment shifts to good. You have advantage on checks against good-aligned creatures. Evil-aligned creatures are subconsciously wary of you. Gain resistance to necrotic and radiant damage.",
+    "flavor": "Your soul fills with warmth and good as your eyes emit a slight glow."
+  },
+  {
+    "number": 88,
+    "name": "Devil",
+    "effect": "Your alignment shifts to evil. You have advantage on checks against evil-aligned creatures. Good-aligned creatures are subconsciously distrustful of you. Gain 60 ft. of devilsight.",
+    "flavor": "Maliciousness fills your heart as the darkness and shadows you can see reveal their secrets."
+  },
+  {
+    "number": 89,
+    "name": "Crab",
+    "effect": "You gain +5 to offensive grapple checks and have advantage to maintain grapples. You can hold your breath for one hour.",
+    "flavor": "You feel the muscles in your hands strengthen to the point that nothing can escape your iron grip."
+  },
+  {
+    "number": 90,
+    "name": "Goat",
+    "effect": "+2 Dex and you gain a climb speed and a pair of horns on your head perfect for ramming. You can make unarmed attacks with your horns that deal 1d6 + Str bludgeoning.",
+    "flavor": "Pain erupts on your head as two sizable horns sprout out and your sense of balance seems to sharpen."
+  },
+  {
+    "number": 91,
+    "name": "Mule",
+    "effect": "+2 Con and the amount of weight you can carry doubles and you can last four times as long before having to roll Saves against extended feats of endurance.",
+    "flavor": "Endurance and stamina wells up within you and you feel like you could run a marathon without breaking a sweat."
+  },
+  {
+    "number": 92,
+    "name": "Scorpion",
+    "effect": "+1 AC and a stinger from your backside. Unarmed attacks with the stinger tail deal 1d4 + Str or Dex. The victim makes a DC 14 Constitution Saving Throw or takes 1d6 poison damage and is poisoned. On a success, they take half damage and are not poisoned.",
+    "flavor": "Your spine extends down, bursting out as all of your skin hardens."
+  },
+  {
+    "number": 93,
+    "name": "Vampire",
+    "effect": "Your attacks have disadvantage in direct sunlight and you have a new craving for blood. You do not need it, but you can subsist off of blood. If you have not taken fire damage, radiant damage, or a critical hit since your last turn, heal 5 Hit Points at the start of your turn.",
+    "flavor": "The canines within your mouth grow and your skin lightens as you feel a hunger for delicious lifeblood."
+  },
+  {
+    "number": 94,
+    "name": "Worm",
+    "effect": "-10 ft movement speed and gain a 10 ft burrow speed.",
+    "flavor": "You feel yourself slow down and the urge to burrow yourself in the dirt."
+  },
+  {
+    "number": 95,
+    "name": "Behir",
+    "effect": "Gain a climbing speed and immunity to lightning. Unarmed attacks deal an additional 1d6 lightning damage.",
+    "flavor": "Your skin tingles as all of your hair stands on end and your eyes dart to the nearest wall and pick out each and every possible handhold."
+  },
+  {
+    "number": 96,
+    "name": "Owlbear",
+    "effect": "You have advantage on Perception checks using sight or smell and can communicate simple concepts to small creatures.",
+    "flavor": "Everything you see and everything you smell sharpens intensely."
+  },
+  {
+    "number": 97,
+    "name": "Octopus",
+    "effect": "Your limbs each split and change into tentacles, giving you eight total limbs. You walk on four. You can wield two extra items in the new limbs.",
+    "flavor": "You fall to the ground as all four limbs go rubbery, as if the bones have been removed. Your fingers and toes fuse together and each limb splits into two."
+  },
+  {
+    "number": 98,
+    "name": "Griffon",
+    "effect": "+2 Str and a pair of wings. You are able to access a 40 ft. fly speed for up to 1 hour total time, recharging on a long rest.",
+    "flavor": "Strength swells within you as your back bursts open, revealing two large feathery wings."
+  },
+  {
+    "number": 99,
+    "name": "Mimic",
+    "effect": "-5 ft movement speed. You gain the ability to shapechange into an object of similar size or one smaller than yourself. You have advantage on initiating grapple checks.",
+    "flavor": "Your skin feels a bit sticky and you get the feeling that you can stand completely still and blend into the environment."
+  },
+  {
+    "number": 100,
+    "name": "Rakshasa",
+    "effect": "You cannot be affected by 1st level or lower spells unless you wish to be. You can cast Detect Thoughts once per Long Rest using your Spell Save DC or 15 if yours is lower or you do not have one.",
+    "flavor": "You get the sudden impression that the lowest of magics cannot touch you and that with a mere thought, you could peer into minds around you."
+  }
+]

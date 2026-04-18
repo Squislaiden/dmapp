@@ -1,12 +1,16 @@
----- Changelog (version 1.1): Visual overhaul.
-• New Spells List page added accessible via "Spells" Tab.
-• New Items List page accessible via "Spells Tab" for my WIP Equipment Overhaul Homebrew. Currently Empty.
+---- Changelog (version 1.1.1): Visual overhaul.
+• New Spells List page added, accessible via "~Tables~" Tab.
+• New Items List and Feats pages accessible via the "~Tables~ Tab" for my WIP Equipment Overhaul Homebrew. Currently Empty.
 • Tons of code cleanup and more optimized storage for randomization and data functions.
+• Basic decks have been added: Standard Deck, w/ Jokers, Tarot Minor/Major/Full, and Deck of Beasts (original and expanded).
+• Utilization of Cookies and LocalStorage to remember.
+   • The Dice Roller tracks the last 50 rolls and can be viewed with the History button.
+   • The Deck Status button allows you to view which cards have been drawn from that deck and which cards are still in it. The Reset Deck button will clear saved data for the selected deck.
 
 ---- TO DO LIST:
 • Glyphs of Pandemonium update to support Equipment Overhaul.
 • Equipment Overhaul.
-• Add a random card draw with the following decks: Standard Deck with and without Jokers, Tarot Deck with and without Minor Arcana, Deck of Many Things, Deck of Many Fates.
-   • Further on, I plan to add every single deck from the Deck of Decks on Reddit: https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/
+• Add the rest of the decks: Deck of Many Things, Many Fates, Cards of Chaos, and most decks from (https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/).
+   • Reset All Decks, which does as it says.
 
----- Changelog (version 1.0): All standard tools have been completed and the Random Character Generator is in a fully usable state.
+---- Changelog (version 1.0): All standard tools have been completed, and the Random Character Generator is in a fully usable state.

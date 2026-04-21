@@ -14,7 +14,7 @@ body{font-family:var(--font-body);background-color:var(--bg-dark);background-ima
 .app-header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(15,14,23,0.96) 100%);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);padding:8px 0 0}
 .app-title{font-family:var(--font-display);font-size:1.7rem;font-weight:700;text-align:center;color:var(--accent);text-shadow:0 0 16px var(--accent-glow);letter-spacing:2px;padding-bottom:6px}
 .tab-bar{display:flex;justify-content:center;gap:1px;flex-wrap:wrap;padding:0 8px}
-.tab-btn{font-family:var(--font-display);font-size:1.0rem;font-weight:600;letter-spacing:.5px;padding:6px 12px;background:transparent;color:var(--text-dim);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.tab-btn{font-family:var(--font-display);font-size:1.0rem;font-weight:600;letter-spacing:.2px;padding:6px 7px;background:transparent;color:var(--text-dim);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
 .tab-btn:hover{color:var(--text)}
 .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
 .app-body{max-width:520px;margin:10px auto;padding:0 8px}
@@ -93,8 +93,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <button class="tab-btn" onclick="openTab(event,'itemsTab')">Items</button>
 <button class="tab-btn" onclick="openTab(event,'jewelryTab')">Jewelry</button>
 <button class="tab-btn" onclick="openTab(event,'charTab')">Character</button>
-<a href="table.html" class="tab-btn">Spells</a>
 <button class="tab-btn" onclick="openTab(event,'glyphsTab')">Glyphs</button>
+<a href="table.html" class="tab-btn">~Tables~</a>
 <button class="tab-btn" onclick="openTab(event,'infoTab')">(v1.1)</button>
 </nav>
 </header>
@@ -175,23 +175,25 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title">Draw a Random Card</div>
 <div class="flex items-center mt-xs" style="gap:4px">
 <button class="btn btn-primary" onclick="drawCard()">Draw</button>
-<select id="deckList" style="font-size:.58rem;max-width:200px" onchange="onDeckChange()"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard + Jokers</option><option value="tarot_major">Tarot: Major Arcana</option><option value="tarot_minor">Tarot: Minor Arcana</option><option value="tarot_full">Tarot: Full</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_of_many_things">Many Things (All)</option><option value="deck_of_many_things_13">Many Things (13)</option><option value="deck_many_variant">Many Things: Variant</option><option value="deck_many_balanced">Many Things: Rebalanced</option><option value="deck_nista">Many Things: Nista</option><option value="deck_of_many_fates">Many Fates</option><option value="deck_many_fates_tashas">Many Fates (Tasha's)</option><option value="deck_familiar">Familiar Things</option><option value="deck_mundane">Mundane Things</option><option value="deck_fates_alt">Many Fates (Alt)</option><option value="deck_mysterious">Mysterious Things</option><option value="deck_nourishment">Nourishment</option><option value="deck_morbid">Morbid Things</option><option value="deck_beasts">Beasts</option><option value="deck_beasts_expanded">Beasts: Expanded</option><option value="deck_nothing">Nothing</option><option value="deck_inverted">Inverted Things</option><option value="deck_minor">Minor Things</option><option value="deck_fewer">Fewer Things</option><option value="deck_indeterminate_fate">Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot</option><option value="deck_balance">Balance</option><option value="deck_reasonable">Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Homebrew Things</option></select>
+<select id="deckList" style="font-size:.65rem;max-width:200px" onchange="onDeckChange()"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard + Jokers</option><option value="tarot_major">Tarot: Major Arcana</option><option value="tarot_minor">Tarot: Minor Arcana</option><option value="tarot_full">Tarot: Full</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_of_many_things">Many Things (All)</option><option value="deck_of_many_things_13">Many Things (13)</option><option value="deck_many_variant">Many Things: Variant</option><option value="deck_many_balanced">Many Things: Rebalanced</option><option value="deck_nista">Many Things: Nista</option><option value="deck_of_many_fates">Many Fates</option><option value="deck_many_fates_tashas">Many Fates (Tasha's)</option><option value="deck_familiar">Familiar Things</option><option value="deck_mundane">Mundane Things</option><option value="deck_fates_alt">Many Fates (Alt)</option><option value="deck_mysterious">Mysterious Things</option><option value="deck_nourishment">Nourishment</option><option value="deck_morbid">Morbid Things</option><option value="deck_beasts">Beasts</option><option value="deck_beasts_expanded">Beasts: Expanded</option><option value="deck_nothing">Nothing</option><option value="deck_inverted">Inverted Things</option><option value="deck_minor">Minor Things</option><option value="deck_fewer">Fewer Things</option><option value="deck_indeterminate_fate">Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot</option><option value="deck_balance">Balance</option><option value="deck_reasonable">Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Homebrew Things</option></select>
 <button class="btn btn-list" id="resetDeckBtn" onclick="resetDeck()" disabled style="opacity:.4">Reset Deck</button>
 <button class="btn btn-list" id="deckStatusBtn" onclick="showDeckStatus()" disabled style="opacity:.4">Deck Status</button>
-<div style="flex:1"></div>
-<button class="btn btn-list" onclick="showCardHistory()">History</button>
 </div>
-<div class="flex justify-between" style="margin-top:3px;align-items:flex-start;gap:20px">
+<div class="flex justify-between items-center" style="margin-top:3px;gap:8px">
 <div id="chaosOptions" style="display:none">
 <div class="inline-row"><label>Character Alignment:</label><select id="chaosAlignment"><option value="Chaotic">Chaotic</option><option value="Neutral" selected>Neutral</option><option value="Lawful">Lawful</option></select></div>
 </div>
-<div style="text-align:right;margin-left:auto">
+<div class="flex items-center" style="gap:8px;margin-left:auto">
+<button class="btn btn-list" onclick="showCardHistory()">History</button>
 <label style="font-size:.82rem">See List of Decks <a href="https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/" target="_blank">Here</a></label>
-<button class="btn btn-info" style="margin-left:6px" onclick="showDeckInfo()">Deck Info</button>
+<button class="btn btn-info" onclick="showDeckInfo()">Deck Info</button>
 </div>
 </div>
 <hr class="sep">
-<div class="section-title">Results</div>
+<div class="flex items-center justify-between">
+<div class="section-title" style="margin:0">Results</div>
+<button class="btn btn-taint" onclick="resetAllDecks()" style="font-size:.62rem;margin-left:324px">Reset All Decks</button>
+</div>
 <textarea class="result-box" id="toolsBox" rows="14" readonly></textarea>
 </div>
 </div>
@@ -475,6 +477,7 @@ async function drawCard(){const dk=document.getElementById('deckList').value,lb=
 function resetDeck(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawnData=getDeckDrawn(dk);if(!drawnData.length)return;if(!confirm('Reset '+lb+'? This will clear all '+drawnData.length+' drawn cards and reshuffle the deck.'))return;localStorage.removeItem('deck_drawn_'+dk);out('toolsBox',lb+' has been reset.');updateDeckButtons();}
 async function showDeckStatus(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawnData=getDeckDrawn(dk);if(!drawnData.length){out('toolsBox','No cards drawn from '+lb+' yet.');return;}const d=await loadJSON('data/Tools/Decks/'+dk+'.json');const drawnIds=drawnData.map(e=>e.id||e);const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));let txt='=== '+lb+' Status ===\n\n--- Drawn Cards ('+drawnData.length+') ---\n';txt+=drawnData.map((c,i)=>(i+1)+'. '+(c.full||c.id||c)).join('\n\n');txt+='\n\n--- Cards in Deck ('+remaining.length+') ---\n';txt+=remaining.map((c,i)=>(i+1)+'. '+getCardId(c)).join('\n');out('toolsBox',txt);}
 function showCardHistory(){const h=getCardHistory();out('toolsBox',h.length?'--- Last '+h.length+' Draws ---\n'+h.slice().reverse().map((v,i)=>(i+1)+'. '+v).join('\n'):'No draws yet.');}
+function resetAllDecks(){if(!confirm('WARNING: This will clear draw history for ALL decks. This cannot be undone. Are you sure?'))return;const keys=Object.keys(localStorage).filter(k=>k.startsWith('deck_drawn_'));keys.forEach(k=>localStorage.removeItem(k));out('toolsBox','All deck histories cleared ('+keys.length+' deck'+(keys.length===1?'':'s')+' reset).');updateDeckButtons();}
 async function showDeckInfo(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const info=await loadJSON('data/Tools/Decks/deck-info.json');const entry=info.find(e=>e.deck===dk);const d=await loadJSON('data/Tools/Decks/'+dk+'.json');let txt='=== '+lb+' ===\n\n';if(entry){if(entry.link)txt+='Link to Deck Details Here: '+entry.link+'\n\n';if(entry.description)txt+=entry.description+'\n\n';}else{txt+='[No deck info found in deck-info.json]\n\n';}if(d.length){txt+='\n--- Deck Contents ('+d.length+' cards) ---\n';txt+=d.map(c=>{if(c.number)return c.number+'. '+c.name+' - '+c.flavor+'\n'+c.effect;return c.result||c.name||JSON.stringify(c);}).join('\n\n');}else{txt+='[Deck JSON is empty]';}out('toolsBox',txt);}
 
 // ITEMS

@@ -146,11 +146,11 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Find Distance</label><span class="tip" data-tip="Find distance between two creatures or locations diagonally or at different heights."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><label>A:</label><input type="number" id="sideA" value="30" min="1"><label>B:</label><input type="number" id="sideB" value="30" min="1"><button class="btn btn-primary" onclick="distanceCalc()">Calculate</button></div>
 </div>
-<div class="mt-xs">
+<div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Jump Calculator</label></div>
 <div class="inline-row"><label>STR:</label><input type="number" id="jumpStr" value="10" min="1" max="30"><label><input type="checkbox" id="jumpStand"> Standing</label><button class="btn btn-primary" onclick="jumpCalc()">Jump!</button></div>
 </div>
-<div class="mt-xs">
+<div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Madness:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
@@ -161,11 +161,11 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Weather:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="weatherGen()">Generate</button></div>
 </div>
-<div class="mt-xs">
+<div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Body Part:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="externalPart()">External</button><button class="btn btn-primary" onclick="internalPart()">Organ</button></div>
 </div>
-<div class="mt-xs">
+<div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Conjure CR</label><span class="tip" data-tip="For 'CR or Lower' spells or effects to determine how good of a result the DM should select."><span class="tip-icon">ⓘ</span></span></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="conjureCR()">Conjure</button></div>
 </div>
@@ -269,7 +269,58 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title">Jewelry Calculator</div>
 <div class="inline-row"><label>Type:</label><select id="jewType" onchange="jewCalc()"></select><label>Material:</label><select id="jewMaterial" onchange="jewCalc()"></select><label>Size:</label><select id="jewSize" onchange="jewCalc()"><option value="Small">Small (×0.5)</option><option value="Standard" selected>Standard (×1)</option><option value="Large">Large (×2)</option></select></div>
 <hr class="sep">
-<div id="gemInputs"></div>
+<div id="gemInputs">
+<style>
+.gem-cols{display:grid;grid-template-columns:repeat(5,max-content);gap:3px 0;align-items:start}
+.gem-col{display:flex;flex-direction:column;gap:3px;padding-right:11px}
+.gem-cell{display:flex;align-items:center;gap:4px}
+.gem-cell label{font-size:.74rem;white-space:nowrap;text-align:right;flex:1}
+.gem-cell input{width:35px;flex-shrink:0}
+</style>
+<div class="gem-cols">
+<div class="gem-col">
+<div class="gem-cell"><label>Pearl</label><input type="number" id="jewPearl" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Azurite</label><input type="number" id="jewAzu" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Lapis Lazuli</label><input type="number" id="jewLapis" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Tiger Eye</label><input type="number" id="jewTiger" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+</div>
+<div class="gem-col">
+<div class="gem-cell"><label>Citrine</label><input type="number" id="jewCitrine" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Peridot</label><input type="number" id="jewPeridot" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Rose Quartz</label><input type="number" id="jewRose" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Bloodstone</label><input type="number" id="jewBlood" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Onyx</label><input type="number" id="jewOnyx" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+</div>
+<div class="gem-col">
+<div class="gem-cell"><label>Jade</label><input type="number" id="jewJade" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Gold Pearl</label><input type="number" id="jewGold" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Moonstone</label><input type="number" id="jewMoon" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Tanzanite</label><input type="number" id="jewTanz" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Garnet</label><input type="number" id="jewGarnet" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+</div>
+<div class="gem-col">
+<div class="gem-cell"><label>Spinel</label><input type="number" id="jewSpinel" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Aquamarine</label><input type="number" id="jewAqua" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Black Pearl</label><input type="number" id="jewBlack" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Topaz</label><input type="number" id="jewTopaz" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+</div>
+<div class="gem-col">
+<div class="gem-cell"><label>Amethyst</label><input type="number" id="jewAmethyst" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Sapphire</label><input type="number" id="jewSapphire" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Ruby</label><input type="number" id="jewRuby" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Emerald</label><input type="number" id="jewEmerald" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Diamond</label><input type="number" id="jewDiamond" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+</div>
+</div>
+<hr style="border:none;border-top:1px solid #3a3750;margin:4px 0">
+<div style="display:flex;flex-wrap:wrap;gap:3px 10px">
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Eberron (Searagos)</label><input type="number" id="jewEber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Khyber (C'thaneg)</label><input type="number" id="jewKhyber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Siberys (Bameth)</label><input type="number" id="jewSiber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
+</div>
+</div>
+</div>
+</div>
 <hr class="sep">
 <div class="value-display" id="jewValueDisplay">0 gp</div>
 </div>
@@ -513,8 +564,16 @@ async function gemListInfo(){try{const r=await fetch('data/gemlist.txt');if(r.ok
 
 // JEWELRY
 let jewItemTypes=[],jewMaterials=[],jewGems=[];
-async function initJewelry(){jewItemTypes=await loadJSON('data/Jewelry/item_types.json');jewMaterials=await loadJSON('data/Jewelry/materials.json');jewGems=await loadJSON('data/Jewelry/gems.json');const tEl=document.getElementById('jewType');jewItemTypes.forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=t.name;tEl.appendChild(o);});const mEl=document.getElementById('jewMaterial');jewMaterials.forEach(m=>{const o=document.createElement('option');o.value=m.name;o.textContent=m.name;mEl.appendChild(o);});const c=document.getElementById('gemInputs');let h='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px 6px">';jewGems.forEach(g=>{h+='<div class="gem-row"><label>'+g.name+'</label><input type="number" id="'+g.id+'" value="0" min="0" max="1000" onchange="jewCalc()"></div>';});h+='</div>';c.innerHTML=h;}
-function jewCalc(){const szM={Small:0.5,Standard:1,Large:2};const gs=szM[document.getElementById('jewSize').value]||1;const tn=document.getElementById('jewType').value,mn=document.getElementById('jewMaterial').value;const to=jewItemTypes.find(t=>t.name===tn),mo=jewMaterials.find(m=>m.name===mn);let base=(to?to.value:0)*(mo?mo.multiplier:1);let gemT=0;jewGems.forEach(g=>{const q=Number(document.getElementById(g.id)?.value||0);gemT+=q*g.value*gs;});let total=base+gemT,disp='';if(total<=0)disp='0 gp';else if(total>=100){const pp=Math.floor(total/10),gpR=Math.floor(total%10),gpT=Math.floor(total);disp=pp>0?gpT+' gp ('+pp+' pp'+(gpR>0?' '+gpR+' gp':'')+')':gpT+' gp';}else if(total>=1)disp=Math.floor(total)+' gp';else if(total>=0.1)disp=Math.floor(total*10)+' sp';else disp=Math.floor(total*100)+' cp';document.getElementById('jewValueDisplay').textContent=disp;}
+async function initJewelry(){jewItemTypes=await loadJSON('data/Jewelry/item_types.json');jewMaterials=await loadJSON('data/Jewelry/materials.json');jewGems=await loadJSON('data/Jewelry/gems.json');const tEl=document.getElementById('jewType');jewItemTypes.forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=t.name;tEl.appendChild(o);});const mEl=document.getElementById('jewMaterial');jewMaterials.forEach(m=>{const o=document.createElement('option');o.value=m.name;o.textContent=m.name;mEl.appendChild(o);});}
+const jewGemData=[
+  {id:'jewPearl',value:10},{id:'jewAzu',value:12},{id:'jewLapis',value:12},{id:'jewTiger',value:14},
+  {id:'jewCitrine',value:20},{id:'jewPeridot',value:24},{id:'jewRose',value:28},{id:'jewBlood',value:33},{id:'jewOnyx',value:38},
+  {id:'jewJade',value:50},{id:'jewGold',value:54},{id:'jewMoon',value:61},{id:'jewTanz',value:70},{id:'jewGarnet',value:84},
+  {id:'jewSpinel',value:100},{id:'jewAqua',value:135},{id:'jewBlack',value:200},{id:'jewTopaz',value:250},
+  {id:'jewAmethyst',value:400},{id:'jewSapphire',value:500},{id:'jewRuby',value:720},{id:'jewEmerald',value:1250},{id:'jewDiamond',value:2000},
+  {id:'jewEber',value:800},{id:'jewKhyber',value:1200},{id:'jewSiber',value:1600}
+];
+function jewCalc(){const szM={Small:0.5,Standard:1,Large:2};const gs=szM[document.getElementById('jewSize').value]||1;const tn=document.getElementById('jewType').value,mn=document.getElementById('jewMaterial').value;const to=jewItemTypes.find(t=>t.name===tn),mo=jewMaterials.find(m=>m.name===mn);let base=(to?to.value:0)*(mo?mo.multiplier:1);let gemT=0;jewGemData.forEach(g=>{const el=document.getElementById(g.id);const q=el?Number(el.value||0):0;gemT+=q*g.value*gs;});let total=base+gemT,disp='';if(total<=0)disp='0 gp';else if(total>=100){const pp=Math.floor(total/10),gpR=Math.floor(total%10),gpT=Math.floor(total);disp=pp>0?gpT+' gp ('+pp+' pp'+(gpR>0?' '+gpR+' gp':'')+')':gpT+' gp';}else if(total>=1)disp=Math.floor(total)+' gp';else if(total>=0.1)disp=Math.floor(total*10)+' sp';else disp=Math.floor(total*100)+' cp';document.getElementById('jewValueDisplay').textContent=disp;}
 
 // CHARACTER
 const racesAll=["Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Firbolg","Genasi","Gith","Gnome","Goblin","Goliath","Half-Orc","Hobgoblin","Half-Elf","Halfling","Hexblood","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Minotaur","Orc","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Triton","Vedalken","Verdan","Warforged","Yuan-Ti","Owlin","Haregon","Autognome","Giff","Hadozee","Plasmoid","Thri-Kreen","Fairy"];
@@ -566,7 +625,18 @@ async function affixListInfo(t){const map={weapon:'weapon_affix',armor:'armor_af
 // INFO
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}
 async function loadChangelog(){try{const r=await fetch('changelog.txt');if(r.ok)out('infoBox',await r.text());else out('infoBox','');}catch(e){out('infoBox','');}}
-document.addEventListener('DOMContentLoaded',()=>{initJewelry();loadChangelog();updateDeckButtons();});
+document.addEventListener('DOMContentLoaded',()=>{
+  // Populate jewelry dropdowns with hardcoded fallbacks
+  const jewTypeData=[{name:'(Gems Only)',value:0},{name:'Amulet',value:0.4},{name:'Bracelet',value:0.8},{name:'Choker',value:1.2},{name:'Crown',value:3},{name:'Earrings',value:0.1},{name:'Ring',value:0.2}];
+  const jewMatData=[{name:'Wood',multiplier:0.1},{name:'Stone',multiplier:0.15},{name:'Copper',multiplier:1},{name:'Tin',multiplier:0.25},{name:'Iron',multiplier:0.5},{name:'Steel',multiplier:10},{name:'Silver',multiplier:5},{name:'Electrum',multiplier:25},{name:'Gold',multiplier:50},{name:'Platinum',multiplier:500},{name:'Mithril',multiplier:750},{name:'Adamantium',multiplier:1250}];
+  const tEl=document.getElementById('jewType');
+  jewTypeData.forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=t.name;tEl.appendChild(o);});
+  jewItemTypes=jewTypeData;
+  const mEl=document.getElementById('jewMaterial');
+  jewMatData.forEach(m=>{const o=document.createElement('option');o.value=m.name;o.textContent=m.name;mEl.appendChild(o);});
+  jewMaterials=jewMatData;
+  loadChangelog();updateDeckButtons();
+});
 </script>
 </body>
 </html>

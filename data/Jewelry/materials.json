@@ -1,1 +1,14 @@
-[]
+[
+  {"name":"Wood","multiplier":0.1},
+  {"name":"Stone","multiplier":0.15},
+  {"name":"Copper","multiplier":1},
+  {"name":"Tin","multiplier":0.25},
+  {"name":"Iron","multiplier":0.5},
+  {"name":"Steel","multiplier":10},
+  {"name":"Silver","multiplier":5},
+  {"name":"Electrum","multiplier":25},
+  {"name":"Gold","multiplier":50},
+  {"name":"Platinum","multiplier":500},
+  {"name":"Mithril","multiplier":750},
+  {"name":"Adamantium","multiplier":1250}
+]

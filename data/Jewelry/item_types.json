@@ -1,1 +1,9 @@
-[]
+[
+  {"name":"(Gems Only)","value":0},
+  {"name":"Amulet","value":0.4},
+  {"name":"Bracelet","value":0.8},
+  {"name":"Choker","value":1.2},
+  {"name":"Crown","value":3},
+  {"name":"Earrings","value":0.1},
+  {"name":"Ring","value":0.2}
+]

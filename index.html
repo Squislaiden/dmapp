@@ -50,7 +50,7 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-info{background:linear-gradient(180deg,#4a7aaa 0%,#2a4a6a 100%);box-shadow:0 2px 0 #1a3050,0 3px 6px rgba(0,0,0,.25);color:#d0e8ff;font-size:.72rem;border:1px solid #5a8aba}
 .btn-info:hover{color:#fff;border-color:#7aaadd;background:linear-gradient(180deg,#5a8abb 0%,#3a5a7a 100%)}
 .btn-info:active{box-shadow:0 1px 0 #1a3050;transform:translateY(1px)}
-input[type="number"],select{font-family:var(--font-mono);font-size:.68rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:2px 3px}
+input[type="number"],select{font-family:var(--font-mono);font-size:.75rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:2px 3px}
 input[type="number"]{width:36px;text-align:center}
 input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent)}
 select{padding:2px 3px;cursor:pointer}
@@ -144,7 +144,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div style="flex:1">
 <div>
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Find Distance</label><span class="tip" data-tip="Find distance between two creatures or locations diagonally or at different heights."><span class="tip-icon">ⓘ</span></span></div>
-<div class="inline-row"><label>A:</label><input type="number" id="sideA" value="30" min="1"><label>B:</label><input type="number" id="sideB" value="30" min="1"><button class="btn btn-primary" onclick="distanceCalc()">Calculate</button></div>
+<div class="inline-row"><label>A:</label><input type="number" id="sideA" value="30" min="1" style="width:45px"><label>B:</label><input type="number" id="sideB" value="30" min="1" style="width:45px"><button class="btn btn-primary" onclick="distanceCalc()">Calculate</button></div>
 </div>
 <div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Jump Calculator</label></div>
@@ -175,7 +175,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title">Draw a Random Card</div>
 <div class="flex items-center mt-xs" style="gap:4px">
 <button class="btn btn-primary" onclick="drawCard()">Draw</button>
-<select id="deckList" style="font-size:.65rem;max-width:200px" onchange="onDeckChange()"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard + Jokers</option><option value="tarot_major">Tarot: Major Arcana</option><option value="tarot_minor">Tarot: Minor Arcana</option><option value="tarot_full">Tarot: Full</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_of_many_things">Many Things (All)</option><option value="deck_of_many_things_13">Many Things (13)</option><option value="deck_many_variant">Many Things: Variant</option><option value="deck_many_balanced">Many Things: Rebalanced</option><option value="deck_nista">Many Things: Nista</option><option value="deck_of_many_fates">Many Fates</option><option value="deck_many_fates_tashas">Many Fates (Tasha's)</option><option value="deck_familiar">Familiar Things</option><option value="deck_mundane">Mundane Things</option><option value="deck_fates_alt">Many Fates (Alt)</option><option value="deck_mysterious">Mysterious Things</option><option value="deck_nourishment">Nourishment</option><option value="deck_morbid">Morbid Things</option><option value="deck_beasts">Beasts</option><option value="deck_beasts_expanded">Beasts: Expanded</option><option value="deck_nothing">Nothing</option><option value="deck_inverted">Inverted Things</option><option value="deck_minor">Minor Things</option><option value="deck_fewer">Fewer Things</option><option value="deck_indeterminate_fate">Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot</option><option value="deck_balance">Balance</option><option value="deck_reasonable">Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Homebrew Things</option></select>
+<select id="deckList" style="font-size:.65rem;max-width:200px" onchange="onDeckChange()"><option value="standard_deck">Standard Deck</option><option value="standard_jokers">Standard Deck with Jokers</option><option value="tarot_major">Tarot Deck: Major Arcana</option><option value="tarot_minor">Tarot Deck: Minor Arcana</option><option value="tarot_full">Tarot Deck: Full</option><option value="cards_of_chaos">Cards of Chaos</option><option value="deck_of_many_things">Deck of Many Things (All)</option><option value="deck_of_many_things_13">Deck of Many Things (13)</option><option value="deck_many_variant">Deck of Many Things: Variant</option><option value="deck_many_balanced">Deck of Many Things: Rebalanced</option><option value="deck_nista">Deck of Many Things: Nista</option><option value="deck_of_many_fates">Deck of Many Fates</option><option value="deck_many_fates_tashas">Deck of Many Fates (Tasha's)</option><option value="deck_fates_alt">Deck of Many Fates (Alt)</option><option value="deck_familiar">Deck of Familiar Things</option><option value="deck_mundane">Deck of Mundane Things</option><option value="deck_mysterious">Deck of Mysterious Things</option><option value="deck_nourishment">Deck of Nourishment</option><option value="deck_morbid">Deck of Morbid Things</option><option value="deck_beasts">Deck of Beasts</option><option value="deck_beasts_expanded">Deck of Beasts: Expanded</option><option value="deck_nothing">Deck of Nothing</option><option value="deck_inverted">Deck of Inverted Things</option><option value="deck_minor">Deck of Minor Things</option><option value="deck_fewer">Deck of Fewer Things</option><option value="deck_indeterminate_fate">Deck of Indeterminable Fate</option><option value="sardons_tarot">Sardon's Tarot Card Curse</option><option value="deck_balance">Deck of Balance</option><option value="deck_reasonable">Deck of Reasonable Things</option><option value="tarot_of_fates">Tarot of Fates</option><option value="deck_homebrew">Deck of Homebrew Things</option></select>
 <button class="btn btn-list" id="resetDeckBtn" onclick="resetDeck()" disabled style="opacity:.4">Reset Deck</button>
 <button class="btn btn-list" id="deckStatusBtn" onclick="showDeckStatus()" disabled style="opacity:.4">Deck Status</button>
 </div>
@@ -279,45 +279,44 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </style>
 <div class="gem-cols">
 <div class="gem-col">
-<div class="gem-cell"><label>Pearl</label><input type="number" id="jewPearl" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Azurite</label><input type="number" id="jewAzu" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Lapis Lazuli</label><input type="number" id="jewLapis" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Tiger Eye</label><input type="number" id="jewTiger" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Pearl</label><input type="number" id="jewPearl" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Azurite</label><input type="number" id="jewAzu" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Lapis Lazuli</label><input type="number" id="jewLapis" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Tiger Eye</label><input type="number" id="jewTiger" value="0" min="0" max="100" onchange="jewCalc()"></div>
 </div>
 <div class="gem-col">
-<div class="gem-cell"><label>Citrine</label><input type="number" id="jewCitrine" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Peridot</label><input type="number" id="jewPeridot" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Rose Quartz</label><input type="number" id="jewRose" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Bloodstone</label><input type="number" id="jewBlood" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Onyx</label><input type="number" id="jewOnyx" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Citrine</label><input type="number" id="jewCitrine" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Peridot</label><input type="number" id="jewPeridot" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Rose Quartz</label><input type="number" id="jewRose" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Bloodstone</label><input type="number" id="jewBlood" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Onyx</label><input type="number" id="jewOnyx" value="0" min="0" max="100" onchange="jewCalc()"></div>
 </div>
 <div class="gem-col">
-<div class="gem-cell"><label>Jade</label><input type="number" id="jewJade" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Gold Pearl</label><input type="number" id="jewGold" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Moonstone</label><input type="number" id="jewMoon" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Tanzanite</label><input type="number" id="jewTanz" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Garnet</label><input type="number" id="jewGarnet" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Jade</label><input type="number" id="jewJade" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Gold Pearl</label><input type="number" id="jewGold" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Moonstone</label><input type="number" id="jewMoon" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Tanzanite</label><input type="number" id="jewTanz" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Garnet</label><input type="number" id="jewGarnet" value="0" min="0" max="100" onchange="jewCalc()"></div>
 </div>
 <div class="gem-col">
-<div class="gem-cell"><label>Spinel</label><input type="number" id="jewSpinel" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Aquamarine</label><input type="number" id="jewAqua" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Black Pearl</label><input type="number" id="jewBlack" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Topaz</label><input type="number" id="jewTopaz" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Spinel</label><input type="number" id="jewSpinel" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Aquamarine</label><input type="number" id="jewAqua" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Black Pearl</label><input type="number" id="jewBlack" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Topaz</label><input type="number" id="jewTopaz" value="0" min="0" max="100" onchange="jewCalc()"></div>
 </div>
 <div class="gem-col">
-<div class="gem-cell"><label>Amethyst</label><input type="number" id="jewAmethyst" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Sapphire</label><input type="number" id="jewSapphire" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Ruby</label><input type="number" id="jewRuby" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Emerald</label><input type="number" id="jewEmerald" value="0" min="0" max="1000" onchange="jewCalc()"></div>
-<div class="gem-cell"><label>Diamond</label><input type="number" id="jewDiamond" value="0" min="0" max="1000" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Amethyst</label><input type="number" id="jewAmethyst" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Sapphire</label><input type="number" id="jewSapphire" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Ruby</label><input type="number" id="jewRuby" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Emerald</label><input type="number" id="jewEmerald" value="0" min="0" max="100" onchange="jewCalc()"></div>
+<div class="gem-cell"><label>Diamond</label><input type="number" id="jewDiamond" value="0" min="0" max="100" onchange="jewCalc()"></div>
 </div>
 </div>
 <hr style="border:none;border-top:1px solid #3a3750;margin:4px 0">
 <div style="display:flex;flex-wrap:wrap;gap:3px 10px">
-<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Eberron (Searagos)</label><input type="number" id="jewEber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
-<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Khyber (C'thaneg)</label><input type="number" id="jewKhyber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
-<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Siberys (Bameth)</label><input type="number" id="jewSiber" value="0" min="0" max="1000" style="width:35px" onchange="jewCalc()"></div>
-</div>
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Eberron (Searagos)</label><input type="number" id="jewEber" value="0" min="0" max="100" style="width:35px" onchange="jewCalc()"></div>
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Khyber (C'thaneg)</label><input type="number" id="jewKhyber" value="0" min="0" max="100" style="width:35px" onchange="jewCalc()"></div>
+<div class="gem-cell"><label style="font-size:.8rem;white-space:nowrap">Siberys (Bameth)</label><input type="number" id="jewSiber" value="0" min="0" max="100" style="width:35px" onchange="jewCalc()"></div>
 </div>
 </div>
 </div>
@@ -341,9 +340,9 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="split-divider"></div>
 <div style="flex:1;padding:6px">
 <div class="section-title" style="font-size:.88rem">Generate Random Names</div>
-<div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:28px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:28px"></div>
+<div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:38px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:38px"></div>
 <div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
-<div class="inline-row"><label>Quantity:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:28px"></div>
+<div class="inline-row"><label>Quantity:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"></div>
 <div class="mt-xs"><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
 </div>
 </div>
@@ -361,7 +360,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <button class="btn btn-accent" style="padding:10px 10px;line-height:1.3;font-size:.72rem" onclick="fullEnemyBtn()">Generate Completely<br>Random Enemy!</button>
 </div>
 <div style="flex:1">
-<div class="inline-row"><label>CR:</label><input type="number" id="numCR" value="1" min="1" max="50"><label><input type="checkbox" id="hpCheck"> ×2 HP</label></div>
+<div class="inline-row"><label>CR:</label><input type="number" id="numCR" value="1" min="1" max="50" style="width:40px"><label><input type="checkbox" id="hpCheck"> ×2 HP</label></div>
 <div class="inline-row"><label>Creature Type:</label><select id="dropType" style="font-size:.68rem"><option value="Random">[Random]</option><option>Aberration</option><option>Beast</option><option>Celestial</option><option>Construct</option><option>Dragon</option><option>Elemental</option><option>Fey</option><option>Fiend</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Plant</option><option>Ooze</option><option>Undead</option></select></div>
 <div class="inline-row"><label><input type="checkbox" id="bossCheck"> Boss</label><label><input type="checkbox" id="lairCheck"> Lair</label><label><input type="checkbox" id="enemyModCheck"> Modifier</label></div>
 </div>
@@ -465,7 +464,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div><div style="font-size:.74rem;color:var(--text-dim)">Chaotic</div><div class="btn-grid"><button class="btn btn-purp" onclick="chaoticWeaponBtn()">Weapon</button><button class="btn btn-purp" onclick="chaoticArmorBtn()">Armor</button><button class="btn btn-purp" onclick="chaoticAccessoryBtn()">Accessory</button></div></div>
 </div>
 <hr class="sep">
-<div class="inline-row"><label>Affixes:</label><input type="number" id="affixNum" value="1" min="1" max="3" style="width:28px"><label>Glyphs:</label><input type="number" id="glyphNum" value="1" min="1" max="100"><button class="btn btn-purp" onclick="classAffixBtn()">Expertise Glyph</button><button class="btn btn-accent" onclick="genAffixItem()">Random Item</button><button class="btn btn-primary" onclick="genGlyphsBtn()">Generate Glyphs</button></div>
+<div class="inline-row"><label>Affixes:</label><input type="number" id="affixNum" value="1" min="1" max="3" style="width:40px"><label>Glyphs:</label><input type="number" id="glyphNum" value="1" min="1" max="100" style="width:40px"><button class="btn btn-purp" onclick="classAffixBtn()">Expertise Glyph</button><button class="btn btn-accent" onclick="genAffixItem()">Random Item</button><button class="btn btn-primary" onclick="genGlyphsBtn()">Generate Glyphs</button></div>
 <hr class="sep">
 <div style="font-size:.74rem;color:var(--text-dim)">Class Selection <span class="tip" data-tip="Select classes before Class Affix."><span class="tip-icon">ⓘ</span></span></div>
 <div class="check-grid"><label><input type="checkbox" id="Artificer"> Artificer</label><label><input type="checkbox" id="Paladin"> Paladin</label><label><input type="checkbox" id="Barbarian"> Barbarian</label><label><input type="checkbox" id="Ranger"> Ranger</label><label><input type="checkbox" id="Bard"> Bard</label><label><input type="checkbox" id="Rogue"> Rogue</label><label><input type="checkbox" id="Cleric"> Cleric</label><label><input type="checkbox" id="Sorcerer"> Sorcerer</label><label><input type="checkbox" id="Druid"> Druid</label><label><input type="checkbox" id="Warlock"> Warlock</label><label><input type="checkbox" id="Fighter"> Fighter</label><label><input type="checkbox" id="Wizard"> Wizard</label><label><input type="checkbox" id="Monk"> Monk</label></div>

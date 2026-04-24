@@ -267,7 +267,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="jewelryTab" class="tab-content">
 <div class="section">
 <div class="section-title">Jewelry Calculator</div>
-<div class="inline-row"><label>Type:</label><select id="jewType" onchange="jewCalc()"></select><label>Material:</label><select id="jewMaterial" onchange="jewCalc()"></select><label>Size:</label><select id="jewSize" onchange="jewCalc()"><option value="Small">Small (×0.5)</option><option value="Standard" selected>Standard (×1)</option><option value="Large">Large (×2)</option></select></div>
+<div class="inline-row"><label>Item Type:</label><select id="jewType" onchange="jewCalc()"></select><label>Material:</label><select id="jewMaterial" onchange="jewCalc()"></select><label>Gem Size:</label><select id="jewSize" onchange="jewCalc()"><option value="Small">Small (×0.5)</option><option value="Standard" selected>Standard (×1)</option><option value="Large">Large (×2)</option></select></div>
 <hr class="sep">
 <div id="gemInputs">
 <style>
@@ -321,7 +321,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 </div>
 <hr class="sep">
-<div class="value-display" id="jewValueDisplay">0 gp</div>
+<div class="value-display" id="jewValueDisplay">0 gp (Value: 0)</div>
 </div>
 </div>
 
@@ -572,7 +572,25 @@ const jewGemData=[
   {id:'jewAmethyst',value:400},{id:'jewSapphire',value:500},{id:'jewRuby',value:720},{id:'jewEmerald',value:1250},{id:'jewDiamond',value:2000},
   {id:'jewEber',value:800},{id:'jewKhyber',value:1200},{id:'jewSiber',value:1600}
 ];
-function jewCalc(){const szM={Small:0.5,Standard:1,Large:2};const gs=szM[document.getElementById('jewSize').value]||1;const tn=document.getElementById('jewType').value,mn=document.getElementById('jewMaterial').value;const to=jewItemTypes.find(t=>t.name===tn),mo=jewMaterials.find(m=>m.name===mn);let base=(to?to.value:0)*(mo?mo.multiplier:1);let gemT=0;jewGemData.forEach(g=>{const el=document.getElementById(g.id);const q=el?Number(el.value||0):0;gemT+=q*g.value*gs;});let total=base+gemT,disp='';if(total<=0)disp='0 gp';else if(total>=100){const pp=Math.floor(total/10),gpR=Math.floor(total%10),gpT=Math.floor(total);disp=pp>0?gpT+' gp ('+pp+' pp'+(gpR>0?' '+gpR+' gp':'')+')':gpT+' gp';}else if(total>=1)disp=Math.floor(total)+' gp';else if(total>=0.1)disp=Math.floor(total*10)+' sp';else disp=Math.floor(total*100)+' cp';document.getElementById('jewValueDisplay').textContent=disp;}
+function jewCalc(){
+  const szM={Small:0.5,Standard:1,Large:2};
+  const gs=szM[document.getElementById('jewSize').value]||1;
+  const tn=document.getElementById('jewType').value,mn=document.getElementById('jewMaterial').value;
+  const to=jewItemTypes.find(t=>t.name===tn),mo=jewMaterials.find(m=>m.name===mn);
+  // Formula: material_multiplier * item_type_value + sum of gem values. All values in CP.
+  const itemVal=(to?to.value:0);
+  const matMul=(mo?mo.multiplier:1);
+  const base=matMul*itemVal;
+  let gemTotal=0;
+  jewGemData.forEach(g=>{const el=document.getElementById(g.id);const q=el?Number(el.value||0):0;gemTotal+=q*g.value*gs;});
+  const totalCP=Math.floor(base+gemTotal);
+  let disp='';
+  if(totalCP<=0){disp='0 gp (Value: 0)';}
+  else if(totalCP<10){disp=totalCP+' cp (Value: '+totalCP+')';}
+  else if(totalCP<100){const sp=Math.floor(totalCP/10);const cp=totalCP%10;disp=sp+(cp>0?' gp '+cp+' cp':' sp')+' (Value: '+totalCP+')';}
+  else{const gp=Math.floor(totalCP/100);const rem=Math.floor((totalCP%100)/10);disp=gp+(rem>0?' gp '+rem+' sp':' gp')+' (Value: '+totalCP+')';}
+  document.getElementById('jewValueDisplay').textContent=disp;
+}
 
 // CHARACTER
 const racesAll=["Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Firbolg","Genasi","Gith","Gnome","Goblin","Goliath","Half-Orc","Hobgoblin","Half-Elf","Halfling","Hexblood","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Minotaur","Orc","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Triton","Vedalken","Verdan","Warforged","Yuan-Ti","Owlin","Haregon","Autognome","Giff","Hadozee","Plasmoid","Thri-Kreen","Fairy"];
@@ -625,15 +643,22 @@ async function affixListInfo(t){const map={weapon:'weapon_affix',armor:'armor_af
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}
 async function loadChangelog(){try{const r=await fetch('changelog.txt');if(r.ok)out('infoBox',await r.text());else out('infoBox','');}catch(e){out('infoBox','');}}
 document.addEventListener('DOMContentLoaded',()=>{
-  // Populate jewelry dropdowns with hardcoded fallbacks
-  const jewTypeData=[{name:'(Gems Only)',value:0},{name:'Amulet',value:0.4},{name:'Bracelet',value:0.8},{name:'Choker',value:1.2},{name:'Crown',value:3},{name:'Earrings',value:0.1},{name:'Ring',value:0.2}];
-  const jewMatData=[{name:'Wood',multiplier:0.1},{name:'Stone',multiplier:0.15},{name:'Copper',multiplier:1},{name:'Tin',multiplier:0.25},{name:'Iron',multiplier:0.5},{name:'Steel',multiplier:10},{name:'Silver',multiplier:5},{name:'Electrum',multiplier:25},{name:'Gold',multiplier:50},{name:'Platinum',multiplier:500},{name:'Mithril',multiplier:750},{name:'Adamantium',multiplier:1250}];
-  const tEl=document.getElementById('jewType');
-  jewTypeData.forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=t.name;tEl.appendChild(o);});
-  jewItemTypes=jewTypeData;
-  const mEl=document.getElementById('jewMaterial');
-  jewMatData.forEach(m=>{const o=document.createElement('option');o.value=m.name;o.textContent=m.name;mEl.appendChild(o);});
-  jewMaterials=jewMatData;
+  const jewTypeFallback=[{name:'(Gems Only)',value:0},{name:'Amulet',value:4000},{name:'Bracelet',value:8000},{name:'Choker',value:12000},{name:'Crown',value:30000},{name:'Earrings',value:1000},{name:'Ring',value:2000}];
+  const jewMatFallback=[{name:'Wood',multiplier:0.1},{name:'Stone',multiplier:0.15},{name:'Copper',multiplier:1},{name:'Tin',multiplier:0.25},{name:'Iron',multiplier:0.5},{name:'Steel',multiplier:10},{name:'Silver',multiplier:5},{name:'Electrum',multiplier:25},{name:'Gold',multiplier:50},{name:'Platinum',multiplier:500},{name:'Mithril',multiplier:750},{name:'Adamantium',multiplier:1250}];
+  async function initJewDropdowns(){
+    const tData=await loadJSON('data/Jewelry/item_types.json');
+    const mData=await loadJSON('data/Jewelry/materials.json');
+    jewItemTypes=tData.length?tData:jewTypeFallback;
+    jewMaterials=mData.length?mData:jewMatFallback;
+    const tEl=document.getElementById('jewType');
+    jewItemTypes.forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=t.name;tEl.appendChild(o);});
+    const mEl=document.getElementById('jewMaterial');
+    jewMaterials.forEach(m=>{const o=document.createElement('option');o.value=m.name;o.textContent=m.name;mEl.appendChild(o);});
+    // Load gem values from JSON if available
+    const gData=await loadJSON('data/Jewelry/gems.json');
+    if(gData.length){gData.forEach(g=>{const match=jewGemData.find(jg=>jg.id===g.id);if(match&&g.value!==undefined)match.value=g.value;});}
+  }
+  initJewDropdowns();
   loadChangelog();updateDeckButtons();
 });
 </script>

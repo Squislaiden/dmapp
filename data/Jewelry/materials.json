@@ -10,5 +10,6 @@
   {"name":"Gold","multiplier":50},
   {"name":"Platinum","multiplier":500},
   {"name":"Mithril","multiplier":750},
-  {"name":"Adamantium","multiplier":1250}
+  {"name":"Adamantium","multiplier":1250},
+  {"name":"God-Wood","multiplier":12500}
 ]

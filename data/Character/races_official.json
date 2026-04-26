@@ -1,1 +1,16 @@
-[]
+[
+  {"result":"Dragonborn","weight":4},
+  {"result":"Hill Dwarf","weight":9},
+  {"result":"Mountain Dwarf","weight":8},
+  {"result":"Dark Elf","weight":4},
+  {"result":"High Elf","weight":9},
+  {"result":"Wood Elf","weight":8},
+  {"result":"Forest Gnome","weight":4},
+  {"result":"Rock Gnome","weight":6},
+  {"result":"Half-Elf","weight":4},
+  {"result":"Half-Orc","weight":4},
+  {"result":"Lightfoot Halfling","weight":8},
+  {"result":"Stout Halfling","weight":8},
+  {"result":"Human","weight":20},
+  {"result":"Tiefling","weight":4}
+]

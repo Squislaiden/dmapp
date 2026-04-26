@@ -1,1 +1,17 @@
-[]
+[
+  {"result":"Acolyte"},{"result":"Anthropologist"},{"result":"Archaeologist"},
+  {"result":"Astral Drifter"},{"result":"Athlete"},{"result":"Celebrity Scion"},
+  {"result":"Charlatan"},{"result":"City Watch"},{"result":"Clan Crafter"},
+  {"result":"Cloistered Scholar"},{"result":"Courtier"},{"result":"Criminal"},
+  {"result":"Entertainer"},{"result":"Faction Agent"},{"result":"Failed Merchant"},
+  {"result":"Far Traveler"},{"result":"Feylost"},{"result":"Fisher"},
+  {"result":"Folk Hero"},{"result":"Gambler"},{"result":"Guild Artisan"},
+  {"result":"Haunted One"},{"result":"Hermit"},{"result":"House Agent"},
+  {"result":"Inheritor"},{"result":"Investigator"},{"result":"Knight of the Order"},
+  {"result":"Lorehold Student"},{"result":"Marine"},{"result":"Mercenary Veteran"},
+  {"result":"Noble"},{"result":"Outlander"},{"result":"Prismari Student"},
+  {"result":"Quandrix Student"},{"result":"Sage"},{"result":"Sailor"},
+  {"result":"Shipwright"},{"result":"Silverquill Student"},{"result":"Smuggler"},
+  {"result":"Soldier"},{"result":"Tribe Member"},{"result":"Urban Bounty Hunter"},
+  {"result":"Urchin"},{"result":"Wildspacer"},{"result":"Witherbloom Student"}
+]

@@ -1,1 +1,15 @@
-[]
+[
+  {"result":"Artificer"},
+  {"result":"Barbarian"},
+  {"result":"Bard"},
+  {"result":"Cleric"},
+  {"result":"Druid"},
+  {"result":"Fighter"},
+  {"result":"Monk"},
+  {"result":"Paladin"},
+  {"result":"Ranger"},
+  {"result":"Rogue"},
+  {"result":"Sorcerer"},
+  {"result":"Warlock"},
+  {"result":"Wizard"}
+]

@@ -1,1 +1,11 @@
-[]
+[
+  {"result":"Chaotic Good"},
+  {"result":"Chaotic Neutral"},
+  {"result":"Chaotic Evil"},
+  {"result":"Neutral Good"},
+  {"result":"True Neutral"},
+  {"result":"Neutral Evil"},
+  {"result":"Lawful Good"},
+  {"result":"Lawful Neutral"},
+  {"result":"Lawful Evil"}
+]

@@ -1,1 +1,482 @@
-[]
+[
+  {
+    "name": "Alchemist",
+    "class": "Artificer"
+  },
+  {
+    "name": "Armorer",
+    "class": "Artificer"
+  },
+  {
+    "name": "Artillerist",
+    "class": "Artificer"
+  },
+  {
+    "name": "Battle Smith",
+    "class": "Artificer"
+  },
+  {
+    "name": "Ancestral Guardian",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Battlerager",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Beast",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Berserker",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Giant",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Storm Herald",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Totem Warrior",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Wild Magic",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Zealot",
+    "class": "Barbarian"
+  },
+  {
+    "name": "Creation",
+    "class": "Bard"
+  },
+  {
+    "name": "Eloquence",
+    "class": "Bard"
+  },
+  {
+    "name": "Glamour",
+    "class": "Bard"
+  },
+  {
+    "name": "Lore",
+    "class": "Bard"
+  },
+  {
+    "name": "Spirits",
+    "class": "Bard"
+  },
+  {
+    "name": "Swords",
+    "class": "Bard"
+  },
+  {
+    "name": "Valor",
+    "class": "Bard"
+  },
+  {
+    "name": "Whispers",
+    "class": "Bard"
+  },
+  {
+    "name": "Arcana",
+    "class": "Cleric"
+  },
+  {
+    "name": "Death",
+    "class": "Cleric"
+  },
+  {
+    "name": "Forge",
+    "class": "Cleric"
+  },
+  {
+    "name": "Grave",
+    "class": "Cleric"
+  },
+  {
+    "name": "Knowledge",
+    "class": "Cleric"
+  },
+  {
+    "name": "Life",
+    "class": "Cleric"
+  },
+  {
+    "name": "Light",
+    "class": "Cleric"
+  },
+  {
+    "name": "Nature",
+    "class": "Cleric"
+  },
+  {
+    "name": "Order",
+    "class": "Cleric"
+  },
+  {
+    "name": "Peace",
+    "class": "Cleric"
+  },
+  {
+    "name": "Tempest",
+    "class": "Cleric"
+  },
+  {
+    "name": "Trickery",
+    "class": "Cleric"
+  },
+  {
+    "name": "Twilight",
+    "class": "Cleric"
+  },
+  {
+    "name": "War",
+    "class": "Cleric"
+  },
+  {
+    "name": "Dreams",
+    "class": "Druid"
+  },
+  {
+    "name": "Land",
+    "class": "Druid"
+  },
+  {
+    "name": "Moon",
+    "class": "Druid"
+  },
+  {
+    "name": "Shepherd",
+    "class": "Druid"
+  },
+  {
+    "name": "Spores",
+    "class": "Druid"
+  },
+  {
+    "name": "Stars",
+    "class": "Druid"
+  },
+  {
+    "name": "Wildfire",
+    "class": "Druid"
+  },
+  {
+     "name": "<a href=https://homebrewery.naturalcrit.com/share/OT1ITgV2fhuF>of the Arcana,</a>"
+     "class": "Druid"
+  },
+  {
+    "name": "Arcane Archer",
+    "class": "Fighter"
+  },
+  {
+    "name": "Banneret",
+    "class": "Fighter"
+  },
+  {
+    "name": "Battle Master",
+    "class": "Fighter"
+  },
+  {
+    "name": "Cavalier",
+    "class": "Fighter"
+  },
+  {
+    "name": "Champion",
+    "class": "Fighter"
+  },
+  {
+    "name": "Echo Knight",
+    "class": "Fighter"
+  },
+  {
+    "name": "Eldritch Knight",
+    "class": "Fighter"
+  },
+  {
+    "name": "Psi Warrior",
+    "class": "Fighter"
+  },
+  {
+    "name": "Rune Knight",
+    "class": "Fighter"
+  },
+  {
+    "name": "Samurai",
+    "class": "Fighter"
+  },
+  {
+    "name": "Ascendant Dragon",
+    "class": "Monk"
+  },
+  {
+    "name": "Astral Self",
+    "class": "Monk"
+  },
+  {
+    "name": "Drunken Master",
+    "class": "Monk"
+  },
+  {
+    "name": "Four Elements",
+    "class": "Monk"
+  },
+  {
+    "name": "Kensei",
+    "class": "Monk"
+  },
+  {
+    "name": "Long Death",
+    "class": "Monk"
+  },
+  {
+    "name": "Mercy",
+    "class": "Monk"
+  },
+  {
+    "name": "Open Hand",
+    "class": "Monk"
+  },
+  {
+    "name": "Shadow",
+    "class": "Monk"
+  },
+  {
+    "name": "Sun Soul",
+    "class": "Monk"
+  },
+  {
+    "name": "Ancients",
+    "class": "Paladin"
+  },
+  {
+    "name": "Conquest",
+    "class": "Paladin"
+  },
+  {
+    "name": "Crown",
+    "class": "Paladin"
+  },
+  {
+    "name": "Devotion",
+    "class": "Paladin"
+  },
+  {
+    "name": "Glory",
+    "class": "Paladin"
+  },
+  {
+    "name": "Oathbreaker",
+    "class": "Paladin"
+  },
+  {
+    "name": "Redemption",
+    "class": "Paladin"
+  },
+  {
+    "name": "Vengeance",
+    "class": "Paladin"
+  },
+  {
+    "name": "Watchers",
+    "class": "Paladin"
+  },
+  {
+    "name": "Beast Master",
+    "class": "Ranger"
+  },
+  {
+    "name": "Drakewarden",
+    "class": "Ranger"
+  },
+  {
+    "name": "Fey Wanderer",
+    "class": "Ranger"
+  },
+  {
+    "name": "Gloom Stalker",
+    "class": "Ranger"
+  },
+  {
+    "name": "Horizon Walker",
+    "class": "Ranger"
+  },
+  {
+    "name": "Hunter",
+    "class": "Ranger"
+  },
+  {
+    "name": "Monster Slayer",
+    "class": "Ranger"
+  },
+  {
+    "name": "Swarmkeeper",
+    "class": "Ranger"
+  },
+  {
+    "name": "Arcane Trickster",
+    "class": "Rogue"
+  },
+  {
+    "name": "Assassin",
+    "class": "Rogue"
+  },
+  {
+    "name": "Inquisitive",
+    "class": "Rogue"
+  },
+  {
+    "name": "Mastermind",
+    "class": "Rogue"
+  },
+  {
+    "name": "Phantom",
+    "class": "Rogue"
+  },
+  {
+    "name": "Scout",
+    "class": "Rogue"
+  },
+  {
+    "name": "Soulknife",
+    "class": "Rogue"
+  },
+  {
+    "name": "Swashbuckler",
+    "class": "Rogue"
+  },
+  {
+    "name": "Thief",
+    "class": "Rogue"
+  },
+  {
+    "name": "Aberrant Mind",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Clockwork Soul",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Draconic Bloodline",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Divine Soul",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Lunar",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Shadow Magic",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Storm Sorcery",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Wild Magic",
+    "class": "Sorcerer"
+  },
+  {
+    "name": "Archfey",
+    "class": "Warlock"
+  },
+  {
+    "name": "Celestial",
+    "class": "Warlock"
+  },
+  {
+    "name": "Fathomless",
+    "class": "Warlock"
+  },
+  {
+    "name": "Fiend",
+    "class": "Warlock"
+  },
+  {
+    "name": "Genie",
+    "class": "Warlock"
+  },
+  {
+    "name": "Great Old One",
+    "class": "Warlock"
+  },
+  {
+    "name": "Hexblade",
+    "class": "Warlock"
+  },
+  {
+    "name": "Undead",
+    "class": "Warlock"
+  },
+  {
+    "name": "Undying",
+    "class": "Warlock"
+  },
+  {
+    "name": "Abjuration",
+    "class": "Wizard"
+  },
+  {
+    "name": "Bladesinging",
+    "class": "Wizard"
+  },
+  {
+    "name": "Chronurgy",
+    "class": "Wizard"
+  },
+  {
+    "name": "Conjuration",
+    "class": "Wizard"
+  },
+  {
+    "name": "Divination",
+    "class": "Wizard"
+  },
+  {
+    "name": "Enchantment",
+    "class": "Wizard"
+  },
+  {
+    "name": "Evocation",
+    "class": "Wizard"
+  },
+  {
+    "name": "Graviturgy",
+    "class": "Wizard"
+  },
+  {
+    "name": "Illusion",
+    "class": "Wizard"
+  },
+  {
+    "name": "Necromancy",
+    "class": "Wizard"
+  },
+  {
+    "name": "Order of Scribes",
+    "class": "Wizard"
+  },
+  {
+    "name": "Transmutation",
+    "class": "Wizard"
+  },
+  {
+    "name": "War Magic",
+    "class": "Wizard"
+  },
+  {
+    "name": "<a href=https://homebrewery.naturalcrit.com/share/S0uMIMZKKZBZ>Spatial</a>",
+    "class": "Wizard"
+  }
+]

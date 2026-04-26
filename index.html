@@ -335,7 +335,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
 <div class="mt-xs"><button class="btn btn-list" onclick="charInfoBtn()">All Character Information</button></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button></div>
+<div class="inline-row" style="margin-top:20px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
 </div>
 <div class="split-divider"></div>
 <div style="flex:1;padding:6px">
@@ -593,18 +594,58 @@ function jewCalc(){
 }
 
 // CHARACTER
-const racesAll=["Aarakocra","Aasimar","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Firbolg","Genasi","Gith","Gnome","Goblin","Goliath","Half-Orc","Hobgoblin","Half-Elf","Halfling","Hexblood","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Minotaur","Orc","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Tiefling","Triton","Vedalken","Verdan","Warforged","Yuan-Ti","Owlin","Haregon","Autognome","Giff","Hadozee","Plasmoid","Thri-Kreen","Fairy"];
-const classes5e=[{n:"Barbarian",s:["Ancestral Guardian","Battlerager","Beast","Berserker","Storm Herald","Totem Warrior","Wild Magic","Zealot"]},{n:"Bard",s:["Creation","Eloquence","Glamour","Lore","Spirits","Swords","Valor","Whispers"]},{n:"Cleric",s:["Arcana","Death","Forge","Grave","Knowledge","Life","Light","Nature","Order","Peace","Tempest","Trickery","Twilight","War"]},{n:"Druid",s:["Dreams","Land","Moon","Shepherd","Spores","Stars","Wildfire"]},{n:"Fighter",s:["Arcane Archer","Battle Master","Cavalier","Champion","Echo Knight","Eldritch Knight","Psi Warrior","Rune Knight","Samurai"]},{n:"Monk",s:["Astral Self","Drunken Master","Four Elements","Kensei","Long Death","Mercy","Open Hand","Shadow","Sun Soul"]},{n:"Paladin",s:["Ancients","Conquest","Crown","Devotion","Glory","Oathbreaker","Redemption","Vengeance","Watchers"]},{n:"Ranger",s:["Beast Master","Drakewarden","Fey Wanderer","Gloom Stalker","Horizon Walker","Hunter","Monster Slayer","Swarmkeeper"]},{n:"Rogue",s:["Arcane Trickster","Assassin","Inquisitive","Mastermind","Phantom","Scout","Soulknife","Swashbuckler","Thief"]},{n:"Sorcerer",s:["Aberrant Mind","Clockwork Soul","Draconic Bloodline","Divine Soul","Shadow Magic","Storm Sorcery","Wild Magic"]},{n:"Warlock",s:["Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undead","Undying"]},{n:"Wizard",s:["Abjuration","Bladesinging","Chronurgy","Conjuration","Divination","Enchantment","Evocation","Graviturgy","Illusion","Necromancy","Order of Scribes","Transmutation","War Magic"]},{n:"Artificer",s:["Alchemist","Armorer","Artillerist","Battle Smith"]}];
-const backgrounds=["Acolyte","Anthropologist","Archaeologist","Athlete","Celebrity Scion","Charlatan","City Watch","Clan Crafter","Cloistered Scholar","Courtier","Criminal","Entertainer","Astral Drifter","Faction Agent","Failed Merchant","Far Traveler","Feylost","Fisher","Folk Hero","Gambler","Wildspacer","Guild Artisan","Haunted One","Hermit","House Agent","Inheritor","Investigator","Knight of the Order","Marine","Mercenary Veteran","Noble","Outlander","Sage","Sailor","Shipwright","Smuggler","Soldier","Urban Bounty Hunter","Urchin","Tribe Member","Witherbloom Student","Silverquill Student","Quandrix Student","Prismari Student","Lorehold Student"];
-const aligns=["Chaotic Good","Chaotic Neutral","Chaotic Evil","Neutral Good","True Neutral","Neutral Evil","Lawful Good","Lawful Neutral","Lawful Evil"];
+// Fallback data
+const racesAllFallback=["Aarakocra","Aasimar","Autognome","Bugbear","Centaur","Changeling","Dhampir","Dragonborn","Dwarf","Elf","Fairy","Firbolg","Genasi","Giff","Gith","Gnome","Goblin","Goliath","Hadozee","Half-Elf","Half-Orc","Halfling","Haregon","Hexblood","Hobgoblin","Human","Kalashtar","Kenku","Kobold","Leonin","Lizardfolk","Loxodon","Minotaur","Orc","Owlin","Plasmoid","Reborn","Satyr","Shifter","Simic Hybrid","Tabaxi","Thri-Kreen","Tiefling","Triton","Vedalken","Verdan","Warforged","Yuan-Ti"];
+const classes5eFallback=[{n:"Artificer",s:["Alchemist","Armorer","Artillerist","Battle Smith"]},{n:"Barbarian",s:["Ancestral Guardian","Battlerager","Beast","Berserker","Storm Herald","Totem Warrior","Wild Magic","Zealot"]},{n:"Bard",s:["Creation","Eloquence","Glamour","Lore","Spirits","Swords","Valor","Whispers"]},{n:"Cleric",s:["Arcana","Death","Forge","Grave","Knowledge","Life","Light","Nature","Order","Peace","Tempest","Trickery","Twilight","War"]},{n:"Druid",s:["Dreams","Land","Moon","Shepherd","Spores","Stars","Wildfire"]},{n:"Fighter",s:["Arcane Archer","Battle Master","Cavalier","Champion","Echo Knight","Eldritch Knight","Psi Warrior","Rune Knight","Samurai"]},{n:"Monk",s:["Astral Self","Drunken Master","Four Elements","Kensei","Long Death","Mercy","Open Hand","Shadow","Sun Soul"]},{n:"Paladin",s:["Ancients","Conquest","Crown","Devotion","Glory","Oathbreaker","Redemption","Vengeance","Watchers"]},{n:"Ranger",s:["Beast Master","Drakewarden","Fey Wanderer","Gloom Stalker","Horizon Walker","Hunter","Monster Slayer","Swarmkeeper"]},{n:"Rogue",s:["Arcane Trickster","Assassin","Inquisitive","Mastermind","Phantom","Scout","Soulknife","Swashbuckler","Thief"]},{n:"Sorcerer",s:["Aberrant Mind","Clockwork Soul","Draconic Bloodline","Divine Soul","Shadow Magic","Storm Sorcery","Wild Magic"]},{n:"Warlock",s:["Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undead","Undying"]},{n:"Wizard",s:["Abjuration","Bladesinging","Chronurgy","Conjuration","Divination","Enchantment","Evocation","Graviturgy","Illusion","Necromancy","Order of Scribes","Transmutation","War Magic"]}];
+const backgroundsFallback=["Acolyte","Anthropologist","Archaeologist","Astral Drifter","Athlete","Celebrity Scion","Charlatan","City Watch","Clan Crafter","Cloistered Scholar","Courtier","Criminal","Entertainer","Faction Agent","Failed Merchant","Far Traveler","Feylost","Fisher","Folk Hero","Gambler","Guild Artisan","Haunted One","Hermit","House Agent","Inheritor","Investigator","Knight of the Order","Lorehold Student","Marine","Mercenary Veteran","Noble","Outlander","Prismari Student","Quandrix Student","Sage","Sailor","Shipwright","Silverquill Student","Smuggler","Soldier","Tribe Member","Urban Bounty Hunter","Urchin","Wildspacer","Witherbloom Student"];
+const alignsFallback=["Chaotic Good","Chaotic Neutral","Chaotic Evil","Neutral Good","True Neutral","Neutral Evil","Lawful Good","Lawful Neutral","Lawful Evil"];
+let charDataCache={};
+async function loadCharData(key,path){if(!charDataCache[key]){const d=await loadJSON(path);charDataCache[key]=d.length?d:null;}return charDataCache[key];}
 function rollAttr(){let r=[rng(1,6),rng(1,6),rng(1,6),rng(1,6)];r.sort((a,b)=>b-a);return'['+r.join(',')+'] → '+(r[0]+r[1]+r[2]);}
-function charGenBtn(){const c=pick(classes5e),s=pick(c.s),r=pick(racesAll),b=pick(backgrounds),a=pick(aligns);let t=r+'\n'+s+' '+c.n+'\n'+a+'\nBackground: '+b;if(rng(1,4)===4){const mc=pick(classes5e);t+='\nMULTICLASS: '+pick(mc.s)+' '+mc.n;}t+='\n--Stat Rolls--';for(let i=0;i<6;i++)t+='\n'+rollAttr();t+='\n(Racial Bonuses not Added)';out('charBox',t);}
+async function charGenBtn(){
+  const raceData=await loadCharData('races','data/Character/races.json');
+  const classData=await loadCharData('classes','data/Character/classes.json');
+  const subData=await loadCharData('subclasses','data/Character/subclasses.json');
+  const bgData=await loadCharData('backgrounds','data/Character/backgrounds.json');
+  const alData=await loadCharData('alignments','data/Character/alignments.json');
+  const gData=await loadJSON('data/Character/gender.json');
+  const sData=await loadJSON('data/Character/sexuality.json');
+  const r=raceData?pick(raceData).result:pick(racesAllFallback);
+  const gender=gData.length?weightedPick(gData):'?';
+  const sexuality=sData.length?weightedPick(sData):'?';
+  let cls,sub;
+  if(classData&&subData){cls=pick(classData).result;const matching=subData.filter(s=>s.class===cls);sub=matching.length?pick(matching).name:'(No Subclass)';}
+  else{const cf=pick(classes5eFallback);cls=cf.n;sub=pick(cf.s);}
+  const b=bgData?pick(bgData).result:pick(backgroundsFallback);
+  const a=alData?pick(alData).result:pick(alignsFallback);
+  let t=r+' ('+gender+' - '+sexuality+')\n'+sub+' '+cls+'\n'+a+'\nBackground: '+b;
+  if(rng(1,4)===4){
+    let mcls,msub;
+    if(classData&&subData){mcls=pick(classData).result;const mm=subData.filter(s=>s.class===mcls);msub=mm.length?pick(mm).name:'(No Subclass)';}
+    else{const mc=pick(classes5eFallback);mcls=mc.n;msub=pick(mc.s);}
+    t+='\nMULTICLASS: '+msub+' '+mcls;
+  }
+  t+='\n--Stat Rolls--';for(let i=0;i<6;i++)t+='\n'+rollAttr();t+='\n(Racial Bonuses not Added)';out('charBox',t);
+}
 function rollStatsBtn(){let t='--Stat Rolls--';for(let i=0;i<6;i++)t+='\n'+rollAttr();out('charBox',t);}
-function reincarnateBtn(){const off=document.getElementById('reincarnateCheck').checked;if(off){const tb=[{w:4,r:"Dragonborn"},{w:9,r:"Hill Dwarf"},{w:8,r:"Mountain Dwarf"},{w:4,r:"Dark Elf"},{w:9,r:"High Elf"},{w:8,r:"Wood Elf"},{w:4,r:"Forest Gnome"},{w:6,r:"Rock Gnome"},{w:4,r:"Half-Elf"},{w:4,r:"Half-Orc"},{w:8,r:"Lightfoot Halfling"},{w:8,r:"Stout Halfling"},{w:20,r:"Human"},{w:4,r:"Tiefling"}];const tot=tb.reduce((a,b)=>a+b.w,0);let roll=rng(1,tot),i=0;for(;i<tb.length;i++){roll-=tb[i].w;if(roll<=0)break;}out('charBox',tb[i].r);}else out('charBox',pick(racesAll));}
+async function reincarnateBtn(){
+  const off=document.getElementById('reincarnateCheck').checked;
+  if(off){const d=await loadCharData('races_official','data/Character/races_official.json');out('charBox',d?weightedPick(d):'[Populate races_official.json]');}
+  else{const d=await loadCharData('races','data/Character/races.json');out('charBox',d?pick(d).result:pick(racesAllFallback));}
+}
 async function transformationBtn(){const d=await loadJSON('data/Character/transformation.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate data/Character/transformation.json]');}
-function classBtn(){out('charBox',pick(classes5e).n);}
-function subclassBtn(){const c=pick(classes5e);out('charBox',pick(c.s)+' '+c.n);}
-function alignmentBtn(){out('charBox',pick(aligns));}
+async function featBtn(){const d=await loadJSON('overhaul-feats.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate overhaul-feats.json]');}
+function weightedPick(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total);for(let i=0;i<arr.length;i++){roll-=(arr[i].weight||1);if(roll<=0)return arr[i].result;}return arr[arr.length-1].result;}
+async function genderBtn(){const d=await loadJSON('data/Character/gender.json');out('charBox',d.length?weightedPick(d):'[Populate data/Character/gender.json]');}
+async function sexualityBtn(){const d=await loadJSON('data/Character/sexuality.json');out('charBox',d.length?weightedPick(d):'[Populate data/Character/sexuality.json]');}
+async function classBtn(){const d=await loadCharData('classes','data/Character/classes.json');out('charBox',d?pick(d).result:pick(classes5eFallback).n);}
+async function subclassBtn(){
+  const classData=await loadCharData('classes','data/Character/classes.json');
+  const subData=await loadCharData('subclasses','data/Character/subclasses.json');
+  if(classData&&subData){const cls=pick(classData).result;const matching=subData.filter(s=>s.class===cls);const sub=matching.length?pick(matching).name:'(No Subclass)';out('charBox',sub+' '+cls);}
+  else{const c=pick(classes5eFallback);out('charBox',pick(c.s)+' '+c.n);}
+}
+async function alignmentBtn(){const d=await loadCharData('alignments','data/Character/alignments.json');out('charBox',d?pick(d).result:pick(alignsFallback));}
 function nameGen(){const sMin=Number(document.getElementById('syllMin').value),sMax=Number(document.getElementById('syllMax').value),qty=Number(document.getElementById('nameQty').value),type=document.getElementById('nameType').value;const con='bcdfghjklmnpqrstvwxyz',vow='aeiou';let names=[];for(let n=0;n<qty;n++){const sy=rng(sMin,sMax);let nm='';for(let s=0;s<sy;s++){if(type==='japanese'){const jc='ksthmrngbpd',jv='aiueo';if(rng(1,3)!==1)nm+=jc[rng(0,jc.length-1)];nm+=jv[rng(0,jv.length-1)];}else{if(rng(1,3)!==1)nm+=con[rng(0,con.length-1)];nm+=vow[rng(0,vow.length-1)];if(rng(1,3)===1)nm+=con[rng(0,con.length-1)];}}nm=nm[0].toUpperCase()+nm.slice(1);if(type==='fantasy'&&rng(1,4)===4){const p=rng(1,nm.length-2);nm=nm.slice(0,p)+"'"+nm.slice(p);}names.push(nm);}out('charBox','---Names---\n'+names.join('\n'));}
 async function charInfoBtn(){try{const r=await fetch('data/Character/charinfo.txt');if(r.ok)out('charBox',await r.text());else out('charBox','[Populate data/Character/charinfo.txt]');}catch(e){out('charBox','[Populate data/Character/charinfo.txt]');}}
 function fullEnemyBtn(){out('charBox','[Full enemy gen requires complete logic from script.js]');}

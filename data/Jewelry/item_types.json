@@ -1,10 +1,10 @@
 [
   {"name":"(Gems Only)","value":0},
-  {"name":"Earrings","value":1},
-  {"name":"Ring","value":2},
-  {"name":"Amulet","value":4},
-  {"name":"Bracelet","value":8},
-  {"name":"Choker","value":10},
-  {"name":"Tiara","value":15},
-  {"name":"Crown","value":30}
+  {"name":"Earrings","value":2},
+  {"name":"Ring","value":4},
+  {"name":"Amulet","value":8},
+  {"name":"Bracelet","value":16},
+  {"name":"Choker","value":20},
+  {"name":"Tiara","value":30},
+  {"name":"Crown","value":75}
 ]

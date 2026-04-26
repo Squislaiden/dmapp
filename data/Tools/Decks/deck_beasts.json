@@ -3,7 +3,7 @@
     "number": 1,
     "name": "Seal/Walrus",
     "effect": "Your body undergoes permanent changes. You gain a thick layer of blubber that gives you +1 natural armor and tusks as natural weapons. You lose 2 Dex and gain the language: Walrus.",
-    "flavor": "You bloat outwards, as if you‚Äôve done nothing but feast for the past months. The extra weight seems protective enough, but slows you down."
+    "flavor": "You bloat outwards, as if youíve done nothing but feast for the past months. The extra weight seems protective enough, but slows you down."
   },
   {
     "number": 2,
@@ -15,25 +15,25 @@
     "number": 3,
     "name": "Sphinx",
     "effect": "You gain a +4 bonus on diplomacy, bluff, and sense motive checks if you've used a riddle in a conversation involving the person you're attempting to converse with.",
-    "flavor": "You‚Äôre hit with the sudden realisation that riddles and rhymes contain more knowledge than any average sentence, and your mind begins to think in riddles, affecting your speech as well."
+    "flavor": "Youíre hit with the sudden realisation that riddles and rhymes contain more knowledge than any average sentence, and your mind begins to think in riddles, affecting your speech as well."
   },
   {
     "number": 4,
     "name": "Dolphin",
     "effect": "Your charisma is given a +2 modifier whenever speaking with aquatic creatures and you gain the language Aquan.",
-    "flavor": "You‚Äôre granted an understanding of aquatic environments and their inhabitants."
+    "flavor": "Youíre granted an understanding of aquatic environments and their inhabitants."
   },
   {
     "number": 5,
     "name": "Minotaur",
     "effect": "Your race is suddenly morphed into a Minotaur! This changes your ability scores accordingly if they were physical. Mental stats stay the same. If you were already a Minotaur, you draw one new card.",
-    "flavor": "Without warning you begin to morph. Sprouting a tail, growing larger, getting hoofs and horns. Within a few seconds, you‚Äôve transformed into a Minotaur."
+    "flavor": "Without warning you begin to morph. Sprouting a tail, growing larger, getting hoofs and horns. Within a few seconds, youíve transformed into a Minotaur."
   },
   {
     "number": 6,
     "name": "Dog",
     "effect": "You swear allegiance to whichever party member has treated you best in the past, and gain +1 to all assists with or for that character. Lose 100xp per character level on death of the one you've sworn yourself to, this loss cannot make you lose a level. Lose 50 per level instead if you succeed a DC 15+Character level will save.",
-    "flavor": "A voice in your head speaks to you. ‚ÄúLoyalty‚Äù it says ‚ÄúIs the key to everything.‚Äù"
+    "flavor": "A voice in your head speaks to you. ìLoyaltyî it says ìIs the key to everything.î"
   },
   {
     "number": 7,
@@ -50,8 +50,8 @@
   {
     "number": 9,
     "name": "Rabbit/Hare",
-    "effect": "+10ft. Movement Speed, and √ó2 damage to all kicks.",
-    "flavor": "You feel lighter on your feet, as if they‚Äôve grown stronger."
+    "effect": "+10ft. Movement Speed, and ◊2 damage to all kicks.",
+    "flavor": "You feel lighter on your feet, as if theyíve grown stronger."
   },
   {
     "number": 10,
@@ -68,7 +68,7 @@
   {
     "number": 12,
     "name": "Rodent",
-    "effect": "You‚Äôre infected with a random disease.",
+    "effect": "Youíre infected with a random disease.",
     "flavor": "You suddenly feel horribly ill."
   },
   {
@@ -99,13 +99,13 @@
     "number": 17,
     "name": "Bee",
     "effect": "-2 Wis.",
-    "flavor": "You‚Äôre head is filled with the buzzing of bees, drowning out the outside world. You can practically feel them crawling around in your skull."
+    "flavor": "Youíre head is filled with the buzzing of bees, drowning out the outside world. You can practically feel them crawling around in your skull."
   },
   {
     "number": 18,
     "name": "Centaur",
     "effect": "The last weapon you used is granted a +1 magical bonus to a neutral alignment of your choice. Permanent.",
-    "flavor": "An animalistic voice speaks to you: ‚ÄúChoose your enemies, before they choose you.‚Äù"
+    "flavor": "An animalistic voice speaks to you: ìChoose your enemies, before they choose you.î"
   },
   {
     "number": 19,
@@ -146,7 +146,7 @@
   {
     "number": 25,
     "name": "Boar",
-    "effect": "Grow tusks, speak in growls. -4 Cha. and roll a 1d4 when trying to speak. On a one it‚Äôs just growls and snarls.",
+    "effect": "Grow tusks, speak in growls. -4 Cha. and roll a 1d4 when trying to speak. On a one itís just growls and snarls.",
     "flavor": "Out from your mouth sprouts tusks, distorting your appearance and speech."
   },
   {
@@ -164,20 +164,20 @@
   {
     "number": 28,
     "name": "Hippo",
-    "effect": "In combat you‚Äôre considered to always be flanked, if you are actually flanked, the effects stack. +3 str.",
+    "effect": "In combat youíre considered to always be flanked, if you are actually flanked, the effects stack. +3 str.",
     "flavor": "You feel slow, aggressive and highly unsuited for battle."
   },
   {
     "number": 29,
     "name": "Quagga",
     "effect": "Gain immunity to one energy type of choice, but GM decides another.",
-    "flavor": "You hear a voice in your head: ‚ÄúChoose your strong side, and the gods will choose your weak one.‚Äù"
+    "flavor": "You hear a voice in your head: ìChoose your strong side, and the gods will choose your weak one.î"
   },
   {
     "number": 30,
     "name": "Wolf",
     "effect": "1d6 Wolves are summoned around you to aid you per day. Wolves turn to dust at midnight, with a new 1d6 spawning out of the dust.",
-    "flavor": "You feel a sense of responsibility as a leader as wolves are summoned around you, waiting for their leader‚Äôs orders."
+    "flavor": "You feel a sense of responsibility as a leader as wolves are summoned around you, waiting for their leaderís orders."
   },
   {
     "number": 31,
@@ -255,7 +255,7 @@
     "number": 43,
     "name": "Fox",
     "effect": "+2 Cha.",
-    "flavor": "You feel more confident in yourself, you just in your ability to convince other‚Äôs you‚Äôre confident."
+    "flavor": "You feel more confident in yourself, you just in your ability to convince otherís youíre confident."
   },
   {
     "number": 44,
@@ -279,7 +279,7 @@
     "number": 47,
     "name": "Crane",
     "effect": "Instantly change gender.",
-    "flavor": "Your body changes‚Ä¶"
+    "flavor": "Your body changesÖ"
   },
   {
     "number": 48,
@@ -303,7 +303,7 @@
     "number": 51,
     "name": "Unicorn",
     "effect": "If you are a spell-caster, you can pick one new spell to add to your spell list, otherwise draw one new card.",
-    "flavor": "You suddenly receive knowledge you didn‚Äôt know you had."
+    "flavor": "You suddenly receive knowledge you didnít know you had."
   },
   {
     "number": 52,
@@ -405,7 +405,7 @@
     "number": 68,
     "name": "Bat",
     "effect": "You go permanently blind, but gain the ability to echo-locate. As long as there is sound, your character can see. Your character is unaffected by darkness (concealment, miss chances, etc.) but you take extra damage from sonic attacks.",
-    "flavor": "You sight grows dark, your vision slips. Soon enough, you‚Äôre entirely blind. Suddenly, a nearby sound lights up the room, giving you vision again, as if the sound is light."
+    "flavor": "You sight grows dark, your vision slips. Soon enough, youíre entirely blind. Suddenly, a nearby sound lights up the room, giving you vision again, as if the sound is light."
   },
   {
     "number": 69,
@@ -447,7 +447,7 @@
     "number": 75,
     "name": "Rhino",
     "effect": "Ignore penalties to AC from charging and gain a further +2 to hit and +2 to damage when charging.",
-    "flavor": "You feel as if you‚Äôve gained an invisible strength."
+    "flavor": "You feel as if youíve gained an invisible strength."
   },
   {
     "number": 76,
@@ -465,7 +465,7 @@
     "number": 78,
     "name": "Thylacine",
     "effect": "You gain access to the attack granted by the feat Whirlwind Attack once per day.",
-    "flavor": "You‚Äôve received a newfound knowledge of battle."
+    "flavor": "Youíve received a newfound knowledge of battle."
   },
   {
     "number": 79,
@@ -488,8 +488,8 @@
   {
     "number": 82,
     "name": "Wolverine/Badger",
-    "effect": "For every crit. you confirm, confirm again to deal even more damage. If you do manage this second confirmation, you deal your weapon‚Äôs damage to yourself as well (For example 1d8 for a crossbow).",
-    "flavor": "You feel more powerful in combat, as if being watched by the gods of battle...but at the same time, you feel vulnerable, as if you‚Äôre being tested."
+    "effect": "For every crit. you confirm, confirm again to deal even more damage. If you do manage this second confirmation, you deal your weaponís damage to yourself as well (For example 1d8 for a crossbow).",
+    "flavor": "You feel more powerful in combat, as if being watched by the gods of battle...but at the same time, you feel vulnerable, as if youíre being tested."
   },
   {
     "number": 83,

@@ -1,1 +1,576 @@
-[]
+[
+  {
+    "Name": "Joker of Chaos",
+    "Type": "Joker",
+    "Special": "REPEAT",
+    "Upright": "The user selects four different people that they can see (this can include themself) and they each must draw a single card.",
+    "Reversed": "Draw 3 more cards. They will activate at a random time within the next 24 hours. The user doesn’t know the effect until they activate."
+  },
+  {
+    "Name": "Joker of Madness",
+    "Type": "Joker",
+    "Special": "",
+    "Upright": "Gain immunity to madness and insanity effects. Creatures that look into your eyes see the abyss and begin to go mad. They gain one level of madness every minute. Madness decreases by one level every 3 days. Draw another card.",
+    "Reversed": "The user is haunted by a shadow of themself. Occasionally they will see it appear and act out an intrusive thought. Every time this happens there is a 5% chance that the shadow takes over their body and actually does it. Draw another card."
+  },
+  {
+    "Name": "Joker of Manifold",
+    "Type": "Joker",
+    "Special": "REPEAT",
+    "Upright": "Declare a multiplier of Double or Triple. Draw an Arcana card. You gain the Upright and Reversed effect multiplied by your chosen multiplier.",
+    "Reversed": "Declare a multiplier of Double or Triple. Draw an Arcana card. The effect is multiplied by your chosen multiplier. If the card is Upright, you select any enemy of yours and they receive the effect. If the card is Reversed, you select someone your character is friendly or more with to receive it."
+  },
+  {
+    "Name": "Joker of Trade",
+    "Type": "Joker",
+    "Special": "HOLD",
+    "Upright": "The user learn the effect when they draw it. They select two creatures they can see. The higher Charisma must make a DC 17 Charisma Save. On a fail they swap psyche. Their physical attributes, racial traits, and hit points remain with the body. On a success, the swap fails, the card is not expended, and both creatures are immune to the card’s effect for 24 hours.",
+    "Reversed": "The user and a creature that shares a mutual dislike or hate of each other swap bodies (distance is irrelevant). Physical Attributes, Racial Traits, Equipment (armor, shield, focus, and primary weapon), and Hit Points stay with the body, everything else is retained. Inventory, non-primary weapons, and unequipped item remain with the original psyche."
+  },
+  {
+    "Name": "The Fool",
+    "Type": "Arcana",
+    "Special": "REPEAT",
+    "Upright": "You can change any amount of levels into any class and/or change any amount of spells to other spells you can know. The class levels must be done before the spells and the new spells use those classes.",
+    "Reversed": "An identical clone of the user appears with all skills, knowledge, and equipment of the original, except Unique Artifacts, except with the opposite alignment."
+  },
+  {
+    "Name": "The Magician",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The next non-living non-magical object that the user touches (that can fit within 1 cubic foot) turns into solid gold.",
+    "Reversed": "All coins, and other currencies, on the user's person, including spatial pockets like a Bag of Holding, are transformed into Silver Coins. A random unattuned magic item of rare rarity or lower is turned into solid silver and loses all magical ability."
+  },
+  {
+    "Name": "The High Priestess",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "The most powerful Cleric in the realm is summoned to fulfil three requests that are within their purview. The Cleric is summoned only once and all three requests must be made at that point.",
+    "Reversed": "The next Church or Holy Ground the user treads upon is Desecrated. All creatures that are within the area, as well as the clergy that frequent it, fall deeply ill for one month. This does not affect the user or their party."
+  },
+  {
+    "Name": "The Empress",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user has a vision from the god of prophecy or divination of a child that they've unknowingly sired. They are 8 + 1d8 years old and held by unfriendly forces (adjust down for races that reach adulthood earlier). The vision reveals the captors and their rough location.",
+    "Reversed": "The user has a vision of a child that they've unknowingly sired. they are 8 + 1d10 years old (adjusted for races that reach adulthood earlier). They hover over the corpse of their other parent and swear retribution upon their absent parent, unlocking power magics in their distress. Their location is not revealed."
+  },
+  {
+    "Name": "The Emperor",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "A few hundred people that the user had some sort of impact on, townfolk in a village that the user did a quest in, swear fealty to the user and insist on them being their leader. They want to raise or conquer a kingdom to instill the user as their Monarch.",
+    "Reversed": "The user is found to be long lost royalty or nobility. Their royal family seeks them out to return them to their proper place. If they agree, the character is out of play. If they resist, their newfound family will do all they can to sway them or take them by force."
+  },
+  {
+    "Name": "The Hierophant",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user's mind and soul are as tough as adamantine. Their memories and soul are much harder to read and impossible to modify or sway against their will. They gain +2 in Intelligence, Wisdom, and Charisma, and proficiency in Saving Throws for all three. They can learn spells from any class's spell list, except for class specific spells (divine smite, eldritch blast, hunter's mark, etc.).",
+    "Reversed": "The user's memories are restored and they realize that what they thought was inocuous time spent with friends was actually an abyssal cult worshipping one of the demonic gods. Somehow their memories got altered. Now that they're returned, they feel a strong urge to resume their worship and cult practices."
+  },
+  {
+    "Name": "The Lovers",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user becomes attractive to an impossible degree. All creatures that are generally interested in the age and gender of the user adore them. They will do all they can to assist, short of putting themselves or family in a dangerous position. Creatures with a mental stat of 17 or higher can tell it is a magical attraction and ignore it.",
+    "Reversed": "The next character of a race, age, and gender that the user is normally attracted to that the user sees falls madly in love with them. They want to dedicate and live their entire life with and for them. If denied, they will become obsessed to the point of a Yandere. Plotting to capture the user as well as get rid of any potential competition or those that intend to impede them."
+  },
+  {
+    "Name": "The Chariot",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The plans of an evil god or villain are set back, potentially forcing them to start over or change plans.",
+    "Reversed": "The world shudders and the fates wrench as an evil god or villain's plans take a major step forward."
+  },
+  {
+    "Name": "The Strength",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain 3 in all physical or mental attributes.",
+    "Reversed": "Lose 3 in all physical or mental attributs."
+  },
+  {
+    "Name": "The Hermit",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "You are freed from all constraints, contracts, and bindings. Gain a level in a class that is not your primary class.",
+    "Reversed": "A powerful and dangerous being that has been locked away for years or centuries is freed. They know who freed them, how it happened, and where they were located at that time."
+  },
+  {
+    "Name": "The Wheel of Fortune",
+    "Type": "Arcana",
+    "Special": "REPEAT",
+    "Upright": "Gain a random Magic Item(d20): Rare(1-8), Very Rare(9-14), Legendary(15-18), Artifact(19-20), Primordial(d100).",
+    "Reversed": "Lose a random Magic Item and gain a random Rare Magic Item."
+  },
+  {
+    "Name": "The Justice",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "All creatures not allied with the user within 100 ft. take 3d10 Force Damage and are paralyzed until the end of their next turn. They are moved to the bottom of Initiative until then.",
+    "Reversed": "All creatures within 30 ft., including the user, have all of their spell slots expended except for one 1st Level and take 2d10 Force Damage."
+  },
+  {
+    "Name": "The Hanged Man",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user no longer ages and is immune to disease and poison. Their body doesn't require blood, food, water, or sleep. They will regenerate from any injury eventually; ranging from 6 second for a minor wound (5 hit points per turn), an hour for a finger, up to a year for a single cell. Death refused to claim them.",
+    "Reversed": "The user regenerates lost body parts over a night of sleep, but they are from a random creature. This will change racial traits that rely on specific body parts. Each body part has a couple of remnant memories that will present themselves when the user is asleep or unconscious."
+  },
+  {
+    "Name": "The Death",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Select any one character that is not one of the pantheon gods or a being of equal power to them; they are killed.",
+    "Reversed": "The user contracts an incurable disease that weakens them over the next week and then they die. It can only be cured by Wish or a deity. They can only be revived by a Wish or Reincarnation spell (The 10 day limit does not apply)."
+  },
+  {
+    "Name": "The Temperance",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain a second subclass.",
+    "Reversed": "Gain a random subclass from a random class other than your own."
+  },
+  {
+    "Name": "The Devil",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain all of the natural weapons and non-Spellcasting Traits of a type of devil(d20): Spined Devil(1-2), Barbed Devil(3-4), Salt Devil(5-6), Lesser Tutor Devil(7-9), Chain Devil(10-12), Lunar Devil(13-15), Devilflame Juggler(16-17), Orobas Devil(18-19), Pit Fiend-BF(20).",
+    "Reversed": "You gain the ire of a powerful Devil. They desire to see you struggle, suffer, and eventually perish. All other goals are secondary. They will leave them alone for a short time after a successful plot. They grow wearly of the chase after a year and then begin attempting to see them dead."
+  },
+  {
+    "Name": "The Tower",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "Cast a 9th Level Fireball spell at a target location within range. The Save DC is the user's Spell Save DC or 18, whichever is higher.",
+    "Reversed": "The Meteor Swarm spell is cast on your location. For each meteor, roll a d8 for direction and a d100 x2.5 for distance in feet. The Save DC is 17. The fire and bludgeoning both deal 12d6."
+  },
+  {
+    "Name": "The Star",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Make a Wish.",
+    "Reversed": "Make a Monkey's Paw Wish."
+  },
+  {
+    "Name": "The Moon",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user selects a Transformation to be afflicted with. They also select the beast type(s) for Therianthrope, Chimera, or Godsoul.",
+    "Reversed": "The user is transformed into (d20): Mind Flayer(1-2), Oozeblight(3-4), Vampire(5-7), Chimera(8-10), Half-Saiyan(11-12), Therianthrope(13-17), Godsoul(18-20). Therianthrope is a random wereanimal and Chimera is four random beasts (Arms, Legs, Torso, Accessories)."
+  },
+  {
+    "Name": "The Sun",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The sun empower the user. While under direct sunlight they have: 500 ft. of truesight, add their proficiency bonus twice to any fire or radiant damage they deal, are resistant to non-physical damage (except psychic and force), and any weapon they wield functions like a non-sentient Azuredge or Holy Avenger weapon (They select which one when this card is drawn). While it is cloudy, they are not resistant and all damages and ranges from this effect and weapon are halved.",
+    "Reversed": "The sun is obscured by a dark shadow and the world is plunged into eternal night. This is caused by the servants of a moon-related eldritch god or a moon-related god if elder gods are not a choice. Their ritual and a manifestation of the god must be defeated to return the sun."
+  },
+  {
+    "Name": "The Judgement",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user or a willing creature changes their alignment to one of their choice. If no creature is chosen within 10 minutes, the user's alignment flips.",
+    "Reversed": "Flip the alignment of the user's worshipped/followed god. If none, then flip the alignment of their progenitor god. This lasts for 3d20 years."
+  },
+  {
+    "Name": "The World",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "You and your party gain a 10 minute audience with the strongest god of the realm. They will be amenable to conversation unless angered by you and may grant a reasonable request. Neither you nor they can take hostile actions.",
+    "Reversed": "You and your party gain a 10 minute audience with your current greatest foe, prioritising gods over mortals. Neither party can take hostile actions against the other."
+  },
+  {
+    "Name": "Ace of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "All plants and fungi grow ten times as fast for the next 1d4 years within 100 miles.",
+    "Reversed": "The area around your location is wracked by a terrible storm, ravaging the surrounding areas."
+  },
+  {
+    "Name": "Two of Cups",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "Scry upon any character for 24 hours. With a DC 25 Wisdom Save, they know you're watching, but cannot do anything about it. This bypasses any immunity or blocks.",
+    "Reversed": "For 24 hours, your enemy can scry you. This bypasses any immunity or blocks."
+  },
+  {
+    "Name": "Three of Cups",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "Select up to 5 creatures. They all make a DC 18 Wisdom Saving Throw. On a fail, they are charmed by the user for 1 minute or until the user or his declared allies make a hostile action towards them. They will not attack them or anyone they declare their allies. They will not attack their former allies unless they failed the Save by 6 or more.",
+    "Reversed": "Select up to 5 creatures. The user makes a DC 18 Wisdom Saving Throw for each one. On a fail they are charmed by that creature for 1 minute or until a hostile action directed to them by the charmer or their allies. If the Save was failed by 6 or more, the user must assist against their former allies."
+  },
+  {
+    "Name": "Four of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "As an Action the user can impose a DC 17 Wisdom Save on a creature capable of feeling emotions and change their current mood and emotion on a fail.",
+    "Reversed": "The user is much more quick to anger, depression, fear, and other negative emotions."
+  },
+  {
+    "Name": "Five of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "As an Action or Bonus Action, the user knows a target creature's current mood and the general source if applicable.",
+    "Reversed": "The user's face and body express their mood and emotions strongly."
+  },
+  {
+    "Name": "Six of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can teleport their living family members to the user's location or a location they feel safe at. Alternatively, the user can bring up to 3 deceased members back to life that have been dead no longer than 100 years.",
+    "Reversed": "The users living family and the souls of their deceased family members have been captured by a creature that plots ill intent towards them. The user receives a threatening letter from the captor."
+  },
+  {
+    "Name": "Seven of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user selects an event from the past that they were a part of or affected them directly and changes what happened.",
+    "Reversed": "An event from the user's past is changed to have ended unfavorably for them."
+  },
+  {
+    "Name": "Eight of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "A random enemy of the user becomes a friendly ally and will come to the party's aid at an important time.",
+    "Reversed": "A random ally of the user becomes an enemy and will show up at a very inopportune way and time."
+  },
+  {
+    "Name": "Nine of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain proficiency and Advantage on Persuasion and Deception Checks.",
+    "Reversed": "Gain a -2 penalty to Wisdom Saving Throws and Insight Checks."
+  },
+  {
+    "Name": "Ten of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Increase your Charisma by 2 and gain proficiency in all Charisma Skills.",
+    "Reversed": "Gain a -3 penalty to all Charisma Checks and Saving Throws."
+  },
+  {
+    "Name": "Page of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain a loyal Fairy Servant. They can teleport (themselves, no items), defend themselves, and obey your commands. They keep your home cared for and won't attack or perform an action that would result in their death.",
+    "Reversed": "You become bound to a powerful being or god and must do as they command. They will occasionally give orders that you must follow. Failure results in pain and curses, refusal results in a painful death."
+  },
+  {
+    "Name": "Knight of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain a follower. They are a random race and are either Fighter, Monk, Paladin, or Cleric. They will use a stat block supplied by the DM based off of their class. They share the character's alignment and are loyal, but not magically bound.",
+    "Reversed": "Gain a follower. They are stronger than a commoner, but otherwise not very useful. They will follow the character and accidentally mess everything up. If killed by the character or an ally, gain a god's ire. Enemies will avoid targeting them if possible."
+  },
+  {
+    "Name": "Queen of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain the ability to Wild Shape into a CR 3 or less creature of the user's choosing. They can do this twice between Long Rests, gain Temporary Hit Points equal to their level when they wild shape, and can stay in the form an amount of hours equal to their Proficiency Bonus.",
+    "Reversed": "Whenever the user rolls a natural 1 on a d20 that is not a Death Saving Throw, they Wild Shape into a housecat and gain half of their level in temporary Hit Points. They are stuck in this form for 1 hour or until they have taken their level x 2 damage."
+  },
+  {
+    "Name": "King of Cups",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user selects any object that exists, used to exist, or will exist and changes the past of the object to end up at a location specified by the user in the present. This location cannot be nearer than 10 miles away.",
+    "Reversed": "The strongest and rarest item from every character in the party has its history changed to have been stolen 3 days beforehand. The user knows the current location and can sense the direction to them."
+  },
+  {
+    "Name": "Ace of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain Resistance to Psychic Damage and telepathy up to 240 ft.",
+    "Reversed": "Gain vulnerability to Psychic Damage and have Disadvantage on Saving Throws relating to the mind."
+  },
+  {
+    "Name": "Two of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user learns the Mage Hand and Telekinesis spells and can cast Telekinesis once for free recharging on a Long Rest. The Mage Hand can be cast without components, is invisible, has its range increased to 120 ft., and has a weight limit of 50 lbs. It can be used to shove creatures or attack with a simple melee weapon.",
+    "Reversed": "Whenever the user takes non-self-inflicted damage, they are telekinetically shoved 1d4 x 5 ft. away."
+  },
+  {
+    "Name": "Three of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain Proficiency with all skills of an attribute.",
+    "Reversed": "Select a skill to lose your proficiency with."
+  },
+  {
+    "Name": "Four of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can cast Detect Thoughts up to half of their Proficiency Bonus times, recharging on a short rest.",
+    "Reversed": "Occasionally, while talking to someone, the user's surface thoughts will be projected out loud in a bland narrator voice."
+  },
+  {
+    "Name": "Five of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "As an Action, the user can activate a demonic visage for 1 minute up to half of Proficiency Bonus times, recharging on a Long Rest. Whenever the user deals damage or causes an effect, the targets take 2d6 additional Psychic Damage.",
+    "Reversed": "Whenever the user takes damage or is affected by a spell or effect, they have a 20% chance to take 2d4 Psychic Damage. When the user takes Psychic damage, they forget how to do one of the following for the next turn: Action, Bonus Action, Reaction, Move, Attack, or Cast (Spellcaster only)."
+  },
+  {
+    "Name": "Six of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Learn 2 languages of your choice.",
+    "Reversed": "Forget how to speak and understand a language of your choice."
+  },
+  {
+    "Name": "Seven of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Whenever the user is targeted (area of effect does not count) by an attack, spell, or effect, the aggressor is briefly charmed. The user cannot be targeted or included in an area of effect from their next attack, spell, or effect that is not self cast range.",
+    "Reversed": "Whenever the user fails a contested ability check (such as a grapple) against another creature, they are charmed by it for 3 rounds. While charmed this way, they cannot attack the creature or move further away from it. When the creature is attacked by someone else, the user has a 50% chance of being compelled to intercept, taking half of the damage the creature would have."
+  },
+  {
+    "Name": "Eight of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user gains the ability to cast the Mind Flayer's Mind Blast once, recharging on a Long Rest. The DC is their Spellcasting DC if it is higher, the damage is ([PB]d6 + 4), and the stun lasts for three rounds.",
+    "Reversed": "Whenever the user makes an Intelligence, Wisdom, or Charisma Save or Check, they have a 10% chance to take 2d4 Psychic Damage and be stunned."
+  },
+  {
+    "Name": "Nine of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user gains the Keen Mind (5e) feat. It grants 2 Intelligence and allows the user perfect recall for up to a year. A creature that already has Keen Mind gains 3 Intelligence and can recall everything instead.",
+    "Reversed": "The user loses 2 Intelligence, loses proficiency with History, and rolls History check with disadvantage."
+  },
+  {
+    "Name": "Ten of Swords",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "The user selects a target and another creature. All knowledge and memories of the selected creature is removed from the target's memory.",
+    "Reversed": "All knowledge and memories of a character important to the user is removed from their memory. Emotions may still rise up, confusing them."
+  },
+  {
+    "Name": "Page of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain proficiency with all weapon, shield, and armor types.",
+    "Reversed": "Gain proficiency with one tool."
+  },
+  {
+    "Name": "Knight of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Draw a card from the Major Arcana and resolve its Upright effect twice.",
+    "Reversed": "Draw a card from the Major Arcana and resolve its Reversed effect twice."
+  },
+  {
+    "Name": "Queen of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The fae queen offers you a trade: sacrifice something extraordinarily precious to you --be it material, memory, or ability-- you may look at the top 3 cards of the deck and select one to draw.",
+    "Reversed": "Each sapient character within your current party, including you, must draw a card in order of youngest to oldest. After resolution, each of those cards is added back to the deck."
+  },
+  {
+    "Name": "King of Swords",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Cantrips and 1st Level spells cannot affect the user unless they will it. 2nd and 3rd Level spells targeting or including the user have a 25% chance to be automatically upcast.",
+    "Reversed": "Enemy Cantrips and 1st Level spells have double the damage or effect. If neither of those can be doubled, then the duration is doubled. If that cannot double either, then the Spell Save DC is increased by 4."
+  },
+  {
+    "Name": "Ace of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can reroll 1s and 2s on their d20 rolls. A character that already has a similar feature instead increases their reroll limit by 2.",
+    "Reversed": "The user is cursed and must reroll the two highest numbers on any given damage dice."
+  },
+  {
+    "Name": "Two of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain two feats of your choice.",
+    "Reversed": "At your next ASI, you cannot select a feat."
+  },
+  {
+    "Name": "Three of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can use a Reaction to their damage being resisted. Immunity is dropped to resistance and resistance is removed; in either case the user gains resistance to that damage type for 1 minute.",
+    "Reversed": "The user's attacks ignore resistance and treat immunity as resistance. After an attack bypasses resistance or immunity the user is vulnerable to that damage type for 1 minute."
+  },
+  {
+    "Name": "Four of Pentacles",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "The user selects a valid target and casts True Polymorph on them. The target makes a DC 17 Charisma Save. On a pass, the spell fails, the card is not expended, and the target cannot be targeted by the card for 24 hours. The spell effect does not become permanent if Concentrated on for the full duration.",
+    "Reversed": "The user is True Polymorphed into a random creature with a CR equal to one-third of their level (rounded up), minimum of 1. If this effect is not dispelled within 1 hour, it becomes permanent and they regain all statistics and traits of their true form except for racial traits. If their new form cannot speak, they can expend a 1st Level Spell Slot or 1 charge of a class resource to cast Speak with Humanoids for 1 hour. If the user dies and is resurrected, they come back as their true form (or 'new' form if Reincarnated)."
+  },
+  {
+    "Name": "Five of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user and all creatures of their choice within 120 ft. are teleported to the largest temple or church of the god you worship or follow. If none, then a random God matching your alignment (good/evil).",
+    "Reversed": "The user and their group (regardless of distance from one another) are teleported into a prison of a wealthy and politically powerful person. It will be as if captured, items and gear are confiscated. The owner of the prison is aware of their presence."
+  },
+  {
+    "Name": "Six of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain proficiency with one Saving Throw and one Skill of your choice.",
+    "Reversed": "The user selects two skills. They make all checks with these two with disadvantage."
+  },
+  {
+    "Name": "Seven of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user gains advantage on Concentration Saves and the duration of Concentration spells is doubled. If the user has the War Caster feat, they add +3 to their Concentration Saves.",
+    "Reversed": "The user rolls Concentration Checks at Disadvantage if they don't have an ally within 5 ft. of them."
+  },
+  {
+    "Name": "Eight of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user cannot be moved physically or spatially against their will. While unconscious they cannot be moved by anyone with any ill intent towards them.",
+    "Reversed": "The user has disadvantage on any rolls that would involve being moved or transported."
+  },
+  {
+    "Name": "Nine of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user may select a subclass from any class to replace theirs. It will be modified to work with your primary class. Alternatively, they can keep their current subclass and gain a Very Rare or better Wondrous Item.",
+    "Reversed": "Three random magic items from the user are brought up and the user must select one to dispose of. It loses all magic and becomes cursed, causing the user to refuse to part with it."
+  },
+  {
+    "Name": "Ten of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain a permanent +2 to all Saving Throws.",
+    "Reversed": "Gain a permanent -2 to all Saving Throws."
+  },
+  {
+    "Name": "Page of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain 20 ft. of Truesight and proficiency/expertise with Perception Checks.",
+    "Reversed": "The user can no longer see beyond 60 ft. with their regular or dark vision. Gain 120 ft. of tremorsense."
+  },
+  {
+    "Name": "Knight of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user gains the ability to maintain Concentration on two spells at once. When rolling for a Concentration Save, each spell is a separate roll.",
+    "Reversed": "The user gains the ability to maintain Concentration on multiple spells at once. When rolling for a Concentration Save, each spell is a separate roll. Every spell being Concentrated on confers a -2 to all Saving Throws (ex. -3 while Concentrating on 1, -4 for two, and -6 for three)."
+  },
+  {
+    "Name": "Queen of Pentacles",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "Resurrect a dead creature with the Reincarnate spell. If the user dies while holding the card, it automatically casts on them 10 minutes after they die.",
+    "Reversed": "The next creature with legendary actions or that is 4 or more CR higher than the user is killed by the party, it is resurrected through Reincarnate and teleported 1d10 miles away if they are hit with an attack."
+  },
+  {
+    "Name": "King of Pentacles",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The next time the user dies, they are resurrected with 50% of their maximum hit points.",
+    "Reversed": "The next time the user kills a creature with legendary actions or that is 4 or more CR level higher than the user, that creature is resurrected with 25% of its maximum life."
+  },
+  {
+    "Name": "Ace of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "An interdimensional portal appears, leading to any one place of your choosing, and remains open for one hour.",
+    "Reversed": "An interdimensional portal appears, leading to a random plane of existence, and remains open for one hour."
+  },
+  {
+    "Name": "Two of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain a permanent +5 to Initiative and 10 ft. of movement speed.",
+    "Reversed": "The user rolls Initiative Checks with Disadvantage and loses 5 ft. of movement."
+  },
+  {
+    "Name": "Three of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain +(2 x level) Maximum Hit Points and two additional Hit Dice. This does not affect levels gained after this effect is triggered.",
+    "Reversed": "Lose 1 x level Maximum Hit Points and one Hit Die. This does not affect levels gained after this effect is triggered."
+  },
+  {
+    "Name": "Four of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain the ability to cast Detect Magic at will as a 1 minute ritual and it does not require Concentration.",
+    "Reversed": "All creatures within 30 ft. can detect when you cast a spell or activate a magic item."
+  },
+  {
+    "Name": "Five of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can expend an amount of Spell Slots to emit a void energy pulse around them. It extends 10 ft. for every Spell Level expended. All passive magic stops functioning and active magic is dispersed for 1 minute. Concentration is instantly broken for any creature Concentrating on a spell and they take 3d6 Psychic Damage. Non-spellcasters can expend multiples of 10 Hit Points for a similar effect. Hit Points expended this way cannot be regained until after they finish a Long Rest.",
+    "Reversed": "When the caster loses Concentration on a spell, or takes 30 damage in a single round if they're a non-spellcaster, a pulse of void energy expands up to (10 ft. x their Proficiency Bonus) dealing 2d6 Psychic Damage to and breaking the Concentration of all creatures within range."
+  },
+  {
+    "Name": "Six of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can cast Dispel Magic at will with a 1 minute cast time. The user gains 5 Temporary Hit Points upon a successful Dispel (this does not activate on temporary suppression of magic items) up to a maximum of 20. These Hit Points are lost on a Long Rest.",
+    "Reversed": "Whenever the user touches a person or item that they are not attuned to, there is a 10% chance that Dispel Magic is cast upon them/it. This cannot affect the same item or person more than once per 8 hours."
+  },
+  {
+    "Name": "Seven of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user can deal unmitigatable damage to themselves equal to their level to gain advantage on a d20 roll.",
+    "Reversed": "Whenever the user rolls a d20 roll with disadvantage, they take 5 unmitigatable damage. If they choose to automatically fail the roll, they do not take the damage."
+  },
+  {
+    "Name": "Eight of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The area of effect of any spell or effect the user causes is doubled. Spells, melee attacks, and effects that have a single target also hit a second target adjacent to the target. Attack and Save rolls are made separately for each creature. Ranged weapon attacks instead have their range doubled.",
+    "Reversed": "Single target attacks, spells, or effects against the user also hit a random adjacent ally of the user. The area of effect of any spell or attack that affects the user is doubled."
+  },
+  {
+    "Name": "Nine of Wands",
+    "Type": "Arcana",
+    "Special": "HOLD",
+    "Upright": "The user exerts their willpower on reality and manifests a single object with a single trait that is of Legendary or less quality.",
+    "Reversed": "The user exerts their willpower on reality and manifests a single object with a single trait that is of Very Rare or less quality along with the creature that owns it. The creature is incredibly upset and angry at the forced teleportation and the attempted theft of its prized possession. It is a humanoid of a CR at least 4 higher than the user's level. It will focus on the user and will attempt to teleport away if the user is killed."
+  },
+  {
+    "Name": "Ten of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "The user gains the gift of divination. Gain the ability to cast the Scry spell at will. They can also perform a small 10 minute ritual to get a glimpse of a future or past event (specified when they activate the ritual). The ritual requires a magical object with a surface that can reflect an image, such as a mirror or glass ball, and at least 100 gp of divination paraphernalia. Every 10 gp of materials increases the distance they can see by 1 year.",
+    "Reversed": "The user will randomly see a future or past event during their dreams or when their mind is particularly clouded. This vision has no limits as to how far forward or back it happens but always contains some connection to the user, even if it's just the birth of the grandfather of the smith that made their sword."
+  },
+  {
+    "Name": "Page of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Every time you cast a spell you have a 10% chance of rolling on the Wild Magic Table. A non-spellcaster instead has a 10% chance to roll when affected by a spell.",
+    "Reversed": "Every time a creature within 40 ft. of you casts a spell they have a 5% chance of rolling on the Wild Magic Table."
+  },
+  {
+    "Name": "Knight of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Increase your critical hit range by 1 and deal an extra 1d12 damage on a critical hit.",
+    "Reversed": "Attacks made against the user critically hit on a 19 or higher and deal an extra 1d8 damage."
+  },
+  {
+    "Name": "Queen of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain an extra Spell Slot. The level of the Spell Slot is always one less than your maximum Spell Slot. This slot increases as you level. A non-spellcaster gains a Spell Slot equal to their (Proficiency Bonus - 1) and learns a Wizard Spell of that level. This can be swapped whenever they level.",
+    "Reversed": "Lose one 1st Level and one 2nd Level Spell Slot permanently. If the user cannot cast spells, they instead lose 25% of their Class Resource Maximum."
+  },
+  {
+    "Name": "King of Wands",
+    "Type": "Arcana",
+    "Special": "",
+    "Upright": "Gain the ability to cast any 4th Level or lower Bonus Action spell as a Reaction and any 4th Level or lower Action spell as a Bonus Action. If using the latter, the user's Action cannot be a spell higher level than a Cantrip.",
+    "Reversed": "The character that the user hates or dislikes the most is empowered with great strength, magic, and a sizable territory."
+  }
+]

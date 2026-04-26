@@ -1,10 +1,10 @@
 [
   {"name":"(Gems Only)","value":0},
+  {"name":"Earrings","value":0.1},
+  {"name":"Ring","value":0.2}
   {"name":"Amulet","value":0.4},
   {"name":"Bracelet","value":0.8},
-  {"name":"Choker","value":1.2},
-  {"name":"Crown","value":3},
-  {"name":"Earrings","value":0.1},
-  {"name":"Ring","value":0.2},
-  {"name":"Chastity Belt","value":20}
+  {"name":"Choker","value":1.0},
+  {"name":"Tiara","value":1.5},
+  {"name":"Crown","value":3}
 ]

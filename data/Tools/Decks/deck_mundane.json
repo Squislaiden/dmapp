@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "The Fool", "effect": "The card fizzles into a dust cloud that solidifies into a cranky old donkey, complete with saddlebags and a lead." },
+  { "name": "The Magician", "effect": "The card bursts into sparkles and settles into a beaver-fur black top hat, a pair of white gloves, a docile rabbit, and a two-headed coin." },
+  { "name": "The High Priestess", "effect": "The card swings open into the nearest solid wall, becoming a curtained doorway. It passes into whatever space was naturally on the other side of the wall." },
+  { "name": "The Empress", "effect": "The card flutters into a beautiful and elegant gown that will fit the nearest female. It is embroidered with silver thread." },
+  { "name": "The Emperor", "effect": "The card flourishes into a golden crown that fits the one who pulled the card. It is bejeweled and valued at 600 gold, but selling it openly can cause suspicion." },
+  { "name": "The Hierophant", "effect": "The card multiplies itself into the many pages of the Holy Scripture appropriate for the religion of the one who pulled the card. It is leather-bound, weighs 14 lbs. and is about the size of a breadbox." },
+  { "name": "The Lovers", "effect": "The card pulls itself into two powerful, rare earth magnets. Each has a pull of 5 lbs. and together, 9 lbs." },
+  { "name": "The Chariot", "effect": "The card dashes forth into a war horse." },
+  { "name": "Justice", "effect": "The card slams to the ground and becomes a heavy war hammer. If pulled by a cleric, the hammer has the cleric's holy symbol engraved on the side." },
+  { "name": "The Hermit", "effect": "The card flops to the earth and grows into a small stone and wooden hut with a fireplace and lockable door." },
+  { "name": "Wheel of Fortune", "effect": "The card unfolds into a sturdy market stall wagon, filled with dry goods valued at 300 gold if sold." },
+  { "name": "Strength", "effect": "The card thuds to the ground, having become a six foot long crow bar of strong iron." },
+  { "name": "The Hanged Man", "effect": "The card unwinds into a coil of bloodstained hemp rope, 50 ft. long." },
+  { "name": "Death", "effect": "The card wilts into a gleaming war scythe." },
+  { "name": "Temperance", "effect": "The card wobbles into a fine brass merchant's scale, complete with set of standard brass weights." },
+  { "name": "The Devil", "effect": "The card burns up and the ashes form a formidable trident or pitchfork (appropriate for the location)." },
+  { "name": "The Tower", "effect": "The card rises from the hand into a twelve foot wooden ladder with iron hooks on one end." },
+  { "name": "The Star", "effect": "The card flashes into a lit oil lantern with a full reservoir." },
+  { "name": "The Moon", "effect": "The card rumples into a soft, black cloak of deep velour." },
+  { "name": "The Sun", "effect": "The card ignites into a lit torch that will last for four hours." },
+  { "name": "Judgment", "effect": "The card shines with a glint of light from a bright, clear hand mirror set in a rosewood frame." },
+  { "name": "The World", "effect": "The card coils into a circle that becomes a signet ring and wax set that will emboss the local kingdom's seal." }
+]

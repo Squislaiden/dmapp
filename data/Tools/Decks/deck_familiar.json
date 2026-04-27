@@ -1,1 +1,22 @@
-[]
+[
+  { "name": "Kettle", "effect": "This card is uncomfortably warm to the touch." },
+  { "name": "Iron", "effect": "This card is far heavier when held. When put away it returns to the weight of card. It always behaves as if it were made of card." },
+  { "name": "Flagon", "effect": "A large amount of liquid can be held on the card without it dripping off. The card is waterproof." },
+  { "name": "Worm", "effect": "Fish and birds are unusually attracted to this card." },
+  { "name": "Coin", "effect": "The card glimmers in the light, like a fine jewel." },
+  { "name": "Knife", "effect": "The sides of the card are very sharp, still bends like card." },
+  { "name": "Pen", "effect": "Draws a thin line when rubbed on a surface." },
+  { "name": "Dice", "effect": "When drawn a random number is displayed on the card." },
+  { "name": "Book", "effect": "This card shows a sentence of the last book the holder has read." },
+  { "name": "Pepper", "effect": "Storing this card with meat makes it taste better." },
+  { "name": "Arrow", "effect": "This card travels in a straight path when thrown." },
+  { "name": "Bandage", "effect": "This card sticks to the skin." },
+  { "name": "Boot", "effect": "The card slowly moves west." },
+  { "name": "Coat", "effect": "The card never gathers dirt nor gets wet." },
+  { "name": "Pitchfork", "effect": "The card smells exceptionally bad." },
+  { "name": "Basket", "effect": "Any object balanced on the card feels nearly weightless." },
+  { "name": "Fork", "effect": "Small objects stick to the edge of the card." },
+  { "name": "Cloth", "effect": "This card slowly absorbs liquids." },
+  { "name": "Eyeglass", "effect": "The card bends slightly at one corner, pointing to the nearest 'interesting' thing." },
+  { "name": "Mirror", "effect": "After 5 hours of the card remaining undamaged, a copy appears. (this card does not dissolve)" }
+]

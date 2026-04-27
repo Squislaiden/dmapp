@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "William Knife", "effect": "Teleports William Knife, a sentient criminal knife, into your possession. He is well disposed to you." },
+  { "name": "The Thief", "effect": "Makes every single item of value on your person legally and provably the possession of another person, who is your equal in personal and practical power." },
+  { "name": "The Enemy", "effect": "Causes a person of similar disposition, abilities and history to you have a legitimate personal grievance against you, which is a matter of honour and blood." },
+  { "name": "Audience", "effect": "Summons a lawful deity or archdevil you name to your location; they will answer any one question you ask them honestly to the best of their ability. They will probably resent the intrusion unless your question serves their purposes." },
+  { "name": "The Noble", "effect": "Makes you provably the heir of name for a small barony in a stable kingdom, and comes with a fortune of ~10,000gp in personal possessions, a country mansion, and a river or pond with good fishing." },
+  { "name": "The Kraken", "effect": "Begins the Kraken mating season and the movement of the Krakens of the world from the ocean to the freshwater lakes in which they spawn. Kraken males impress Kraken females by presenting kingdoms over which they have unquestionable rule." },
+  { "name": "Love", "effect": "Returns one of your dead loved ones to the prime of their life with full memory and in perfect health." },
+  { "name": "The Dead Well", "effect": "Opens a portal to a layer of the Abyss of the DM's choice, which draws you in inexorably within the next ten minutes. Anyone else can go in with you; nothing can come out this way." },
+  { "name": "Inspiration", "effect": "Have an idea with the capacity to change the shape of the world. Steam power, clockwork, magical theory- anything." },
+  { "name": "The Jinn", "effect": "Grants you three wishes. These wishes are more powerful than the wish spell, and instead endeavour to fulfil, as far as possible, the desire behind the wish." },
+  { "name": "Omen", "effect": "Places 'Many Things' warnings throughout your past and the past of everyone who sees you draw it, and tells you an important secret about the future." },
+  { "name": "The Revenant", "effect": "Returns a dead enemy to life, empowers them with a minimum of 2 additional levels and followers with good reason to be loyal, and gives them knowledge of your location. If you still live in a year they die again." },
+  { "name": "Opportunity", "effect": "Draw 3 cards immediately or lose the deck, as with Loss. No matter what, you may never draw another card." },
+  { "name": "Death", "effect": "Causes a doppelganger to appear and try to kill you. Anyone who tries to help you also gets their own doppelganger. The doppelganger comes from a world where everything is mostly the same, but they are forced by THEIR deck of many things to come to his world and have to kill a version of themselves. Both die if they refuse to duel." },
+  { "name": "Loss", "effect": "The Deck teleports to a new owner, across the seas." },
+  { "name": "Ruin", "effect": "On leaving the hands of the drawing party, teleports back into the deck and causes a horrific elemental hurricane to level the surrounding quarter mile." },
+  { "name": "Turmoil", "effect": "Every leader of every state, city, town, guild, army and other organization of power on this continent is replaced or removed over the next 24 hours, due to natural death, assassination, a coup, a planned transfer of power, retirement, disintegration of the organization, or some other circumstance." },
+  { "name": "Power", "effect": "Immediately gain 2 levels." },
+  { "name": "Motive", "effect": "You start bleeding to death. You lose a hit point an hour, and a maximum hit point a day. You cannot gain new hit points by levelling. This loss only stops if you convince someone else to draw a card from the deck." },
+  { "name": "Riches", "effect": "Gives you an immediate 10,000gp in unmarked gems and, unless the money is lost via gambling, causes new sources of wealth to appear whenever you are running low." },
+  { "name": "Prey", "effect": "Your non-dominant arm is forcibly and irreversibly teleported, below the elbow, to the hounds of the Wild Hunt. They have your scent now." },
+  { "name": "The Fates", "effect": "You can rewind an event to before it happened, at any time. This card remains removed from the deck until it is drawn." }
+]

@@ -1,90 +1,90 @@
 [
   {
-    "Name": "Balance",
-    "Effect": "Either an Ally you meet will feel compelled to betray you, or an Enemy will be compelled to assist you. They can resist it, but only at great expense of their own. (DM decides which happens and who. This can be from NPC motivations or arcane impulse)"
+    "name": "Balance",
+    "effect": "Either an Ally you meet will feel compelled to betray you, or an Enemy will be compelled to assist you. They can resist it, but only at great expense of their own. (DM decides which happens and who. This can be from NPC motivations or arcane impulse)"
   },
   {
-    "Name": "Comet",
-    "Effect": "A meteor strikes near your location. It contains a hard encounter of aberrations or monstrosities. The metal from the comet is adamantine and can be used to make adamantine plate. It can be sold to a skilled smith for 1000gp."
+    "name": "Comet",
+    "effect": "A meteor strikes near your location. It contains a hard encounter of aberrations or monstrosities. The metal from the comet is adamantine and can be used to make adamantine plate. It can be sold to a skilled smith for 1000gp."
   },
   {
-    "Name": "Donjon",
-    "Effect": "You come into possession of a map of a forgotten tomb or some other dungeon like area. You know where the dungeon is located and know its layout. (The dungeon may have been modified by weather or new inhabitants since the map was made, making it less effective)"
+    "name": "Donjon",
+    "effect": "You come into possession of a map of a forgotten tomb or some other dungeon like area. You know where the dungeon is located and know its layout. (The dungeon may have been modified by weather or new inhabitants since the map was made, making it less effective)"
   },
   {
-    "Name": "Euryale",
-    "Effect": "You are forced to take on a minor curse, but gain a minor blessing (DM's discretion as to what these are). The effect can be removed by remove curse, but it removes the blessing as well."
+    "name": "Euryale",
+    "effect": "You are forced to take on a minor curse, but gain a minor blessing (DM's discretion as to what these are). The effect can be removed by remove curse, but it removes the blessing as well."
   },
   {
-    "Name": "Flames",
-    "Effect": "You have a haunting realization that someone you offended was a devil in disguise. (DM gets to pick who, the player gets to pick how)"
+    "name": "Flames",
+    "effect": "You have a haunting realization that someone you offended was a devil in disguise. (DM gets to pick who, the player gets to pick how)"
   },
   {
-    "Name": "Gem",
-    "Effect": "A bag of gems worth 25cp appears before you, but know that it is worth at least 5000gp in a far off land or a big city. (DM decides where and exactly how much.)"
+    "name": "Gem",
+    "effect": "A bag of gems worth 25cp appears before you, but know that it is worth at least 5000gp in a far off land or a big city. (DM decides where and exactly how much.)"
   },
   {
-    "Name": "Key",
-    "Effect": "You gain a +1 weapon that takes on one form of your choosing which cannot be changed later. (If the weapon is a staff or the owner is a magic user, it can instead hold up to 4 spell slots [highest 3rd]) It plays an important role in a prophecy and becomes a +3 weapon if its duty is fulfilled (10 slots [max 5th]). It is a non-magical weapon if anyone else uses it and cannot be used to harm you. (Cultists or jealous heroes may attempt to steal the weapon, which requires killing the character)"
+    "name": "Key",
+    "effect": "You gain a +1 weapon that takes on one form of your choosing which cannot be changed later. (If the weapon is a staff or the owner is a magic user, it can instead hold up to 4 spell slots [highest 3rd]) It plays an important role in a prophecy and becomes a +3 weapon if its duty is fulfilled (10 slots [max 5th]). It is a non-magical weapon if anyone else uses it and cannot be used to harm you. (Cultists or jealous heroes may attempt to steal the weapon, which requires killing the character)"
   },
   {
-    "Name": "Knight",
-    "Effect": "You gain an apprentice/acolyte/squire who is completely loyal to you, though they won't allow mistreatment. They are proficient in one trade skill if you have one yourself. While not effective in combat (unless DM decides otherwise later), they are effective with running businesses you might own or helping to craft armor/items. Crafting requires the same amount of gold, but 2/3rds less time."
+    "name": "Knight",
+    "effect": "You gain an apprentice/acolyte/squire who is completely loyal to you, though they won't allow mistreatment. They are proficient in one trade skill if you have one yourself. While not effective in combat (unless DM decides otherwise later), they are effective with running businesses you might own or helping to craft armor/items. Crafting requires the same amount of gold, but 2/3rds less time."
   },
   {
-    "Name": "Ruin",
-    "Effect": "You will cause someone to lose everything they ever held dear. Everyone shall know it is your fault and the person shall dedicate their life to revenge. Only a wish used to restore everything they lost, plus interest, will be able to dissuade them."
+    "name": "Ruin",
+    "effect": "You will cause someone to lose everything they ever held dear. Everyone shall know it is your fault and the person shall dedicate their life to revenge. Only a wish used to restore everything they lost, plus interest, will be able to dissuade them."
   },
   {
-    "Name": "Star",
-    "Effect": "You have been blessed with starlight. You now glow slightly, emitting 30ft of dim light. You have disadvantage on all stealth saving throws. This effect persists through invisibility. You gain proficiency in saving throws connected to your lowest stat that you aren't proficient in."
+    "name": "Star",
+    "effect": "You have been blessed with starlight. You now glow slightly, emitting 30ft of dim light. You have disadvantage on all stealth saving throws. This effect persists through invisibility. You gain proficiency in saving throws connected to your lowest stat that you aren't proficient in."
   },
   {
-    "Name": "Skull",
-    "Effect": "Someone you love has died. (DM decides how; if they were murdered, the player knows who they are) If you have no loved ones, you are instead falsely accused of murder."
+    "name": "Skull",
+    "effect": "Someone you love has died. (DM decides how; if they were murdered, the player knows who they are) If you have no loved ones, you are instead falsely accused of murder."
   },
   {
-    "Name": "Throne",
-    "Effect": "You gain the deed to a medium sized castle and a few of the surrounding territories. You do not know the location of the castle, but it can be found through mundane or arcane means and you know where to begin searching for it. Additionally, you have advantage on persuasion and intimidation rolls regarding matters of your territories. (DM decides the condition of the castle and any current 'owners'; there might be an investment to fully restore it. If the player doesn't have an ally that would be a steward, they can easily acquire one)"
+    "name": "Throne",
+    "effect": "You gain the deed to a medium sized castle and a few of the surrounding territories. You do not know the location of the castle, but it can be found through mundane or arcane means and you know where to begin searching for it. Additionally, you have advantage on persuasion and intimidation rolls regarding matters of your territories. (DM decides the condition of the castle and any current 'owners'; there might be an investment to fully restore it. If the player doesn't have an ally that would be a steward, they can easily acquire one)"
   },
   {
-    "Name": "Vizier",
-    "Effect": "You will gain the aid of a member of the upper class who will support you in minor ways. They can be persuaded to use their influence to aid you in a more major way, but each time is more difficult than the last. (The ally can be a simple noble, a high cleric, or a king)"
+    "name": "Vizier",
+    "effect": "You will gain the aid of a member of the upper class who will support you in minor ways. They can be persuaded to use their influence to aid you in a more major way, but each time is more difficult than the last. (The ally can be a simple noble, a high cleric, or a king)"
   },
   {
-    "Name": "The Fates",
-    "Effect": "Soon, your character will have a chance to correct or atone for what they view as their biggest mistake—with dire consequences if they should not do so. Player decides what; DM decides how."
+    "name": "The Fates",
+    "effect": "Soon, your character will have a chance to correct or atone for what they view as their biggest mistake—with dire consequences if they should not do so. Player decides what; DM decides how."
   },
   {
-    "Name": "Fool",
-    "Effect": "You lose a class level but in exchange gain another random class level. You can retrain this in two levels."
+    "name": "Fool",
+    "effect": "You lose a class level but in exchange gain another random class level. You can retrain this in two levels."
   },
   {
-    "Name": "Idiot",
-    "Effect": "You lose 1 point of intelligence but gain advantage in dealing with NPCs below 9 Intelligence."
+    "name": "Idiot",
+    "effect": "You lose 1 point of intelligence but gain advantage in dealing with NPCs below 9 Intelligence."
   },
   {
-    "Name": "Jester",
-    "Effect": "Draw two more cards. You may, if you wish, bestow one on someone in sight."
+    "name": "Jester",
+    "effect": "Draw two more cards. You may, if you wish, bestow one on someone in sight."
   },
   {
-    "Name": "Moon",
-    "Effect": "You will undergo an extensive and probably permanent physical transformation. You may be attacked by a lycanthrope, targeted by Baleful Polymorph, become deformed in an accident, or other effects."
+    "name": "Moon",
+    "effect": "You will undergo an extensive and probably permanent physical transformation. You may be attacked by a lycanthrope, targeted by Baleful Polymorph, become deformed in an accident, or other effects."
   },
   {
-    "Name": "Rogue",
-    "Effect": "A criminal organization targets you for your wealth, influence, or because you pissed them off in the past. At first they send threatening notes, but it quickly escalates into violence."
+    "name": "Rogue",
+    "effect": "A criminal organization targets you for your wealth, influence, or because you pissed them off in the past. At first they send threatening notes, but it quickly escalates into violence."
   },
   {
-    "Name": "Sun",
-    "Effect": "In the future, you will be granted a noble title by royalty as proof of your deeds—or are elected to a powerful office, or become a folk hero. Wherever you go, you will be accepted and supported, sometimes clandestinely, other times openly."
+    "name": "Sun",
+    "effect": "In the future, you will be granted a noble title by royalty as proof of your deeds—or are elected to a powerful office, or become a folk hero. Wherever you go, you will be accepted and supported, sometimes clandestinely, other times openly."
   },
   {
-    "Name": "Talons",
-    "Effect": "The weave of magic is less stable in your presence. Whenever you cast a spell or are affected by a spell, roll a d20. If it is a 1, roll on the wild magic table (this is in addition to any other reason to roll on the table)."
+    "name": "Talons",
+    "effect": "The weave of magic is less stable in your presence. Whenever you cast a spell or are affected by a spell, roll a d20. If it is a 1, roll on the wild magic table (this is in addition to any other reason to roll on the table)."
   },
   {
-    "Name": "The Void",
-    "Effect": "You will die. SOON. And not under pleasant circumstances. Nightmares will haunt you until your dying day. Demons and undead will attack you as you sleep. A Remove Curse will only succeed at suppressing it—the Void will return in a year. But on the bright side, if you are resurrected you will be unaffected afterwards. The curse can be removed permanently, but you do not know how."
+    "name": "The Void",
+    "effect": "You will die. SOON. And not under pleasant circumstances. Nightmares will haunt you until your dying day. Demons and undead will attack you as you sleep. A Remove Curse will only succeed at suppressing it—the Void will return in a year. But on the bright side, if you are resurrected you will be unaffected afterwards. The curse can be removed permanently, but you do not know how."
   }
 ]

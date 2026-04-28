@@ -1,6 +1,10 @@
 ---- Changelog (version 1.1.1): Visual overhaul.
-• New Spells List page added, accessible via "~Tables~" Tab.
-• New Items List and Feats pages accessible via the "~Tables~ Tab" for my WIP Equipment Overhaul Homebrew. Currently Empty.
+• New Spells List page added, accessible via "~Tables~" Tab. Some tweaks have been done:
+   • Spells have a Mana Cost and type. Spell Levels are still displayed.
+   • Wording changes: Poisoned --> Debilitated, Exhaustion --> Malaise.
+   • AC is now Dodge. Some AC spells will grant Block.
+   • Resistance has 5 stages (25%/50%/75% less taken, and immunity at 5). Stage 4 grants no benefit.
+• Overhaul Items List and Feats pages accessible via the "~Tables~ Tab" for my WIP Equipment Overhaul Homebrew. Currently Empty.
 • Tons of code cleanup and more optimized storage for randomization and data functions.
 • Added Gender and Sexuality randomizers to Character Tab.
 • All Decks added.

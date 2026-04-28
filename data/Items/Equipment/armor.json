@@ -1,1 +1,14 @@
-[]
+[
+  {"result":"Padded (AC: 11 + Dex modifier)","type":"Light"},
+  {"result":"Leather (AC: 11 + Dex modifier)","type":"Light"},
+  {"result":"Studded Leather (AC: 12 + Dex modifier)","type":"Light"},
+  {"result":"Hide (AC: 12 + Dex modifier (max 2))","type":"Medium"},
+  {"result":"Chain Shirt (AC: 13 + Dex modifier (max 2))","type":"Medium"},
+  {"result":"Scale Mail (AC: 14 + Dex modifier (max 2))","type":"Medium"},
+  {"result":"Breastplate (AC: 14 + Dex modifier (max 2))","type":"Medium"},
+  {"result":"Half Plate (AC: 15 + Dex modifier (max 2))","type":"Medium"},
+  {"result":"Ring Mail (AC: 14)","type":"Heavy"},
+  {"result":"Chain Mail (AC: 16)","type":"Heavy"},
+  {"result":"Splint (AC: 17)","type":"Heavy"},
+  {"result":"Plate (AC: 18)","type":"Heavy"}
+]

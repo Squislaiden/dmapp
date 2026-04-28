@@ -59,13 +59,13 @@ label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
 .result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
 .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
-.toggle-label{font-family:var(--font-display);font-size:.78rem;color:var(--text-dim);transition:color .3s}
+.toggle-label{font-family:var(--font-display);font-size:1.0rem;color:var(--text-dim);transition:color .3s}
 .toggle-label.active{color:var(--accent)}
-.toggle-switch{position:relative;width:34px;height:17px}
+.toggle-switch{position:relative;width:50px;height:25px}
 .toggle-switch input{opacity:0;width:0;height:0}
-.toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--bg-input);border:1px solid var(--border);border-radius:17px;transition:.3s}
-.toggle-slider::before{content:'';position:absolute;width:11px;height:11px;left:2px;bottom:2px;background:var(--accent);border-radius:50%;transition:.3s}
-.toggle-switch input:checked + .toggle-slider::before{transform:translateX(17px)}
+.toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--bg-input);border:1px solid var(--border);border-radius:25px;transition:.3s}
+.toggle-slider::before{content:'';position:absolute;width:17px;height:17px;left:3px;bottom:3px;background:var(--accent);border-radius:50%;transition:.3s}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(25px)}
 .tip{position:relative;display:inline-block;cursor:help}
 .tip::after{content:attr(data-tip);position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text);border:1px solid var(--accent-dim);border-radius:var(--radius);padding:4px 7px;font-size:.88rem;width:200px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;font-family:var(--font-body);line-height:1.3}
 .tip:hover::after{opacity:1}
@@ -207,7 +207,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="itemsTab" class="tab-content">
 <div class="section">
 <div class="section-title">Equipment</div>
-<div class="toggle-wrap"><span class="toggle-label active" id="toggleLabel5e">5e Standard</span><label class="toggle-switch"><input type="checkbox" id="equipToggle" onchange="toggleEquipment()"><span class="toggle-slider"></span></label><span class="toggle-label" id="toggleLabelOH">Squislaiden's Overhaul</span></div>
+<div class="toggle-wrap"><span class="toggle-label active" id="toggleLabel5e" style="flex:1;text-align:right">5e Standard</span><label class="toggle-switch"><input type="checkbox" id="equipToggle" onchange="toggleEquipment()"><span class="toggle-slider"></span></label><span class="toggle-label" id="toggleLabelOH" style="flex:1;text-align:left">Squislaiden's Overhaul</span></div>
 <div id="equipment5e">
 <div class="split">
 <div class="split-left">

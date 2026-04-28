@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "Fool", "effect": "After making a d20 roll, and before the DM describes the outcome, you can roll another d20. You must use the second d20 roll as the final roll." },
+  { "name": "Magician", "effect": "You cast a spell that you have prepared without expending a spell slot." },
+  { "name": "Priestess", "effect": "You gain advantage on all Wisdom based Skill Checks and Saving Throws for one hour." },
+  { "name": "Empress", "effect": "You cast a 1st-level 'Detect Evil and Good' spell once." },
+  { "name": "Emperor", "effect": "You cast a 1st-level 'Shield' spell once." },
+  { "name": "Priest/Hierophant", "effect": "You gain a +5 to all Wisdom based Skill Checks and Saving Throws for one hour." },
+  { "name": "Lovers", "effect": "You and a target you can see within 300ft of you recover 1d20 Hit Points." },
+  { "name": "Chariot", "effect": "You can immediately take the Dash action once." },
+  { "name": "Strength", "effect": "You can immediately make two unarmed strikes or melee weapon attacks." },
+  { "name": "Hermit", "effect": "You gain advantage on Dexterity (Stealth) checks for one hour." },
+  { "name": "Wheel of Fortune", "effect": "Before making a d20 roll you can choose to bend luck. Roll 3d20s. If the majority of the rolls are even numbers you can use the highest roll as your final roll. If the majority of the rolls are odd numbers you must use the lowest number as your final roll." },
+  { "name": "Justice", "effect": "After a creature damages you with an unarmed strike or melee weapon attack and you are left with at least 1 Hit Point, the attacker is immediately damaged for 1d20 force damage." },
+  { "name": "Hanged Man", "effect": "You donate your lifeforce to a creature within 10ft of you. Roll a d4, d6, d8, d10, d12, or d20. The result is the amount of necrotic damage you receive and the amount of Hit Points the target creature recovers." },
+  { "name": "Death", "effect": "You gain +5 to Death Saving Throws." },
+  { "name": "Temperance", "effect": "You and 1d6 creatures you can see within 300ft of you gain 1d20 Temporary Hit Points for one hour." },
+  { "name": "Devil", "effect": "You wrench the lifeforce from a creature within 10ft of you. Roll a d4, d6, d8, d10, d12, or d20. The result is the amount of fire damage you inflict on the target and the amount of Hit Points you recover." },
+  { "name": "Tower", "effect": "A creature you can see within 10ft of you immediately gains the restrained condition. A creature restrained this way can use its action to make a Strength check against a DC 20. On a success, it frees itself." },
+  { "name": "Star", "effect": "You cast a 4th-level 'Scry' spell once." },
+  { "name": "Moon", "effect": "You cast a 5th-level 'Major Illusion' spell once." },
+  { "name": "Sun", "effect": "You cast a 6th-level 'Sunbeam' spell once." },
+  { "name": "Judgement", "effect": "You cast a 2nd-level 'Zone of Truth' spell once." },
+  { "name": "The World", "effect": "You assemble your allies at your side. Choose 1d6 targets you can see within 300ft of you and teleport them to an unoccupied space within 10ft of you." }
+]

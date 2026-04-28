@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "Dancer", "effect": "Your alignment switches." },
+  { "name": "Musician", "effect": "Gain one level." },
+  { "name": "Nista", "effect": "You disappear, trapped underneath the Temple of Nista (Any location you want... make it a dungeon, or city, or whatever). Player plays a NPC of the DM's choosing until/if the original PC is rescued." },
+  { "name": "Medusa", "effect": "Medusa Curse: You no longer have saving throws. If your health hits zero, you die." },
+  { "name": "Genie", "effect": "You can undo one event as if it never happened so far in the campaign. Must use now." },
+  { "name": "Wraith", "effect": "There is another voice in your head, it speaks occasionally and slowly takes over." },
+  { "name": "Fool", "effect": "You go down one level and have to draw another card." },
+  { "name": "Merchant", "effect": "You gain 50,000 gold." },
+  { "name": "Idiot", "effect": "Reduce Intelligence by 1D6. Draw another card." },
+  { "name": "Drunkard", "effect": "You are now an alcoholic. If you were already, alcohol is now lethal poison to you." },
+  { "name": "Blacksmith", "effect": "A rare magic weapon appears in your hands." },
+  { "name": "Knight", "effect": "A knight walks up and pledges loyalty to you until death. PC controls the companion." },
+  { "name": "Astronomer", "effect": "You are granted the ability to cast the wish spell once, right now." },
+  { "name": "Rogue", "effect": "One PC (DM roll to choose) now wants to kill you, at any cost." },
+  { "name": "Marauder", "effect": "All your equipment, items, gold, and inventory disappear. You never knew they existed." },
+  { "name": "Reaper", "effect": "Reaper appears and attacks. 1D20+5. 1-6 for body parts (1-left leg (cripple), 2 right leg (cripple), 3 left arm(cripple), 4 right arm(cripple), 5 chest [half the con forever], & 6 head [half the int forever])." },
+  { "name": "Instructor", "effect": "Increase one ability score by 2." },
+  { "name": "Cavalrymen", "effect": "You now have a horse. You've always had one. It's your best friend. Name it." },
+  { "name": "Demon", "effect": "You stab your weapon into your chest. It becomes a very powerful blood-weapon but you must now start making three saving throws to see if you survive the ordeal. No one can help you with any spells or medicine." },
+  { "name": "King", "effect": "Persuasion skill raises by 2 points. You also now own a castle somewhere in the world (DM chooses specifics)." },
+  { "name": "Meditator", "effect": "You meditate and find truth. Ask the DM one question, any question, and he will answer." },
+  { "name": "The Void", "effect": "Your soul becomes trapped into whatever item you were holding. You can speak to the holder of that item. Once they pick it up, they are soulbound to it." }
+]

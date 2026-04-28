@@ -1,110 +1,110 @@
 [
   {
-    "name": "",
-    "effect": ""
+    "name": "Satyr",
+    "effect": "Your party is transported to a lavish, enchanted feast, attended by any beings of the DM's choice. While at the feast, characters may not cast spells or draw weapons."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Stag",
+    "effect": "Choose any one being to designate as your quarry. You always know the location and status of your quarry. When you kill it, you immediately gain a level."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Pestilence",
+    "effect": "You are afflicted with a contagious, disfiguring disease. The symptoms and method of transmission are chosen by the DM."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Masque",
+    "effect": "Your appearance is irrevocably changed, at the DM's discretion."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Harpy",
+    "effect": "You or one or your companions is kidnapped by a harpy and flown to a distant shore."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Bastion",
+    "effect": "For the next 24 hours, you are completely impervious to physical harm."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Legion",
+    "effect": "You gain the service of a band of 20 level 1 soldiers. they follow your orders unflinchingly, and with complete loyalty."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Siren",
+    "effect": "You capture the attention of a sorcerous maiden. She immediately begins planning to lure you to her lair and make you her thrall."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Dragon",
+    "effect": "You encounter a hostile dragon."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Weaver",
+    "effect": "Choose a character. You determine that character's final destiny. You do not know when this fate will come to pass, but it becomes certain and inescapable."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Shroud",
+    "effect": "You instantly lose all memories or your past. You retain all skills, levels, and abilities. You may only recover your memories through a wish, or divine intervention."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Phantom",
+    "effect": "This card comes to life as an unkillable, implacable specter. It will follow you wherever you go, and may pass through walls in order to do so."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Revenant",
+    "effect": "Resurrect one dead character. One aspect of their personality is permanently changed."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Serpent",
+    "effect": "One of your party members (chosen by the DM) is afflicted with a deadly, undetectable poison. Unless prevented with a wish, it will kill the character within one day."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Minotaur",
+    "effect": "Your party is transported to the entrance of a labyrinth. The only escape is to find the center. A guardian minotaur lurks somewhere within."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Destrier",
+    "effect": "You gain a magical steed chosen from among the following: bear, elk, stallion, rhino, sloth, or wolf."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Hound",
+    "effect": "You gain the loyalty of a magical animal companion, chosen from among the following: boar, crow, hound, monkey, or serpent."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Orchard",
+    "effect": "You gain the seed of a fruit tree. If you plant it, it grows to fruition in 7 days. Unless the tree is chopped down, it provides unlimited food and sustenance forever."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Mercian Wolves",
+    "effect": "Your party is hunted by a pack of 16 wolves."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Covenant",
+    "effect": "A deity (of the DM's chooice) demands you complete a trial of its choosing.\nIf you succeed, it will grant nearly any request. If you fail, you forfeit your soul."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Tempest",
+    "effect": "Your immediate vicinity is wracked by a terrible storm. If you are inside, the structure is destroyed entirely. Every character takes 2d10 damage."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Doppleganger",
+    "effect": "This card comes to life as an identical version of you, including skills, memories, and equipment, except with the opposite alignment."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Djinn",
+    "effect": "A djinn grants you audience with any one being. The djinn summons that being to your location for 5 minutes, then returns it where it came from."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Aperture",
+    "effect": "An interdimensional portal appears, leading to any one place of your choosing. It remains open for one hour."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Titania",
+    "effect": "A fae queen offers a trade: if you sacrifice something extraordinarily precious to you, you may look at the top 3 cards of this deck and choose a card to draw."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Scorpion",
+    "effect": "Kill any one character, no matter who or where."
   },
   {
-    "name": "",
-    "effect": ""
+    "name": "Spire",
+    "effect": "Choose a skill. You gain +2 to all checks using that skill. You gain proficiency in this skill if you did not already have it. Draw Again."
   }
 ]

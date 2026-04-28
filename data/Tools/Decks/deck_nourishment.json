@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "The Fool", "effect": "A plate of iced cookies shaped like many exotic animals." },
+  { "name": "The Magician", "effect": "A sugar-spun butterfly that flutters around. Whoever catches and eats it is able to cast Magic Missile as a level 1 wizard spell once per long rest. Casting Magic Missile in this way does not require spell components. This effect lasts for 1d20 days." },
+  { "name": "The High Priestess", "effect": "A single pomegranate." },
+  { "name": "The Empress", "effect": "A bowl of fruit." },
+  { "name": "The Emperor", "effect": "A 5-foot cube of a very hard cheese drops from the sky in front of the bearer." },
+  { "name": "The Hierophant", "effect": "A goblet of holy wine. Whoever drinks this wine will utter a long-forgotten secret." },
+  { "name": "The Lovers", "effect": "A delicate, heart-shaped cake." },
+  { "name": "The Chariot", "effect": "A wagon laden with fruit, vegetables, and dried meats." },
+  { "name": "Justice", "effect": "A set of scales. One scale contains the bearer's favorite food, while the other contains their least favorite food. The scales are in perfect balance." },
+  { "name": "The Hermit", "effect": "A wooden bowl filled with edible roots, twigs, and woodland berries. They are very bitter." },
+  { "name": "The Wheel of Fortune", "effect": "A meal for a single person. The bearer must roll 1d10. The outcome of the roll determines what the meal contains, as described below:\n1: A worm-eaten apple.\n2: Hard-tack. It is hard enough to break teeth if not softened.\n3: Overcooked vegetables.\n4: A slightly stale loaf of bread.\n5: A plate of fresh vegetables.\n6: A small plate of cheese, sliced meats, and crackers.\n7: A plate of perfectly cooked vegetables, with a slice of warm bread.\n8: A whole roast chicken, complete with stuffing.\n9: A fine steak served with a tankard of delicious ale.\n10: A roast leg of lamb, served on a bed of fresh greens and roasted root vegetables, and paired with a rather nice wine." },
+  { "name": "Strength", "effect": "A roasted bull." },
+  { "name": "The Hanged Man", "effect": "An empty plate. The user may draw another card from the deck immediately after they realize that the plate is, in fact, empty." },
+  { "name": "Death", "effect": "A plate of rotten, maggot-infested food." },
+  { "name": "Temperance", "effect": "A modest meal that is appropriately portioned for the user." },
+  { "name": "The Devil", "effect": "An exquisite mug of delicious hot chocolate, spiced with cinnamon and cayenne pepper. Whoever drinks this mug can understand and speak Infernal for 1d10 days." },
+  { "name": "The Tower", "effect": "A 5-foot tower made entirely of candy glass. If broken, the bearer receives a vision of an overwhelming tragedy that will occur in the future." },
+  { "name": "The Star", "effect": "A bottle of sparkling wine. Whoever drinks this must immediately cast Dancing Lights without requiring spell components." },
+  { "name": "The Moon", "effect": "A sumptuous banquet. Upon inspection, this banquet is found to be an illusion. After determining that this is, in fact, not a real banquet, the bearer may draw again if they are able." },
+  { "name": "The Sun", "effect": "A small satchel of sunflower seeds. Whoever eats this entire satchel will feel as if they have just woken up from a long rest, and they regain any abilities as if they had just received a long rest." },
+  { "name": "Judgment", "effect": "The effect of this card is determined by the alignment of the bearer. If good, the bearer receives a goblet of faintly glowing wine that, if drunk, grants one minor blessing for the next 24 hours. If neutral, the bearer receives an ordinary goblet of wine. If evil, the bearer receives a goblet of what seems to be bloodwine that, if drunk, bestows a minor curse for the next 24 hours." },
+  { "name": "The World", "effect": "A massive banquet with enough food for 10x1d20 people." }
+]

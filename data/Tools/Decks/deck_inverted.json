@@ -1,1 +1,21 @@
-[]
+[
+  { "name": "Upheaval", "effect": "Changes the alignment of the Deity worshiped by the character who draws it." },
+  { "name": "The Black Cat", "effect": "If the character refuses to participate in the next hostile combat and the party must retreat, the character gains an experience level. If the character participates or informs any other member of the party, they lose an experience level instead." },
+  { "name": "Freedom", "effect": "Instantly relieves the character of all imprisonment/deals/obligations/pacts/geases that they are subject to, and makes them the undisputed owner of all objects on their person." },
+  { "name": "Stonesalve", "effect": "The character gains a permanent bonus to all saving throws." },
+  { "name": "Chaos", "effect": "Immediately and irrevocably locks one aspect of the character's fate, forcing it to occur as soon as possible. However, after the event is satisfied the character no longer has a fate; any prophecies regarding the player are unmade or redirected, and any attempts to view their future are unsuccessful." },
+  { "name": "The Frost", "effect": "Causes an outsider to immediately ally themselves with the character." },
+  { "name": "The Sage", "effect": "The character gains experience and is unable to draw further. Unless another character intends to draw from the deck, it disappears immediately." },
+  { "name": "Asceticism", "effect": "The character immediately loses all wealth, including land and titles, and is left with only their current non-monetary possessions." },
+  { "name": "The Genius", "effect": "The character receives a permanent bonus to intelligence." },
+  { "name": "The Cynic", "effect": "The character may choose to either lose experience points, or negate the last two changes brought about by this deck. If the character chooses to negate the changes they are only nullified, not undone, and any consequences rendered remain unless corrected." },
+  { "name": "The Lock", "effect": "The most powerful magic item within 100 feet of the character is instantly removed to a nearly unreachable place, and the character is aware of its new location. If no magical items are present, the nearest magical creature is removed instead. This card does not consider the deck a valid target." },
+  { "name": "The Peon", "effect": "A worthless, skill-less person appears and dedicates their life to obstructing the character. They cannot be killed, and if restrained they will escape and find their way to the character in 1d4 days." },
+  { "name": "Redemption", "effect": "An enemy of the party becomes an ally." },
+  { "name": "Security", "effect": "The character is unable to lose possessions, willingly or unwillingly. Anything dropped, stolen, or removed from the character will return to them, or to a property that the character owns (determined randomly) in 1d4 days." },
+  { "name": "The Blossom", "effect": "The character must assist a minor angel with a task assigned by its god. This compulsion can only be removed by Freedom or The Cynic." },
+  { "name": "The Soil", "effect": "The character suffers a permanent -2 detriment to a stat of their choice." },
+  { "name": "The Exile", "effect": "The character suffers a permanent penalty to Diplomacy and loses all land and titles that they have. They lose all citizenship, and are incapable of gaining citizenship in any nation." },
+  { "name": "Cassandra", "effect": "A problem that the character has solved in the past returns, and cannot be dealt with the same way that it previously was." },
+  { "name": "Creation", "effect": "The soul of another person is trapped within the character's body. The character may access the soul's knowledge or skill, but each time they do the line between the two souls becomes more obscured, eventually resulting in either the reversal of the souls' positions of power in the body, the merging of the souls, or the destruction of one or both of the souls." }
+]

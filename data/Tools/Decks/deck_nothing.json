@@ -1,1 +1,24 @@
-[]
+[
+  { "name": "The Fool", "effect": "a member of the goblin or gnome or pixie or any other dumb/jokey/mad race of DM's choice appears besides you. He/she will promise eternal obedience to you, but every order you give to him will end up with getting yourself into troubles. Also, he will always speak his mind on everything, often bringing up very strange and unpopular opinions." },
+  { "name": "The Magician", "effect": "the next time the nearest grimoire is opened, the page at which it was opened flies away as it was blown by the wind." },
+  { "name": "The High Priestess", "effect": "the most important relic of the reign vanishes into thin air." },
+  { "name": "The Empress", "effect": "crops begin to rot in all the kingdom." },
+  { "name": "The Emperor", "effect": "the king is murdered." },
+  { "name": "The Hierophant", "effect": "the higher rank among the most followed cult is kidnapped by members of the opposite cult." },
+  { "name": "The Lovers", "effect": "women in the kingdom become sterile." },
+  { "name": "The Chariot", "effect": "something in your near future will go irremediably wrong. No matter how much preparation or how much effort you put into it. You will fail your next task." },
+  { "name": "The Justice", "effect": "the party is accused of a crime that they have not committed." },
+  { "name": "The Hermit", "effect": "you lose any form of caution. If no one else stops you, you keep drawing cards from the deck." },
+  { "name": "The Wheel of Fortune", "effect": "the rich become poor and the poor stay poor." },
+  { "name": "The Fortitude", "effect": "fear strikes into your mind, distorting things around you into monsters. Also, in your sleep you experience vivid nightmares that often carry on when you wake up." },
+  { "name": "The Hanged Man", "effect": "in the kingdom no one else follows the law, chaos ensues." },
+  { "name": "The Death", "effect": "the next time you would die, you don't." },
+  { "name": "The Temperance", "effect": "you start filling with exaggerations and cursing every phrase you say." },
+  { "name": "The Devil", "effect": "the nearest cursed item is purged." },
+  { "name": "The Tower", "effect": "an enslaved race or the BBEG or a big captive monster is set free." },
+  { "name": "The Star", "effect": "the BBEG makes a big step further with his plans." },
+  { "name": "The Moon", "effect": "the BBEG has some difficulties going on with his plans or the party randomly finds a shortcut." },
+  { "name": "The Sun", "effect": "it's night. And will be night for a very long time..." },
+  { "name": "The Judgement", "effect": "the next time a player would level up, he/she doesn't." },
+  { "name": "The World", "effect": "you lose what you love more than anything else." }
+]

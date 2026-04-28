@@ -550,12 +550,32 @@ async function showDeckInfo(){const dk=document.getElementById('deckList').value
 
 // ITEMS
 function toggleEquipment(){const oh=document.getElementById('equipToggle').checked;document.getElementById('equipment5e').style.display=oh?'none':'block';document.getElementById('equipmentOH').style.display=oh?'block':'none';document.getElementById('toggleLabel5e').classList.toggle('active',!oh);document.getElementById('toggleLabelOH').classList.toggle('active',oh);}
-const armorData={light:["Padded (AC 11)","Leather (AC 11)","Studded Leather (AC 12)"],medium:["Hide (AC 12)","Chain Shirt (AC 13)","Scale Mail (AC 14)","Breastplate (AC 14)","Half Plate (AC 15)"],heavy:["Ring Mail (AC 14)","Chain Mail (AC 16)","Splint (AC 17)","Plate (AC 18)"]};
-function armorGen(t){let p;if(t==='all')p=[...armorData.light,...armorData.medium,...armorData.heavy,"Shield (+2 AC)"];else p=armorData[t];out('itemBox',pick(p));}
-const wpnS=["Club","Dagger","Greatclub","Handaxe","Javelin","Light Hammer","Mace","Quarterstaff","Sickle","Spear"];
-const wpnM=["Battleaxe","Flail","Glaive","Greataxe","Greatsword","Halberd","Lance","Longsword","Maul","Morningstar","Pike","Rapier","Scimitar","Shortsword","Trident","War Pick","Warhammer","Whip"];
-const wpnR=["Blowgun","Hand Crossbow","Heavy Crossbow","Light Crossbow","Longbow","Net","Shortbow","Sling","Dart"];
-function weaponGen(t){let p;if(t==='all')p=[...wpnS,...wpnM,...wpnR];else if(t==='simple')p=wpnS;else if(t==='martial')p=wpnM;else p=wpnR;out('itemBox',pick(p));}
+const armorDataFallback={Light:["Padded (AC 11)","Leather (AC 11)","Studded Leather (AC 12)"],Medium:["Hide (AC 12)","Chain Shirt (AC 13)","Scale Mail (AC 14)","Breastplate (AC 14)","Half Plate (AC 15)"],Heavy:["Ring Mail (AC 14)","Chain Mail (AC 16)","Splint (AC 17)","Plate (AC 18)"]};
+async function armorGen(t){
+  const d=await loadJSON('data/Items/Equipment/armor.json');
+  let pool;
+  if(d.length){
+    if(t==='all')pool=d.map(e=>e.result);
+    else{const tcap=t.charAt(0).toUpperCase()+t.slice(1);pool=d.filter(e=>e.type===tcap).map(e=>e.result);}
+  }else{
+    if(t==='all')pool=[...armorDataFallback.Light,...armorDataFallback.Medium,...armorDataFallback.Heavy,"Shield (+2 AC)"];
+    else{const tcap=t.charAt(0).toUpperCase()+t.slice(1);pool=armorDataFallback[tcap]||[];}
+  }
+  out('itemBox',pool.length?pick(pool):'[No '+t+' armor found]');
+}
+const weaponsDataFallback={Simple:["Club","Dagger","Greatclub","Handaxe","Javelin","Light Hammer","Mace","Quarterstaff","Sickle","Spear"],Martial:["Battleaxe","Flail","Glaive","Greataxe","Greatsword","Halberd","Lance","Longsword","Maul","Morningstar","Pike","Rapier","Scimitar","Shortsword","Trident","War Pick","Warhammer","Whip"],Ranged:["Blowgun","Hand Crossbow","Heavy Crossbow","Light Crossbow","Longbow","Net","Shortbow","Sling","Dart"]};
+async function weaponGen(t){
+  const d=await loadJSON('data/Items/Equipment/weapons.json');
+  let pool;
+  if(d.length){
+    if(t==='all')pool=d.map(e=>e.result);
+    else{const tcap=t.charAt(0).toUpperCase()+t.slice(1);pool=d.filter(e=>e.type===tcap).map(e=>e.result);}
+  }else{
+    if(t==='all')pool=[...weaponsDataFallback.Simple,...weaponsDataFallback.Martial,...weaponsDataFallback.Ranged];
+    else{const tcap=t.charAt(0).toUpperCase()+t.slice(1);pool=weaponsDataFallback[tcap]||[];}
+  }
+  out('itemBox',pool.length?pick(pool):'[No '+t+' weapons found]');
+}
 async function ohGen(t){const allArmor=['head_armor','torso_armor','arm_armor','leg_armor','shield'];const allWpn=['dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other'];let f=t;if(t==='all_armor')f=pick(allArmor);if(t==='all_weapons')f=pick(allWpn);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
 async function overhaulRandom(){const p=['head_armor','torso_armor','arm_armor','leg_armor','shield','accessory','dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other','spell_focus'];const f=pick(p);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
 const accessoriesFallback=["Amulet","Belt","Boots","Bracers","Brooch","Cape","Circlet","Cloak","Earring","Gauntlets","Gloves","Goggles","Hat","Headband","Helm","Mantle","Mask","Necklace","Pauldrons","Periapt","Ring","Robe","Rod","Scarf","Shield","Slippers","Staff","Tiara","Vestments","Wand"];

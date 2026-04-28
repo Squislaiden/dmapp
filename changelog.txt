@@ -2,15 +2,16 @@
 • New Spells List page added, accessible via "~Tables~" Tab.
 • New Items List and Feats pages accessible via the "~Tables~ Tab" for my WIP Equipment Overhaul Homebrew. Currently Empty.
 • Tons of code cleanup and more optimized storage for randomization and data functions.
-• Basic decks have been added: Standard Deck, w/ Jokers, Tarot Minor/Major/Full, and Deck of Beasts (original and expanded).
+• Severel Decks added.
 • Utilization of Cookies and LocalStorage to remember.
    • The Dice Roller tracks the last 50 rolls and can be viewed with the History button.
-   • The Deck Status button allows you to view which cards have been drawn from that deck and which cards are still in it. The Reset Deck button will clear saved data for the selected deck.
+   • The Deck History button will show the last 50 cards drawn and their respective deck.
+   • The Deck Status button allows you to view which cards have been drawn from that deck and which cards are still in it.
+   • The Reset Deck button will clear saved data for the selected deck. Reset All Decks will clear all saved data for all decks.
 
 ---- TO DO LIST:
 • Glyphs of Pandemonium update to support Equipment Overhaul.
 • Equipment Overhaul.
-• Add the rest of the decks: Deck of Many Things, Many Fates, Cards of Chaos, and most decks from (https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/).
-   • Reset All Decks, which does as it says.
+• Add the rest of the decks.
 
 ---- Changelog (version 1.0): All standard tools have been completed, and the Random Character Generator is in a fully usable state.

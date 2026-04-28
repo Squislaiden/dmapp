@@ -2,5 +2,6 @@
   {"result":"Male","weight":150},
   {"result":"Female","weight":150},
   {"result":"Non-Binary","weight":4},
+  {"result":"Genderless","weight":4},
   {"result":"Genderfluid","weight":1}
 ]

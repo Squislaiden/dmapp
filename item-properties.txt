@@ -1,0 +1,45 @@
+**Light.** Two Light weapons may be Dual-Wielded with the associated feat.
+
+**Unwieldy.** Cannot be wielded in one hand.
+
+**Two-Handed(#).** Weapon requires two hands to wield if Str # not met.
+
+**Finesse.** Dexterity must be used as the weapon's Mod stat.
+
+**Weighty.** Strength must be used as the weapon's Mod stat.
+
+**Flexible.** Weapon ignores half of the target's Dodge.
+
+**Reach(#).** Increased melee attack range.
+
+**Conceal.** Weapon is easier to conceal; +5 to Conceal.
+
+**Lunge.** Move 5 ft. when attacking, doesn't trigger Opportunities.
+
+**Hooked.** On a successful hit against a creature one size larger or smaller, as a Reaction, invoke a contested Strength check. On a success, move the target 5 ft. around you.
+
+**Arcing.** Weapon attacks ignore Cover.
+
+**Cleaving(#).** The size or shape of the weapon causes it to hit a number of enemies adjacent to the target for half damage, roll Hit separately.
+
+**AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes and are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
+
+**Ammo(x).** Weapon requires ammunition to function.
+
+**Loading(#/x).** Weapon can be used # of times before Reloading. Requires Action to reload by default.
+
+**Thrown(#/#).** Weapon adds Modifier to Hit and Damage when thrown. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range). If the weapon also has the *Light* property, the same weapon type may be drawn as part of the Attack. 
+
+**Range(#/#).** The attack range of a Ranged weapon. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range).
+
+**Multishot(#).** Weapons can fire multiple projectiles in a single attack with a -2 Hit and Damage per additional projectile up to the listed max. Penalty applies to all projectiles from the attack.
+
+**Status(#-x).** The weapon inflicts buildup of a Status.
+
+**Siege.** Weapon deals double damage to structures, objects, and Constructs.
+
+**Forage.** Weapon deals double damage to non-wood plants and non-wood Plant creatures.
+
+**Logger.** Weapon deals double damage to wood and wooden creatures.
+
+**Reverb.** Weapon deals double damage to amorphous objects and Slimes.

@@ -154,7 +154,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Madness:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
+<div class="inline-row" style="margin-top:4px"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
 </div>
 </div>
 <div style="flex:0 0 auto;margin-left:-80px">
@@ -338,18 +338,18 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div style="flex:0 0 52%;padding:6px">
 <div class="section-title">Character Generator</div>
 <div class="flex items-center" style="gap:4px"><button class="btn btn-accent" style="white-space:nowrap" onclick="charGenBtn()">Generate Character</button><div style="flex:1"></div><button class="btn btn-list" onclick="charInfoBtn()">Info</button></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Attributes</button></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label style="font-size:.88rem"><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
-<div class="inline-row" style="margin-top:20px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Attributes</button></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label style="font-size:.88rem"><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
+<div class="inline-row" style="margin-top:24px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
 </div>
 <div class="split-divider"></div>
 <div style="flex:1;padding:6px">
 <div class="section-title" style="font-size:.88rem">Generate Random Names</div>
 <div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:38px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:38px"></div>
 <div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
-<div class="flex items-center" style="gap:4px"><label>Qty:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"><div style="flex:1"></div><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
+<div class="flex items-center" style="gap:4px"><label>Qty:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"><div style="flex:1"></div><button class="btn btn-primary" style="margin-top:4px" onclick="nameGen()">Generate Names</button></div>
 <hr class="sep">
 </div>
 </div>

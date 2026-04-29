@@ -1344,7 +1344,7 @@ document.getElementById('clearItemFilters').addEventListener('click',()=>{
   document.getElementById('itemFilterBtn').classList.remove('active');
 });
 
-/* Item Properties button — show properties reference in card panel */
+/* Item Properties button — fetch and show in card panel */
 document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
   const panel=document.getElementById('itemDetailPanel');
   const card=document.getElementById('itemDetailCard');
@@ -1356,9 +1356,19 @@ document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
   itemCurrentRow=null;
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
   card.className='item-card';
-  card.innerHTML=buildPropertiesPanel();
+  card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
   panel.classList.add('open');
   panel._showingProps=true;
+  fetch('item-properties.txt')
+    .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();})
+    .then(txt=>{
+      if(!panel._showingProps)return;
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${descMd(txt)}</div>`;
+    })
+    .catch(err=>{
+      if(!panel._showingProps)return;
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load item-properties.txt</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+    });
 });
 
 document.querySelectorAll('[data-item-src]').forEach(btn=>{

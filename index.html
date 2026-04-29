@@ -188,6 +188,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="chaosOptions" style="display:none">
 <div class="inline-row"><label>Character Alignment:</label><select id="chaosAlignment"><option value="Chaotic">Chaotic</option><option value="Neutral" selected>Neutral</option><option value="Lawful">Lawful</option></select></div>
 </div>
+<button class="btn btn-primary" id="drawSingleBtn" onclick="drawSingleCard()" style="display:none">Draw Only One</button>
 <div class="flex items-center" style="gap:8px;margin-left:auto">
 <button class="btn btn-list" onclick="showCardHistory()">History</button>
 <label style="font-size:.82rem">See List of Decks <a href="https://www.reddit.com/r/DnDBehindTheScreen/comments/3hu95w/deck_of_decks/" target="_blank">Here</a></label>
@@ -333,12 +334,12 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <!-- CHARACTER TAB -->
 <div id="charTab" class="tab-content">
 <div class="section">
-<div class="section-title">Character Generator</div>
 <div class="split">
 <div style="flex:0 0 52%;padding:6px">
-<div class="btn-grid"><button class="btn btn-accent" onclick="charGenBtn()">Generate Character</button><button class="btn btn-primary" onclick="rollStatsBtn()">Roll Attributes</button></div>
-<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
-<div class="mt-xs"><button class="btn btn-list" onclick="charInfoBtn()">All Character Information</button></div>
+<div class="section-title">Character Generator</div>
+<div class="flex items-center" style="gap:4px"><button class="btn btn-accent" style="white-space:nowrap" onclick="charGenBtn()">Generate Character</button><div style="flex:1"></div><button class="btn btn-list" onclick="charInfoBtn()">Info</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Attributes</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label style="font-size:.88rem"><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
 <div class="inline-row" style="margin-top:20px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
 <div class="inline-row mt-xs"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
@@ -348,8 +349,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title" style="font-size:.88rem">Generate Random Names</div>
 <div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:38px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:38px"></div>
 <div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
-<div class="inline-row"><label>Quantity:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"></div>
-<div class="mt-xs"><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
+<div class="flex items-center" style="gap:4px"><label>Qty:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"><div style="flex:1"></div><button class="btn btn-primary" onclick="nameGen()">Generate Names</button></div>
+<hr class="sep">
 </div>
 </div>
 <hr class="sep">
@@ -531,7 +532,7 @@ function saveDiceHistory(h){while(h.length>50)h.shift();localStorage.setItem('di
 function rollDice(){const dice=[{s:2,id:'d2Num'},{s:4,id:'d4Num'},{s:6,id:'d6Num'},{s:8,id:'d8Num'},{s:10,id:'d10Num'},{s:12,id:'d12Num'},{s:20,id:'d20Num'},{s:100,id:'d100Num'}];let txt='',gt=0,summary='';const mod=Number(document.getElementById('diceMod').value);dice.forEach(d=>{let q=Number(document.getElementById(d.id).value);if(q>0){let r=[],t=0;for(let i=0;i<q;i++){const v=rng(1,d.s);r.push(v);t+=v;}txt+='d'+d.s+'('+r.join('+')+')='+t+'\n';summary+=(summary?'+':'')+q+'d'+d.s;gt+=t;}});gt+=mod;if(mod!==0)summary+=(mod>=0?'+':'')+mod;txt+='Mod:'+(mod>=0?'+':'')+mod+' Total:'+gt;out('toolsBox',txt);if(summary){const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+summary+']='+gt;const h=getDiceHistory();h.push(entry);saveDiceHistory(h);}}
 function showDiceHistory(){const h=getDiceHistory();out('toolsBox',h.length?'--- Last '+h.length+' Dice Rolls ---\n'+h.slice().reverse().map((v,i)=>(i+1)+'. '+v).join('\n'):'No dice rolls yet.');}
 function toggleChaosOptions(){document.getElementById('chaosOptions').style.display=document.getElementById('deckList').value==='cards_of_chaos'?'block':'none';}
-function onDeckChange(){toggleChaosOptions();updateDeckButtons();}
+function onDeckChange(){toggleChaosOptions();updateDeckButtons();document.getElementById('drawSingleBtn').style.display=document.getElementById('deckList').value==='deck_balance'?'inline-block':'none';}
 function getDeckDrawn(dk){try{return JSON.parse(localStorage.getItem('deck_drawn_'+dk))||[];}catch(e){return[];}}
 function saveDeckDrawn(dk,arr){localStorage.setItem('deck_drawn_'+dk,JSON.stringify(arr));}
 function getCardHistory(){try{return JSON.parse(localStorage.getItem('cardHistory'))||[];}catch(e){return[];}}
@@ -539,9 +540,163 @@ function saveCardHistory(h){while(h.length>50)h.shift();localStorage.setItem('ca
 function getDiceHistory(){try{return JSON.parse(localStorage.getItem('diceHistory'))||[];}catch(e){return[];}}
 function saveDiceHistory(h){while(h.length>50)h.shift();localStorage.setItem('diceHistory',JSON.stringify(h));}
 function getCardId(c){if(c.number)return c.number+'. '+c.name;if(c.result)return c.result;if(c.name)return c.name;if(c.card)return c.card;if(c.title)return c.title;return JSON.stringify(c);}
-function getCardDisplay(c){if(c.number)return c.number+'. '+c.name+' - '+c.flavor+'\n'+c.effect;const name=c.result||c.name||c.card||c.title||'';const body=c.effect||c.description||c.text||c.benefit||c.desc||'';const flavor=c.flavor||c.quote||c.lore||'';let d='';if(name)d+=name;if(flavor)d+='\n'+flavor;if(body)d+='\n'+body;return d||JSON.stringify(c);}
+function getCardDisplay(c,opts){
+  opts=opts||{};
+  if(c.number)return c.number+'. '+c.name+' - '+c.flavor+'\n'+c.effect;
+  const name=c.result||c.name||c.card||c.title||'';
+  // Tasha's upright/reversed: opts.orientation determines which key to use
+  let body=c.effect||c.description||c.text||c.benefit||c.desc||'';
+  if(opts.orientation&&c[opts.orientation]){body=c[opts.orientation];}
+  const flavor=c.flavor||c.quote||c.lore||'';
+  let displayName=name;
+  // Balance: add type in parentheses after name
+  if(opts.includeType&&c.type){displayName=name+' ('+c.type+')';}
+  // Tasha's: indicate orientation
+  if(opts.orientation){displayName=name+' ('+opts.orientation.charAt(0).toUpperCase()+opts.orientation.slice(1)+')';}
+  let d='';
+  if(displayName)d+=displayName;
+  if(flavor)d+='\n'+flavor;
+  if(body)d+='\n'+body;
+  return d||JSON.stringify(c);
+}
+
+async function drawCard(){
+  const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;
+  const d=await loadJSON('data/Tools/Decks/'+dk+'.json');
+  if(!d.length){out('toolsBox','[Empty deck - populate data/Tools/Decks/'+dk+'.json]');return;}
+
+  // Special case: Deck of Homebrew Things — always draws from full deck, no tracking
+  if(dk==='deck_homebrew'){
+    const card=pick(d);
+    const display=getCardDisplay(card);
+    const id=getCardId(card);
+    const now=new Date();
+    const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id;
+    const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+    out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n(Always shuffled - full deck)');
+    return;
+  }
+
+  // Special case: Deck of Balance — draw 1 Blessed and 1 Accursed
+  if(dk==='deck_balance'){
+    const drawnData=getDeckDrawn(dk);
+    const drawnIds=drawnData.map(e=>e.id||e);
+    const blessedPool=d.filter(c=>c.type==='Blessed'&&!drawnIds.includes(getCardId(c)));
+    const accursedPool=d.filter(c=>c.type==='Accursed'&&!drawnIds.includes(getCardId(c)));
+    if(!blessedPool.length||!accursedPool.length){out('toolsBox','Cannot draw both — '+(blessedPool.length?'Accursed':'Blessed')+' pile is empty. Use Reset Deck.');return;}
+    const blessedCard=pick(blessedPool);
+    const accursedCard=pick(accursedPool);
+    const cards=[blessedCard,accursedCard];
+    const now=new Date();
+    cards.forEach(card=>{
+      const id=getCardId(card);
+      const display=getCardDisplay(card,{includeType:true});
+      drawnData.push({id:id,full:display});
+      const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id+' ('+card.type+')';
+      const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+    });
+    saveDeckDrawn(dk,drawnData);
+    const blessedDisplay=getCardDisplay(blessedCard,{includeType:true});
+    const accursedDisplay=getCardDisplay(accursedCard,{includeType:true});
+    out('toolsBox','Drew from '+lb+':\n\n'+blessedDisplay+'\n\n'+accursedDisplay+'\n\n('+(blessedPool.length-1)+' Blessed, '+(accursedPool.length-1)+' Accursed remaining)');
+    updateDeckButtons();
+    return;
+  }
+
+  // Special case: Tasha's Deck of Many Fates — random orientation
+  if(dk==='deck_many_fates_tashas'){
+    const drawnData=getDeckDrawn(dk);
+    const drawnIds=drawnData.map(e=>e.id||e);
+    const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));
+    if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}
+    const card=pick(remaining);
+    const orientation=rng(1,2)===1?'upright':'reversed';
+    const id=getCardId(card)+' ('+orientation.charAt(0).toUpperCase()+orientation.slice(1)+')';
+    const display=getCardDisplay(card,{orientation:orientation});
+    drawnData.push({id:getCardId(card),full:display});
+    saveDeckDrawn(dk,drawnData);
+    const now=new Date();
+    const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id;
+    const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+    out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n('+(remaining.length-1)+' cards remaining)');
+    updateDeckButtons();
+    return;
+  }
+
+  // Special case: Cards of Chaos
+  if(dk==='cards_of_chaos'){
+    const drawnData=getDeckDrawn(dk);
+    const drawnIds=drawnData.map(e=>e.id||e);
+    // 10% chance for Joker, otherwise Arcana
+    const isJoker=rng(1,10)===1;
+    const cardType=isJoker?'Joker':'Arcana';
+    const pool=d.filter(c=>c.type===cardType&&!drawnIds.includes(getCardId(c)));
+    if(!pool.length){out('toolsBox','No '+cardType+' cards remaining in '+lb+'!\nUse Reset Deck to reshuffle.');return;}
+    const card=pick(pool);
+    // Determine Upright/Reversed based on alignment
+    const align=document.getElementById('chaosAlignment').value;
+    const upChance={'Chaotic':70,'Neutral':60,'Lawful':40}[align]||60;
+    const orientation=rng(1,100)<=upChance?'upright':'reversed';
+    const orientLabel=orientation.charAt(0).toUpperCase()+orientation.slice(1);
+    const cardName=getCardId(card);
+    const effect=card[orientation]||'';
+    const isHold=card.special==='HOLD';
+    const isRepeat=card.special==='REPEAT';
+    const holdText='*HOLD! - The player may choose to activate the card now or to keep it and activate it as a Bonus Action at a later time. They can hold the card for up to seven years before it automatically activates.\nThe player knows the card name and whether it is Upright or Reversed, but the effect remains a mystery until activated.';
+    let display=cardName+' ('+orientLabel+')';
+    if(isHold)display+='\n'+holdText;
+    display+='\n'+effect;
+    const id=cardName+' ('+orientLabel+')';
+    // REPEAT cards are shuffled back; HOLD and normal cards stay drawn
+    if(!isRepeat){drawnData.push({id:id,full:display});saveDeckDrawn(dk,drawnData);}
+    const now=new Date();
+    const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id+(isJoker?' [JOKER]':'');
+    const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+    let footer;
+    if(isRepeat)footer='\n\n(REPEAT - card shuffled back into deck)';
+    else footer='\n\n('+(pool.length-1)+' '+cardType+' cards remaining)';
+    out('toolsBox','Drew from '+lb+':\n\n'+display+footer);
+    updateDeckButtons();
+    return;
+  }
+
+  // Default
+  const drawnData=getDeckDrawn(dk);
+  const drawnIds=drawnData.map(e=>e.id||e);
+  const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));
+  if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}
+  const card=pick(remaining);
+  const id=getCardId(card);
+  const display=getCardDisplay(card);
+  drawnData.push({id:id,full:display});
+  saveDeckDrawn(dk,drawnData);
+  const now=new Date();
+  const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id;
+  const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+  out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n('+(remaining.length-1)+' cards remaining)');
+  updateDeckButtons();
+}
+
+async function drawSingleCard(){
+  const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;
+  const d=await loadJSON('data/Tools/Decks/'+dk+'.json');
+  if(!d.length){out('toolsBox','[Empty deck - populate data/Tools/Decks/'+dk+'.json]');return;}
+  const drawnData=getDeckDrawn(dk);
+  const drawnIds=drawnData.map(e=>e.id||e);
+  const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));
+  if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}
+  const card=pick(remaining);
+  const id=getCardId(card);
+  const display=getCardDisplay(card,{includeType:true});
+  drawnData.push({id:id,full:display});
+  saveDeckDrawn(dk,drawnData);
+  const now=new Date();
+  const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id+(card.type?' ('+card.type+')':'');
+  const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
+  out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n('+(remaining.length-1)+' cards remaining)');
+  updateDeckButtons();
+}
 function updateDeckButtons(){const dk=document.getElementById('deckList').value;const drawn=getDeckDrawn(dk);const hasDrawn=drawn.length>0;document.getElementById('resetDeckBtn').disabled=!hasDrawn;document.getElementById('resetDeckBtn').style.opacity=hasDrawn?'1':'.4';document.getElementById('deckStatusBtn').disabled=!hasDrawn;document.getElementById('deckStatusBtn').style.opacity=hasDrawn?'1':'.4';}
-async function drawCard(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const d=await loadJSON('data/Tools/Decks/'+dk+'.json');if(!d.length){out('toolsBox','[Empty deck - populate data/Tools/Decks/'+dk+'.json]');return;}const drawnData=getDeckDrawn(dk);const drawnIds=drawnData.map(e=>e.id||e);const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));if(!remaining.length){out('toolsBox','All cards have been drawn from '+lb+'!\nUse Reset Deck to reshuffle.');return;}const card=pick(remaining);const id=getCardId(card);const display=getCardDisplay(card);const storedEntry={id:id,full:display};drawnData.push(storedEntry);saveDeckDrawn(dk,drawnData);const now=new Date();const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id;const h=getCardHistory();h.push(histEntry);saveCardHistory(h);out('toolsBox','Drew from '+lb+':\n\n'+display+'\n\n('+(remaining.length-1)+' cards remaining)');updateDeckButtons();}
 function resetDeck(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawnData=getDeckDrawn(dk);if(!drawnData.length)return;if(!confirm('Reset '+lb+'? This will clear all '+drawnData.length+' drawn cards and reshuffle the deck.'))return;localStorage.removeItem('deck_drawn_'+dk);out('toolsBox',lb+' has been reset.');updateDeckButtons();}
 async function showDeckStatus(){const dk=document.getElementById('deckList').value,lb=document.getElementById('deckList').selectedOptions[0].text;const drawnData=getDeckDrawn(dk);if(!drawnData.length){out('toolsBox','No cards drawn from '+lb+' yet.');return;}const d=await loadJSON('data/Tools/Decks/'+dk+'.json');const drawnIds=drawnData.map(e=>e.id||e);const remaining=d.filter(c=>!drawnIds.includes(getCardId(c)));let txt='=== '+lb+' Status ===\n\n--- Drawn Cards ('+drawnData.length+') ---\n';txt+=drawnData.map((c,i)=>(i+1)+'. '+(c.full||c.id||c)).join('\n\n');txt+='\n\n--- Cards in Deck ('+remaining.length+') ---\n';txt+=remaining.map((c,i)=>(i+1)+'. '+getCardDisplay(c)).join('\n');out('toolsBox',txt);}
 function showCardHistory(){const h=getCardHistory();out('toolsBox',h.length?'--- Last '+h.length+' Draws ---\n'+h.slice().reverse().map((v,i)=>(i+1)+'. '+v).join('\n'):'No draws yet.');}

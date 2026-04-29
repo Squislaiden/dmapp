@@ -1,1 +1,18 @@
-test
+## Spell Changes
+Squislaiden's Overhaul necessitates changes and additional information from 5e spells for them to function smoothly.
+
+These changes are reflected in the 5e spells list, but should not wholly affect their usage in 5e.
+
+#### Functional Changes
+- All of the Curse Spells from Grim Hollow were standardized at 6th level.
+- Upcasting within spell descriptions was removed entirely. Seek outside source, or (with DM's permission), use logic to adjust damage, range, area, target count, healing, etc. on upcast.
+
+#### "Cosmetic" Changes
+- **Mana** - Spells were given a Mana Cost. Spell Level is still maintained.
+- **Typing** - Spells are given a magic type: Arcane, Divine, Nature, Eldritch, and Neutral.
+- **Temporary HP** - Changed to Ward and/or Ward Regen. Ward should translate back simply enough; Ward Regen might be less straightforward.
+- **AC** - Is now Dodge. Some AC spells may be converted to Block. Double Block value to get original AC value.
+- **Resistance** - Now has 5 stages. *1, 2, or 3* of a given Resistance grants 25%, 50%, or 75% less damage taken respectively. *Stage 4* grants nothing, and *Stage 5* is Immunity.
+- **Vulnerability** - Now has 2 stages. Impairment *(-1 Resistance)* is 50% more damage taken from type. Vulnerable *(-2 Resistance)* is double damage taken from type.
+- **Exhaustion** - Converted to Malaise. Should be a 1-to-1 conversion. Many spells involving death, healing, or resurrection may have added Malaise effects.
+- **Poisoned** - Remained *Debilitated* as Poison is a status effect in the overhaul.

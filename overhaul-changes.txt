@@ -6,6 +6,7 @@ These changes are reflected in the 5e spells list, but should not wholly affect 
 #### Functional Changes
 - All of the Curse Spells from Grim Hollow were standardized at 6th level.
 - Upcasting within spell descriptions was removed entirely. Seek outside source, or (with DM's permission), use logic to adjust damage, range, area, target count, healing, etc. on upcast.
+- Attack Speed and Cast Speed are new Overhaul stats. Any additions to existing spells are likely incredibly rare, potentially only Haste.
 
 #### "Cosmetic" Changes
 - **Mana** - Spells were given a Mana Cost. Spell Level is still maintained.

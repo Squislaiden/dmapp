@@ -8,6 +8,7 @@
 • Tons of code cleanup and more optimized storage for randomization and data functions.
 • Added Gender and Sexuality randomizers to Character Tab.
 • All Decks added.
+• Jewelry Tab and Random Enemy Generator now fully work in the new page. The only function that still requires the old page is the Glyphs tab.
 • Utilization of Cookies and LocalStorage to remember.
    • The Dice Roller tracks the last 50 rolls and can be viewed with the History button.
    • The Deck History button will show the last 50 cards drawn and their respective deck.
@@ -16,6 +17,7 @@
 
 ---- TO DO LIST:
 • Glyphs of Pandemonium update to support Equipment Overhaul.
+   (The Glyphs tab will be updated in the new page after this is completely finished)
 • Equipment Overhaul.
 
 ---- Changelog (version 1.0): All standard tools have been completed, and the Random Character Generator is in a fully usable state.

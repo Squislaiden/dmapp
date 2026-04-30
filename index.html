@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=540">
 <title>DM's Assistant - All a DM needs in one package.</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -56,6 +56,7 @@ input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent)}
 select{padding:2px 3px;cursor:pointer}
 input[type="checkbox"],input[type="radio"]{accent-color:var(--accent);cursor:pointer;margin-right:2px}
 label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
+label:has(input[type="checkbox"]),label:has(input[type="radio"]){display:inline-flex;align-items:center;gap:3px}
 .result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
 .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0}
@@ -200,7 +201,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="section-title" style="margin:0">Results</div>
 <button class="btn btn-taint" onclick="resetAllDecks()" style="font-size:.62rem;margin-left:324px">Reset All Decks</button>
 </div>
-<textarea class="result-box" id="toolsBox" rows="14" readonly></textarea>
+<textarea class="result-box" id="toolsBox" rows="20" readonly></textarea>
 </div>
 </div>
 
@@ -334,23 +335,105 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <!-- CHARACTER TAB -->
 <div id="charTab" class="tab-content">
 <div class="section">
-<div class="split">
-<div style="flex:0 0 52%;padding:6px">
+<div class="split" style="display:flex !important">
+<div style="flex:0 0 214px !important;width:214px !important;padding:6px">
 <div class="section-title">Character Generator</div>
-<div class="flex items-center" style="gap:4px"><button class="btn btn-accent" style="white-space:nowrap" onclick="charGenBtn()">Generate Character</button><div style="flex:1"></div><button class="btn btn-list" onclick="charInfoBtn()">Info</button></div>
-<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Attributes</button></div>
+<div class="flex items-center" style="gap:4px"><button class="btn btn-accent" style="white-space:nowrap" onclick="charGenBtn()">Generate Character</button><div style="flex:1"></div><button class="btn btn-list" style="margin-right:42px" onclick="charInfoBtn()">Info</button></div>
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label style="font-size:.88rem"><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
-<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Stats</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
+<div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button></div>
 <div class="inline-row" style="margin-top:24px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
 </div>
 <div class="split-divider"></div>
-<div style="flex:1;padding:6px">
+<div style="flex:1;padding:6px;min-width:0;overflow:hidden">
 <div class="section-title" style="font-size:.88rem">Generate Random Names</div>
 <div class="inline-row"><label>Syllables:</label><input type="number" id="syllMin" value="2" min="1" max="12" style="width:38px">-<input type="number" id="syllMax" value="4" min="1" max="12" style="width:38px"></div>
 <div class="inline-row"><label>Style:</label><select id="nameType"><option value="fantasy">Fantasy</option><option value="japanese">Japanese-Inspired</option></select></div>
 <div class="flex items-center" style="gap:4px"><label>Qty:</label><input type="number" id="nameQty" value="1" min="1" max="20" style="width:38px"><div style="flex:1"></div><button class="btn btn-primary" style="margin-top:4px" onclick="nameGen()">Generate Names</button></div>
 <hr class="sep">
+<div class="section-title" style="font-size:.88rem">Spell List Generator</div>
+<div style="display:grid;grid-template-columns:auto auto auto auto;gap:3px 2px;align-items:center">
+<button class="btn btn-primary" style="grid-row:1;grid-column:1;padding:6px 8px" onclick="spellListGen()">Generate</button>
+<div style="grid-row:1;grid-column:2;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>1st:</label><input type="number" id="spell1" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:1;grid-column:3;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>2nd:</label><input type="number" id="spell2" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:1;grid-column:4;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>3rd:</label><input type="number" id="spell3" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:2;grid-column:1;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>Cantrip:</label><input type="number" id="spellCantrips" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:2;grid-column:2;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>4th:</label><input type="number" id="spell4" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:2;grid-column:3;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>5th:</label><input type="number" id="spell5" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:2;grid-column:4;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>6th:</label><input type="number" id="spell6" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:3;grid-column:1;display:flex;align-items:center"><select id="spellSource" onchange="onSpellSourceChange()" style="font-size:.62rem;width:75px">
+<option value="all">All Spells</option>
+<option disabled>──────────</option>
+<option value="custom">Custom</option>
+<option disabled>──────────</option>
+<option value="arcane">Arcane</option>
+<option value="divine">Divine</option>
+<option value="nature">Nature</option>
+<option value="neutral">Neutral</option>
+<option value="eldritch">Eldritch</option>
+<option disabled>──────────</option>
+<option value="Artificer">Artificer</option>
+<option value="Bard">Bard</option>
+<option value="Cleric">Cleric</option>
+<option value="Druid">Druid</option>
+<option value="Paladin">Paladin</option>
+<option value="Ranger">Ranger</option>
+<option value="Sorcerer">Sorcerer</option>
+<option value="Warlock">Warlock</option>
+<option value="Wizard">Wizard</option>
+<option disabled>──────────</option>
+<option value="Abjuration">Abjuration</option>
+<option value="Conjuration">Conjuration</option>
+<option value="Divination">Divination</option>
+<option value="Enchantment">Enchantment</option>
+<option value="Evocation">Evocation</option>
+<option value="Illusion">Illusion</option>
+<option value="Necromancy">Necromancy</option>
+<option value="Transmutation">Transmutation</option>
+</select></div>
+<div style="grid-row:3;grid-column:2;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>7th:</label><input type="number" id="spell7" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:3;grid-column:3;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>8th:</label><input type="number" id="spell8" value="0" min="0" max="9" style="width:35px"></div>
+<div style="grid-row:3;grid-column:4;display:flex;align-items:center;justify-content:flex-end;gap:3px"><label>9th:</label><input type="number" id="spell9" value="0" min="0" max="9" style="width:35px"></div>
+</div>
+<div id="spellCustomOptions" style="display:none">
+<hr class="sep">
+<div style="display:flex;gap:8px">
+<div style="flex:0 0 calc(75% - 12px)">
+<div style="display:grid;grid-template-columns:auto auto auto;gap:2px 6px;justify-content:start">
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Bard"> Bard</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Sorcerer"> Sorcerer</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Artificer"> Artificer</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Cleric"> Cleric</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Warlock"> Warlock</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Paladin"> Paladin</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Druid"> Druid</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Wizard"> Wizard</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellClass" value="Ranger"> Ranger</label>
+</div>
+</div>
+<div style="flex:1;border-left:1px solid var(--border);padding-left:8px;margin-left:-6px">
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:2px">
+<label style="white-space:nowrap"><input type="checkbox" class="spellGroup" value="arcane"> Arcane</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellGroup" value="divine"> Divine</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellGroup" value="nature"> Nature</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellGroup" value="neutral"> Neutral</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellGroup" value="eldritch"> Eldritch</label>
+</div>
+</div>
+</div>
+<hr class="sep">
+<div style="display:grid;grid-template-columns:auto auto auto;gap:2px 6px;justify-content:start">
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Abjuration"> Abjuration</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Conjuration"> Conjuration</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Divination"> Divination</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Enchantment"> Enchantment</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Evocation"> Evocation</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Illusion"> Illusion</label>
+<label style="white-space:nowrap"><input type="checkbox" class="spellSchool" value="Necromancy"> Necromancy</label>
+<label style="white-space:nowrap;grid-column:2 / span 2"><input type="checkbox" class="spellSchool" value="Transmutation"> Transmutation</label>
+</div>
+</div>
 </div>
 </div>
 <hr class="sep">
@@ -642,13 +725,13 @@ async function drawCard(){
     const effect=card[orientation]||'';
     const isHold=card.special==='HOLD';
     const isRepeat=card.special==='REPEAT';
-    const holdText='*HOLD! - The player may choose to activate the card now or to keep it and activate it as a Bonus Action at a later time. They can hold the card for up to seven years before it automatically activates.\nThe player knows the card name and whether it is Upright or Reversed, but the effect remains a mystery until activated.';
+    const holdText='*HOLD! - The player may choose to activate the card now or to keep it and activate it as a Bonus Action at a later time. They can hold the card for up to seven years before it automatically activates.\nThe player knows the card name and whether it is Upright or Reversed, but the effect remains a mystery until activated.\n*';
     let display=cardName+' ('+orientLabel+')';
     if(isHold)display+='\n'+holdText;
     display+='\n'+effect;
     const id=cardName+' ('+orientLabel+')';
     // REPEAT cards are shuffled back; HOLD and normal cards stay drawn
-    if(!isRepeat){drawnData.push({id:id,full:display});saveDeckDrawn(dk,drawnData);}
+    if(!isRepeat){drawnData.push({id:cardName,full:display});saveDeckDrawn(dk,drawnData);}
     const now=new Date();
     const histEntry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+lb+']-'+id+(isJoker?' [JOKER]':'');
     const h=getCardHistory();h.push(histEntry);saveCardHistory(h);
@@ -840,6 +923,103 @@ async function subclassBtn(){
 async function alignmentBtn(){const d=await loadCharData('alignments','data/Character/alignments.json');out('charBox',d?pick(d).result:pick(alignsFallback));}
 function nameGen(){const sMin=Number(document.getElementById('syllMin').value),sMax=Number(document.getElementById('syllMax').value),qty=Number(document.getElementById('nameQty').value),type=document.getElementById('nameType').value;const con='bcdfghjklmnpqrstvwxyz',vow='aeiou';let names=[];for(let n=0;n<qty;n++){const sy=rng(sMin,sMax);let nm='';for(let s=0;s<sy;s++){if(type==='japanese'){const jc='ksthmrngbpd',jv='aiueo';if(rng(1,3)!==1)nm+=jc[rng(0,jc.length-1)];nm+=jv[rng(0,jv.length-1)];}else{if(rng(1,3)!==1)nm+=con[rng(0,con.length-1)];nm+=vow[rng(0,vow.length-1)];if(rng(1,3)===1)nm+=con[rng(0,con.length-1)];}}nm=nm[0].toUpperCase()+nm.slice(1);if(type==='fantasy'&&rng(1,4)===4){const p=rng(1,nm.length-2);nm=nm.slice(0,p)+"'"+nm.slice(p);}names.push(nm);}out('charBox','---Names---\n'+names.join('\n'));}
 async function charInfoBtn(){try{const r=await fetch('data/Character/charinfo.txt');if(r.ok)out('charBox',await r.text());else out('charBox','[Populate data/Character/charinfo.txt]');}catch(e){out('charBox','[Populate data/Character/charinfo.txt]');}}
+
+// Spell List Generator
+const spellGroupClasses={
+  arcane:['Sorcerer','Wizard'],
+  divine:['Cleric','Paladin'],
+  nature:['Druid','Ranger'],
+  neutral:['Bard','Artificer'],
+  eldritch:['Warlock']
+};
+function onSpellSourceChange(){const v=document.getElementById('spellSource').value;document.getElementById('spellCustomOptions').style.display=v==='custom'?'block':'none';updateSpellLevelDisable();}
+function updateSpellLevelDisable(){
+  const v=document.getElementById('spellSource').value;
+  const halfClasses=['Artificer','Paladin','Ranger'];
+  let disable=false;
+  if(v==='custom'){
+    const checkedClasses=Array.from(document.querySelectorAll('.spellClass:checked')).map(c=>c.value);
+    const checkedGroups=Array.from(document.querySelectorAll('.spellGroup:checked')).map(c=>c.value);
+    const checkedSchools=Array.from(document.querySelectorAll('.spellSchool:checked')).map(c=>c.value);
+    if(checkedClasses.length>0&&checkedClasses.every(c=>halfClasses.includes(c))&&checkedGroups.length===0&&checkedSchools.length===0){disable=true;}
+  }
+  ['spell6','spell7','spell8','spell9'].forEach(id=>{const el=document.getElementById(id);el.disabled=disable;el.style.opacity=disable?'.4':'1';if(disable)el.value=0;});
+}
+async function spellListGen(){
+  const spells=await loadJSON('all-spells.json');
+  if(!spells.length){out('charBox','[Populate all-spells.json]');return;}
+  const src=document.getElementById('spellSource').value;
+  const counts={0:Number(document.getElementById('spellCantrips').value||0)};
+  for(let i=1;i<=9;i++)counts[i]=Number(document.getElementById('spell'+i).value||0);
+
+  // Determine source filter and track what was used
+  const usedSources=new Set();
+  function filterPool(){
+    if(src==='all'){return spells.slice();}
+    if(src==='custom'){
+      const checkedClasses=Array.from(document.querySelectorAll('.spellClass:checked')).map(c=>c.value);
+      const checkedGroups=Array.from(document.querySelectorAll('.spellGroup:checked')).map(c=>c.value);
+      const checkedSchools=Array.from(document.querySelectorAll('.spellSchool:checked')).map(c=>c.value);
+      const result=[];const seen=new Set();
+      spells.forEach(s=>{
+        let match=false;
+        if(checkedClasses.length&&s.classes&&checkedClasses.some(c=>s.classes.includes(c))){match=true;checkedClasses.forEach(c=>{if(s.classes.includes(c))usedSources.add(c);});}
+        if(checkedGroups.length&&s.type&&checkedGroups.some(g=>s.type.toLowerCase()===g.toLowerCase())){match=true;checkedGroups.forEach(g=>{if(s.type&&s.type.toLowerCase()===g.toLowerCase())usedSources.add(g.charAt(0).toUpperCase()+g.slice(1));});}
+        if(checkedSchools.length&&s.school&&checkedSchools.includes(s.school)){match=true;usedSources.add(s.school);}
+        if(match&&!seen.has(s.name)){seen.add(s.name);result.push(s);}
+      });
+      return result;
+    }
+    // Group source: arcane/divine/nature/neutral/eldritch -> matches "type" field
+    if(['arcane','divine','nature','neutral','eldritch'].includes(src)){
+      usedSources.add(src.charAt(0).toUpperCase()+src.slice(1));
+      return spells.filter(s=>s.type&&s.type.toLowerCase()===src.toLowerCase());
+    }
+    // Class source: matches "classes" field array
+    if(['Artificer','Bard','Cleric','Druid','Paladin','Ranger','Sorcerer','Warlock','Wizard'].includes(src)){
+      usedSources.add(src);
+      return spells.filter(s=>s.classes&&s.classes.includes(src));
+    }
+    // School source: matches "school" field
+    if(['Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation'].includes(src)){
+      usedSources.add(src);
+      return spells.filter(s=>s.school===src);
+    }
+    return spells.slice();
+  }
+
+  const pool=filterPool();
+  const usedNames=new Set();
+
+  function pickSpells(level,count){
+    if(count<=0)return[];
+    const avail=pool.filter(s=>String(s.level)===String(level)&&!usedNames.has(s.name));
+    const picks=[];
+    for(let i=0;i<count&&avail.length;i++){
+      const idx=rng(0,avail.length-1);
+      const p=avail.splice(idx,1)[0];
+      usedNames.add(p.name);
+      picks.push(p.name);
+    }
+    return picks;
+  }
+
+  const ordinals=['Cantrip','1st Level','2nd Level','3rd Level','4th Level','5th Level','6th Level','7th Level','8th Level','9th Level'];
+  let lines=[];
+  for(let lvl=0;lvl<=9;lvl++){
+    if(counts[lvl]<=0)continue;
+    const picks=pickSpells(lvl,counts[lvl]);
+    const label=ordinals[lvl]+': ';
+    if(picks.length){lines.push(label+picks.join(', '));}
+    else{lines.push(label+'[None available]');}
+  }
+  let txt=lines.join('\n');
+  if(src==='all'){txt+='\n\n(All Spells)';}
+  else if(usedSources.size){txt+='\n\n('+Array.from(usedSources).join(', ')+')';}
+  out('charBox',txt||'[No counts entered]');
+}
+// Wire up custom checkbox change events to update level disable
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.spellClass,.spellGroup,.spellSchool').forEach(cb=>cb.addEventListener('change',updateSpellLevelDisable));});
 function fullEnemyBtn(){out('charBox','[Full enemy gen requires complete logic from script.js]');}
 function randomBreathBtn(){out('charBox','Breath: '+pick(['Fire','Cold','Lightning','Acid','Poison','Necrotic','Radiant','Thunder','Force','Psychic'])+' in a '+(rng(1,2)===1?rng(15,60)+' ft cone':rng(30,90)+' ft line'));}
 async function enemyTraitBtn(){const d=await loadJSON('data/Character/Enemy/traits.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/traits.json]');}

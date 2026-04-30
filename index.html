@@ -342,7 +342,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="reincarnateBtn()">Reincarnate</button><label style="font-size:.88rem"><input type="checkbox" id="reincarnateCheck"> Official Table</label></div>
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" style="white-space:nowrap" onclick="rollStatsBtn()">Roll Stats</button><button class="btn btn-primary" onclick="alignmentBtn()">Alignment</button></div>
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="classBtn()">Class</button><button class="btn btn-primary" onclick="subclassBtn()">Subclass</button></div>
-<div class="inline-row" style="margin-top:24px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button><button class="btn btn-primary" onclick="featBtn()">Feat</button></div>
+<div class="inline-row" style="margin-top:24px"><button class="btn btn-primary" onclick="transformationBtn()">Transformation</button></div>
 <div class="inline-row" style="margin-top:5px"><button class="btn btn-primary" onclick="genderBtn()">Gender</button><button class="btn btn-primary" onclick="sexualityBtn()">Sexuality</button></div>
 </div>
 <div class="split-divider"></div>
@@ -1046,6 +1046,15 @@ async function affixListInfo(t){const map={weapon:'weapon_affix',armor:'armor_af
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}
 async function loadChangelog(){try{const r=await fetch('changelog.txt');if(r.ok)out('infoBox',await r.text());else out('infoBox','');}catch(e){out('infoBox','');}}
 document.addEventListener('DOMContentLoaded',()=>{
+  // Override innerHTML on result textareas so script.js's innerHTML writes mirror to .value (textareas display .value, not .innerHTML)
+  ['charBox','homebrewBox','improvedBox'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    Object.defineProperty(el,'innerHTML',{
+      get(){return el.value;},
+      set(v){el.value=v;},
+      configurable:true
+    });
+  });
   const jewTypeFallback=[{name:'(Gems Only)',value:0},{name:'Amulet',value:4000},{name:'Bracelet',value:8000},{name:'Choker',value:12000},{name:'Crown',value:30000},{name:'Earrings',value:1000},{name:'Ring',value:2000}];
   const jewMatFallback=[{name:'Wood',multiplier:0.1},{name:'Stone',multiplier:0.15},{name:'Copper',multiplier:1},{name:'Tin',multiplier:0.25},{name:'Iron',multiplier:0.5},{name:'Steel',multiplier:10},{name:'Silver',multiplier:5},{name:'Electrum',multiplier:25},{name:'Gold',multiplier:50},{name:'Platinum',multiplier:500},{name:'Mithril',multiplier:750},{name:'Adamantium',multiplier:1250}];
   async function initJewDropdowns(){

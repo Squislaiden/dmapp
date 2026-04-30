@@ -221,7 +221,15 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
 .type-Eldritch { background:rgba(80,20,120,.20);   color:#9955cc; border-color:rgba(100,40,160,.40); }
 .type-other    { background:rgba(160,160,160,.10); color:#888;    border-color:rgba(160,160,160,.22); }
 
-/* ── ITEM CARD ── */
+    /* Rarity badges */
+    .rarity-badge    { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.58rem; font-weight:700; letter-spacing:.04em; font-family:'Syne',sans-serif; border:1px solid; }
+    .rarity-Common   { background:rgba(220,220,220,.10); color:#d0d0d0; border-color:rgba(220,220,220,.25); }
+    .rarity-Uncommon { background:rgba(60,200,80,.10);   color:#50c858; border-color:rgba(60,200,80,.25); }
+    .rarity-Rare     { background:rgba(60,130,255,.12);  color:#5090ff; border-color:rgba(60,130,255,.28); }
+    .rarity-Epic     { background:rgba(140,60,220,.14);  color:#b060ee; border-color:rgba(140,60,220,.30); }
+    .rarity-Legendary{ background:rgba(255,140,30,.12);  color:#f08030; border-color:rgba(255,140,30,.28); }
+    .rarity-Mythic   { background:rgba(220,40,40,.12);   color:#e05050; border-color:rgba(220,40,40,.28); }
+    .rarity-Artifact { background:rgba(148,88,31,.18);   color:#c48040; border-color:rgba(148,88,31,.40); }
 .item-card {
   width:var(--card-w); min-width:var(--card-w); max-width:var(--card-w);
   min-height:var(--card-h); background:#0f1119; border:2px solid #3a2e20;
@@ -563,12 +571,25 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   </div>
   <div class="filter-panel no-print" id="itemFilterPanel">
     <div class="filter-row">
-      <span class="filter-row-label">Types</span>
+      <span class="filter-row-label">Category</span>
       <div class="filter-row-checks" id="ifTypes">
         <label class="check-pill"><input type="checkbox" value="Weapon"/><div class="pill-dot"></div><span>Weapon</span></label>
         <label class="check-pill"><input type="checkbox" value="Armor"/><div class="pill-dot"></div><span>Armor</span></label>
         <label class="check-pill"><input type="checkbox" value="Accessory"/><div class="pill-dot"></div><span>Accessory</span></label>
         <label class="check-pill"><input type="checkbox" value="Spell Focus"/><div class="pill-dot"></div><span>Spell Focus</span></label>
+        <label class="check-pill" id="ifTypeWondrousRow"><input type="checkbox" value="Wondrous"/><div class="pill-dot"></div><span>Wondrous</span></label>
+      </div>
+    </div>
+    <div class="filter-row" id="ifRarityRow" style="display:none">
+      <span class="filter-row-label">Rarity</span>
+      <div class="filter-row-checks" id="ifRarity">
+        <label class="check-pill"><input type="checkbox" value="Common"/><div class="pill-dot"></div><span>Common</span></label>
+        <label class="check-pill"><input type="checkbox" value="Uncommon"/><div class="pill-dot"></div><span>Uncommon</span></label>
+        <label class="check-pill"><input type="checkbox" value="Rare"/><div class="pill-dot"></div><span>Rare</span></label>
+        <label class="check-pill"><input type="checkbox" value="Epic"/><div class="pill-dot"></div><span>Epic</span></label>
+        <label class="check-pill"><input type="checkbox" value="Legendary"/><div class="pill-dot"></div><span>Legendary</span></label>
+        <label class="check-pill"><input type="checkbox" value="Mythic"/><div class="pill-dot"></div><span>Mythic</span></label>
+        <label class="check-pill"><input type="checkbox" value="Artifact"/><div class="pill-dot"></div><span>Artifact</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -615,7 +636,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       <div class="filter-row-checks" id="ifAccessory">
         <label class="check-pill"><input type="checkbox" value="Amulet"/><div class="pill-dot"></div><span>Amulet</span></label>
         <label class="check-pill"><input type="checkbox" value="Ring"/><div class="pill-dot"></div><span>Ring</span></label>
-        <label class="check-pill"><input type="checkbox" value="Wondrous"/><div class="pill-dot"></div><span>Wondrous</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -693,6 +713,9 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   </div>
   <div class="stats-bar no-print">
     <div>Showing <strong id="itemVisCount">0</strong> of <strong id="itemTotCount">0</strong> items</div>
+    <select class="bulk-select" id="materialSelect" style="display:none">
+      <option value="">None</option>
+    </select>
   </div>
   <div class="main-layout">
     <div class="table-side no-print">
@@ -703,11 +726,11 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
             <th data-col="1"><div class="th-inner">Prerequisites <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="2" data-tip="Attack Speed"><div class="th-inner">AS <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="3"><div class="th-inner">Defense <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-            <th data-col="4"><div class="th-inner">Damage/Spell <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="4"><div class="th-inner">Damage <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="5"><div class="th-inner">Spell Types <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="6"><div class="th-inner">Properties <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="7"><div class="th-inner">Innate Affix <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-            <th data-col="8"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="8"><div class="th-inner">Category <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
           </tr></thead>
           <tbody id="itemBody"></tbody>
         </table>
@@ -814,6 +837,7 @@ function imd(t){
   t=t.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>');
   t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
   t=t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t=t.replace(/__(.+?)__/g,'<u>$1</u>');
   t=t.replace(/`([^`]+)`/g,'<code>$1</code>');
   return t;
 }
@@ -994,6 +1018,8 @@ document.getElementById('applySpellFilters').addEventListener('click',()=>{
   const level=getCheckedPills('filterLevel'),classes=getCheckedPills('filterClasses'),school=getCheckedPills('filterSchool'),magicType=getCheckedPills('filterMagicType'),castTime=getCheckedPills('filterCastTime'),range=getCheckedPills('filterRange'),other=getCheckedPills('filterOther');
   if(level.length)spellFilters.level=level;if(classes.length)spellFilters.classes=classes;if(school.length)spellFilters.school=school;if(magicType.length)spellFilters.magicType=magicType;if(castTime.length)spellFilters.castTime=castTime;if(range.length)spellFilters.range=range;if(other.length)spellFilters.other=other;
   renderSpells();
+  document.getElementById('spellFilterPanel').classList.remove('open');
+  document.getElementById('spellFilterBtn').classList.remove('active');
 });
 document.getElementById('clearSpellFilters').addEventListener('click',()=>{
   ['filterLevel','filterClasses','filterSchool','filterMagicType','filterCastTime','filterRange','filterOther'].forEach(id=>uncheckPills(id));
@@ -1158,7 +1184,8 @@ document.getElementById('confirmModal').addEventListener('click',e=>{if(e.target
 ══════════════════════════════════════════════ */
 let ITEMS=[], itemCurrentRow=null, itemSortState={col:0,dir:'asc'}, itemQuery='', itemSource='overhaul-items.json';
 let itemFilters={};
-const ITEM_KEYS=['item','prerequisites','as','defense','damage_spell','spell_types','properties','innate_affix','type'];
+let MATERIALS=[], selectedMaterial=null;
+const ITEM_KEYS=['item','prerequisites','as','defense','damage','spell_types','properties','innate_affix','category'];
 
 const PROPS_TEXT=`**Light.** Two Light weapons may be Dual-Wielded with the associated feat.
 
@@ -1211,25 +1238,100 @@ function buildPropertiesPanel(){
 }
 
 function fmtAS(val){
-  // Blank if empty/missing; otherwise format to 2 decimal places
   if(val===undefined||val===null||String(val).trim()==='')return'';
   const n=parseFloat(val);
   return isNaN(n)?esc(String(val)):n.toFixed(2);
 }
 
+function rarityBadge(rarity){
+  if(!rarity)return'';
+  const cls=`rarity-${rarity}`;
+  return`<span class="rarity-badge ${cls}">${esc(rarity)}</span>`;
+}
+
+/* Category → material field mapping */
+function matFieldForCategory(cat){
+  const c=(cat||'').toLowerCase();
+  if(c==='weapon'||c.includes('dagger')||c.includes('sword')||c.includes('axe')||c.includes('hammer')||c.includes('polearm')||c.includes('twinblade')||c.includes('fist')||c.includes('ranged')||c.includes('throwing')||c.includes('colossal')||c.includes('flexible')||c.includes('other weapon'))return'weapon';
+  if(c==='armor'||c.includes('head')||c.includes('torso')||c.includes('arm')||c.includes('leg')||c.includes('shield'))return'armor';
+  if(c==='spell focus'||c.includes('staff')||c.includes('scepter')||c.includes('wand')||c.includes('fan')||c.includes('seal')||c.includes('catalyst'))return'focus';
+  if(c==='accessory'||c.includes('amulet')||c.includes('ring'))return'accessory';
+  return null;
+}
+
 function buildItemCard(item, showActions){
-  const name=item['item']||'', prereq=item['prerequisites']||'', asRaw=item['as'], defense=item['defense']||'', dmg=item['damage_spell']||'', spTypes=item['spell_types']||'', props=item['properties']||'', affix=item['innate_affix']||'', desc=item['description']||'', type=item['type']||'';
+  const name=item['item']||'';
+  const prereq=item['prerequisites']||'';
+  const asRaw=item['as'];
+  const defense=item['defense']||'';
+  const dmg=item['damage']||'';
+  const spTypes=item['spell_types']||'';
+  const propsRaw=item['properties']||'';
+  const props=propsRaw||'—';
+  const affix=item['innate_affix']||'';
+  const desc=item['description']||'';
+  const category=item['category']||'';
+  const type=item['type']||'';
+  const rarity=item['rarity']||'';
+  const isMagic=itemSource.includes('magic');
+  const isWondrous=(category||'').toLowerCase()==='wondrous'||(type||'').toLowerCase()==='wondrous';
+
   const asVal=fmtAS(asRaw);
+
   const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="itemCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button><button class="card-btn" id="itemCardExportBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG</button></div>`:'';
-  const row=(lbl,val)=>val?`<div class="card-stat-row"><span class="stat-label">${lbl}</span><span class="stat-val">${esc(val)}</span></div>`:'';
-  const descHtml=desc?`<div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible;margin-bottom:6px">${descMd(desc)}</div>`:'';
-  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${prereq?`<div class="card-type-line" style="font-style:normal;font-size:.56rem;color:#8090aa;margin-top:3px">Requires: ${esc(prereq)}</div>`:''} ${type?`<div style="font-size:.54rem;color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.04em;margin-top:2px">${esc(type)}</div>`:''}</div><div class="card-rule"></div><div class="card-stats-block">${row('Attack Speed',asVal)}${row('Defense',defense)}${row('Damage / Spell',dmg)}${row('Spell Types',spTypes)}${row('Properties',props)}${row('Innate Affix',affix)}</div>${descHtml}`;
+
+  // Type (Category) line — left type, right rarity badge
+  const displayCat=category||type;
+  const typeCatLine=`<div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px"><span style="font-size:.58rem;color:#8090aa;font-family:'Syne',sans-serif;font-weight:600">${esc(type?`${type} (${displayCat})`:displayCat)}</span>${isMagic&&rarity?rarityBadge(rarity):''}</div>`;
+
+  // Requires line: underline "Requires:", italicize whole line
+  const reqLine=(prereq&&prereq.toLowerCase()!=='none')?`<div style="font-size:.56rem;color:#8090aa;margin-top:3px;font-style:italic"><u>Requires:</u> ${esc(prereq)}</div>`:'';
+
+  // Wondrous items: only show name, type/cat, rarity, prereq, desc
+  if(isWondrous){
+    const descHtml=desc?`<div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible;margin-bottom:6px">${descMd(desc)}</div>`:'';
+    return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${descHtml}`;
+  }
+
+  // Material line (Basic Items only, if material selected and field not "None")
+  let matLine='';
+  if(!isMagic&&selectedMaterial){
+    const mf=matFieldForCategory(category||type);
+    if(mf){
+      const matVal=(selectedMaterial[mf]||'');
+      if(matVal&&matVal.toLowerCase()!=='none'){
+        matLine=`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Material:</span><span class="stat-val">${esc(matVal)}</span></div></div>`;
+      }
+    }
+  }
+
+  // Affix block
+  const affixLine=affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-val">${esc(affix)}</span></div></div>`:'';
+
+  // Conditional stat rows based on category
+  const cat=(category||type||'').toLowerCase();
+  const isWeapon=cat.includes('weapon')||['dagger','sword','axe','hammer','polearm','twinblade','fist','ranged','throwing','colossal','flexible'].some(w=>cat.includes(w));
+  const isArmor=cat==='armor'||['head','torso','arm','leg','shield'].some(a=>cat.includes(a));
+  const isFocus=cat==='spell focus'||['staff','scepter','wand','fan','seal','catalyst'].some(f=>cat.includes(f));
+
+  const conditionalStats=[];
+  if(isWeapon&&asVal) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Attack Speed -</span><span class="stat-val">${asVal}</span></div>`);
+  if(isArmor&&defense) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Defense -</span><span class="stat-val">${esc(defense)}</span></div>`);
+  if(isFocus&&spTypes) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Spell Types -</span><span class="stat-val">${esc(spTypes)}</span></div>`);
+  conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Properties -</span><span class="stat-val"><em>${esc(props)}</em></span></div>`);
+
+  const statsBlock=conditionalStats.length?`<div class="card-rule"></div><div class="card-stats-block">${conditionalStats.join('')}</div>`:'';
+
+  // Description (Magic Items only)
+  const descHtml=(isMagic&&desc)?`<div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible;margin-bottom:6px">${descMd(desc)}</div>`:'';
+
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${affixLine}${matLine}${statsBlock}${descHtml}`;
 }
 
 function exportItemCardJpg(item){
   const tmp=document.createElement('div');
   tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;width:300px;';
-  tmp.innerHTML=`<div class="item-card spell-card" style="width:300px;height:auto;min-height:300px;">${buildItemCard(item,false)}</div>`;
+  tmp.innerHTML=`<div class="item-card spell-card" style="width:300px;height:auto;min-height:200px;">${buildItemCard(item,false)}</div>`;
   document.body.appendChild(tmp);
   const h=Math.max(tmp.firstChild.scrollHeight,200);
   html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:h,scale:1,useCORS:true,logging:false}).then(canvas=>{
@@ -1243,16 +1345,16 @@ function renderItems(){
   let data=[...ITEMS];
   if(itemQuery){const q=itemQuery.toLowerCase();data=data.filter(r=>ITEM_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));}
 
-  // Apply filters
   const f=itemFilters;
-  if(f.types&&f.types.length)      data=data.filter(r=>f.types.includes(r['type']||''));
-  if(f.weapons&&f.weapons.length)  data=data.filter(r=>f.weapons.some(w=>(r['type']||'').includes(w)));
-  if(f.spellFocus&&f.spellFocus.length) data=data.filter(r=>f.spellFocus.some(s=>(r['type']||'').includes(s)));
-  if(f.armor&&f.armor.length)      data=data.filter(r=>f.armor.some(a=>(r['type']||'').includes(a)));
-  if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['type']||'').includes(a)));
+  if(f.types&&f.types.length)      data=data.filter(r=>f.types.includes(r['category']||''));
+  if(f.rarity&&f.rarity.length)    data=data.filter(r=>f.rarity.includes(r['rarity']||''));
+  if(f.weapons&&f.weapons.length)  data=data.filter(r=>f.weapons.some(w=>(r['category']||r['type']||'').includes(w)));
+  if(f.spellFocus&&f.spellFocus.length) data=data.filter(r=>f.spellFocus.some(s=>(r['category']||r['type']||'').includes(s)));
+  if(f.armor&&f.armor.length)      data=data.filter(r=>f.armor.some(a=>(r['category']||r['type']||'').includes(a)));
+  if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['category']||r['type']||'').includes(a)));
   if(f.defense&&f.defense.length)  data=data.filter(r=>f.defense.some(d=>(r['defense']||'').toLowerCase().includes(d.toLowerCase())));
   if(f.damageType&&f.damageType.length) data=data.filter(r=>{
-    const dmg=(r['damage_spell']||'').toLowerCase();
+    const dmg=(r['damage']||'').toLowerCase();
     return f.damageType.some(dt=>{
       if(dt==='Slashing')    return dmg.includes('slashing');
       if(dt==='Piercing')    return dmg.includes('piercing');
@@ -1270,7 +1372,7 @@ function renderItems(){
   const q=itemQuery;
   document.getElementById('itemBody').innerHTML=data.map(row=>{
     const asDisplay=fmtAS(row['as']);
-    return`<tr data-name="${esc(row['item'])}" class="${itemCurrentRow&&itemCurrentRow['item']===row['item']?'selected':''}"><td class="name-cell">${hi(row['item'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td>${hi(asDisplay,q)}</td><td>${hi(row['defense'],q)}</td><td>${hi(row['damage_spell'],q)}</td><td>${hi(row['spell_types'],q)}</td><td>${hi(row['properties'],q)}</td><td>${hi(row['innate_affix'],q)}</td><td>${hi(row['type'],q)}</td></tr>`;
+    return`<tr data-name="${esc(row['item'])}" class="${itemCurrentRow&&itemCurrentRow['item']===row['item']?'selected':''}"><td class="name-cell">${hi(row['item'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td>${hi(asDisplay,q)}</td><td>${hi(row['defense'],q)}</td><td>${hi(row['damage'],q)}</td><td>${hi(row['spell_types'],q)}</td><td>${hi(row['properties'],q)}</td><td>${hi(row['innate_affix'],q)}</td><td>${hi(row['category'],q)}</td></tr>`;
   }).join('');
   document.getElementById('itemVisCount').textContent=data.length;
   document.getElementById('itemEmpty').style.display=data.length===0?'block':'none';
@@ -1296,7 +1398,7 @@ function closeItemDetail(){
 function printItemCard(item){
   const inner=buildItemCard(item,false);
   const win=window.open('','_blank','width=420,height=600');
-  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}.item-card{background:#0f1119;border:2px solid #3a2e20;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;width:2.83in;}.item-card .card-stripe{background:linear-gradient(90deg,#c9a84c,#e8943a);}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;padding:.25in;}</style></head><body><div class="item-card spell-card">${inner}</div></body></html>`);
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${BASE_CSS}.rarity-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:700;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.rarity-Common{background:rgba(220,220,220,.10);color:#d0d0d0;border-color:rgba(220,220,220,.25);}.rarity-Uncommon{background:rgba(60,200,80,.10);color:#50c858;border-color:rgba(60,200,80,.25);}.rarity-Rare{background:rgba(60,130,255,.12);color:#5090ff;border-color:rgba(60,130,255,.28);}.rarity-Epic{background:rgba(140,60,220,.14);color:#b060ee;border-color:rgba(140,60,220,.30);}.rarity-Legendary{background:rgba(255,140,30,.12);color:#f08030;border-color:rgba(255,140,30,.28);}.rarity-Mythic{background:rgba(220,40,40,.12);color:#e05050;border-color:rgba(220,40,40,.28);}.rarity-Artifact{background:rgba(148,88,31,.18);color:#c48040;border-color:rgba(148,88,31,.40);}.item-card{background:#0f1119;border:2px solid #3a2e20;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;width:2.83in;}.item-card .card-stripe{background:linear-gradient(90deg,#c9a84c,#e8943a);}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;padding:.25in;}</style></head><body><div class="item-card spell-card">${inner}</div></body></html>`);
   win.document.close();setTimeout(()=>{win.focus();win.print();},450);
 }
 
@@ -1306,24 +1408,15 @@ document.getElementById('itemSearch').addEventListener('input',e=>{itemQuery=e.t
 document.getElementById('itemFilterBtn').addEventListener('click',()=>{
   document.getElementById('itemFilterPanel').classList.toggle('open');
   document.getElementById('itemFilterBtn').classList.toggle('active');
-  // Close properties panel if open
   const panel=document.getElementById('itemDetailPanel');
   if(panel._showingProps){closeItemDetail();panel._showingProps=false;}
 });
 
 document.getElementById('applyItemFilters').addEventListener('click',()=>{
   itemFilters={};
-  const types=getCheckedPills('ifTypes');
-  const weapons=getCheckedPills('ifWeapons');
-  const spellFocus=getCheckedPills('ifSpellFocus');
-  const armor=getCheckedPills('ifArmor');
-  const accessory=getCheckedPills('ifAccessory');
-  const defense=getCheckedPills('ifDefense');
-  const damageType=getCheckedPills('ifDamageType');
-  const spellType=getCheckedPills('ifSpellType');
-  const props=getCheckedPills('ifProps');
-  const status=getCheckedPills('ifStatus');
+  const types=getCheckedPills('ifTypes'),rarity=getCheckedPills('ifRarity'),weapons=getCheckedPills('ifWeapons'),spellFocus=getCheckedPills('ifSpellFocus'),armor=getCheckedPills('ifArmor'),accessory=getCheckedPills('ifAccessory'),defense=getCheckedPills('ifDefense'),damageType=getCheckedPills('ifDamageType'),spellType=getCheckedPills('ifSpellType'),props=getCheckedPills('ifProps'),status=getCheckedPills('ifStatus');
   if(types.length)     itemFilters.types=types;
+  if(rarity.length)    itemFilters.rarity=rarity;
   if(weapons.length)   itemFilters.weapons=weapons;
   if(spellFocus.length)itemFilters.spellFocus=spellFocus;
   if(armor.length)     itemFilters.armor=armor;
@@ -1334,16 +1427,37 @@ document.getElementById('applyItemFilters').addEventListener('click',()=>{
   if(props.length)     itemFilters.props=props;
   if(status.length)    itemFilters.status=status;
   renderItems();
+  document.getElementById('itemFilterPanel').classList.remove('open');
+  document.getElementById('itemFilterBtn').classList.remove('active');
 });
 
 document.getElementById('clearItemFilters').addEventListener('click',()=>{
-  ['ifTypes','ifWeapons','ifSpellFocus','ifArmor','ifAccessory','ifDefense','ifDamageType','ifSpellType','ifProps','ifStatus'].forEach(id=>uncheckPills(id));
+  ['ifTypes','ifRarity','ifWeapons','ifSpellFocus','ifArmor','ifAccessory','ifDefense','ifDamageType','ifSpellType','ifProps','ifStatus'].forEach(id=>uncheckPills(id));
   itemFilters={};renderItems();
   document.getElementById('itemFilterPanel').classList.remove('open');
   document.getElementById('itemFilterBtn').classList.remove('active');
 });
 
-/* Item Properties button — fetch and show in card panel */
+/* Material dropdown (Basic Items only) */
+const materialSelect=document.getElementById('materialSelect');
+materialSelect.addEventListener('change',()=>{
+  const v=materialSelect.value;
+  selectedMaterial=v?MATERIALS.find(m=>m.name===v)||null:null;
+  if(itemCurrentRow)openItemDetail(itemCurrentRow); // refresh card
+});
+
+function loadMaterials(){
+  fetch('materials.json')
+    .then(r=>{if(!r.ok)throw new Error();return r.json();})
+    .then(data=>{
+      MATERIALS=data;
+      const sel=document.getElementById('materialSelect');
+      sel.innerHTML='<option value="">None</option>'+data.map(m=>`<option value="${esc(m.name)}">${esc(m.name)}</option>`).join('');
+    })
+    .catch(()=>{}); // silent if file not present
+}
+
+/* Item Properties button */
 document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
   const panel=document.getElementById('itemDetailPanel');
   const card=document.getElementById('itemDetailCard');
@@ -1375,14 +1489,19 @@ document.querySelectorAll('[data-item-src]').forEach(btn=>{
     const src=btn.dataset.itemSrc;if(src===itemSource)return;
     itemSource=src;closeItemDetail();itemQuery='';document.getElementById('itemSearch').value='';
     document.querySelectorAll('[data-item-src]').forEach(b=>b.classList.toggle('active',b.dataset.itemSrc===src));
+    // Show/hide material dropdown and rarity filter based on source
+    const isMagic=src.includes('magic');
+    document.getElementById('materialSelect').style.display=isMagic?'none':'';
+    document.getElementById('ifRarityRow').style.display=isMagic?'':'none';
+    document.getElementById('ifTypeWondrousRow').style.display=isMagic?'':'none';
     loadItems(src);
   });
 });
 
 function loadItems(src){
-  document.getElementById('itemBody').innerHTML=`<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;
+  document.getElementById('itemBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;
   document.getElementById('itemVisCount').textContent='0';document.getElementById('itemTotCount').textContent='0';
-  fetch(src).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{ITEMS=data;document.getElementById('itemTotCount').textContent=ITEMS.length;renderItems();}).catch(err=>{document.getElementById('itemBody').innerHTML=`<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--accent2);line-height:1.8"><strong>Could not load ${esc(src)}</strong><br><span style="font-size:.72rem;color:var(--text-muted)">${err.message}</span></td></tr>`;});
+  fetch(src).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{ITEMS=data;document.getElementById('itemTotCount').textContent=ITEMS.length;renderItems();}).catch(err=>{document.getElementById('itemBody').innerHTML=`<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--accent2);line-height:1.8"><strong>Could not load ${esc(src)}</strong><br><span style="font-size:.72rem;color:var(--text-muted)">${err.message}</span></td></tr>`;});
 }
 
 /* ══════════════════════════════════════════════
@@ -1470,6 +1589,7 @@ function loadFeats(){
   loadSpells(src);
 
   // Load items and feats
+  loadMaterials();
   loadItems('overhaul-items.json');
   loadFeats();
 })();

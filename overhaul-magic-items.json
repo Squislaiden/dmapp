@@ -2,12 +2,13 @@
   {
     "item": "Sword of Flames",
     "prerequisites": "Proficiency with longswords",
-    "as": "2",
+    "as": "1.75",
     "defense": "—",
     "damage_spell": "1d8 slashing + 1d6 fire",
     "spell_types": "Evocation",
     "properties": "Versatile (1d10), Flaming",
     "innate_affix": "Grants Fire Resistance",
+    "category": "Weapon",
     "type": "Sword",
     "description": "A blade wreathed in living flame. On a hit, the target takes an additional 1d6 fire damage. As a bonus action, you can extinguish or reignite the flame. While lit, the sword sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
   }

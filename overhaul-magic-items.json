@@ -4,7 +4,7 @@
     "prerequisites": "Proficiency with longswords",
     "as": "1.75",
     "defense": "—",
-    "damage_spell": "1d8 slashing + 1d6 fire",
+    "damage": "1d8 slashing + 1d6 fire",
     "spell_types": "Evocation",
     "properties": "Versatile (1d10), Flaming",
     "innate_affix": "Grants Fire Resistance",

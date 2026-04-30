@@ -447,12 +447,12 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <!-- Top area: Button left, options right -->
 <div class="flex gap-sm">
 <div>
-<button class="btn btn-accent" style="padding:10px 10px;line-height:1.3;font-size:.72rem" onclick="fullEnemyBtn()">Generate Completely<br>Random Enemy!</button>
+<button class="btn btn-accent" style="padding:10px 10px;line-height:1.3;font-size:.72rem" onclick="FullEnemyBtn()">Generate Completely<br>Random Enemy!</button>
 </div>
 <div style="flex:1">
-<div class="inline-row"><label>CR:</label><input type="number" id="numCR" value="1" min="1" max="50" style="width:40px"><label><input type="checkbox" id="hpCheck"> ×2 HP</label></div>
-<div class="inline-row"><label>Creature Type:</label><select id="dropType" style="font-size:.68rem"><option value="Random">[Random]</option><option>Aberration</option><option>Beast</option><option>Celestial</option><option>Construct</option><option>Dragon</option><option>Elemental</option><option>Fey</option><option>Fiend</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Plant</option><option>Ooze</option><option>Undead</option></select></div>
-<div class="inline-row"><label><input type="checkbox" id="bossCheck"> Boss</label><label><input type="checkbox" id="lairCheck"> Lair</label><label><input type="checkbox" id="enemyModCheck"> Modifier</label></div>
+<div class="inline-row"><label>CR:</label><input type="number" id="numCR" name="numCR" value="1" min="1" max="50" style="width:40px"><label><input type="checkbox" id="hpCheck" name="hpCheck"> ×2 HP</label></div>
+<div class="inline-row"><label>Creature Type:</label><select id="dropType" name="dropType" style="font-size:.68rem"><option value="Random">[Random]</option><option>Aberration</option><option>Beast</option><option>Celestial</option><option>Construct</option><option>Dragon</option><option>Elemental</option><option>Fey</option><option>Fiend</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Plant</option><option>Ooze</option><option>Undead</option></select></div>
+<div class="inline-row"><label><input type="checkbox" id="bossCheck" name="bossCheck"> Boss</label><label><input type="checkbox" id="lairCheck" name="lairCheck"> Lair</label><label><input type="checkbox" id="enemyModCheck" name="enemyModCheck"> Modifier</label></div>
 </div>
 </div>
 
@@ -461,19 +461,19 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:.86rem;color:var(--text-dim);margin-bottom:3px;text-decoration:underline;font-weight:bold">Martial or Caster</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:2px 18px;width:fit-content">
-<label><input type="radio" name="magicType" value="Martial"> Martial</label>
-<label><input type="radio" name="magicType" value="Caster"> Caster</label>
-<label><input type="radio" name="magicType" value="HalfCaster"> Half-Caster</label>
-<label><input type="radio" name="magicType" value="Random" checked> Random</label>
+<label><input type="radio" id="magicMartial" name="magicType" value="Martial"> Martial</label>
+<label><input type="radio" id="magicCaster" name="magicType" value="Caster"> Caster</label>
+<label><input type="radio" id="magicHalf" name="magicType" value="HalfCaster"> Half-Caster</label>
+<label><input type="radio" id="magicRandom" name="magicType" value="Random" checked> Random</label>
 </div>
 </div>
 <div style="margin-left:12px">
 <div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Movement</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
-<label><input type="checkbox" id="climbCheck"> Climb</label>
-<label><input type="checkbox" id="swimCheck"> Swim</label>
-<label><input type="checkbox" id="burrowCheck"> Burrow</label>
-<label><input type="checkbox" id="flyCheck"> Fly</label>
+<label><input type="checkbox" id="climbCheck" name="climbCheck"> Climb</label>
+<label><input type="checkbox" id="swimCheck" name="swimCheck"> Swim</label>
+<label><input type="checkbox" id="burrowCheck" name="burrowCheck"> Burrow</label>
+<label><input type="checkbox" id="flyCheck" name="flyCheck"> Fly</label>
 </div>
 </div>
 </div>
@@ -483,19 +483,19 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Senses</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
-<label style="white-space:nowrap"><input type="checkbox" id="blindsightCheck"> Blindsight</label>
-<label style="white-space:nowrap"><input type="checkbox" id="tremorsenseCheck"> Tremorsense</label>
-<label style="white-space:nowrap"><input type="checkbox" id="darkvisionCheck"> Darkvision</label>
-<label style="white-space:nowrap"><input type="checkbox" id="truesightCheck"> Truesight</label>
+<label style="white-space:nowrap"><input type="checkbox" id="blindsightCheck" name="blindsightCheck"> Blindsight</label>
+<label style="white-space:nowrap"><input type="checkbox" id="tremorsenseCheck" name="tremorsenseCheck"> Tremorsense</label>
+<label style="white-space:nowrap"><input type="checkbox" id="darkvisionCheck" name="darkvisionCheck"> Darkvision</label>
+<label style="white-space:nowrap"><input type="checkbox" id="truesightCheck" name="truesightCheck"> Truesight</label>
 </div>
 </div>
 <div style="margin-left:5px">
 <div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:2px;text-decoration:underline;font-weight:bold">Specifics</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:1px 12px">
-<label style="white-space:nowrap"><input type="checkbox" id="breathCheck"> Breath Attack</label>
-<label style="white-space:nowrap"><input type="checkbox" id="rechargeCheck"> Recharge</label>
-<label style="white-space:nowrap"><input type="checkbox" id="bonusCheck"> Bonus Action</label>
-<label style="white-space:nowrap"><input type="checkbox" id="reactionCheck"> Reaction</label>
+<label style="white-space:nowrap"><input type="checkbox" id="breathCheck" name="breathCheck"> Breath Attack</label>
+<label style="white-space:nowrap"><input type="checkbox" id="rechargeCheck" name="rechargeCheck"> Recharge</label>
+<label style="white-space:nowrap"><input type="checkbox" id="bonusCheck" name="bonusCheck"> Bonus Action</label>
+<label style="white-space:nowrap"><input type="checkbox" id="reactionCheck" name="reactionCheck"> Reaction</label>
 </div>
 </div>
 </div>
@@ -504,43 +504,43 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div style="margin-top:4px">
 <div style="font-family:var(--font-display);font-size:.80rem;color:var(--text-dim);margin-bottom:3px;text-decoration:underline;font-weight:bold">Lists</div>
 <div style="display:grid;grid-template-columns:auto auto auto;gap:3px">
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('traits')">Trait List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('actions')">Action List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('bonus_actions')">Bonus List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('reactions')">Reaction List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('recharge')">Recharge List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('modifiers')">Modifier List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('lair_active')">Lair List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('legendary')">Legendary List</button>
-<button class="btn btn-list" style="white-space:nowrap" onclick="enemyListInfo('type_specific')">Creature Types</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyTraitInfo()">Trait List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyActionInfo()">Action List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyBonusInfo()">Bonus List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyReactionInfo()">Reaction List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyRechargeInfo()">Recharge List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyModInfo()">Modifier List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyLairInfo()">Lair List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="EnemyLegendaryInfo()">Legendary List</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="TypeSpecificInfo()">Creature Types</button>
 </div>
 </div>
 </div>
 
 <!-- Floating Random buttons, absolutely positioned top-right, 11px down -->
 <div style="position:absolute;top:7px;right:0;display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-<button class="btn btn-primary" onclick="randomBreathBtn()">Random Breath</button>
-<button class="btn btn-primary" onclick="enemyTraitBtn()">Random Trait</button>
-<button class="btn btn-primary" onclick="enemyActionBtn()">Random Action</button>
-<button class="btn btn-primary" onclick="enemyBonusBtn()">Random Bonus Action</button>
-<button class="btn btn-primary" onclick="enemyReactionBtn()">Random Reaction</button>
-<button class="btn btn-primary" onclick="enemyRechargeBtn()">Random Recharge</button>
-<button class="btn btn-primary" onclick="enemyLegendaryBtn()">Random Legendary</button>
-<button class="btn btn-primary" onclick="enemyLairBtn()">Random Lair Trait</button>
-<button class="btn btn-primary" onclick="enemyModBtn()">Random Modifier</button>
-<div class="inline-row" style="justify-content:flex-end"><label><input type="checkbox" id="modEliteCheck"> Force Elite</label><span class="tip" data-tip="10% Elite chance; checkbox=100%."><span class="tip-icon">ⓘ</span></span></div>
+<button class="btn btn-primary" onclick="RandomBreathBtn()">Random Breath</button>
+<button class="btn btn-primary" onclick="EnemyTraitBtn()">Random Trait</button>
+<button class="btn btn-primary" onclick="EnemyActionBtn()">Random Action</button>
+<button class="btn btn-primary" onclick="EnemyBonusBtn()">Random Bonus Action</button>
+<button class="btn btn-primary" onclick="EnemyReactionBtn()">Random Reaction</button>
+<button class="btn btn-primary" onclick="EnemyRechargeBtn()">Random Recharge</button>
+<button class="btn btn-primary" onclick="EnemyLegendaryBtn()">Random Legendary</button>
+<button class="btn btn-primary" onclick="EnemyLairBtn()">Random Lair Trait</button>
+<button class="btn btn-primary" onclick="EnemyModBtn()">Random Modifier</button>
+<div class="inline-row" style="justify-content:flex-end"><label><input type="checkbox" id="modEliteCheck" name="modEliteCheck"> Force Elite</label><span class="tip" data-tip="10% Elite chance; checkbox=100%."><span class="tip-icon">ⓘ</span></span></div>
 </div>
 
 </div>
 
 <hr class="sep">
 <div class="inline-row"><span class="section-title" style="margin:0">Results</span><button class="btn btn-list" onclick="copyOutput()">Copy</button></div>
-<textarea class="result-box" id="charBox" rows="18" readonly></textarea>
+<textarea class="result-box" id="charBox" name="charBox" rows="18" readonly></textarea>
 <hr class="sep">
 <div class="inline-row"><a href="https://www.naturalcrit.com/" target="_blank">🔗</a><span style="font-size:.64rem;color:var(--text-dim)">Homebrewery V3</span><button class="btn btn-list" onclick="copyHomebrew()">Copy</button></div>
-<textarea class="result-box" id="homebrewBox" rows="5" readonly></textarea>
+<textarea class="result-box" id="homebrewBox" name="homebrewBox" rows="5" readonly></textarea>
 <div class="inline-row mt-xs"><a href="https://www.improvedinitiative.app/" target="_blank">🔗</a><span style="font-size:.64rem;color:var(--text-dim)">Improved-Initiative JSON</span><button class="btn btn-list" onclick="copyImproved()">Copy</button></div>
-<textarea class="result-box" id="improvedBox" rows="5" readonly></textarea>
+<textarea class="result-box" id="improvedBox" name="improvedBox" rows="5" readonly></textarea>
 </div>
 </div>
 
@@ -594,6 +594,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 
 </main>
 <footer class="app-footer">&copy; Template: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5-Templates.com</a></footer>
+<script src="script.js"></script>
 <script>
 function openTab(evt,id){document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');evt.currentTarget.classList.add('active');}
 function rng(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
@@ -1020,17 +1021,6 @@ async function spellListGen(){
 }
 // Wire up custom checkbox change events to update level disable
 document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.spellClass,.spellGroup,.spellSchool').forEach(cb=>cb.addEventListener('change',updateSpellLevelDisable));});
-function fullEnemyBtn(){out('charBox','[Full enemy gen requires complete logic from script.js]');}
-function randomBreathBtn(){out('charBox','Breath: '+pick(['Fire','Cold','Lightning','Acid','Poison','Necrotic','Radiant','Thunder','Force','Psychic'])+' in a '+(rng(1,2)===1?rng(15,60)+' ft cone':rng(30,90)+' ft line'));}
-async function enemyTraitBtn(){const d=await loadJSON('data/Character/Enemy/traits.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/traits.json]');}
-async function enemyActionBtn(){const d=await loadJSON('data/Character/Enemy/actions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/actions.json]');}
-async function enemyBonusBtn(){const d=await loadJSON('data/Character/Enemy/bonus_actions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/bonus_actions.json]');}
-async function enemyReactionBtn(){const d=await loadJSON('data/Character/Enemy/reactions.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/reactions.json]');}
-async function enemyRechargeBtn(){const d=await loadJSON('data/Character/Enemy/recharge.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/recharge.json]');}
-async function enemyLegendaryBtn(){const d=await loadJSON('data/Character/Enemy/legendary.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/legendary.json]');}
-async function enemyLairBtn(){const d=await loadJSON('data/Character/Enemy/lair_active.json');out('charBox',d.length?(pick(d).result||pick(d).name||JSON.stringify(pick(d))):'[Populate data/Character/Enemy/lair_active.json]');}
-async function enemyModBtn(){const d=await loadJSON('data/Character/Enemy/modifiers.json');const elite=document.getElementById('modEliteCheck').checked;if(d.length){const item=pick(d);let txt=item.result||item.name||JSON.stringify(item);if(elite)txt='[ELITE] '+txt;else if(rng(1,10)===10)txt='[ELITE] '+txt;out('charBox',txt);}else out('charBox','[Populate data/Character/Enemy/modifiers.json]');}
-async function enemyListInfo(t){const d=await loadJSON('data/Character/Enemy/'+t+'.json');out('charBox',d.length?JSON.stringify(d,null,2):'[Populate data/Character/Enemy/'+t+'.json]');}
 function copyOutput(){navigator.clipboard.writeText(document.getElementById('charBox').value);}
 function copyHomebrew(){navigator.clipboard.writeText(document.getElementById('homebrewBox').value);}
 function copyImproved(){navigator.clipboard.writeText(document.getElementById('improvedBox').value);}

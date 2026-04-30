@@ -101,7 +101,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </nav>
 </header>
 <main class="app-body">
-<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6">To access: Glyph Tab, and Random Enemy Generator<br>Please use the old DM Assistant Page <a href="https://squislaiden.github.io/dmapp/index-OLD.html" target="_blank" style="color:#d4708a;text-decoration:underline">HERE</a></div>
+<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6">To access Glyph Tab, please use the old DM Assistant Page <a href="https://squislaiden.github.io/dmapp/index-OLD.html" target="_blank" style="color:#d4708a;text-decoration:underline">HERE</a></div>
 
 <!-- TOOLS TAB -->
 <div id="toolsTab" class="tab-content active">
@@ -952,6 +952,16 @@ async function spellListGen(){
   const src=document.getElementById('spellSource').value;
   const counts={0:Number(document.getElementById('spellCantrips').value||0)};
   for(let i=1;i<=9;i++)counts[i]=Number(document.getElementById('spell'+i).value||0);
+
+  // Validation: at least one spell level must be > 0
+  const totalRequested=Object.values(counts).reduce((a,b)=>a+b,0);
+  if(totalRequested<=0){out('charBox','Error: Please enter a number greater than 0 for at least one spell level.');return;}
+
+  // Validation: Custom requires at least one checkbox
+  if(src==='custom'){
+    const anyChecked=document.querySelectorAll('.spellClass:checked, .spellGroup:checked, .spellSchool:checked').length;
+    if(!anyChecked){out('charBox','Error: Custom mode requires at least one class, group, or school checkbox to be selected.');return;}
+  }
 
   // Determine source filter and track what was used
   const usedSources=new Set();

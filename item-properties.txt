@@ -4,6 +4,8 @@
 
 **Two-Handed(#).** Weapon requires two hands to wield if Str # not met.
 
+**Balanced.** Either Dexterity or Strength may be used as the Mod stat.
+
 **Finesse.** Dexterity must be used as the weapon's Mod stat.
 
 **Weighty.** Strength must be used as the weapon's Mod stat.
@@ -35,6 +37,9 @@
 **Multishot(#).** Weapons can fire multiple projectiles in a single attack with a -2 Hit and Damage per additional projectile up to the listed max. Penalty applies to all projectiles from the attack.
 
 **Status(#-x).** The weapon inflicts buildup of a Status.
+
+#### Arcing
+Weapon attacks ignore Cover.
 
 **Siege.** Weapon deals double damage to structures, objects, and Constructs.
 

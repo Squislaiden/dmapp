@@ -12,7 +12,7 @@
 
 **Flexible.** Weapon ignores half of the target's Dodge.
 
-**Reach(#).** Increased melee attack range.
+**Reach(#).** Increased melee attack range. --1 Reach if the weapon is non-Corded and wielded in one hand.
 
 **Conceal.** Weapon is easier to conceal; +5 to Conceal.
 

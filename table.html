@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>DM App – Spells</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -713,7 +714,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   </div>
   <div class="stats-bar no-print">
     <div>Showing <strong id="itemVisCount">0</strong> of <strong id="itemTotCount">0</strong> items</div>
-    <select class="bulk-select" id="materialSelect" style="display:none">
+    <select class="bulk-select" id="materialSelect">
       <option value="">None</option>
     </select>
   </div>
@@ -730,7 +731,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
             <th data-col="5"><div class="th-inner">Spell Types <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="6"><div class="th-inner">Properties <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="7"><div class="th-inner">Innate Affix <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
-            <th data-col="8"><div class="th-inner">Category <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="8"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
           </tr></thead>
           <tbody id="itemBody"></tbody>
         </table>
@@ -1293,28 +1294,34 @@ function buildItemCard(item, showActions){
     return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${descHtml}`;
   }
 
-  // Material line (Basic Items only, if material selected and field not "None")
+  // Affix block
+  const affixLine=affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-val">${esc(affix)}</span></div></div>`:'';
+
+  // Material line — shown in both tabs if a material is selected and the field is not empty/"None"
   let matLine='';
-  if(!isMagic&&selectedMaterial){
+  if(selectedMaterial){
     const mf=matFieldForCategory(category||type);
     if(mf){
-      const matVal=(selectedMaterial[mf]||'');
+      const matVal=(selectedMaterial[mf]||'').trim();
       if(matVal&&matVal.toLowerCase()!=='none'){
-        matLine=`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Material:</span><span class="stat-val">${esc(matVal)}</span></div></div>`;
+        matLine=`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Material -</span><span class="stat-val"><em>${esc(selectedMaterial.name)}</em> - ${esc(matVal)}</span></div></div>`;
       }
     }
   }
 
-  // Affix block
-  const affixLine=affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-val">${esc(affix)}</span></div></div>`:'';
-
-  // Conditional stat rows based on category
+  // Category classification
   const cat=(category||type||'').toLowerCase();
   const isWeapon=cat.includes('weapon')||['dagger','sword','axe','hammer','polearm','twinblade','fist','ranged','throwing','colossal','flexible'].some(w=>cat.includes(w));
   const isArmor=cat==='armor'||['head','torso','arm','leg','shield'].some(a=>cat.includes(a));
+  const isAccessory=cat==='accessory'||['amulet','ring'].some(a=>cat.includes(a));
   const isFocus=cat==='spell focus'||['staff','scepter','wand','fan','seal','catalyst'].some(f=>cat.includes(f));
 
+  // Damage row — shown for everything except Armor and Accessory
+  const dmgRow=(!isArmor&&!isAccessory&&dmg)?`<div class="card-stat-row"><span class="stat-label">Damage -</span><span class="stat-val">${esc(dmg)}</span></div>`:'';
+
+  // Conditional stat rows
   const conditionalStats=[];
+  if(dmgRow) conditionalStats.push(dmgRow);
   if(isWeapon&&asVal) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Attack Speed -</span><span class="stat-val">${asVal}</span></div>`);
   if(isArmor&&defense) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Defense -</span><span class="stat-val">${esc(defense)}</span></div>`);
   if(isFocus&&spTypes) conditionalStats.push(`<div class="card-stat-row"><span class="stat-label">Spell Types -</span><span class="stat-val">${esc(spTypes)}</span></div>`);
@@ -1489,9 +1496,8 @@ document.querySelectorAll('[data-item-src]').forEach(btn=>{
     const src=btn.dataset.itemSrc;if(src===itemSource)return;
     itemSource=src;closeItemDetail();itemQuery='';document.getElementById('itemSearch').value='';
     document.querySelectorAll('[data-item-src]').forEach(b=>b.classList.toggle('active',b.dataset.itemSrc===src));
-    // Show/hide material dropdown and rarity filter based on source
+    // Show/hide rarity filter and Wondrous option based on source
     const isMagic=src.includes('magic');
-    document.getElementById('materialSelect').style.display=isMagic?'none':'';
     document.getElementById('ifRarityRow').style.display=isMagic?'':'none';
     document.getElementById('ifTypeWondrousRow').style.display=isMagic?'':'none';
     loadItems(src);

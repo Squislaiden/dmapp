@@ -732,6 +732,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
             <th data-col="6"><div class="th-inner">Properties <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="7"><div class="th-inner">Innate Affix <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
             <th data-col="8"><div class="th-inner">Type <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
+            <th data-col="9" id="itemRarityHeader" style="display:none"><div class="th-inner">Rarity <div class="sort-icon"><span class="arrow-up"></span><span class="arrow-down"></span></div></div></th>
           </tr></thead>
           <tbody id="itemBody"></tbody>
         </table>
@@ -1186,7 +1187,7 @@ document.getElementById('confirmModal').addEventListener('click',e=>{if(e.target
 let ITEMS=[], itemCurrentRow=null, itemSortState={col:0,dir:'asc'}, itemQuery='', itemSource='overhaul-items.json';
 let itemFilters={};
 let MATERIALS=[], selectedMaterial=null;
-const ITEM_KEYS=['item','prerequisites','as','defense','damage','spell_types','properties','innate_affix','category'];
+const ITEM_KEYS=['item','prerequisites','as','defense','damage','spell_types','properties','innate_affix','category','rarity'];
 
 const PROPS_TEXT=`**Light.** Two Light weapons may be Dual-Wielded with the associated feat.
 
@@ -1298,7 +1299,7 @@ function buildItemCard(item, showActions){
   }
 
   // Affix block
-  const affixLine=affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-val">${esc(affix)}</span></div></div>`:'';
+  const affixLine=affix?`<div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Innate -</span><span class="stat-val">${esc(affix)}</span></div></div>`:'';
 
   // Material line — shown in both tabs if a material is selected and the field is not empty/"None"
   let matLine='';
@@ -1382,10 +1383,14 @@ function renderItems(){
   const q=itemQuery;
   document.getElementById('itemBody').innerHTML=data.map(row=>{
     const asDisplay=fmtAS(row['as']);
-    return`<tr data-name="${esc(row['item'])}" class="${itemCurrentRow&&itemCurrentRow['item']===row['item']?'selected':''}"><td class="name-cell">${hi(row['item'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td>${hi(asDisplay,q)}</td><td>${hi(row['defense'],q)}</td><td>${hi(row['damage'],q)}</td><td>${hi(row['spell_types'],q)}</td><td>${hi(row['properties'],q)}</td><td>${hi(row['innate_affix'],q)}</td><td>${hi(row['type'],q)}</td></tr>`;
+    return`<tr data-name="${esc(row['item'])}" class="${itemCurrentRow&&itemCurrentRow['item']===row['item']?'selected':''}"><td class="name-cell">${hi(row['item'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td>${hi(asDisplay,q)}</td><td>${hi(row['defense'],q)}</td><td>${hi(row['damage'],q)}</td><td>${hi(row['spell_types'],q)}</td><td>${hi(row['properties'],q)}</td><td>${hi(row['innate_affix'],q)}</td><td>${hi(row['type'],q)}</td><td class="rarity-col" style="display:none">${row['rarity']?rarityBadge(row['rarity']):''}</td></tr>`;
   }).join('');
   document.getElementById('itemVisCount').textContent=data.length;
   document.getElementById('itemEmpty').style.display=data.length===0?'block':'none';
+  // Sync rarity column visibility with current source
+  const _isMagic=itemSource.includes('magic');
+  document.getElementById('itemRarityHeader').style.display=_isMagic?'':'none';
+  document.querySelectorAll('.rarity-col').forEach(td=>td.style.display=_isMagic?'':'none');
   document.querySelectorAll('#itemBody tr').forEach((tr,i)=>{tr.addEventListener('click',()=>{if(itemCurrentRow&&itemCurrentRow['item']===data[i]['item'])closeItemDetail();else openItemDetail(data[i]);});});
 }
 
@@ -1499,8 +1504,10 @@ document.querySelectorAll('[data-item-src]').forEach(btn=>{
     const src=btn.dataset.itemSrc;if(src===itemSource)return;
     itemSource=src;closeItemDetail();itemQuery='';document.getElementById('itemSearch').value='';
     document.querySelectorAll('[data-item-src]').forEach(b=>b.classList.toggle('active',b.dataset.itemSrc===src));
-    // Show/hide rarity filter and Wondrous option based on source
+    // Show/hide rarity column, rarity filter, and Wondrous option based on source
     const isMagic=src.includes('magic');
+    document.getElementById('itemRarityHeader').style.display=isMagic?'':'none';
+    document.querySelectorAll('.rarity-col').forEach(td=>td.style.display=isMagic?'':'none');
     document.getElementById('ifRarityRow').style.display=isMagic?'':'none';
     document.getElementById('ifTypeWondrousRow').style.display=isMagic?'':'none';
     loadItems(src);

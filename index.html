@@ -1057,7 +1057,25 @@ function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm
 async function loadChangelog(){try{const r=await fetch('changelog.txt');if(r.ok)out('infoBox',await r.text());else out('infoBox','');}catch(e){out('infoBox','');}}
 document.addEventListener('DOMContentLoaded',()=>{
   // Override innerHTML on result textareas so script.js's innerHTML writes mirror to .value (textareas display .value, not .innerHTML)
-  ['charBox','homebrewBox','improvedBox'].forEach(id=>{
+  // For charBox, also decode HTML entities (&nbsp;, &amp;, etc.) and convert <br> to newlines so they render as plain text properly.
+  // homebrewBox and improvedBox are kept verbatim since they intentionally contain markup syntax for copy/paste.
+  const htmlDecoder=document.createElement('div');
+  function decodeHTML(s){
+    if(typeof s!=='string')return s;
+    s=s.replace(/<br\s*\/?>/gi,'\n');
+    s=s.replace(/<[^>]*>/g,'');
+    htmlDecoder.innerHTML=s;
+    return htmlDecoder.textContent||htmlDecoder.innerText||s;
+  }
+  const charEl=document.getElementById('charBox');
+  if(charEl){
+    Object.defineProperty(charEl,'innerHTML',{
+      get(){return charEl.value;},
+      set(v){charEl.value=decodeHTML(v);},
+      configurable:true
+    });
+  }
+  ['homebrewBox','improvedBox'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     Object.defineProperty(el,'innerHTML',{
       get(){return el.value;},

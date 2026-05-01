@@ -299,6 +299,56 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
 .modal-actions { display:flex; gap:10px; justify-content:flex-end; }
 
 /* ── Mobile ── */
+/* ══════════════════════════════════════════════
+   RESPONSIVE COLUMN PRIORITY
+   Columns hide progressively as viewport narrows.
+   Priority kept: col-0 (name), Level, Type,
+   Damage, AS, Defense.
+   nth-child positions are 1-indexed and match
+   the column order in each table's <thead>.
+
+   SPELLS cols:  0=Name 1=Level 2=Cost 3=CastTime
+                 4=Rit 5=School 6=Type 7=Con 8=Range
+   ITEMS  cols:  0=Item 1=Prerequisites 2=AS
+                 3=Defense 4=Damage 5=SpellTypes
+                 6=Properties 7=InnateAffix 8=Type 9=Rarity
+   FEATS  cols:  0=Feat 1=Prerequisites 2=Description
+══════════════════════════════════════════════ */
+
+/* ── 1300px: hide low-priority columns ── */
+@media (max-width:1300px) {
+  /* Spells: hide Rit., Con., Range */
+  #spellTable th[data-col="4"], #spellTable td:nth-child(5),
+  #spellTable th[data-col="7"], #spellTable td:nth-child(8),
+  #spellTable th[data-col="8"], #spellTable td:nth-child(9) { display:none; }
+  /* Items: hide Prerequisites, Innate Affix, Rarity */
+  #itemTable th[data-col="1"], #itemTable td:nth-child(2),
+  #itemTable th[data-col="7"], #itemTable td:nth-child(8),
+  #itemTable th[data-col="9"], #itemTable td:nth-child(10) { display:none; }
+  /* Feats: hide Description */
+  #featTable th[data-col="2"], #featTable td:nth-child(3) { display:none; }
+}
+
+/* ── 1000px: hide medium-priority columns ── */
+@media (max-width:1000px) {
+  /* Spells: hide Cost, School */
+  #spellTable th[data-col="2"], #spellTable td:nth-child(3),
+  #spellTable th[data-col="5"], #spellTable td:nth-child(6) { display:none; }
+  /* Items: hide Spell Types, Properties */
+  #itemTable th[data-col="5"], #itemTable td:nth-child(6),
+  #itemTable th[data-col="6"], #itemTable td:nth-child(7) { display:none; }
+  /* Feats: hide Prerequisites */
+  #featTable th[data-col="1"], #featTable td:nth-child(2) { display:none; }
+}
+
+/* ── 700px: hide remaining non-priority columns ── */
+@media (max-width:700px) {
+  /* Spells: hide Cast Time */
+  #spellTable th[data-col="3"], #spellTable td:nth-child(4) { display:none; }
+  /* Items: no more to hide — AS/Defense/Damage/Type remain */
+}
+
+/* ── Mobile layout ── */
 @media (max-width:900px) {
   body { padding:12px; }
   .main-layout { flex-direction:column; gap:16px; }
@@ -314,9 +364,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   .theme-select { margin-left:auto; }
   .bulk-header { flex-direction:column; align-items:flex-start; }
   .bulk-actions { flex-wrap:wrap; }
-}
-@media (max-width:600px) {
-  th[data-col="1"],td:nth-child(2) { display:none; }
 }
 
 @media print {

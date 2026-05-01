@@ -22,7 +22,7 @@
 
 **Cleaving(#).** The size or shape of the weapon causes it to hit a number of enemies adjacent to the target for half damage, roll Hit separately.
 
-**AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes and are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
+**AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
 
 **Ammo(x).** Weapon requires ammunition to function.
 

@@ -49,12 +49,12 @@ Shield
 (Martial Ranged) Longbow
 (Martial Ranged) Blowgun
 ------Accessories------
-Crown (0-8 gems)
-Amulet (0-2 gems)
-Ring (0-1 gem)
-Bracelet (0-3 gems)
-Choker (0-4 gems)
-Pair of Earrings (0-1 gem each)
+Crown
+Amulet
+Ring
+Bracelet
+Choker
+Pair of Earrings
 Quiver
 Timepiece (Watch, etc.)
 Belt

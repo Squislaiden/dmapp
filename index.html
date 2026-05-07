@@ -238,49 +238,98 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div id="equipmentOH" style="display:none">
 <div class="text-center"><button class="btn btn-accent mb-xs" onclick="overhaulRandom()">Random Equipment</button></div>
 <div class="split">
-<div style="flex:1;padding:4px">
+<!-- Armor (left) -->
+<div style="flex:0 0 auto;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Armor:</label></div>
-<div class="btn-grid"><button class="btn btn-primary" onclick="ohGen('all_armor')">All Armor</button><button class="btn btn-primary" onclick="ohGen('head_armor')">Head</button><button class="btn btn-primary" onclick="ohGen('torso_armor')">Torso</button><button class="btn btn-primary" onclick="ohGen('arm_armor')">Arm</button><button class="btn btn-primary" onclick="ohGen('leg_armor')">Leg</button><button class="btn btn-primary" onclick="ohGen('shield')">Shield</button><button class="btn btn-primary" onclick="ohGen('accessory')">Accessory</button></div>
+<button class="btn btn-primary" onclick="ohGen('all_armor')">All Armor</button>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('head_armor')">Head</button>
+<button class="btn btn-primary" onclick="ohGen('torso_armor')">Torso</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('leg_armor')">Legs</button>
+<button class="btn btn-primary" onclick="ohGen('arm_armor')">Hands</button>
+</div>
+<button class="btn btn-primary" style="margin-top:3px" onclick="ohGen('shield')">Shield</button>
+<div style="flex:1"></div>
+<button class="btn btn-primary" style="margin-top:6px" onclick="ohGen('accessory')">Accessory</button>
 </div>
 <div class="split-divider"></div>
-<div style="flex:2;padding:4px">
+<!-- Weapons (middle) -->
+<div style="flex:1;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Weapons:</label></div>
-<div class="btn-grid"><button class="btn btn-primary" onclick="ohGen('all_weapons')">All Weapons</button><button class="btn btn-primary" onclick="ohGen('dagger')">Dagger</button><button class="btn btn-primary" onclick="ohGen('sword')">Sword</button><button class="btn btn-primary" onclick="ohGen('axe')">Axe</button><button class="btn btn-primary" onclick="ohGen('hammer')">Hammer</button><button class="btn btn-primary" onclick="ohGen('head_polearm')">Head Polearm</button><button class="btn btn-primary" onclick="ohGen('bladed_polearm')">Bladed Polearm</button><button class="btn btn-primary" onclick="ohGen('twinblade')">Twinblade</button><button class="btn btn-primary" onclick="ohGen('fist')">Fist</button><button class="btn btn-primary" onclick="ohGen('flexible')">Flexible</button><button class="btn btn-primary" onclick="ohGen('ranged')">Ranged</button><button class="btn btn-primary" onclick="ohGen('colossal')">Colossal</button><button class="btn btn-primary" onclick="ohGen('throwing')">Throwing</button><button class="btn btn-primary" onclick="ohGen('other')">Other</button></div>
+<button class="btn btn-primary" onclick="ohGen('all_weapons')">All Weapons</button>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('dagger')">Dagger</button>
+<button class="btn btn-primary" onclick="ohGen('sword')">Sword</button>
+<button class="btn btn-primary" onclick="ohGen('hammer')">Hammer</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('head_polearm')">Head Polearm</button>
+<button class="btn btn-primary" onclick="ohGen('axe')">Axe</button>
+<button class="btn btn-primary" onclick="ohGen('fist')">Fist</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('bladed_polearm')">Bladed Polearm</button>
+<button class="btn btn-primary" onclick="ohGen('twinblade')">Twinblade</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('colossal')">Colossal</button>
+<button class="btn btn-primary" onclick="ohGen('flexible')">Flexible</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('throwing')">Throwing</button>
+<button class="btn btn-primary" onclick="ohGen('ranged')">Ranged</button>
+</div>
 </div>
 <div class="split-divider"></div>
-<div style="flex:1;padding:4px">
+<!-- Spell Focuses (right) -->
+<div style="flex:0 0 auto;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Spell Focuses:</label></div>
-<div class="btn-grid"><button class="btn btn-primary" onclick="ohGen('spell_focus')">All Focuses</button><button class="btn btn-primary" onclick="ohGen('staff')">Staff</button><button class="btn btn-primary" onclick="ohGen('scepter')">Scepter</button><button class="btn btn-primary" onclick="ohGen('wand')">Wand</button><button class="btn btn-primary" onclick="ohGen('fan')">Fan</button><button class="btn btn-primary" onclick="ohGen('seal')">Seal</button><button class="btn btn-primary" onclick="ohGen('catalyst')">Catalyst</button></div>
+<button class="btn btn-primary" onclick="ohGen('spell_focus')">All Focuses</button>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('scepter')">Scepter</button>
+<button class="btn btn-primary" onclick="ohGen('seal')">Seal</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('staff')">Staff</button>
+<button class="btn btn-primary" onclick="ohGen('wand')">Wand</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('catalyst')">Catalyst</button>
+<button class="btn btn-primary" onclick="ohGen('fan')">Fan</button>
+</div>
 </div>
 </div>
 </div>
 <hr class="sep">
 <div class="section-title">Items</div>
-<!-- Row 1: action buttons + 5e Items right-justified -->
+<!-- Row 1: Spell Scroll + Scroll Level dropdown + 5e Items List right -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button>
+<label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select>
+<div style="flex:1"></div>
+<button class="btn btn-list" onclick="gearListInfo()">5e Items List</button>
+</div>
+<!-- Row 2: Accessory + Artisan Tool + Overhaul Items right -->
 <div class="flex items-center" style="gap:4px;margin-bottom:6px">
 <button class="btn btn-primary" onclick="accessoryGen()">Accessory</button>
 <button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button>
-<button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button>
-<div style="flex:1"></div>
-<button class="btn btn-list" onclick="gearListInfo()">5e Items</button>
-</div>
-<!-- Row 2: Scroll Level dropdown + Material button + Overhaul Items right-justified -->
-<div class="flex items-center" style="gap:4px;margin-bottom:6px">
-<label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select>
-<button class="btn btn-primary" onclick="materialGen()">Material</button>
 <div style="flex:1"></div>
 <button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Items</button>
 </div>
-<!-- Row 3: Wood / Stone / Metal / Fabric -->
-<div class="inline-row"><button class="btn btn-primary" onclick="materialTypeGen('wood')">Wood</button><button class="btn btn-primary" onclick="materialTypeGen('stone')">Stone</button><button class="btn btn-primary" onclick="materialTypeGen('metal')">Metal</button><button class="btn btn-primary" onclick="materialTypeGen('fabric')">Fabric</button></div>
+<!-- Row 3: Material / Wood / Stone / Metal / Fabric -->
+<div class="inline-row"><button class="btn btn-primary" onclick="materialGen()">Material</button><button class="btn btn-primary" onclick="materialTypeGen('wood')">Wood</button><button class="btn btn-primary" onclick="materialTypeGen('stone')">Stone</button><button class="btn btn-primary" onclick="materialTypeGen('metal')">Metal</button><button class="btn btn-primary" onclick="materialTypeGen('fabric')">Fabric</button></div>
 <hr class="sep">
 <div class="section-title">Gems &amp; Gembags</div>
 <div class="flex" style="gap:16px">
 <div style="flex:1">
 <div class="inline-row"><label>Gem Bag Tier:</label><select id="gemBagTier"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
 <div class="inline-row"><label><input type="checkbox" id="eberCheck"> Include Eberron Gems in T5?</label></div>
-<div class="btn-grid mt-xs"><button class="btn btn-primary" onclick="gemBagGen('small')">Small Bag</button><button class="btn btn-primary" onclick="gemBagGen('medium')">Gem Bag</button><button class="btn btn-primary" onclick="gemBagGen('large')">Large Bag</button></div>
-<div class="mt-xs" style="text-align:right"><button class="btn btn-list" onclick="gemListInfo()">Gem List</button></div>
+<!-- Three bag rows; bag-button column is centered between left edge and Gem List, Large Bag aligned with Gem List -->
+<div class="flex items-center mt-xs" style="gap:8px"><div style="flex:1;text-align:center"><button class="btn btn-primary" style="min-width:88px" onclick="gemBagGen('small')">Small Bag</button></div><div style="flex:0 0 auto;visibility:hidden"><button class="btn btn-list">Gem List</button></div></div>
+<div class="flex items-center mt-xs" style="gap:8px"><div style="flex:1;text-align:center"><button class="btn btn-primary" style="min-width:88px" onclick="gemBagGen('medium')">Gem Bag</button></div><div style="flex:0 0 auto;visibility:hidden"><button class="btn btn-list">Gem List</button></div></div>
+<div class="flex items-center mt-xs" style="gap:8px"><div style="flex:1;text-align:center"><button class="btn btn-primary" style="min-width:88px" onclick="gemBagGen('large')">Large Bag</button></div><button class="btn btn-list" onclick="gemListInfo()">Gem List</button></div>
 </div>
 <div style="flex:0 0 auto">
 <div style="display:grid;grid-template-columns:auto auto auto;gap:4px">
@@ -584,22 +633,52 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:#a766c2;font-weight:bold;margin-bottom:4px">Chaotic Glyph</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;justify-items:center">
-<button class="btn btn-purp" style="grid-column:1/3;width:60%">Weapon</button>
-<button class="btn btn-purp" style="width:90%">Armor</button>
-<button class="btn btn-purp" style="width:90%">Focus</button>
-<button class="btn btn-purp" style="grid-column:1/3;padding:5px 14px">Accessory</button>
+<button class="btn btn-purp" style="grid-column:1/3;width:60%" onclick="chaoticBtn('Weapon')">Weapon</button>
+<button class="btn btn-purp" style="width:90%" onclick="chaoticBtn('Armor')">Armor</button>
+<button class="btn btn-purp" style="width:90%" onclick="chaoticBtn('Focus')">Focus</button>
+<button class="btn btn-purp" style="grid-column:1/3;padding:5px 14px" onclick="chaoticBtn('Accessory')">Accessory</button>
 </div>
+<select id="chaoticItemType" style="width:100%;margin-top:6px;font-size:.7rem">
+<option value="">--Item Type--</option>
+<option value="Dagger">Dagger</option>
+<option value="Sword">Sword</option>
+<option value="Axe">Axe</option>
+<option value="Hammer">Hammer</option>
+<option value="Head Polearm">Head Polearm</option>
+<option value="Bladed Polearm">Bladed Polearm</option>
+<option value="Twinblade">Twinblade</option>
+<option value="Fist">Fist</option>
+<option value="Ranged">Ranged</option>
+<option value="Throwing">Throwing</option>
+<option value="Colossal">Colossal</option>
+<option disabled>──────────</option>
+<option value="Staff">Staff</option>
+<option value="Scepter">Scepter</option>
+<option value="Wand">Wand</option>
+<option value="Fan">Fan</option>
+<option value="Seal">Seal</option>
+<option value="Catalyst">Catalyst</option>
+<option disabled>──────────</option>
+<option value="Shield">Shield</option>
+<option value="Head">Head</option>
+<option value="Torso">Torso</option>
+<option value="Hands">Hands</option>
+<option value="Legs">Legs</option>
+<option disabled>──────────</option>
+<option value="Amulet">Amulet</option>
+<option value="Ring">Ring</option>
+</select>
 </div>
 
 <!-- Affixes (middle) -->
 <div>
 <div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Affixes</div>
 <div style="display:grid;grid-template-columns:auto auto;gap:3px;justify-content:center">
-<button class="btn btn-glyph" style="min-width:80px">Weapon</button>
-<button class="btn btn-glyph" style="min-width:80px">Focus</button>
-<button class="btn btn-glyph" style="grid-column:1/3;justify-self:center;min-width:80px">All Types</button>
-<button class="btn btn-glyph" style="min-width:80px">Armor</button>
-<button class="btn btn-glyph" style="min-width:80px">Accessory</button>
+<button class="btn btn-glyph" style="min-width:80px" onclick="affixGen('weapon')">Weapon</button>
+<button class="btn btn-glyph" style="min-width:80px" onclick="affixGen('focus')">Focus</button>
+<button class="btn btn-glyph" style="grid-column:1/3;justify-self:center;min-width:80px" onclick="affixGen('all')">All Types</button>
+<button class="btn btn-glyph" style="min-width:80px" onclick="affixGen('armor')">Armor</button>
+<button class="btn btn-glyph" style="min-width:80px" onclick="affixGen('acc')">Accessory</button>
 </div>
 <div class="inline-row" style="justify-content:center;margin-top:8px"><label>Qty.</label><input type="number" id="affixQty" value="1" min="1" max="5" style="width:40px"></div>
 </div>
@@ -608,10 +687,10 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:#c24a4a;font-weight:bold;margin-bottom:4px">Tainted Glyph</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;justify-items:center">
-<button class="btn btn-taint" style="grid-column:1/3;width:60%">Weapon</button>
-<button class="btn btn-taint" style="width:90%">Armor</button>
-<button class="btn btn-taint" style="width:90%">Focus</button>
-<button class="btn btn-taint" style="grid-column:1/3;padding:5px 14px">Accessory</button>
+<button class="btn btn-taint" style="grid-column:1/3;width:60%" onclick="taintedBtn('Weapon')">Weapon</button>
+<button class="btn btn-taint" style="width:90%" onclick="taintedBtn('Armor')">Armor</button>
+<button class="btn btn-taint" style="width:90%" onclick="taintedBtn('Focus')">Focus</button>
+<button class="btn btn-taint" style="grid-column:1/3;padding:5px 14px" onclick="taintedBtn('Accessory')">Accessory</button>
 </div>
 <label style="display:block;margin-top:8px;font-size:.86rem;text-align:center"><input type="checkbox" id="onlyAffixCheck"> Only Generate Affix</label>
 </div>
@@ -674,8 +753,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <select id="randomItemDrop" style="width:140px"><option value="Random">Random</option><option value="Weapon">Weapon</option><option value="Focus">Focus</option><option value="Armor">Armor</option><option value="Accessory">Accessory</option><option disabled>──────────</option><option value="Dagger">Dagger</option><option value="Sword">Sword</option><option value="Axe">Axe</option><option value="Hammer">Hammer</option><option value="Head Polearm">Head Polearm</option><option value="Bladed Polearm">Bladed Polearm</option><option value="Twinblade">Twinblade</option><option value="Fist">Fist</option><option value="Ranged">Ranged</option><option value="Throwing">Throwing</option><option value="Colossal">Colossal</option><option disabled>──────────</option><option value="Staff">Staff</option><option value="Scepter">Scepter</option><option value="Wand">Wand</option><option value="Fan">Fan</option><option value="Seal">Seal</option><option value="Catalyst">Catalyst</option><option disabled>──────────</option><option value="Shield">Shield</option><option value="Head">Head</option><option value="Torso">Torso</option><option value="Hands">Hands</option><option value="Legs">Legs</option><option disabled>──────────</option><option value="Amulet">Amulet</option><option value="Ring">Ring</option></select>
 <label class="tip" data-tip="An Affix Quantity of 0 will randomize the amount, with a minimum of 1.">Affix Qty <span class="tip-icon">ⓘ</span></label><input type="number" id="randomItemAffixQty" value="0" min="0" max="5" style="width:40px">
 <label style="font-size:.86rem;white-space:nowrap"><input type="checkbox" id="randomItemTainted"> Tainted?</label>
-<button class="btn btn-primary">Vanilla</button>
-<button class="btn btn-primary">Overhaul</button>
+<button class="btn btn-primary" onclick="randomAffixItem('Vanilla')">Vanilla</button>
+<button class="btn btn-primary" onclick="randomAffixItem('Overhaul')">Overhaul</button>
 </div>
 </div>
 
@@ -746,6 +825,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:1.05rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:5px">Help</div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+<button class="btn btn-list" onclick="glyphHistoryShow()">History</button>
 <button class="btn btn-list" onclick="listOfGlyphs()">List of Glyphs</button>
 <button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Item List</button>
 <button class="btn btn-fade-red" onclick="window.open('https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI','_blank')">Original Homebrew</button>
@@ -1013,8 +1093,8 @@ async function weaponGen(t){
   }
   out('itemBox',pool.length?pick(pool):'[No '+t+' weapons found]');
 }
-async function ohGen(t){const allArmor=['head_armor','torso_armor','arm_armor','leg_armor','shield'];const allWpn=['dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other'];let f=t;if(t==='all_armor')f=pick(allArmor);if(t==='all_weapons')f=pick(allWpn);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
-async function overhaulRandom(){const p=['head_armor','torso_armor','arm_armor','leg_armor','shield','accessory','dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','other','spell_focus'];const f=pick(p);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
+async function ohGen(t){const allArmor=['head_armor','torso_armor','arm_armor','leg_armor','shield'];const allWpn=['dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing'];let f=t;if(t==='all_armor')f=pick(allArmor);if(t==='all_weapons')f=pick(allWpn);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
+async function overhaulRandom(){const p=['head_armor','torso_armor','arm_armor','leg_armor','shield','accessory','dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','spell_focus'];const f=pick(p);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
 const accessoriesFallback=["Amulet","Belt","Boots","Bracers","Brooch","Cape","Circlet","Cloak","Earring","Gauntlets","Gloves","Goggles","Hat","Headband","Helm","Mantle","Mask","Necklace","Pauldrons","Periapt","Ring","Robe","Rod","Scarf","Shield","Slippers","Staff","Tiara","Vestments","Wand"];
 async function accessoryGen(){const d=await loadJSON('data/Items/Equipment/accessories.json');if(d.length)out('itemBox',pick(d).result||pick(d).name||JSON.stringify(pick(d)));else out('itemBox',pick(accessoriesFallback));}
 const artToolsFallback=["Alchemist's Supplies","Brewer's Supplies","Calligrapher's Supplies","Carpenter's Tools","Cartographer's Tools","Cobbler's Tools","Cook's Utensils","Glassblower's Tools","Jeweler's Tools","Leatherworker's Tools","Mason's Tools","Painter's Supplies","Potter's Tools","Smith's Tools","Tinker's Tools","Weaver's Tools","Woodcarver's Tools","Disguise Kit","Forgery Kit","Herbalism Kit","Navigator's Tools","Poisoner's Kit","Thieves' Tools"];
@@ -1245,9 +1325,77 @@ async function chaoticArmorBtn(){const d=await loadJSON('data/Glyphs/chaotic_arm
 async function chaoticAccessoryBtn(){const d=await loadJSON('data/Glyphs/chaotic_accessory_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/chaotic_accessory_affix.json]');}
 async function classAffixBtn(){const d=await loadJSON('data/Glyphs/class_affix.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/class_affix.json]');}
 async function genAffixItem(){const d=await loadJSON('data/Glyphs/random_affix_item.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/random_affix_item.json]');}
-async function genGlyphsBtn(){const d=await loadJSON('data/Glyphs/glyphs.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/glyphs.json]');}
-function glyphHelp(){out('glyphBox','Glyphs of Pandemonium Help:\nhttps://homebrewery.naturalcrit.com/share/o0dKpn67XqvI');}
-function subtypeBtn(type){const st={Attribute:["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"],Skill:["Acrobatics","Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival"],Physical:["Bludgeoning","Piercing","Slashing"],Element:["Acid","Cold","Fire","Force","Lightning","Necrotic","Poison","Psychic","Radiant","Thunder"],Condition:["Blinded","Charmed","Deafened","Exhaustion","Frightened","Grappled","Incapacitated","Invisible","Paralyzed","Petrified","Poisoned","Prone","Restrained","Stunned","Unconscious"],Action:["Dash","Disengage","Dodge","Help","Hide","Ready","Search","Use an Object"],Terrain:["Arctic","Coast","Desert","Forest","Grassland","Mountain","Swamp","Underdark","Underwater","Urban"],Creature:["Aberration","Beast","Celestial","Construct","Dragon","Elemental","Fey","Fiend","Giant","Humanoid","Monstrosity","Ooze","Plant","Undead"],FightingStyle:["Archery","Blind Fighting","Defense","Dueling","Great Weapon Fighting","Interception","Protection","Superior Technique","Thrown Weapon","Two-Weapon","Unarmed"],Infusion:["Arcane Propulsion Armor","Armor of Magical Strength","Boots of the Winding Path","Enhanced Arcane Focus","Enhanced Defense","Enhanced Weapon","Helm of Awareness","Homunculus Servant","Mind Sharpener","Radiant Weapon","Repeating Shot","Replicate Magic Item","Repulsion Shield","Resistant Armor","Returning Weapon","Spell-Refueling Ring"],Maneuver:["Ambush","Bait and Switch","Brace","Commander's Strike","Disarming Attack","Distracting Strike","Evasive Footwork","Feinting Attack","Goading Attack","Lunging Attack","Maneuvering Attack","Menacing Attack","Parry","Precision Attack","Pushing Attack","Rally","Riposte","Sweeping Attack","Trip Attack"],Wizard:["Abjuration","Bladesinging","Chronurgy","Conjuration","Divination","Enchantment","Evocation","Graviturgy","Illusion","Necromancy","Order of Scribes","Transmutation","War Magic"],Invocation:["Agonizing Blast","Armor of Shadows","Devil's Sight","Eldritch Smite","Grasp of Hadar","Improved Pact Weapon","Lifedrinker","Mask of Many Faces","Misty Visions","Repelling Blast","Thirsting Blade","Tomb of Levistus"],MetaMagic:["Careful Spell","Distant Spell","Empowered Spell","Extended Spell","Heightened Spell","Quickened Spell","Seeking Spell","Subtle Spell","Transmuted Spell","Twinned Spell"],Warlock:["Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undead","Undying"],Weather:["Thunderstorm","Hailstorm","Snow","Rain","Overcast","Sunny","Drizzle","Windy","Fog","Acid Rain","Blizzard","Flood"]};out('glyphBox',type+': '+pick(st[type]||['?']));}
+// Token resolver: replaces {token} in strings with a random pick from data/Glyphs/Subtypes/<token>.json
+// Special case: {cantrip} pulls a level 0 spell from all-spells.json
+async function resolveTokens(text){
+  if(typeof text!=='string')return text;
+  const matches=text.match(/\{([\w-]+)\}/g);
+  if(!matches)return text;
+  let result=text;
+  for(const m of matches){
+    const key=m.slice(1,-1);
+    let value=null;
+    if(key==='cantrip'){
+      const spells=await loadJSON('all-spells.json');
+      const cantrips=spells.filter(s=>String(s.level)==='0');
+      if(cantrips.length)value=pick(cantrips).name;
+    }else{
+      const data=await loadJSON('data/Glyphs/Subtypes/'+key+'.json');
+      if(data.length){
+        const p=pick(data);
+        value=p.result||p.name||(typeof p==='string'?p:null);
+      }
+    }
+    if(value!==null)result=result.replace(m,value);
+  }
+  return result;
+}
+
+
+// Weighted pick from tainted file. 70/30 tier1/tier2.
+async function rollTaintedAffix(slot){
+  const slotLabels={weapon:'Weapon',focus:'Focus',armor:'Armor',acc:'Accessory'};
+  const path='data/Glyphs/tainted-'+slot+'.json';
+  const d=await loadJSON(path);
+  if(!d.length)return '[Populate '+path+']';
+  const e=d[weightedIdx(d)];
+  const useTier2=rng(1,100)>70;
+  const tierField=useTier2?'tier2':'tier1';
+  const tierLabel=useTier2?'Tier 2':'Tier 1';
+  const parts=['Tainted Affix ('+slotLabels[slot]+')'];
+  if(e.name)parts.push(e.name);
+  if(e[tierField])parts.push(tierLabel+': '+await resolveTokens(e[tierField]));
+  return parts.join('\n');
+}
+
+// Weighted pick from affix file, returns formatted entry text (with token resolution).
+// Selected tier: 70% Tier 1, 30% Tier 2
+async function rollAffix(slot){
+  const slotLabels={weapon:'Weapon',focus:'Focus',armor:'Armor',acc:'Accessory'};
+  const path='data/Glyphs/affix-'+slot+'.json';
+  const d=await loadJSON(path);
+  if(!d.length)return '[Populate '+path+']';
+  const e=d[weightedIdx(d)];
+  const useTier2=rng(1,100)>70;
+  const tierField=useTier2?'tier2':'tier1';
+  const tierLabel=useTier2?'Tier 2':'Tier 1';
+  const parts=['Affix ('+slotLabels[slot]+')'];
+  if(e.name)parts.push(e.name);
+  if(e[tierField])parts.push(tierLabel+': '+await resolveTokens(e[tierField]));
+  return parts.join('\n');
+}
+
+async function affixGen(slot){
+  // 'all' picks from a random slot (25% each) each iteration; otherwise specific slot
+  const qty=Number(document.getElementById('affixQty').value||1);
+  const results=[];
+  for(let i=0;i<qty;i++){
+    const useSlot=slot==='all'?pick(['weapon','focus','armor','acc']):slot;
+    results.push(await rollAffix(useSlot));
+  }
+  out('glyphBox',results.join('\n\n'));
+}
+
 async function affixListInfo(slug){
   let actualPath='data/Glyphs/affix-'+slug+'.json';
   if(slug.startsWith('tainted-'))actualPath='data/Glyphs/'+slug+'.json';
@@ -1281,9 +1429,7 @@ async function affixInnateInfo(){
     tainted.forEach(e=>{
       const parts=[];
       if(e.name)parts.push(e.name);
-      if(e.tier1)parts.push('Tier 1: '+e.tier1);
-      if(e.tier2)parts.push('Tier 2: '+e.tier2);
-      if(e.tier3)parts.push('Tier 3: '+e.tier3);
+      if(e.effect)parts.push(e.effect);
       txt+=parts.join('\n')+'\n\n';
     });
   }else{txt+='[Populate data/Glyphs/tainted-innate.json]';}
@@ -1318,12 +1464,16 @@ async function genGlyphsBtn(useWeight){
   const d=await loadJSON('data/glyphs.json');
   if(!d.length){out('glyphBox','[Populate data/glyphs.json]');return;}
   const qty=Number(document.getElementById('glyphQty').value||1);
-  const results=[];
+  // Roll qty glyphs and tally by name
+  const counts={};
   for(let i=0;i<qty;i++){
     const g=useWeight?d[weightedIdx(d)]:pick(d);
-    results.push(g.name||'');
+    const n=g.name||'';
+    counts[n]=(counts[n]||0)+1;
   }
-  out('glyphBox',results.join('\n'));
+  // Output: "Name x3" (or just "Name" when count is 1)
+  const lines=Object.keys(counts).map(n=>counts[n]>1?n+' x'+counts[n]:n);
+  out('glyphBox',lines.join('\n'));
 }
 async function intrinsicGlyphBtn(){
   const sel=document.getElementById('innateAffixDrop').value;
@@ -1333,9 +1483,7 @@ async function intrinsicGlyphBtn(){
     const item=pick(d);
     const parts=[];
     if(item.name)parts.push(item.name);
-    if(item.tier1)parts.push('Tier 1: '+item.tier1);
-    if(item.tier2)parts.push('Tier 2: '+item.tier2);
-    if(item.tier3)parts.push('Tier 3: '+item.tier3);
+    if(item.effect)parts.push(await resolveTokens(item.effect));
     out('glyphBox',parts.join('\n'));
     return;
   }
@@ -1348,7 +1496,7 @@ async function intrinsicGlyphBtn(){
   else pool=items.filter(i=>i.type===sel);
   if(!pool.length){out('glyphBox','[No items found for '+sel+' in overhaul-items.json]');return;}
   const item=pick(pool);
-  out('glyphBox',(item.name||'')+'\n'+(item.innate_affix||''));
+  out('glyphBox',(item.name||'')+'\n'+await resolveTokens(item.innate_affix||''));
 }
 async function expertiseGlyphBtn(){
   const checked=Array.from(document.querySelectorAll('[id^="glyph"][type="checkbox"]:checked')).map(c=>c.id.replace('glyph',''));
@@ -1364,9 +1512,10 @@ async function expertiseGlyphBtn(){
     const e=pick(pool);
     const parts=[cls];
     if(e.name)parts.push(e.name);
-    if(e.tier1)parts.push('Tier 1: '+e.tier1);
-    if(e.tier2)parts.push('Tier 2: '+e.tier2);
-    if(e.tier3)parts.push('Tier 3: '+e.tier3);
+    const useTier2=rng(1,100)>70;
+    const tierField=useTier2?'tier2':'tier1';
+    const tierLabel=useTier2?'Tier 2':'Tier 1';
+    if(e[tierField])parts.push(tierLabel+': '+await resolveTokens(e[tierField]));
     results.push(parts.join('\n'));
   }
   out('glyphBox',results.join('\n\n'));
@@ -1375,6 +1524,294 @@ async function listOfGlyphs(){
   const d=await loadJSON('data/glyphs.json');
   if(!d.length){out('glyphBox','[Populate data/glyphs.json]');return;}
   out('glyphBox',d.map(g=>(g.name||'')+'\n'+(g.effect||'')).join('\n\n'));
+}
+
+// Glyph history (localStorage, last 20 entries)
+function getGlyphHistory(){try{return JSON.parse(localStorage.getItem('glyphHistory'))||[];}catch(e){return[];}}
+function saveGlyphHistory(arr){while(arr.length>20)arr.shift();localStorage.setItem('glyphHistory',JSON.stringify(arr));}
+function recordGlyph(source,text){
+  const now=new Date();
+  const stamp=(now.getMonth()+1)+'/'+now.getDate()+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  const h=getGlyphHistory();
+  h.push({when:stamp,source:source,text:text});
+  saveGlyphHistory(h);
+}
+function glyphHistoryShow(){
+  const h=getGlyphHistory();
+  if(!h.length){out('glyphBox','No glyph history yet.');return;}
+  const txt=h.slice().reverse().map((e,i)=>(i+1)+'. ['+e.when+'] ('+e.source+')\n'+e.text).join('\n\n');
+  out('glyphBox','--- Last '+h.length+' Glyphs ---\n\n'+txt);
+}
+
+async function chaoticBtn(slot){
+  const itemType=document.getElementById('chaoticItemType').value;
+  if(!itemType){out('glyphBox','Error: Please select an Item Type from the dropdown below the Chaotic Glyph buttons before generating.');return;}
+
+  // Validate that itemType matches the slot category
+  const categoryMap={
+    Weapon:['Dagger','Sword','Axe','Hammer','Head Polearm','Bladed Polearm','Twinblade','Fist','Ranged','Throwing','Colossal'],
+    Focus:['Staff','Scepter','Fan','Seal','Wand','Catalyst'],
+    Armor:['Head','Torso','Legs','Hands','Shield'],
+    Accessory:['Ring','Amulet']
+  };
+  if(!categoryMap[slot].includes(itemType)){
+    out('glyphBox','Error: Item Type "'+itemType+'" does not match Chaotic '+slot+'. Valid '+slot+' types: '+categoryMap[slot].join(', ')+'.');
+    return;
+  }
+
+  const slotKey={Weapon:'weapon',Focus:'focus',Armor:'armor',Accessory:'acc'}[slot];
+
+  // Roll outcome (1-100 weighted)
+  const r=rng(1,100);
+  let outcomeName='', headerText='', body='';
+  // Cumulative thresholds
+  // 8% Change Item +3 Affix          : 1-8
+  // 12% Change Item Type +2 Affix    : 9-20
+  // 19% +1 Affix                     : 21-39
+  // 11% +2 Affix                     : 40-50
+  // 9% +3 Affix                      : 51-59
+  // 12% Reroll Innate                : 60-71
+  // 12% Add Innate                   : 72-83
+  // 8% Add Class Affix               : 84-91
+  // 6% Legendary +3 Affix            : 92-97
+  // 3% Mythic +4 Affix               : 98-100
+
+  // Helper to roll N affixes for the slot, joined with \n\n
+  async function rollAffixes(n){
+    const lines=[];
+    for(let i=0;i<n;i++)lines.push(await rollAffix(slotKey));
+    return lines.join('\n\n');
+  }
+
+  if(r<=8){
+    // Change Item +3 Affix - new item from overhaul-items.json with category matching slot
+    const items=await loadJSON('overhaul-items.json');
+    const pool=items.filter(it=>it.category===slot);
+    const chosen=pool.length?pick(pool).name:'[No '+slot+' items in overhaul-items.json]';
+    body='(Change Item, +3 Affix)\nItem Changed to: '+chosen+'\n\n'+await rollAffixes(3);
+  }else if(r<=20){
+    // Change Item within Type +2 Affix - same type as dropdown
+    const items=await loadJSON('overhaul-items.json');
+    const pool=items.filter(it=>it.type===itemType);
+    const chosen=pool.length?pick(pool).name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within Type, +2 Affix)\nItem Changed to: '+chosen+'\n\n'+await rollAffixes(2);
+  }else if(r<=39){
+    body='(+1 Affix)\nAdd Affix:\n'+await rollAffixes(1);
+  }else if(r<=50){
+    body='(+2 Affix)\nAdd Affixes:\n'+await rollAffixes(2);
+  }else if(r<=59){
+    body='(+3 Affix)\nAdd Affixes:\n'+await rollAffixes(3);
+  }else if(r<=71){
+    // Reroll Innate - new innate_affix from overhaul-items by type
+    const items=await loadJSON('overhaul-items.json');
+    const pool=items.filter(it=>it.type===itemType);
+    if(pool.length){
+      const chosen=pick(pool);
+      body='(Reroll Innate)\nInnate Affix Changed to:\n'+await resolveTokens(chosen.innate_affix||'(no innate_affix)');
+    }else{
+      body='(Reroll Innate)\nInnate Affix Changed to:\n[No '+itemType+' items in overhaul-items.json]';
+    }
+  }else if(r<=83){
+    // Add Innate - new innate from overhaul-items by type, output the NAME
+    const items=await loadJSON('overhaul-items.json');
+    const pool=items.filter(it=>it.type===itemType);
+    const chosen=pool.length?pick(pool).name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Add Innate)\nSecondary Innate Affix added:\n'+chosen;
+  }else if(r<=91){
+    // Add Class Affix
+    const checked=Array.from(document.querySelectorAll('[id^="glyph"][type="checkbox"]:checked')).map(c=>c.id.replace('glyph',''));
+    if(!checked.length){
+      body='(Class Affix - Please select applicable classes in the Class Affix section and roll)';
+    }else{
+      const cls=pick(checked);
+      const cd=await loadJSON('data/Glyphs/affix-class.json');
+      const cpool=cd.filter(e=>e.class===cls);
+      if(!cpool.length){
+        body='(Add Class Affix)\nClass Affix Added:\n['+cls+': no entries in data/Glyphs/affix-class.json]';
+      }else{
+        const e=pick(cpool);
+        const parts=[cls];
+        if(e.name)parts.push(e.name);
+        const useTier2=rng(1,100)>70;
+        const tierField=useTier2?'tier2':'tier1';
+        const tierLabel=useTier2?'Tier 2':'Tier 1';
+        if(e[tierField])parts.push(tierLabel+': '+await resolveTokens(e[tierField]));
+        body='(Add Class Affix)\nClass Affix Added:\n'+parts.join('\n');
+      }
+    }
+  }else if(r<=97){
+    body='(Legendary, +3 Affix)\nItem upgraded to Legendary Rarity.\n\n'+await rollAffixes(3);
+  }else{
+    body='(Mythic, +4 Affix)\nItem upgrade to Mythic Rarity.\n\n'+await rollAffixes(4);
+  }
+
+  const text='Chaotic '+slot+' ('+itemType+')\n\n'+body;
+  out('glyphBox',text);
+  recordGlyph('Chaotic '+slot+' ('+itemType+')',text);
+}
+
+async function taintedBtn(slot){
+  const onlyAffix=document.getElementById('onlyAffixCheck').checked;
+  const slotKey={Weapon:'weapon',Focus:'focus',Armor:'armor',Accessory:'acc'}[slot];
+  const taintedFooter='\n[This Item is Tainted and cannot be modified further]';
+
+  // ONLY GENERATE AFFIX MODE: just pull tainted affixes per Affix Qty input
+  if(onlyAffix){
+    const qty=Number(document.getElementById('affixQty').value||1);
+    const results=[];
+    for(let i=0;i<qty;i++)results.push(await rollTaintedAffix(slotKey));
+    out('glyphBox',results.join('\n\n'));
+    return;
+  }
+
+  // Otherwise, validate dropdown matches button category
+  const itemType=document.getElementById('chaoticItemType').value;
+  if(!itemType){out('glyphBox','Error: Please select an Item Type from the dropdown in the Chaotic Glyph section before generating.');return;}
+  const categoryMap={
+    Weapon:['Dagger','Sword','Axe','Hammer','Head Polearm','Bladed Polearm','Twinblade','Fist','Ranged','Throwing','Colossal'],
+    Focus:['Staff','Scepter','Fan','Seal','Wand','Catalyst'],
+    Armor:['Head','Torso','Legs','Hands','Shield'],
+    Accessory:['Ring','Amulet']
+  };
+  if(!categoryMap[slot].includes(itemType)){
+    out('glyphBox','Error: Item Type "'+itemType+'" does not match Tainted '+slot+'. Use the dropdown in the Chaotic Glyph section to select a valid '+slot+' type: '+categoryMap[slot].join(', ')+'.');
+    return;
+  }
+
+  // Roll outcome (1-100). Cumulative thresholds:
+  // 6% Change Item Reroll-1   : 1-6
+  // 6% Change Item Reroll-2   : 7-12
+  // 4% Change Item Reroll-3   : 13-16
+  // 7% Change Item            : 17-23
+  // 9% Change Item +1 Tainted : 24-32
+  // 8% Reroll Affixes         : 33-40
+  // 10% +1 Affix              : 41-50
+  // 8% +1 Any Affix           : 51-58
+  // 10% +1 Tainted            : 59-68
+  // 8% +2 Tainted             : 69-76
+  // 7% +1 Innate              : 77-83
+  // 6% +1 Tainted Innate      : 84-89
+  // 5% +1 T.Innate +1 Tainted : 90-94
+  // 4% +1 T.Innate +1 Innate  : 95-98
+  // 2% Upgrade All +2 Tainted : 99-100
+
+  const r=rng(1,100);
+  let body='';
+
+  async function rollAffixes(n){
+    const lines=[];
+    for(let i=0;i<n;i++)lines.push(await rollAffix(slotKey));
+    return lines.join('\n\n');
+  }
+  async function rollTaintedAffixes(n){
+    const lines=[];
+    for(let i=0;i<n;i++)lines.push(await rollTaintedAffix(slotKey));
+    return lines.join('\n\n');
+  }
+  async function pickItemByType(){
+    const items=await loadJSON('overhaul-items.json');
+    const pool=items.filter(it=>it.type===itemType);
+    return pool.length?pick(pool):null;
+  }
+
+  if(r<=6){
+    const it=await pickItemByType();
+    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within type, Reroll Affix - 1)\nRemove Affixes, Add 1 Affix, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(1);
+  }else if(r<=12){
+    const it=await pickItemByType();
+    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within type, Reroll Affix - 2)\nRemove Affixes, Add 2 Affixes, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(2);
+  }else if(r<=16){
+    const it=await pickItemByType();
+    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within type, Reroll Affix - 3)\nRemove Affixes, Add 3 Affixes, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(3);
+  }else if(r<=23){
+    const it=await pickItemByType();
+    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within type)\nItem Changed to: '+nm+taintedFooter;
+  }else if(r<=32){
+    const it=await pickItemByType();
+    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    body='(Change Item within type, +1 Tainted)\nItem Changed to: '+nm+taintedFooter+'\n\n'+await rollTaintedAffixes(1);
+  }else if(r<=40){
+    body='(Reroll Affixes)\nUse the Affix buttons and the Qty. input to generate the same number of affixes.\n\n[This Item is Tainted and cannot be modified further]';
+  }else if(r<=50){
+    body='(+1 Affix)\nAdd Affix:\n[This Item is Tainted and cannot be modified further]\n\n'+await rollAffixes(1);
+  }else if(r<=58){
+    const anySlot=pick(['weapon','focus','armor','acc']);
+    body='(+1 Any Affix)\nAdd Affix:\n[This Item is Tainted and cannot be modified further]\n\n'+await rollAffix(anySlot);
+  }else if(r<=68){
+    body='(+1 Tainted)\nAdd Tainted Affix:\n[This Item is Tainted and cannot be modified further]\n\n'+await rollTaintedAffixes(1);
+  }else if(r<=76){
+    body='(+2 Tainted)\n[This Item is Tainted and cannot be modified further]\n\n'+await rollTaintedAffixes(2);
+  }else if(r<=83){
+    const it=await pickItemByType();
+    const innate=it&&it.innate_affix?await resolveTokens(it.innate_affix):'[No '+itemType+' items in overhaul-items.json]';
+    body='(+1 Innate)\nAdd Innate Affix: '+innate+taintedFooter;
+  }else if(r<=89){
+    const td=await loadJSON('data/Glyphs/tainted-innate.json');
+    const eff=td.length?await resolveTokens(pick(td).effect||''):'[Populate data/Glyphs/tainted-innate.json]';
+    body='(+1 Tainted Innate)\nAdd Tainted Innate Affix: '+eff+taintedFooter+'\n';
+  }else if(r<=94){
+    const td=await loadJSON('data/Glyphs/tainted-innate.json');
+    const eff=td.length?await resolveTokens(pick(td).effect||''):'[Populate data/Glyphs/tainted-innate.json]';
+    body='(+1 Tainted Innate, +1 Tainted)\nAdd Tainted Innate Affix: '+eff+'[This Item is Tainted and cannot be modified further]\n\n'+await rollTaintedAffixes(1);
+  }else if(r<=98){
+    const td=await loadJSON('data/Glyphs/tainted-innate.json');
+    const eff=td.length?await resolveTokens(pick(td).effect||''):'[Populate data/Glyphs/tainted-innate.json]';
+    const it=await pickItemByType();
+    const innate=it&&it.innate_affix?await resolveTokens(it.innate_affix):'[No '+itemType+' items in overhaul-items.json]';
+    body='(+1 Tainted Innate, +1 Innate)\nAdd Tainted Innate Affix: '+eff+'\nAdd Innate Affix: '+innate+taintedFooter;
+  }else{
+    body='(Upgrade all Affixes, +2 Tainted)\nUpgrade all Affixes on the item to Tier 3 and add 2 Tainted Affixes.\n[This Item is Tainted and cannot be modified further]\n\n'+await rollTaintedAffixes(2);
+  }
+
+  const text='Tainted '+slot+' ('+itemType+')\n\n'+body;
+  out('glyphBox',text);
+  recordGlyph('Tainted '+slot+' ('+itemType+')',text);
+}
+
+async function randomAffixItem(mode){
+  const sel=document.getElementById('randomItemDrop').value;
+  const tainted=document.getElementById('randomItemTainted').checked;
+  let qty=Number(document.getElementById('randomItemAffixQty').value||0);
+  if(qty<=0)qty=rng(1,3);
+  const items=await loadJSON('overhaul-items.json');
+  if(!items.length){out('glyphBox','[Populate overhaul-items.json]');return;}
+  let pool;
+  if(sel==='Random')pool=items;
+  else if(['Weapon','Focus','Armor','Accessory'].includes(sel))pool=items.filter(i=>i.category===sel);
+  else pool=items.filter(i=>i.type===sel);
+  if(!pool.length){out('glyphBox','[No items found for '+sel+' in overhaul-items.json]');return;}
+  const item=pick(pool);
+  // Pick affixes from appropriate file based on item category
+  const cat=(item.category||'').toLowerCase();
+  let affixSlug='weapon';
+  if(cat==='accessory')affixSlug='acc';
+  else if(['weapon','focus','armor'].includes(cat))affixSlug=cat;
+  const affixPath=tainted?'data/Glyphs/tainted-'+(affixSlug==='acc'?'acc':affixSlug)+'.json':'data/Glyphs/affix-'+affixSlug+'.json';
+  const affixData=await loadJSON(affixPath);
+  const lines=[mode+' Random Item: '+(item.name||'(unnamed)')];
+  if(item.innate_affix)lines.push('Innate: '+await resolveTokens(item.innate_affix));
+  if(affixData.length){
+    for(let i=0;i<qty;i++){
+      const a=pick(affixData);
+      const aParts=[];
+      if(a.name)aParts.push('Affix '+(i+1)+': '+a.name);
+      else aParts.push('Affix '+(i+1));
+      const useTier2=rng(1,100)>70;
+      const tierField=useTier2?'tier2':'tier1';
+      const tierLabel=useTier2?'Tier 2':'Tier 1';
+      if(a[tierField])aParts.push('  '+tierLabel+': '+await resolveTokens(a[tierField]));
+      lines.push(aParts.join('\n'));
+    }
+  }else{
+    lines.push('[Populate '+affixPath+']');
+  }
+  const text=lines.join('\n');
+  out('glyphBox',text);
+  recordGlyph('Random Item ('+mode+')',text);
 }
 
 // INFO

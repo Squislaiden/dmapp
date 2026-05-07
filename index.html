@@ -17,6 +17,7 @@ body{font-family:var(--font-body);background-color:var(--bg-dark);background-ima
 .tab-btn{font-family:var(--font-display);font-size:1.0rem;font-weight:600;letter-spacing:.2px;padding:6px 7px;background:transparent;color:var(--text-dim);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
 .tab-btn:hover{color:var(--text)}
 .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.campaign-wrap:hover .campaign-dropdown{display:block !important}
 .app-body{max-width:520px;margin:10px auto;padding:0 8px}
 .tab-content{display:none;animation:fadeIn .3s ease}
 .tab-content.active{display:block}
@@ -47,6 +48,9 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-list{background:linear-gradient(180deg,#454260 0%,#2e2c44 100%);box-shadow:0 2px 0 #1a1830,0 3px 6px rgba(0,0,0,.25);color:#b0adc0;font-size:.72rem;border:1px solid #4a4766}
 .btn-list:hover{color:var(--accent);border-color:var(--accent-dim);background:linear-gradient(180deg,#504d6a 0%,#38354e 100%)}
 .btn-list:active{box-shadow:0 1px 0 #1a1830;transform:translateY(1px)}
+.btn-fade-red{background:linear-gradient(180deg,#8a4a4a 0%,#5a2828 100%);box-shadow:0 2px 0 #3a1818,0 3px 6px rgba(0,0,0,.25);color:#e8c8c8;font-size:.72rem;border:1px solid #9a5a5a}
+.btn-fade-red:hover{color:#fff;border-color:#b06a6a;background:linear-gradient(180deg,#9a5a5a 0%,#6a3838 100%)}
+.btn-fade-red:active{box-shadow:0 1px 0 #3a1818;transform:translateY(1px)}
 .btn-info{background:linear-gradient(180deg,#4a7aaa 0%,#2a4a6a 100%);box-shadow:0 2px 0 #1a3050,0 3px 6px rgba(0,0,0,.25);color:#d0e8ff;font-size:.72rem;border:1px solid #5a8aba}
 .btn-info:hover{color:#fff;border-color:#7aaadd;background:linear-gradient(180deg,#5a8abb 0%,#3a5a7a 100%)}
 .btn-info:active{box-shadow:0 1px 0 #1a3050;transform:translateY(1px)}
@@ -55,7 +59,7 @@ input[type="number"]{width:36px;text-align:center}
 input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent)}
 select{padding:2px 3px;cursor:pointer}
 input[type="checkbox"],input[type="radio"]{accent-color:var(--accent);cursor:pointer;margin-right:2px}
-label{font-size:.82rem;color:var(--text-dim);cursor:pointer}
+label{font-size:.88rem;color:var(--text-dim);cursor:pointer}
 label:has(input[type="checkbox"]),label:has(input[type="radio"]){display:inline-flex;align-items:center;gap:3px}
 .result-box{width:100%;min-height:100px;background:var(--bg-dark);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font-mono);font-size:.76rem;padding:6px;resize:vertical;line-height:1.5}
 .result-box:focus{outline:none;border-color:var(--accent)}
@@ -95,13 +99,21 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <button class="tab-btn" onclick="openTab(event,'jewelryTab')">Jewelry</button>
 <button class="tab-btn" onclick="openTab(event,'charTab')">Character</button>
 <button class="tab-btn" onclick="openTab(event,'glyphsTab')">Glyphs</button>
-<button class="tab-btn" onclick="openTab(event,'calendarTab')">Calendar</button>
+<div class="campaign-wrap" style="position:relative;display:inline-block">
+<button class="tab-btn" id="campaignTabBtn" onclick="openTab(event,'calendarTab')">Campaign</button>
+<div class="campaign-dropdown" style="display:none;position:absolute;top:100%;left:0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:4px;z-index:200;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4)">
+<div style="display:flex;gap:4px">
+<button class="tab-btn" style="padding:5px 10px" onclick="openCampaignSub(event,'calendarTab','Calendar')">Calendar</button>
+<button class="tab-btn" style="padding:5px 10px" onclick="openCampaignSub(event,'trackerTab','Tracker')">Tracker</button>
+</div>
+</div>
+</div>
 <a href="table.html" class="tab-btn">~Tables~</a>
 <button class="tab-btn" onclick="openTab(event,'infoTab')">(v1.1)</button>
 </nav>
 </header>
 <main class="app-body">
-<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6">To access Glyph Tab, please use the old DM Assistant Page <a href="https://squislaiden.github.io/dmapp/index-OLD.html" target="_blank" style="color:#d4708a;text-decoration:underline">HERE</a></div>
+<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6;display:none"></div>
 
 <!-- TOOLS TAB -->
 <div id="toolsTab" class="tab-content active">
@@ -244,8 +256,23 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 <hr class="sep">
 <div class="section-title">Items</div>
-<div class="inline-row" style="margin-bottom:6px"><button class="btn btn-primary" onclick="accessoryGen()">Accessory</button><button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button><button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button><button class="btn btn-list" onclick="gearListInfo()">Gear List</button></div>
-<div class="inline-row"><label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select></div>
+<!-- Row 1: action buttons + 5e Items right-justified -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<button class="btn btn-primary" onclick="accessoryGen()">Accessory</button>
+<button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button>
+<button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button>
+<div style="flex:1"></div>
+<button class="btn btn-list" onclick="gearListInfo()">5e Items</button>
+</div>
+<!-- Row 2: Scroll Level dropdown + Material button + Overhaul Items right-justified -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select>
+<button class="btn btn-primary" onclick="materialGen()">Material</button>
+<div style="flex:1"></div>
+<button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Items</button>
+</div>
+<!-- Row 3: Wood / Stone / Metal / Fabric -->
+<div class="inline-row"><button class="btn btn-primary" onclick="materialTypeGen('wood')">Wood</button><button class="btn btn-primary" onclick="materialTypeGen('stone')">Stone</button><button class="btn btn-primary" onclick="materialTypeGen('metal')">Metal</button><button class="btn btn-primary" onclick="materialTypeGen('fabric')">Fabric</button></div>
 <hr class="sep">
 <div class="section-title">Gems &amp; Gembags</div>
 <div class="flex" style="gap:16px">
@@ -547,34 +574,204 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <!-- GLYPHS TAB -->
 <div id="glyphsTab" class="tab-content">
 <div class="section">
-<div class="section-title">Glyphs of Pandemonium</div>
-<div class="flex flex-wrap gap-sm">
-<div><div style="font-size:.74rem;color:var(--text-dim)">Standard</div><div class="btn-grid"><button class="btn btn-glyph" onclick="weaponAffixBtn()">Weapon</button><button class="btn btn-glyph" onclick="armorAffixBtn()">Armor</button><button class="btn btn-glyph" onclick="accessoryAffixBtn()">Accessory</button></div></div>
-<div><div style="font-size:.74rem;color:var(--text-dim)">Tainted</div><div class="btn-grid"><button class="btn btn-taint" onclick="taintedWeaponAffixBtn()">Weapon</button><button class="btn btn-taint" onclick="taintedArmorAffixBtn()">Armor</button><button class="btn btn-taint" onclick="taintedAccessoryAffixBtn()">Accessory</button></div></div>
-<div><div style="font-size:.74rem;color:var(--text-dim)">Chaotic</div><div class="btn-grid"><button class="btn btn-purp" onclick="chaoticWeaponBtn()">Weapon</button><button class="btn btn-purp" onclick="chaoticArmorBtn()">Armor</button><button class="btn btn-purp" onclick="chaoticAccessoryBtn()">Accessory</button></div></div>
+<div style="text-align:center;font-family:var(--font-display);font-size:1.0rem;color:#d4708a;margin-bottom:8px;line-height:1.6">To use Glyph Functionality, please use the old Page <a href="https://squislaiden.github.io/dmapp/index-OLD.html" target="_blank" style="color:#d4708a;text-decoration:underline">HERE</a></div>
+<div class="section-title" style="text-align:center;color:#d63d6f;font-size:1.4rem">Glyphs of Pandemonium</div>
+
+<!-- ROW 1: Chaotic Glyph | Affixes | Tainted Glyph (3 vertical sections divided by gaps) -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:start;margin-top:6px">
+
+<!-- Chaotic Glyph (left) -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:#a766c2;font-weight:bold;margin-bottom:4px">Chaotic Glyph</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;justify-items:center">
+<button class="btn btn-purp" style="grid-column:1/3;width:60%">Weapon</button>
+<button class="btn btn-purp" style="width:90%">Armor</button>
+<button class="btn btn-purp" style="width:90%">Focus</button>
+<button class="btn btn-purp" style="grid-column:1/3;padding:5px 14px">Accessory</button>
 </div>
+</div>
+
+<!-- Affixes (middle) -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Affixes</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:3px;justify-content:center">
+<button class="btn btn-glyph" style="min-width:80px">Weapon</button>
+<button class="btn btn-glyph" style="min-width:80px">Focus</button>
+<button class="btn btn-glyph" style="grid-column:1/3;justify-self:center;min-width:80px">All Types</button>
+<button class="btn btn-glyph" style="min-width:80px">Armor</button>
+<button class="btn btn-glyph" style="min-width:80px">Accessory</button>
+</div>
+<div class="inline-row" style="justify-content:center;margin-top:8px"><label>Qty.</label><input type="number" id="affixQty" value="1" min="1" max="5" style="width:40px"></div>
+</div>
+
+<!-- Tainted Glyph (right) -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:#c24a4a;font-weight:bold;margin-bottom:4px">Tainted Glyph</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;justify-items:center">
+<button class="btn btn-taint" style="grid-column:1/3;width:60%">Weapon</button>
+<button class="btn btn-taint" style="width:90%">Armor</button>
+<button class="btn btn-taint" style="width:90%">Focus</button>
+<button class="btn btn-taint" style="grid-column:1/3;padding:5px 14px">Accessory</button>
+</div>
+<label style="display:block;margin-top:8px;font-size:.86rem;text-align:center"><input type="checkbox" id="onlyAffixCheck"> Only Generate Affix</label>
+</div>
+
+</div>
+
 <hr class="sep">
-<div class="inline-row"><label>Affixes:</label><input type="number" id="affixNum" value="1" min="1" max="3" style="width:40px"><label>Glyphs:</label><input type="number" id="glyphNum" value="1" min="1" max="100" style="width:40px"><button class="btn btn-purp" onclick="classAffixBtn()">Expertise Glyph</button><button class="btn btn-accent" onclick="genAffixItem()">Random Item</button><button class="btn btn-primary" onclick="genGlyphsBtn()">Generate Glyphs</button></div>
+
+<!-- ROW 2: Innate Affixes | Glyphs | Class Affixes -->
+<div style="display:grid;grid-template-columns:1fr 0.85fr 1.7fr;gap:8px;align-items:stretch">
+
+<!-- Innate Affixes -->
+<div style="border-right:1px solid var(--border);padding-right:8px">
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Innate Affixes</div>
+<select id="innateAffixDrop" style="width:140px;margin-bottom:6px"><option value="Dagger" selected>Dagger</option><option value="Sword">Sword</option><option value="Axe">Axe</option><option value="Hammer">Hammer</option><option value="Head Polearm">Head Polearm</option><option value="Bladed Polearm">Bladed Polearm</option><option value="Twinblade">Twinblade</option><option value="Fist">Fist</option><option value="Ranged">Ranged</option><option value="Throwing">Throwing</option><option value="Colossal">Colossal</option><option disabled>──────────</option><option value="Staff">Staff</option><option value="Scepter">Scepter</option><option value="Wand">Wand</option><option value="Fan">Fan</option><option value="Seal">Seal</option><option value="Catalyst">Catalyst</option><option disabled>──────────</option><option value="Shield">Shield</option><option value="Head">Head</option><option value="Torso">Torso</option><option value="Hands">Hands</option><option value="Legs">Legs</option><option disabled>──────────</option><option value="Amulet">Amulet</option><option value="Ring">Ring</option><option disabled>──────────</option><option value="Any Weapon">Any Weapon</option><option value="Any Focus">Any Focus</option><option value="Any Armor">Any Armor</option><option value="Any Accessory">Any Accessory</option><option value="Any Innate">Any Innate</option><option disabled>──────────</option><option value="Tainted Innate">Tainted Innate</option></select>
+<button class="btn btn-accent" style="width:100%" onclick="intrinsicGlyphBtn()">Intrinsic Glyph</button>
+</div>
+
+<!-- Glyphs -->
+<div style="border-right:1px solid var(--border);padding-right:8px">
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Glyphs</div>
+<div class="inline-row" style="justify-content:center;margin-bottom:4px"><label>Qty.</label><input type="number" id="glyphQty" value="1" min="1" max="100" style="width:40px"></div>
+<div style="display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+<button class="btn btn-primary" style="padding:8px 12px;font-size:.78rem;white-space:nowrap" onclick="genGlyphsBtn(true)">Generate</button>
+<button class="btn btn-primary" style="padding:8px 12px;font-size:.78rem;white-space:nowrap" onclick="genGlyphsBtn(false)">No Weight</button>
+</div>
+</div>
+
+<!-- Class Affixes -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Class Affixes</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px 4px;font-size:.78rem;margin-bottom:5px">
+<label><input type="checkbox" id="glyphArtificer"> Artificer</label>
+<label><input type="checkbox" id="glyphDruid"> Druid</label>
+<label><input type="checkbox" id="glyphRanger"> Ranger</label>
+<label><input type="checkbox" id="glyphBarbarian"> Barbarian</label>
+<label><input type="checkbox" id="glyphFighter"> Fighter</label>
+<label><input type="checkbox" id="glyphRogue"> Rogue</label>
+<label><input type="checkbox" id="glyphBard"> Bard</label>
+<label><input type="checkbox" id="glyphMonk"> Monk</label>
+<label><input type="checkbox" id="glyphSorcerer"> Sorcerer</label>
+<label><input type="checkbox" id="glyphCleric"> Cleric</label>
+<label><input type="checkbox" id="glyphPaladin"> Paladin</label>
+<label><input type="checkbox" id="glyphWarlock"> Warlock</label>
+<div></div>
+<div></div>
+<label><input type="checkbox" id="glyphWizard"> Wizard</label>
+</div>
+<div class="flex items-center" style="gap:4px"><button class="btn btn-accent" style="flex:1" onclick="expertiseGlyphBtn()">Expertise Glyph</button><label>Qty.</label><input type="number" id="expertiseQty" value="1" min="1" max="3" style="width:40px"></div>
+</div>
+
+</div>
+
 <hr class="sep">
-<div style="font-size:.74rem;color:var(--text-dim)">Class Selection <span class="tip" data-tip="Select classes before Class Affix."><span class="tip-icon">ⓘ</span></span></div>
-<div class="check-grid"><label><input type="checkbox" id="Artificer"> Artificer</label><label><input type="checkbox" id="Paladin"> Paladin</label><label><input type="checkbox" id="Barbarian"> Barbarian</label><label><input type="checkbox" id="Ranger"> Ranger</label><label><input type="checkbox" id="Bard"> Bard</label><label><input type="checkbox" id="Rogue"> Rogue</label><label><input type="checkbox" id="Cleric"> Cleric</label><label><input type="checkbox" id="Sorcerer"> Sorcerer</label><label><input type="checkbox" id="Druid"> Druid</label><label><input type="checkbox" id="Warlock"> Warlock</label><label><input type="checkbox" id="Fighter"> Fighter</label><label><input type="checkbox" id="Wizard"> Wizard</label><label><input type="checkbox" id="Monk"> Monk</label></div>
+
+<!-- ROW 3: Random Affixed Item (full width) -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.0rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:4px">Random Affixed Item</div>
+<div class="flex items-center" style="gap:6px;justify-content:center;flex-wrap:wrap">
+<select id="randomItemDrop" style="width:140px"><option value="Random">Random</option><option value="Weapon">Weapon</option><option value="Focus">Focus</option><option value="Armor">Armor</option><option value="Accessory">Accessory</option><option disabled>──────────</option><option value="Dagger">Dagger</option><option value="Sword">Sword</option><option value="Axe">Axe</option><option value="Hammer">Hammer</option><option value="Head Polearm">Head Polearm</option><option value="Bladed Polearm">Bladed Polearm</option><option value="Twinblade">Twinblade</option><option value="Fist">Fist</option><option value="Ranged">Ranged</option><option value="Throwing">Throwing</option><option value="Colossal">Colossal</option><option disabled>──────────</option><option value="Staff">Staff</option><option value="Scepter">Scepter</option><option value="Wand">Wand</option><option value="Fan">Fan</option><option value="Seal">Seal</option><option value="Catalyst">Catalyst</option><option disabled>──────────</option><option value="Shield">Shield</option><option value="Head">Head</option><option value="Torso">Torso</option><option value="Hands">Hands</option><option value="Legs">Legs</option><option disabled>──────────</option><option value="Amulet">Amulet</option><option value="Ring">Ring</option></select>
+<label class="tip" data-tip="An Affix Quantity of 0 will randomize the amount, with a minimum of 1.">Affix Qty <span class="tip-icon">ⓘ</span></label><input type="number" id="randomItemAffixQty" value="0" min="0" max="5" style="width:40px">
+<label style="font-size:.86rem;white-space:nowrap"><input type="checkbox" id="randomItemTainted"> Tainted?</label>
+<button class="btn btn-primary">Vanilla</button>
+<button class="btn btn-primary">Overhaul</button>
+</div>
+</div>
+
 <hr class="sep">
-<div style="font-size:.74rem;color:var(--text-dim)">Subtypes</div>
-<div class="btn-grid"><button class="btn btn-green" onclick="subtypeBtn('Attribute')">Attribute</button><button class="btn btn-green" onclick="subtypeBtn('Skill')">Skill</button><button class="btn btn-green" onclick="subtypeBtn('Physical')">Physical Type</button><button class="btn btn-green" onclick="subtypeBtn('Element')">Element Type</button><button class="btn btn-green" onclick="subtypeBtn('Condition')">Condition</button><button class="btn btn-green" onclick="subtypeBtn('Action')">Action</button><button class="btn btn-green" onclick="subtypeBtn('Terrain')">Terrain</button><button class="btn btn-green" onclick="subtypeBtn('Creature')">Creature Type</button><button class="btn btn-green" onclick="subtypeBtn('FightingStyle')">Fighting Style</button><button class="btn btn-green" onclick="subtypeBtn('Infusion')">Infusion</button><button class="btn btn-green" onclick="subtypeBtn('Maneuver')">Maneuver</button><button class="btn btn-green" onclick="subtypeBtn('Wizard')">Wizard Subclass</button><button class="btn btn-green" onclick="subtypeBtn('Invocation')">Invocation</button><button class="btn btn-green" onclick="subtypeBtn('MetaMagic')">Meta-Magic</button><button class="btn btn-green" onclick="subtypeBtn('Warlock')">Warlock Subclass</button><button class="btn btn-green" onclick="subtypeBtn('Weather')">Weather</button></div>
+
+<!-- Subtypes -->
+<div style="text-align:center;margin-bottom:5px">
+<span style="font-family:var(--font-display);font-size:.92rem;color:var(--accent);font-weight:bold">Subtypes</span>
+<span style="font-size:.84rem;color:var(--text-dim);margin-left:4px">(Revision Glyph)</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:5px 3px">
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('action')">Action</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('weapon')">Weapon</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('cantrip')">Cantrip</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('infusion')">Infusion</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('physical')">Physical</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('attribute')">Attribute</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('focus')">Focus</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('condition')">Condition</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('invocation')">Invocation</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('element')">Element</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('skill')">Skill</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('armor')">Armor</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('creature')">Creature</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('maneuver')">Maneuver</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('non-phys')">Non-Phys</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('group')">Group</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('terrain')">Terrain</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('style')">Style</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('metamagic')">Metamagic</button>
+<button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('spell-type')">Spell Type</button>
+</div>
+<div style="display:flex;justify-content:center;gap:6px;margin-top:7px;flex-wrap:wrap">
+<button class="btn btn-green" onclick="subtypeBtn('wizard-subclass')">Wizard Subclass</button>
+<button class="btn btn-green" onclick="subtypeBtn('warlock-subclass')">Warlock Subclass</button>
+</div>
+<div style="display:flex;justify-content:center;gap:6px;margin-top:5px;flex-wrap:wrap">
+<button class="btn btn-green" onclick="subtypeBtn('status-buildup')">Status (Buildup)</button>
+<button class="btn btn-green" onclick="subtypeBtn('status-instant')">Status (Instant)</button>
+</div>
+<div style="text-align:center;font-size:.82rem;color:var(--text-dim);margin-top:6px">(5e) - Reroll if result is Overhaul-Specific</div>
+
 <hr class="sep">
-<div style="font-size:.74rem;color:var(--text-dim)">Affix Lists</div>
-<div class="btn-grid"><button class="btn btn-list" onclick="affixListInfo('weapon')">Weapon</button><button class="btn btn-list" onclick="affixListInfo('armor')">Armor</button><button class="btn btn-list" onclick="affixListInfo('accessory')">Accessory</button><button class="btn btn-list" onclick="affixListInfo('tainted_weapon')">Tainted Weapon</button><button class="btn btn-list" onclick="affixListInfo('tainted_armor')">Tainted Armor</button><button class="btn btn-list" onclick="affixListInfo('tainted_accessory')">Tainted Accessory</button><button class="btn btn-list" onclick="affixListInfo('class')">Class</button></div>
-<div class="mt-xs"><button class="btn btn-list" onclick="glyphHelp()">HELP</button> <a href="https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI" target="_blank" style="font-size:.85rem">🔗</a></div>
+
+<!-- Lists of Affixes | Explanation & Help (side by side with vertical divider) -->
+<div style="display:grid;grid-template-columns:70% 30%;gap:8px;align-items:stretch">
+
+<!-- Lists of Affixes -->
+<div style="border-right:1px solid var(--border);padding-right:8px">
+<div style="font-family:var(--font-display);font-size:1.05rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:5px">Lists of Affixes</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;justify-content:center;justify-items:center">
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('weapon')">Weapon</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('tainted-weapon')">Tainted Weapon</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixInnateInfo()">Innate</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('focus')">Focus</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('tainted-focus')">Tainted Focus</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('class')">Class</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('armor')">Armor</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('tainted-armor')">Tainted Armor</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('divine')">Divine</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('acc')">Accessory</button>
+<button class="btn btn-list" style="white-space:nowrap;width:100%" onclick="affixListInfo('tainted-acc')">Tainted Accessory</button>
+<div></div>
+</div>
+</div>
+
+<!-- Explanation & Help -->
+<div>
+<div style="font-family:var(--font-display);font-size:1.05rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:5px">Help</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+<button class="btn btn-list" onclick="listOfGlyphs()">List of Glyphs</button>
+<button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Item List</button>
+<button class="btn btn-fade-red" onclick="window.open('https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI','_blank')">Original Homebrew</button>
+</div>
+</div>
+
+</div>
+
 <hr class="sep">
 <textarea class="result-box" id="glyphBox" rows="18" readonly></textarea>
 </div>
 </div>
 
-<!-- CALENDAR TAB -->
+<!-- CAMPAIGN TAB -->
 <div id="calendarTab" class="tab-content">
 <div class="section">
-<div class="section-title">Calendar</div>
+<div class="section-title" id="campaignTitle">Campaign</div>
 <textarea class="result-box" id="calendarBox" rows="20" readonly></textarea>
+</div>
+</div>
+
+<!-- TRACKER TAB (sub-tab opens full tab) -->
+<div id="trackerTab" class="tab-content">
+<div class="section">
+<div class="section-title">Tracker</div>
+<textarea class="result-box" id="trackerBox" rows="20" readonly></textarea>
 </div>
 </div>
 
@@ -597,6 +794,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <script src="script.js"></script>
 <script>
 function openTab(evt,id){document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');evt.currentTarget.classList.add('active');}
+function openCampaignSub(evt,id){document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('campaignTabBtn').classList.add('active');evt.stopPropagation();}
 function rng(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
 function pick(a){return a.length?a[rng(0,a.length-1)]:'';}
 function out(id,t){document.getElementById(id).value=t;}
@@ -1050,7 +1248,134 @@ async function genAffixItem(){const d=await loadJSON('data/Glyphs/random_affix_i
 async function genGlyphsBtn(){const d=await loadJSON('data/Glyphs/glyphs.json');out('glyphBox',d.length?(pick(d).result||JSON.stringify(pick(d))):'[Populate data/Glyphs/glyphs.json]');}
 function glyphHelp(){out('glyphBox','Glyphs of Pandemonium Help:\nhttps://homebrewery.naturalcrit.com/share/o0dKpn67XqvI');}
 function subtypeBtn(type){const st={Attribute:["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"],Skill:["Acrobatics","Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival"],Physical:["Bludgeoning","Piercing","Slashing"],Element:["Acid","Cold","Fire","Force","Lightning","Necrotic","Poison","Psychic","Radiant","Thunder"],Condition:["Blinded","Charmed","Deafened","Exhaustion","Frightened","Grappled","Incapacitated","Invisible","Paralyzed","Petrified","Poisoned","Prone","Restrained","Stunned","Unconscious"],Action:["Dash","Disengage","Dodge","Help","Hide","Ready","Search","Use an Object"],Terrain:["Arctic","Coast","Desert","Forest","Grassland","Mountain","Swamp","Underdark","Underwater","Urban"],Creature:["Aberration","Beast","Celestial","Construct","Dragon","Elemental","Fey","Fiend","Giant","Humanoid","Monstrosity","Ooze","Plant","Undead"],FightingStyle:["Archery","Blind Fighting","Defense","Dueling","Great Weapon Fighting","Interception","Protection","Superior Technique","Thrown Weapon","Two-Weapon","Unarmed"],Infusion:["Arcane Propulsion Armor","Armor of Magical Strength","Boots of the Winding Path","Enhanced Arcane Focus","Enhanced Defense","Enhanced Weapon","Helm of Awareness","Homunculus Servant","Mind Sharpener","Radiant Weapon","Repeating Shot","Replicate Magic Item","Repulsion Shield","Resistant Armor","Returning Weapon","Spell-Refueling Ring"],Maneuver:["Ambush","Bait and Switch","Brace","Commander's Strike","Disarming Attack","Distracting Strike","Evasive Footwork","Feinting Attack","Goading Attack","Lunging Attack","Maneuvering Attack","Menacing Attack","Parry","Precision Attack","Pushing Attack","Rally","Riposte","Sweeping Attack","Trip Attack"],Wizard:["Abjuration","Bladesinging","Chronurgy","Conjuration","Divination","Enchantment","Evocation","Graviturgy","Illusion","Necromancy","Order of Scribes","Transmutation","War Magic"],Invocation:["Agonizing Blast","Armor of Shadows","Devil's Sight","Eldritch Smite","Grasp of Hadar","Improved Pact Weapon","Lifedrinker","Mask of Many Faces","Misty Visions","Repelling Blast","Thirsting Blade","Tomb of Levistus"],MetaMagic:["Careful Spell","Distant Spell","Empowered Spell","Extended Spell","Heightened Spell","Quickened Spell","Seeking Spell","Subtle Spell","Transmuted Spell","Twinned Spell"],Warlock:["Archfey","Celestial","Fathomless","Fiend","Genie","Great Old One","Hexblade","Undead","Undying"],Weather:["Thunderstorm","Hailstorm","Snow","Rain","Overcast","Sunny","Drizzle","Windy","Fog","Acid Rain","Blizzard","Flood"]};out('glyphBox',type+': '+pick(st[type]||['?']));}
-async function affixListInfo(t){const map={weapon:'weapon_affix',armor:'armor_affix',accessory:'accessory_affix',tainted_weapon:'tainted_weapon_affix',tainted_armor:'tainted_armor_affix',tainted_accessory:'tainted_accessory_affix',class:'class_affix'};const f=map[t]||t;const d=await loadJSON('data/Glyphs/'+f+'.json');if(d.length)out('glyphBox',d.map(e=>e.result||e.name||JSON.stringify(e)).join('\n'));else out('glyphBox','[Populate data/Glyphs/'+f+'.json]');}
+async function affixListInfo(slug){
+  let actualPath='data/Glyphs/affix-'+slug+'.json';
+  if(slug.startsWith('tainted-'))actualPath='data/Glyphs/'+slug+'.json';
+  const d=await loadJSON(actualPath);
+  if(!d.length){out('glyphBox','[Populate '+actualPath+']');return;}
+  const lines=d.map(e=>{
+    const parts=[];
+    if(e.name)parts.push(e.name);
+    if(e.tier1)parts.push('Tier 1: '+e.tier1);
+    if(e.tier2)parts.push('Tier 2: '+e.tier2);
+    if(e.tier3)parts.push('Tier 3: '+e.tier3);
+    return parts.join('\n');
+  });
+  out('glyphBox',lines.join('\n\n'));
+}
+async function affixInnateInfo(){
+  const items=await loadJSON('overhaul-items.json');
+  let txt='';
+  if(items.length){
+    const groups={};
+    items.forEach(it=>{const t=it.type||'(Other)';if(!groups[t])groups[t]=[];groups[t].push(it);});
+    for(const t of Object.keys(groups)){
+      txt+='=== '+t+' ===\n';
+      groups[t].forEach(it=>{txt+=(it.name||'')+': '+(it.innate_affix||'')+'\n';});
+      txt+='\n';
+    }
+  }else{txt+='[Populate overhaul-items.json]\n';}
+  const tainted=await loadJSON('data/Glyphs/tainted-innate.json');
+  if(tainted.length){
+    txt+='=== Tainted Innate ===\n';
+    tainted.forEach(e=>{
+      const parts=[];
+      if(e.name)parts.push(e.name);
+      if(e.tier1)parts.push('Tier 1: '+e.tier1);
+      if(e.tier2)parts.push('Tier 2: '+e.tier2);
+      if(e.tier3)parts.push('Tier 3: '+e.tier3);
+      txt+=parts.join('\n')+'\n\n';
+    });
+  }else{txt+='[Populate data/Glyphs/tainted-innate.json]';}
+  out('glyphBox',txt);
+}
+async function subtypeBtn(slug){
+  if(slug==='cantrip'){
+    const spells=await loadJSON('all-spells.json');
+    if(!spells.length){out('glyphBox','[Populate all-spells.json]');return;}
+    const cantrips=spells.filter(s=>String(s.level)==='0');
+    if(!cantrips.length){out('glyphBox','[No cantrips found in all-spells.json]');return;}
+    out('glyphBox',pick(cantrips).name);
+    return;
+  }
+  const d=await loadJSON('data/Glyphs/Subtypes/'+slug+'.json');
+  if(!d.length){out('glyphBox','[Populate data/Glyphs/Subtypes/'+slug+'.json]');return;}
+  const item=pick(d);
+  out('glyphBox',item.result||item.name||JSON.stringify(item));
+}
+async function materialGen(){
+  const d=await loadJSON('materials.json');
+  if(!d.length){out('itemBox','[Populate materials.json]');return;}
+  out('itemBox',weightedPick(d));
+}
+async function materialTypeGen(type){
+  const d=await loadJSON('data/'+type+'.json');
+  if(!d.length){out('itemBox','[Populate data/'+type+'.json]');return;}
+  out('itemBox',weightedPick(d));
+}
+function weightedIdx(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let r=rng(1,total);for(let j=0;j<arr.length;j++){r-=(arr[j].weight||1);if(r<=0)return j;}return arr.length-1;}
+async function genGlyphsBtn(useWeight){
+  const d=await loadJSON('data/glyphs.json');
+  if(!d.length){out('glyphBox','[Populate data/glyphs.json]');return;}
+  const qty=Number(document.getElementById('glyphQty').value||1);
+  const results=[];
+  for(let i=0;i<qty;i++){
+    const g=useWeight?d[weightedIdx(d)]:pick(d);
+    results.push(g.name||'');
+  }
+  out('glyphBox',results.join('\n'));
+}
+async function intrinsicGlyphBtn(){
+  const sel=document.getElementById('innateAffixDrop').value;
+  if(sel==='Tainted Innate'){
+    const d=await loadJSON('data/Glyphs/tainted-innate.json');
+    if(!d.length){out('glyphBox','[Populate data/Glyphs/tainted-innate.json]');return;}
+    const item=pick(d);
+    const parts=[];
+    if(item.name)parts.push(item.name);
+    if(item.tier1)parts.push('Tier 1: '+item.tier1);
+    if(item.tier2)parts.push('Tier 2: '+item.tier2);
+    if(item.tier3)parts.push('Tier 3: '+item.tier3);
+    out('glyphBox',parts.join('\n'));
+    return;
+  }
+  const items=await loadJSON('overhaul-items.json');
+  if(!items.length){out('glyphBox','[Populate overhaul-items.json]');return;}
+  let pool;
+  const categoryOptions={'Any Weapon':'Weapon','Any Focus':'Focus','Any Armor':'Armor','Any Accessory':'Accessory'};
+  if(sel==='Any Innate')pool=items;
+  else if(categoryOptions[sel])pool=items.filter(i=>i.category===categoryOptions[sel]);
+  else pool=items.filter(i=>i.type===sel);
+  if(!pool.length){out('glyphBox','[No items found for '+sel+' in overhaul-items.json]');return;}
+  const item=pick(pool);
+  out('glyphBox',(item.name||'')+'\n'+(item.innate_affix||''));
+}
+async function expertiseGlyphBtn(){
+  const checked=Array.from(document.querySelectorAll('[id^="glyph"][type="checkbox"]:checked')).map(c=>c.id.replace('glyph',''));
+  if(!checked.length){out('glyphBox','Error: Please select one or more class checkboxes in Class Affixes before generating.');return;}
+  const d=await loadJSON('data/Glyphs/affix-class.json');
+  if(!d.length){out('glyphBox','[Populate data/Glyphs/affix-class.json]');return;}
+  const qty=Number(document.getElementById('expertiseQty').value||1);
+  const results=[];
+  for(let i=0;i<qty;i++){
+    const cls=pick(checked);
+    const pool=d.filter(e=>e.class===cls);
+    if(!pool.length){results.push('['+cls+': no entries]');continue;}
+    const e=pick(pool);
+    const parts=[cls];
+    if(e.name)parts.push(e.name);
+    if(e.tier1)parts.push('Tier 1: '+e.tier1);
+    if(e.tier2)parts.push('Tier 2: '+e.tier2);
+    if(e.tier3)parts.push('Tier 3: '+e.tier3);
+    results.push(parts.join('\n'));
+  }
+  out('glyphBox',results.join('\n\n'));
+}
+async function listOfGlyphs(){
+  const d=await loadJSON('data/glyphs.json');
+  if(!d.length){out('glyphBox','[Populate data/glyphs.json]');return;}
+  out('glyphBox',d.map(g=>(g.name||'')+'\n'+(g.effect||'')).join('\n\n'));
+}
 
 // INFO
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}

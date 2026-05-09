@@ -825,7 +825,10 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <div>
 <div style="font-family:var(--font-display);font-size:1.05rem;text-align:center;color:var(--accent);font-weight:bold;margin-bottom:5px">Help</div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+<div style="display:flex;align-items:center;gap:4px">
 <button class="btn btn-list" onclick="glyphHistoryShow()">History</button>
+<button class="btn btn-fade-red" style="padding:5px 10px" onclick="clearGlyphHistory()" title="Clear glyph history">X</button>
+</div>
 <button class="btn btn-list" onclick="listOfGlyphs()">List of Glyphs</button>
 <button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Item List</button>
 <button class="btn btn-fade-red" onclick="window.open('https://homebrewery.naturalcrit.com/share/o0dKpn67XqvI','_blank')">Original Homebrew</button>
@@ -1541,6 +1544,12 @@ function glyphHistoryShow(){
   if(!h.length){out('glyphBox','No glyph history yet.');return;}
   const txt=h.slice().reverse().map((e,i)=>(i+1)+'. ['+e.when+'] ('+e.source+')\n'+e.text).join('\n\n');
   out('glyphBox','--- Last '+h.length+' Glyphs ---\n\n'+txt);
+}
+function clearGlyphHistory(){
+  if(confirm('Are you sure you want to clear the entire Glyph history? This cannot be undone.')){
+    localStorage.removeItem('glyphHistory');
+    out('glyphBox','Glyph history cleared.');
+  }
 }
 
 async function chaoticBtn(slot){

@@ -26,6 +26,8 @@
 
 **AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
 
+**Piperce(x).** Weapon can hit additional enemies in a line.
+
 **Ammo(x).** Weapon requires ammunition to function.
 
 **Loading(#/x).** Weapon can be used # of times before Reloading. Requires Action to reload by default.

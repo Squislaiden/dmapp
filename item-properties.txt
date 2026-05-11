@@ -26,22 +26,21 @@
 
 **AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
 
-**Piperce(x).** Weapon can hit additional enemies in a line.
-
 **Ammo(x).** Weapon requires ammunition to function.
 
-**Loading(#/x).** Weapon can be used # of times before Reloading. Requires Action to reload by default.
+**Loading(#/x).** Weapon can be used # of times before Reloading.
 
 **Thrown(#/#).** Weapon adds Modifier to Hit and Damage when thrown. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range). If the weapon also has the *Light* property, the same weapon type may be drawn as part of the Attack. 
 
 **Range(#/#).** The attack range of a Ranged weapon. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range).
 
+**Pierce(x).** Weapon can hit additional enemies in a line and ignores half of the initial target's Block.
+
 **Multishot(#).** Weapons can fire multiple projectiles in a single attack with a -2 Hit and Damage per additional projectile up to the listed max. Penalty applies to all projectiles from the attack.
 
 **Status(#-x).** The weapon inflicts buildup of a Status.
 
-#### Arcing
-Weapon attacks ignore Cover.
+**Arcing.** Weapon attacks ignore Cover.
 
 **Siege.** Weapon deals double damage to structures, objects, and Constructs.
 

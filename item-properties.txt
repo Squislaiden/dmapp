@@ -2,7 +2,7 @@
 
 **Unwieldy.** Cannot be wielded in one hand.
 
-**Two-Handed(#).** Weapon requires two hands to wield if Str # not met.
+**Two-Handed(#).** Weapon requires two hands to wield if Str # not met. Dual-Wielding Two-Handed weapons requires a feat.
 
 **Balanced.** Either Dexterity or Strength may be used as the Mod stat.
 
@@ -22,9 +22,9 @@
 
 **Arcing.** Weapon attacks ignore Cover.
 
-**Cleaving(#).** The size or shape of the weapon causes it to hit a number of enemies adjacent to the target for half damage, roll Hit separately.
+**Cleaving(#).** The weapon can hit a number of enemies adjacent to the target for half damage, roll Hit separately.
 
-**AoE(Shape-#).** The size or force of the weapon causes it to hit a number of enemies nearby the target for half damage, roll Hit separately. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
+**AoE(Shape-#).** The weapon can hit additional enemies in an area for half damage, roll Hit separately. The shape begin adjacent to the user, even if the weapon has ***Reach.*** The primary target is the circle's center, or the nearest. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
 
 **Ammo(x).** Weapon requires ammunition to function.
 
@@ -36,7 +36,7 @@
 
 **Pierce(x).** Weapon can hit additional enemies in a line and ignores half of the initial target's Block.
 
-**Multishot(#).** Weapons can fire multiple projectiles in a single attack with a -2 Hit and Damage per additional projectile up to the listed max. Penalty applies to all projectiles from the attack.
+**Multishot(#).** Weapons can fire extra projectiles in a single attack with a --2 Hit and Damage per additional projectile. Penalty applies to all projectiles from the attack.
 
 **Status(#-x).** The weapon inflicts buildup of a Status.
 

@@ -8,7 +8,7 @@
     "spell_types": "—",
     "properties": "Light, Conceal, Status(4-Bleed)",
     "innate_affix": "Inflict Bleed buildup even if the target is Bleeding",
-    "materrials":"Metal, Stone",
+    "materials":"Metal, Stone",
     "category": "Weapon",
     "type": "Axe"
   },

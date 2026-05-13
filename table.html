@@ -1719,6 +1719,11 @@ document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
     matDropdown.classList.remove('open');
     const panel=document.getElementById('itemDetailPanel');
     const card=document.getElementById('itemDetailCard');
+    // Toggle off if this material is already showing
+    if(panel._propsFlag==='mat-'+matName){
+      closeItemDetail();
+      return;
+    }
     itemCurrentRow=null;
     document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
     card.className='item-card';

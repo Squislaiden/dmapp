@@ -13,7 +13,7 @@
     "type": "Axe"
   },
   {
-    "item": "Test Item",
+    "item": "Test Weapon",
     "prerequisites": "12 Str",
     "as": "1.25",
     "defense": "2 Block, 3 Ward",
@@ -24,5 +24,18 @@
     "materials":"Metal, Wood",
     "category": "Weapon",
     "type": "Sword"
+  },
+  {
+    "item": "Test Armor",
+    "prerequisites": "13 Str",
+    "as": "—",
+    "defense": "+3 Block, +2 Ward",
+    "damage": "—",
+    "spell_types": "—",
+    "properties": "Medium, Sluggish, Deflective",
+    "innate_affix": "+2 Dodge when outside under the sun",
+    "materials":"Metal",
+    "category": "Armor",
+    "type": "Torso"
   }
 ]

@@ -602,9 +602,13 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   <div class="source-switcher no-print" style="margin-bottom:14px">
     <button class="source-btn active" data-item-src="overhaul-items.json" id="itemSrcBasic">Basic Items</button>
     <button class="source-btn" data-item-src="overhaul-magic-items.json" id="itemSrcMagic">Magic Items</button>
-    <button class="btn btn-sm" id="itemPropertiesBtn" style="margin-left:auto">
+    <button class="btn btn-sm" id="itemArmorPropsBtn" style="margin-left:auto">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+      Armor Properties
+    </button>
+    <button class="btn btn-sm" id="itemPropertiesBtn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      Item Properties
+      Weapon Properties
     </button>
   </div>
   <div class="toolbar no-print">
@@ -1455,6 +1459,7 @@ function closeItemDetail(){
   const panel=document.getElementById('itemDetailPanel');
   panel.classList.remove('open');
   panel._showingProps=false;
+  panel._propsFlag=null;
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 function printItemCard(item){
@@ -1519,31 +1524,40 @@ function loadMaterials(){
     .catch(()=>{}); // silent if file not present
 }
 
-/* Item Properties button */
-document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
+/* Properties panel helper — fetches a txt file and shows it in the item card panel */
+function showPropertiesPanel(title, file, flagKey){
   const panel=document.getElementById('itemDetailPanel');
   const card=document.getElementById('itemDetailCard');
-  if(panel._showingProps){
+  // Toggle off if already showing this panel
+  if(panel._propsFlag===flagKey){
     panel.classList.remove('open');
-    panel._showingProps=false;
+    panel._propsFlag=null;
     return;
   }
   itemCurrentRow=null;
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
   card.className='item-card';
-  card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
+  card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
   panel.classList.add('open');
+  panel._propsFlag=flagKey;
   panel._showingProps=true;
-  fetch('item-properties.txt')
+  fetch(file)
     .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();})
     .then(txt=>{
-      if(!panel._showingProps)return;
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${descMd(txt)}</div>`;
+      if(panel._propsFlag!==flagKey)return;
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${descMd(txt)}</div>`;
     })
     .catch(err=>{
-      if(!panel._showingProps)return;
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">Item Properties</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load item-properties.txt</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+      if(panel._propsFlag!==flagKey)return;
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
     });
+}
+
+document.getElementById('itemArmorPropsBtn').addEventListener('click',()=>{
+  showPropertiesPanel('Armor Properties','armor-properties.txt','armor');
+});
+document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
+  showPropertiesPanel('Weapon Properties','weapon-properties.txt','weapon');
 });
 
 document.querySelectorAll('[data-item-src]').forEach(btn=>{

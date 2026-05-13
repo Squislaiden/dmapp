@@ -1,1 +1,35 @@
+**Light, Medium, and Heavy.** Light Armor does not require Proficiency to use and does not prevent trait usage, such as Unarmored Defense. (Medium and Heavy Armor require additional proficiencies to use)
 
+**Insulated.** Gain +2 to Checks and Saves related to resisting Cold Damage and Effects.
+
+**Cooling.** Gain +2 to Checks and Saves related to resisting Fire Damage and Effects.
+
+**Rubberized.** Gain +2 to Checks and Saves related to resisting Lighting Damage and Effects.
+
+**Glorious.** The wearer has advantage on Persuasion Checks.
+
+**Frightful.** The wearer has advantage on Intimidation Checks.
+
+**Noisy (Torso/Legs Only).** The wearer has disadvantage on Stealth Checks.
+
+**Bulky (Torso/Legs Only).** The wearer has disadvantage on Acrobatics Checks. The Dash Action only grants movement speed equal to half of your walking speed.
+
+**Sluggish (Torso/Legs Only).** The wearer has disadvantage on Initiative Checks and cannot take the Dodge Action.
+
+**Deflective (Torso/Legs Only).** Incoming Piercing damage is reduced by 25%. This effect does not stack from multiple pieces of armor.
+
+**Padded (Torso/Legs Only).** Incoming Bludgeoning damage is reduced by 25%. This effect does not stack from multiple pieces of armor.
+
+**Angular (Torso/Legs Only).** Incoming Slashing damage is reduced by 25%. This effect does not stack from multiple pieces of armor.
+
+**Enclosed (Head-Only).** The wearer has disadvantage on Perception Checks.
+
+**Awkward (Hands-Only).** The wearer has disadvantage on Sleight of Hand Checks and delicate tasks.
+
+**Utility (Shield-Only).** Utility Shields do not require Proficiency to use and do not prevent trait usage, such as Unarmored Defense. Consequently, they are weaker, but may have more niche effects and usage.
+
+**Shield (Shield-Only).** Shields require proficiency to use.
+
+**Great (Shield-Only).** Great Shields require an additional proficiency and cause Disadvantage on Acrobatics Checks.
+
+**Focus(X) (Shield-Only).** The shield functions as a Spell Focus for “X” type spells.

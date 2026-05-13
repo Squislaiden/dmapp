@@ -94,13 +94,15 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 .search-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,124,255,.12); }
 
 /* ── Filter Panel ── */
-.filter-panel { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:16px; display:none; animation:slideDown .2s ease; }
+.filter-panel { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:16px; display:none; animation:slideDown .2s ease; width:100%; box-sizing:border-box; }
 .filter-panel.open { display:block; }
 @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
-.filter-row { display:flex; align-items:flex-start; gap:12px; padding:8px 0; border-bottom:1px solid var(--border); }
+.filter-row { display:flex; align-items:flex-start; gap:12px; padding:8px 0; border-bottom:1px solid var(--border); width:100%; box-sizing:border-box; }
 .filter-row:last-of-type { border-bottom:none; }
 .filter-row-label { font-family:'Syne',sans-serif; font-size:.68rem; font-weight:700; color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase; min-width:90px; padding-top:6px; flex-shrink:0; }
-.filter-row-checks { display:flex; flex-wrap:wrap; gap:4px; flex:1; }
+/* Item filter labels — wide enough for Damage Type / Spell Focus on one line */
+#itemFilterPanel .filter-row-label { min-width:116px; width:116px; }
+.filter-row-checks { display:flex; flex-wrap:wrap; gap:4px; flex:1; min-width:0; align-content:flex-start; }
 .check-pill { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; border-radius:20px; cursor:pointer; border:1px solid var(--border); background:var(--surface2); transition:all .15s; user-select:none; }
 .check-pill input[type="checkbox"] { display:none; }
 .check-pill span { font-size:.72rem; color:var(--text-dim); font-family:'DM Mono',monospace; white-space:nowrap; }
@@ -170,7 +172,7 @@ td.name-cell { font-weight:600; color:var(--text-dim); font-size:.8rem; white-sp
 #itemTable td:nth-child(2)  { max-width: 12ch; } /* Prerequisites */
 #itemTable td:nth-child(3)  { max-width: 12ch; } /* AS */
 #itemTable td:nth-child(4)  { max-width: 12ch; } /* Defense */
-#itemTable td:nth-child(5)  { max-width: 12ch; } /* Damage */
+#itemTable td:nth-child(5)  { max-width: 13ch; } /* Damage */
 #itemTable td:nth-child(6)  { max-width: 12ch; } /* Spell Types */
 #itemTable td:nth-child(7)  { max-width: 24ch; } /* Properties */
 #itemTable td:nth-child(8)  { max-width: 24ch; } /* Innate Affix */
@@ -766,18 +768,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill" id="ifTypeWondrousRow"><input type="checkbox" value="Wondrous"/><div class="pill-dot"></div><span>Wondrous</span></label>
       </div>
     </div>
-    <div class="filter-row" id="ifRarityRow" style="display:none">
-      <span class="filter-row-label">Rarity</span>
-      <div class="filter-row-checks" id="ifRarity">
-        <label class="check-pill"><input type="checkbox" value="Common"/><div class="pill-dot"></div><span>Common</span></label>
-        <label class="check-pill"><input type="checkbox" value="Uncommon"/><div class="pill-dot"></div><span>Uncommon</span></label>
-        <label class="check-pill"><input type="checkbox" value="Rare"/><div class="pill-dot"></div><span>Rare</span></label>
-        <label class="check-pill"><input type="checkbox" value="Epic"/><div class="pill-dot"></div><span>Epic</span></label>
-        <label class="check-pill"><input type="checkbox" value="Legendary"/><div class="pill-dot"></div><span>Legendary</span></label>
-        <label class="check-pill"><input type="checkbox" value="Mythic"/><div class="pill-dot"></div><span>Mythic</span></label>
-        <label class="check-pill"><input type="checkbox" value="Artifact"/><div class="pill-dot"></div><span>Artifact</span></label>
-      </div>
-    </div>
     <div class="filter-row">
       <span class="filter-row-label">Weapons</span>
       <div class="filter-row-checks" id="ifWeapons">
@@ -793,7 +783,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Ranged"/><div class="pill-dot"></div><span>Ranged</span></label>
         <label class="check-pill"><input type="checkbox" value="Colossal"/><div class="pill-dot"></div><span>Colossal</span></label>
         <label class="check-pill"><input type="checkbox" value="Throwing"/><div class="pill-dot"></div><span>Throwing</span></label>
-        <label class="check-pill"><input type="checkbox" value="Other Weapon"/><div class="pill-dot"></div><span>Other Weapon</span></label>
+        <label class="check-pill"><input type="checkbox" value="Other"/><div class="pill-dot"></div><span>Other</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -812,8 +802,8 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       <div class="filter-row-checks" id="ifArmor">
         <label class="check-pill"><input type="checkbox" value="Head"/><div class="pill-dot"></div><span>Head</span></label>
         <label class="check-pill"><input type="checkbox" value="Torso"/><div class="pill-dot"></div><span>Torso</span></label>
-        <label class="check-pill"><input type="checkbox" value="Arm"/><div class="pill-dot"></div><span>Arm</span></label>
-        <label class="check-pill"><input type="checkbox" value="Leg"/><div class="pill-dot"></div><span>Leg</span></label>
+        <label class="check-pill"><input type="checkbox" value="Hands"/><div class="pill-dot"></div><span>Hands</span></label>
+        <label class="check-pill"><input type="checkbox" value="Legs"/><div class="pill-dot"></div><span>Legs</span></label>
         <label class="check-pill"><input type="checkbox" value="Shield"/><div class="pill-dot"></div><span>Shield</span></label>
       </div>
     </div>
@@ -838,7 +828,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Slashing"/><div class="pill-dot"></div><span>Slashing</span></label>
         <label class="check-pill"><input type="checkbox" value="Piercing"/><div class="pill-dot"></div><span>Piercing</span></label>
         <label class="check-pill"><input type="checkbox" value="Bludgeoning"/><div class="pill-dot"></div><span>Bludgeoning</span></label>
-        <label class="check-pill"><input type="checkbox" value="Non-Physical"/><div class="pill-dot"></div><span>Non-Physical</span></label>
+        <label class="check-pill" id="ifNonPhysicalPill"><input type="checkbox" value="Non-Physical"/><div class="pill-dot"></div><span>Non-Physical</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -852,7 +842,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-row-label">Properties</span>
+      <span class="filter-row-label">Weapon<br>Properties</span>
       <div class="filter-row-checks" id="ifProps">
         <label class="check-pill"><input type="checkbox" value="Light"/><div class="pill-dot"></div><span>Light</span></label>
         <label class="check-pill"><input type="checkbox" value="Unwieldy"/><div class="pill-dot"></div><span>Unwieldy</span></label>
@@ -878,7 +868,32 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Reverb"/><div class="pill-dot"></div><span>Reverb</span></label>
       </div>
     </div>
-    <div class="filter-row" style="border-bottom:none">
+    <div class="filter-row">
+      <span class="filter-row-label">Armor<br>Properties</span>
+      <div class="filter-row-checks" id="ifArmorProps">
+        <label class="check-pill"><input type="checkbox" value="Light"/><div class="pill-dot"></div><span>Light</span></label>
+        <label class="check-pill"><input type="checkbox" value="Medium"/><div class="pill-dot"></div><span>Medium</span></label>
+        <label class="check-pill"><input type="checkbox" value="Heavy"/><div class="pill-dot"></div><span>Heavy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Utility"/><div class="pill-dot"></div><span>Utility</span></label>
+        <label class="check-pill"><input type="checkbox" value="Shield"/><div class="pill-dot"></div><span>Shield</span></label>
+        <label class="check-pill"><input type="checkbox" value="Great"/><div class="pill-dot"></div><span>Great</span></label>
+        <label class="check-pill"><input type="checkbox" value="Insulated"/><div class="pill-dot"></div><span>Insulated</span></label>
+        <label class="check-pill"><input type="checkbox" value="Cooling"/><div class="pill-dot"></div><span>Cooling</span></label>
+        <label class="check-pill"><input type="checkbox" value="Rubberized"/><div class="pill-dot"></div><span>Rubberized</span></label>
+        <label class="check-pill"><input type="checkbox" value="Glorious"/><div class="pill-dot"></div><span>Glorious</span></label>
+        <label class="check-pill"><input type="checkbox" value="Frightful"/><div class="pill-dot"></div><span>Frightful</span></label>
+        <label class="check-pill"><input type="checkbox" value="Noisy"/><div class="pill-dot"></div><span>Noisy</span></label>
+        <label class="check-pill"><input type="checkbox" value="Bulky"/><div class="pill-dot"></div><span>Bulky</span></label>
+        <label class="check-pill"><input type="checkbox" value="Sluggish"/><div class="pill-dot"></div><span>Sluggish</span></label>
+        <label class="check-pill"><input type="checkbox" value="Deflective"/><div class="pill-dot"></div><span>Deflective</span></label>
+        <label class="check-pill"><input type="checkbox" value="Padded"/><div class="pill-dot"></div><span>Padded</span></label>
+        <label class="check-pill"><input type="checkbox" value="Angular"/><div class="pill-dot"></div><span>Angular</span></label>
+        <label class="check-pill"><input type="checkbox" value="Enclosed"/><div class="pill-dot"></div><span>Enclosed</span></label>
+        <label class="check-pill"><input type="checkbox" value="Awkward"/><div class="pill-dot"></div><span>Awkward</span></label>
+        <label class="check-pill"><input type="checkbox" value="Focus"/><div class="pill-dot"></div><span>Focus</span></label>
+      </div>
+    </div>
+    <div class="filter-row">
       <span class="filter-row-label">Status Effect</span>
       <div class="filter-row-checks" id="ifStatus">
         <label class="check-pill"><input type="checkbox" value="Poison"/><div class="pill-dot"></div><span>Poison</span></label>
@@ -890,6 +905,18 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Electrify"/><div class="pill-dot"></div><span>Electrify</span></label>
         <label class="check-pill"><input type="checkbox" value="Frailty"/><div class="pill-dot"></div><span>Frailty</span></label>
         <label class="check-pill"><input type="checkbox" value="Chill"/><div class="pill-dot"></div><span>Chill</span></label>
+      </div>
+    </div>
+    <div class="filter-row" id="ifRarityRow" style="display:none;border-bottom:none">
+      <span class="filter-row-label">Rarity</span>
+      <div class="filter-row-checks" id="ifRarity">
+        <label class="check-pill"><input type="checkbox" value="Common"/><div class="pill-dot"></div><span>Common</span></label>
+        <label class="check-pill"><input type="checkbox" value="Uncommon"/><div class="pill-dot"></div><span>Uncommon</span></label>
+        <label class="check-pill"><input type="checkbox" value="Rare"/><div class="pill-dot"></div><span>Rare</span></label>
+        <label class="check-pill"><input type="checkbox" value="Epic"/><div class="pill-dot"></div><span>Epic</span></label>
+        <label class="check-pill"><input type="checkbox" value="Legendary"/><div class="pill-dot"></div><span>Legendary</span></label>
+        <label class="check-pill"><input type="checkbox" value="Mythic"/><div class="pill-dot"></div><span>Mythic</span></label>
+        <label class="check-pill"><input type="checkbox" value="Artifact"/><div class="pill-dot"></div><span>Artifact</span></label>
       </div>
     </div>
     <div class="filter-actions">
@@ -1556,17 +1583,18 @@ function renderItems(){
   if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['category']||r['type']||'').includes(a)));
   if(f.defense&&f.defense.length)  data=data.filter(r=>f.defense.some(d=>(r['defense']||'').toLowerCase().includes(d.toLowerCase())));
   if(f.damageType&&f.damageType.length) data=data.filter(r=>{
-    const dmg=(r['damage']||'').toLowerCase();
+    const dmg=(r['damage']||'').trim().toLowerCase();
     return f.damageType.some(dt=>{
       if(dt==='Slashing')    return dmg.includes('slashing');
       if(dt==='Piercing')    return dmg.includes('piercing');
       if(dt==='Bludgeoning') return dmg.includes('bludgeoning');
-      if(dt==='Non-Physical')return !dmg.includes('slashing')&&!dmg.includes('piercing')&&!dmg.includes('bludgeoning')&&dmg.trim()!=='';
+      if(dt==='Non-Physical')return dmg!==''&&dmg!=='—'&&dmg!=='-'&&!dmg.includes('slashing')&&!dmg.includes('piercing')&&!dmg.includes('bludgeoning');
       return false;
     });
   });
   if(f.spellType&&f.spellType.length) data=data.filter(r=>f.spellType.some(s=>(r['spell_types']||'').includes(s)));
   if(f.props&&f.props.length)      data=data.filter(r=>f.props.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+  if(f.armorProps&&f.armorProps.length) data=data.filter(r=>f.armorProps.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
   if(f.status&&f.status.length)    data=data.filter(r=>f.status.some(s=>(r['properties']||'').toLowerCase().includes(s.toLowerCase())||(r['innate_affix']||'').toLowerCase().includes(s.toLowerCase())));
 
   const k=ITEM_KEYS[itemSortState.col];
@@ -1621,7 +1649,7 @@ document.getElementById('itemFilterBtn').addEventListener('click',()=>{
 
 document.getElementById('applyItemFilters').addEventListener('click',()=>{
   itemFilters={};
-  const types=getCheckedPills('ifTypes'),rarity=getCheckedPills('ifRarity'),weapons=getCheckedPills('ifWeapons'),spellFocus=getCheckedPills('ifSpellFocus'),armor=getCheckedPills('ifArmor'),accessory=getCheckedPills('ifAccessory'),defense=getCheckedPills('ifDefense'),damageType=getCheckedPills('ifDamageType'),spellType=getCheckedPills('ifSpellType'),props=getCheckedPills('ifProps'),status=getCheckedPills('ifStatus');
+  const types=getCheckedPills('ifTypes'),rarity=getCheckedPills('ifRarity'),weapons=getCheckedPills('ifWeapons'),spellFocus=getCheckedPills('ifSpellFocus'),armor=getCheckedPills('ifArmor'),accessory=getCheckedPills('ifAccessory'),defense=getCheckedPills('ifDefense'),damageType=getCheckedPills('ifDamageType'),spellType=getCheckedPills('ifSpellType'),props=getCheckedPills('ifProps'),armorProps=getCheckedPills('ifArmorProps'),status=getCheckedPills('ifStatus');
   if(types.length)     itemFilters.types=types;
   if(rarity.length)    itemFilters.rarity=rarity;
   if(weapons.length)   itemFilters.weapons=weapons;
@@ -1632,6 +1660,7 @@ document.getElementById('applyItemFilters').addEventListener('click',()=>{
   if(damageType.length)itemFilters.damageType=damageType;
   if(spellType.length) itemFilters.spellType=spellType;
   if(props.length)     itemFilters.props=props;
+  if(armorProps.length)itemFilters.armorProps=armorProps;
   if(status.length)    itemFilters.status=status;
   renderItems();
   document.getElementById('itemFilterPanel').classList.remove('open');
@@ -1639,7 +1668,7 @@ document.getElementById('applyItemFilters').addEventListener('click',()=>{
 });
 
 document.getElementById('clearItemFilters').addEventListener('click',()=>{
-  ['ifTypes','ifRarity','ifWeapons','ifSpellFocus','ifArmor','ifAccessory','ifDefense','ifDamageType','ifSpellType','ifProps','ifStatus'].forEach(id=>uncheckPills(id));
+  ['ifTypes','ifRarity','ifWeapons','ifSpellFocus','ifArmor','ifAccessory','ifDefense','ifDamageType','ifSpellType','ifProps','ifArmorProps','ifStatus'].forEach(id=>uncheckPills(id));
   itemFilters={};renderItems();
   document.getElementById('itemFilterPanel').classList.remove('open');
   document.getElementById('itemFilterBtn').classList.remove('active');

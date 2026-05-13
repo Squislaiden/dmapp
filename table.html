@@ -54,15 +54,15 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 /* Theme select aligned with tabs */
 .theme-select {
   margin-left:auto; flex-shrink:0;
-  background:var(--surface2); border:1px solid var(--border); color:var(--text-dim);
+  background:var(--surface2); border:1px solid var(--border); color:var(--text);
   font-family:'Syne',sans-serif; font-size:.73rem; font-weight:600;
   padding:6px 26px 6px 10px; border-radius:8px; outline:none; cursor:pointer;
   -webkit-appearance:none; appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 8px center; transition:border-color .18s;
+  background-repeat:no-repeat; background-position:right 8px center; transition:border-color .18s,color .18s;
 }
 .theme-select:hover, .theme-select:focus { border-color:var(--accent); color:var(--accent); }
-.theme-select option { background:#1c2030; color:var(--text); }
+.theme-select option { background:var(--surface2); color:var(--text); }
 
 /* ── Tab Panels ── */
 .tab-panel { display:none; padding-top:20px; }
@@ -157,6 +157,91 @@ tbody tr:hover { background:var(--row-hover); }
 tbody tr.selected { background:#161c2e; box-shadow:inset 3px 0 0 var(--accent); }
 td { padding:10px 14px; font-size:.78rem; color:var(--text-dim); vertical-align:middle; white-space:nowrap; }
 td.name-cell { font-weight:600; color:var(--text-dim); font-size:.8rem; white-space:normal; }
+
+/* ── Item table: single-row clipping ── */
+/* All item table cells: one line, clip with ellipsis */
+#itemTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Full-width character limits */
+#itemTable td:nth-child(1)  { max-width: 20ch; } /* Item */
+#itemTable td:nth-child(2)  { max-width: 12ch; } /* Prerequisites */
+#itemTable td:nth-child(3)  { max-width: 12ch; } /* AS */
+#itemTable td:nth-child(4)  { max-width: 12ch; } /* Defense */
+#itemTable td:nth-child(5)  { max-width: 12ch; } /* Damage */
+#itemTable td:nth-child(6)  { max-width: 12ch; } /* Spell Types */
+#itemTable td:nth-child(7)  { max-width: 24ch; } /* Properties */
+#itemTable td:nth-child(8)  { max-width: 24ch; } /* Innate Affix */
+#itemTable td:nth-child(9)  { max-width: 12ch; } /* Type */
+#itemTable td:nth-child(10) { max-width: 12ch; } /* Rarity */
+
+#itemTable td.name-cell { white-space:nowrap; }
+
+/* ── Spell table: single-row clipping ── */
+#spellTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#spellTable td:nth-child(1) { max-width: 24ch; } /* Name — clips at 24 */
+#spellTable td:nth-child(2),
+#spellTable td:nth-child(3),
+#spellTable td:nth-child(4),
+#spellTable td:nth-child(5),
+#spellTable td:nth-child(6),
+#spellTable td:nth-child(7),
+#spellTable td:nth-child(8),
+#spellTable td:nth-child(9) { max-width: 12ch; }
+#spellTable td.name-cell { white-space:nowrap; }
+
+@media (max-width:1300px) {
+  #spellTable td:nth-child(1) { max-width: 24ch; }
+  #spellTable td:nth-child(2),
+  #spellTable td:nth-child(3),
+  #spellTable td:nth-child(4),
+  #spellTable td:nth-child(5),
+  #spellTable td:nth-child(6),
+  #spellTable td:nth-child(7),
+  #spellTable td:nth-child(8),
+  #spellTable td:nth-child(9) { max-width: none; }
+}
+
+/* ── Feat table: single-row clipping ── */
+#featTable {
+  table-layout: fixed;
+  width: 100%;
+}
+#featTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#featTable th:nth-child(1),
+#featTable td:nth-child(1) { width: auto; white-space: normal; overflow: visible; text-overflow: clip; } /* Feat — never clips, natural width */
+#featTable th:nth-child(2),
+#featTable td:nth-child(2) { width: 32ch; }                        /* Prerequisites — clips at 32ch */
+#featTable th:nth-child(3),
+#featTable td:nth-child(3) { width: 100%; }                        /* Description — fills remaining space */
+#featTable td.name-cell { white-space:normal; overflow:visible; text-overflow:clip; }
+
+@media (max-width:1300px) {
+  #featTable th:nth-child(2),
+  #featTable td:nth-child(2) { width: 32ch; }
+}
+@media (max-width:1300px) {
+  #itemTable td:nth-child(1)  { max-width: 20ch; }
+  #itemTable td:nth-child(2)  { max-width: none; }
+  #itemTable td:nth-child(3)  { max-width: none; }
+  #itemTable td:nth-child(4)  { max-width: none; }
+  #itemTable td:nth-child(5)  { max-width: none; }
+  #itemTable td:nth-child(6)  { max-width: none; }
+  #itemTable td:nth-child(7)  { max-width: none; }
+  #itemTable td:nth-child(8)  { max-width: none; }
+  #itemTable td:nth-child(9)  { max-width: none; }
+  #itemTable td:nth-child(10) { max-width: none; }
+}
 .school-badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:.65rem; font-weight:600; letter-spacing:.05em; font-family:'Syne',sans-serif; border:1px solid; }
 .school-Evocation    { background:rgba(255,107,107,.1); color:#ff8c8c; border-color:rgba(255,107,107,.25); }
 .school-Conjuration  { background:rgba(79,124,255,.1);  color:#7ca0ff; border-color:rgba(79,124,255,.25); }
@@ -347,6 +432,24 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   #spellTable th[data-col="3"], #spellTable td:nth-child(4) { display:none; }
   /* Items: no more to hide — AS/Defense/Damage/Type remain */
 }
+
+/* ── Materials dropdown ── */
+.mat-dropdown-wrap { position:relative; display:inline-flex; }
+.mat-dropdown {
+  display:none; position:absolute; top:calc(100% + 6px); right:0; z-index:200;
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:6px; min-width:150px; box-shadow:0 8px 24px rgba(0,0,0,.35);
+  flex-direction:column; gap:2px;
+}
+.mat-dropdown.open { display:flex; animation:slideDown .15s ease; }
+.mat-dropdown-item {
+  display:flex; align-items:center; gap:8px; width:100%;
+  padding:8px 12px; border:none; background:none; border-radius:7px;
+  font-family:'Syne',sans-serif; font-size:.76rem; font-weight:600;
+  color:var(--text-dim); cursor:pointer; text-align:left; transition:all .14s;
+}
+.mat-dropdown-item:hover { background:var(--surface2); color:var(--accent); }
+.mat-dropdown-item svg { flex-shrink:0; }
 
 /* ── Mobile layout ── */
 @media (max-width:900px) {
@@ -607,9 +710,40 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       Armor Properties
     </button>
     <button class="btn btn-sm" id="itemPropertiesBtn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <!-- Sword icon -->
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/><path d="M3 21l5-5"/></svg>
       Weapon Properties
     </button>
+    <!-- Materials dropdown -->
+    <div class="mat-dropdown-wrap" id="matDropdownWrap">
+      <button class="btn btn-sm" id="matDropdownBtn">
+        <!-- Anvil icon -->
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 18h16v2H4z"/><path d="M6 18v-2a8 8 0 0 1 8-8h4V6a2 2 0 0 0-2-2H8a6 6 0 0 0-6 6v8"/><path d="M14 8h4"/></svg>
+        Materials
+      </button>
+      <div class="mat-dropdown" id="matDropdown">
+        <button class="mat-dropdown-item" data-mat="Metal">
+          <!-- Ingot icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="10" width="18" height="8" rx="2"/><path d="M7 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg>
+          Metal
+        </button>
+        <button class="mat-dropdown-item" data-mat="Stone">
+          <!-- Rock icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3C7 3 3 7.5 3 12c0 2.5 1 4.5 2.5 6H18.5C20 16.5 21 14.5 21 12c0-4.5-4-9-9-9z"/><path d="M8 17c0 1.7 1.8 3 4 3s4-1.3 4-3"/></svg>
+          Stone
+        </button>
+        <button class="mat-dropdown-item" data-mat="Wood">
+          <!-- Log icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="12" rx="10" ry="5"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 7c-2.5 0-4.5 1-5.5 2.5M12 17c2.5 0 4.5-1 5.5-2.5"/></svg>
+          Wood
+        </button>
+        <button class="mat-dropdown-item" data-mat="Fabric">
+          <!-- Cloth icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6c1.5 2 3 2 4.5 0S10.5 4 12 6s3 2 4.5 0S19 4 21 6"/><path d="M3 12c1.5 2 3 2 4.5 0S10.5 10 12 12s3 2 4.5 0S19 10 21 12"/><path d="M3 18c1.5 2 3 2 4.5 0S10.5 16 12 18s3 2 4.5 0S19 16 21 18"/></svg>
+          Fabric
+        </button>
+      </div>
+    </div>
   </div>
   <div class="toolbar no-print">
     <div class="search-wrap">
@@ -1387,7 +1521,13 @@ function buildItemCard(item, showActions){
   // Description (Magic Items only)
   const descHtml=(isMagic&&desc)?`<div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible;margin-bottom:6px">${descMd(desc)}</div>`:'';
 
-  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${affixLine}${matLine}${statsBlock}${descHtml}`;
+  // Possible Materials footer — list all material names
+  const matNames=MATERIALS.map(m=>m.name).filter(Boolean);
+  const matFooter=matNames.length
+    ? `<div class="card-footer-bar" style="padding:5px 10px;flex-shrink:0"><span style="font-size:.54rem;font-family:'Syne',sans-serif"><span style="color:var(--gold);font-weight:700">Possible Materials: </span><span style="color:var(--text-dim)">${matNames.map(n=>esc(n)).join(', ')}</span></span></div>`
+    : '';
+
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${affixLine}${matLine}${statsBlock}${descHtml}${matFooter}`;
 }
 
 function exportItemCardJpg(item){
@@ -1558,6 +1698,55 @@ document.getElementById('itemArmorPropsBtn').addEventListener('click',()=>{
 });
 document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
   showPropertiesPanel('Weapon Properties','weapon-properties.txt','weapon');
+});
+
+/* Materials dropdown */
+const matDropdownBtn=document.getElementById('matDropdownBtn');
+const matDropdown=document.getElementById('matDropdown');
+matDropdownBtn.addEventListener('click',e=>{
+  e.stopPropagation();
+  matDropdown.classList.toggle('open');
+});
+document.addEventListener('click',e=>{
+  if(!document.getElementById('matDropdownWrap').contains(e.target)){
+    matDropdown.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const matName=btn.dataset.mat;
+    matDropdown.classList.remove('open');
+    const panel=document.getElementById('itemDetailPanel');
+    const card=document.getElementById('itemDetailCard');
+    itemCurrentRow=null;
+    document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
+    card.className='item-card';
+    card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
+    panel.classList.add('open');
+    panel._showingProps=true;
+    panel._propsFlag='mat-'+matName;
+    fetch(`data/${matName.toLowerCase()}.json`)
+      .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})
+      .then(data=>{
+        if(panel._propsFlag!=='mat-'+matName)return;
+        // Support both a single object and an array
+        const entries=Array.isArray(data)?data:[data];
+        const html=entries.map(entry=>{
+          const name=entry['name']||matName;
+          const weapon=entry['weapon']||'—';
+          const armor=entry['armor']||'—';
+          const focus=entry['focus']||'—';
+          const accessory=entry['accessory']||'—';
+          return descMd(`**__${name}__**\n**Weapon Effect.** ${weapon}\n**Armor Effect.** ${armor}\n**Focus Effect.** ${focus}\n**Accessory Effect.** ${accessory}`);
+        }).join('<div class="card-rule" style="margin:8px 0"></div>');
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${html}</div>`;
+      })
+      .catch(err=>{
+        if(panel._propsFlag!=='mat-'+matName)return;
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load data/${matName.toLowerCase()}.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+      });
+  });
 });
 
 document.querySelectorAll('[data-item-src]').forEach(btn=>{

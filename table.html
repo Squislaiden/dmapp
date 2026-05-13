@@ -1521,10 +1521,10 @@ function buildItemCard(item, showActions){
   // Description (Magic Items only)
   const descHtml=(isMagic&&desc)?`<div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible;margin-bottom:6px">${descMd(desc)}</div>`:'';
 
-  // Possible Materials footer — list all material names
-  const matNames=MATERIALS.map(m=>m.name).filter(Boolean);
-  const matFooter=matNames.length
-    ? `<div class="card-footer-bar" style="padding:5px 10px;flex-shrink:0"><span style="font-size:.54rem;font-family:'Syne',sans-serif"><span style="color:var(--gold);font-weight:700">Possible Materials: </span><span style="color:var(--text-dim)">${matNames.map(n=>esc(n)).join(', ')}</span></span></div>`
+  // Possible Materials footer — from the item's own 'materials' field
+  const matFieldVal=(item['materials']||'').trim();
+  const matFooter=matFieldVal
+    ? `<div style="margin-top:auto;padding-top:6px;flex-shrink:0"><div class="card-footer-bar" style="padding:6px 10px"><span style="font-size:.65rem;font-family:'Syne',sans-serif"><span style="color:var(--gold);font-weight:700">Possible Materials: </span><span style="color:var(--text-dim)">${esc(matFieldVal)}</span></span></div></div>`
     : '';
 
   return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${typeCatLine}${reqLine}</div>${affixLine}${matLine}${statsBlock}${descHtml}${matFooter}`;

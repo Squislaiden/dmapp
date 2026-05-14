@@ -1756,29 +1756,32 @@ document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
     itemCurrentRow=null;
     document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
     card.className='item-card';
-    card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
+    card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
     panel.classList.add('open');
     panel._showingProps=true;
     panel._propsFlag='mat-'+matName;
-    fetch(`data/${matName.toLowerCase()}.json`)
+    fetch('materials.json')
       .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})
       .then(data=>{
         if(panel._propsFlag!=='mat-'+matName)return;
-        // Support both a single object and an array
-        const entries=Array.isArray(data)?data:[data];
-        const html=entries.map(entry=>{
-          const name=entry['name']||matName;
-          const weapon=entry['weapon']||'—';
-          const armor=entry['armor']||'—';
-          const focus=entry['focus']||'—';
-          const accessory=entry['accessory']||'—';
-          return descMd(`**__${name}__**\n**Weapon Effect.** ${weapon}\n**Armor Effect.** ${armor}\n**Focus Effect.** ${focus}\n**Accessory Effect.** ${accessory}`);
-        }).join('<div class="card-rule" style="margin:8px 0"></div>');
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${html}</div>`;
+        const all=Array.isArray(data)?data:[data];
+        const entries=all.filter(e=>(e['type']||'').toLowerCase()===matName.toLowerCase());
+        const header=descMd(`**List of ${matName} Materials:**`);
+        const body=entries.length
+          ? entries.map(entry=>{
+              const name=entry['name']||'';
+              const weapon=entry['weapon']||'—';
+              const armor=entry['armor']||'—';
+              const focus=entry['focus']||'—';
+              const accessory=entry['accessory']||'—';
+              return descMd(`**__${name}__**\n**Weapon Effect.** ${weapon}\n**Armor Effect.** ${armor}\n**Focus Effect.** ${focus}\n**Accessory Effect.** ${accessory}`);
+            }).join('<div class="card-rule" style="margin:6px 0"></div>')
+          : `<p style="color:var(--text-muted);font-style:italic">No ${esc(matName)} materials found.</p>`;
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${header}<div style="margin-top:6px">${body}</div></div>`;
       })
       .catch(err=>{
         if(panel._propsFlag!=='mat-'+matName)return;
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load data/${matName.toLowerCase()}.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
       });
   });
 });

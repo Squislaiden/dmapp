@@ -30,7 +30,7 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-primary{background:linear-gradient(180deg,#3e6ab5 0%,#1e3a6e 100%);box-shadow:0 3px 0 #132548,0 4px 8px rgba(0,0,0,.3);text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .btn-primary:hover{background:linear-gradient(180deg,#4a7acc 0%,#264a80 100%)}
 .btn-primary:active{box-shadow:0 1px 0 #132548,0 2px 4px rgba(0,0,0,.3)}
-.btn-accent{background:linear-gradient(180deg,#d4b55a 0%,#8a7030 100%);box-shadow:0 3px 0 #5a4a1a,0 4px 8px rgba(0,0,0,.3);color:var(--bg-dark);text-shadow:0 1px 0 rgba(255,255,255,.2);font-weight:700}
+.btn-accent{background:linear-gradient(180deg,#d4b55a 0%,#8a7030 100%);box-shadow:0 3px 0 #5a4a1a,0 4px 8px rgba(0,0,0,.3);color:var(--bg-dark);text-shadow:0 1px 0 rgba(255,255,255,.2);font-weight:900}
 .btn-accent:hover{background:linear-gradient(180deg,#e0c26a 0%,#a08040 100%)}
 .btn-accent:active{box-shadow:0 1px 0 #5a4a1a}
 .btn-glyph{background:linear-gradient(180deg,#2a8a9a 0%,#0e4a58 100%);box-shadow:0 3px 0 #08303a,0 4px 8px rgba(0,0,0,.3)}
@@ -49,6 +49,8 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-list:hover{color:var(--accent);border-color:var(--accent-dim);background:linear-gradient(180deg,#504d6a 0%,#38354e 100%)}
 .btn-list:active{box-shadow:0 1px 0 #1a1830;transform:translateY(1px)}
 .btn-fade-red{background:linear-gradient(180deg,#8a4a4a 0%,#5a2828 100%);box-shadow:0 2px 0 #3a1818,0 3px 6px rgba(0,0,0,.25);color:#e8c8c8;font-size:.72rem;border:1px solid #9a5a5a}
+optgroup{color:var(--accent);font-weight:bold;font-style:normal;background:var(--bg-card)}
+optgroup option{color:var(--text);font-weight:normal}
 .btn-fade-red:hover{color:#fff;border-color:#b06a6a;background:linear-gradient(180deg,#9a5a5a 0%,#6a3838 100%)}
 .btn-fade-red:active{box-shadow:0 1px 0 #3a1818;transform:translateY(1px)}
 .btn-info{background:linear-gradient(180deg,#4a7aaa 0%,#2a4a6a 100%);box-shadow:0 2px 0 #1a3050,0 3px 6px rgba(0,0,0,.25);color:#d0e8ff;font-size:.72rem;border:1px solid #5a8aba}
@@ -303,23 +305,83 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 </div>
 <hr class="sep">
+<div class="flex" style="gap:0;align-items:stretch">
+<!-- LEFT: Items section (45%) -->
+<div style="flex:0 0 45%;padding-right:8px">
 <div class="section-title">Items</div>
-<!-- Row 1: Spell Scroll + Scroll Level dropdown + 5e Items List right -->
+<!-- Row 1: Spell Scroll + Scroll Level dropdown -->
 <div class="flex items-center" style="gap:4px;margin-bottom:6px">
 <button class="btn btn-primary" onclick="spellScrollGen()">Spell Scroll</button>
-<label>Scroll Level:</label><select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select>
-<div style="flex:1"></div>
-<button class="btn btn-list" onclick="gearListInfo()">5e Items List</button>
+<select id="spellLevel"><option value="0">Cantrip</option><option value="1">1st Level</option><option value="2">2nd Level</option><option value="3">3rd Level</option><option value="4">4th Level</option><option value="5">5th Level</option><option value="6">6th Level</option><option value="7">7th Level</option><option value="8">8th Level</option><option value="9">9th Level</option></select>
 </div>
-<!-- Row 2: Accessory + Artisan Tool + Overhaul Items right -->
+<!-- Row 2: Accessory + Artisan Tool -->
 <div class="flex items-center" style="gap:4px;margin-bottom:6px">
 <button class="btn btn-primary" onclick="accessoryGen()">Accessory</button>
 <button class="btn btn-primary" onclick="artisanToolGen()">Artisan Tool</button>
-<div style="flex:1"></div>
-<button class="btn btn-list" onclick="window.open('table.html','_blank')">Overhaul Items</button>
 </div>
-<!-- Row 3: Material / Wood / Stone / Metal / Fabric -->
-<div class="inline-row"><button class="btn btn-primary" onclick="materialGen()">Material</button><button class="btn btn-primary" onclick="materialTypeGen('wood')">Wood</button><button class="btn btn-primary" onclick="materialTypeGen('stone')">Stone</button><button class="btn btn-primary" onclick="materialTypeGen('metal')">Metal</button><button class="btn btn-primary" onclick="materialTypeGen('fabric')">Fabric</button></div>
+<!-- Row 3: Material + Metal -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<button class="btn btn-primary" onclick="materialGen()">Material</button>
+<button class="btn btn-primary" onclick="materialTypeGen('Metal')">Metal</button>
+</div>
+<!-- Row 4: Fabric + Wood + Stone -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<button class="btn btn-primary" onclick="materialTypeGen('Fabric')">Fabric</button>
+<button class="btn btn-primary" onclick="materialTypeGen('Wood')">Wood</button>
+<button class="btn btn-primary" onclick="materialTypeGen('Stone')">Stone</button>
+</div>
+<!-- Row 5: 5e Items + Overhaul Items -->
+<div class="flex items-center" style="gap:4px;margin-bottom:6px">
+<button class="btn btn-list" style="white-space:nowrap" onclick="gearListInfo()">5e Items</button>
+<button class="btn btn-list" style="white-space:nowrap" onclick="window.open('table.html','_blank')">Overhaul Items</button>
+</div>
+</div>
+<!-- Vertical divider -->
+<div style="width:1px;background:var(--border);margin:0 4px;flex-shrink:0"></div>
+<!-- RIGHT: Item Pricing section (55%) -->
+<div style="flex:1;padding-left:8px;display:flex;flex-direction:column">
+<div class="section-title">Item Pricing</div>
+<!-- Row 1: Category + Type -->
+<div class="flex items-center" style="gap:4px;margin-bottom:5px">
+<label>Cat:</label>
+<select id="ipCategory" onchange="ipUpdateTypes()" style="flex:1">
+<option value="Weapon">Weapon</option>
+<option value="Focus">Focus</option>
+<option value="Armor">Armor</option>
+<option value="Accessory">Accessory</option>
+</select>
+<select id="ipType" onchange="ipUpdateItems()" style="flex:1"></select>
+</div>
+<!-- Row 2: Item dropdown -->
+<div class="flex items-center" style="gap:4px;margin-bottom:5px">
+<label>Item:</label>
+<select id="ipItem" style="flex:1"></select>
+</div>
+<!-- Row 3: Quality + Rarity -->
+<div class="flex items-center" style="gap:4px;margin-bottom:5px">
+<label>Quality:</label>
+<div style="display:inline-flex;align-items:center;gap:1px"><span id="ipQualityPlus" style="font-size:.85rem;color:var(--text-dim)">+</span><input type="number" id="ipQuality" value="0" min="0" max="5" style="width:36px"></div>
+<label>Rarity:</label>
+<select id="ipRarity" style="flex:1">
+<option value="Common">Common</option>
+<option value="Uncommon">Uncommon</option>
+<option value="Rare">Rare</option>
+<option value="Epic">Epic</option>
+<option value="Legendary">Legendary</option>
+<option value="Mythic">Mythic</option>
+</select>
+</div>
+<!-- Row 4: Material dropdown (grouped by type) -->
+<div class="flex items-center" style="gap:4px;margin-bottom:5px">
+<label>Material:</label>
+<select id="ipMaterial" style="flex:1"></select>
+</div>
+<!-- Row 5: Calculate button centered -->
+<div class="flex items-center" style="justify-content:center;margin-top:4px">
+<button class="btn btn-accent" onclick="ipCalculate()">Calculate</button>
+</div>
+</div>
+</div>
 <hr class="sep">
 <div class="section-title">Gems &amp; Gembags</div>
 <div class="flex" style="gap:16px">
@@ -867,7 +929,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <hr class="sep">
 <div class="btn-grid"><button class="btn btn-list" onclick="infoList('weather')">Weather</button><button class="btn btn-list" onclick="infoList('parts')">Parts</button><button class="btn btn-list" onclick="infoList('organs')">Organs</button><button class="btn btn-list" onclick="infoList('critfail')">Crit Fail</button><button class="btn btn-list" onclick="infoList('conjure')">Conjure</button><button class="btn btn-list" onclick="infoList('madness')">Madness</button></div>
 <hr class="sep">
-<div class="text-center" style="margin-bottom:8px"><button class="btn btn-accent" onclick="loadChangelog()">Changelog</button></div>
+<div class="flex items-center" style="margin-bottom:8px;gap:4px"><button class="btn btn-accent" onclick="loadChangelog()">Changelog</button><div style="flex:1"></div><button class="btn btn-taint" onclick="clearAllSiteData()">Clear All Site Data</button></div>
 <textarea class="result-box" id="infoBox" rows="16" readonly></textarea>
 </div>
 </div>
@@ -1455,12 +1517,103 @@ async function subtypeBtn(slug){
 async function materialGen(){
   const d=await loadJSON('materials.json');
   if(!d.length){out('itemBox','[Populate materials.json]');return;}
-  out('itemBox',weightedPick(d));
+  // Filter out None-type entries
+  const pool=d.filter(m=>m.type&&m.type!=='None');
+  if(!pool.length){out('itemBox','[No materials with valid type in materials.json]');return;}
+  const m=pool[weightedIdx(pool)];
+  formatMaterial(m);
 }
 async function materialTypeGen(type){
-  const d=await loadJSON('data/'+type+'.json');
-  if(!d.length){out('itemBox','[Populate data/'+type+'.json]');return;}
-  out('itemBox',weightedPick(d));
+  const d=await loadJSON('materials.json');
+  if(!d.length){out('itemBox','[Populate materials.json]');return;}
+  const pool=d.filter(m=>m.type===type);
+  if(!pool.length){out('itemBox','[No materials of type '+type+' in materials.json]');return;}
+  const m=pool[weightedIdx(pool)];
+  formatMaterial(m);
+}
+function formatMaterial(m){
+  const lines=[m.name||'(unnamed material)'];
+  if(m.weapon)lines.push('Weapon: '+m.weapon);
+  if(m.armor)lines.push('Armor: '+m.armor);
+  if(m.focus)lines.push('Focus: '+m.focus);
+  if(m.accessory)lines.push('Accessory: '+m.accessory);
+  out('itemBox',lines.join('\n'));
+}
+
+// Item Pricing dropdown cascade
+const ipTypeMap={
+  Weapon:['Dagger','Sword','Axe','Hammer','Head Polearm','Bladed Polearm','Twinblade','Fist','Corded','Throwing','Bow','Crossbow','Firearm','Colossal'],
+  Focus:['Staff','Scepter','Wand','Fan','Seal','Catalyst'],
+  Armor:['Shield','Head','Torso','Hands','Legs'],
+  Accessory:['Amulet','Ring']
+};
+let ipOverhaulItems=[];
+let ipMaterials=[];
+
+function ipUpdateTypes(){
+  const cat=document.getElementById('ipCategory').value;
+  const tEl=document.getElementById('ipType');
+  tEl.innerHTML='';
+  (ipTypeMap[cat]||[]).forEach((t,i)=>{
+    const o=document.createElement('option');o.value=t;o.textContent=t;
+    if(i===0)o.selected=true;
+    tEl.appendChild(o);
+  });
+  // Grey out Quality when Accessory is selected
+  const qEl=document.getElementById('ipQuality');
+  const qPlus=document.getElementById('ipQualityPlus');
+  if(qEl){
+    if(cat==='Accessory'){qEl.disabled=true;qEl.style.opacity='.4';qEl.value=0;if(qPlus)qPlus.style.opacity='.4';}
+    else{qEl.disabled=false;qEl.style.opacity='1';if(qPlus)qPlus.style.opacity='1';}
+  }
+  ipUpdateItems();
+}
+
+function ipUpdateItems(){
+  const type=document.getElementById('ipType').value;
+  const iEl=document.getElementById('ipItem');
+  iEl.innerHTML='';
+  const pool=ipOverhaulItems.filter(it=>it.type===type);
+  if(!pool.length){
+    const o=document.createElement('option');o.value='';o.textContent='(no items)';iEl.appendChild(o);
+    return;
+  }
+  pool.forEach((it,i)=>{
+    const o=document.createElement('option');o.value=it.name||'';o.textContent=it.name||'(unnamed)';
+    if(i===0)o.selected=true;
+    iEl.appendChild(o);
+  });
+}
+
+async function ipInit(){
+  ipOverhaulItems=await loadJSON('overhaul-items.json');
+  ipMaterials=await loadJSON('materials.json');
+  // Populate Material dropdown grouped by type with optgroup-style labels
+  const mEl=document.getElementById('ipMaterial');
+  if(mEl){
+    mEl.innerHTML='';
+    const groups={};
+    ipMaterials.forEach(m=>{const t=m.type||'Other';if(!groups[t])groups[t]=[];groups[t].push(m);});
+    Object.keys(groups).sort().forEach(grp=>{
+      const og=document.createElement('optgroup');og.label=grp;
+      groups[grp].forEach(m=>{const o=document.createElement('option');o.value=m.name||'';o.textContent=m.name||'(unnamed)';og.appendChild(o);});
+      mEl.appendChild(og);
+    });
+  }
+  ipUpdateTypes();
+}
+// Init Item Pricing dropdowns on DOM ready
+document.addEventListener('DOMContentLoaded',()=>{ipInit();});
+
+function ipCalculate(){
+  // Stub: read current selections and report — pricing formula to be defined
+  const cat=document.getElementById('ipCategory').value;
+  const type=document.getElementById('ipType').value;
+  const item=document.getElementById('ipItem').value;
+  const qual=document.getElementById('ipQuality').value;
+  const rar=document.getElementById('ipRarity').value;
+  const mat=document.getElementById('ipMaterial').value;
+  out('itemBox','Item Pricing:\nCategory: '+cat+'\nType: '+type+'\nItem: '+item+'\nQuality: '+qual+'\nRarity: '+rar+'\nMaterial: '+mat+'\n\n[Pricing formula not yet defined]');
 }
 function weightedIdx(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let r=rng(1,total);for(let j=0;j<arr.length;j++){r-=(arr[j].weight||1);if(r<=0)return j;}return arr.length-1;}
 async function genGlyphsBtn(useWeight){
@@ -1826,6 +1979,38 @@ async function randomAffixItem(mode){
 // INFO
 function infoList(t){const l={weather:"Partially Cloudy\nThunderstorm\nHailstorm/Wildfire\nSnow/Heavy Downpour\nRain\nOvercast\nSunny\nLight Drizzle\nVery Windy\nHeavy Fog\nAcid Rain\nHeatwave/Duststorm/Blizzard/Flood",parts:"Head\nUpper Left Arm\nUpper Right Arm\nLeft Forearm\nRight Forearm\nTorso\nLeft Thigh\nRight Thigh\nLeft Calf\nRight Calf",organs:"Brain\nHeart\nSkin\nLung\nKidney\nStomach\nLiver\nEye\nEardrum\nGenitals\nTeeth\nHair\nMuscle\nBone",critfail:"Nothing Happens\nDrop Weapon\nHit Adjacent Creature\nOpportunity Attack\nAdvantage\nFall Prone\nDisadvantage\nSelf Injury",conjure:"Half Max CR\n1 CR Under Max\nMax CR; Poor Pick\nMax CR; Good Pick",madness:"Short (1d10 min)\nLong (1d10×10 hrs)\nIndefinite\nInsanity"};out('infoBox',l[t]||'');}
 async function loadChangelog(){try{const r=await fetch('changelog.txt');if(r.ok)out('infoBox',await r.text());else out('infoBox','');}catch(e){out('infoBox','');}}
+function clearAllSiteData(){
+  // Keys/prefixes related to Campaign, Calendar, Tracker that should be preserved
+  const preservePrefixes=['campaign','calendar','tracker'];
+  // Count what would be removed
+  const allKeys=Object.keys(localStorage);
+  const toRemove=allKeys.filter(k=>{
+    const lk=k.toLowerCase();
+    return !preservePrefixes.some(p=>lk.startsWith(p));
+  });
+  const msg='WARNING: This will clear all site data including:\n'+
+    '\u2022 Glyph history\n'+
+    '\u2022 Deck draw history (all decks)\n'+
+    '\u2022 Card and dice history\n'+
+    '\u2022 All cookies\n\n'+
+    'Your Campaign Tab data (Calendar and Tracker) will NOT be touched.\n\n'+
+    toRemove.length+' localStorage entries will be removed. This cannot be undone.\n\n'+
+    'Are you sure?';
+  if(!confirm(msg))return;
+  // Remove non-preserved localStorage keys
+  toRemove.forEach(k=>localStorage.removeItem(k));
+  // Clear sessionStorage entirely (no Campaign data lives there)
+  try{sessionStorage.clear();}catch(e){}
+  // Clear cookies for this document
+  document.cookie.split(';').forEach(c=>{
+    const eq=c.indexOf('=');
+    const name=(eq>-1?c.substr(0,eq):c).trim();
+    if(name)document.cookie=name+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+  });
+  out('infoBox','Site data cleared. '+toRemove.length+' localStorage entries removed. Campaign Tab data was preserved.');
+  // Refresh deck buttons since deck-drawn keys were removed
+  if(typeof updateDeckButtons==='function')updateDeckButtons();
+}
 document.addEventListener('DOMContentLoaded',()=>{
   // Override innerHTML on result textareas so script.js's innerHTML writes mirror to .value (textareas display .value, not .innerHTML)
   // For charBox, also decode HTML entities (&nbsp;, &amp;, etc.) and convert <br> to newlines so they render as plain text properly.

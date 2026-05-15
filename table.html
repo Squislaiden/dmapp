@@ -100,8 +100,6 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 .filter-row { display:flex; align-items:flex-start; gap:12px; padding:8px 0; border-bottom:1px solid var(--border); width:100%; box-sizing:border-box; }
 .filter-row:last-of-type { border-bottom:none; }
 .filter-row-label { font-family:'Syne',sans-serif; font-size:.68rem; font-weight:700; color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase; min-width:90px; padding-top:6px; flex-shrink:0; }
-/* Item filter labels — wide enough for Damage Type / Spell Focus on one line */
-#itemFilterPanel .filter-row-label { min-width:116px; width:116px; }
 .filter-row-checks { display:flex; flex-wrap:wrap; gap:4px; flex:1; min-width:0; align-content:flex-start; }
 .check-pill { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; border-radius:20px; cursor:pointer; border:1px solid var(--border); background:var(--surface2); transition:all .15s; user-select:none; }
 .check-pill input[type="checkbox"] { display:none; }
@@ -112,6 +110,24 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 .check-pill.checked span { color:var(--text); }
 .check-pill .pill-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); display:none; flex-shrink:0; }
 .check-pill.checked .pill-dot { display:block; }
+.filter-logic-toggle {
+  display:inline-flex; align-items:center; padding:3px 9px;
+  border-radius:20px; border:1px solid var(--border);
+  font-family:'Syne',sans-serif; font-size:.65rem; font-weight:700;
+  cursor:pointer; background:var(--surface2); transition:all .15s;
+  letter-spacing:.04em; flex-shrink:0;
+  color:#8b2020;
+}
+.filter-logic-toggle.is-and { color:#1a6b1a; border-color:rgba(26,107,26,.4); background:rgba(26,107,26,.08); }
+.filter-logic-toggle:hover { border-color:var(--accent); }
+/* Label + toggle stacked in first column */
+.filter-row-label-wrap {
+  display:flex; flex-direction:column; gap:5px;
+  flex-shrink:0; padding-top:4px;
+}
+/* Item filter: widen first column to fit label + toggle button */
+#itemInfoPanel .filter-row-label-wrap,
+#itemInfoPanel .filter-row-label { min-width:116px; width:116px; }
 .filter-actions { margin-top:12px; display:flex; gap:10px; padding-top:12px; border-top:1px solid var(--border); }
 .filter-empty-note { font-size:.75rem; color:var(--text-muted); padding:8px 0; font-style:italic; }
 
@@ -707,40 +723,34 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
   <div class="source-switcher no-print" style="margin-bottom:14px">
     <button class="source-btn active" data-item-src="overhaul-items.json" id="itemSrcBasic">Basic Items</button>
     <button class="source-btn" data-item-src="overhaul-magic-items.json" id="itemSrcMagic">Magic Items</button>
-    <button class="btn btn-sm" id="itemArmorPropsBtn" style="margin-left:auto">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
-      Armor Properties
-    </button>
-    <button class="btn btn-sm" id="itemPropertiesBtn">
-      <!-- Sword icon -->
+    <button class="btn btn-sm" id="itemPropertiesBtn" style="margin-left:auto">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/><path d="M3 21l5-5"/></svg>
       Weapon Properties
     </button>
-    <!-- Materials dropdown -->
+    <button class="btn btn-sm" id="itemArmorPropsBtn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+      Armor Properties
+    </button>
+    <!-- Materials hover dropdown -->
     <div class="mat-dropdown-wrap" id="matDropdownWrap">
       <button class="btn btn-sm" id="matDropdownBtn">
-        <!-- Anvil icon -->
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 18h16v2H4z"/><path d="M6 18v-2a8 8 0 0 1 8-8h4V6a2 2 0 0 0-2-2H8a6 6 0 0 0-6 6v8"/><path d="M14 8h4"/></svg>
         Materials
       </button>
       <div class="mat-dropdown" id="matDropdown">
         <button class="mat-dropdown-item" data-mat="Metal">
-          <!-- Ingot icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="10" width="18" height="8" rx="2"/><path d="M7 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg>
           Metal
         </button>
         <button class="mat-dropdown-item" data-mat="Stone">
-          <!-- Rock icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3C7 3 3 7.5 3 12c0 2.5 1 4.5 2.5 6H18.5C20 16.5 21 14.5 21 12c0-4.5-4-9-9-9z"/><path d="M8 17c0 1.7 1.8 3 4 3s4-1.3 4-3"/></svg>
           Stone
         </button>
         <button class="mat-dropdown-item" data-mat="Wood">
-          <!-- Log icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="12" rx="10" ry="5"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 7c-2.5 0-4.5 1-5.5 2.5M12 17c2.5 0 4.5-1 5.5-2.5"/></svg>
           Wood
         </button>
         <button class="mat-dropdown-item" data-mat="Fabric">
-          <!-- Cloth icon -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6c1.5 2 3 2 4.5 0S10.5 4 12 6s3 2 4.5 0S19 4 21 6"/><path d="M3 12c1.5 2 3 2 4.5 0S10.5 10 12 12s3 2 4.5 0S19 10 21 12"/><path d="M3 18c1.5 2 3 2 4.5 0S10.5 16 12 18s3 2 4.5 0S19 16 21 18"/></svg>
           Fabric
         </button>
@@ -757,7 +767,11 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       Filter
     </button>
   </div>
-  <div class="filter-panel no-print" id="itemFilterPanel">
+
+  <!-- Shared info panel: filter OR properties content, never both -->
+  <div class="filter-panel no-print" id="itemInfoPanel">
+    <!-- Filter content -->
+    <div id="itemFilterContent">
     <div class="filter-row">
       <span class="filter-row-label">Category</span>
       <div class="filter-row-checks" id="ifTypes">
@@ -815,14 +829,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-row-label">Defense</span>
-      <div class="filter-row-checks" id="ifDefense">
-        <label class="check-pill"><input type="checkbox" value="Dodge"/><div class="pill-dot"></div><span>Dodge</span></label>
-        <label class="check-pill"><input type="checkbox" value="Block"/><div class="pill-dot"></div><span>Block</span></label>
-        <label class="check-pill"><input type="checkbox" value="Ward"/><div class="pill-dot"></div><span>Ward</span></label>
-      </div>
-    </div>
-    <div class="filter-row">
       <span class="filter-row-label">Damage Type</span>
       <div class="filter-row-checks" id="ifDamageType">
         <label class="check-pill"><input type="checkbox" value="Slashing"/><div class="pill-dot"></div><span>Slashing</span></label>
@@ -832,7 +838,21 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-row-label">Spell Type</span>
+      <div class="filter-row-label-wrap">
+        <span class="filter-row-label">Defense</span>
+        <button class="filter-logic-toggle" data-group="defense" title="Toggle Or/And">Or</button>
+      </div>
+      <div class="filter-row-checks" id="ifDefense">
+        <label class="check-pill"><input type="checkbox" value="Dodge"/><div class="pill-dot"></div><span>Dodge</span></label>
+        <label class="check-pill"><input type="checkbox" value="Block"/><div class="pill-dot"></div><span>Block</span></label>
+        <label class="check-pill"><input type="checkbox" value="Ward"/><div class="pill-dot"></div><span>Ward</span></label>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-row-label-wrap">
+        <span class="filter-row-label">Spell Type</span>
+        <button class="filter-logic-toggle" data-group="spellType" title="Toggle Or/And">Or</button>
+      </div>
       <div class="filter-row-checks" id="ifSpellType">
         <label class="check-pill"><input type="checkbox" value="Arcane"/><div class="pill-dot"></div><span>Arcane</span></label>
         <label class="check-pill"><input type="checkbox" value="Divine"/><div class="pill-dot"></div><span>Divine</span></label>
@@ -842,7 +862,10 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-row-label">Weapon<br>Properties</span>
+      <div class="filter-row-label-wrap">
+        <span class="filter-row-label">Weapon<br>Properties</span>
+        <button class="filter-logic-toggle" data-group="props" title="Toggle Or/And">Or</button>
+      </div>
       <div class="filter-row-checks" id="ifProps">
         <label class="check-pill"><input type="checkbox" value="Light"/><div class="pill-dot"></div><span>Light</span></label>
         <label class="check-pill"><input type="checkbox" value="Unwieldy"/><div class="pill-dot"></div><span>Unwieldy</span></label>
@@ -869,7 +892,10 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-row-label">Armor<br>Properties</span>
+      <div class="filter-row-label-wrap">
+        <span class="filter-row-label">Armor<br>Properties</span>
+        <button class="filter-logic-toggle" data-group="armorProps" title="Toggle Or/And">Or</button>
+      </div>
       <div class="filter-row-checks" id="ifArmorProps">
         <label class="check-pill"><input type="checkbox" value="Light"/><div class="pill-dot"></div><span>Light</span></label>
         <label class="check-pill"><input type="checkbox" value="Medium"/><div class="pill-dot"></div><span>Medium</span></label>
@@ -923,7 +949,10 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       <button class="btn btn-accent btn-sm" id="applyItemFilters">Apply</button>
       <button class="btn btn-sm" id="clearItemFilters">Clear All</button>
     </div>
-  </div>
+    </div><!-- /itemFilterContent -->
+    <!-- Properties / Materials content -->
+    <div id="itemPropsContent" style="display:none"></div>
+  </div><!-- /itemInfoPanel -->
   <div class="stats-bar no-print">
     <div>Showing <strong id="itemVisCount">0</strong> of <strong id="itemTotCount">0</strong> items</div>
     <select class="bulk-select" id="materialSelect">
@@ -1581,7 +1610,12 @@ function renderItems(){
   if(f.spellFocus&&f.spellFocus.length) data=data.filter(r=>f.spellFocus.some(s=>(r['category']||r['type']||'').includes(s)));
   if(f.armor&&f.armor.length)      data=data.filter(r=>f.armor.some(a=>(r['category']||r['type']||'').includes(a)));
   if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['category']||r['type']||'').includes(a)));
-  if(f.defense&&f.defense.length)  data=data.filter(r=>f.defense.some(d=>(r['defense']||'').toLowerCase().includes(d.toLowerCase())));
+  if(f.defense&&f.defense.length){
+    const isAnd=itemLogic.defense==='and';
+    data=data.filter(r=>isAnd
+      ? f.defense.every(d=>(r['defense']||'').toLowerCase().includes(d.toLowerCase()))
+      : f.defense.some(d=>(r['defense']||'').toLowerCase().includes(d.toLowerCase())));
+  }
   if(f.damageType&&f.damageType.length) data=data.filter(r=>{
     const dmg=(r['damage']||'').trim().toLowerCase();
     return f.damageType.some(dt=>{
@@ -1592,9 +1626,24 @@ function renderItems(){
       return false;
     });
   });
-  if(f.spellType&&f.spellType.length) data=data.filter(r=>f.spellType.some(s=>(r['spell_types']||'').includes(s)));
-  if(f.props&&f.props.length)      data=data.filter(r=>f.props.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
-  if(f.armorProps&&f.armorProps.length) data=data.filter(r=>f.armorProps.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+  if(f.spellType&&f.spellType.length){
+    const isAnd=itemLogic.spellType==='and';
+    data=data.filter(r=>isAnd
+      ? f.spellType.every(s=>(r['spell_types']||'').includes(s))
+      : f.spellType.some(s=>(r['spell_types']||'').includes(s)));
+  }
+  if(f.props&&f.props.length){
+    const isAnd=itemLogic.props==='and';
+    data=data.filter(r=>isAnd
+      ? f.props.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase()))
+      : f.props.some(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+  }
+  if(f.armorProps&&f.armorProps.length){
+    const isAnd=itemLogic.armorProps==='and';
+    data=data.filter(r=>isAnd
+      ? f.armorProps.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase()))
+      : f.armorProps.some(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+  }
   if(f.status&&f.status.length)    data=data.filter(r=>f.status.some(s=>(r['properties']||'').toLowerCase().includes(s.toLowerCase())||(r['innate_affix']||'').toLowerCase().includes(s.toLowerCase())));
 
   const k=ITEM_KEYS[itemSortState.col];
@@ -1637,14 +1686,55 @@ function printItemCard(item){
   win.document.close();setTimeout(()=>{win.focus();win.print();},450);
 }
 
+/* ── Or/And logic toggles ── */
+const itemLogic={ defense:'or', spellType:'or', props:'or', armorProps:'or' };
+
+document.querySelectorAll('.filter-logic-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const g=btn.dataset.group;
+    const isAnd=itemLogic[g]==='and';
+    itemLogic[g]=isAnd?'or':'and';
+    btn.textContent=isAnd?'Or':'And';
+    btn.classList.toggle('is-and',!isAnd);
+  });
+});
+
+function resetLogicToggles(){
+  document.querySelectorAll('.filter-logic-toggle').forEach(btn=>{
+    const g=btn.dataset.group;
+    itemLogic[g]='or';
+    btn.textContent='Or';
+    btn.classList.remove('is-and');
+  });
+}
+
+/* ── Items info panel helpers ── */
+let activeItemPanel = null;
+
+function openItemInfoPanel(mode){
+  const panel  = document.getElementById('itemInfoPanel');
+  const filter = document.getElementById('itemFilterContent');
+  const props  = document.getElementById('itemPropsContent');
+  if(mode==='filter'){ filter.style.display=''; props.style.display='none'; }
+  else               { filter.style.display='none'; props.style.display=''; }
+  panel.classList.add('open');
+  activeItemPanel=mode;
+  document.getElementById('itemFilterBtn').classList.toggle('active',mode==='filter');
+}
+function closeItemInfoPanel(){
+  document.getElementById('itemInfoPanel').classList.remove('open');
+  document.getElementById('itemFilterBtn').classList.remove('active');
+  activeItemPanel=null;
+}
+function setItemPropsContent(html){ document.getElementById('itemPropsContent').innerHTML=html; }
+
 wireTableSort('itemTable',itemSortState,renderItems);
-wirePills('itemFilterPanel');
+wirePills('itemFilterContent');
 document.getElementById('itemSearch').addEventListener('input',e=>{itemQuery=e.target.value.trim();renderItems();});
+
 document.getElementById('itemFilterBtn').addEventListener('click',()=>{
-  document.getElementById('itemFilterPanel').classList.toggle('open');
-  document.getElementById('itemFilterBtn').classList.toggle('active');
-  const panel=document.getElementById('itemDetailPanel');
-  if(panel._showingProps){closeItemDetail();panel._showingProps=false;}
+  if(activeItemPanel==='filter') closeItemInfoPanel();
+  else openItemInfoPanel('filter');
 });
 
 document.getElementById('applyItemFilters').addEventListener('click',()=>{
@@ -1663,15 +1753,14 @@ document.getElementById('applyItemFilters').addEventListener('click',()=>{
   if(armorProps.length)itemFilters.armorProps=armorProps;
   if(status.length)    itemFilters.status=status;
   renderItems();
-  document.getElementById('itemFilterPanel').classList.remove('open');
-  document.getElementById('itemFilterBtn').classList.remove('active');
+  closeItemInfoPanel();
 });
 
 document.getElementById('clearItemFilters').addEventListener('click',()=>{
   ['ifTypes','ifRarity','ifWeapons','ifSpellFocus','ifArmor','ifAccessory','ifDefense','ifDamageType','ifSpellType','ifProps','ifArmorProps','ifStatus'].forEach(id=>uncheckPills(id));
+  resetLogicToggles();
   itemFilters={};renderItems();
-  document.getElementById('itemFilterPanel').classList.remove('open');
-  document.getElementById('itemFilterBtn').classList.remove('active');
+  closeItemInfoPanel();
 });
 
 /* Material dropdown (Basic Items only) */
@@ -1679,7 +1768,7 @@ const materialSelect=document.getElementById('materialSelect');
 materialSelect.addEventListener('change',()=>{
   const v=materialSelect.value;
   selectedMaterial=v?MATERIALS.find(m=>m.name===v)||null:null;
-  if(itemCurrentRow)openItemDetail(itemCurrentRow); // refresh card
+  if(itemCurrentRow)openItemDetail(itemCurrentRow);
 });
 
 function loadMaterials(){
@@ -1690,98 +1779,92 @@ function loadMaterials(){
       const sel=document.getElementById('materialSelect');
       sel.innerHTML='<option value="">None</option>'+data.map(m=>`<option value="${esc(m.name)}">${esc(m.name)}</option>`).join('');
     })
-    .catch(()=>{}); // silent if file not present
+    .catch(()=>{});
 }
 
-/* Properties panel helper — fetches a txt file and shows it in the item card panel */
+/* Properties panel helper */
 function showPropertiesPanel(title, file, flagKey){
-  const panel=document.getElementById('itemDetailPanel');
+  const detailPanel=document.getElementById('itemDetailPanel');
   const card=document.getElementById('itemDetailCard');
-  // Toggle off if already showing this panel
-  if(panel._propsFlag===flagKey){
-    panel.classList.remove('open');
-    panel._propsFlag=null;
+  if(detailPanel._propsFlag===flagKey && activeItemPanel==='props'){
+    closeItemInfoPanel();
+    closeItemDetail();
     return;
   }
   itemCurrentRow=null;
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
+  setItemPropsContent(`<div style="color:var(--text-muted);font-size:.75rem">Loading ${esc(title)}…</div>`);
+  openItemInfoPanel('props');
   card.className='item-card';
   card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
-  panel.classList.add('open');
-  panel._propsFlag=flagKey;
-  panel._showingProps=true;
+  detailPanel.classList.add('open');
+  detailPanel._showingProps=true;
+  detailPanel._propsFlag=flagKey;
   fetch(file)
     .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();})
     .then(txt=>{
-      if(panel._propsFlag!==flagKey)return;
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${descMd(txt)}</div>`;
+      if(detailPanel._propsFlag!==flagKey)return;
+      const rendered=descMd(txt);
+      setItemPropsContent(rendered);
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${rendered}</div>`;
     })
     .catch(err=>{
-      if(panel._propsFlag!==flagKey)return;
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+      if(detailPanel._propsFlag!==flagKey)return;
+      const errHtml=`<p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p>`;
+      setItemPropsContent(errHtml);
+      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px">${errHtml}</div>`;
     });
 }
 
-document.getElementById('itemArmorPropsBtn').addEventListener('click',()=>{
-  showPropertiesPanel('Armor Properties','armor-properties.txt','armor');
-});
-document.getElementById('itemPropertiesBtn').addEventListener('click',()=>{
-  showPropertiesPanel('Weapon Properties','weapon-properties.txt','weapon');
-});
+document.getElementById('itemArmorPropsBtn').addEventListener('click',()=>showPropertiesPanel('Armor Properties','armor-properties.txt','armor'));
+document.getElementById('itemPropertiesBtn').addEventListener('click',()=>showPropertiesPanel('Weapon Properties','weapon-properties.txt','weapon'));
 
-/* Materials dropdown */
-const matDropdownBtn=document.getElementById('matDropdownBtn');
+/* Materials hover dropdown */
+const matDropdownWrap=document.getElementById('matDropdownWrap');
 const matDropdown=document.getElementById('matDropdown');
-matDropdownBtn.addEventListener('click',e=>{
-  e.stopPropagation();
-  matDropdown.classList.toggle('open');
-});
-document.addEventListener('click',e=>{
-  if(!document.getElementById('matDropdownWrap').contains(e.target)){
-    matDropdown.classList.remove('open');
-  }
-});
+let matHideTimer=null;
+matDropdownWrap.addEventListener('mouseenter',()=>{clearTimeout(matHideTimer);matDropdown.classList.add('open');});
+matDropdownWrap.addEventListener('mouseleave',()=>{matHideTimer=setTimeout(()=>matDropdown.classList.remove('open'),120);});
 
 document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const matName=btn.dataset.mat;
     matDropdown.classList.remove('open');
-    const panel=document.getElementById('itemDetailPanel');
+    const detailPanel=document.getElementById('itemDetailPanel');
     const card=document.getElementById('itemDetailCard');
-    // Toggle off if this material is already showing
-    if(panel._propsFlag==='mat-'+matName){
+    if(detailPanel._propsFlag==='mat-'+matName && activeItemPanel==='props'){
+      closeItemInfoPanel();
       closeItemDetail();
       return;
     }
     itemCurrentRow=null;
     document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
+    setItemPropsContent(`<div style="color:var(--text-muted);font-size:.75rem">Loading ${esc(matName)} materials…</div>`);
+    openItemInfoPanel('props');
     card.className='item-card';
     card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
-    panel.classList.add('open');
-    panel._showingProps=true;
-    panel._propsFlag='mat-'+matName;
+    detailPanel.classList.add('open');
+    detailPanel._showingProps=true;
+    detailPanel._propsFlag='mat-'+matName;
     fetch('materials.json')
       .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})
       .then(data=>{
-        if(panel._propsFlag!=='mat-'+matName)return;
+        if(detailPanel._propsFlag!=='mat-'+matName)return;
         const all=Array.isArray(data)?data:[data];
         const entries=all.filter(e=>(e['type']||'').toLowerCase()===matName.toLowerCase());
         const header=descMd(`**List of ${matName} Materials:**`);
         const body=entries.length
-          ? entries.map(entry=>{
-              const name=entry['name']||'';
-              const weapon=entry['weapon']||'—';
-              const armor=entry['armor']||'—';
-              const focus=entry['focus']||'—';
-              const accessory=entry['accessory']||'—';
-              return descMd(`**__${name}__**\n**Weapon Effect.** ${weapon}\n**Armor Effect.** ${armor}\n**Focus Effect.** ${focus}\n**Accessory Effect.** ${accessory}`);
-            }).join('<div class="card-rule" style="margin:6px 0"></div>')
+          ? entries.map(entry=>descMd(`**__${entry['name']||''}__**\n**Weapon Effect.** ${entry['weapon']||'—'}\n**Armor Effect.** ${entry['armor']||'—'}\n**Focus Effect.** ${entry['focus']||'—'}\n**Accessory Effect.** ${entry['accessory']||'—'}`)).join('<div class="card-rule" style="margin:6px 0"></div>')
           : `<p style="color:var(--text-muted);font-style:italic">No ${esc(matName)} materials found.</p>`;
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${header}<div style="margin-top:6px">${body}</div></div>`;
+        const fullHtml=`${header}<div style="margin-top:6px">${body}</div>`;
+        setItemPropsContent(fullHtml);
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${fullHtml}</div>`;
       })
       .catch(err=>{
-        if(panel._propsFlag!=='mat-'+matName)return;
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px"><p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p></div>`;
+        if(detailPanel._propsFlag!=='mat-'+matName)return;
+        const errHtml=`<p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p>`;
+        setItemPropsContent(errHtml);
+        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px">${errHtml}</div>`;
       });
   });
 });

@@ -1484,7 +1484,7 @@ async function affixInnateInfo(){
     items.forEach(it=>{const t=it.type||'(Other)';if(!groups[t])groups[t]=[];groups[t].push(it);});
     for(const t of Object.keys(groups)){
       txt+='=== '+t+' ===\n';
-      groups[t].forEach(it=>{txt+=(it.name||'')+': '+(it.innate_affix||'')+'\n';});
+      groups[t].forEach(it=>{txt+=(it.item||'')+': '+(it.innate_affix||'')+'\n';});
       txt+='\n';
     }
   }else{txt+='[Populate overhaul-items.json]\n';}
@@ -1579,7 +1579,7 @@ function ipUpdateItems(){
     return;
   }
   pool.forEach((it,i)=>{
-    const o=document.createElement('option');o.value=it.name||'';o.textContent=it.name||'(unnamed)';
+    const o=document.createElement('option');o.value=it.item||'';o.textContent=it.item||'(unnamed)';
     if(i===0)o.selected=true;
     iEl.appendChild(o);
   });
@@ -1652,7 +1652,7 @@ async function intrinsicGlyphBtn(){
   else pool=items.filter(i=>i.type===sel);
   if(!pool.length){out('glyphBox','[No items found for '+sel+' in overhaul-items.json]');return;}
   const item=pick(pool);
-  out('glyphBox',(item.name||'')+'\n'+await resolveTokens(item.innate_affix||''));
+  out('glyphBox',(item.item||'')+'\n'+await resolveTokens(item.innate_affix||''));
 }
 async function expertiseGlyphBtn(){
   const checked=Array.from(document.querySelectorAll('[id^="glyph"][type="checkbox"]:checked')).map(c=>c.id.replace('glyph',''));
@@ -1749,13 +1749,13 @@ async function chaoticBtn(slot){
     // Change Item +3 Affix - new item from overhaul-items.json with category matching slot
     const items=await loadJSON('overhaul-items.json');
     const pool=items.filter(it=>it.category===slot);
-    const chosen=pool.length?pick(pool).name:'[No '+slot+' items in overhaul-items.json]';
+    const chosen=pool.length?pick(pool).item:'[No '+slot+' items in overhaul-items.json]';
     body='(Change Item, +3 Affix)\nItem Changed to: '+chosen+'\n\n'+await rollAffixes(3);
   }else if(r<=20){
     // Change Item within Type +2 Affix - same type as dropdown
     const items=await loadJSON('overhaul-items.json');
     const pool=items.filter(it=>it.type===itemType);
-    const chosen=pool.length?pick(pool).name:'[No '+itemType+' items in overhaul-items.json]';
+    const chosen=pool.length?pick(pool).item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within Type, +2 Affix)\nItem Changed to: '+chosen+'\n\n'+await rollAffixes(2);
   }else if(r<=39){
     body='(+1 Affix)\nAdd Affix:\n'+await rollAffixes(1);
@@ -1777,7 +1777,7 @@ async function chaoticBtn(slot){
     // Add Innate - new innate from overhaul-items by type, output the NAME
     const items=await loadJSON('overhaul-items.json');
     const pool=items.filter(it=>it.type===itemType);
-    const chosen=pool.length?pick(pool).name:'[No '+itemType+' items in overhaul-items.json]';
+    const chosen=pool.length?pick(pool).item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Add Innate)\nSecondary Innate Affix added:\n'+chosen;
   }else if(r<=91){
     // Add Class Affix
@@ -1878,23 +1878,23 @@ async function taintedBtn(slot){
 
   if(r<=6){
     const it=await pickItemByType();
-    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    const nm=it?it.item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within type, Reroll Affix - 1)\nRemove Affixes, Add 1 Affix, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(1);
   }else if(r<=12){
     const it=await pickItemByType();
-    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    const nm=it?it.item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within type, Reroll Affix - 2)\nRemove Affixes, Add 2 Affixes, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(2);
   }else if(r<=16){
     const it=await pickItemByType();
-    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    const nm=it?it.item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within type, Reroll Affix - 3)\nRemove Affixes, Add 3 Affixes, and Item Changed to: '+nm+taintedFooter+'\n\n'+await rollAffixes(3);
   }else if(r<=23){
     const it=await pickItemByType();
-    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    const nm=it?it.item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within type)\nItem Changed to: '+nm+taintedFooter;
   }else if(r<=32){
     const it=await pickItemByType();
-    const nm=it?it.name:'[No '+itemType+' items in overhaul-items.json]';
+    const nm=it?it.item:'[No '+itemType+' items in overhaul-items.json]';
     body='(Change Item within type, +1 Tainted)\nItem Changed to: '+nm+taintedFooter+'\n\n'+await rollTaintedAffixes(1);
   }else if(r<=40){
     body='(Reroll Affixes)\nUse the Affix buttons and the Qty. input to generate the same number of affixes.\n\n[This Item is Tainted and cannot be modified further]';
@@ -1954,7 +1954,7 @@ async function randomAffixItem(mode){
   else if(['weapon','focus','armor'].includes(cat))affixSlug=cat;
   const affixPath=tainted?'data/Glyphs/tainted-'+(affixSlug==='acc'?'acc':affixSlug)+'.json':'data/Glyphs/affix-'+affixSlug+'.json';
   const affixData=await loadJSON(affixPath);
-  const lines=[mode+' Random Item: '+(item.name||'(unnamed)')];
+  const lines=[mode+' Random Item: '+(item.item||'(unnamed)')];
   if(item.innate_affix)lines.push('Innate: '+await resolveTokens(item.innate_affix));
   if(affixData.length){
     for(let i=0;i<qty;i++){

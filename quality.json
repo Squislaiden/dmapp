@@ -1,0 +1,8 @@
+[
+ {"name":"0","multiplier":"1","weapon":"","focus":"","armor":""},
+ {"name":"1","multiplier":"2","weapon":"+1 to Hit, +2 to Damage","focus":"+1 to Spell Hit and Spell DC","armor":"(Single Defense) +2 Dodge, +2 Ward, -OR- +1 Block\n(Dual/Tri Defense) "},
+ {"name":"2","multiplier":"4","weapon":"+2 to Hit, +4 to Damage","focus":"+1 to Spell Hit and Spell DC","armor":"(Single Defense) +4 Dodge, +4 Ward, -OR- +2 Block\n(Dual/Tri Defense) "},
+ {"name":"3","multiplier":"7","weapon":"+3 to Hit, +6 to Damage","focus":"+3 to Spell Hit and Spell DC","armor":"(Single Defense) +6 Dodge, +6 Ward, -OR- +3 Block\n(Dual/Tri Defense) "},
+ {"name":"4","multiplier":"10","weapon":"+4 to Hit, +8 to Damage","focus":"+4 to Spell Hit and Spell DC","armor":"(Single Defense) +8 Dodge, +8 Ward, -OR- +4 Block\n(Dual/Tri Defense) "},
+ {"name":"5","multiplier":"15","weapon":"+5 to Hit, +10 to Damage","focus":"+5 to Spell Hit and Spell DC","armor":"(Single Defense) +10 Dodge, +10 Ward, -OR- +5 Block\n(Dual/Tri Defense) "}
+]

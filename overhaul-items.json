@@ -10,7 +10,8 @@
     "innate_affix": "Inflict Bleed buildup even if the target is Bleeding",
     "materials":"Metal, Stone",
     "category": "Weapon",
-    "type": "Axe"
+    "type": "Axe",
+    "val": "24"
   },
   {
     "item": "Test Weapon",
@@ -23,7 +24,8 @@
     "innate_affix": "—",
     "materials":"Metal, Wood",
     "category": "Weapon",
-    "type": "Sword"
+    "type": "Sword",
+    "val": "52"
   },
   {
     "item": "Test Armor",
@@ -36,6 +38,7 @@
     "innate_affix": "+2 Dodge when outside under the sun",
     "materials":"Metal",
     "category": "Armor",
-    "type": "Torso"
+    "type": "Torso",
+    "val": "87"
   }
 ]

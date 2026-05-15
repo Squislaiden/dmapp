@@ -128,6 +128,14 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 /* Item filter: widen first column to fit label + toggle button */
 #itemInfoPanel .filter-row-label-wrap,
 #itemInfoPanel .filter-row-label { min-width:116px; width:116px; }
+/* Item info panel — props content font matches table */
+#itemPropsContent { font-size:.78rem; color:var(--text-dim); line-height:1.6; padding:4px 0; }
+#itemPropsContent strong { color:var(--text); }
+#itemPropsContent em { color:var(--text-muted); }
+#itemPropsContent u { text-decoration:underline; }
+#itemPropsContent p { margin-bottom:6px; }
+#itemPropsContent p:last-child { margin-bottom:0; }
+#itemPropsContent .card-rule { margin:8px 0; }
 .filter-actions { margin-top:12px; display:flex; gap:10px; padding-top:12px; border-top:1px solid var(--border); }
 .filter-empty-note { font-size:.75rem; color:var(--text-muted); padding:8px 0; font-style:italic; }
 
@@ -1782,37 +1790,24 @@ function loadMaterials(){
     .catch(()=>{});
 }
 
-/* Properties panel helper */
+/* Properties panel helper — shows content in info panel only, no card display */
 function showPropertiesPanel(title, file, flagKey){
-  const detailPanel=document.getElementById('itemDetailPanel');
-  const card=document.getElementById('itemDetailCard');
-  if(detailPanel._propsFlag===flagKey && activeItemPanel==='props'){
+  if(activeItemPanel==='props' && document.getElementById('itemDetailPanel')._propsFlag===flagKey){
     closeItemInfoPanel();
-    closeItemDetail();
     return;
   }
-  itemCurrentRow=null;
-  document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
-  setItemPropsContent(`<div style="color:var(--text-muted);font-size:.75rem">Loading ${esc(title)}…</div>`);
+  setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(title)}…</div>`);
   openItemInfoPanel('props');
-  card.className='item-card';
-  card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
-  detailPanel.classList.add('open');
-  detailPanel._showingProps=true;
-  detailPanel._propsFlag=flagKey;
+  document.getElementById('itemDetailPanel')._propsFlag=flagKey;
   fetch(file)
     .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();})
     .then(txt=>{
-      if(detailPanel._propsFlag!==flagKey)return;
-      const rendered=descMd(txt);
-      setItemPropsContent(rendered);
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${rendered}</div>`;
+      if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
+      setItemPropsContent(descMd(txt));
     })
     .catch(err=>{
-      if(detailPanel._propsFlag!==flagKey)return;
-      const errHtml=`<p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p>`;
-      setItemPropsContent(errHtml);
-      card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--accent),var(--accent3))"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(title)}</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px">${errHtml}</div>`;
+      if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
+      setItemPropsContent(`<p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`);
     });
 }
 
@@ -1830,41 +1825,29 @@ document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const matName=btn.dataset.mat;
     matDropdown.classList.remove('open');
-    const detailPanel=document.getElementById('itemDetailPanel');
-    const card=document.getElementById('itemDetailCard');
-    if(detailPanel._propsFlag==='mat-'+matName && activeItemPanel==='props'){
+    const flagKey='mat-'+matName;
+    if(activeItemPanel==='props' && document.getElementById('itemDetailPanel')._propsFlag===flagKey){
       closeItemInfoPanel();
-      closeItemDetail();
       return;
     }
-    itemCurrentRow=null;
-    document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
-    setItemPropsContent(`<div style="color:var(--text-muted);font-size:.75rem">Loading ${esc(matName)} materials…</div>`);
+    document.getElementById('itemDetailPanel')._propsFlag=flagKey;
+    setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(matName)} materials…</div>`);
     openItemInfoPanel('props');
-    card.className='item-card';
-    card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:420px;padding:8px 12px;color:var(--text-muted);font-size:.6rem">Loading…</div>`;
-    detailPanel.classList.add('open');
-    detailPanel._showingProps=true;
-    detailPanel._propsFlag='mat-'+matName;
     fetch('materials.json')
       .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})
       .then(data=>{
-        if(detailPanel._propsFlag!=='mat-'+matName)return;
+        if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
         const all=Array.isArray(data)?data:[data];
         const entries=all.filter(e=>(e['type']||'').toLowerCase()===matName.toLowerCase());
         const header=descMd(`**List of ${matName} Materials:**`);
         const body=entries.length
           ? entries.map(entry=>descMd(`**__${entry['name']||''}__**\n**Weapon Effect.** ${entry['weapon']||'—'}\n**Armor Effect.** ${entry['armor']||'—'}\n**Focus Effect.** ${entry['focus']||'—'}\n**Accessory Effect.** ${entry['accessory']||'—'}`)).join('<div class="card-rule" style="margin:6px 0"></div>')
           : `<p style="color:var(--text-muted);font-style:italic">No ${esc(matName)} materials found.</p>`;
-        const fullHtml=`${header}<div style="margin-top:6px">${body}</div>`;
-        setItemPropsContent(fullHtml);
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow-y:auto;max-height:440px;padding-bottom:8px">${fullHtml}</div>`;
+        setItemPropsContent(`${header}<div style="margin-top:6px">${body}</div>`);
       })
       .catch(err=>{
-        if(detailPanel._propsFlag!=='mat-'+matName)return;
-        const errHtml=`<p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.56rem;margin-top:4px">${esc(err.message)}</p>`;
-        setItemPropsContent(errHtml);
-        card.innerHTML=`<div class="card-stripe" style="background:linear-gradient(90deg,var(--gold),#e8943a)"></div><div class="card-name-block"><div class="card-spell-name" style="font-size:.85rem">${esc(matName)} Materials</div></div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;padding:8px 12px">${errHtml}</div>`;
+        if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
+        setItemPropsContent(`<p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`);
       });
   });
 });

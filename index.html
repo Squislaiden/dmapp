@@ -362,13 +362,13 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <label>Quality:</label>
 <div style="display:inline-flex;align-items:center;gap:1px"><span id="ipQualityPlus" style="font-size:.85rem;color:var(--text-dim)">+</span><input type="number" id="ipQuality" value="0" min="0" max="5" style="width:36px"></div>
 <label>Rarity:</label>
-<select id="ipRarity" style="flex:1">
-<option value="Common">Common</option>
-<option value="Uncommon">Uncommon</option>
-<option value="Rare">Rare</option>
-<option value="Epic">Epic</option>
-<option value="Legendary">Legendary</option>
-<option value="Mythic">Mythic</option>
+<select id="ipRarity" style="flex:1" onchange="ipUpdateRarityColor()">
+<option value="Common" style="color:var(--text)">Common</option>
+<option value="Uncommon" style="color:#3ec23e">Uncommon</option>
+<option value="Rare" style="color:#3e7ad4">Rare</option>
+<option value="Epic" style="color:#a766c2">Epic</option>
+<option value="Legendary" style="color:#FC7F03">Legendary</option>
+<option value="Mythic" style="color:#d63d3d">Mythic</option>
 </select>
 </div>
 <!-- Row 4: Material dropdown (grouped by type) -->
@@ -377,7 +377,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <select id="ipMaterial" style="flex:1"></select>
 </div>
 <!-- Row 5: Calculate button centered -->
-<div class="flex items-center" style="justify-content:center;margin-top:4px">
+<div class="flex items-center" style="justify-content:center;margin-top:12px">
 <button class="btn btn-accent" onclick="ipCalculate()">Calculate</button>
 </div>
 </div>
@@ -1614,6 +1614,13 @@ function ipCalculate(){
   const rar=document.getElementById('ipRarity').value;
   const mat=document.getElementById('ipMaterial').value;
   out('itemBox','Item Pricing:\nCategory: '+cat+'\nType: '+type+'\nItem: '+item+'\nQuality: '+qual+'\nRarity: '+rar+'\nMaterial: '+mat+'\n\n[Pricing formula not yet defined]');
+}
+
+function ipUpdateRarityColor(){
+  const sel=document.getElementById('ipRarity');
+  if(!sel)return;
+  const colors={Common:'',Uncommon:'#3ec23e',Rare:'#3e7ad4',Epic:'#a766c2',Legendary:'#FC7F03',Mythic:'#d63d3d'};
+  sel.style.color=colors[sel.value]||'';
 }
 function weightedIdx(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let r=rng(1,total);for(let j=0;j<arr.length;j++){r-=(arr[j].weight||1);if(r<=0)return j;}return arr.length-1;}
 async function genGlyphsBtn(useWeight){

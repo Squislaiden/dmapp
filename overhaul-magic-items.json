@@ -13,7 +13,7 @@
     "category": "Weapon",
     "type": "Sword",
 	"source": "",
-    "description": "__**Base Item**__ *(Longsword)*\nA blade wreathed in living flame. On a hit, the target takes an additional 1d6 fire damage. As a bonus action, you can extinguish or reignite the flame. While lit, the sword sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+    "description": "__***Base Item**__ (Longsword)*\nA blade wreathed in living flame. On a hit, the target takes an additional 1d6 fire damage. As a bonus action, you can extinguish or reignite the flame. While lit, the sword sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
   },
    {
     "item": "",
@@ -29,6 +29,6 @@
     "category": "",
     "type": "",
 	"source": "",
-    "description": "__**Base Item**__ *()*\n"
+    "description": "__***Base Item**__ ()*\n"
   }
 ]

@@ -1,5 +1,5 @@
         ---Oozeblight---
-  -Traits-
+    -Traits-
   [Creature Type] - The creature is Ooze and humanoid.
   [Appearance] - The afflicted creature’s skin takes on a slight transparency. Inside their body they no longer have most organs, only bones and brain remaining.
   [Amorphous] - Oozeblights can squeeze through a space as narrow as 1 inch wide, provided they are wearing and carrying nothing bigger than that. They also have advantage on checks to initiate a grapple.
@@ -9,14 +9,14 @@
   [Darkvision] - See in darkness up to 60 ft.
   [Hold Breath] - You can hold your breath for 1 hour.
 
-  -Abilities-
+    -Abilities-
   [Pseudopod] - As a bonus action, extrude a pseudopod up to 6 inches wide and 10 feet long or reabsorb it. You can use this pseudopod as an extension of your arm with a 20 lb. limit and a damage of 1d6 + Str.
 
-  -Weaknesses-
+    -Weaknesses-
   [Tenuous Amorphism] - Despite the loss of most internal organs, a series of electrical impulses are used to control the body. Taking lightning damage incurs a Constitution Save equal the higher of 10 or half the damage every time the Oozeblight would perform an Action, Movement, or other actions that would utilize physical movement for their next turn. On a fail, that action is not performed and it used up.
   [Viscous Form] - An ooze is effectively a thick liquid, and thus cold damage and low temperature slow them down. While cold or for a turn after taking cold damage, their movement speed is halved and they have a -2 penalty to Attack Rolls, AC, and Dexterity Saves.
 
-  -Spreading and Removing the Disease-
+    -Spreading and Removing the Disease-
   [Contracting Oozeblight] - When a CR 5+ ooze takes a liking to a creature it will attempt to infect them. They will try to make the creature ingest a piece of them or squeeze a small piece into an open wound by making a Strength Check (DC = creature’s Con Score). On a success, if in danger, it flees. After 3 successes, the ingested ooze pieces migrate to the heart and brain where they begin to rapidly replicate and spread through the body transforming it. It takes a week after the third piece is ingested to spread and the final transformation occurs while sleeping.
   [Curing Oozeblight] - Curing Oozeblight requires flushing the body with divine energy, hellfire, or lightning for 24 hours. After the final transformation, it is not reversible. Only a Wish spell can cure it.
 

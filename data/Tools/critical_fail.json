@@ -1,10 +1,11 @@
 [
-  {"result":"Nothing Happens","weight":2},
-  {"result":"Drop Weapon","weight":2},
-  {"result":"Hit Adjacent Creature","weight":2},
-  {"result":"Target gets an Opportunity Attack","weight":2},
-  {"result":"Next Attack against You has Advantage","weight":2},
-  {"result":"Fall Prone","weight":2},
-  {"result":"You have Disadvantage on Next Attack","weight":2},
-  {"result":"Self Injury (Weapon Dice Only)","weight":1}
+  {"result":"You miss.","weight":3},
+  {"result":"The violent reverberations cause you to drop your weapon.","weight":3},
+  {"result":"Your attack is parried and knocked away, roll to hit an adjacent target for half damage.","weight":3},
+  {"result":"Your attack is parried and the target takes advantage to use an attack of opportunity.","weight":3},
+  {"result":"Your footing slips, putting you off balance. The next attack against you is made with advantage.","weight":3},
+  {"result":"Your weapon was knocked askew in your grip. Your next attack is made with disadvantage.","weight":3},
+  {"result":"You slide on an inordinately smooth stone, moving 5 ft. in a direction of the DM's choice. This does not provoke Opportunity Attacks.","weight":2},
+  {"result":"You lose your footing and slip, falling prone.","weight":2},
+  {"result":"(Melee) Your grip fails from a violent impacy and you fumble the recovery. Take damage equal to a roll of your weapon's damage dice, do not add any additional modifiers.\n\n(Ranged) Some moisture causes the weapon to slip, causing the projectile to eject erratically. Take damage equal to a roll of your weapon's damage dice, do not add any additional modifiers.\n\n(Spell) The arcane matrix collapses, causing errant magic to flare out. Take damage equal to a roll of two of your Hit Dice.","weight":1}
 ]

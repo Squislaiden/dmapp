@@ -1,0 +1,29 @@
+        ---Chimera---
+    -Traits-
+  [Creature Type] - The creature loses their current types and become Monstoristy and Beast.
+  [Keen Senses] - Advantage on hearing and smelling.
+  [Replacement Parts] - Using a proper healer/medical specialist, a body part can be replaced over the course of an 8 hour surgery. Afterwards, the part is unusable and must rest for 3 days.
+  [Racial Traits] - Traits that rely on a part are gained or lost when swapping parts.
+  [AC] - Chimera can’t wear full suits of armor. Their AC is determined by their various parts.
+  [Varies] - Appearance, AC, Attributes, Resistances, and Abilities change based on the body parts. Intelligence, Wisdom, and ASIs are unchanged.
+  [Monsterous] - Creatures are inherently wary and fearful of Chimera. Some may even attack on sight.
+
+    -Body Parts-
+  [Head] - Determines Charisma, Type of Sight, Condition Resistance/Immunity, and Natural Weapons.
+  [Arms] - Half Str, Reach, and Multiattack.
+  [Hands/Feet] - Half Dex, Item Usage, & Natural Weapon.
+  [Legs] - Half Dex, Half Str, and Movement.
+  [Torso] - Determines Con, Vuln, Res, and Base AC.
+
+    -Other Parts-
+  [All] - All parts contribute to AC, HP, and Skill Bonuses.
+  [Additional] - Extra parts like Tails and Wings. Can provide minor buffs to the stats of the other body parts and special abilities like Tail Swipe and Flight.
+  [Specific] - Specific parts, such as eyes, can be swapped and would be up to the DM to determine the specifics.
+
+    -Weaknesses-
+  [Spell Reliance] - Chimera are reliant on the spells that keep their body convinced that it is a uniform creature. When dispelled or in an antimagic zone, the creature is in intense pain and takes 2d6 True Damage when initally affected and at the start of their turn for 1 minute. The spells also fade over time and must be renewed every 5 years.
+  [Part Specific] - Parts may impart additional weaknesses.
+
+    -Spreading and Removing Chimerism-
+  [Becoming a Chimera] - Becoming a Chimera is a lengthy process wherein body parts are slowly replaced with parts of beasts. Special Soul Magic is used so that the body adapts and belives the new parts are its own. Technically, one is a Chimera after a single part, but a True Chimera has at least 4 non-humanoid parts.
+  [Curing Chimerism] - Chimerism can be cured utilizing any spells that would restore the body, primarily most Resurrection spells. Other methods can be used without the user’s death if the Reliance Spells are broken and the original parts are reattached or regenerated.

@@ -1,0 +1,43 @@
+        ---Lich---
+    -Traits-
+  [Creature Type] - Undead replaces normal type and they don’t need to breathe, eat, or sleep.
+Immortality] - The creature is functionally immortal. When they die, their body reforms near their phylactery 1d8 days later.
+  [Unarmored Defense] - While not wearing armor, your AC is 11 + Dex.
+  [Darkvision] - Darkvision out to 60 ft.
+  [Immunity] - Poison Damage, Poisoned, Disease, Frighten, Charm and Exhaustion.
+  [Resistance] - Nonmagical Physical, Cold, Lightning, Necrotic
+  [Turn Resistance] - Advantage on saving throws against any effect that turns undead.
+  [Undead Charisma] - When visibly appearing as a lich, all Charisma Ability Checks take a -5 Penalty, except Intimidation, which has a +5 Bonus.
+
+    -Abilities-
+  [Paralyzing Touch] - Melee Spell Attack. 5 ft reach. One Target. 3d6 Cold Damage. Target must make a Constitution Saving Throw or be paralyzed for one turn.
+  [Frightening Gaze] - Action. Gaze at one creature you can see within 10 feet. The target must succeed on a Wisdom Saving Throw or become frightened for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Can be used up to half Proficiency Bonus times and recharges on Long Rest.
+  [Disrupt Life] - Action. Each non-undead creature within 20 feet of you must make a Constitution Saving Throw, taking 3d6 necrotic damage on a failed save, or half as much damage on a successful one. Can be used once and recharges on a Short Rest.
+  [Soul Claim] - Action. Consume the soul of a creature that has died within the last 1 minute. This will prolong the Lich’s life by one week. The soul can instead be stored in a magical glass jar for up to 5 days to be fed to the Phylactery. Souls consumed or fed to the phylactery cannot be resurrected except through a Wish spell.
+
+    -Weaknesses-
+  [Phylactery] - If your Phylactery is destroyed, you can never rejuvenate again. The only way to regain your Phylactery is with a Wish spell.
+  [Soul Consumption] - To keep a Phylactery powered, a lich must feed it souls. Each soul fed to the Phylactery keeps it powered for 7 days.
+  [Undead] - Liches share the same basic vulnerabilities as other undead. Some of these being Holy Water, Consecrated Ground, and many Cleric and Paladin abilities.
+  [Hunted] - Liches are antithetical to Godsouls and if detected by any will be hunted to the ends of the earth.
+
+    -Removing Lichdom-
+  [Cure] - There is no cure or reversal for lichdom. A wish spell can change the phylactery into a biologically immortal humanoid body, suppressing all Lich traits. This new body is considered Undead and Humanoid.
+
+https://eventyrgames.com/2020/07/17/lich-player-characters-excerpt-from-larlochs-lexicon-of-lichdom/
+
+    -Ritual of Lichdom-
+  [Becoming a Lich] - A Spellcaster of 4th level or higher must first learn how to perform the ritual, which is a dark secret that many good and neutral creatures try to destroy all knowledge of.
+  [Phylactery] - The creature must make a phylactery to house their soul. It is a legendary magic item with an interior space, as small as a ring or amulet, or even as large as a coffin. Arcane sigils are inscribed in silver. It takes 10 days and requires valueable gems, metals, and spell reagents that cost 50,000 gp or more.
+  [Potion of Transformation] - 3 Day brewing time. Humanoid Infant Heart, 1 quart of Vampire Blood, 5 doses of Wyvern Venom, 3 doses of Purple Worm Venom, and 2 doses of Midnight Tears. Approximately 15,000 gp worth of materials.
+ This is actually just an incredibly leathal poison. To finish it, it must be infused with the blood of a sacrificed sentient creature during the final stage of the ritual.
+  [Ritual] - The ritual occurs over the course of eight hours and includes the weaving of powerful, necromantic magic, obscure phrases and – sometimes, but not always – dark prayers to evil entities such as Orcus or Vecna.
+
+The ritual culminates with the sacrifice – willing or not – of a sentient creature with an Intelligence score of 7 or higher, whose soul is consumed by the phylactery (making resurrection impossible). The blood of this creature is then mixed with the potion of transformation, and ingested by the aspiring lich at exactly midnight.
+
+As soon as the ritual begins, all Vampires, Godsouls, and Therianthropes within 20 miles know the exact location it is occuring.
+
+    -The Crossover-
+Liches raised during the crossover are more powerful. The ritual instead takes 16 hours during and alerts Vampires, Therianthropes, and Godsouls up to 100 miles away.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

@@ -1,0 +1,32 @@
+        ---Vampire---
+    -Traits-
+  [Creature Type] - Undead replaces normal type and they don’t need to breathe, eat, or sleep.
+  [Physical Appearance] - Pale skin. Prominent fangs.
+  [Resistance] - Resist Necrotic and Nonmagical Physical. Vulnerable to Radiant.
+  [Darkvision] - 60 ft. of Darkvision.
+  [Spider Climb] - Able to climb up walls and ceilings.
+  [Regeneration] - Regenerate 10 Hit Points at the start of your turn if you are not in Running Water, Sunlight, or have taken Radiant damage within the last turn.
+  [Death] - When dropped to 0 Hit Points, you turn into your mist form and make Death Saving Throws with advantage. You can move while like this. If killed while in Sunlight or Running Water, the body turns to ash.
+
+    -Abilities-
+  [Shapechange] - While not in Sunlight or Running Water, as an Action, polymorph into a bat or cloud of mist.
+ (Bat) - Walk speed 5 ft. Flying speed 30 ft. Cannot talk.
+ (Mist) - Cannot take any actions. Flying speed 20 ft. Can move anywhere air can go. Advantage on Strength, Dexterity, and Consitution Saving Throws. Immune to Nonmagical damage, except Sunlight and Running Water. If rendered unconscious, the user reverts.
+  [Bite] - Unarmed Melee Weapon Attack. Must be grappling a creature or have a willing victim. 1d6 + Strength Modifier + 3d6 Necrotic damage. Reduce the target’s Maximum Hit Points and heal the Vampire for the amount of Necrotic damage dealt. This reduction lasts until the next Long Rest is completed.
+
+    -Weaknesses-
+  [Forbiddance] - Vampire cannot enter a residence without permission from an occupant.
+  [Running Water] - You take 20 Acid damage if you end your turn in running water. You take 5 Acid damage if you pass through it and don’t end your turn in it.
+  [Sunlight] - You take 20 Radiant damage if you start your turn in sunlight. You take 5 Radiant damage if you pass through it and don’t end your turn in it. While in sunlight, you have disadvantage on d20 rolls.
+  [Wooden Stake] - A wooden stake to the heart paralyzes.
+  [Hunger] - Vampires must feed on humanoid blood. After 3 days of not feeding, they must resist an increasing Wisdom Saving Throw or attack the nearest humanoid.
+
+    -Spreading and Removing the Curse-
+  [Spreading] - Vampirism can be spread if a victim is killed by a vampire’s bite and then buried, they rise as a vampire spawn the following night.
+  [Vampire Spawn] - Spawns are weaker and under the thrall of their patron. Drinking of their master’s blood will free them and make them full a vampire.
+  [Cure] - A Wish spell. Death and True Resurrection.
+
+    -The Crossover-
+Vampires feel no compulsion, but they become capable of sensing the sheer bloodlust of Therianthropes and Godsouls during the event.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

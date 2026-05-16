@@ -1,0 +1,31 @@
+        ---Godsoul---
+    -Traits-
+  [Creature Type] - Celestial in addition to normal type. A Godsoul can be any Avian or Reptile creature (Eg, Hawksoul, Komodosoul).
+  [Resistance] - Immunity to Radiant. Vulnerable to Necrotic.
+  [Divine Sense] - 30 ft. Blindsight. Can sense Fiends and Undead creatures within 30 ft.
+  [Recharge] - As an Action, regain a Spell Slot of level equal to 1/3 your level or 2 charges of a Class Resource.
+  [Strength of Mind] - On the initial transformation, a player chooses to increase a mental stat by 2.
+
+    -Abilities-
+  [Divine Smite] - On a weapon attack, deal an extra 2d6 Radiant. Regain use of this after a Short Rest.
+  [Judgement] - As a Bonus Action, impose disadvantage on an evil creature’s next attack.
+  [Shapechange] - While not in complete darkness, as an Action, polymorph into an avian/reptile form with the stats of a Blood Hawk/Giant Lizard.
+  [Wings (Avian Only)] - As an Action, sprout a pair of feathery celestial wings for 1 minute, granting you a flight speed of 30 ft.
+  [Resilience (Reptile Only)] - Gain Fire Resistance and are immune to Extreme Hot Weather.
+
+    -Weaknesses-
+  [See No Evil] - A Godsoul has a powerful impulse to stop any evil that it sees. A Wisdom save can ignore the impulse.
+  [Full Moon] - The day of, before, and after full moon, the Godsoul is weakened. On the Full Moon, they lose all Godsoul traits for a 24 hour period. This does not happen during The Crossover.
+  [Necrosis] - Taking necrotic damage causes Divine Sense, Resilience, Wings, and Spells to fail and attacks beyond the first don’t deal Strength or Dexterity damage until the end of your next turn.
+
+    -As a Pair-
+Godsouls are drawn to work together with another trusted Godsoul in pairs. While together, their urge to cleanse evil is more powerful.
+
+    -Spreading and Removing the Blessing-
+  [Spreading] - A forceful merging of an avian or reptile with a humanoid by a Godsoul or powerful Celestial over the course of 9 hours. This must be done on holy ground and will lure any fiends and werewolves, and alert vampires, within 20 miles. They may attempt to interrupt it.
+  [Cure] - Bathe in the blood of an innocent for 9 hours, or sign a pact with an Archdevil.
+
+    -The Crossover-
+Godsouls lose all sense of self and can sense Therianthropes within 10 miles and are compelled to seek out and destroy them at all costs.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

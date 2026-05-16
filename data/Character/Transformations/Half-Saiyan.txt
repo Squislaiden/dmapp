@@ -1,0 +1,28 @@
+        ---Half-Saiyan---
+    -Traits-
+  [Race] - Saiyan is a functional race. When becoming a Saiyan, lose all physical racial traits and gain the ones listed here.
+  [Born Fighter] - Increase your Strength and Constitution by 2 and you unarmed strike damage is increased by one dice tier.
+  [Prehensile Tail] - Saiyans have a monkey tail. It can be used to hold and manipualte up to 5 lbs. and cannot attack.
+  [Near-Death Experience] - When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead and your next attack deals an extra PBd6. You can’t use this feature again until you finish a long rest.
+  [Battle Lust] - The creature gains a drive for fighting and find great joy in a challenging fight.
+  [Powerful Build] - Saiyans are strong creature and when carring, pushing, draggingh, and lifting they are considered one size larger. Saiyans also eat twice as much as normal.
+  [Ki] - Saiyans have a pool of Ki Points equal to their Proficiency Bonus. Regain all Ki on a Short Rest.
+
+    -Abilities-
+  [Ki Charging] - Once per turn, expend a Ki point to add Half PB d6 radiant to an attack or Ki Blast. Expend two or more Ki Points to upcast a spell one level per two points.
+  [Ki Blast] - Requires 5th Level. Expend a Ki Point to replace an attack with a 60/180 Ki Blast. 2d6 Radiant damage.
+  [Ki Flight] - Requires 8th Level. Expend a Ki point to gain a 30 ft. fly speed for 30 minutes.
+
+    -Weaknesses-
+  [Full Moon] - Whenever a Saiyan gazes upon the Full Moon, they must make a Wisdom Save or transform into a Giant Ape Oozaru form and rampage.
+  [Tail] - When pulled, the Saiyan must make a Constitution Save against the opponent’s Strength. On a fail they are stunned for one round. If cut off, the saiyan has disadvantage on Dexterity Check and Saves and cannot transform into their Oozaru form for one week.
+  [Prideful] - Saiyans are very prideful creatures. They have disadvantage against taunts and insults.
+
+    -Becoming and Curing the Evolution-
+  [Becoming Saiyan] - Saiyans are not created, it is more of a lineage being magically awoken. Gods and powerful magic can turn one into a Saiyan. Full Saiyans are aliens that landed occasionally throughout history.
+  [Purging a Saiyan] - Anything that changes a character’s race removes the abilities of a Saiyan. It could still be reawakened again with powerful magics or Gods.
+
+    -The Crossover-
+During the Crossover, Saiyans are forcefully transformed into their Oozaru form and are unable to resist.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

@@ -1,0 +1,29 @@
+        ---Mind Flayer---
+    -Traits-
+  [Creature Type] - Aberration replaces normal type.
+  [Resistance] - Resist Psychic.
+  [Darkvision] - Darkvision up to 120 ft.
+  [Telepathy] - Telepathy up to 120 ft.
+  [Magic Resistance] - Advantage on saves vs spells and other magical effects.
+  [Alien Intelligence] - Increase your Intelligence by 3.
+
+    -Abilities-
+  [Tentacle] - Unarmed Melee Attack. 1d10 + Int/Wis Psychic. Can grapple medium or smaller creatures.
+  [Extract Brain] - As an Action, you can eat the brain of a humanoid that died less than 10 minutes ago. As a Reaction to killing a creature within 5 ft. of you, you can eat its brain. When you eat a brain, heal for 2d6 and learn one memory.
+  [Mind Blast] - Action, can replace an attack. Select a creature within 60 ft. They must make an Intelligence Save or take 2d8 + Int/Wis psychic and be stunned for 1 minute. They can repeat the save at the end of their turn. Use one time after a Short Rest.
+  [Detect Thoughts] - Can cast Detect Thoughts half PB times after a Long Rest.
+
+    -Weaknesses-
+  [Alien] - Unlikely to be helped or accepted and very likely to be attacked, especially by anyone that knows Mind Flayer lore.
+  [Megalomaniac] - Incredibly Self-Important, Arrogant, and Ambitious.
+  [Grey Matter Diet] - Must consume a humanoid brain at least once a week. A Mind flayer’s Intelligence drops by 1 on the eighth day and 1 more every day after. After consuming a brain, they instantly regain 2 Intelligence, but must wait and regain one per day afterwards to fully recover.
+  [Hivemind] - If turned under the control of or dominated by an Elder Brain, you are compelled to serve their desires and goals.
+
+    -Spreading and Removing the Morph-
+  [Spreading] - Introduce a ceramorph tadpole into the victim’s head.
+  [Cure] - The only way to cure it is with the Wish spell.
+
+    -The Crossover-
+ Mind Flayers don’t interact with the moon nor God’s Tear. They can, however, have strange and interesting interactions with the Eldritch Gods.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

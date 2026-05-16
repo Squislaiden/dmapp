@@ -1,1 +1,7 @@
-[]
+[
+ {"name":"Disengage"},
+ {"name":"Hide"},
+ {"name":"Dash"},
+ {"name":"Help"},
+ {"name":"Dodge"}
+]

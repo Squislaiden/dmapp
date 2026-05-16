@@ -1,1 +1,19 @@
-[]
+[
+ {"name":"Alteration Glyph","effect":"Rerolls all affixes. Cannot reroll Class Affixes.","weight":"400"},
+ {"name":"Augmentation Glyph","effect":"Add an affix to an item up to 2 affixes.","weight":"150"},
+ {"name":"Revision Glyph","effect":"1. Reroll the random Subtypes on an item’s affixes, or\n2. Reroll a Class Affix within known classes.\n\nSubtypes include affixes with multiple outcomes. For example, damage type, creature type, skills, etc.","weight":"135"},
+ {"name":"Scouring Glyph","effect":"Removes one random non-class affix.","weight":"125"},
+ {"name":"Chaotic Glyph","effect":"Use on a nonmagical item with no affixes to randomly modify the item.","weight":"115"},
+ {"name":"Exalted Glyph","effect":"Add an affix to an item up to 4, if the item rarity supports it.","weight":"105"},
+ {"name":"Intrinsic Glyph","effect":"Reroll the Innate affix(es) within the same Item Type.","weight":"94"},
+ {"name":"Expertise Glyph","effect":"Add a class affix to a ring wthat has no class affixes and has an unused affix slot. Class affixes roll within all classes than a character has at least 1 level in.","weight":"80"},
+ {"name":"Tainted Glyph","effect":"Irreversably corrupt an item. Randomly modifies the item with chances of changing the item, changing the affixes, adding tainted affixes, and more.\n\nTainted items:\n• can have duplicate affixes,\n• exceed the maximum affix limit,\n• ignore limitations, such as the 2 Class Affixes limit,\n• become incredibly difficult to break or destroy, and\n• Can never be modified again. (Topical effects like oils and temporary spells will still function.)","weight":"75"},
+ {"name":"Hollowing Glyph","effect":"Add a socket to an item with an unused affix slot.","weight":"64"},
+ {"name":"Infusion Glyph","effect":"Usable on any nonmagical item. Transform the item into a random Magic Item matching its Item Type.","weight":"52"},
+ {"name":"Ascension Glyph","effect":"Upgrade a random Affix to Tier 3.","weight":"40"},
+ {"name":"Fortification Glyph","effect":"Add a second Innate Affix within Item Type.","weight":"32"},
+ {"name":"Preservation Glyph","effect":"Freeze a random affix. This affix can no longer be changed or modified.","weight":"24"},
+ {"name":"Seizure Glyph","effect":"Remove a random affix from an item and store it as an Explicit Shard.","weight":"16"},
+ {"name":"Ambitious Glyph","effect":"A glyph that modifies the effects of other glyphs.\n\nAlternatively, change an item into a Cards of Chaos card:\n • Wonderous or 3+ Affix Item – Draw 1 Card\n • Very Rare or 4+ Affix Item – Draw 2 Cards\n • Legendary or Tainted 4+ Affix Item – Draw 3 Cards\n • Artifact or Tainted 6+ Affix Item – The whole Deck.
+","weight":"10"}
+]

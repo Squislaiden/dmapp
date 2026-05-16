@@ -1,0 +1,42 @@
+        -Therianthropes-
+    -Traits-
+  [Creature Type] - A therianthrope can be any land-based mammal (Eg, Werebear).
+  [Appearance] - Gruffer look. Body Hair. Tough skin.
+  [Resistance] - Immune to Non-Silvered Physical. Resist Magical Physical.
+  [Darkvision] - 60 ft. of Darkvision.
+  [Keen Senses] - Advantage on hearing and smelling.
+  [Proficiencies] - Upgrade Perception and Intimidation.
+  [Regeneration] - Regenerate 10 Hit Points at the start of your turn if you took nonmagical nonsilvered damage since the end of your previous turn.
+  [Strength of Body] - On the initial transformation, increase one of two physical stats by 2; species specific.
+  [Species Trait] - A trait unique to the species.
+
+    -Abilities-
+  [Were Form - An action to transform.
+  [Multiattack - One claw and then Claw or Bite. Instances of Extra Attack add an extra Claw attack.
+ (Claw) - Unarmed Melee Attack. 1d8 + Str Slash.
+ (Bite) - Unarmed Melee Attack. 2d6 + Str Pierce. Constitution Save or Poisoned until end of next turn.
+  [Movement] - +10 Movement Speed. 30 ft. Climb Speed.
+  [Natural Armor] - 10 + Con Mod + Str Mod while not wearing armor or using a shield.
+  [Gear] - Armor that has not been customized to flex will be torn off and left on the ground.
+
+    -Weaknesses-
+  [Full Moon] - +10 Speed, +2 AC, and +1d6 Claw and Bite.
+ Upon nightfall, a Wisdom Save must be made every hour until Dawn. On a fail, the creature must transform into Were Form and seek to attack and eat beasts and humanoids, favoring humanoids. A save ends the compulsion until the next save.
+  [Silver] - Silver bypasses all resistances and deals an additional 3d4 Acid Damage.
+  [Wolfsbane] - Ingest: Weakens Immunity for 1 hour       Incense: Force Transformation.
+
+    -Pack, Alpha, or Lone Wolf-
+  [Pack] - Pack Tactics. +2 Athletics.
+  [Alpha] - Pack Tactics. +3 Athletics. Leadership feat.
+  [Lone Wolf] - +2 Stealth. Howl: Wisdom Save or Frighten. Half-proficiency uses that recharge on Long Rest.
+
+    -Spreading and Removing the Curse-
+  [Spreading] - Being born of a werewolf, failing two successive Bite Saving Throws, or 1 Bite on a Full Moon, causes a transformation at the next Full Moon.
+  [Cure] - A paladin or cleric using Remove Curse must make a check. The check DC increases the closer the Full Moon is. The check uses Spellcasting Stat Modifier without Proficiency Bonus. Upcasting Remove Curse adds +1 to the roll for each additional Spell Level.
+DC = 10 up to 25 at Full Moon. An unwilling target adds +5 DC.
+ Creatures born weres can only be cured by Wish/Reincarnation.
+
+    -The Crossover-
+Therianthropes lose all sense of self and can sense Godsouls within 10 miles and are compelled to seek out and destroy them at all costs.
+
+(God's Tear and The Crossover are unique events within the Terramet universe)

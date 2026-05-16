@@ -1,17 +1,34 @@
 [
   {
-    "item": "Sword of Flames",
+    "item": "Sword of Test",
     "rarity": "Epic",
     "prerequisites": "Proficiency with longswords",
     "as": "1.75",
     "defense": "—",
     "damage": "1d8 slashing + 1d6 fire",
-    "spell_types": "Evocation",
+    "spell_types": "—",
     "properties": "Versatile (1d10), Flaming",
     "innate_affix": "Grants Fire Resistance",
     "materials":"Metal, Wood",
     "category": "Weapon",
     "type": "Sword",
-    "description": "A blade wreathed in living flame. On a hit, the target takes an additional 1d6 fire damage. As a bonus action, you can extinguish or reignite the flame. While lit, the sword sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+	"source": "",
+    "description": "__**Base Item**__ *(Longsword)*\nA blade wreathed in living flame. On a hit, the target takes an additional 1d6 fire damage. As a bonus action, you can extinguish or reignite the flame. While lit, the sword sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+  },
+   {
+    "item": "",
+    "rarity": "",
+    "prerequisites": "",
+    "as": "",
+    "defense": "—",
+    "damage": "",
+    "spell_types": "",
+    "properties": "",
+    "innate_affix": "",
+    "materials":"",
+    "category": "",
+    "type": "",
+	"source": "",
+    "description": "__**Base Item**__ *()*\n"
   }
 ]

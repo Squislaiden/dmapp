@@ -138,6 +138,10 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 #itemPropsContent p { margin-bottom:6px; }
 #itemPropsContent p:last-child { margin-bottom:0; }
 #itemPropsContent .card-rule { margin:8px 0; }
+.props-panel-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.props-panel-title { font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700; color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase; }
+.props-close-btn { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; border:1px solid rgba(255,107,107,.3); background:rgba(255,107,107,.08); color:var(--accent2); cursor:pointer; font-size:.9rem; line-height:1; flex-shrink:0; transition:all .15s; padding:0; }
+.props-close-btn:hover { background:rgba(255,107,107,.22); border-color:var(--accent2); }
 .filter-actions { margin-top:12px; display:flex; gap:10px; padding-top:12px; border-top:1px solid var(--border); }
 .filter-empty-note { font-size:.75rem; color:var(--text-muted); padding:8px 0; font-style:italic; }
 
@@ -1802,7 +1806,11 @@ function closeItemInfoPanel(){
   document.getElementById('itemFilterBtn').classList.remove('active');
   activeItemPanel=null;
 }
-function setItemPropsContent(html){ document.getElementById('itemPropsContent').innerHTML=html; }
+function closePropsPanel(){ closeItemInfoPanel(); }
+function setItemPropsContent(html, title){
+  const header=`<div class="props-panel-header"><span class="props-panel-title">${esc(title||'')}</span><button class="props-close-btn" onclick="closePropsPanel()" title="Close">✕</button></div>`;
+  document.getElementById('itemPropsContent').innerHTML=header+html;
+}
 
 wireTableSort('itemTable',itemSortState,renderItems);
 wirePills('itemFilterContent');
@@ -1872,18 +1880,18 @@ function showPropertiesPanel(title, file, flagKey){
     closeItemInfoPanel();
     return;
   }
-  setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(title)}…</div>`);
+  setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(title)}…</div>`, title);
   openItemInfoPanel('props');
   document.getElementById('itemDetailPanel')._propsFlag=flagKey;
   fetch(file)
     .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();})
     .then(txt=>{
       if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
-      setItemPropsContent(descMd(txt));
+      setItemPropsContent(descMd(txt), title);
     })
     .catch(err=>{
       if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
-      setItemPropsContent(`<p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`);
+      setItemPropsContent(`<p style="color:var(--accent2)">Could not load ${esc(file)}</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`, title);
     });
 }
 
@@ -1907,8 +1915,9 @@ document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
       return;
     }
     document.getElementById('itemDetailPanel')._propsFlag=flagKey;
-    setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(matName)} materials…</div>`);
+    setItemPropsContent(`<div style="color:var(--text-muted);font-size:.78rem">Loading ${esc(matName)} materials…</div>`, matName+' Materials');
     openItemInfoPanel('props');
+    document.getElementById('itemDetailPanel')._propsFlag=flagKey;
     fetch('materials.json')
       .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();})
       .then(data=>{
@@ -1919,11 +1928,11 @@ document.querySelectorAll('.mat-dropdown-item').forEach(btn=>{
         const body=entries.length
           ? entries.map(entry=>descMd(`**__${entry['name']||''}__**\n**Weapon Effect.** ${entry['weapon']||'—'}\n**Armor Effect.** ${entry['armor']||'—'}\n**Focus Effect.** ${entry['focus']||'—'}\n**Accessory Effect.** ${entry['accessory']||'—'}`)).join('<div class="card-rule" style="margin:6px 0"></div>')
           : `<p style="color:var(--text-muted);font-style:italic">No ${esc(matName)} materials found.</p>`;
-        setItemPropsContent(`${header}<div style="margin-top:6px">${body}</div>`);
+        setItemPropsContent(`${header}<div style="margin-top:6px">${body}</div>`, matName+' Materials');
       })
       .catch(err=>{
         if(document.getElementById('itemDetailPanel')._propsFlag!==flagKey)return;
-        setItemPropsContent(`<p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`);
+        setItemPropsContent(`<p style="color:var(--accent2)">Could not load materials.json</p><p style="color:var(--text-muted);font-size:.78rem;margin-top:4px">${esc(err.message)}</p>`, matName+' Materials');
       });
   });
 });

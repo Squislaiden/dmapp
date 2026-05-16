@@ -1252,7 +1252,27 @@ async function reincarnateBtn(){
   if(off){const d=await loadCharData('races_official','data/Character/races_official.json');out('charBox',d?weightedPick(d):'[Populate races_official.json]');}
   else{const d=await loadCharData('races','data/Character/races.json');out('charBox',d?pick(d).result:pick(racesAllFallback));}
 }
-async function transformationBtn(){const d=await loadJSON('data/Character/transformation.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate data/Character/transformation.json]');}
+async function transformationBtn(){
+  const d=await loadJSON('data/Character/transformation.json');
+  if(!d.length){out('charBox','[Populate data/Character/transformation.json]');return;}
+  const entry=pick(d);
+  const result=entry.result||entry.name||(typeof entry==='string'?entry:'');
+  if(!result){out('charBox','[Invalid entry in data/Character/transformation.json]');return;}
+  // Strip spaces for filename
+  const filename=result.replace(/\s+/g,'')+'.txt';
+  const path='data/Character/Transformations/'+filename;
+  try{
+    const r=await fetch(path);
+    if(r.ok){
+      const txt=await r.text();
+      out('charBox',txt);
+    }else{
+      out('charBox','['+result+'] - Could not load '+path);
+    }
+  }catch(e){
+    out('charBox','['+result+'] - Error loading '+path);
+  }
+}
 async function featBtn(){const d=await loadJSON('overhaul-feats.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate overhaul-feats.json]');}
 function weightedPick(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total);for(let i=0;i<arr.length;i++){roll-=(arr[i].weight||1);if(roll<=0)return arr[i].result;}return arr[arr.length-1].result;}
 async function genderBtn(){const d=await loadJSON('data/Character/gender.json');out('charBox',d.length?weightedPick(d):'[Populate data/Character/gender.json]');}

@@ -32,7 +32,7 @@
 
 **Thrown(#/#).** Weapon adds Modifier to Hit and Damage when thrown. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range). If the weapon also has the *Light* property, the same weapon type may be drawn as part of the Attack. 
 
-**Range(#/#).** The attack range of a Ranged weapon. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range). Non-Light Ranged weapons are inherently ***Unwieldly.***
+**Range(#/#).** The attack range of a Ranged weapon. Attacks are made at Disadvantage at ranges above the first number up to the second number (the maximum range). Non-Light Ranged weapons are inherently ***Unwieldy.***
 
 **Pierce(x).** Weapon can hit additional enemies in a line and ignores half of the initial target's Block.
 

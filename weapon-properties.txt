@@ -36,7 +36,7 @@
 
 **Pierce(x).** Weapon can hit additional enemies in a line and ignores half of the initial target's Block.
 
-**Multishot(#).** Weapons can fire extra projectiles in a single attack with a --2 Hit and Damage per additional projectile. Penalty applies to all projectiles from the attack.
+**Multishot(#).** Weapons can fire extra projectiles in a single attack with a --2 to Hit and Damage per additional projectile. Penalty applies to all projectiles from the attack. Additional Projectiles may target the primary target or creatures/objects within 10 ft. of the target.
 
 **Status(#-x).** The weapon inflicts buildup of a Status.
 

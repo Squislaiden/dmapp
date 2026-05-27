@@ -22,9 +22,9 @@
 
 **Arcing.** Weapon attacks ignore Cover.
 
-**Cleaving(#).** The weapon can hit a number of enemies adjacent to the target for half damage, roll Hit separately.
+**Cleave(#).** The weapon can hit a number of enemies adjacent to the target for half damage and half Buildup, roll Hit separately.
 
-**AoE(Shape-#).** The weapon can hit additional enemies in an area for half damage, roll Hit separately. The shape begin adjacent to the user, even if the weapon has ***Reach.*** The primary target is the circle's center, or the nearest. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
+**AoE(Shape-#).** The weapon can hit additional enemies in an area for half damage and half Buildup, roll Hit separately. The shape begins adjacent to the user, even if the weapon has ***Reach.*** The primary target is the circle's center, or the nearest. The possible Shapes are: Radi(circle radius), Line, and Cone. The number indicates how many 5 ft. multiples beyond the target.
 
 **Ammo(x).** Weapon requires ammunition to function.
 
@@ -36,9 +36,9 @@
 
 **Pierce(x).** Weapon can hit additional enemies in a line and ignores half of the initial target's Block.
 
-**Multishot(#).** Weapons can fire extra projectiles in a single attack with a --2 to Hit and Damage per additional projectile. Penalty applies to all projectiles from the attack. Additional Projectiles may target the primary target or creatures/objects within 10 ft. of the target.
+**Multishot(#).** Weapons can fire extra projectiles in a single attack with a -2 to Hit and Damage per additional projectile. Penalty applies to all projectiles from the attack. Additional Projectiles may target the primary target or creatures/objects within 10 ft. of the target.
 
-**Status(#-x).** The weapon inflicts buildup of a Status.
+**Status(#-x).** The weapon inflicts Buildup of a Status.
 
 **Arcing.** Weapon attacks ignore Cover.
 

@@ -251,7 +251,7 @@ td.name-cell { font-weight:600; color:var(--text-dim); font-size:.8rem; white-sp
   text-overflow: ellipsis;
 }
 #featTable th:nth-child(1),
-#featTable td:nth-child(1) { width: auto; white-space: normal; overflow: visible; text-overflow: clip; } /* Feat — never clips, natural width */
+#featTable td:nth-child(1) { width: 180px; min-width: 180px; white-space: normal; overflow: visible; text-overflow: clip; } /* Feat — fixed width, wraps */
 #featTable th:nth-child(2),
 #featTable td:nth-child(2) { width: 32ch; }                        /* Prerequisites — clips at 32ch */
 #featTable th:nth-child(3),
@@ -1968,7 +1968,7 @@ const FEAT_KEYS=['feat','prerequisites','description'];
 function buildFeatCard(feat, showActions){
   const name=feat['feat']||'', prereq=feat['prerequisites']||'', desc=feat['description']||'';
   const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="featCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button></div>`:'';
-  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${prereq?`<div style="font-size:.56rem;color:#8090aa;margin-top:3px;font-style:italic">Requires: ${esc(prereq)}</div>`:''}</div><div class="card-rule"></div><div class="card-desc-block" style="flex:none;overflow:visible">${descMd(desc)}</div><div class="card-footer-bar"><div style="font-family:'Cinzel',serif;font-size:.6rem;color:var(--accent3);font-weight:600">Feat</div></div>`;
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name" style="font-size:.9rem">${esc(name)}</div>${prereq?`<div style="font-size:.56rem;color:#8090aa;margin-top:3px;font-style:italic">Requires: ${esc(prereq)}</div>`:''}</div><div class="card-rule"></div><div class="card-desc-block">${descMd(desc)}</div><div class="card-footer-bar"><div style="font-family:'Cinzel',serif;font-size:.6rem;color:var(--accent3);font-weight:600">Feat</div></div>`;
 }
 
 function renderFeats(){

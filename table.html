@@ -1714,9 +1714,9 @@ function renderItems(){
       const affix=(r['innate_affix']||'').toLowerCase();
       const pl=p.toLowerCase();
       if(pl==='light')      return props.includes('light'); // Light: properties only
-      if(pl==='aoe(cone)')  return props.includes('cone')||affix.includes('cone');
-      if(pl==='aoe(circle)')return props.includes('radius')||affix.includes('radius');
-      if(pl==='aoe(line)')  return props.includes('line')||affix.includes('line');
+      if(pl==='aoe(cone)')  return (props.includes('cone')||affix.includes('cone'))&&(props.includes('aoe')||affix.includes('aoe'));
+      if(pl==='aoe(circle)')return (props.includes('radius')||affix.includes('radius'))&&(props.includes('aoe')||affix.includes('aoe'));
+      if(pl==='aoe(line)')  return (props.includes('line')||affix.includes('line'))&&(props.includes('aoe')||affix.includes('aoe'));
       return props.includes(pl)||affix.includes(pl); // all others: both fields
     };
     data=data.filter(r=>isAnd?f.props.every(p=>matchProp(r,p)):f.props.some(p=>matchProp(r,p)));
@@ -1855,6 +1855,7 @@ document.getElementById('applyItemFilters').addEventListener('click',()=>{
   if(damageType.length)itemFilters.damageType=damageType;
   if(spellType.length) itemFilters.spellType=spellType;
   if(props.length)     itemFilters.props=props;
+  if(armorProps.length)itemFilters.armorProps=armorProps;
   const attunementCb=document.querySelector('#ifAttunementPill input');
   if(attunementCb&&attunementCb.checked) itemFilters.attunement=true;
   if(status.length)    itemFilters.status=status;

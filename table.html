@@ -882,7 +882,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Divine"/><div class="pill-dot"></div><span>Divine</span></label>
         <label class="check-pill"><input type="checkbox" value="Nature"/><div class="pill-dot"></div><span>Nature</span></label>
         <label class="check-pill"><input type="checkbox" value="Eldritch"/><div class="pill-dot"></div><span>Eldritch</span></label>
-        <label class="check-pill"><input type="checkbox" value="Neutral"/><div class="pill-dot"></div><span>Neutral</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -902,6 +901,9 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Arcing"/><div class="pill-dot"></div><span>Arcing</span></label>
         <label class="check-pill"><input type="checkbox" value="Cleave"/><div class="pill-dot"></div><span>Cleave</span></label>
         <label class="check-pill"><input type="checkbox" value="AoE"/><div class="pill-dot"></div><span>AoE</span></label>
+        <label class="check-pill"><input type="checkbox" value="AoE(Cone)"/><div class="pill-dot"></div><span>AoE(Cone)</span></label>
+        <label class="check-pill"><input type="checkbox" value="AoE(Circle)"/><div class="pill-dot"></div><span>AoE(Circle)</span></label>
+        <label class="check-pill"><input type="checkbox" value="AoE(Line)"/><div class="pill-dot"></div><span>AoE(Line)</span></label>
         <label class="check-pill"><input type="checkbox" value="Ammo"/><div class="pill-dot"></div><span>Ammo</span></label>
         <label class="check-pill"><input type="checkbox" value="Load"/><div class="pill-dot"></div><span>Load</span></label>
         <label class="check-pill"><input type="checkbox" value="Thrown"/><div class="pill-dot"></div><span>Thrown</span></label>
@@ -944,7 +946,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       <div class="filter-toggle-col"></div>
       <div class="filter-row-checks" id="ifStatus">
         <label class="check-pill"><input type="checkbox" value="Poison"/><div class="pill-dot"></div><span>Poison</span></label>
-        <label class="check-pill"><input type="checkbox" value="Bleeding"/><div class="pill-dot"></div><span>Bleeding</span></label>
+        <label class="check-pill"><input type="checkbox" value="Bleed"/><div class="pill-dot"></div><span>Bleed</span></label>
         <label class="check-pill"><input type="checkbox" value="Rupture"/><div class="pill-dot"></div><span>Rupture</span></label>
         <label class="check-pill"><input type="checkbox" value="Burning"/><div class="pill-dot"></div><span>Burning</span></label>
         <label class="check-pill"><input type="checkbox" value="Weaken"/><div class="pill-dot"></div><span>Weaken</span></label>
@@ -1707,15 +1709,29 @@ function renderItems(){
   }
   if(f.props&&f.props.length){
     const isAnd=itemLogic.props==='and';
-    data=data.filter(r=>isAnd
-      ? f.props.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase()))
-      : f.props.some(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+    const matchProp=(r,p)=>{
+      const props=(r['properties']||'').toLowerCase();
+      const affix=(r['innate_affix']||'').toLowerCase();
+      const pl=p.toLowerCase();
+      if(pl==='light')      return props.includes('light'); // Light: properties only
+      if(pl==='aoe(cone)')  return props.includes('cone')||affix.includes('cone');
+      if(pl==='aoe(circle)')return props.includes('radius')||affix.includes('radius');
+      if(pl==='aoe(line)')  return props.includes('line')||affix.includes('line');
+      return props.includes(pl)||affix.includes(pl); // all others: both fields
+    };
+    data=data.filter(r=>isAnd?f.props.every(p=>matchProp(r,p)):f.props.some(p=>matchProp(r,p)));
   }
   if(f.armorProps&&f.armorProps.length){
     const isAnd=itemLogic.armorProps==='and';
-    data=data.filter(r=>isAnd
-      ? f.armorProps.every(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase()))
-      : f.armorProps.some(p=>(r['properties']||'').toLowerCase().includes(p.toLowerCase())));
+    const matchArmor=(r,p)=>{
+      const props=(r['properties']||'').toLowerCase();
+      const affix=(r['innate_affix']||'').toLowerCase();
+      const pl=p.toLowerCase();
+      // Focus checks properties field for "Focus"
+      if(pl==='focus') return props.includes('focus');
+      return props.includes(pl)||affix.includes(pl);
+    };
+    data=data.filter(r=>isAnd?f.armorProps.every(p=>matchArmor(r,p)):f.armorProps.some(p=>matchArmor(r,p)));
   }
   if(f.status&&f.status.length)    data=data.filter(r=>f.status.some(s=>(r['properties']||'').toLowerCase().includes(s.toLowerCase())||(r['innate_affix']||'').toLowerCase().includes(s.toLowerCase())));
 

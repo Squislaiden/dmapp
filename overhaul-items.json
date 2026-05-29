@@ -1801,7 +1801,7 @@
     "properties": "Two-Handed(12)",
     "innate_affix": "+1 Spell DC",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "12"
   },
@@ -1815,7 +1815,7 @@
     "properties": "Two-Handed(13)",
     "innate_affix": "+1 Spell Hit",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "36"
   },
@@ -1829,7 +1829,7 @@
     "properties": "Two-Handed(12), Lunge",
     "innate_affix": "+2 Affliction",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "34"
   },
@@ -1843,7 +1843,7 @@
     "properties": "Two-Handed(11)",
     "innate_affix": "--10% Mana Cost",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "38"
   },
@@ -1857,7 +1857,7 @@
     "properties": "Two-Handed(13), Reach(1)",
     "innate_affix": "+1.0 Spell Potency for Nature Spells",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "52"
   },
@@ -1871,7 +1871,7 @@
     "properties": "Two-Handed(13)",
     "innate_affix": "Double Durations",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "60"
   },
@@ -1885,7 +1885,7 @@
     "properties": "Two-Handed(14), Cleave(2)",
     "innate_affix": "Double Targets",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "70"
   },
@@ -1899,7 +1899,7 @@
     "properties": "Two-Handed(13), Reverb",
     "innate_affix": "+20 ft. Range and +10 ft. Radius",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "120"
   },
@@ -1913,7 +1913,7 @@
     "properties": "Two-Handed(16), Hooked(Charisma)",
     "innate_affix": "+5 Dmg, Pay 1 HP per Spell Level",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Staff",
     "val": "220"
   },
@@ -1927,7 +1927,7 @@
     "properties": "Light",
     "innate_affix": "+25% Healing Effect",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "10"
   },
@@ -1941,7 +1941,7 @@
     "properties": "Light",
     "innate_affix": "Ritual: x2 Target, Duration, & Cast Time",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "28"
   },
@@ -1955,7 +1955,7 @@
     "properties": "Light",
     "innate_affix": "Enchantment: +1 Target, +2 DC",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "25"
   },
@@ -1969,7 +1969,7 @@
     "properties": "Light",
     "innate_affix": "Gain 5 Ward on spending Mana",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "30"
   },
@@ -1983,7 +1983,7 @@
     "properties": "Light",
     "innate_affix": "Double Spell Effects (not Damage)",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "32"
   },
@@ -1997,7 +1997,7 @@
     "properties": "Light",
     "innate_affix": "Targeted Spells can be a 20 ft. Cone",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "62"
   },
@@ -2011,7 +2011,7 @@
     "properties": "Light",
     "innate_affix": "Melee/Touch Spells have 30 ft. Range",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "69"
   },
@@ -2025,7 +2025,7 @@
     "properties": "Light",
     "innate_affix": "Light and Divine Spell Double Effect",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "73"
   },
@@ -2039,7 +2039,7 @@
     "properties": "Light",
     "innate_affix": "Spend Hit Dice for +Damage or +DC",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Scepter",
     "val": "100"
   },
@@ -2053,7 +2053,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+1 Innate Socket",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "10"
   },
@@ -2067,7 +2067,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "--10% Offensive Spell Mana Cost",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "17"
   },
@@ -2081,7 +2081,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Use Reactionion Spells twice per Round",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "24"
   },
@@ -2095,7 +2095,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double Range and Line Distance",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "31"
   },
@@ -2109,7 +2109,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "x3 Projectiles, Half Damage (3-per-Tar)",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "50"
   },
@@ -2123,7 +2123,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "All Spells heal affected Allies by PB x2",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "64"
   },
@@ -2137,7 +2137,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Cantrips are 1 Upgrade Higher",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "78"
   },
@@ -2151,7 +2151,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "--3 to Spell Hit, +3 to Spell DC",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "105"
   },
@@ -2165,7 +2165,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+5 Dmg and +2 DC with Elements",
     "materials": "Wood, Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Wand",
     "val": "138"
   },
@@ -2179,7 +2179,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+10 ft. Movement Speed",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Fan",
     "val": "22"
   },
@@ -2193,7 +2193,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "May convert Spell damage to Cold",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Fan",
     "val": "37"
   },
@@ -2207,7 +2207,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Air, Wind, Gas Spells: x2 Area and Effect",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Fan",
     "val": "44"
   },
@@ -2221,7 +2221,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double Spell Radius",
     "materials": "Wood, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Fan",
     "val": "58"
   },
@@ -2235,7 +2235,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "--10% Defensive Spell Mana Cost",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "12"
   },
@@ -2249,7 +2249,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Debuff Spells Double Targets",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "21"
   },
@@ -2263,7 +2263,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Buff Spells Double Targets",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "29"
   },
@@ -2277,7 +2277,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Ranged Spells are Touch, Double Effect",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "36"
   },
@@ -2291,7 +2291,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Deal Poison Buildup equal to Spell Level",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "40"
   },
@@ -2305,7 +2305,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Illusions: +1 DC, Double Dimensions",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "58"
   },
@@ -2319,7 +2319,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+2 Dodge, +2 to all Saving Throws",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "67"
   },
@@ -2333,7 +2333,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Buff Spells can be 1 Minute 20 ft. Auras",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "76"
   },
@@ -2347,7 +2347,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Conjured: +50% HP and +5 ft. Speed",
     "materials": "Stone, Metal",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Seal",
     "val": "170"
   },
@@ -2361,7 +2361,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+1 to Non-Physical/Psychic Resistances",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "8"
   },
@@ -2375,7 +2375,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double Earth Spell Range and Size",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "14"
   },
@@ -2389,7 +2389,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+33% Healing, +50% Plant Damage",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "22"
   },
@@ -2403,7 +2403,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double Healing/Growth, Half Damage",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "27"
   },
@@ -2417,7 +2417,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+3 Block, +1 Physical Resistances",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "31"
   },
@@ -2431,7 +2431,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Hit Targets are pulled 5 ft. toward you",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "52"
   },
@@ -2445,7 +2445,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Self Heal 2 HP per Target on Spell Cast",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "60"
   },
@@ -2459,7 +2459,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+5 Max Willpower, +2 to Willpower Roll",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "68"
   },
@@ -2473,7 +2473,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double Buildup, Inflicts you too at half",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "100"
   },
@@ -2487,7 +2487,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Each Damage Dice may target different",
     "materials": "Wood, Stone",
-    "category": "Focus",
+    "category": "Spell Focus",
     "type": "Catalyst",
     "val": "145"
   },
@@ -2554,7 +2554,7 @@
     "defense": "3 Block",
     "damage": "2d4 + 2 Fire",
     "spell_types": "—",
-    "properties": "Utility, Focus(Holy)",
+    "properties": "Utility, Spell Focus(Holy)",
     "innate_affix": "+2 Mana Points, Sheds 40 ft. of Dim Light",
     "materials": "Wood, Metal",
     "category": "Armor",
@@ -2568,7 +2568,7 @@
     "defense": "2 Block, 3 Ward",
     "damage": "2d4 + 2 Bludgeoning",
     "spell_types": "—",
-    "properties": "Utility, Focus(Nature)",
+    "properties": "Utility, Spell Focus(Nature)",
     "innate_affix": "+2 Mana Points, the Shield is considered as a Tree and a Plant in relation to Spells",
     "materials": "Wood, Metal",
     "category": "Armor",
@@ -2582,7 +2582,7 @@
     "defense": "1 Block, 4 Ward",
     "damage": "2d4 + 2 Bludgeoning",
     "spell_types": "—",
-    "properties": "Utility, Focus(Neutral)",
+    "properties": "Utility, Spell Focus(Neutral)",
     "innate_affix": "+2 Mana Points, Bash Hits recharge 2 Ward",
     "materials": "Wood, Metal",
     "category": "Armor",
@@ -2736,7 +2736,7 @@
     "defense": "5 Ward",
     "damage": "2d6 + 1 Thunder",
     "spell_types": "—",
-    "properties": "Shield, Focus(Arcane), AoE(Radi-1)",
+    "properties": "Shield, Spell Focus(Arcane), AoE(Radi-1)",
     "innate_affix": "+4 Mana Points, +5 ft. to ranged Spells",
     "materials": "Metal",
     "category": "Armor",
@@ -2792,7 +2792,7 @@
     "defense": "7 Ward",
     "damage": "—",
     "spell_types": "—",
-    "properties": "Shield, Focus(Elemental), Rubberized",
+    "properties": "Shield, Spell Focus(Elemental), Rubberized",
     "innate_affix": "+4 Mana Points, +4 Ward Regen",
     "materials": "Metal",
     "category": "Armor",
@@ -2806,7 +2806,7 @@
     "defense": "3 Block, 5 Ward",
     "damage": "2d6 + 2 Bludgeoning",
     "spell_types": "—",
-    "properties": "Shield, Focus(Holy), Cooling",
+    "properties": "Shield, Spell Focus(Holy), Cooling",
     "innate_affix": "+4 Mana Points, Non-AoE Holy Spells instead Target all valid targets in a 5 ft. Radius",
     "materials": "Metal",
     "category": "Armor",
@@ -2946,7 +2946,7 @@
     "defense": "6 Block, 9 Ward",
     "damage": "3d6 + 3 Fire",
     "spell_types": "—",
-    "properties": "Great, Focus(Holy), Glorious",
+    "properties": "Great, Spell Focus(Holy), Glorious",
     "innate_affix": "Holy Spells: +20 ft. Area or +2 Targets",
     "materials": "Metal",
     "category": "Armor",
@@ -4837,7 +4837,7 @@
     "damage": "—",
     "spell_types": "—",
     "properties": "—",
-    "innate_affix": "Divine Focus",
+    "innate_affix": "Divine Spell Focus",
     "materials": "Metal, Stone",
     "category": "Accessory",
     "type": "Amulet",
@@ -4851,7 +4851,7 @@
     "damage": "—",
     "spell_types": "—",
     "properties": "—",
-    "innate_affix": "Arcane Focus",
+    "innate_affix": "Arcane Spell Focus",
     "materials": "Metal, Stone",
     "category": "Accessory",
     "type": "Amulet",
@@ -4865,7 +4865,7 @@
     "damage": "—",
     "spell_types": "—",
     "properties": "—",
-    "innate_affix": "Nature Focus",
+    "innate_affix": "Nature Spell Focus",
     "materials": "Metal, Stone",
     "category": "Accessory",
     "type": "Amulet",
@@ -4879,7 +4879,7 @@
     "damage": "—",
     "spell_types": "—",
     "properties": "—",
-    "innate_affix": "Eldritch Focus",
+    "innate_affix": "Eldritch Spell Focus",
     "materials": "Metal, Stone, Fabric",
     "category": "Accessory",
     "type": "Amulet",

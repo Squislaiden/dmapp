@@ -822,7 +822,6 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Ranged"/><div class="pill-dot"></div><span>Ranged</span></label>
         <label class="check-pill"><input type="checkbox" value="Colossal"/><div class="pill-dot"></div><span>Colossal</span></label>
         <label class="check-pill"><input type="checkbox" value="Throwing"/><div class="pill-dot"></div><span>Throwing</span></label>
-        <label class="check-pill"><input type="checkbox" value="Other"/><div class="pill-dot"></div><span>Other</span></label>
       </div>
     </div>
     <div class="filter-row">
@@ -1703,8 +1702,8 @@ function renderItems(){
   if(f.spellType&&f.spellType.length){
     const isAnd=itemLogic.spellType==='and';
     data=data.filter(r=>isAnd
-      ? f.spellType.every(s=>(r['spell_types']||'').includes(s))
-      : f.spellType.some(s=>(r['spell_types']||'').includes(s)));
+      ? f.spellType.every(s=>{const st=(r['spell_types']||'').toLowerCase();return st.includes(s.toLowerCase())||st.includes('varies');})
+      : f.spellType.some(s=>{const st=(r['spell_types']||'').toLowerCase();return st.includes(s.toLowerCase())||st.includes('varies');}));
   }
   if(f.props&&f.props.length){
     const isAnd=itemLogic.props==='and';

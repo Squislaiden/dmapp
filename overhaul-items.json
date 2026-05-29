@@ -119,7 +119,7 @@
     "damage": "2d4 + 2 Piercing",
     "spell_types": "—",
     "properties": "Light, Conceal, Status(2-Rupture)",
-    "innate_affix": "**Reaction:** Dex vs Strength check to disarm attacker",
+    "innate_affix": "Reaction: Dex vs Strength check to disarm attacker",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Dagger",
@@ -259,7 +259,7 @@
     "damage": "2d12 + 3 Slashing",
     "spell_types": "—",
     "properties": "Two-Handed(19)",
-    "innate_affix": "When attacked, **Reaction:** +3 Block",
+    "innate_affix": "When attacked, Reaction: +3 Block",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Sword",
@@ -343,7 +343,7 @@
     "damage": "2d8 + 2 Piercing",
     "spell_types": "—",
     "properties": "Finesse, Flexible",
-    "innate_affix": "**Empty Off Hand:** +2 Hit  and Dodge",
+    "innate_affix": "Empty Off Hand: +2 Hit  and Dodge",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Sword",
@@ -357,7 +357,7 @@
     "damage": "2d6 + 4 Piercing",
     "spell_types": "—",
     "properties": "Finesse, Status(3-Rupture)",
-    "innate_affix": "When attacked, **Reaction:** +3 Dodge, on miss, Attack",
+    "innate_affix": "When attacked, Reaction: +3 Dodge, on miss, Attack",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Sword",
@@ -371,7 +371,7 @@
     "damage": "1d10 + 3 Piercing",
     "spell_types": "—",
     "properties": "Finesse, Status(4-Poison)",
-    "innate_affix": "**Empty Off Hand:** Lunge Property and +2 Damage",
+    "innate_affix": "Empty Off Hand: Lunge Property and +2 Damage",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Sword",
@@ -693,7 +693,7 @@
     "damage": "1d10 + 3 Piercing",
     "spell_types": "—",
     "properties": "Light, Thrown(60/240)",
-    "innate_affix": "**Empty OH:** Throw: 2d6 +3 and (120/240)",
+    "innate_affix": "Empty OH: Throw: 2d6 +3 and (120/240)",
     "materials": "Metal, Stone, Wood",
     "category": "Weapon",
     "type": "Head Polearm",
@@ -721,7 +721,7 @@
     "damage": "1d12 + 4 Piercing",
     "spell_types": "—",
     "properties": "Balanced, Lunge, Thrown(40/160)",
-    "innate_affix": "When **2H(16):** Damage is 2d8 + 4",
+    "innate_affix": "When 2H(16): Damage is 2d8 + 4",
     "materials": "Metal, Stone, Wood",
     "category": "Weapon",
     "type": "Head Polearm",
@@ -735,7 +735,7 @@
     "damage": "2d8 + 2 Piercing",
     "spell_types": "—",
     "properties": "Reach(1)",
-    "innate_affix": "When **2H(16):** +2 Dmg and AoE(Line-1)",
+    "innate_affix": "When 2H(16): +2 Dmg and AoE(Line-1)",
     "materials": "Metal, Stone, Wood",
     "category": "Weapon",
     "type": "Head Polearm",
@@ -1057,7 +1057,7 @@
     "damage": "1d8 + 3 Slashing",
     "spell_types": "—",
     "properties": "Light,Balanced,Status(...)",
-    "innate_affix": "**Reaction/Bonus Action:** Swap Status: 2-Rupt, 3-Psn, or 3-Bld",
+    "innate_affix": "Reaction/Bonus Action: Swap Status: 2-Rupt, 3-Psn, or 3-Bld",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Fist",
@@ -1141,7 +1141,7 @@
     "damage": "2d6 + 2 Bludgeoning",
     "spell_types": "—",
     "properties": "Light, Balanced, Conceal",
-    "innate_affix": "**No Off Hand Weapon:** Hits Stun (DC 9+PB+Str)",
+    "innate_affix": "No Off Hand Weapon: Hits Stun (DC 9+PB+Str)",
     "materials": "Metal, Stone",
     "category": "Weapon",
     "type": "Fist",
@@ -1435,7 +1435,7 @@
     "damage": "2d8 + 3 Piercing",
     "spell_types": "—",
     "properties": "Range(150/600), Ammo(Arrow)",
-    "innate_affix": "**Bonus Action:** No Long Range Disadvantage",
+    "innate_affix": "Bonus Action: No Long Range Disadvantage",
     "materials": "Metal, Wood",
     "category": "Weapon",
     "type": "Bow",
@@ -1672,8 +1672,8 @@
     "defense": "—",
     "damage": "3d8 + 4 Bludgeoning 2d8 + 2 Thunder",
     "spell_types": "—",
-    "properties": "Unwieldy, Balanced,**  *Staff Form* **-- Siege, Reach(1)***  *Fan Form* ***-- AoE(Cone-2), Reverb",
-    "innate_affix": "**Reactionion:** Swap form: Staff or Fan:* ***Staff --**  +4 Block, +2 to Hit, +0.5 AS*, ***Fan --** +1 AoE(Cone-1) per 3 Str Mod,Knockback 10 ft. (DC  10 + Str), and Blind (DC 10 + Str)",
+    "properties": "Unwieldy, Balanced,  Staff Form -- Siege, Reach(1)  Fan Form -- AoE(Cone-2), Reverb",
+    "innate_affix": "Reactionion: Swap form: Staff or Fan: Staff --  +4 Block, +2 to Hit, +0.5 AS, Fan -- +1 AoE(Cone-1) per 3 Str Mod,Knockback 10 ft. (DC  10 + Str), and Blind (DC 10 + Str)",
     "materials": "Base Type Materials",
     "category": "Weapon",
     "type": "Colossal",
@@ -1687,7 +1687,7 @@
     "damage": "3d8 + 4 Bludgeoning",
     "spell_types": "—",
     "properties": "Unwieldy, Balanced, Reach(2)",
-    "innate_affix": "Up to once per turn, replace one Attack or as a **Reactionion,** propel yourself up to 5 ft. per 2 Str Mod in any direction without triggering opportunity attacks",
+    "innate_affix": "Up to once per turn, replace one Attack or as a Reactionion, propel yourself up to 5 ft. per 2 Str Mod in any direction without triggering opportunity attacks",
     "materials": "Base Type Materials",
     "category": "Weapon",
     "type": "Colossal",
@@ -1792,7 +1792,7 @@
     "val": "250"
   },
   {
-    "item": "*(Wood)* Staff",
+    "item": "(Wood) Staff",
     "prerequisites": "11 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -1806,7 +1806,7 @@
     "val": "12"
   },
   {
-    "item": "*(Metal)* Staff",
+    "item": "(Metal) Staff",
     "prerequisites": "15 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -1918,7 +1918,7 @@
     "val": "220"
   },
   {
-    "item": "*(Wood)* Scepter",
+    "item": "(Wood) Scepter",
     "prerequisites": "11 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -1932,7 +1932,7 @@
     "val": "10"
   },
   {
-    "item": "*(Metal)* Scepter",
+    "item": "(Metal) Scepter",
     "prerequisites": "15 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2044,7 +2044,7 @@
     "val": "100"
   },
   {
-    "item": "*(Wood)* Wand",
+    "item": "(Wood) Wand",
     "prerequisites": "11 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2058,7 +2058,7 @@
     "val": "10"
   },
   {
-    "item": "*(Metal)* Wand",
+    "item": "(Metal) Wand",
     "prerequisites": "15 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2170,7 +2170,7 @@
     "val": "138"
   },
   {
-    "item": "*(Wood)* Fan",
+    "item": "(Wood) Fan",
     "prerequisites": "11 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2184,7 +2184,7 @@
     "val": "22"
   },
   {
-    "item": "*(Metal)* Fan",
+    "item": "(Metal) Fan",
     "prerequisites": "15 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2226,7 +2226,7 @@
     "val": "58"
   },
   {
-    "item": "*(Stone)* Seal",
+    "item": "(Stone) Seal",
     "prerequisites": "13 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2240,7 +2240,7 @@
     "val": "12"
   },
   {
-    "item": "*(Metal)* Seal",
+    "item": "(Metal) Seal",
     "prerequisites": "15 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2352,7 +2352,7 @@
     "val": "170"
   },
   {
-    "item": "*(Wood)* Catalyst",
+    "item": "(Wood) Catalyst",
     "prerequisites": "11 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2366,7 +2366,7 @@
     "val": "8"
   },
   {
-    "item": "*(Stone)* Catalyst",
+    "item": "(Stone) Catalyst",
     "prerequisites": "13 Spell Stat",
     "as": "—",
     "defense": "—",
@@ -2527,7 +2527,7 @@
     "damage": "—",
     "spell_types": "—",
     "properties": "Utility, Angular",
-    "innate_affix": "When attacked, **Reaction:** +3 Dodge",
+    "innate_affix": "When attacked, Reaction: +3 Dodge",
     "materials": "Wood, Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2541,7 +2541,7 @@
     "damage": "2d4 + 3 Bludgeoning",
     "spell_types": "—",
     "properties": "Utility, Deflective",
-    "innate_affix": "When attacked, **Reaction:** +2 Block",
+    "innate_affix": "When attacked, Reaction: +2 Block",
     "materials": "Wood, Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2653,7 +2653,7 @@
     "damage": "2d6 + 3 Piercing",
     "spell_types": "—",
     "properties": "Shield, Frightful, Angular, Status(2-Bleed)",
-    "innate_affix": "When attacked, **Reaction:** Make a Bash Attack against the attacker",
+    "innate_affix": "When attacked, Reaction: Make a Bash Attack against the attacker",
     "materials": "Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2723,7 +2723,7 @@
     "damage": "2d6 + 3 Slashing",
     "spell_types": "—",
     "properties": "Shield, Glorious, Angular",
-    "innate_affix": "When falling, **Reaction:** Shift Form. While Shifted, you Glide while falling, but the Shield cannot be wielded",
+    "innate_affix": "When falling, Reaction: Shift Form. While Shifted, you Glide while falling, but the Shield cannot be wielded",
     "materials": "Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2779,7 +2779,7 @@
     "damage": "2d6 + 2 Bludgeoning",
     "spell_types": "—",
     "properties": "Shield, Bulky, Padded, Lunge",
-    "innate_affix": "**Reaction:** Move up to 10 ft. to intercept a projectile targetting an ally. If it is fully Blocked, your Reaction is not used",
+    "innate_affix": "Reaction: Move up to 10 ft. to intercept a projectile targetting an ally. If it is fully Blocked, your Reaction is not used",
     "materials": "Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2821,7 +2821,7 @@
     "damage": "2d6 + 2 Bludgeoning",
     "spell_types": "—",
     "properties": "Shield, Padded, Angular, Deflect",
-    "innate_affix": "**Bonus Action:** Swap between Modes: 6 Ward,  4 Block, and 4 Dodge",
+    "innate_affix": "Bonus Action: Swap between Modes: 6 Ward,  4 Block, and 4 Dodge",
     "materials": "Metal",
     "category": "Armor",
     "type": "Shield",
@@ -2905,7 +2905,7 @@
     "damage": "2d8 + 2 Bludgeoning",
     "spell_types": "—",
     "properties": "Great, Padded, Angular",
-    "innate_affix": "**Reaction:** Brace. While Braced: +7 Block and you cannot Move. **Bonus Action:** Unbrace",
+    "innate_affix": "Reaction: Brace. While Braced: +7 Block and you cannot Move. Bonus Action: Unbrace",
     "materials": "Metal",
     "category": "Armor",
     "type": "Shield",
@@ -4578,7 +4578,7 @@
     "val": "340"
   },
   {
-    "item": "*(Stone)* Pendant",
+    "item": "(Stone) Pendant",
     "prerequisites": "—",
     "as": "—",
     "defense": "—",
@@ -4592,7 +4592,7 @@
     "val": "40"
   },
   {
-    "item": "*(Metal)* Pendant",
+    "item": "(Metal) Pendant",
     "prerequisites": "—",
     "as": "—",
     "defense": "—",
@@ -4606,7 +4606,7 @@
     "val": "72"
   },
   {
-    "item": "*(Fabric)* Necklace",
+    "item": "(Fabric) Necklace",
     "prerequisites": "—",
     "as": "—",
     "defense": "—",
@@ -5166,7 +5166,7 @@
     "val": "300"
   },
   {
-    "item": "*(Fabric)* Ring",
+    "item": "(Fabric) Ring",
     "prerequisites": "—",
     "as": "—",
     "defense": "—",
@@ -5180,7 +5180,7 @@
     "val": "58"
   },
   {
-    "item": "*(Metal)* Ring",
+    "item": "(Metal) Ring",
     "prerequisites": "—",
     "as": "—",
     "defense": "—",

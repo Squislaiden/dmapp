@@ -900,10 +900,10 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <label class="check-pill"><input type="checkbox" value="Lunge"/><div class="pill-dot"></div><span>Lunge</span></label>
         <label class="check-pill"><input type="checkbox" value="Hooked"/><div class="pill-dot"></div><span>Hooked</span></label>
         <label class="check-pill"><input type="checkbox" value="Arcing"/><div class="pill-dot"></div><span>Arcing</span></label>
-        <label class="check-pill"><input type="checkbox" value="Cleaving"/><div class="pill-dot"></div><span>Cleaving</span></label>
+        <label class="check-pill"><input type="checkbox" value="Cleave"/><div class="pill-dot"></div><span>Cleave</span></label>
         <label class="check-pill"><input type="checkbox" value="AoE"/><div class="pill-dot"></div><span>AoE</span></label>
         <label class="check-pill"><input type="checkbox" value="Ammo"/><div class="pill-dot"></div><span>Ammo</span></label>
-        <label class="check-pill"><input type="checkbox" value="Loading"/><div class="pill-dot"></div><span>Loading</span></label>
+        <label class="check-pill"><input type="checkbox" value="Load"/><div class="pill-dot"></div><span>Load</span></label>
         <label class="check-pill"><input type="checkbox" value="Thrown"/><div class="pill-dot"></div><span>Thrown</span></label>
         <label class="check-pill"><input type="checkbox" value="Multishot"/><div class="pill-dot"></div><span>Multishot</span></label>
         <label class="check-pill"><input type="checkbox" value="Status"/><div class="pill-dot"></div><span>Status</span></label>
@@ -1679,10 +1679,10 @@ function renderItems(){
   if(f.types&&f.types.length)      data=data.filter(r=>f.types.includes(r['category']||''));
   if(f.rarity&&f.rarity.length) data=data.filter(r=>f.rarity.includes(r['rarity']||''));
   if(f.attunement) data=data.filter(r=>(r['prerequisites']||'').toLowerCase().includes('requires attunement'));
-  if(f.weapons&&f.weapons.length)  data=data.filter(r=>f.weapons.some(w=>(r['category']||r['type']||'').includes(w)));
-  if(f.spellFocus&&f.spellFocus.length) data=data.filter(r=>f.spellFocus.some(s=>(r['category']||r['type']||'').includes(s)));
-  if(f.armor&&f.armor.length)      data=data.filter(r=>f.armor.some(a=>(r['category']||r['type']||'').includes(a)));
-  if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['category']||r['type']||'').includes(a)));
+  if(f.weapons&&f.weapons.length)  data=data.filter(r=>f.weapons.some(w=>(r['type']||'').includes(w)));
+  if(f.spellFocus&&f.spellFocus.length) data=data.filter(r=>f.spellFocus.some(s=>(r['type']||'').includes(s)));
+  if(f.armor&&f.armor.length)      data=data.filter(r=>f.armor.some(a=>(r['type']||'').includes(a)));
+  if(f.accessory&&f.accessory.length) data=data.filter(r=>f.accessory.some(a=>(r['type']||'').includes(a)));
   if(f.defense&&f.defense.length){
     const isAnd=itemLogic.defense==='and';
     data=data.filter(r=>isAnd
@@ -1702,8 +1702,8 @@ function renderItems(){
   if(f.spellType&&f.spellType.length){
     const isAnd=itemLogic.spellType==='and';
     data=data.filter(r=>isAnd
-      ? f.spellType.every(s=>{const st=(r['spell_types']||'').toLowerCase();return st.includes(s.toLowerCase())||st.includes('varies');})
-      : f.spellType.some(s=>{const st=(r['spell_types']||'').toLowerCase();return st.includes(s.toLowerCase())||st.includes('varies');}));
+      ? f.spellType.every(s=>{const st=(r['spell_types']||'').toLowerCase();const isVaries=st.includes('varies');if(s.toLowerCase()==='eldritch')return st.includes('eldritch');return st.includes(s.toLowerCase())||isVaries;})
+      : f.spellType.some(s=>{const st=(r['spell_types']||'').toLowerCase();const isVaries=st.includes('varies');if(s.toLowerCase()==='eldritch')return st.includes('eldritch');return st.includes(s.toLowerCase())||isVaries;}));
   }
   if(f.props&&f.props.length){
     const isAnd=itemLogic.props==='and';

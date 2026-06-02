@@ -51,6 +51,12 @@ hr.sep{border:none;border-top:1px solid var(--border);margin:8px 0}
 .btn-fade-red{background:linear-gradient(180deg,#8a4a4a 0%,#5a2828 100%);box-shadow:0 2px 0 #3a1818,0 3px 6px rgba(0,0,0,.25);color:#e8c8c8;font-size:.72rem;border:1px solid #9a5a5a}
 optgroup{color:var(--accent);font-weight:bold;font-style:normal;background:var(--bg-card)}
 optgroup option{color:var(--text);font-weight:normal}
+.subtypes-details{margin-bottom:5px}
+.subtypes-summary{text-align:center;cursor:pointer;padding:4px;list-style:none;user-select:none;border-radius:var(--radius);transition:background .15s}
+.subtypes-summary::-webkit-details-marker{display:none}
+.subtypes-summary:hover{background:rgba(255,255,255,.04)}
+.subtypes-summary::before{content:'▶ ';color:var(--accent);font-size:.7rem;display:inline-block;transition:transform .15s;margin-right:4px}
+.subtypes-details[open] .subtypes-summary::before{transform:rotate(90deg)}
 .btn-fade-red:hover{color:#fff;border-color:#b06a6a;background:linear-gradient(180deg,#9a5a5a 0%,#6a3838 100%)}
 .btn-fade-red:active{box-shadow:0 1px 0 #3a1818;transform:translateY(1px)}
 .btn-info{background:linear-gradient(180deg,#4a7aaa 0%,#2a4a6a 100%);box-shadow:0 2px 0 #1a3050,0 3px 6px rgba(0,0,0,.25);color:#d0e8ff;font-size:.72rem;border:1px solid #5a8aba}
@@ -822,11 +828,13 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 
 <hr class="sep">
 
-<!-- Subtypes -->
-<div style="text-align:center;margin-bottom:5px">
+<!-- Subtypes (expandable) -->
+<details class="subtypes-details">
+<summary class="subtypes-summary">
 <span style="font-family:var(--font-display);font-size:.92rem;color:var(--accent);font-weight:bold">Subtypes</span>
 <span style="font-size:.84rem;color:var(--text-dim);margin-left:4px">(Revision Glyph)</span>
-</div>
+</summary>
+<div style="margin-top:5px">
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:5px 3px">
 <button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('action')">Action</button>
 <button class="btn btn-green" style="white-space:nowrap;width:100%" onclick="subtypeBtn('weapon')">Weapon</button>
@@ -858,6 +866,8 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 <button class="btn btn-green" onclick="subtypeBtn('status-instant')">Status (Instant)</button>
 </div>
 <div style="text-align:center;font-size:.82rem;color:var(--text-dim);margin-top:6px">(5e) - Reroll if result is Overhaul-Specific</div>
+</div>
+</details>
 
 <hr class="sep">
 

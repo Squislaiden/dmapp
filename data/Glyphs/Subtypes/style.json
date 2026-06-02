@@ -1,1 +1,15 @@
-[]
+[
+ {"name":"Archery"},
+ {"name":"Blessed Warrior"},
+ {"name":"Blind Fighting"},
+ {"name":"Defense"},
+ {"name":"Druidic Warrior"},
+ {"name":"Dueling"},
+ {"name":"Great Weapon Fighting"},
+ {"name":"Interception"},
+ {"name":"Protection"},
+ {"name":"Superior Technique"},
+ {"name":"Thrown Weapon Fighting"},
+ {"name":"Two-Weapon Fighting"},
+ {"name":"Unarmed Fighting"}
+]

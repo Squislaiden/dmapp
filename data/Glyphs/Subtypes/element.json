@@ -1,1 +1,7 @@
-[]
+[
+ {"name":"Fire"},
+ {"name":"Water"},
+ {"name":"Lightning"},
+ {"name":"Earth"},
+ {"name":"Air"}
+]

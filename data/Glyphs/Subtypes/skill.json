@@ -1,1 +1,21 @@
-[]
+[
+ {"name":"Acrobatics (Dex)"},
+ {"name":"Athletics (Str)"},
+ {"name":"Sleight of Hand (Dex)"},
+ {"name":"Stealth (Dex)"},
+ {"name":"Initiative (Dex)"},
+ {"name":"Arcana (Int[History] or Spell Stat)"},
+ {"name":"History (Int)"},
+ {"name":"Investigation (Int)"},
+ {"name":"Nature (int)"},
+ {"name":"Religion (Int)"},
+ {"name":"Animal Handling (Wis)"},
+ {"name":"Insight (Wis)"},
+ {"name":"Medicine (Wis)"},
+ {"name":"Perception (Wis)"},
+ {"name":"Survival (Wis)"},
+ {"name":"Deception (Cha)"},
+ {"name":"Intimidation (Cha)"},
+ {"name":"Performance (Cha)"},
+ {"name":"Persuasion (Cha)"}
+]

@@ -1,1 +1,12 @@
-[]
+[
+ {"name":"Arctic"},
+ {"name":"Coast"},
+ {"name":"Desert"},
+ {"name":"Forest"},
+ {"name":"Grassland"},
+ {"name":"Jungle"},
+ {"name":"Mountain"},
+ {"name":"Swamp"},
+ {"name":"Underground/Underdark"},
+ {"name":"Urban"}
+]

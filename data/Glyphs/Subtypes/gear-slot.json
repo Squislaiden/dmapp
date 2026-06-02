@@ -1,0 +1,10 @@
+[
+ {"name":"Head"},
+ {"name":"Torso"},
+ {"name":"Hands"},
+ {"name":"Legs"},
+ {"name":"Shield"},
+ {"name":"Amulet"},
+ {"name":"Ring 1"},
+ {"name":"Ring 2"}
+]

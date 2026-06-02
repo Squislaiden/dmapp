@@ -1,1 +1,13 @@
-[]
+[
+ {"name":"Poison"},
+ {"name":"Bleeding"},
+ {"name":"Rupture"},
+ {"name":"Burning"},
+ {"name":"Weaken"},
+ {"name":"Rot"},
+ {"name":"Electrify"},
+ {"name":"Frailty"},
+ {"name":"Chill"},
+ {"name":"Sleep"},
+ {"name":"Disease"}
+]

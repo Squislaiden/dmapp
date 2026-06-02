@@ -1,1 +1,8 @@
-[]
+[
+ {"name":"Staves"},
+ {"name":"Scepters"},
+ {"name":"Wands"},
+ {"name":"Seals"},
+ {"name":"Fans"},
+ {"name":"Catalysts"}
+]

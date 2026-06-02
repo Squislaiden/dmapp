@@ -1,1 +1,16 @@
-[]
+[
+ {"name":"Abjuration"},
+ {"name":"Bladesinging"},
+ {"name":"Chronurgy"},
+ {"name":"Conjuration"},
+ {"name":"Divination"},
+ {"name":"Enchantment"},
+ {"name":"Evocation"},
+ {"name":"Graviturgy"},
+ {"name":"Illusion"},
+ {"name":"Necromancy"},
+ {"name":"Order of Scribes"},
+ {"name":"Transmutation"},
+ {"name":"War Magic"},
+ {"name":"Spatial"}
+]

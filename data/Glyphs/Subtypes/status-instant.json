@@ -1,1 +1,15 @@
-[]
+[
+ {"name":"Debilitated (Poisoned)"},
+ {"name":"Malaise (Exhaustion)"},
+ {"name":"Stunned"},
+ {"name":"Paralyzed"},
+ {"name":"Frozen"},
+ {"name":"Slowed"},
+ {"name":"Blinded"},
+ {"name":"Deafened"},
+ {"name":"Silenced"},
+ {"name":"Charmed"},
+ {"name":"Frightened"},
+ {"name":"Petrified"},
+ {"name":"Restrained(Grappled)"}
+]

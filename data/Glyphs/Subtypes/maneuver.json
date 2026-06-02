@@ -1,1 +1,24 @@
-[]
+[
+ {"name":"Ambush"},
+ {"name":"Bait and Switch"},
+ {"name":"Brace"},
+ {"name":"Commander's Strike"},
+ {"name":"Commanding Presence"},
+ {"name":"Disarming Attack"},
+ {"name":"Distracting Strike"},
+ {"name":"Evasive Footwork"},
+ {"name":"Feinting Attack"},
+ {"name":"Goading Attack"},
+ {"name":"Grappling Strike"},
+ {"name":"Lunging Attack"},
+ {"name":"Maneuvering Attack"},
+ {"name":"Menacing Attack"},
+ {"name":"Parry"},
+ {"name":"Precision Attack"},
+ {"name":"Quick Toss"},
+ {"name":"Rally"},
+ {"name":"Riposte"},
+ {"name":"Sweeping Attack"},
+ {"name":"Tactical Assessment"},
+ {"name":"Trip Attack"}
+]

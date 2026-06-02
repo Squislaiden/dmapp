@@ -1,1 +1,16 @@
-[]
+[
+ {"name":"Aberrations"},
+ {"name":"Beasts"},
+ {"name":"Celestials"},
+ {"name":"Constructs"},
+ {"name":"Dragons"},
+ {"name":"Elementals"},
+ {"name":"Fey"},
+ {"name":"Fiends"},
+ {"name":"Giants"},
+ {"name":"Humanoids"},
+ {"name":"Monstrosities"},
+ {"name":"Oozes"},
+ {"name":"Plants"},
+ {"name":"Undead"}
+]

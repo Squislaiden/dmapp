@@ -1,1 +1,12 @@
-[]
+[
+ {"name":"Blinded and Defeaned"},
+ {"name":"Frightened"},
+ {"name":"Restrained(Grappled)"},
+ {"name":"Paralyzed"},
+ {"name":"Petrified"},
+ {"name":"Poisoned"},
+ {"name":"Stunned"},
+ {"name":"Diseased"},
+ {"name":"Cursed"},
+ {"name":"Charmed"}
+]

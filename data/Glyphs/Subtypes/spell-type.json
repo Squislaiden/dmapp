@@ -1,1 +1,6 @@
-[]
+[
+ {"name":"Arcane"},
+ {"name":"Divine"},
+ {"name":"Nature"},
+ {"name":"Neutral"}
+]

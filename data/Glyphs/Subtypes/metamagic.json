@@ -1,1 +1,12 @@
-[]
+[
+ {"name":"Careful Spell"},
+ {"name":"Distant Spell"},
+ {"name":"Empowered Spell"},
+ {"name":"Extended Spell"},
+ {"name":"Heightened Spell"},
+ {"name":"Quickened Spell"},
+ {"name":"Seeking Spell"},
+ {"name":"Subtle Spell"},
+ {"name":"Transmuted Spell"},
+ {"name":"Twinned Spell"}
+]

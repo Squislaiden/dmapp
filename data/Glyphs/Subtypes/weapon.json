@@ -1,1 +1,15 @@
-[]
+[
+ {"name":"Daggers"},
+ {"name":"Swords"},
+ {"name":"Axes"},
+ {"name":"Hammers"},
+ {"name":"Head Polearms"},
+ {"name":"Bladed Polearms"},
+ {"name":"Twinblade Weapons"},
+ {"name":"Fist Weapons"},
+ {"name":"Corded"},
+ {"name":"Throwing Weapons"},
+ {"name":"Bows"},
+ {"name":"Crossbows"},
+ {"name":"Firearms"}
+]

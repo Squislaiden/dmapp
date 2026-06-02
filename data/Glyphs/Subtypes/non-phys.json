@@ -1,1 +1,12 @@
-[]
+[
+ {"name":"Acid"},
+ {"name":"Cold"},
+ {"name":"Fire"},
+ {"name":"Force"},
+ {"name":"Lightning"},
+ {"name":"Necrotic"},
+ {"name":"Poison"},
+ {"name":"Psychic"},
+ {"name":"Radiant"},
+ {"name":"Thunder"}
+]

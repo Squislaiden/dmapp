@@ -1,1 +1,11 @@
-[]
+[
+ {"name":"Archfey"},
+ {"name":"Celestial"},
+ {"name":"Fathomless"},
+ {"name":"Fiend"},
+ {"name":"Genie"},
+ {"name":"Great Old One"},
+ {"name":"Hexblade"},
+ {"name":"Undead"},
+ {"name":"Undying"}
+]

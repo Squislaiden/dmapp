@@ -1,1 +1,7 @@
-[]
+[
+ {"name":"Physical (Bludgeoning, Slashing, and Piercing)"},
+ {"name":"Elemental (Fire, Lightning, and Cold)"},
+ {"name":"Decay (Acid, Poison, and Necrotic)"},
+ {"name":"Mystic (Force, Radiant, and Thunder)"},
+ {"name":"Psychic"}
+]

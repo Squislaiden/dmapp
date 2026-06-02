@@ -14,5 +14,5 @@
  {"name":"Fortification Glyph","effect":"Add a second Innate Affix within Item Type.","weight":"32"},
  {"name":"Preservation Glyph","effect":"Freeze a random affix. This affix can no longer be changed or modified.","weight":"24"},
  {"name":"Seizure Glyph","effect":"Remove a random affix from an item and store it as an Explicit Shard.","weight":"16"},
- {"name":"Ambitious Glyph","effect":"A glyph that modifies the effects of other glyphs.\n\nAlternatively, change an item into a Cards of Chaos card:\n • Wonderous or 3+ Affix Item – Draw 1 Card\n • Very Rare or 4+ Affix Item – Draw 2 Cards\n • Legendary or Tainted 4+ Affix Item – Draw 3 Cards\n • Artifact or Tainted 6+ Affix Item – The whole Deck.","weight":"10"}
+ {"name":"Ambitious Glyph","effect":"A glyph that modifies the effects of other glyphs.\nAlternatively, change an item into a Cards of Chaos card:\n • Wonderous or 3+ Affix Item – Draw 1 Card\n • Very Rare or 4+ Affix Item – Draw 2 Cards\n • Legendary or Tainted 4+ Affix Item – Draw 3 Cards\n • Artifact or Tainted 6+ Affix Item – The whole Deck.","weight":"10"}
 ]

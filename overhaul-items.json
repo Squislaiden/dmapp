@@ -1798,7 +1798,7 @@
     "defense": "—",
     "damage": "1d8+Mod Bludgeoning",
     "spell_types": "Varies",
-    "properties": "Two-Handed(12)",
+    "properties": "Two-Handed(12)\n***(Elderwood)*** - *[Divine Spell Type]*\n***(Ironwood)*** - *[Arcane Spell Type]*",
     "innate_affix": "+1 Spell DC",
     "materials": "Wood, Metal",
     "category": "Spell Focus",

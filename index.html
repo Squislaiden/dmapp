@@ -1284,7 +1284,7 @@ async function transformationBtn(){
   }
 }
 async function featBtn(){const d=await loadJSON('overhaul-feats.json');out('charBox',d.length?pick(d).result||pick(d).name||JSON.stringify(pick(d)):'[Populate overhaul-feats.json]');}
-function weightedPick(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total);for(let i=0;i<arr.length;i++){roll-=(arr[i].weight||1);if(roll<=0)return arr[i].result;}return arr[arr.length-1].result;}
+function weightedPick(arr){const total=arr.reduce((a,e)=>a+(Number(e.weight)||1),0);let roll=rng(1,total);for(let i=0;i<arr.length;i++){roll-=(Number(arr[i].weight)||1);if(roll<=0)return arr[i].result;}return arr[arr.length-1].result;}
 async function genderBtn(){const d=await loadJSON('data/Character/gender.json');out('charBox',d.length?weightedPick(d):'[Populate data/Character/gender.json]');}
 async function sexualityBtn(){const d=await loadJSON('data/Character/sexuality.json');out('charBox',d.length?weightedPick(d):'[Populate data/Character/sexuality.json]');}
 async function classBtn(){const d=await loadCharData('classes','data/Character/classes.json');out('charBox',d?pick(d).result:pick(classes5eFallback).n);}
@@ -1652,7 +1652,7 @@ function ipUpdateRarityColor(){
   const colors={Common:'',Uncommon:'#3ec23e',Rare:'#3e7ad4',Epic:'#a766c2',Legendary:'#FC7F03',Mythic:'#d63d3d'};
   sel.style.color=colors[sel.value]||'';
 }
-function weightedIdx(arr){const total=arr.reduce((a,e)=>a+(e.weight||1),0);let r=rng(1,total);for(let j=0;j<arr.length;j++){r-=(arr[j].weight||1);if(r<=0)return j;}return arr.length-1;}
+function weightedIdx(arr){const total=arr.reduce((a,e)=>a+(Number(e.weight)||1),0);let r=rng(1,total);for(let j=0;j<arr.length;j++){r-=(Number(arr[j].weight)||1);if(r<=0)return j;}return arr.length-1;}
 async function genGlyphsBtn(useWeight){
   const d=await loadJSON('data/glyphs.json');
   if(!d.length){out('glyphBox','[Populate data/glyphs.json]');return;}

@@ -174,11 +174,15 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 <div style="margin-top:12px">
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Madness:</label></div>
-<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button></div>
-<div class="inline-row" style="margin-top:4px"><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="madnessGen('short')">Short</button><button class="btn btn-primary" onclick="madnessGen('long')">Long</button><button class="btn btn-primary" onclick="madnessGen('indefinite')">Indefinite</button><button class="btn btn-primary" onclick="madnessGen('insanity')">Insanity</button></div>
+</div>
+<div style="margin-top:12px">
+<div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random God (Terramet):</label></div>
+<div class="inline-row"><button class="btn btn-primary" onclick="godGen('any')">Any Deity</button><button class="btn btn-primary" onclick="godGen('God')">God</button><button class="btn btn-primary" onclick="godGen('Outer')">Outer God</button></div>
+<div class="inline-row mt-xs"><button class="btn btn-primary" onclick="godGen('Nature')">Nature God</button><button class="btn btn-primary" onclick="godGen('Archdevil')">Archdevil</button></div>
 </div>
 </div>
-<div style="flex:0 0 auto;margin-left:-80px">
+<div style="flex:0 0 auto;margin-left:-30px">
 <div>
 <div class="inline-row"><label style="font-size:.88rem;text-decoration:underline;font-weight:bold">Random Weather:</label></div>
 <div class="inline-row"><button class="btn btn-primary" onclick="weatherGen()">Generate</button></div>
@@ -963,7 +967,23 @@ function jumpCalc(){const s=Number(document.getElementById('jumpStr').value),st=
 async function externalPart(){const d=await loadJSON('data/Tools/external_parts.json');if(!d.length){out('toolsBox','[Populate data/Tools/external_parts.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Body Part: '+d[i].result);}
 async function internalPart(){const d=await loadJSON('data/Tools/organs.json');if(!d.length){out('toolsBox','[Populate data/Tools/organs.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}let r=d[i].result;if(d[i].bodypart){const bp=["Back","Upper Left Arm","Upper Right Arm","Left Forearm","Right Forearm","Chest","Left Thigh","Right Thigh","Left Calf","Right Calf","Right Hand","Left Hand","Right Foot","Left Foot"];if(d[i].spine_chance&&rng(1,14)===1)r="Spine";else r=pick(bp)+' '+r;}out('toolsBox','Organ: '+r);}
 async function conjureCR(){const d=await loadJSON('data/Tools/conjure_cr.json');if(d.length){out('toolsBox','Conjure CR: '+pick(d).result);}else{out('toolsBox','Conjure CR: '+pick(["Half the Max CR","1 CR Under Max","Max CR; Poor Pick","Max CR; Good Pick"]));}}
-async function wildMagicGen(path){const d=await loadJSON(path);if(d.length){out('toolsBox','Wild Magic: '+pick(d).result);}else{out('toolsBox','[Populate '+path+']');}}async function criticalFail(){const d=await loadJSON('data/Tools/critical_fail.json');if(!d.length){out('toolsBox','[Populate data/Tools/critical_fail.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Critical Fail: '+d[i].result);}async function madnessGen(type){let dur,res,file;if(type==='short'){dur=rng(1,10)+' min';file='madness_short';}else if(type==='long'){const h=rng(1,10)*10;dur=h+' hrs ('+(h/24).toFixed(1)+' days)';file='madness_long';}else if(type==='indefinite'){dur='Indefinite';file='madness_indefinite';}else{dur='Insanity';file='madness_insanity';}const d=await loadJSON('data/Tools/'+file+'.json');const label=type[0].toUpperCase()+type.slice(1);res=d.length?'('+label+') '+pick(d).result:'('+label+') [Populate data/Tools/'+file+'.json]';out('toolsBox','['+dur+']\n'+res);}
+async function wildMagicGen(path){const d=await loadJSON(path);if(d.length){out('toolsBox','Wild Magic: '+pick(d).result);}else{out('toolsBox','[Populate '+path+']');}}
+async function godGen(filter){
+  const d=await loadJSON('data/Tools/gods.json');
+  if(!d.length){out('toolsBox','[Populate data/Tools/gods.json]');return;}
+  let pool;
+  if(filter==='any')pool=d;
+  else pool=d.filter(g=>(g.type||'').toLowerCase().includes(filter.toLowerCase()));
+  if(!pool.length){out('toolsBox','No deities matching "'+filter+'" found in data/Tools/gods.json');return;}
+  const g=pick(pool);
+  const lines=[];
+  if(g.name)lines.push(g.name);
+  if(g.type)lines.push('('+g.type+')');
+  if(g.description)lines.push(g.description);
+  else if(g.effect)lines.push(g.effect);
+  else if(g.domain)lines.push('Domain: '+g.domain);
+  out('toolsBox',lines.join('\n'));
+}async function criticalFail(){const d=await loadJSON('data/Tools/critical_fail.json');if(!d.length){out('toolsBox','[Populate data/Tools/critical_fail.json]');return;}const total=d.reduce((a,e)=>a+(e.weight||1),0);let roll=rng(1,total),i=0;for(;i<d.length;i++){roll-=(d[i].weight||1);if(roll<=0)break;}out('toolsBox','Critical Fail: '+d[i].result);}async function madnessGen(type){let dur,res,file;if(type==='short'){dur=rng(1,10)+' min';file='madness_short';}else if(type==='long'){const h=rng(1,10)*10;dur=h+' hrs ('+(h/24).toFixed(1)+' days)';file='madness_long';}else if(type==='indefinite'){dur='Indefinite';file='madness_indefinite';}else{dur='Insanity';file='madness_insanity';}const d=await loadJSON('data/Tools/'+file+'.json');const label=type[0].toUpperCase()+type.slice(1);res=d.length?'('+label+') '+pick(d).result:'('+label+') [Populate data/Tools/'+file+'.json]';out('toolsBox','['+dur+']\n'+res);}
 function getDiceHistory(){try{return JSON.parse(localStorage.getItem('diceHistory'))||[];}catch(e){return[];}}
 function saveDiceHistory(h){while(h.length>50)h.shift();localStorage.setItem('diceHistory',JSON.stringify(h));}
 function rollDice(){const dice=[{s:2,id:'d2Num'},{s:4,id:'d4Num'},{s:6,id:'d6Num'},{s:8,id:'d8Num'},{s:10,id:'d10Num'},{s:12,id:'d12Num'},{s:20,id:'d20Num'},{s:100,id:'d100Num'}];let txt='',gt=0,summary='';const mod=Number(document.getElementById('diceMod').value);dice.forEach(d=>{let q=Number(document.getElementById(d.id).value);if(q>0){let r=[],t=0;for(let i=0;i<q;i++){const v=rng(1,d.s);r.push(v);t+=v;}txt+='d'+d.s+'('+r.join('+')+')='+t+'\n';summary+=(summary?'+':'')+q+'d'+d.s;gt+=t;}});gt+=mod;if(mod!==0)summary+=(mod>=0?'+':'')+mod;txt+='Mod:'+(mod>=0?'+':'')+mod+' Total:'+gt;out('toolsBox',txt);if(summary){const now=new Date();const entry='('+now.toLocaleDateString()+')-{'+now.toLocaleTimeString()+'}-['+summary+']='+gt;const h=getDiceHistory();h.push(entry);saveDiceHistory(h);}}

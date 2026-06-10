@@ -381,19 +381,34 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
 .detail-panel.open { display:flex; animation:fadeInRight .22s ease; }
 @keyframes fadeInRight { from{opacity:0;transform:translateX(12px)} to{opacity:1;transform:translateX(0)} }
 
-/* Mobile: slide in from right, float above page */
+/* Mobile: overlay card at natural size, centered vertically, right-aligned */
 @media (max-width:900px) {
+  /* Backdrop — clicking it closes the card */
+  .detail-panel-backdrop {
+    display:none;
+    position:fixed; inset:0; z-index:498;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(1px);
+  }
+  .detail-panel-backdrop.open { display:block; }
+
   .detail-panel {
-    position:fixed; top:0; right:-100%; bottom:0;
-    width:min(var(--card-w), 92vw); min-width:0;
-    z-index:500; display:flex; flex-direction:column;
-    background:#0d0f14; overflow-y:auto;
-    transition:right .28s cubic-bezier(.32,0,.67,0);
-    box-shadow:-4px 0 24px rgba(0,0,0,.6);
+    position:fixed;
+    top:50%; right:12px;
+    transform:translateY(-50%);
+    width:var(--card-w); min-width:unset; max-width:calc(100vw - 24px);
+    max-height:calc(100vh - 48px);
+    overflow-y:auto;
+    z-index:499; display:none; flex-direction:column;
+    box-shadow:-2px 0 32px rgba(0,0,0,.7);
+    border-radius:10px;
+    transition:none;
   }
   .detail-panel.open {
-    right:0; display:flex; animation:none;
+    display:flex; animation:fadeInRight .22s ease;
   }
+  /* Lock page scroll while card is open */
+  body.card-open { overflow:hidden; }
 }
 
 /* Close button in card actions bar */
@@ -597,7 +612,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
       All
     </button>
-    <button class="source-btn" data-src="overhaul-spells.json" id="srcOverhaul">
+    <button class="source-btn" data-src="all-spells.json" data-overhaul="true" id="srcOverhaul">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Overhaul Only
     </button>
@@ -733,6 +748,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <div class="empty-state" id="spellEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No spells match.</p></div>
       </div>
     </div>
+    <div class="detail-panel-backdrop no-print" id="spellBackdrop"></div>
     <div class="detail-panel no-print" id="spellDetailPanel">
       <div class="spell-card" id="spellDetailCard"></div>
     </div>
@@ -1042,6 +1058,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <div class="empty-state" id="itemEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No items match.</p></div>
       </div>
     </div>
+    <div class="detail-panel-backdrop no-print" id="itemBackdrop"></div>
     <div class="detail-panel no-print" id="itemDetailPanel">
       <div class="item-card" id="itemDetailCard"></div>
     </div>
@@ -1081,6 +1098,7 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
         <div class="empty-state" id="featEmpty" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No feats match.</p></div>
       </div>
     </div>
+    <div class="detail-panel-backdrop no-print" id="featBackdrop"></div>
     <div class="detail-panel no-print" id="featDetailPanel">
       <div class="feat-card" id="featDetailCard"></div>
     </div>
@@ -1124,7 +1142,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 });
 
 /* ── Description markdown renderer (for spell desc only) ── */
-function descMd(raw){
+function alphaSort(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
   if(!raw)return'';
   const lines=raw.split('\n');const out=[];let i=0;
   while(i<lines.length){
@@ -1203,7 +1221,7 @@ document.getElementById('themeSelect').addEventListener('change',e=>applyTheme(e
    SPELLS
 ══════════════════════════════════════════════ */
 let SPELLS=[], spellCurrentRow=null, spellSortState={col:0,dir:'asc'};
-let spellQuery='', spellFilters={}, spellSource='all-spells.json';
+let spellQuery='', spellFilters={}, spellSource='all-spells.json', overhaulOnly=false;
 const SPELL_KEYS=['name','level','cost','cast time','rit.','school','type','con.','range'];
 const LVL_LABELS={'0':'Cantrip','1':'1st','2':'2nd','3':'3rd','4':'4th','5':'5th','6':'6th','7':'7th','8':'8th','9':'9th'};
 const SPELL_GROUP_LABELS={level:'Level',classes:'Class',school:'School',magicType:'Type',castTime:'Cast',range:'Range',other:''};
@@ -1227,6 +1245,7 @@ function buildSpellCard(spell, showActions){
 
 function renderSpells(){
   let data=[...SPELLS];
+  if(overhaulOnly) data=data.filter(r=>String(r['overhaul']||'').toLowerCase()==='true');
   if(spellQuery){const q=spellQuery.toLowerCase();data=data.filter(r=>SPELL_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q))||(r['classes']||'').toLowerCase().includes(q)||(r['description']||'').toLowerCase().includes(q));}
   const f=spellFilters;
   if(f.level&&f.level.length) data=data.filter(r=>f.level.includes(String(parseInt(r['level'],10))));
@@ -1240,7 +1259,7 @@ function renderSpells(){
   if(f.other&&f.other.includes('Instantaneous')) data=data.filter(r=>(r['duration']||'').toLowerCase()==='instantaneous');
   if(f.other&&f.other.includes('Duration')) data=data.filter(r=>(r['duration']||'').toLowerCase()!=='instantaneous');
   const k=SPELL_KEYS[spellSortState.col];
-  data.sort((a,b)=>{let va=a[k]||'',vb=b[k]||'';if(k==='level'){va=parseInt(va,10)||0;vb=parseInt(vb,10)||0;}else{va=String(va).toLowerCase();vb=String(vb).toLowerCase();}return va<vb?(spellSortState.dir==='asc'?-1:1):va>vb?(spellSortState.dir==='asc'?1:-1):0;});
+  data.sort((a,b)=>{let va=a[k]||'',vb=b[k]||'';if(k==='level'){va=parseInt(va,10)||0;vb=parseInt(vb,10)||0;}else{va=alphaSort(va);vb=alphaSort(vb);}return va<vb?(spellSortState.dir==='asc'?-1:1):va>vb?(spellSortState.dir==='asc'?1:-1):0;});
   const q=spellQuery;
   const tbody=document.getElementById('spellBody');
   tbody.innerHTML=data.map(row=>{
@@ -1275,6 +1294,8 @@ function openSpellDetail(spell){
   const spellCloseBtn=card.querySelector('#spellCardCloseBtn');
   if(spellCloseBtn)spellCloseBtn.addEventListener('click',()=>closeSpellDetail());
   document.getElementById('spellDetailPanel').classList.add('open');
+  document.getElementById('spellBackdrop').classList.add('open');
+  document.body.classList.add('card-open');
   document.querySelectorAll('#spellBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.name===spell['name']));
 }
 function closeSpellDetail(){
@@ -1282,6 +1303,8 @@ function closeSpellDetail(){
   const panel=document.getElementById('spellDetailPanel');
   panel.classList.remove('open');
   panel._showingChanges=false;
+  document.getElementById('spellBackdrop').classList.remove('open');
+  document.body.classList.remove('card-open');
   document.querySelectorAll('#spellBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 
@@ -1347,10 +1370,12 @@ function renderSpellTags(){
 document.querySelectorAll('[data-src]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const src=btn.dataset.src;
-    if(src===spellSource)return;
+    const isOverhaul=btn.dataset.overhaul==='true';
+    if(src===spellSource&&isOverhaul===overhaulOnly)return;
     spellSource=src;
-    setCookie('spellGridSource',src);
-    document.querySelectorAll('[data-src]').forEach(b=>b.classList.toggle('active',b.dataset.src===src));
+    overhaulOnly=isOverhaul;
+    setCookie('spellGridSource', isOverhaul?'overhaul-only':src);
+    document.querySelectorAll('[data-src]').forEach(b=>b.classList.toggle('active',b===btn));
     closeSpellDetail();
     spellQuery=''; document.getElementById('spellSearch').value='';
     loadSpells(src);
@@ -1420,7 +1445,7 @@ function addToBulk(spell,forceExtended){
   if(bulkSortField){applyBulkSort();rebuildBulkDOM();}else{appendBulkSlot(id,spell,extended);}
   updateBulkMeta();
 }
-function applyBulkSort(){if(!bulkSortField)return;bulkCards.sort((a,b)=>{let va,vb;if(bulkSortField==='name'){va=(a.spell['name']||'').toLowerCase();vb=(b.spell['name']||'').toLowerCase();}else if(bulkSortField==='cost'){va=parseInt(a.spell['cost'])||0;vb=parseInt(b.spell['cost'])||0;}else{va=parseInt(a.spell['level'],10)||0;vb=parseInt(b.spell['level'],10)||0;}return(va<vb?-1:va>vb?1:0)*(bulkSortAsc?1:-1);});}
+function applyBulkSort(){if(!bulkSortField)return;bulkCards.sort((a,b)=>{let va,vb;if(bulkSortField==='name'){va=alphaSort(a.spell['name']);vb=alphaSort(b.spell['name']);}else if(bulkSortField==='cost'){va=parseInt(a.spell['cost'])||0;vb=parseInt(b.spell['cost'])||0;}else{va=parseInt(a.spell['level'],10)||0;vb=parseInt(b.spell['level'],10)||0;}return(va<vb?-1:va>vb?1:0)*(bulkSortAsc?1:-1);});}
 function rebuildBulkDOM(){const area=document.getElementById('bulkArea');area.querySelectorAll('.bulk-slot').forEach(el=>el.remove());bulkCards.forEach(({id,spell,extended})=>appendBulkSlot(id,spell,extended));}
 
 /* Column slider */
@@ -1769,7 +1794,7 @@ function renderItems(){
   if(f.status&&f.status.length)    data=data.filter(r=>f.status.some(s=>(r['properties']||'').toLowerCase().includes(s.toLowerCase())||(r['innate_affix']||'').toLowerCase().includes(s.toLowerCase())));
 
   const k=ITEM_KEYS[itemSortState.col];
-  data.sort((a,b)=>{let va=String(a[k]||'').toLowerCase(),vb=String(b[k]||'').toLowerCase();return(va<vb?-1:va>vb?1:0)*(itemSortState.dir==='asc'?1:-1);});
+  data.sort((a,b)=>{let va=alphaSort(a[k]),vb=alphaSort(b[k]);return(va<vb?-1:va>vb?1:0)*(itemSortState.dir==='asc'?1:-1);});
   const q=itemQuery;
   document.getElementById('itemBody').innerHTML=data.map(row=>{
     const asDisplay=fmtAS(row['as']);
@@ -1789,7 +1814,6 @@ function openItemDetail(item){
   itemCurrentRow=item;
   const card=document.getElementById('itemDetailCard');
   card.innerHTML=buildItemCard(item,true);
-  // Apply rarity border to card element itself
   const rarity=item['rarity']||'';
   const isWond=(item['category']||'').toLowerCase()==='wondrous'||(item['type']||'').toLowerCase()==='wondrous';
   const rc=rarity?(isWond&&rarity!=='Artifact'?RARITY_WOND_COLORS[rarity]:RARITY_COLORS[rarity])||null:null;
@@ -1799,6 +1823,8 @@ function openItemDetail(item){
   const itemCloseBtn=card.querySelector('#itemCardCloseBtn');
   if(itemCloseBtn)itemCloseBtn.addEventListener('click',()=>closeItemDetail());
   document.getElementById('itemDetailPanel').classList.add('open');
+  document.getElementById('itemBackdrop').classList.add('open');
+  document.body.classList.add('card-open');
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.name===item['item']));
 }
 function closeItemDetail(){
@@ -1807,6 +1833,8 @@ function closeItemDetail(){
   panel.classList.remove('open');
   panel._showingProps=false;
   panel._propsFlag=null;
+  document.getElementById('itemBackdrop').classList.remove('open');
+  document.body.classList.remove('card-open');
   document.querySelectorAll('#itemBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 function printItemCard(item){
@@ -2026,7 +2054,7 @@ function renderFeats(){
   let data=[...FEATS];
   if(featQuery){const q=featQuery.toLowerCase();data=data.filter(r=>FEAT_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));}
   const k=FEAT_KEYS[featSortState.col];
-  data.sort((a,b)=>{let va=String(a[k]||'').toLowerCase(),vb=String(b[k]||'').toLowerCase();return(va<vb?-1:va>vb?1:0)*(featSortState.dir==='asc'?1:-1);});
+  data.sort((a,b)=>{let va=alphaSort(a[k]),vb=alphaSort(b[k]);return(va<vb?-1:va>vb?1:0)*(featSortState.dir==='asc'?1:-1);});
   const q=featQuery;
   const MAX_DESC=60;
   document.getElementById('featBody').innerHTML=data.map(row=>{const d=row['description']||'';const dDisp=d.length>MAX_DESC?d.slice(0,MAX_DESC)+'…':d;return`<tr data-feat="${esc(row['feat'])}" class="${featCurrentRow&&featCurrentRow['feat']===row['feat']?'selected':''}"><td class="name-cell">${hi(row['feat'],q)}</td><td>${hi(row['prerequisites'],q)}</td><td style="white-space:normal;max-width:280px">${hi(dDisp,q)}</td></tr>`;}).join('');
@@ -2043,11 +2071,15 @@ function openFeatDetail(feat){
   const featCloseBtn=card.querySelector('#featCardCloseBtn');
   if(featCloseBtn)featCloseBtn.addEventListener('click',()=>closeFeatDetail());
   document.getElementById('featDetailPanel').classList.add('open');
+  document.getElementById('featBackdrop').classList.add('open');
+  document.body.classList.add('card-open');
   document.querySelectorAll('#featBody tr').forEach(tr=>tr.classList.toggle('selected',tr.dataset.feat===feat['feat']));
 }
 function closeFeatDetail(){
   featCurrentRow=null;
   document.getElementById('featDetailPanel').classList.remove('open');
+  document.getElementById('featBackdrop').classList.remove('open');
+  document.body.classList.remove('card-open');
   document.querySelectorAll('#featBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 function printFeatCard(feat){
@@ -2067,8 +2099,10 @@ function loadFeats(){
   fetch('overhaul-feats.json').then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json();}).then(data=>{FEATS=data;document.getElementById('featTotCount').textContent=FEATS.length;renderFeats();}).catch(err=>{document.getElementById('featBody').innerHTML=`<tr><td colspan="3" style="text-align:center;padding:40px;color:var(--accent2)"><strong>Could not load overhaul-feats.json</strong><br><span style="font-size:.72rem;color:var(--text-muted)">${err.message}</span></td></tr>`;});
 }
 
-/* ══════════════════════════════════════════════
-   INIT
+/* Backdrop click-to-close handlers */
+document.getElementById('spellBackdrop').addEventListener('click',()=>closeSpellDetail());
+document.getElementById('itemBackdrop').addEventListener('click',()=>closeItemDetail());
+document.getElementById('featBackdrop').addEventListener('click',()=>closeFeatDetail());
 ══════════════════════════════════════════════ */
 (function init(){
   // Restore theme
@@ -2091,10 +2125,14 @@ function loadFeats(){
 
   // Restore spell source
   const ss=getCookie('spellGridSource');
-  const src=['all-spells.json','overhaul-spells.json'].includes(ss)?ss:'all-spells.json';
-  spellSource=src;
-  document.querySelectorAll('[data-src]').forEach(b=>b.classList.toggle('active',b.dataset.src===src));
-  loadSpells(src);
+  const isOvh=ss==='overhaul-only';
+  spellSource='all-spells.json';
+  overhaulOnly=isOvh;
+  document.querySelectorAll('[data-src]').forEach(b=>{
+    const btnIsOverhaul=b.dataset.overhaul==='true';
+    b.classList.toggle('active',isOvh?btnIsOverhaul:(!btnIsOverhaul&&b.dataset.src==='all-spells.json'));
+  });
+  loadSpells('all-spells.json');
 
   // Load items and feats
   loadMaterials();

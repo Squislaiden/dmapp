@@ -1143,7 +1143,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 
 /* ── Description markdown renderer (for spell desc only) ── */
 function alphaSort(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
-  if(!raw)return'';
+function descMd(raw){
   const lines=raw.split('\n');const out=[];let i=0;
   while(i<lines.length){
     const line=lines[i];
@@ -2103,6 +2103,9 @@ function loadFeats(){
 document.getElementById('spellBackdrop').addEventListener('click',()=>closeSpellDetail());
 document.getElementById('itemBackdrop').addEventListener('click',()=>closeItemDetail());
 document.getElementById('featBackdrop').addEventListener('click',()=>closeFeatDetail());
+
+/* ══════════════════════════════════════════════
+   INIT
 ══════════════════════════════════════════════ */
 (function init(){
   // Restore theme

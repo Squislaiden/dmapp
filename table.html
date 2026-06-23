@@ -1287,7 +1287,7 @@ function openSpellDetail(spell){
   const card=document.getElementById('spellDetailCard');
   card.className='spell-card';
   card.innerHTML=buildSpellCard(spell,true);
-  requestAnimationFrame(()=>{if(card.scrollHeight>500)card.classList.add('extended');});
+  const tmp=document.createElement('div');tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;width:300px;visibility:hidden;';tmp.innerHTML=`<div class="spell-card" style="width:300px;height:auto;max-height:none;overflow:visible;">${buildSpellCard(spell,false)}</div>`;document.body.appendChild(tmp);const naturalH=tmp.firstChild.scrollHeight;document.body.removeChild(tmp);if(naturalH>500)card.classList.add('extended');
   card.querySelector('#spellCardPrintBtn').addEventListener('click',()=>printSpellCard(spell));
   card.querySelector('#spellCardAddBtn').addEventListener('click',()=>addToBulk({...spell}));
   card.querySelector('#spellCardExportBtn').addEventListener('click',()=>exportSpellCardJpg(spell));

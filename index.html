@@ -248,68 +248,78 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 </div>
 </div>
 <div id="equipmentOH" style="display:none">
-<div class="text-center"><button class="btn btn-accent mb-xs" onclick="overhaulRandom()">Random Equipment</button></div>
+<div class="text-center"><button class="btn btn-accent mb-xs" onclick="ohGen('any','random')">Random Equipment</button></div>
 <div class="split">
 <!-- Armor (left) -->
 <div style="flex:0 0 auto;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Armor:</label></div>
-<button class="btn btn-primary" onclick="ohGen('all_armor')">All Armor</button>
+<button class="btn btn-primary" onclick="ohGen('category','Armor')">Any Armor</button>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('head_armor')">Head</button>
-<button class="btn btn-primary" onclick="ohGen('torso_armor')">Torso</button>
+<button class="btn btn-primary" onclick="ohGen('type','Head')">Head</button>
+<button class="btn btn-primary" onclick="ohGen('type','Torso')">Torso</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('leg_armor')">Legs</button>
-<button class="btn btn-primary" onclick="ohGen('arm_armor')">Hands</button>
+<button class="btn btn-primary" onclick="ohGen('type','Legs')">Legs</button>
+<button class="btn btn-primary" onclick="ohGen('type','Hands')">Hands</button>
 </div>
-<button class="btn btn-primary" style="margin-top:3px" onclick="ohGen('shield')">Shield</button>
+<button class="btn btn-primary" style="margin-top:3px" onclick="ohGen('type','Shield')">Shield</button>
+<hr style="width:100%;border:none;border-top:1px solid var(--border);margin:6px 0 0 0">
 <div style="flex:1"></div>
-<button class="btn btn-primary" style="margin-top:6px" onclick="ohGen('accessory')">Accessory</button>
+<div class="inline-row"><label>Accessories:</label></div>
+<button class="btn btn-primary" onclick="ohGen('category','Accessory')">Any Accessory</button>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('type','Ring')">Ring</button>
+<button class="btn btn-primary" onclick="ohGen('type','Amulet')">Amulet</button>
+</div>
 </div>
 <div class="split-divider"></div>
 <!-- Weapons (middle) -->
 <div style="flex:1;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Weapons:</label></div>
-<button class="btn btn-primary" onclick="ohGen('all_weapons')">All Weapons</button>
+<button class="btn btn-primary" onclick="ohGen('category','Weapon')">Any Weapon</button>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('dagger')">Dagger</button>
-<button class="btn btn-primary" onclick="ohGen('sword')">Sword</button>
-<button class="btn btn-primary" onclick="ohGen('hammer')">Hammer</button>
+<button class="btn btn-primary" onclick="ohGen('type','Dagger')">Dagger</button>
+<button class="btn btn-primary" onclick="ohGen('type','Sword')">Sword</button>
+<button class="btn btn-primary" onclick="ohGen('type','Hammer')">Hammer</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('head_polearm')">Head Polearm</button>
-<button class="btn btn-primary" onclick="ohGen('axe')">Axe</button>
-<button class="btn btn-primary" onclick="ohGen('fist')">Fist</button>
+<button class="btn btn-primary" onclick="ohGen('type','Head Polearm')">Head Polearm</button>
+<button class="btn btn-primary" onclick="ohGen('type','Axe')">Axe</button>
+<button class="btn btn-primary" onclick="ohGen('type','Fist')">Fist</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('bladed_polearm')">Bladed Polearm</button>
-<button class="btn btn-primary" onclick="ohGen('twinblade')">Twinblade</button>
+<button class="btn btn-primary" onclick="ohGen('type','Bladed Polearm')">Bladed Polearm</button>
+<button class="btn btn-primary" onclick="ohGen('type','Twinblade')">Twinblade</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('colossal')">Colossal</button>
-<button class="btn btn-primary" onclick="ohGen('flexible')">Flexible</button>
+<button class="btn btn-primary" onclick="ohGen('type','Colossal')">Colossal</button>
+<button class="btn btn-primary" onclick="ohGen('type','Corded')">Corded</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('throwing')">Throwing</button>
-<button class="btn btn-primary" onclick="ohGen('ranged')">Ranged</button>
+<button class="btn btn-primary" onclick="ohGen('type','Throwing')">Throwing</button>
+<button class="btn btn-primary" onclick="ohGen('type','Firearm')">Firearm</button>
+</div>
+<div class="flex" style="gap:3px;margin-top:3px">
+<button class="btn btn-primary" onclick="ohGen('type','Bow')">Bow</button>
+<button class="btn btn-primary" onclick="ohGen('type','Crossbow')">Crossbow</button>
 </div>
 </div>
 <div class="split-divider"></div>
 <!-- Spell Focuses (right) -->
 <div style="flex:0 0 auto;padding:4px;display:flex;flex-direction:column;align-items:center">
 <div class="inline-row"><label>Spell Focuses:</label></div>
-<button class="btn btn-primary" onclick="ohGen('spell_focus')">All Focuses</button>
+<button class="btn btn-primary" onclick="ohGen('category','Focus')">Any Focus</button>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('scepter')">Scepter</button>
-<button class="btn btn-primary" onclick="ohGen('seal')">Seal</button>
+<button class="btn btn-primary" onclick="ohGen('type','Scepter')">Scepter</button>
+<button class="btn btn-primary" onclick="ohGen('type','Seal')">Seal</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('staff')">Staff</button>
-<button class="btn btn-primary" onclick="ohGen('wand')">Wand</button>
+<button class="btn btn-primary" onclick="ohGen('type','Staff')">Staff</button>
+<button class="btn btn-primary" onclick="ohGen('type','Wand')">Wand</button>
 </div>
 <div class="flex" style="gap:3px;margin-top:3px">
-<button class="btn btn-primary" onclick="ohGen('catalyst')">Catalyst</button>
-<button class="btn btn-primary" onclick="ohGen('fan')">Fan</button>
+<button class="btn btn-primary" onclick="ohGen('type','Catalyst')">Catalyst</button>
+<button class="btn btn-primary" onclick="ohGen('type','Fan')">Fan</button>
 </div>
 </div>
 </div>
@@ -1188,8 +1198,44 @@ async function weaponGen(t){
   }
   out('itemBox',pool.length?pick(pool):'[No '+t+' weapons found]');
 }
-async function ohGen(t){const allArmor=['head_armor','torso_armor','arm_armor','leg_armor','shield'];const allWpn=['dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing'];let f=t;if(t==='all_armor')f=pick(allArmor);if(t==='all_weapons')f=pick(allWpn);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
-async function overhaulRandom(){const p=['head_armor','torso_armor','arm_armor','leg_armor','shield','accessory','dagger','sword','axe','hammer','head_polearm','bladed_polearm','twinblade','fist','flexible','ranged','colossal','throwing','spell_focus'];const f=pick(p);const d=await loadJSON('data/Items/Overhaul/'+f+'.json');out('itemBox',d.length?pick(d):'[Load data/Items/Overhaul/'+f+'.json]');}
+async function ohGen(mode,value){
+  const items=await loadJSON('overhaul-items.json');
+  if(!items.length){out('itemBox','[Populate overhaul-items.json]');return;}
+  let pool;
+  if(mode==='random')pool=items;
+  else if(mode==='category')pool=items.filter(i=>i.category===value);
+  else if(mode==='type')pool=items.filter(i=>i.type===value);
+  else pool=items;
+  if(!pool.length){out('itemBox','[No items matching '+mode+'='+value+' in overhaul-items.json]');return;}
+  const it=pick(pool);
+  // Skip rows where field is empty, en-dash, or em-dash
+  const skip=v=>{if(v==null)return true;const s=String(v).trim();return s===''||s==='\u2013'||s==='\u2014';};
+  const cat=it.category||'';
+  const typ=it.type||'';
+  const lines=[];
+  // Header
+  let header=(it.item||'(unnamed)')+' - ['+cat+(typ?'('+typ+')':'')+']';
+  lines.push(header);
+  // Prerequisites (parens)
+  if(!skip(it.prerequisites))lines.push('(Prerequisites - '+it.prerequisites+')');
+  // Damage / Defenses / Attack Speed / Spell Types
+  if(!skip(it.damage))lines.push('Damage - '+it.damage);
+  if(!skip(it.defense))lines.push('Defenses - '+it.defense);
+  if(!skip(it.as))lines.push('Attack Speed - '+it.as);
+  if(!skip(it.spell_types))lines.push('Spell Types - '+it.spell_types);
+  // Blank line
+  lines.push('');
+  // Innate Affix
+  if(!skip(it.innate_affix))lines.push('Innate Affix - '+it.innate_affix);
+  // Category Properties
+  if(!skip(it.properties))lines.push(cat+' Properties - '+it.properties);
+  // Blank line
+  lines.push('');
+  // Materials / Value in parens
+  if(!skip(it.materials))lines.push('(Possible Material Types - '+it.materials+')');
+  if(!skip(it.val))lines.push('(Base Coin Value - '+it.val+')');
+  out('itemBox',lines.join('\n'));
+}
 const accessoriesFallback=["Amulet","Belt","Boots","Bracers","Brooch","Cape","Circlet","Cloak","Earring","Gauntlets","Gloves","Goggles","Hat","Headband","Helm","Mantle","Mask","Necklace","Pauldrons","Periapt","Ring","Robe","Rod","Scarf","Shield","Slippers","Staff","Tiara","Vestments","Wand"];
 async function accessoryGen(){const d=await loadJSON('data/Items/Equipment/accessories.json');if(d.length)out('itemBox',pick(d).result||pick(d).name||JSON.stringify(pick(d)));else out('itemBox',pick(accessoriesFallback));}
 const artToolsFallback=["Alchemist's Supplies","Brewer's Supplies","Calligrapher's Supplies","Carpenter's Tools","Cartographer's Tools","Cobbler's Tools","Cook's Utensils","Glassblower's Tools","Jeweler's Tools","Leatherworker's Tools","Mason's Tools","Painter's Supplies","Potter's Tools","Smith's Tools","Tinker's Tools","Weaver's Tools","Woodcarver's Tools","Disguise Kit","Forgery Kit","Herbalism Kit","Navigator's Tools","Poisoner's Kit","Thieves' Tools"];

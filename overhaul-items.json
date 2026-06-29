@@ -1787,7 +1787,7 @@
     "properties": "Two-Handed(12)",
     "innate_affix": "+1 to Spell DC",
 	"description": "***Arcane Spell Type*** - *(Ironwood, Enchanted Wood, or Feybark)*\n***Divine Spell Type*** - *(Elderwood, or Timewood)*\n***Nature Spell Type*** - *(Oak, Darkwood, or Titanwood)*",
-    "materials": "Wood, Metal",
+    "materials": "Wood",
     "category": "Spell Focus",
     "type": "Staff",
     "val": "12"
@@ -1802,7 +1802,7 @@
     "properties": "Two-Handed(13)",
     "innate_affix": "+1 to Spell Hit",
 	"description": "***Arcane Spell Type*** - *(Bronze, Steel, or Adamantine)*\n***Divine Spell Type*** - *(Silver, Gold, Titanium, or Orichalcum)*\n***Nature Spell Type*** - *(Copper, Iron, Platinum, or Mithril)*",
-    "materials": "Wood, Metal",
+    "materials": "Metal",
     "category": "Spell Focus",
     "type": "Staff",
     "val": "36"
@@ -1915,7 +1915,7 @@
     "properties": "Light",
     "innate_affix": "+25% Effect of Healing Spells",
 	"description": "***Arcane Spell Type*** - *(Ironwood, Enchanted Wood, or Feybark)*\n***Divine Spell Type*** - *(Elderwood, or Timewood)*\n***Nature Spell Type*** - *(Oak, Darkwood, or Titanwood)*",
-    "materials": "Wood, Metal",
+    "materials": "Wood",
     "category": "Spell Focus",
     "type": "Scepter",
     "val": "10"
@@ -1930,7 +1930,7 @@
     "properties": "Light",
     "innate_affix": "When you Ritual Cast a Spell, you may: Double the Target Count, the Duration, and the total Cast Time",
 	"description": "***Arcane Spell Type*** - *(Bronze, Steel, or Adamantine)*\n***Divine Spell Type*** - *(Silver, Gold, Titanium, or Orichalcum)*\n***Nature Spell Type*** - *(Copper, Iron, Platinum, or Mithril)*",
-    "materials": "Wood, Metal",
+    "materials": "Metal",
     "category": "Spell Focus",
     "type": "Scepter",
     "val": "28"
@@ -2043,7 +2043,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+1 Innate Socket",
 	"description": "***Arcane Spell Type*** - *(Ironwood, Enchanted Wood, or Feybark)*\n***Divine Spell Type*** - *(Elderwood, or Timewood)*\n***Nature Spell Type*** - *(Oak, Darkwood, or Titanwood)*",
-    "materials": "Wood, Stone, Metal",
+    "materials": "Wood",
     "category": "Spell Focus",
     "type": "Wand",
     "val": "10"
@@ -2058,7 +2058,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "-10% Mana Cost of Offensive Spells",
 	"description": "***Arcane Spell Type*** - *(Bronze, Steel, or Adamantine)*\n***Divine Spell Type*** - *(Silver, Gold, Titanium, or Orichalcum)*\n***Nature Spell Type*** - *(Copper, Iron, Platinum, or Mithril)*",
-    "materials": "Wood, Stone, Metal",
+    "materials": "Metal",
     "category": "Spell Focus",
     "type": "Wand",
     "val": "17"
@@ -2171,7 +2171,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+10 ft. Movement Speed",
 	"description": "***Arcane Spell Type*** - *(Ironwood, Enchanted Wood, or Feybark)*\n***Divine Spell Type*** - *(Elderwood, or Timewood)*\n***Nature Spell Type*** - *(Oak, Darkwood, or Titanwood)*",
-    "materials": "Wood, Metal",
+    "materials": "Wood",
     "category": "Spell Focus",
     "type": "Fan",
     "val": "22"
@@ -2186,7 +2186,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Spell damage may be converted to Cold when cast",
 	"description": "***Arcane Spell Type*** - *(Bronze, Steel, or Adamantine)*\n***Divine Spell Type*** - *(Silver, Gold, Titanium, or Orichalcum)*\n***Nature Spell Type*** - *(Copper, Iron, Platinum, or Mithril)*",
-    "materials": "Wood, Metal",
+    "materials": "Metal",
     "category": "Spell Focus",
     "type": "Fan",
     "val": "37"
@@ -2229,7 +2229,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "-10% Mana Cost of Defensive Spells",
 	"description": "***Arcane Spell Type*** - *(Quartz, or Obsidian)*\n***Divine Spell Type*** - *(Marble, Abysstone, or Chronostone)*\n***Nature Spell Type*** - *(Limestone, Granite, or Basalt)*",
-    "materials": "Stone, Metal",
+    "materials": "Stone",
     "category": "Spell Focus",
     "type": "Seal",
     "val": "12"
@@ -2244,7 +2244,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Debuff Spells target twice as many targets",
 	"description": "***Arcane Spell Type*** - *(Bronze, Steel, or Adamantine)*\n***Divine Spell Type*** - *(Silver, Gold, Titanium, or Orichalcum)*\n***Nature Spell Type*** - *(Copper, Iron, Platinum, or Mithril)*",
-    "materials": "Stone, Metal",
+    "materials": "Metal",
     "category": "Spell Focus",
     "type": "Seal",
     "val": "21"
@@ -2357,7 +2357,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "+1 to Mystic, Decay, and Elemental Resistances",
 	"description": "***Arcane Spell Type*** - *(Ironwood, Enchanted Wood, or Feybark)*\n***Divine Spell Type*** - *(Elderwood, or Timewood)*\n***Nature Spell Type*** - *(Oak, Darkwood, or Titanwood)*",
-    "materials": "Wood, Stone",
+    "materials": "Wood",
     "category": "Spell Focus",
     "type": "Catalyst",
     "val": "8"
@@ -2372,7 +2372,7 @@
     "properties": "Light, Conceal",
     "innate_affix": "Double the Range and Size of Earth-based Spells",
 	"description": "***Arcane Spell Type*** - *(Quartz, or Obsidian)*\n***Divine Spell Type*** - *(Marble, Abysstone, or Chronostone)*\n***Nature Spell Type*** - *(Limestone, Granite, or Basalt)*",
-    "materials": "Wood, Stone",
+    "materials": "Stone",
     "category": "Spell Focus",
     "type": "Catalyst",
     "val": "14"

@@ -390,34 +390,55 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
 
 /* ── Source badges (Races) ── */
 .source-badge { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.6rem; font-weight:700; letter-spacing:.04em; font-family:'Syne',sans-serif; border:1px solid; cursor:default; position:relative; }
-.source-PHB    { background:rgba(201,168,76,.12);  color:#c9a84c; border-color:rgba(201,168,76,.28); }
-.source-XGE    { background:rgba(79,124,255,.12);  color:#7ca0ff; border-color:rgba(79,124,255,.28); }
-.source-MToF   { background:rgba(54,217,160,.12);  color:#36d9a0; border-color:rgba(54,217,160,.28); }
-.source-VGM    { background:rgba(255,100,100,.12); color:#ff8080; border-color:rgba(255,100,100,.28); }
-.source-TCE    { background:rgba(220,100,255,.12); color:#dc64ff; border-color:rgba(220,100,255,.28); }
-.source-FToD   { background:rgba(255,160,60,.12);  color:#ffa03c; border-color:rgba(255,160,60,.28); }
-.source-MotM   { background:rgba(100,200,255,.12); color:#64c8ff; border-color:rgba(100,200,255,.28); }
-.source-SAiS   { background:rgba(140,200,80,.12);  color:#8cc850; border-color:rgba(140,200,80,.28); }
-.source-ERLW   { background:rgba(200,160,255,.12); color:#c8a0ff; border-color:rgba(200,160,255,.28); }
-.source-GGtR   { background:rgba(255,200,80,.12);  color:#ffc850; border-color:rgba(255,200,80,.28); }
-.source-AI     { background:rgba(80,200,200,.12);  color:#50c8c8; border-color:rgba(80,200,200,.28); }
-.source-PSZ    { background:rgba(255,130,180,.12); color:#ff82b4; border-color:rgba(255,130,180,.28); }
-.source-UA     { background:rgba(160,160,160,.12); color:#a0a0a0; border-color:rgba(160,160,160,.28); }
-.source-Homebrew { background:rgba(255,80,80,.14); color:#ff5050; border-color:rgba(255,80,80,.32); }
-.source-default  { background:rgba(150,150,160,.10); color:#9090a8; border-color:rgba(150,150,160,.22); }
+.src-PHB  { background:rgba(201,168,76,.15);  color:#d4a84c; border-color:rgba(201,168,76,.35); }
+.src-XGE  { background:rgba(79,124,255,.15);  color:#7ca0ff; border-color:rgba(79,124,255,.35); }
+.src-MToF { background:rgba(54,217,160,.15);  color:#30d9a0; border-color:rgba(54,217,160,.35); }
+.src-VGM  { background:rgba(255,100,100,.15); color:#ff7070; border-color:rgba(255,100,100,.35); }
+.src-TCE  { background:rgba(220,100,255,.15); color:#d050ff; border-color:rgba(220,100,255,.35); }
+.src-FToD { background:rgba(255,160,60,.15);  color:#ff9832; border-color:rgba(255,160,60,.35); }
+.src-MotM { background:rgba(100,200,255,.15); color:#50c0ff; border-color:rgba(100,200,255,.35); }
+.src-SAiS { background:rgba(140,200,80,.15);  color:#88c040; border-color:rgba(140,200,80,.35); }
+.src-ERLW { background:rgba(200,140,255,.15); color:#c080ff; border-color:rgba(200,140,255,.35); }
+.src-GGtR { background:rgba(255,200,60,.15);  color:#ffc030; border-color:rgba(255,200,60,.35); }
+.src-AI   { background:rgba(60,220,210,.15);  color:#30dcd0; border-color:rgba(60,220,210,.35); }
+.src-PSZ  { background:rgba(255,120,180,.15); color:#ff70b0; border-color:rgba(255,120,180,.35); }
+.src-UA   { background:rgba(170,170,185,.14); color:#b0b0c8; border-color:rgba(170,170,185,.34); }
+.src-Homebrew { background:rgba(56,189,248,.14); color:#38bdf8; border-color:rgba(56,189,248,.38); }
+.src-default  { background:rgba(140,140,155,.10); color:#9898b0; border-color:rgba(140,140,155,.25); }
 
-/* Source tooltip */
+/* Source tooltip — rendered via ::after on the triggering element */
+.source-badge[data-tip],
+td.source-tip-cell[data-tip] { overflow:visible; }
+
 .source-badge[data-tip]:hover::after,
 td.source-tip-cell[data-tip]:hover::after {
-  content:attr(data-tip); position:absolute; bottom:calc(100% + 5px); left:50%;
-  transform:translateX(-50%); background:#1e2235; color:var(--text);
-  font-size:.65rem; font-family:'DM Mono',monospace; padding:5px 9px;
-  border-radius:6px; white-space:nowrap; z-index:200; pointer-events:none;
-  border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,.4);
-  font-weight:400; font-style:normal; letter-spacing:0;
+  content:attr(data-tip);
+  position:fixed;          /* fixed so it escapes any overflow:hidden ancestor */
+  left:var(--tip-x, 50%); top:var(--tip-y, 0);  /* overridden by JS */
+  transform:translateX(-50%);
+  background:#1e2235; color:var(--text);
+  font-size:.65rem; font-family:'DM Mono',monospace; font-weight:400;
+  font-style:normal; letter-spacing:0;
+  padding:5px 9px; border-radius:6px; white-space:nowrap;
+  z-index:9999; pointer-events:none;
+  border:1px solid var(--border); box-shadow:0 4px 14px rgba(0,0,0,.55);
 }
+/* JS positions the tooltip via CSS custom props set on the element */
 td.source-tip-cell { position:relative; cursor:default; }
-td.source-tip-cell[data-tip]:hover::after { bottom:auto; top:calc(100% + 5px); }
+
+/* Source filter pill tooltips */
+label.check-pill[data-tip] { position:relative; }
+label.check-pill[data-tip]:hover::after {
+  content:attr(data-tip);
+  position:fixed; left:var(--tip-x,50%); top:var(--tip-y,0);
+  transform:translateX(-50%);
+  background:#1e2235; color:var(--text);
+  font-size:.65rem; font-family:'DM Mono',monospace; font-weight:400;
+  font-style:normal; letter-spacing:0;
+  padding:5px 9px; border-radius:6px; white-space:nowrap;
+  z-index:9999; pointer-events:none;
+  border:1px solid var(--border); box-shadow:0 4px 14px rgba(0,0,0,.55);
+}
 
 /* ── Race table: single-row clipping ── */
 #raceTable td {
@@ -1129,7 +1150,80 @@ td.source-tip-cell[data-tip]:hover::after { bottom:auto; top:calc(100% + 5px); }
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" id="raceSearch" class="search-input" placeholder="Search races…" autocomplete="off"/>
     </div>
+    <button class="btn" id="raceFilterBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      Filter
+    </button>
   </div>
+
+  <div class="filter-panel no-print" id="raceFilterPanel">
+    <div class="filter-row">
+      <span class="filter-row-label">Size</span>
+      <div class="filter-row-checks" id="rfSize">
+        <label class="check-pill"><input type="checkbox" value="Small"/><div class="pill-dot"></div><span>Small</span></label>
+        <label class="check-pill"><input type="checkbox" value="Medium"/><div class="pill-dot"></div><span>Medium</span></label>
+        <label class="check-pill"><input type="checkbox" value="Large"/><div class="pill-dot"></div><span>Large</span></label>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-row-label">Creature Type</span>
+      <div class="filter-row-checks" id="rfType">
+        <label class="check-pill"><input type="checkbox" value="Humanoid"/><div class="pill-dot"></div><span>Humanoid</span></label>
+        <label class="check-pill"><input type="checkbox" value="Aberration"/><div class="pill-dot"></div><span>Aberration</span></label>
+        <label class="check-pill"><input type="checkbox" value="Beast"/><div class="pill-dot"></div><span>Beast</span></label>
+        <label class="check-pill"><input type="checkbox" value="Construct"/><div class="pill-dot"></div><span>Construct</span></label>
+        <label class="check-pill"><input type="checkbox" value="Dragon"/><div class="pill-dot"></div><span>Dragon</span></label>
+        <label class="check-pill"><input type="checkbox" value="Elemental"/><div class="pill-dot"></div><span>Elemental</span></label>
+        <label class="check-pill"><input type="checkbox" value="Fey"/><div class="pill-dot"></div><span>Fey</span></label>
+        <label class="check-pill"><input type="checkbox" value="Fiend"/><div class="pill-dot"></div><span>Fiend</span></label>
+        <label class="check-pill"><input type="checkbox" value="Giant"/><div class="pill-dot"></div><span>Giant</span></label>
+        <label class="check-pill"><input type="checkbox" value="Monstrosity"/><div class="pill-dot"></div><span>Monstrosity</span></label>
+        <label class="check-pill"><input type="checkbox" value="Ooze"/><div class="pill-dot"></div><span>Ooze</span></label>
+        <label class="check-pill"><input type="checkbox" value="Plant"/><div class="pill-dot"></div><span>Plant</span></label>
+        <label class="check-pill"><input type="checkbox" value="Undead"/><div class="pill-dot"></div><span>Undead</span></label>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-row-label">Trait</span>
+      <div class="filter-toggle-col"><button class="filter-logic-toggle" id="raceTraitLogicToggle" title="Toggle Or/And">Or</button></div>
+      <div class="filter-row-checks" id="rfTrait">
+        <label class="check-pill"><input type="checkbox" value="Fly"/><div class="pill-dot"></div><span>Fly</span></label>
+        <label class="check-pill"><input type="checkbox" value="Swim"/><div class="pill-dot"></div><span>Swim</span></label>
+        <label class="check-pill"><input type="checkbox" value="Darkvision"/><div class="pill-dot"></div><span>Darkvision</span></label>
+        <label class="check-pill"><input type="checkbox" value="Natural Armor"/><div class="pill-dot"></div><span>Natural Armor</span></label>
+        <label class="check-pill"><input type="checkbox" value="Natural Weapon"/><div class="pill-dot"></div><span>Natural Weapon</span></label>
+        <label class="check-pill"><input type="checkbox" value="Powerful Build"/><div class="pill-dot"></div><span>Powerful Build</span></label>
+        <label class="check-pill"><input type="checkbox" value="Resistance"/><div class="pill-dot"></div><span>Resistance</span></label>
+        <label class="check-pill"><input type="checkbox" value="Skill Proficiency"/><div class="pill-dot"></div><span>Skill Proficiency</span></label>
+        <label class="check-pill"><input type="checkbox" value="Spellcasting"/><div class="pill-dot"></div><span>Spellcasting</span></label>
+        <label class="check-pill"><input type="checkbox" value="Tool Proficiency"/><div class="pill-dot"></div><span>Tool Proficiency</span></label>
+      </div>
+    </div>
+    <div class="filter-row" style="border-bottom:none">
+      <span class="filter-row-label">Source</span>
+      <div class="filter-row-checks" id="rfSource">
+        <label class="check-pill" title="Homebrew races"><input type="checkbox" value="Homebrew"/><div class="pill-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Homebrew</span></label>
+        <label class="check-pill" data-tip="Player's Handbook"><input type="checkbox" value="PHB"/><div class="pill-dot" style="background:#d4a84c"></div><span style="color:#d4a84c">PHB</span></label>
+        <label class="check-pill" data-tip="Xanathar's Guide to Everything"><input type="checkbox" value="XGE"/><div class="pill-dot" style="background:#7ca0ff"></div><span style="color:#7ca0ff">XGE</span></label>
+        <label class="check-pill" data-tip="Mordenkainen's Tome of Foes"><input type="checkbox" value="MToF"/><div class="pill-dot" style="background:#30d9a0"></div><span style="color:#30d9a0">MToF</span></label>
+        <label class="check-pill" data-tip="Volo's Guide to Monsters"><input type="checkbox" value="VGM"/><div class="pill-dot" style="background:#ff7070"></div><span style="color:#ff7070">VGM</span></label>
+        <label class="check-pill" data-tip="Tasha's Cauldron of Everything"><input type="checkbox" value="TCE"/><div class="pill-dot" style="background:#d050ff"></div><span style="color:#d050ff">TCE</span></label>
+        <label class="check-pill" data-tip="Fizban's Treasury of Dragons"><input type="checkbox" value="FToD"/><div class="pill-dot" style="background:#ff9832"></div><span style="color:#ff9832">FToD</span></label>
+        <label class="check-pill" data-tip="Mordenkainen Monsters of the Multiverse"><input type="checkbox" value="MotM"/><div class="pill-dot" style="background:#50c0ff"></div><span style="color:#50c0ff">MotM</span></label>
+        <label class="check-pill" data-tip="Spelljammer: Adventures in Space"><input type="checkbox" value="SAiS"/><div class="pill-dot" style="background:#88c040"></div><span style="color:#88c040">SAiS</span></label>
+        <label class="check-pill" data-tip="Eberron: Rising from the Last War"><input type="checkbox" value="ERLW"/><div class="pill-dot" style="background:#c080ff"></div><span style="color:#c080ff">ERLW</span></label>
+        <label class="check-pill" data-tip="Guildmaster's Guide to Ravnica"><input type="checkbox" value="GGtR"/><div class="pill-dot" style="background:#ffc030"></div><span style="color:#ffc030">GGtR</span></label>
+        <label class="check-pill" data-tip="Acquisitions Incorporated"><input type="checkbox" value="AI"/><div class="pill-dot" style="background:#30dcd0"></div><span style="color:#30dcd0">AI</span></label>
+        <label class="check-pill" data-tip="Plane Shift: Zendikar"><input type="checkbox" value="PSZ"/><div class="pill-dot" style="background:#ff70b0"></div><span style="color:#ff70b0">PSZ</span></label>
+        <label class="check-pill" data-tip="Unearthed Arcana"><input type="checkbox" value="UA"/><div class="pill-dot" style="background:#b0b0c8"></div><span style="color:#b0b0c8">UA</span></label>
+      </div>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-accent btn-sm" id="applyRaceFilters">Apply</button>
+      <button class="btn btn-sm" id="clearRaceFilters">Clear All</button>
+    </div>
+  </div>
+
   <div class="stats-bar no-print">
     <div>Showing <strong id="raceVisCount">0</strong> of <strong id="raceTotCount">0</strong> races</div>
   </div>
@@ -2132,19 +2226,24 @@ function loadItems(src){
    RACES TAB
 ══════════════════════════════════════════════ */
 let RACES=[], raceCurrentRow=null, raceSortState={col:0,dir:'asc'}, raceQuery='';
-const RACE_KEYS=['Name','Type','Size','Source'];
+let raceFilters={}, raceTraitLogic='or';
+const RACE_KEYS=['Name','Type','Size','Source','Trait'];
 
-/* Source → CSS class mapping (falls back to source-default) */
+/* Source → CSS class mapping (falls back to src-default) */
 const RACE_SOURCE_CLASSES={
-  'PHB':'source-PHB','XGE':'source-XGE','MToF':'source-MToF','VGM':'source-VGM',
-  'TCE':'source-TCE','FToD':'source-FToD','MotM':'source-MotM','SAiS':'source-SAiS',
-  'ERLW':'source-ERLW','GGtR':'source-GGtR','AI':'source-AI','PSZ':'source-PSZ',
-  'UA':'source-UA','Homebrew':'source-Homebrew'
+  'PHB':'src-PHB','XGE':'src-XGE','MToF':'src-MToF','VGM':'src-VGM',
+  'TCE':'src-TCE','FToD':'src-FToD','MotM':'src-MotM','SAiS':'src-SAiS',
+  'ERLW':'src-ERLW','GGtR':'src-GGtR','AI':'src-AI','PSZ':'src-PSZ',
+  'UA':'src-UA'
 };
-function raceSourceClass(src){return RACE_SOURCE_CLASSES[src]||'source-default';}
+/* Homebrew flag drives badge class regardless of source abbreviation */
+function raceSourceClass(src, isHomebrew){
+  if(isHomebrew==='True'||isHomebrew===true)return'src-Homebrew';
+  return RACE_SOURCE_CLASSES[src]||'src-default';
+}
 
-function raceSourceBadge(src,sourceX){
-  const cls=raceSourceClass(src);
+function raceSourceBadge(src, sourceX, isHomebrew){
+  const cls=raceSourceClass(src, isHomebrew);
   const tip=sourceX?`${esc(src)}: ${esc(sourceX)}`:'';
   const dataTip=tip?` data-tip="${tip}"`:'';
   return`<span class="source-badge ${cls}"${dataTip}>${esc(src)}</span>`;
@@ -2153,24 +2252,44 @@ function raceSourceBadge(src,sourceX){
 function buildRaceCard(race, showActions){
   const name=race['Name']||'', type=race['Type']||'', size=race['Size']||'',
         speed=race['Speed']||'', features=race['Features']||'',
-        lang=race['Language']||'', src=race['Source']||'', sourceX=race['SourceX']||'';
+        lang=race['Language']||'', src=race['Source']||'', sourceX=race['SourceX']||'',
+        hb=race['Homebrew']||'';
   const langText=lang?`You can speak, read, and write Common and ${esc(lang)}.`
     :'You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.';
-  const srcClass=raceSourceClass(src);
-  const actBar=showActions?`<div class="card-actions-bar"><button class="card-close-btn" id="raceCardCloseBtn" title="Close">✕</button></div>`:'';
-  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name">${esc(name)}</div></div><div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Creature Type:</span><span class="stat-val">${esc(type)}</span></div><div class="card-stat-row"><span class="stat-label">Size:</span><span class="stat-val">${esc(size)}</span></div><div class="card-stat-row"><span class="stat-label">Speed:</span><span class="stat-val">${esc(speed)}</span></div></div><div class="card-rule"></div><div class="card-desc-block">${descMd(features)}<p style="margin-top:6px"><em><strong>Languages.</strong> ${langText}</em></p></div><div class="card-footer-bar"><span class="source-badge ${srcClass}"${sourceX?` data-tip="${esc(src)}: ${esc(sourceX)}"`:''} style="cursor:default">${esc(src)}</span></div>`;
+  const srcClass=raceSourceClass(src, hb);
+  const tipAttr=sourceX?` data-tip="${esc(src)}: ${esc(sourceX)}"`:'';
+  const actBar=showActions?`<div class="card-actions-bar"><button class="card-btn" id="raceCardPrintBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button><button class="card-btn" id="raceCardExportBtn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Export JPG</button><button class="card-close-btn" id="raceCardCloseBtn" title="Close">✕</button></div>`:'';
+  return`<div class="card-stripe"></div>${actBar}<div class="card-name-block"><div class="card-spell-name">${esc(name)}</div></div><div class="card-rule"></div><div class="card-stats-block"><div class="card-stat-row"><span class="stat-label">Creature Type:</span><span class="stat-val">${esc(type)}</span></div><div class="card-stat-row"><span class="stat-label">Size:</span><span class="stat-val">${esc(size)}</span></div><div class="card-stat-row"><span class="stat-label">Speed:</span><span class="stat-val">${esc(speed)}</span></div></div><div class="card-rule"></div><div class="card-desc-block">${descMd(features)}<p style="margin-top:6px"><em><strong>Languages.</strong> ${langText}</em></p></div><div class="card-footer-bar"><span class="source-badge ${srcClass}"${tipAttr} style="cursor:default">${esc(src)}</span></div>`;
 }
 
 function renderRaces(){
   let data=[...RACES];
-  if(raceQuery){const q=raceQuery.toLowerCase();data=data.filter(r=>RACE_KEYS.some(k=>String(r[k]||'').toLowerCase().includes(q)));}
-  const k=RACE_KEYS[raceSortState.col];
-  data.sort((a,b)=>{let va=alphaSort(a[k]),vb=alphaSort(b[k]);return(va<vb?-1:va>vb?1:0)*(raceSortState.dir==='asc'?1:-1);});
+  /* Search */
+  if(raceQuery){const q=raceQuery.toLowerCase();data=data.filter(r=>['Name','Type','Size','Source','Trait'].some(k=>String(r[k]||'').toLowerCase().includes(q)));}
+  /* Filters */
+  const f=raceFilters;
+  if(f.size&&f.size.length)    data=data.filter(r=>f.size.includes(r['Size']||''));
+  if(f.type&&f.type.length)    data=data.filter(r=>f.type.includes(r['Type']||''));
+  if(f.trait&&f.trait.length){
+    const isAnd=raceTraitLogic==='and';
+    data=data.filter(r=>{const t=(r['Trait']||'').toLowerCase();return isAnd?f.trait.every(v=>t.includes(v.toLowerCase())):f.trait.some(v=>t.includes(v.toLowerCase()));});
+  }
+  if(f.source&&f.source.length){
+    data=data.filter(r=>{
+      return f.source.some(s=>{
+        if(s==='Homebrew')return(r['Homebrew']||'')==='True';
+        return(r['Source']||'')===s;
+      });
+    });
+  }
+  /* Sort */
+  const sortKey=['Name','Type','Size','Source'][raceSortState.col]||'Name';
+  data.sort((a,b)=>{let va=alphaSort(a[sortKey]),vb=alphaSort(b[sortKey]);return(va<vb?-1:va>vb?1:0)*(raceSortState.dir==='asc'?1:-1);});
   const q=raceQuery;
   document.getElementById('raceBody').innerHTML=data.map(row=>{
-    const src=row['Source']||'', sourceX=row['SourceX']||'';
+    const src=row['Source']||'', sourceX=row['SourceX']||'', hb=row['Homebrew']||'';
     const tipAttr=sourceX?` data-tip="${esc(src)}: ${esc(sourceX)}"`:' ';
-    return`<tr data-name="${esc(row['Name'])}" class="${raceCurrentRow&&raceCurrentRow['Name']===row['Name']?'selected':''}"><td class="name-cell">${hi(row['Name'],q)}</td><td>${hi(row['Type'],q)}</td><td>${hi(row['Size'],q)}</td><td class="source-tip-cell"${tipAttr}>${raceSourceBadge(src,sourceX)}</td></tr>`;
+    return`<tr data-name="${esc(row['Name'])}" class="${raceCurrentRow&&raceCurrentRow['Name']===row['Name']?'selected':''}"><td class="name-cell">${hi(row['Name'],q)}</td><td>${hi(row['Type'],q)}</td><td>${hi(row['Size'],q)}</td><td class="source-tip-cell"${tipAttr}>${raceSourceBadge(src,sourceX,hb)}</td></tr>`;
   }).join('');
   document.getElementById('raceVisCount').textContent=data.length;
   document.getElementById('raceEmpty').style.display=data.length===0?'block':'none';
@@ -2188,6 +2307,10 @@ function openRaceDetail(race){
   card.className='race-card';
   card.innerHTML=buildRaceCard(race,true);
   const tmp=document.createElement('div');tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;width:300px;visibility:hidden;';tmp.innerHTML=`<div class="race-card" style="width:300px;height:auto;max-height:none;overflow:visible;">${buildRaceCard(race,false)}</div>`;document.body.appendChild(tmp);const naturalH=tmp.firstChild.scrollHeight;document.body.removeChild(tmp);if(naturalH>500)card.classList.add('extended');
+  const printBtn=card.querySelector('#raceCardPrintBtn');
+  if(printBtn)printBtn.addEventListener('click',()=>printRaceCard(race));
+  const exportBtn=card.querySelector('#raceCardExportBtn');
+  if(exportBtn)exportBtn.addEventListener('click',()=>exportRaceCardJpg(race));
   const closeBtn=card.querySelector('#raceCardCloseBtn');
   if(closeBtn)closeBtn.addEventListener('click',()=>closeRaceDetail());
   document.getElementById('raceDetailPanel').classList.add('open');
@@ -2203,8 +2326,80 @@ function closeRaceDetail(){
   document.querySelectorAll('#raceBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 
+const RACE_PRINT_CSS=`*{box-sizing:border-box;margin:0;padding:0;}:root{--accent:#7090d8;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}.race-card{background:#0f1119;border:2px solid #1e2e3a;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}.race-card.extended{height:auto;max-height:none;overflow:visible;}.race-card.extended .card-desc-block{flex:none;overflow:visible;}.card-stripe{height:4px;background:linear-gradient(90deg,#7090d8,#b060e0);flex-shrink:0;}.card-actions-bar{display:none!important;}.card-name-block{padding:8px 10px 0;flex-shrink:0;}.card-spell-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.2;margin-bottom:3px;}.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}.card-stat-row{font-size:.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}.stat-val{color:#9aaac4;}.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}.card-desc-block strong{color:#d8e0f0;font-weight:600;}.card-desc-block em{color:#8898bb;font-style:italic;}.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}.card-desc-block h3{font-family:'Cinzel',serif;font-size:.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}.card-footer-bar{background:linear-gradient(180deg,#10141e 0%,#161022 100%);border-top:1px solid #1e1a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px;}.source-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:700;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.src-PHB{background:rgba(201,168,76,.15);color:#d4a84c;border-color:rgba(201,168,76,.35);}.src-XGE{background:rgba(79,124,255,.15);color:#7ca0ff;border-color:rgba(79,124,255,.35);}.src-MToF{background:rgba(54,217,160,.15);color:#30d9a0;border-color:rgba(54,217,160,.35);}.src-VGM{background:rgba(255,100,100,.15);color:#ff7070;border-color:rgba(255,100,100,.35);}.src-TCE{background:rgba(220,100,255,.15);color:#d050ff;border-color:rgba(220,100,255,.35);}.src-FToD{background:rgba(255,160,60,.15);color:#ff9832;border-color:rgba(255,160,60,.35);}.src-MotM{background:rgba(100,200,255,.15);color:#50c0ff;border-color:rgba(100,200,255,.35);}.src-SAiS{background:rgba(140,200,80,.15);color:#88c040;border-color:rgba(140,200,80,.35);}.src-ERLW{background:rgba(200,140,255,.15);color:#c080ff;border-color:rgba(200,140,255,.35);}.src-GGtR{background:rgba(255,200,60,.15);color:#ffc030;border-color:rgba(255,200,60,.35);}.src-AI{background:rgba(60,220,210,.15);color:#30dcd0;border-color:rgba(60,220,210,.35);}.src-PSZ{background:rgba(255,120,180,.15);color:#ff70b0;border-color:rgba(255,120,180,.35);}.src-UA{background:rgba(170,170,185,.14);color:#b0b0c8;border-color:rgba(170,170,185,.34);}.src-Homebrew{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.38);}.src-default{background:rgba(140,140,155,.10);color:#9898b0;border-color:rgba(140,140,155,.25);}`;
+
+function printRaceCard(race){
+  const dc=document.getElementById('raceDetailCard');
+  const ext=dc&&dc.classList.contains('extended');
+  const win=window.open('','_blank','width=420,height=700');
+  win.document.write(`<!DOCTYPE html><html><head>${FONT_LINK}<style>${RACE_PRINT_CSS}@page{size:letter portrait;margin:.5in;}body{display:flex;justify-content:center;align-items:flex-start;padding:.25in;}.race-card{width:2.83in;${ext?'height:auto;max-height:none;overflow:visible;':'height:5in;'}}</style></head><body><div class="race-card${ext?' extended':''}">${buildRaceCard(race,false)}</div></body></html>`);
+  win.document.close();setTimeout(()=>{win.focus();win.print();},450);
+}
+function exportRaceCardJpg(race){
+  const dc=document.getElementById('raceDetailCard');
+  const ext=dc&&dc.classList.contains('extended');
+  const tmp=document.createElement('div');
+  tmp.style.cssText='position:fixed;left:-9999px;top:-9999px;z-index:-1;width:300px;';
+  tmp.innerHTML=`<div class="race-card${ext?' extended':''}" style="width:300px;${ext?'height:auto;max-height:none;overflow:visible;':'height:500px;'}">${buildRaceCard(race,false)}</div>`;
+  document.body.appendChild(tmp);
+  const h=ext?tmp.firstChild.scrollHeight:500;
+  html2canvas(tmp.firstChild,{backgroundColor:'#0f1119',width:300,height:h,scale:1,useCORS:true,logging:false}).then(canvas=>{
+    document.body.removeChild(tmp);
+    const safe=(race['Name']||'race').replace(/[^a-z0-9]/gi,'_').toLowerCase()+'.jpg';
+    canvas.toBlob(blob=>{saveBlobAs(blob,safe);});
+  });
+}
+
+/* ── Tooltip positioning via mouseover (escapes overflow:hidden ancestors) ── */
+(function(){
+  function positionTip(el){
+    const r=el.getBoundingClientRect();
+    el.style.setProperty('--tip-x',(r.left+r.width/2)+'px');
+    el.style.setProperty('--tip-y',(r.top-8)+'px');
+  }
+  document.addEventListener('mouseover',e=>{
+    const el=e.target.closest('.source-badge[data-tip], td.source-tip-cell[data-tip], label.check-pill[data-tip]');
+    if(el)positionTip(el);
+  });
+})();
+
 wireTableSort('raceTable',raceSortState,renderRaces);
 document.getElementById('raceSearch').addEventListener('input',e=>{raceQuery=e.target.value.trim();renderRaces();});
+
+/* Race filter panel wiring */
+document.getElementById('raceFilterBtn').addEventListener('click',()=>{
+  const panel=document.getElementById('raceFilterPanel');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open',!isOpen);
+  document.getElementById('raceFilterBtn').classList.toggle('active',!isOpen);
+});
+document.getElementById('raceTraitLogicToggle').addEventListener('click',()=>{
+  const btn=document.getElementById('raceTraitLogicToggle');
+  const isAnd=raceTraitLogic==='and';
+  raceTraitLogic=isAnd?'or':'and';
+  btn.textContent=isAnd?'Or':'And';
+  btn.classList.toggle('is-and',!isAnd);
+});
+document.getElementById('applyRaceFilters').addEventListener('click',()=>{
+  raceFilters={};
+  const sizes=getCheckedPills('rfSize'),types=getCheckedPills('rfType'),traits=getCheckedPills('rfTrait'),sources=getCheckedPills('rfSource');
+  if(sizes.length)   raceFilters.size=sizes;
+  if(types.length)   raceFilters.type=types;
+  if(traits.length)  raceFilters.trait=traits;
+  if(sources.length) raceFilters.source=sources;
+  document.getElementById('raceFilterPanel').classList.remove('open');
+  document.getElementById('raceFilterBtn').classList.remove('active');
+  renderRaces();
+});
+document.getElementById('clearRaceFilters').addEventListener('click',()=>{
+  raceFilters={};
+  raceTraitLogic='or';
+  const logBtn=document.getElementById('raceTraitLogicToggle');
+  logBtn.textContent='Or'; logBtn.classList.remove('is-and');
+  ['rfSize','rfType','rfTrait','rfSource'].forEach(id=>uncheckPills(id));
+  renderRaces();
+});
+wirePills('raceFilterPanel');
 
 function loadRaces(){
   document.getElementById('raceBody').innerHTML=`<tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-muted);font-size:.8rem">Loading…</td></tr>`;

@@ -390,19 +390,24 @@ th[data-tip]:hover::after { content:attr(data-tip); position:absolute; top:100%;
 
 /* ── Source badges (Races) ── */
 .source-badge { display:inline-block; padding:2px 7px; border-radius:4px; font-size:.6rem; font-weight:700; letter-spacing:.04em; font-family:'Syne',sans-serif; border:1px solid; cursor:default; position:relative; }
-.src-PHB  { background:rgba(201,168,76,.15);  color:#d4a84c; border-color:rgba(201,168,76,.35); }
-.src-XGE  { background:rgba(79,124,255,.15);  color:#7ca0ff; border-color:rgba(79,124,255,.35); }
-.src-MToF { background:rgba(54,217,160,.15);  color:#30d9a0; border-color:rgba(54,217,160,.35); }
-.src-VGM  { background:rgba(255,100,100,.15); color:#ff7070; border-color:rgba(255,100,100,.35); }
-.src-TCE  { background:rgba(220,100,255,.15); color:#d050ff; border-color:rgba(220,100,255,.35); }
-.src-FToD { background:rgba(255,160,60,.15);  color:#ff9832; border-color:rgba(255,160,60,.35); }
-.src-MotM { background:rgba(100,200,255,.15); color:#50c0ff; border-color:rgba(100,200,255,.35); }
-.src-SAiS { background:rgba(140,200,80,.15);  color:#88c040; border-color:rgba(140,200,80,.35); }
-.src-ERLW { background:rgba(200,140,255,.15); color:#c080ff; border-color:rgba(200,140,255,.35); }
-.src-GGtR { background:rgba(255,200,60,.15);  color:#ffc030; border-color:rgba(255,200,60,.35); }
-.src-AI   { background:rgba(60,220,210,.15);  color:#30dcd0; border-color:rgba(60,220,210,.35); }
-.src-PSZ  { background:rgba(255,120,180,.15); color:#ff70b0; border-color:rgba(255,120,180,.35); }
-.src-UA   { background:rgba(170,170,185,.14); color:#b0b0c8; border-color:rgba(170,170,185,.34); }
+.src-MPMM   { background:rgba(100,200,255,.15); color:#50c0ff; border-color:rgba(100,200,255,.35); }
+.src-PHB24  { background:rgba(255,200,60,.15);  color:#ffc030; border-color:rgba(255,200,60,.35); }
+.src-AAG    { background:rgba(180,100,255,.15); color:#c060ff; border-color:rgba(180,100,255,.35); }
+.src-LFL    { background:rgba(80,220,140,.15);  color:#40d880; border-color:rgba(80,220,140,.35); }
+.src-EFA    { background:rgba(255,140,60,.15);  color:#ff8830; border-color:rgba(255,140,60,.35); }
+.src-TCE    { background:rgba(220,100,255,.15); color:#d050ff; border-color:rgba(220,100,255,.35); }
+.src-RHW    { background:rgba(200,60,60,.15);   color:#e04040; border-color:rgba(200,60,60,.35); }
+.src-EGW    { background:rgba(60,200,220,.15);  color:#30c8dc; border-color:rgba(60,200,220,.35); }
+.src-FTD    { background:rgba(255,160,60,.15);  color:#ff9832; border-color:rgba(255,160,60,.35); }
+.src-DMG    { background:rgba(160,130,90,.15);  color:#b08858; border-color:rgba(160,130,90,.35); }
+.src-SCAG   { background:rgba(100,180,255,.15); color:#50b0ff; border-color:rgba(100,180,255,.35); }
+.src-PHB    { background:rgba(201,168,76,.15);  color:#d4a84c; border-color:rgba(201,168,76,.35); }
+.src-DSotDQ { background:rgba(180,80,120,.15);  color:#c04878; border-color:rgba(180,80,120,.35); }
+.src-MOT    { background:rgba(255,210,100,.15); color:#ffd050; border-color:rgba(255,210,100,.35); }
+.src-GGR    { background:rgba(255,100,80,.15);  color:#ff6040; border-color:rgba(255,100,80,.35); }
+.src-SCC    { background:rgba(140,200,80,.15);  color:#88c040; border-color:rgba(140,200,80,.35); }
+.src-MTF    { background:rgba(54,217,160,.15);  color:#30d9a0; border-color:rgba(54,217,160,.35); }
+.src-AI     { background:rgba(60,220,210,.15);  color:#30dcd0; border-color:rgba(60,220,210,.35); }
 .src-Homebrew { background:rgba(56,189,248,.14); color:#38bdf8; border-color:rgba(56,189,248,.38); }
 .src-default  { background:rgba(140,140,155,.10); color:#9898b0; border-color:rgba(140,140,155,.25); }
 
@@ -1202,20 +1207,25 @@ label.check-pill[data-tip]:hover::after {
     <div class="filter-row" style="border-bottom:none">
       <span class="filter-row-label">Source</span>
       <div class="filter-row-checks" id="rfSource">
-        <label class="check-pill" title="Homebrew races"><input type="checkbox" value="Homebrew"/><div class="pill-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Homebrew</span></label>
-        <label class="check-pill" data-tip="Player's Handbook"><input type="checkbox" value="PHB"/><div class="pill-dot" style="background:#d4a84c"></div><span style="color:#d4a84c">PHB</span></label>
-        <label class="check-pill" data-tip="Xanathar's Guide to Everything"><input type="checkbox" value="XGE"/><div class="pill-dot" style="background:#7ca0ff"></div><span style="color:#7ca0ff">XGE</span></label>
-        <label class="check-pill" data-tip="Mordenkainen's Tome of Foes"><input type="checkbox" value="MToF"/><div class="pill-dot" style="background:#30d9a0"></div><span style="color:#30d9a0">MToF</span></label>
-        <label class="check-pill" data-tip="Volo's Guide to Monsters"><input type="checkbox" value="VGM"/><div class="pill-dot" style="background:#ff7070"></div><span style="color:#ff7070">VGM</span></label>
+        <label class="check-pill"><input type="checkbox" value="Homebrew"/><div class="pill-dot" style="background:#38bdf8"></div><span style="color:#38bdf8">Homebrew</span></label>
+        <label class="check-pill" data-tip="Player's Handbook 2014"><input type="checkbox" value="PHB"/><div class="pill-dot" style="background:#d4a84c"></div><span style="color:#d4a84c">PHB</span></label>
+        <label class="check-pill" data-tip="Player's Handbook 2024"><input type="checkbox" value="PHB24"/><div class="pill-dot" style="background:#ffc030"></div><span style="color:#ffc030">PHB24</span></label>
+        <label class="check-pill" data-tip="Mordenkainen Presents: Monsters of the Multiverse"><input type="checkbox" value="MPMM"/><div class="pill-dot" style="background:#50c0ff"></div><span style="color:#50c0ff">MPMM</span></label>
+        <label class="check-pill" data-tip="Mordenkainen's Tome of Foes"><input type="checkbox" value="MTF"/><div class="pill-dot" style="background:#30d9a0"></div><span style="color:#30d9a0">MTF</span></label>
         <label class="check-pill" data-tip="Tasha's Cauldron of Everything"><input type="checkbox" value="TCE"/><div class="pill-dot" style="background:#d050ff"></div><span style="color:#d050ff">TCE</span></label>
-        <label class="check-pill" data-tip="Fizban's Treasury of Dragons"><input type="checkbox" value="FToD"/><div class="pill-dot" style="background:#ff9832"></div><span style="color:#ff9832">FToD</span></label>
-        <label class="check-pill" data-tip="Mordenkainen Monsters of the Multiverse"><input type="checkbox" value="MotM"/><div class="pill-dot" style="background:#50c0ff"></div><span style="color:#50c0ff">MotM</span></label>
-        <label class="check-pill" data-tip="Spelljammer: Adventures in Space"><input type="checkbox" value="SAiS"/><div class="pill-dot" style="background:#88c040"></div><span style="color:#88c040">SAiS</span></label>
-        <label class="check-pill" data-tip="Eberron: Rising from the Last War"><input type="checkbox" value="ERLW"/><div class="pill-dot" style="background:#c080ff"></div><span style="color:#c080ff">ERLW</span></label>
-        <label class="check-pill" data-tip="Guildmaster's Guide to Ravnica"><input type="checkbox" value="GGtR"/><div class="pill-dot" style="background:#ffc030"></div><span style="color:#ffc030">GGtR</span></label>
+        <label class="check-pill" data-tip="Fizban's Treasury of Dragons"><input type="checkbox" value="FTD"/><div class="pill-dot" style="background:#ff9832"></div><span style="color:#ff9832">FTD</span></label>
+        <label class="check-pill" data-tip="Guildmaster's Guide to Ravnica"><input type="checkbox" value="GGR"/><div class="pill-dot" style="background:#ff6040"></div><span style="color:#ff6040">GGR</span></label>
         <label class="check-pill" data-tip="Acquisitions Incorporated"><input type="checkbox" value="AI"/><div class="pill-dot" style="background:#30dcd0"></div><span style="color:#30dcd0">AI</span></label>
-        <label class="check-pill" data-tip="Plane Shift: Zendikar"><input type="checkbox" value="PSZ"/><div class="pill-dot" style="background:#ff70b0"></div><span style="color:#ff70b0">PSZ</span></label>
-        <label class="check-pill" data-tip="Unearthed Arcana"><input type="checkbox" value="UA"/><div class="pill-dot" style="background:#b0b0c8"></div><span style="color:#b0b0c8">UA</span></label>
+        <label class="check-pill" data-tip="Astral Adventurer's Guide"><input type="checkbox" value="AAG"/><div class="pill-dot" style="background:#c060ff"></div><span style="color:#c060ff">AAG</span></label>
+        <label class="check-pill" data-tip="Lorwyn: First Light"><input type="checkbox" value="LFL"/><div class="pill-dot" style="background:#40d880"></div><span style="color:#40d880">LFL</span></label>
+        <label class="check-pill" data-tip="Eberron: Forge of the Artificer"><input type="checkbox" value="EFA"/><div class="pill-dot" style="background:#ff8830"></div><span style="color:#ff8830">EFA</span></label>
+        <label class="check-pill" data-tip="Ravenloft: The Horrors Within"><input type="checkbox" value="RHW"/><div class="pill-dot" style="background:#e04040"></div><span style="color:#e04040">RHW</span></label>
+        <label class="check-pill" data-tip="Explorer's Guide to Wildemount"><input type="checkbox" value="EGW"/><div class="pill-dot" style="background:#30c8dc"></div><span style="color:#30c8dc">EGW</span></label>
+        <label class="check-pill" data-tip="Dungeon Master's Guide 2014"><input type="checkbox" value="DMG"/><div class="pill-dot" style="background:#b08858"></div><span style="color:#b08858">DMG</span></label>
+        <label class="check-pill" data-tip="Sword Coast Adventurer's Guide"><input type="checkbox" value="SCAG"/><div class="pill-dot" style="background:#50b0ff"></div><span style="color:#50b0ff">SCAG</span></label>
+        <label class="check-pill" data-tip="Dragonlance: Shadow of the Dragon Queen"><input type="checkbox" value="DSotDQ"/><div class="pill-dot" style="background:#c04878"></div><span style="color:#c04878">DSotDQ</span></label>
+        <label class="check-pill" data-tip="Mythic Odysseys of Theros"><input type="checkbox" value="MOT"/><div class="pill-dot" style="background:#ffd050"></div><span style="color:#ffd050">MOT</span></label>
+        <label class="check-pill" data-tip="Strixhaven: A Curriculum of Chaos"><input type="checkbox" value="SCC"/><div class="pill-dot" style="background:#88c040"></div><span style="color:#88c040">SCC</span></label>
       </div>
     </div>
     <div class="filter-actions">
@@ -2231,10 +2241,11 @@ const RACE_KEYS=['Name','Type','Size','Source','Trait'];
 
 /* Source → CSS class mapping (falls back to src-default) */
 const RACE_SOURCE_CLASSES={
-  'PHB':'src-PHB','XGE':'src-XGE','MToF':'src-MToF','VGM':'src-VGM',
-  'TCE':'src-TCE','FToD':'src-FToD','MotM':'src-MotM','SAiS':'src-SAiS',
-  'ERLW':'src-ERLW','GGtR':'src-GGtR','AI':'src-AI','PSZ':'src-PSZ',
-  'UA':'src-UA'
+  'MPMM':'src-MPMM','PHB24':'src-PHB24','AAG':'src-AAG','LFL':'src-LFL',
+  'EFA':'src-EFA','TCE':'src-TCE','RHW':'src-RHW','EGW':'src-EGW',
+  'FTD':'src-FTD','DMG':'src-DMG','SCAG':'src-SCAG','PHB':'src-PHB',
+  'DSotDQ':'src-DSotDQ','MOT':'src-MOT','GGR':'src-GGR','SCC':'src-SCC',
+  'MTF':'src-MTF','AI':'src-AI'
 };
 /* Homebrew flag drives badge class regardless of source abbreviation */
 function raceSourceClass(src, isHomebrew){
@@ -2326,7 +2337,7 @@ function closeRaceDetail(){
   document.querySelectorAll('#raceBody tr').forEach(tr=>tr.classList.remove('selected'));
 }
 
-const RACE_PRINT_CSS=`*{box-sizing:border-box;margin:0;padding:0;}:root{--accent:#7090d8;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}.race-card{background:#0f1119;border:2px solid #1e2e3a;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}.race-card.extended{height:auto;max-height:none;overflow:visible;}.race-card.extended .card-desc-block{flex:none;overflow:visible;}.card-stripe{height:4px;background:linear-gradient(90deg,#7090d8,#b060e0);flex-shrink:0;}.card-actions-bar{display:none!important;}.card-name-block{padding:8px 10px 0;flex-shrink:0;}.card-spell-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.2;margin-bottom:3px;}.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}.card-stat-row{font-size:.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}.stat-val{color:#9aaac4;}.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}.card-desc-block strong{color:#d8e0f0;font-weight:600;}.card-desc-block em{color:#8898bb;font-style:italic;}.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}.card-desc-block h3{font-family:'Cinzel',serif;font-size:.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}.card-footer-bar{background:linear-gradient(180deg,#10141e 0%,#161022 100%);border-top:1px solid #1e1a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px;}.source-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:700;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.src-PHB{background:rgba(201,168,76,.15);color:#d4a84c;border-color:rgba(201,168,76,.35);}.src-XGE{background:rgba(79,124,255,.15);color:#7ca0ff;border-color:rgba(79,124,255,.35);}.src-MToF{background:rgba(54,217,160,.15);color:#30d9a0;border-color:rgba(54,217,160,.35);}.src-VGM{background:rgba(255,100,100,.15);color:#ff7070;border-color:rgba(255,100,100,.35);}.src-TCE{background:rgba(220,100,255,.15);color:#d050ff;border-color:rgba(220,100,255,.35);}.src-FToD{background:rgba(255,160,60,.15);color:#ff9832;border-color:rgba(255,160,60,.35);}.src-MotM{background:rgba(100,200,255,.15);color:#50c0ff;border-color:rgba(100,200,255,.35);}.src-SAiS{background:rgba(140,200,80,.15);color:#88c040;border-color:rgba(140,200,80,.35);}.src-ERLW{background:rgba(200,140,255,.15);color:#c080ff;border-color:rgba(200,140,255,.35);}.src-GGtR{background:rgba(255,200,60,.15);color:#ffc030;border-color:rgba(255,200,60,.35);}.src-AI{background:rgba(60,220,210,.15);color:#30dcd0;border-color:rgba(60,220,210,.35);}.src-PSZ{background:rgba(255,120,180,.15);color:#ff70b0;border-color:rgba(255,120,180,.35);}.src-UA{background:rgba(170,170,185,.14);color:#b0b0c8;border-color:rgba(170,170,185,.34);}.src-Homebrew{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.38);}.src-default{background:rgba(140,140,155,.10);color:#9898b0;border-color:rgba(140,140,155,.25);}`;
+const RACE_PRINT_CSS=`*{box-sizing:border-box;margin:0;padding:0;}:root{--accent:#7090d8;--accent2:#ff6b6b;--accent3:#36d9a0;--gold:#c9a84c;--text:#e8eaf0;--text-muted:#606880;--border:#252a3a;}body{background:#0d0f14;color:var(--text);font-family:'DM Mono',monospace;}.race-card{background:#0f1119;border:2px solid #1e2e3a;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;position:relative;}.race-card.extended{height:auto;max-height:none;overflow:visible;}.race-card.extended .card-desc-block{flex:none;overflow:visible;}.card-stripe{height:4px;background:linear-gradient(90deg,#7090d8,#b060e0);flex-shrink:0;}.card-actions-bar{display:none!important;}.card-name-block{padding:8px 10px 0;flex-shrink:0;}.card-spell-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.2;margin-bottom:3px;}.card-rule{height:1px;background:#252a3a;margin:5px 10px;flex-shrink:0;}.card-stats-block{padding:0 10px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}.card-stat-row{font-size:.57rem;line-height:1.4;color:#b0bbd4;display:flex;gap:4px;align-items:baseline;}.stat-label{font-weight:700;color:#d0d8ee;white-space:nowrap;flex-shrink:0;}.stat-val{color:#9aaac4;}.card-desc-block{padding:0 10px;flex:1;overflow:hidden;font-size:.56rem;color:#9aaac4;line-height:1.45;margin-top:4px;}.card-desc-block p{margin-bottom:2px;}.card-desc-block p:last-child{margin-bottom:0;}.card-desc-block strong{color:#d8e0f0;font-weight:600;}.card-desc-block em{color:#8898bb;font-style:italic;}.card-desc-block ul{padding-left:11px;margin:2px 0;}.card-desc-block li{margin-bottom:1px;}.card-desc-block h3{font-family:'Cinzel',serif;font-size:.56rem;color:var(--gold);margin:3px 0 1px;font-weight:600;}.card-footer-bar{background:linear-gradient(180deg,#10141e 0%,#161022 100%);border-top:1px solid #1e1a3a;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px;}.source-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.56rem;font-weight:700;letter-spacing:.04em;font-family:'Syne',sans-serif;border:1px solid;}.src-MPMM{background:rgba(100,200,255,.15);color:#50c0ff;border-color:rgba(100,200,255,.35);}.src-PHB24{background:rgba(255,200,60,.15);color:#ffc030;border-color:rgba(255,200,60,.35);}.src-AAG{background:rgba(180,100,255,.15);color:#c060ff;border-color:rgba(180,100,255,.35);}.src-LFL{background:rgba(80,220,140,.15);color:#40d880;border-color:rgba(80,220,140,.35);}.src-EFA{background:rgba(255,140,60,.15);color:#ff8830;border-color:rgba(255,140,60,.35);}.src-TCE{background:rgba(220,100,255,.15);color:#d050ff;border-color:rgba(220,100,255,.35);}.src-RHW{background:rgba(200,60,60,.15);color:#e04040;border-color:rgba(200,60,60,.35);}.src-EGW{background:rgba(60,200,220,.15);color:#30c8dc;border-color:rgba(60,200,220,.35);}.src-FTD{background:rgba(255,160,60,.15);color:#ff9832;border-color:rgba(255,160,60,.35);}.src-DMG{background:rgba(160,130,90,.15);color:#b08858;border-color:rgba(160,130,90,.35);}.src-SCAG{background:rgba(100,180,255,.15);color:#50b0ff;border-color:rgba(100,180,255,.35);}.src-PHB{background:rgba(201,168,76,.15);color:#d4a84c;border-color:rgba(201,168,76,.35);}.src-DSotDQ{background:rgba(180,80,120,.15);color:#c04878;border-color:rgba(180,80,120,.35);}.src-MOT{background:rgba(255,210,100,.15);color:#ffd050;border-color:rgba(255,210,100,.35);}.src-GGR{background:rgba(255,100,80,.15);color:#ff6040;border-color:rgba(255,100,80,.35);}.src-SCC{background:rgba(140,200,80,.15);color:#88c040;border-color:rgba(140,200,80,.35);}.src-MTF{background:rgba(54,217,160,.15);color:#30d9a0;border-color:rgba(54,217,160,.35);}.src-AI{background:rgba(60,220,210,.15);color:#30dcd0;border-color:rgba(60,220,210,.35);}.src-Homebrew{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.38);}.src-default{background:rgba(140,140,155,.10);color:#9898b0;border-color:rgba(140,140,155,.25);}`;
 
 function printRaceCard(race){
   const dc=document.getElementById('raceDetailCard');
